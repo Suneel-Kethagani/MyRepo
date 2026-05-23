@@ -1,0 +1,290 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "4d27c206886e71d53c03",
+  "position": {
+    "x": 0,
+    "y": 500.4356435643565,
+    "z": 24000,
+    "height": 79.841584158415841,
+    "width": 430.57425742574259,
+    "tabOrder": 24000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Accounting Unit"
+                    }
+                  },
+                  "Property": "Bus Type Name"
+                }
+              },
+              "queryRef": "Accounting Unit.Bus Type Name",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Accounting Unit"
+                    }
+                  },
+                  "Property": "Bus Unit Level 1 Name"
+                }
+              },
+              "queryRef": "Accounting Unit.Bus Unit Level 1 Name",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Accounting Unit"
+                    }
+                  },
+                  "Property": "Bus Unit Level 2 Name"
+                }
+              },
+              "queryRef": "Accounting Unit.Bus Unit Level 2 Name",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Accounting Unit"
+                    }
+                  },
+                  "Property": "Bus Unit Level 3 Name"
+                }
+              },
+              "queryRef": "Accounting Unit.Bus Unit Level 3 Name",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Accounting Unit"
+                    }
+                  },
+                  "Property": "Bus Unit Level 4 Name"
+                }
+              },
+              "queryRef": "Accounting Unit.Bus Unit Level 4 Name",
+              "active": false
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "selection": [
+        {
+          "properties": {
+            "singleSelect": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "strictSingleSelect": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "items": [
+        {
+          "properties": {
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Business Unit'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "selfFilterEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "syncGroup": {
+      "groupName": "Bus Type Name",
+      "fieldChanges": true,
+      "filterChanges": true
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "Filtere1860c382531ca137c40",
+        "ordinal": 0,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Company"
+              }
+            },
+            "Property": "Framework Exists"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "Filter5d3ffef05e2092092e77",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Accounting Unit"
+              }
+            },
+            "Property": "Bus Type Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filter42a256043dd3a12141ff",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Accounting Unit"
+              }
+            },
+            "Property": "Bus Unit Level 1 Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filtercd037599ec2f2bf4185d",
+        "ordinal": 3,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Accounting Unit"
+              }
+            },
+            "Property": "Bus Unit Level 2 Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filter86ab1dbadb1fc5963a24",
+        "ordinal": 4,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Accounting Unit"
+              }
+            },
+            "Property": "Bus Unit Level 3 Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filter46375f9ffe254ad8516f",
+        "ordinal": 5,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Accounting Unit"
+              }
+            },
+            "Property": "Bus Unit Level 4 Name"
+          }
+        },
+        "type": "Categorical"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  },
+  "isHidden": true
+}

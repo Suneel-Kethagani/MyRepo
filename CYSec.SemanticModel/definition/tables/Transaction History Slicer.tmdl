@@ -1,0 +1,97 @@
+table 'Transaction History Slicer'
+	isHidden
+	lineageTag: 3d83f1c4-0bc4-46db-9429-3c5c32e75b88
+
+	measure 'Remove Date Filter' =
+			
+			VAR closePeriod =
+			 MAX ( Period[Period] )
+			VAR Dt =
+			 IF (
+			 FIRSTNONBLANK ( 'Transaction History Slicer'[As Of Period], TRUE () ) <= closePeriod,
+			 1,
+			 0
+			 )
+			RETURN
+			 Dt
+		formatString: 0
+		isHidden
+		lineageTag: 072fc7b6-ae40-488b-94c6-12ef210408e6
+
+	column 'Trans Status'
+		dataType: string
+		lineageTag: 189949c6-dc6a-4054-86f9-14b32f151ec4
+		summarizeBy: none
+		sourceColumn: Trans Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trans Category'
+		dataType: string
+		lineageTag: cdeefcc2-b246-4d50-9369-d186fdde0c6c
+		summarizeBy: none
+		sourceColumn: Trans Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trans Type'
+		dataType: string
+		lineageTag: 86313316-20fc-4011-a730-6a8d171c38a7
+		summarizeBy: none
+		sourceColumn: Trans Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Framework Code'
+		dataType: string
+		lineageTag: cadb58ec-30f0-4cac-8570-4e16ce435126
+		summarizeBy: none
+		sourceColumn: Framework Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Code'
+		dataType: string
+		lineageTag: 5160d501-f78b-4b33-8bc0-2b098f36b4ce
+		summarizeBy: none
+		sourceColumn: Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As Of Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: b7b48d55-7a73-45b3-bea2-80f3eaf686be
+		summarizeBy: none
+		sourceColumn: As Of Period
+
+		annotation SummarizationSetBy = User
+
+	column 'Security NK'
+		dataType: string
+		lineageTag: 2d916e46-97a5-420b-a01a-dc234e541447
+		summarizeBy: none
+		sourceColumn: Security NK
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Transaction History Slicer-a4295b14-3a80-4a68-943a-3fb323f71de4' = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0), EnableQueryResultDownload="0"]),
+				    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+				    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+				    EDL_securities_transaction_ga_fact_dq = inv_semantic_ga_Schema{[Name="securities_transaction_ga_fact_dq",Kind="Table"]}[Data],
+				    #"Renamed Columns" = Table.RenameColumns(EDL_securities_transaction_ga_fact_dq,{{"SECURITIES_TRANSACTION_GA_FACT_SK", "Securities Transaction Ga Fact Sk"}, {"TRANSACTION_NO", "Transaction No"}, {"LEG", "Leg"}, {"REVERSAL", "Reversal"}, {"TRANS_STATUS", "Trans Status"}, {"PORTFOLIO_CD", "Portfolio Code"}, {"POST_DT", "Post Date"}, {"PORTFOLIO_CODE_NM", "Portfolio Code & Name"}, {"ACCOUNTING_UNIT_CODE_NAME", "Accounting Unit Code & Name"}, {"COMPANY_CODE_NAME", "Company Code & Name"}, {"TRANS_CATEGORY", "Trans Category"}, {"BUS_TRANS_SUBCATEGORY", "Bus Trans Subcategory"}, {"TRANS_TYPE", "Trans Type"}, {"FRAMEWORK_CD", "Framework Code"}, {"GL_CLASS", "GL Class"}, {"ELEMENTARY_TRANS_CODE", "Elementary Trans Code "}, {"PERIOD_CLOSE_DT", "Period Close Date"}, {"POSTING_LAG", "Posting Lag"}, {"TRADE_DT", "Trade Date"}, {"SETTLE_DT", "Settle Date"}, {"ACTUAL_SETTLE_DATE", "Actual Settle Date"}, {"FINAL_REPORTING_DATE", "Final Reporting Date"}, {"PAYMENT_DATE", "Payment Date"}, {"AS_OF_PERIOD", "As Of Period"}, {"PORTFOLIO_NK", "Portfolio NK"}, {"BLOOMBERG_NO", "Bloomberg No"}, {"MASTER_TICKET", "Master Ticket"}, {"ORDER_NO", "Order No"}, {"SOURCE_ID", "Source ID"}, {"MATCH_SRC_TRANSACTION_ID", "Match Src Transaction ID"}, {"USER_NM", "User Name"}, {"SETTLE_CCY_CD", "Settle CcyCode"}, {"SETTLE_CURRENCY", "Settle Currency"}, {"LOCAL_CCY_CD", "Local"}, {"LOCAL_CURRENCY", "Local Currency"}, {"UNDERLIER_MATURITY_DATE", "Underlier Maturity Date"}, {"UNDERLIER_NEXT_COUPON_DATE", "Underlier Next Coupon Date"}, {"UNDERLIER_COUPON", "Underlier Coupon"}, {"SETTLE_EXCHANGE_RATE", "Settle Exchange Rate"}, {"LOCAL_EXCHANGE_RATE", "Local Exchange Rate"}, {"SIGN", "Sign"}, {"UNITS", "Units"}, {"POOL_FACTOR", "Pool Factor"}, {"ORIGINAL_FACE", "Original Face"}, {"CONTRACTS", "Contracts"}, {"CURRENT_FACE", "Current Face"}, {"NOMINAL_BASIS", "Nominal Basis"}, {"BROKER_CD", "Broker Code"}, {"BROKER_NM", "Broker Name"}, {"COUNTERPARTY_CODE", "Counterparty Code"}, {"COUNTERPARTY_NAME", "Counterparty Name"}, {"CMMT", "Cmmt"}, {"CLASS_CD", "ClassCode"}, {"BUS_TRANS_CODE", "Bus Trans Code"}, {"MATERIALITY", "Materiality "}, {"BASE_AMT", "Amount - Base"}, {"SETTLE_AMT", "Settle Amount"}, {"BASE_PRINCIPAL", "Principal - Base"}, {"SETTLE_PRINCIPAL", "Settle Principal"}, {"BASE_INTEREST", "Interest - Base"}, {"SETTLE_INTEREST", "Settle Interest"}, {"BASE_MATURITY_AMOUNT", "Maturity Amount - Base"}, {"SETTLE_MATURITY_AMOUNT", "Settle Maturity Amount"}, {"CURRENT_VALUE_CCY_LOCAL", "Current Value - Local"}, {"TRANS_PRICE_LOCAL", "Trans Price Local"}, {"BASE_PRICE", "Price - Base"}, {"PRICE_LOCAL", "Price - Local"}, {"SETTLE_PRICE", "Settle Price"}, {"ORIGINAL_COST_BASE", "Original Cost - Base"}, {"ORIGINAL_COST_LOCAL", "Original Cost - Local"}, {"AMORTIZED_COST_BASE", "Amortized Cost - Base"}, {"AMORTIZED_COST_LOCAL", "Amortized Cost - Local"}, {"REALIZED_G_L_ON_CURRENCY_BASE", "Realized Gain/Loss CCY - Base"}, {"REALIZED_G_L_ON_INVESTMENT_BASE", "Realized Gain/Loss Sec - Base"}, {"REALIZED_G_L_BASE", "Realized Gain/Loss - Base"}, {"REALIZED_G_L_LOCAL", "Realized Gain/Loss - Local"}, {"TRANSACTION_YIELD", "Transaction Yield"}, {"FUNCTIONAL_CCY_CD", "Functional Ccy Code"}, {"LOCAL_TO_FUNC_RATE", "Local To FUNC Rate"}, {"LOCAL_TO_CAD_RATE", "Local To CAD Rate"}, {"LOCAL_TO_USD_RATE", "Local To USD Rate"}, {"LOCAL_TO_HKD_RATE", "Local To HKD Rate"}, {"TRANSACTION_AMOUNT", "Transaction Amount"}, {"OID_AMORT_CCY_BASE", "OID Amortization/Accretion - Base"}, {"OID_AMORT_CCY_LOCAL", "OID Amortization/Accretion - Local"}, {"IMPAMT_CCY_BASE", "Imp Amount - Base"}, {"IMPAMT_CCY_LOCAL", "Imp Amount - Local"}, {"INCOME_GROSS_AMOUNT_CCY_BASE", "Income Gross Amount - Base"}, {"INCOME_GROSS_AMOUNT_CCY_LOCAL", "Income Gross Amount - Local"}, {"LIABILITY_PORTF_CODE", "Liability Portf Code"}, {"BASE_CCY_CD", "Base"}, {"PAYMENT_PURPOSE", "Payment Purpose"}, {"PURPOSE", "Purpose"}, {"COUNTRY", "Country"}, {"COUNTRY_NM", "Country Name"}, {"GROUPCODE", "Groupcode"}, {"BANK_CODE", "Bank Code"}, {"BANK_ACCOUNT_CODE", "Bank Account Code"}, {"SCD_SECURITY_ID", "Scd Security ID"}, {"TRAN_HUB_ID", "Tran Hub ID"}, {"SECURITY_NK", "Security NK"}, {"UNDERLIER_SEC_KEY", "Underlier Sec Key"}, {"SETTLED_STATUS", "Settled Status"}, {"SCD_SECURITY_TYPE", "Scd Security Type"}, {"UNDERLIER_SRC_SECURITY_ID", "Underlier Src Security ID"}, {"SRC_SECURITY_ID", "Src Security ID"}, {"FX_SWAP_TICKET_NUMBER", "Fx Swap Ticket Number"}, {"SUB_BROKER", "Sub Broker"}, {"SUB_BROKER_DES", "Sub Broker Des"}, {"IPO", "Ipo"}, {"LONG_NOTE_3", "Long Note 3"}, {"LONG_NOTE_4", "Long Note 4"}, {"LONG_NOTE_5", "Long Note 5"}, {"TRADER_DESK", "Trader Desk"}, {"SETTLE_DAYS", "Settle Days"}, {"TRANSASOFDATE", "Transasofdate"}, {"HAIRCUT", "Haircut"}, {"TRADING_COMMENT", "Trading Comment"}, {"TRANSACTION_PURPOSE", "Transaction Purpose"}, {"ORIGINAL_SYSTEM_TRAN_NUMBER", "Original System Tran Number"}, {"INTEREST_DATE", "Interest Date"}, {"REGION", "Region"}, {"VALUATION_CYCLE", "Valuation Cycle"}, {"POST_TIME", "Post Time"}, {"BACKPOST_MONTH", "Backpost Month"}, {"TAX_LOT_IX", "Tax Lot Ix"}, {"LOT_SOURCE_TRANSACTION_ID", "Lot Source Transaction ID"}, {"BUS_TRANS_NO", "Bus Trans Number"}, {"LOT_ID", "Lot ID"}, {"ASIA_ASSET_CLASS_CODE_IN", "Asia Asset Class Code Indonesia"}, {"ASIA_ASSET_CLASS_CODE_VI", "Asia Asset Class Code Vietnam"}, {"ASIA_ASSET_CLASS_DESC_IN", "Asia Asset Class Desc Indonesia"}, {"ASIA_ASSET_CLASS_DESC_VI", "Asia Asset Class Desc Vietnam"}, {"GROUP_STRUCTURE_RELATION", "Group Structure Relation"}, {"BALANCE_BOOK_VALUE_CCY_LOCAL", "Book Value - Local"}, {"BALANCE_BOOK_VALUE_CCY_BASE", "Book Value - Base"}, {"INT_APR_CCY_LOCAL", "Int Apr - Local"}, {"INT_APR_CCY_BASE", "Int Apr - Base"}, {"ECL_LOSS_CCY_LOCAL", "ECL Loss - Local"}, {"ECL_LOSS_CCY_BASE", "ECL Loss - Base"}, {"CECL_LOSS_CCY_LOCAL", "CECL Loss - Local"}, {"CECL_LOSS_CCY_BASE", "CECL Loss - Base"}, {"IMPAIRMENT_CCY_LOCAL", "Impairment - Local"}, {"IMPAIRMENT_CCY_BASE", "Impairment - Base"}, {"REA_AOCI_BV_CCY_LOCAL", "REA AOCI BV - Local"}, {"REA_AOCI_BV_CCY_BASE", "REA AOCI BV - Base"}, {"DEFERRED_PL_CCY_LOCAL", "Deferred PL - Local"}, {"DEFERRED_PL_CCY_BASE", "Deferred PL - Base"}, {"P_OR_L_BOOK_CCY_LOCAL", "Realized Gain/Loss Book - Local"}, {"P_OR_L_BOOK_CCY_BASE", "Realized Gain/Loss Book - Base"}, {"COST_VALUE_CCY_LOCAL", "Cost Value - Local"}, {"COST_VALUE_CCY_BASE", "Cost Value - Base"}, {"OID_INT_APPR_CCY_LOCAL", "OID Int Appr - Local"}, {"OID_INT_APPR_CCY_BASE", "OID Int Appr - Base"}, {"REAL_INT_APPR_CCY_BASE", "Real Int Appr - Base"}, {"REAL_INT_APPR_CCY_LOCAL", "Real Int Appr - Local"}, {"CON_CL_ALLOW_CCY_BASE", "Con CL Allow - Base"}, {"CON_CL_ALLOW_CCY_LOCAL", "Con CL Allow - Local"}, {"CHANGE_AOCI_BV_CCY_BASE", "Change AOCI BV - Base"}, {"CHANGE_AOCI_BV_CCY_LOCAL", "Change AOCI BV - Local"}, {"CHANGE_AOCI_NONBV_CCY_BASE", "Change AOCI NONBV - Base"}, {"CHANGE_AOCI_NONBV_CCY_LOCAL", "Change AOCI NONBV - Local"}, {"LOT_NOMINAL", "Lot Nominal"}, {"UNPAID_AMOUNT_CCY_LOCAL", "Unpaid Amount - Local (D)"}, {"PAYMENT_AMOUNT_CCY_BASE", "Payment Amount - Base"}, {"NOMINAL_OUTGOING_AMOUNT", "Nominal Outgoing Amount"}, {"NOMINAL_INCOMING_AMOUNT", "Nominal Incoming Amount"}, {"NET_AMOUNT_LOCAL", "Net Amount - Local"},{"TRADER_LOGIN", "Trader Login"}, {"BLOOMBERG_TIMESTAMP", "Bloomberg Timestamp"}, {"AOCI_HEDGE_FINDUR_ID", "AOCI Hedge Findur ID"}, {"BALANCE_BOOK_VALUE_CCY_CAD", "Book Value - CAD"}, {"BALANCE_BOOK_VALUE_CCY_FUNC", "Book Value - FUNC"}, {"BALANCE_BOOK_VALUE_CCY_HKD", "Book Value - HKD"}, {"BALANCE_BOOK_VALUE_CCY_USD", "Book Value - USD"}, {"CHANGE_AOCI_BV_CCY_CAD", "Change AOCI BV - CAD"}, {"CHANGE_AOCI_BV_CCY_FUNC", "Change AOCI BV - FUNC"}, {"CHANGE_AOCI_BV_CCY_HKD", "Change AOCI BV - HKD"}, {"CHANGE_AOCI_BV_CCY_USD", "Change AOCI BV - USD"}, {"COST_VALUE_CCY_CAD", "Cost Value - CAD"}, {"COST_VALUE_CCY_FUNC", "Cost Value - FUNC"}, {"COST_VALUE_CCY_HKD", "Cost Value - HKD"}, {"COST_VALUE_CCY_USD", "Cost Value - USD"}, {"DEFERRED_PL_CCY_CAD", "Deferred PL - CAD"}, {"DEFERRED_PL_CCY_FUNC", "Deferred PL - FUNC"}, {"DEFERRED_PL_CCY_HKD", "Deferred PL - HKD"}, {"DEFERRED_PL_CCY_USD", "Deferred PL - USD"}, {"IMPAIRMENT_CCY_CAD", "Impairment - CAD"}, {"IMPAIRMENT_CCY_FUNC", "Impairment - FUNC"}, {"IMPAIRMENT_CCY_HKD", "Impairment - HKD"}, {"IMPAIRMENT_CCY_USD", "Impairment - USD"}, {"INCOME_GROSS_AMOUNT_CCY_CAD", "Income Gross Amount - CAD"}, {"INCOME_GROSS_AMOUNT_CCY_FUNC", "Income Gross Amount - FUNC"}, {"INCOME_GROSS_AMOUNT_CCY_HKD", "Income Gross Amount - HKD"}, {"INCOME_GROSS_AMOUNT_CCY_USD", "Income Gross Amount - USD"}, {"INT_APR_CCY_CAD", "Int Apr - CAD"}, {"INT_APR_CCY_FUNC", "Int Apr - FUNC"}, {"INT_APR_CCY_HKD", "Int Apr - HKD"}, {"INT_APR_CCY_USD", "Int Apr - USD"}, {"OID_INT_APPR_CCY_CAD", "OID Int Appr - CAD"}, {"OID_INT_APPR_CCY_FUNC", "OID Int Appr - FUNC"}, {"OID_INT_APPR_CCY_HKD", "OID Int Appr - HKD"}, {"OID_INT_APPR_CCY_USD", "OID Int Appr - USD"}, {"REAL_INT_APPR_CCY_CAD", "Real Int Appr - CAD"}, {"REAL_INT_APPR_CCY_FUNC", "Real Int Appr - FUNC"}, {"REAL_INT_APPR_CCY_HKD", "Real Int Appr - HKD"}, {"REAL_INT_APPR_CCY_USD", "Real Int Appr - USD"}, {"REALIZED_G_L_CAD", "Realized Gain/Loss - CAD"}, {"REALIZED_G_L_FUNC", "Realized Gain/Loss - FUNC"}, {"REALIZED_G_L_HKD", "Realized Gain/Loss - HKD"}, {"REALIZED_G_L_USD", "Realized Gain/Loss - USD"}, {"SRC", "Src"}, {"CREATED_TS", "Created Ts"}, {"UPDATED_TS", "Updated Ts"}}),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Renamed Columns",
+					{"Trans Status", "Portfolio Code", "Trans Category", "Trans Type", "Framework Code", "As Of Period", "Security NK"}),
+				    #"Filtered Rows" = Table.SelectRows(#"Removed Other Columns", each ([Trans Status] = "Active")),
+				    #"Removed Duplicates" = Table.Distinct(#"Filtered Rows")
+				in
+				    #"Removed Duplicates"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

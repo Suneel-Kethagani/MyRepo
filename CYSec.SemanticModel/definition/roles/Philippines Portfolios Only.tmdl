@@ -1,0 +1,7 @@
+role 'Philippines Portfolios Only'
+	modelPermission: read
+
+	tablePermission Portfolios = [Domicile Cntry Code] = "PH" || [Sleeve Manager City] = "Manila" || [Group Advisor City] = "Manila" || [Group Advisor 2 City] = "Manila"
+
+	annotation PBI_Id = 38d42eff5105422984f5fb5b01b7c03e
+

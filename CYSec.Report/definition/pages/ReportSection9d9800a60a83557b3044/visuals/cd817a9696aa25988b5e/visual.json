@@ -1,0 +1,6953 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "cd817a9696aa25988b5e",
+  "position": {
+    "x": 0,
+    "y": 249.7560975609756,
+    "z": 10000,
+    "height": 456.84552845528458,
+    "width": 1262.3089430894308,
+    "tabOrder": 10000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Company"
+                    }
+                  },
+                  "Property": "Company Code & Name Display"
+                }
+              },
+              "queryRef": "Company.Company Code & Name Display",
+              "active": true,
+              "displayName": "Co > Unit > Portfolio > Asset Class > Group > Type > Security"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Accounting Unit"
+                    }
+                  },
+                  "Property": "Accounting Unit Code & Name Display"
+                }
+              },
+              "queryRef": "Accounting Unit.Accounting Unit Code & Name Display",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Portfolios"
+                    }
+                  },
+                  "Property": "Portfolio Code & Name"
+                }
+              },
+              "queryRef": "Portfolios.Portfolio Code & Name",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities"
+                    }
+                  },
+                  "Property": "Asset Class"
+                }
+              },
+              "queryRef": "Securities.Asset Class",
+              "nativeQueryRef": "Asset Class",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities"
+                    }
+                  },
+                  "Property": "Asset Group"
+                }
+              },
+              "queryRef": "Securities DQ.Asset Group",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities"
+                    }
+                  },
+                  "Property": "Asset Type"
+                }
+              },
+              "queryRef": "Securities DQ.Asset Type",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities"
+                    }
+                  },
+                  "Property": "Primary Security ID & Desc"
+                }
+              },
+              "queryRef": "Securities DQ.Primary Security ID & Desc",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "Primary Security ID & Desc (Sec Pos)"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "Min(Securities Position Fact.Primary Security ID & Desc (Sec Pos))",
+              "displayName": "#Sec"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Reporting Currency (Security Position)"
+                }
+              },
+              "queryRef": "Security Position Fact.Reporting Currency (Security Position)",
+              "displayName": "Rep"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Units"
+                }
+              },
+              "queryRef": "Securities Position Fact.Units"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Carrying Value - Rep (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.Rep Carrying Value (CV)",
+              "displayName": "CV (Rep)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Fair Value Accrued - Rep (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.Rep Accrued Value",
+              "displayName": "Accrued FV (Rep)"
+            },
+            {
+              "field": {
+                "Arithmetic": {
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "Fair Value Accrued - Rep (Sec Pos)"
+                    }
+                  },
+                  "Right": {
+                    "ScopedEval": {
+                      "Expression": {
+                        "Measure": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Securities Position Fact"
+                            }
+                          },
+                          "Property": "Fair Value Accrued - Rep (Sec Pos)"
+                        }
+                      },
+                      "Scope": [
+                        {
+                          "RoleRef": {
+                            "Role": "Columns"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "Operator": 3
+                }
+              },
+              "queryRef": "Divide(Security Position Fact.Rep Accrued Value, ScopedEval(Security Position Fact.Rep Accrued Value, [Role.Columns]))",
+              "displayName": "% Total"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Book Value - Rep (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Book Value - Rep (Sec Pos)",
+              "displayName": "Book Value - Rep"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Current Book Value - Rep (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Current Book Value - Rep",
+              "displayName": "Current BV (Rep)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Original Cost - Rep (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.Rep Original Cost",
+              "displayName": "Original BV (Rep)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Fair Value Unaccrued - Rep (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.Rep Fair Value",
+              "displayName": "FV (Rep)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Unrealized Gain/Loss - Rep (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.Rep Unrealized",
+              "displayName": "Unrealized (Rep)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Accrual - Rep"
+                }
+              },
+              "queryRef": "Security Position Fact.Rep Accrual",
+              "displayName": "Accrual (Rep)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Price - Rep"
+                }
+              },
+              "queryRef": "Security Position Fact.Rep Price",
+              "displayName": "Price (Rep)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "ECL/CECL Impairment - Rep (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.ECL/CECL/Impairment (negative)*",
+              "displayName": "ECL/Impairment (Rep)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "AOCI Remain Balance BV - Rep (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.AOCI Remaining Amount BV - Rep",
+              "displayName": "AOCI Amt BV (Rep)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Rep Rate (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Rep Rate (Sec Pos)",
+              "displayName": "Rep Rate"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "Local"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Security Position Fact.Local Ccy Code)",
+              "displayName": "Local"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "Base"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Security Position Fact.Base)",
+              "displayName": "Base"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Price - Local"
+                }
+              },
+              "queryRef": "Security Position Fact.Local Price Value",
+              "displayName": "Price (Local)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Carrying Value - Local"
+                }
+              },
+              "queryRef": "Security Position Fact.Local Carrying Value",
+              "displayName": "CV (Local)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Fair Value Accrued - Local"
+                }
+              },
+              "queryRef": "Security Position Fact.Local Accrued Value",
+              "displayName": "Accrued FV (Local)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Book Value - Local"
+                }
+              },
+              "queryRef": "Securities Position Fact.Book Value - Local"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Current Book Value - Local (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Current Book Value - Local",
+              "displayName": "Current BV (Local)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Original Cost - Local"
+                }
+              },
+              "queryRef": "Security Position Fact.Local Cost Value",
+              "displayName": "Original BV (Local)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Fair Value Unaccrued - Local"
+                }
+              },
+              "queryRef": "Security Position Fact.Local MV",
+              "displayName": "FV (Local)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Unrealized Gain/Loss - Local"
+                }
+              },
+              "queryRef": "Security Position Fact.Local Unrealized Value",
+              "displayName": "Unrealized (Local)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Accrual - Local"
+                }
+              },
+              "queryRef": "Security Position Fact.Local Accrual Value",
+              "displayName": "Accrual (Local)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "ECL/CECL Impairment - Local (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.ECL/CECL/Impairment - Local",
+              "displayName": "ECL/Impairment (lLocal)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "AOCI Remain Balance BV - Local"
+                }
+              },
+              "queryRef": "Security Position Fact.AOCI Remaining Amount BV - Local",
+              "displayName": "AOCI (Local)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Units - Rep (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Units - Rep (Sec Pos)",
+              "displayName": "Units (Rep)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Accrual Currency (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.Accrual Currency (Sec Pos)",
+              "displayName": "Accrual Ccy"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "Primary Security ID (Sec Pos)"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Security Position Fact.Primary Security ID (Sec Pos))",
+              "displayName": "Primary Security ID"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "SCD Security ID"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Security Position Fact.SCD Security ID)",
+              "displayName": "SCD Security ID"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Isin (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.Isin (Sec Pos)",
+              "displayName": "ISIN"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Cusip (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.Cusip (Sec Pos)",
+              "displayName": "CUSIP"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Sedol (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.Sedol (Sec Pos)",
+              "displayName": "SEDOL"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Official PPN (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.PPN Private ID (Sec Pos)",
+              "displayName": "Official PPN"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "Issuer Name"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Security Position Fact.Issuer Name)",
+              "displayName": "Issuer"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Country Of Issue (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.Country Of Issue (Sec Pos)",
+              "displayName": "Country Of Issue"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Next Payment - Rep"
+                }
+              },
+              "queryRef": "Security Position Fact.Rep Next Payment",
+              "displayName": "Next Payment (Rep)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "Next Coupon Date"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Min(Security Position Fact.Next Coupon Date)",
+              "displayName": "Next Payment Date"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Next Coupon Amount"
+                }
+              },
+              "queryRef": "Securities Position Fact.Next Coupon Amount"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "W/H%"
+                }
+              },
+              "queryRef": "Security Position Fact.W/H%"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Withheld - Rep"
+                }
+              },
+              "queryRef": "Security Position Fact.Rep W/H",
+              "displayName": "Est W/H (Rep)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Withheld - Local"
+                }
+              },
+              "queryRef": "Security Position Fact.Local W/H",
+              "displayName": "Est W/H (Local)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "SCD Country"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Position Fact.SCD Country)",
+              "displayName": "SCD Country"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "SCD Coupon"
+                }
+              },
+              "queryRef": "Security Position Fact.Coupon (Positions)",
+              "displayName": "SCD Coupon"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Maturity Date"
+                }
+              },
+              "queryRef": "Securities Position Fact.Maturity Date"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Original Face"
+                }
+              },
+              "queryRef": "Security Position Fact.Original Face"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Day Count (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.Day Count (Sec Pos)",
+              "displayName": "Day Count"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Findur ID (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.Findur Id (Sec Pos)",
+              "displayName": "Findur Id"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "Pool Factor"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Security Position Fact.Pool Factor)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "Unit Basis"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Security Position Fact.Unit Basis)",
+              "displayName": "Unit Basis"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Principal Exchange (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.Principal Exchange (Sec Pos)",
+              "displayName": "Principal Exchange"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Islamic Indicator (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.Islamic Indicator (Sec Pos)",
+              "displayName": "Islamic Indicator"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Default Flag (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.Default Flag (Sec Pos)",
+              "displayName": "Default Flag"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Private Placement (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.Private Placement (Sec Pos)",
+              "displayName": "Private Placement"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "Counterparty"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Security Position Fact.Counterparty)",
+              "displayName": "Counterparty"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "ML IFRS 13 Level (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.Ml Ifrs 13 Level (Sec Pos)",
+              "displayName": "IFRS Level"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Exchange Country (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.Exchange Country (Sec Pos)",
+              "displayName": "Exchange Country"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "PortSecKey"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Security Position Fact.PortSecKey)",
+              "displayName": "PortSecKey"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "Month End Status"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Security Position Fact.Month End Status)",
+              "displayName": "Month End Status"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Private Portf Ind (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.Private Portf Ind (Sec Pos)",
+              "displayName": "Private Portf Ind"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Moodys (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.Moodys (Sec Pos)",
+              "displayName": "Moody Rating Value"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "S&P (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.SP (Sec Pos)",
+              "displayName": "S&P Rating Value"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Fitch (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.Fitch (Sec Pos)",
+              "displayName": "Fitch IBCA Rating Value"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Internal (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.Internal (Sec Pos)",
+              "displayName": "Internal Rating Value"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Full Shares Outstanding (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.Full Shares Outstanding (Sec Pos)",
+              "displayName": "Full Shares Outstanding"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "ML Minor Type (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.ML Minor Type (Sec Pos)",
+              "displayName": "ML Minor Type"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "Asia Asset Class Code Indonesia"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Security Position Fact.Asia Asset Class Code Indonesia)",
+              "displayName": "Indonesia Asset Class Code"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "Asia Asset Class Desc Indonesia"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Security Position Fact.Asia Asset Class Desc Indonesia)",
+              "displayName": "Indonesia Asset Class Desc"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "Asia Asset Class Code Vietnam"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Security Position Fact.Asia Asset Class Code Vietnam)",
+              "displayName": "Vietnam Asset Class Code"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "Asia Asset Class Desc Vietnam"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Security Position Fact.Asia Asset Class Desc Vietnam)",
+              "displayName": "Vietnam Asset Class Desc"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Country Of Risk (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.Country Of Risk (Sec Pos)",
+              "displayName": "Country Of Risk"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Ultimate Parent Company Name (Sec Pos)"
+                }
+              },
+              "queryRef": "Security Position Fact.Ultimate Parent Company Name (Sec Pos)",
+              "displayName": "Ultimate Parent Company Name"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "GL Class"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Position Fact.GL Class)",
+              "displayName": "GL Class"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "Public/Private Indicator"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Position Fact.Public/Private Indicator)",
+              "displayName": "Public/Private Indicator"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Is Perpetual (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Perpetual Flag (Sec Pos)",
+              "displayName": "Perpetual Flag"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Basic Spread (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Premium of float (Sec Pos)",
+              "displayName": "Premium of float"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Coupon Typ Reset Dt (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Fix to Float Date (Sec Pos)",
+              "displayName": "Fix to Float Date"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "GGI Indicator (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Government Guarantee Indicator (Sec Pos)",
+              "displayName": "Government Guarantee Indicator"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "As Of Date"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Min(Security Position Fact.As Of Date)",
+              "displayName": "As Of Date"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Calm Category (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Calm Category (Sec Pos)",
+              "displayName": "Calm Category"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Ask Price (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Ask Price (Sec Pos)",
+              "displayName": "Ask Price"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Last Price (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Last Price (Sec Pos)",
+              "displayName": "Last Price"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Mid Price (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Mid Price (Sec Pos)",
+              "displayName": "Mid Price"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Ml Pricing (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Ml Pricing (Sec Pos)",
+              "displayName": "Ml Pricing"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Bid Price (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Bid Price (Sec Pos)",
+              "displayName": "Bid Price"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "MRM Industry Group Name (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.MRM Industry Group Name (Sec Pos)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "MRM Industry Sector Name (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.MRM Industry Sector Name (Sec Pos)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "MRM Industry Subgroup Name (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.MRM Industry Subgroup Name (Sec Pos)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "MRM Sector Name (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.MRM Sector Name (Sec Pos)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "SCD Default Date"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Min(Securities Position Fact.SCD Default Date)",
+              "displayName": "SCD Default Date"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "Accrue In Default"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Position Fact.Accrue In Default)",
+              "displayName": "Accrue In Default"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Income Impairment - Local (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Income Impairment - Local (Sec Pos)",
+              "displayName": "Income Impairment (Local)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Income Impairment - Rep (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Income Impairment - Rep (Sec Pos)",
+              "displayName": "Income Impairment (Rep)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Reset Freq Description (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Reset Freq Description (Sec Pos)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Balance Acquisition Pre Dis Local"
+                }
+              },
+              "queryRef": "Securities Position Fact.Balance Acquisition Pre Dis Local"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Balance Acquisition Pre Dis Rep"
+                }
+              },
+              "queryRef": "Securities Position Fact.Balance Acquisition Pre Dis Rep"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "Purpose"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Position Fact.Purpose)",
+              "displayName": "Purpose"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "IFRS9 Purpose"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Position Fact.IFRS9 Purpose)",
+              "displayName": "IFRS9 Purpose"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Balance Book Value Native - Local (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Balance Book Value Native - Local (Sec Pos)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Balance Book Value Native - Rep (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Balance Book Value Native - Rep (Sec Pos)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "NAIC Private Placement Indicator"
+                }
+              },
+              "queryRef": "Securities Position Fact.NAIC Private Placement Indicator"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Wash Sale Parent Security Id(Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Wash Sale Parent Security Id(Sec Pos)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Position Book Yield(Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Position Book Yield (Sec Pos)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Country of Issue - Long(Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Country of Issue - Long(Sec Pos)",
+              "displayName": "Country of Issue - Long"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Country of Issue - Short(Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Country of Issue - Short(Sec Pos)",
+              "displayName": "Country of Issue - Short"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Issuer Country Cd (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Country Code of Issuer Incorporated (Sec Pos)",
+              "displayName": "Issuer Country Cd"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "Accrued Interest EOP Base"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Securities Position Fact.Accrued Interest EOP Base)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "Accrued Interest EOP Local"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Securities Position Fact.Accrued Interest EOP Local)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "Blue Book Code (Position Only OIA Securities)"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Position Fact.Blue Book Code (Position Only OIA Securities))"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Carrying Value Final - Local"
+                }
+              },
+              "queryRef": "Securities Position Fact.Carrying Value Final - Local",
+              "displayName": "CV Final (Local)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Carrying Value Final - Rep"
+                }
+              },
+              "queryRef": "Securities Position Fact.Carrying Value Final - Rep",
+              "displayName": "CV Final (Rep)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Legal Structure Cd (Sec Pos)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "Company.Company Code & Name Display"
+            ],
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Company"
+                    }
+                  },
+                  "Property": "Company Code & Name Display"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Accounting Unit.Accounting Unit Code & Name Display"
+            ],
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Accounting Unit"
+                    }
+                  },
+                  "Property": "Accounting Unit Code & Name Display"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Portfolios.Portfolio Code & Name"
+            ],
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Portfolios"
+                    }
+                  },
+                  "Property": "Portfolio Code & Name"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Securities.Asset Class"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Securities DQ.Asset Group"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities"
+                    }
+                  },
+                  "Property": "Asset Group"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Securities DQ.Asset Type"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities"
+                    }
+                  },
+                  "Property": "Asset Type"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Securities DQ.Primary Security ID & Desc"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities"
+                    }
+                  },
+                  "Property": "Primary Security ID & Desc"
+                }
+              }
+            ],
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#000000'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.1
+                    }
+                  }
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontColorPrimary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#000000'"
+                    }
+                  }
+                }
+              }
+            },
+            "backColorPrimary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "backColorSecondary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#ffffff'"
+                    }
+                  }
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "75.84598771378771D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_Reporting Currency"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "173.7561472134972D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_asset.CM_IFRS BV Local"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "143.39090796393296D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_asset.CM_IFRS FV Local"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "150.1470551774302D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_BsRate"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "74.85882207097207D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_Local Currency"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "176.74331285631285D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_asset.IFRS FV Rep"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "164.30106746364245D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_asset.IFRS BV Rep"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "40.935828214078214D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(cube_manubank_asset.Primary ID)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "201.24973003490504D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.Lending Asset Name"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "160.8459877137877D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_Market Value Rep"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "148.89732514252515D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_Book Value Rep"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "148.89732514252515D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_Book Value Local"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "146.9101594997095D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_Market Value Local"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "160.62780364165366D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(cube_manubank_mortgage_value.Effective Date)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "501.81304575461337D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Entities.Lei Name"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "77.47523984550656D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Company.Alternate Currency Code"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "469.19187940238214D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Transaction GA Fact.Local Ccy Code"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "65.52744746726299D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Divide(Security Position Fact.Rep Accrued Value, ScopedEval(Security Position Fact.Rep Accrued Value, [Role.Columns]))"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "184.98810882146736D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Rep Next Payment"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "302.1818181818182D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Security Position Fact.Issuer Name)"
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Security Position Fact.Next Coupon Date)"
+          }
+        },
+        {
+          "properties": {
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Security Position Fact.As Of Date)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Security Position Fact.Counterparty)"
+          }
+        },
+        {
+          "properties": {
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Security Position Fact.Unit Basis)"
+          }
+        },
+        {
+          "properties": {
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(Security Position Fact.Pool Factor)"
+          }
+        },
+        {
+          "properties": {
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Security Position Fact.Issuer Name)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Security Position Fact.Local Ccy Code)"
+          }
+        },
+        {
+          "properties": {
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Reporting Currency (Security Position)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Rep Accrued Value"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Divide(Security Position Fact.Rep Accrued Value, ScopedEval(Security Position Fact.Rep Accrued Value, [Role.Columns]))"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Rep Original Cost"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Rep Fair Value"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Rep Unrealized"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Rep Accrual"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.W/H%"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Rep W/H"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Rep Next Payment"
+          }
+        },
+        {
+          "properties": {
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Coupon (Positions)"
+          }
+        },
+        {
+          "properties": {
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Security Position Fact.PortSecKey)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Security Position Fact.Month End Status)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Rep Carrying Value (CV)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Exchange Country (Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Ml Ifrs 13 Level (Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Default Flag (Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Principal Exchange (Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Findur Id (Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Country Of Issue (Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Isin (Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Accrual Currency (Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Cusip (Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.PPN Private ID (Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Private Placement (Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Security Position Fact.Base)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Moodys (Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.SP (Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Fitch (Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Internal (Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Rep Price"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Local Price Value"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Day Count (Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Security Position Fact.Asia Asset Class Code Indonesia)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Security Position Fact.Asia Asset Class Code Vietnam)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Security Position Fact.Asia Asset Class Desc Indonesia)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Security Position Fact.Asia Asset Class Desc Vietnam)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.ML Minor Type (Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Ultimate Parent Company Name (Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Country Of Risk (Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Security Position Fact.Primary Security ID (Sec Pos))"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Security Position Fact.SCD Security ID)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Security Position Fact.Sedol (Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Position Fact.Public/Private Indicator)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Position Fact.GL Class)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Position Fact.Government Guarantee Indicator (Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Position Fact.Fix to Float Date (Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Position Fact.Premium of float (Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Position Fact.Perpetual Flag (Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Position Fact.Rep Rate (Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Position Fact.Units"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Position Fact.Ml Pricing (Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Position Fact.Calm Category (Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "styleSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Position Fact.Reset Freq Description (Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Position Fact.Primary Security ID & Desc (Sec Pos))"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Position Fact.Purpose)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Position Fact.IFRS9 Purpose)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Position Fact.Wash Sale Parent Security Id(Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Position Fact.Position Book Yield (Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Position Fact.Country of Issue - Long(Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Position Fact.Country of Issue - Short(Sec Pos)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Position Fact.Country Code of Issuer Incorporated (Sec Pos)"
+          }
+        }
+      ],
+      "subTotals": [
+        {
+          "properties": {
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "rowSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#000000'"
+                    }
+                  }
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.1
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI Bold'', wf_segoe-ui_bold, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Security Position Title"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "Filter93596b178bb1808e14d8",
+        "ordinal": 0,
+        "field": {
+          "Arithmetic": {
+            "Left": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Fair Value Accrued - Rep (Sec Pos)"
+              }
+            },
+            "Right": {
+              "ScopedEval": {
+                "Expression": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Securities Position Fact"
+                      }
+                    },
+                    "Property": "Fair Value Accrued - Rep (Sec Pos)"
+                  }
+                },
+                "Scope": [
+                  {
+                    "RoleRef": {
+                      "Role": "Columns"
+                    }
+                  }
+                ]
+              }
+            },
+            "Operator": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterd03053ae87ee0e5b257a",
+        "ordinal": 1,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Accrual - Rep"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterca0937d2663283e059b4",
+        "ordinal": 2,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Fair Value Accrued - Rep (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter308b628ce6128628204e",
+        "ordinal": 3,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "As Of Date"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter9da74cd1d768003e0e02",
+        "ordinal": 4,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Counterparty"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterf99b213bb091060b8650",
+        "ordinal": 5,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "SCD Coupon"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter743f4fcd0c8a5c29dbbe",
+        "ordinal": 6,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Carrying Value - Rep (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter6cc90b3468008a7b05e4",
+        "ordinal": 7,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Withheld - Rep"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterf310a3ad0bb048142800",
+        "ordinal": 8,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Fair Value Unaccrued - Rep (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter5566164f5386ae4b0d6c",
+        "ordinal": 9,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Issuer Name"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter2a5eb22e2a4750bb2905",
+        "ordinal": 10,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Local"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filtera6c3780fd0e54d3326cb",
+        "ordinal": 11,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Month End Status"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter8fdffafc0b64849ed8d8",
+        "ordinal": 12,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Next Payment - Rep"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter8c807f7006b18d2c2e40",
+        "ordinal": 13,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Next Coupon Date"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter647a5a275b4d730248c2",
+        "ordinal": 14,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Original Cost - Rep (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter078c03c66e17db525443",
+        "ordinal": 15,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Pool Factor"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterdf29a8fd40395403bd90",
+        "ordinal": 16,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "PortSecKey"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter6dddc120208a64da46c2",
+        "ordinal": 17,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Reporting Currency (Security Position)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterca198d202540ea257c2d",
+        "ordinal": 18,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Unit Basis"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter8bf48e3b4a7b0bc9b3e2",
+        "ordinal": 19,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Unrealized Gain/Loss - Rep (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterf61b11dd4e81090410e0",
+        "ordinal": 20,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "W/H%"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterdea69b9755ab424c797d",
+        "ordinal": 21,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "ML IFRS 13 Level (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterbafb42dca50798b00537",
+        "ordinal": 22,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Accrual Currency (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filtere01c3006a4062a63ca90",
+        "ordinal": 23,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Country Of Issue (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterc5cb79d6eb06daa0a017",
+        "ordinal": 24,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Default Flag (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter8a2de5073aaac466c555",
+        "ordinal": 25,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Exchange Country (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filtera86786cb0c359c7a2260",
+        "ordinal": 26,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Findur ID (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter26a772c53106d603040a",
+        "ordinal": 27,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Isin (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter8ea6fba430e7aa4e0528",
+        "ordinal": 28,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Islamic Indicator (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter1b2262ee8679885b85e1",
+        "ordinal": 29,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Principal Exchange (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter3bf788914e3831da1230",
+        "ordinal": 30,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Private Placement (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter5af730c50099aca50b7a",
+        "ordinal": 31,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Cusip (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter60d81f600d8c15b03961",
+        "ordinal": 32,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Official PPN (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter707eddb262b43874ad02",
+        "ordinal": 33,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Portfolios"
+              }
+            },
+            "Property": "Portfolio Code & Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filterb431708708b2b3d1196b",
+        "ordinal": 34,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Carrying Value - Local"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter8d212c1e81ab76911dd6",
+        "ordinal": 35,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Fair Value Accrued - Local"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter15ad3befae0ec097b40a",
+        "ordinal": 36,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Original Cost - Local"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterca854380de1611e3138d",
+        "ordinal": 37,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Fair Value Unaccrued - Local"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter4da77d4e24c826ec0dc1",
+        "ordinal": 38,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Unrealized Gain/Loss - Local"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter85e9cf116d63c12a5b85",
+        "ordinal": 39,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Accrual - Local"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter0195b08049830aac5207",
+        "ordinal": 40,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Withheld - Local"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter3af03fe6e02e149e47ae",
+        "ordinal": 41,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Private Portf Ind (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter53e37dd55057603174de",
+        "ordinal": 42,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Base"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter1c6e69f23a30904dd783",
+        "ordinal": 43,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Price - Rep"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter89b781a1a637209c2de2",
+        "ordinal": 44,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Price - Local"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter6d2be011a6ea0920316e",
+        "ordinal": 45,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Units"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterfbf1fa3d22c5707a00d0",
+        "ordinal": 46,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Moodys (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filtercb5a399400c1aed73750",
+        "ordinal": 47,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "S&P (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter093c0480b007be370c00",
+        "ordinal": 48,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Fitch (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filtere8f69074ad5646b19e63",
+        "ordinal": 49,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Internal (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterbb3e53c69e4106a7821d",
+        "ordinal": 50,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Full Shares Outstanding (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter187959adb892e289402b",
+        "ordinal": 51,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "ECL/CECL Impairment - Rep (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter6dcda02d028955d1d502",
+        "ordinal": 52,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "AOCI Remain Balance BV - Rep (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filteraaa42c38c191587ac29a",
+        "ordinal": 53,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Maturity Date (Sec Pos)"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "Filtered1144850ba534c25327",
+        "ordinal": 54,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Day Count (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter32ce43a1f1c0fd5a1d4f",
+        "ordinal": 55,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "ECL/CECL Impairment - Local (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter5a81dd52eee64e39f33c",
+        "ordinal": 56,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "AOCI Remain Balance BV - Local"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter7288b66539d4f66a1772",
+        "ordinal": 57,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Asia Asset Class Code Indonesia"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterff826c7d5b3c6d6e9064",
+        "ordinal": 58,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Asia Asset Class Code Vietnam"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter34d0a097eaf2a561b666",
+        "ordinal": 59,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Asia Asset Class Desc Indonesia"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterff058de25d720c92f552",
+        "ordinal": 60,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Asia Asset Class Desc Vietnam"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter07d27b5bcc57b114f1b3",
+        "ordinal": 61,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "ML Minor Type (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter235c5888cf35397f5768",
+        "ordinal": 62,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Country Of Risk (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter2217562ebe43d4738ec7",
+        "ordinal": 63,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Ultimate Parent Company Name (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter40879052d8233707378c",
+        "ordinal": 64,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "SCD Security ID"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter5e30d325c822e46a978b",
+        "ordinal": 65,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Primary Security ID (Sec Pos)"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterecf95ec111e40cee44eb",
+        "ordinal": 66,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Sedol (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter22b943980c10dc80e080",
+        "ordinal": 67,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Original Face"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter90f52bef5a4b780e28c6",
+        "ordinal": 68,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Next Coupon Amount"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter5bc81b3f8708a0000ea1",
+        "ordinal": 69,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Public/Private Indicator"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter79a8f3c2bb1b37478677",
+        "ordinal": 70,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "GL Class"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filtera635e90bee901a2906e1",
+        "ordinal": 71,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Is Perpetual (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filtere4d2d4c09cc92ad560a9",
+        "ordinal": 72,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Basic Spread (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterc31189a3aaad2ded250a",
+        "ordinal": 73,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Coupon Typ Reset Dt (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter0c1628ba15dde3c34515",
+        "ordinal": 74,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "GGI Indicator (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter5e009952b9ad4ca5bb0c",
+        "ordinal": 75,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities"
+              }
+            },
+            "Property": "Asset Group"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filtercb8285424e4c3e732661",
+        "ordinal": 76,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities"
+              }
+            },
+            "Property": "Asset Type"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filterb7a1a2102b062de7c650",
+        "ordinal": 77,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities"
+              }
+            },
+            "Property": "Asset Class"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filterd09fcc04b7a9790cacca",
+        "ordinal": 78,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities"
+              }
+            },
+            "Property": "Primary Security ID & Desc"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filter07cf8cd0dcdc08736e07",
+        "ordinal": 79,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Company"
+              }
+            },
+            "Property": "Company Code & Name Display"
+          }
+        },
+        "type": "Categorical",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "Filterfc8bb51b02ab0e1d96b2",
+        "ordinal": 80,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Accounting Unit"
+              }
+            },
+            "Property": "Accounting Unit Code & Name Display"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filterd9e9956f7425d0403392",
+        "ordinal": 81,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Rep Rate (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterb99a7885a63b0bed7394",
+        "ordinal": 82,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Current Book Value - Rep (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter2a4ee7b2852b9a044788",
+        "ordinal": 83,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Current Book Value - Local (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter1d73d5e51700a095834a",
+        "ordinal": 84,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Primary Security ID & Desc (Sec Pos)"
+              }
+            },
+            "Function": 5
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterb82f8cb22b73d6e12741",
+        "ordinal": 85,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Units - Rep (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterdf27ce6046b75054adac",
+        "ordinal": 86,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Calm Category (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter658d9518a91880d35161",
+        "ordinal": 87,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Ask Price"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "Filter78dc4da7e068b3970305",
+        "ordinal": 88,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Last Price"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "Filter1f681b6740cc9ae03d4d",
+        "ordinal": 89,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Mid Price"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "Filterd8e70610007823846909",
+        "ordinal": 90,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Ml Pricing Source"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "Filtere9fd119076da2b00a0ea",
+        "ordinal": 91,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Bid Price"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "Filterdc30b01b5bf22074bbb1",
+        "ordinal": 92,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Mid Price (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter4ef720bc9a7fdcdbed08",
+        "ordinal": 93,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Bid Price (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter3e0bca5a1c77ae145569",
+        "ordinal": 94,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Last Price (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter0c2f3ab10633d95c0738",
+        "ordinal": 95,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Ask Price (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter08e2563d13c7b4a8935d",
+        "ordinal": 96,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Ml Pricing (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter710c96e13635efc6cc8f",
+        "ordinal": 97,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "SCD Country"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filtera3c300fd270ef590f18f",
+        "ordinal": 98,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "MRM Industry Group Name (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter44a39a4289c3d69412ca",
+        "ordinal": 99,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "MRM Industry Sector Name (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter1689a427572a28a6398e",
+        "ordinal": 100,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "MRM Industry Subgroup Name (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter9f51e04585b5201be6af",
+        "ordinal": 101,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "MRM Sector Name (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterdf3922ce9d82c8a253cb",
+        "ordinal": 102,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "SCD Default Date"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter0b50a4566fc87d37f898",
+        "ordinal": 103,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Accrue In Default"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter23203913f2eb92019392",
+        "ordinal": 104,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Income Impairment - Local (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter9951cb7c72b260c4b264",
+        "ordinal": 105,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Income Impairment - Rep (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter233ede3c7c2036f29fd8",
+        "ordinal": 106,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Reset Freq Description (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter21bd128c92c403f97e21",
+        "ordinal": 107,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Balance Acquisition Pre Dis Local"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter7c1aa8fec72839394abd",
+        "ordinal": 108,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Balance Acquisition Pre Dis Rep"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterc08034e4523b7449d643",
+        "ordinal": 109,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Purpose"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterb7763172056dcb1d36a7",
+        "ordinal": 110,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "IFRS9 Purpose"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter3f5b7bfde8f3fa7a33ed",
+        "ordinal": 111,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Balance Book Value Native - Local (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter80f589cf1c3b5b7f3e93",
+        "ordinal": 112,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Balance Book Value Native - Rep (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter25916320ac807d303a5e",
+        "ordinal": 113,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "NAIC Private Placement Indicator"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filteraa633c48c2277e845d62",
+        "ordinal": 114,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Wash Sale Parent Security Id(Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter43f76d8ceac736f6d41a",
+        "ordinal": 115,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Position Book Yield(Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterf09248867fdd961c46f4",
+        "ordinal": 116,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Country of Issue - Long(Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter0e702aaccc89fa9d14ff",
+        "ordinal": 117,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Country of Issue - Short(Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter25070779bff652c98d9d",
+        "ordinal": 118,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Issuer Country Cd (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterc967a6b9736b27bcad56",
+        "ordinal": 119,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Accrued Interest EOP Base"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter5bde3f828a93738e51d9",
+        "ordinal": 120,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Accrued Interest EOP Local"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filtera39ea191c3d90766f92c",
+        "ordinal": 121,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Maturity Date"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filtercc4d711b8fe1d4d3d2a5",
+        "ordinal": 122,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Blue Book Code (Position Only OIA Securities)"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filtere7ba725ec42db9aa9c83",
+        "ordinal": 123,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Carrying Value Final - Local"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter8d36e4001935b43332bb",
+        "ordinal": 124,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Carrying Value Final - Rep"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filtera5e40d376f1c786b7520",
+        "ordinal": 125,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Book Value - Local"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter1d42511e70bdc2a474b2",
+        "ordinal": 126,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Book Value - Rep (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter9f6c84a03e8980044635",
+        "ordinal": 127,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Bank Account (Sec Pos)"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "Filter207c44be5756d77007e2",
+        "ordinal": 128,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Bank Account (Sec Pos)"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "Filter18e06321060077b6d747",
+        "ordinal": 129,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "MIM Indicator (Sec Pos)"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "Filter3f5efaa6a2428fd44f84",
+        "ordinal": 130,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Regulated Account Indicator (Sec Pos)"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  }
+}

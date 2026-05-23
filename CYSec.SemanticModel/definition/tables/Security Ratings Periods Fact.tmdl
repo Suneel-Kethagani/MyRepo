@@ -1,0 +1,108 @@
+table 'Security Ratings Periods Fact'
+	lineageTag: 6259fa30-dc45-40fe-a513-fe0345a63311
+
+	column 'As Of Dt'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 9c9e597b-8f09-46de-a767-3c2f086c64e0
+		summarizeBy: none
+		sourceColumn: As Of Dt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Src Security ID'
+		dataType: string
+		lineageTag: 56ebc1b5-b9ee-4e0d-ac38-a2eb644203f0
+		summarizeBy: none
+		sourceColumn: Src Security ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Market ID'
+		dataType: string
+		lineageTag: 3d8d9db6-0ebb-41b4-a85a-e43d55dbcd53
+		summarizeBy: none
+		sourceColumn: Src Market ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Rating CD'
+		dataType: string
+		lineageTag: 8e7945d9-f9fc-45f7-8945-6bae887aef24
+		summarizeBy: none
+		sourceColumn: Rating CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Rating Agency CD'
+		dataType: string
+		lineageTag: 23dec522-47ac-48d3-bd1d-95263dbf33b2
+		summarizeBy: none
+		sourceColumn: Rating Agency CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Endorsement Indicator'
+		dataType: string
+		lineageTag: a1cf3a53-5cfb-4f27-9dae-69f0c7cec196
+		summarizeBy: none
+		sourceColumn: Endorsement Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Updated TS'
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn:ss AM/PM
+		lineageTag: 8fc5eb5a-f43b-42fa-8b5b-2f7bf3d7ba99
+		summarizeBy: none
+		sourceColumn: Src Updated TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column Src
+		dataType: string
+		lineageTag: 28fe814a-41a7-4425-83a8-9a0b3da952ee
+		summarizeBy: none
+		sourceColumn: Src
+
+		annotation SummarizationSetBy = Automatic
+
+	column SECURITY_IK
+		dataType: int64
+		formatString: 0
+		lineageTag: 77d0b3c7-9615-4f8f-a1c7-138d04bd84f8
+		summarizeBy: none
+		sourceColumn: SECURITY_IK
+
+		annotation SummarizationSetBy = User
+
+	column 'Security NK'
+		dataType: string
+		lineageTag: 22cbcf65-1721-4783-9488-98a76f3ac7ee
+		summarizeBy: none
+		sourceColumn: Security NK
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Security Ratings Periods Fact-670661ec-46dd-4d79-b903-e1dc98b706d1' = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0), EnableQueryResultDownload="0"]),
+				    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+				    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+				    EDL_security_ratings_periods_fact_dq = inv_semantic_ga_Schema{[Name="security_ratings_periods_fact_dq",Kind="Table"]}[Data],
+				    #"Removed Other Columns" = Table.SelectColumns(EDL_security_ratings_periods_fact_dq,{"AS_OF_DT", "SECURITY_IK", "SRC", "SRC_SECURITY_ID", "SRC_MARKET_ID", "RATING_CD", "RATING_AGENCY_CD", "ENDORSEMENT_INDICATOR", "SRC_UPDATED_TS", "SECURITY_NK"}),
+				    #"Load data from specific date"=Table.SelectRows(#"Removed Other Columns", each Date.From([AS_OF_DT]) >= pCutOffDate),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Load data from specific date",{{"AS_OF_DT", type date}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"AS_OF_DT", "As Of Dt"}, {"SRC", "Src"}, {"SRC_SECURITY_ID", "Src Security ID"}, {"SRC_MARKET_ID", "Src Market ID"}, {"RATING_CD", "Rating CD"}, {"RATING_AGENCY_CD", "Rating Agency CD"}, {"ENDORSEMENT_INDICATOR", "Endorsement Indicator"}, {"SRC_UPDATED_TS", "Src Updated TS"},{"SECURITY_NK","Security NK"}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Renamed Columns","SIMDW","SCD",Replacer.ReplaceText,{"Src"})
+				in
+				    #"Replaced Value"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

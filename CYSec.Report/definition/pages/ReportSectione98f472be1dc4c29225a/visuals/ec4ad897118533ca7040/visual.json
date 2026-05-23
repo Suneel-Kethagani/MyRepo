@@ -1,0 +1,1433 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "ec4ad897118533ca7040",
+  "position": {
+    "x": 0,
+    "y": 159.63048498845268,
+    "z": 8000,
+    "height": 560.18475750577375,
+    "width": 1280,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Index Constituent"
+                    }
+                  },
+                  "Property": "Index Nm"
+                }
+              },
+              "queryRef": "Index Constituent.Index Nm",
+              "displayName": "Index Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Index Constituent"
+                    }
+                  },
+                  "Property": "Iso Base Currency"
+                }
+              },
+              "queryRef": "Index Constituent.Iso Base Currency",
+              "displayName": "Base"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Index Constituent"
+                    }
+                  },
+                  "Property": "Universe"
+                }
+              },
+              "queryRef": "Index Constituent.Universe"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Index Constituent"
+                    }
+                  },
+                  "Property": "Constituent Nm"
+                }
+              },
+              "queryRef": "Index Constituent.Constituent Nm",
+              "displayName": "Constituent Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Index Constituent"
+                    }
+                  },
+                  "Property": "Bloomberg Ticker"
+                }
+              },
+              "queryRef": "Index Constituent.Bloomberg Ticker"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Index Constituent"
+                    }
+                  },
+                  "Property": "Src Security Id"
+                }
+              },
+              "queryRef": "Index Constituent.Src Security Id",
+              "displayName": "Source Security Id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Index Constituent"
+                    }
+                  },
+                  "Property": "Vendor Sec Id"
+                }
+              },
+              "queryRef": "Index Constituent.Vendor Sec Id",
+              "displayName": "Vendor Security Id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Index Constituent"
+                    }
+                  },
+                  "Property": "Isin"
+                }
+              },
+              "queryRef": "Index Constituent.Isin",
+              "displayName": "ISIN"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Index Constituent"
+                    }
+                  },
+                  "Property": "Cusip"
+                }
+              },
+              "queryRef": "Index Constituent.Cusip",
+              "displayName": "CUSIP"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Index Constituent"
+                    }
+                  },
+                  "Property": "Sedol"
+                }
+              },
+              "queryRef": "Index Constituent.Sedol",
+              "displayName": "SEDOL"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Index Constituent"
+                    }
+                  },
+                  "Property": "Iso Country Cd"
+                }
+              },
+              "queryRef": "Index Constituent.Iso Country Cd",
+              "displayName": "ISO Country Code"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Index Constituent"
+                    }
+                  },
+                  "Property": "Region Cd"
+                }
+              },
+              "queryRef": "Index Constituent.Region Cd",
+              "displayName": "Region Code"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Index Constituent"
+                    }
+                  },
+                  "Property": "Exch Cd"
+                }
+              },
+              "queryRef": "Index Constituent.Exch Cd",
+              "displayName": "Exchange Code"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Index Constituent"
+                        }
+                      },
+                      "Property": "Price Base"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Index Constituent.Price Base)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Index Constituent"
+                        }
+                      },
+                      "Property": "Clean Price"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Index Constituent.Clean Price)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Index Constituent"
+                        }
+                      },
+                      "Property": "Inv Market Cap Local"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Index Constituent.Inv Market Cap Local)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Index Constituent"
+                        }
+                      },
+                      "Property": "Inv Market Cap Base"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Index Constituent.Inv Market Cap Base)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Index Constituent"
+                        }
+                      },
+                      "Property": "Index Weight"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Index Constituent.Index Weight)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Index Constituent"
+                    }
+                  },
+                  "Property": "Cons Size Flag"
+                }
+              },
+              "queryRef": "Index Constituent.Cons Size Flag"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Index Constituent"
+                        }
+                      },
+                      "Property": "Daily Total Return"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Index Constituent.Daily Total Return)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Index Constituent"
+                    }
+                  },
+                  "Property": "Sector Level 1"
+                }
+              },
+              "queryRef": "Index Constituent.Sector Level 1"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Index Constituent"
+                    }
+                  },
+                  "Property": "Sector Level 1 Desc"
+                }
+              },
+              "queryRef": "Index Constituent.Sector Level 1 Desc"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Index Constituent"
+                    }
+                  },
+                  "Property": "Sector Level 2"
+                }
+              },
+              "queryRef": "Index Constituent.Sector Level 2"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Index Constituent"
+                    }
+                  },
+                  "Property": "Sector Level 2 Desc"
+                }
+              },
+              "queryRef": "Index Constituent.Sector Level 2 Desc"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Index Constituent"
+                    }
+                  },
+                  "Property": "Sector Level 3"
+                }
+              },
+              "queryRef": "Index Constituent.Sector Level 3"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Index Constituent"
+                    }
+                  },
+                  "Property": "Sector Level 3 Desc"
+                }
+              },
+              "queryRef": "Index Constituent.Sector Level 3 Desc"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Index Constituent"
+                    }
+                  },
+                  "Property": "Sector Level 4"
+                }
+              },
+              "queryRef": "Index Constituent.Sector Level 4"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Index Constituent"
+                    }
+                  },
+                  "Property": "Sector Level 4 Desc"
+                }
+              },
+              "queryRef": "Index Constituent.Sector Level 4 Desc"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Index Constituent"
+                    }
+                  },
+                  "Property": "Sector Schema"
+                }
+              },
+              "queryRef": "Index Constituent.Sector Schema"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Index Constituent"
+                        }
+                      },
+                      "Property": "Coupon"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Index Constituent.Coupon)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Index Constituent"
+                        }
+                      },
+                      "Property": "Maturity Date"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Index Constituent.Maturity Date",
+              "displayName": "Maturity Date"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Index Constituent"
+                        }
+                      },
+                      "Property": "Years To Maturity"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Index Constituent.Years To Maturity)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Index Constituent"
+                        }
+                      },
+                      "Property": "Accrued Interest"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Index Constituent.Accrued Interest)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Index Constituent"
+                        }
+                      },
+                      "Property": "Yield To Maturity"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Index Constituent.Yield To Maturity)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Index Constituent"
+                        }
+                      },
+                      "Property": "Yield To Worst"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Index Constituent.Yield To Worst)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Index Constituent"
+                        }
+                      },
+                      "Property": "Oas"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Index Constituent.Oas)",
+              "displayName": "OAS"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Index Constituent"
+                        }
+                      },
+                      "Property": "Macauley Duration"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Index Constituent.Macauley Duration)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Index Constituent"
+                        }
+                      },
+                      "Property": "Modified Duration"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Index Constituent.Modified Duration)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Index Constituent"
+                        }
+                      },
+                      "Property": "Duration To Worst"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Index Constituent.Duration To Worst)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Index Constituent"
+                        }
+                      },
+                      "Property": "Effective Duration"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Index Constituent.Effective Duration)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Index Constituent"
+                        }
+                      },
+                      "Property": "Average Life"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Index Constituent.Average Life)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Index Constituent"
+                    }
+                  },
+                  "Property": "Quality"
+                }
+              },
+              "queryRef": "Index Constituent.Quality"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Index Constituent"
+                        }
+                      },
+                      "Property": "Orig Amount Outstanding"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Index Constituent.Orig Amount Outstanding)",
+              "displayName": "Orignal Amount Outstanding"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Index Constituent"
+                        }
+                      },
+                      "Property": "Effective Mat Date"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Index Constituent.Effective Mat Date",
+              "displayName": "Effective Maturity Date"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Index Constituent"
+                        }
+                      },
+                      "Property": "Next Call Date"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Index Constituent.Next Call Date",
+              "displayName": "Next Call Date"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Index Constituent"
+                        }
+                      },
+                      "Property": "Par Weight In Index"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Index Constituent.Par Weight In Index)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Index Constituent"
+                        }
+                      },
+                      "Property": "Dv01"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Index Constituent.Dv01)",
+              "displayName": "DV01"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Index Constituent"
+                    }
+                  },
+                  "Property": "Src Index Id"
+                }
+              },
+              "queryRef": "Index Constituent.Src Index Id",
+              "displayName": "Source Index Id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Index Constituent"
+                    }
+                  },
+                  "Property": "Hedged Flag"
+                }
+              },
+              "queryRef": "Index Constituent.Hedged Flag"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Index Constituent"
+                        }
+                      },
+                      "Property": "Effective Dt"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Index Constituent.Effective Dt",
+              "displayName": "Effective Date"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Index Constituent"
+                  }
+                },
+                "Property": "Index Nm"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#000000'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.1
+                    }
+                  }
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontColorPrimary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#000000'"
+                    }
+                  }
+                }
+              }
+            },
+            "backColorPrimary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "backColorSecondary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#ffffff'"
+                    }
+                  }
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(cube_manubank_asset.Primary ID)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_asset.IFRS FV Rep"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_BsRate"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_asset.CM_IFRS BV Local"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_asset.CM_IFRS FV Local"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_asset.IFRS BV Rep"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_Reporting Currency"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_Local Currency"
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "75.84598771378771D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_Reporting Currency"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "173.7561472134972D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_asset.CM_IFRS BV Local"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "143.39090796393296D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_asset.CM_IFRS FV Local"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "150.1470551774302D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_BsRate"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "74.85882207097207D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_Local Currency"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "176.74331285631285D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_asset.IFRS FV Rep"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "164.30106746364245D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_asset.IFRS BV Rep"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "40.935828214078214D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(cube_manubank_asset.Primary ID)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "201.24973003490504D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.Lending Asset Name"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "160.8459877137877D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_Market Value Rep"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "148.89732514252515D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_Book Value Rep"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "148.89732514252515D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_Book Value Local"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "146.9101594997095D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_Market Value Local"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "160.62780364165366D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(cube_manubank_mortgage_value.Effective Date)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "501.81304575461337D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Entities.Lei Name"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "264.6435587099313D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Index Constituent.Index Nm"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Index Constituent"
+                    }
+                  },
+                  "Property": "Pricing Indices Title"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#000000'"
+                    }
+                  }
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.1
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI Bold'', wf_segoe-ui_bold, helvetica, arial, sans-serif'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

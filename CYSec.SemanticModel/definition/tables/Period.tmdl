@@ -1,0 +1,350 @@
+table Period
+	lineageTag: 3b0a7758-758d-441c-9972-811cefe2258c
+
+	measure 'Position Data' = COUNTROWS('Securities Position Fact')
+		formatString: 0
+		lineageTag: 9ca00e0d-dd5f-400b-b9f0-0ebaa04c7f1e
+
+	measure 'Look Through Data' = COUNTROWS('Securities Lookthrough Position Fact')
+		formatString: 0
+		lineageTag: 740611d2-bee7-428c-bc56-933570fea609
+
+	column Date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: c7f4e5c3-e8cf-464f-b952-3b5539e646e5
+		summarizeBy: none
+		sourceColumn: Date
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Month No'
+		dataType: int64
+		formatString: 0
+		lineageTag: e8b02a05-a808-431d-8de9-a7114871cdf8
+		summarizeBy: sum
+		sourceColumn: Month No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Short Name'
+		dataType: string
+		lineageTag: 7b819263-1d0f-4ce1-ac25-c6e129297cb6
+		summarizeBy: none
+		sourceColumn: Month Short Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Name'
+		dataType: string
+		lineageTag: 0ca02002-9e4c-4c54-a5bf-d1b8dd6e3baf
+		summarizeBy: none
+		sourceColumn: Month Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Quarter Name'
+		dataType: string
+		lineageTag: 07f545d4-117b-482e-b579-5513bcc66d1e
+		summarizeBy: none
+		sourceColumn: Quarter Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: c314f8f8-ae24-4383-88db-a70ded3fc5cc
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Weekday
+		dataType: string
+		lineageTag: fe8df18b-5f4b-48c9-b52c-09c306eef21e
+		summarizeBy: none
+		sourceColumn: Weekday
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day of Week'
+		dataType: int64
+		formatString: 0
+		lineageTag: 1220d50a-7f0a-407a-9e9f-a73d63e05b23
+		summarizeBy: sum
+		sourceColumn: Day of Week
+
+		annotation SummarizationSetBy = Automatic
+
+	column Period
+		dataType: int64
+		formatString: 0
+		lineageTag: 40fdb779-b868-415e-9f8c-a7009be5887a
+		summarizeBy: sum
+		sourceColumn: Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'End of Month'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 7fe6a427-1867-41fa-b754-ed3fcc4811a3
+		summarizeBy: none
+		sourceColumn: End of Month
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'End of Quarter'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 7c611265-0814-4262-ae13-9ef1f60a1b6f
+		summarizeBy: none
+		sourceColumn: End of Quarter
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Start of Month'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 98971c5a-652a-4048-8d89-eab1f1f10231
+		summarizeBy: none
+		sourceColumn: Start of Month
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Start of Quarter'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: f9e0828f-daa9-47e3-bc1d-6a431977c18b
+		summarizeBy: none
+		sourceColumn: Start of Quarter
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Month
+		dataType: string
+		lineageTag: 7f179aab-f091-4d68-b196-89a076921244
+		summarizeBy: none
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		dataType: string
+		lineageTag: 88be9ef2-3373-479a-9bda-4a68ad4d3607
+		summarizeBy: none
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Latest Month Period'
+		dataType: string
+		lineageTag: f164fd79-a8a5-4154-8ff1-10fd14faf82d
+		summarizeBy: none
+		sourceColumn: Latest Month Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Prior Month Period'
+		dataType: string
+		lineageTag: 8d2ce5dd-ef02-4da8-bc4e-43ca59df4e22
+		summarizeBy: none
+		sourceColumn: Prior Month Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Latest Period Display'
+		dataType: string
+		lineageTag: 23ba4cd5-4bb4-4372-bc28-2c99e6a00d1b
+		summarizeBy: none
+		sourceColumn: Latest Period Display
+		sortByColumn: Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Future Period' = ```
+			
+			
+			    SWITCH (
+			        TRUE (),
+			        FORMAT('Period'[Period],"#") > 'Period'[Latest Month Period], "Future Month",
+			        BLANK()
+			    )
+			
+			```
+		lineageTag: bd4807ae-f53a-4633-ab01-1ab16334f587
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sec Pos As Of Date' = ```
+			MAX('Securities Position Fact'[As Of Date]) 
+			```
+		isHidden
+		formatString: yyyy-mm-dd
+		lineageTag: 488fbfe0-611e-4bec-b8dc-dbb904c1c342
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Sec Pos Prior Month Period' = ```
+			
+			VAR CALC = EOMONTH(Period[Sec Pos As Of Date],-1)
+			RETURN 
+			YEAR(CALC)*100 +MONTH(CALC)
+			
+			```
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 60f1deb8-d786-4e6d-9ed8-0ba93450e5db
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sec Pos Latest Month Period' = ```
+			
+			YEAR(Period[Sec Pos As Of Date])*100 +MONTH(Period[Sec Pos As Of Date])
+			
+			```
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 8fb670a1-aef0-47e4-8166-40dd294735da
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sec Pos Latest Period Display' = ```
+			IF(Period[Period]=Period[Sec Pos Latest Month Period],"Latest Month",
+			if(Period[Period]=Period[Sec Pos Prior Month Period],"Prior Month",Period[Month]))
+			
+			```
+		lineageTag: 4b773d43-c5b0-40f3-8c70-18caf99e3607
+		summarizeBy: none
+		sortByColumn: Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sec Pos Future Period' = ```
+			
+			    SWITCH (
+			        TRUE (),
+			       -- FORMAT('Period'[Period],"#") > 'Period'[Sec Pos Latest Month Period], "Future Month",
+			--IF(Period[Period]<>Period[Sec Pos Latest Month Period],
+			   --if(Period[Period]<>Period[Sec Pos Prior Month Period],))
+			
+			'Period'[Period] > 'Period'[Sec Pos Latest Month Period], "Future Month",
+			        BLANK()
+			    )
+			
+			```
+		isHidden
+		lineageTag: 94eaa1b7-40a5-4fef-baf4-00b88287fa76
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As Of Date Page Slicer' = ```
+			
+			SWITCH(
+			    TRUE(),
+			    Period[Date]=Period[Sec Pos As Of Date],"Latest",
+			    ENDOFMONTH(Period[Date])=Period[Date],"Latest",
+			    FORMAT(Period[Date],"YYYY-MM-DD")
+			)
+			
+			```
+		lineageTag: 64f9c28a-ed48-47aa-9271-343396fbbdc2
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Look Pos As Of Date' =
+			
+			MAX
+			('Securities Lookthrough Position Fact'[Effective Date])
+		formatString: General Date
+		lineageTag: b8cc3a21-f8c5-43ef-b920-f82e5e85bcb8
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As Of Date Page Slicer (Lookthrough)' =
+			
+			SWITCH(
+			    TRUE(),
+			    Period[Date]=Period[Look Pos As Of Date],"Latest",
+			    ENDOFMONTH(Period[Date])=Period[Date],"Latest",
+			    FORMAT(Period[Date],"YYYY-MM-DD")
+			)
+		lineageTag: a0cefc26-4486-4866-94d1-3fd0ff8525d1
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Period-9edc9d08-a48e-4d73-ad66-4b2e952b5487 = m
+		mode: import
+		queryGroup: 'Custom Dimension Tables'
+		source =
+				let
+				    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0), EnableQueryResultDownload="0"]),
+				    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+				    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+				    EDL_calendar_dim = inv_semantic_ga_Schema{[Name="calendar_dim",Kind="Table"]}[Data],
+				    #"Removed Other Columns" = Table.SelectColumns(EDL_calendar_dim,{"DATE", "MONTH", "MONTH_SHRT_NM", "MONTH_NM", "QUARTER_NM", "YEAR", "WEEKDAY_NM", "DAY_OF_WEEK", "PERIOD"}),
+				    #"Inserted End of Month" = Table.AddColumn(#"Removed Other Columns", "End of Month", each Date.EndOfMonth([DATE]), type date),
+				    #"Inserted End of Quarter" = Table.AddColumn(#"Inserted End of Month", "End of Quarter", each Date.EndOfQuarter([DATE]), type date),
+				    #"Inserted Start of Month" = Table.AddColumn(#"Inserted End of Quarter", "Start of Month", each Date.StartOfMonth([DATE]), type date),
+				    #"Inserted Start of Quarter" = Table.AddColumn(#"Inserted Start of Month", "Start of Quarter", each Date.StartOfQuarter([DATE]), type date),
+				    #"Filtered Rows" = Table.SelectRows(#"Inserted Start of Quarter", each [YEAR] >= 2020 and [YEAR] <= 2050),
+				    #"Capitalized Each Word" = Table.TransformColumns(#"Filtered Rows",{{"MONTH_SHRT_NM", Text.Proper, type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Capitalized Each Word",{{"DATE", "Date"}, {"MONTH", "Month No"}, {"MONTH_SHRT_NM", "Month Short Name"}, {"MONTH_NM", "Month Name"}, {"QUARTER_NM", "Quarter Name"}, {"YEAR", "Year"}, {"WEEKDAY_NM", "Weekday"}, {"DAY_OF_WEEK", "Day of Week"}, {"PERIOD", "Period"}}),
+				    #"Inserted Merged Column" = Table.AddColumn(#"Renamed Columns", "Merged", each Text.Combine({[Month Short Name], "-", Text.From([Year], "en-US")}), type text),
+				    #"Inserted Merged Column1" = Table.AddColumn(#"Inserted Merged Column", "Merged.1", each Text.Combine({[Quarter Name], "-", Text.From([Year], "en-US")}), type text),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Inserted Merged Column1",{{"Merged", "Month"}, {"Merged.1", "Quarter"}}),
+				    #"Added Custom" = Table.AddColumn(#"Renamed Columns1", "Latest Month Period", each Date.Year(DateTime.LocalNow()) *100 + Date.Month(DateTime.LocalNow())),
+				    #"Added Custom1" = Table.AddColumn(#"Added Custom", "Prior Month Period", each Date.Year(Date.AddMonths(DateTime.LocalNow(),-1)) * 100 + Date.Month(Date.AddMonths(DateTime.LocalNow(),-1))),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom1",{{"Prior Month Period", type text}, {"Latest Month Period", type text}}),
+				    #"Added Conditional Column" = Table.AddColumn(#"Changed Type", "Latest Period Display", each if [Period] = [Latest Month Period] then "Latest Month" else if [Period] = [Prior Month Period] then "Prior Month" else [Month]),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Conditional Column",{{"Period", Int64.Type}})
+				in
+				    #"Changed Type1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

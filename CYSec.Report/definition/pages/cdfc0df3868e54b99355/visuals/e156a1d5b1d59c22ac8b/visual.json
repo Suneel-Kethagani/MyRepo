@@ -1,0 +1,805 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "e156a1d5b1d59c22ac8b",
+  "position": {
+    "x": 7.9530548843631337,
+    "y": 122.47704521919226,
+    "z": 10000,
+    "height": 585.34483948912668,
+    "width": 1261.3545046599929,
+    "tabOrder": 10000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Company"
+                    }
+                  },
+                  "Property": "Company Code & Name Display"
+                }
+              },
+              "queryRef": "Company.Company Code & Name Display",
+              "displayName": "Company Code & Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Accounting Unit"
+                    }
+                  },
+                  "Property": "Accounting Unit Code & Name Display"
+                }
+              },
+              "queryRef": "Accounting Unit.Accounting Unit Code & Name Display",
+              "displayName": "Accounting Unit Code & Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Portfolios"
+                    }
+                  },
+                  "Property": "Portfolio Code & Name"
+                }
+              },
+              "queryRef": "Portfolios.Portfolio Code & Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities"
+                    }
+                  },
+                  "Property": "Primary Security ID & Desc"
+                }
+              },
+              "queryRef": "Securities DQ.Primary Security ID & Desc"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities"
+                    }
+                  },
+                  "Property": "Primary Security ID"
+                }
+              },
+              "queryRef": "Securities.Primary Security ID",
+              "nativeQueryRef": "Primary Security ID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities"
+                    }
+                  },
+                  "Property": "Src Security ID"
+                }
+              },
+              "queryRef": "Securities.Src Security ID",
+              "nativeQueryRef": "Src Security ID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "Transasofdate"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.Transasofdate",
+              "nativeQueryRef": "Transasofdate"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Income Impairment Details - Local (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Income Impairment Details - Local (Sec Pos)",
+              "nativeQueryRef": "Income Impairment - Local (Sec Pos)",
+              "displayName": "Income Impairment - Local (Sec Pos)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Income Impairment Details - Rep (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Income Impairment Details - Rep (Sec Pos)",
+              "nativeQueryRef": "Income Impairment - Rep (Sec Pos)",
+              "displayName": "Income Impairment - Rep (Sec Pos)"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#000000'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.1
+                    }
+                  }
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontColorPrimary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#000000'"
+                    }
+                  }
+                }
+              }
+            },
+            "backColorPrimary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "backColorSecondary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#ffffff'"
+                    }
+                  }
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "75.84598771378771D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_Reporting Currency"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "173.7561472134972D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_asset.CM_IFRS BV Local"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "143.39090796393296D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_asset.CM_IFRS FV Local"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "150.1470551774302D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_BsRate"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "74.85882207097207D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_Local Currency"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "176.74331285631285D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_asset.IFRS FV Rep"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "164.30106746364245D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_asset.IFRS BV Rep"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "40.935828214078214D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(cube_manubank_asset.Primary ID)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "201.24973003490504D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.Lending Asset Name"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "160.8459877137877D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_Market Value Rep"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "148.89732514252515D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_Book Value Rep"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "148.89732514252515D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_Book Value Local"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "146.9101594997095D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_Market Value Local"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "160.62780364165366D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(cube_manubank_mortgage_value.Effective Date)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "501.81304575461337D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Entities.Lei Name"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "77.47523984550656D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Company.Alternate Currency Code"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "469.19187940238214D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Transaction GA Fact.Local Ccy Code"
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Security Position Fact.Primary Security ID (Sec Pos))"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Security Position Fact.SCD Security ID)"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#000000'"
+                    }
+                  }
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.1
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI Bold'', wf_segoe-ui_bold, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Security Position Title"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "bed6beddd531e8d86cad",
+        "ordinal": 0,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Company"
+              }
+            },
+            "Property": "Company Code & Name Display"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c2e0aa4202e668cc7fef",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Accounting Unit"
+              }
+            },
+            "Property": "Accounting Unit Code & Name Display"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b36b90a3a2b5553a0eae",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Portfolios"
+              }
+            },
+            "Property": "Portfolio Code & Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a041df5db111aeb22380",
+        "ordinal": 3,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities"
+              }
+            },
+            "Property": "Primary Security ID & Desc"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "86ec6d41c28df89e8400",
+        "ordinal": 4,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Primary Security ID (Sec Pos)"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "0efd103ab94208055431",
+        "ordinal": 5,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "SCD Security ID"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "6a762b915c47b0862dc8",
+        "ordinal": 6,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Income Impairment - Local (Sec Pos)"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "ae627bcb8113c7a0eb2f",
+        "ordinal": 7,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Income Impairment - Rep (Sec Pos)"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  }
+}

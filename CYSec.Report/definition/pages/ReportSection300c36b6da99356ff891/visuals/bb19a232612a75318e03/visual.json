@@ -1,0 +1,290 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "bb19a232612a75318e03",
+  "position": {
+    "x": 0,
+    "y": 412.79807351754062,
+    "z": 15000,
+    "height": 79.277419354838713,
+    "width": 429.41935483870969,
+    "tabOrder": 15000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Accounting Unit"
+                    }
+                  },
+                  "Property": "Base Bu Lev1 Division Name"
+                }
+              },
+              "queryRef": "Accounting Unit.Base Bu Lev1 Division Name",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Accounting Unit"
+                    }
+                  },
+                  "Property": "Base Bu Lev2 Mgmt View Name"
+                }
+              },
+              "queryRef": "Accounting Unit.Base Bu Lev2 Mgmt View Name",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Accounting Unit"
+                    }
+                  },
+                  "Property": "Base Bu Lev3 Summary Bu Name"
+                }
+              },
+              "queryRef": "Accounting Unit.Base Bu Lev3 Summary Bu Name",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Accounting Unit"
+                    }
+                  },
+                  "Property": "Base Bu Lev4 Bu Name"
+                }
+              },
+              "queryRef": "Accounting Unit.Base Bu Lev4 Bu Name",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Accounting Unit"
+                    }
+                  },
+                  "Property": "Base Bu Lev5 Sub Bu Name"
+                }
+              },
+              "queryRef": "Accounting Unit.Base Bu Lev5 Sub Bu Name",
+              "active": false
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "selection": [
+        {
+          "properties": {
+            "singleSelect": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "strictSingleSelect": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "items": [
+        {
+          "properties": {
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Base Business Unit'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "selfFilterEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "syncGroup": {
+      "groupName": "Base Bu Lev1 Division Name",
+      "fieldChanges": true,
+      "filterChanges": true
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "Filter2f1314988af3c9ce239c",
+        "ordinal": 0,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Company"
+              }
+            },
+            "Property": "Framework Exists"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "Filter1cae430ac085bb5fcb43",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Accounting Unit"
+              }
+            },
+            "Property": "Base Bu Lev1 Division Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filterb9c752f8ae40731c743a",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Accounting Unit"
+              }
+            },
+            "Property": "Base Bu Lev2 Mgmt View Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filter9238d17725aa3fee68a9",
+        "ordinal": 3,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Accounting Unit"
+              }
+            },
+            "Property": "Base Bu Lev3 Summary Bu Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filter94e4d2812ee4d34687e6",
+        "ordinal": 4,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Accounting Unit"
+              }
+            },
+            "Property": "Base Bu Lev4 Bu Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filterf533bb73c39c3d7faf70",
+        "ordinal": 5,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Accounting Unit"
+              }
+            },
+            "Property": "Base Bu Lev5 Sub Bu Name"
+          }
+        },
+        "type": "Categorical"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  },
+  "isHidden": true
+}

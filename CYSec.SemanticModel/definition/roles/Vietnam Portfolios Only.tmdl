@@ -1,0 +1,7 @@
+role 'Vietnam Portfolios Only'
+	modelPermission: read
+
+	tablePermission Portfolios = [Domicile Cntry Code] = "VN" || [Sleeve Manager City] = "Ho Chi Minh City" || [Group Advisor City] = "Ho Chi Minh City"  || [Group Advisor 2 City] = "Ho Chi Minh City"
+
+	annotation PBI_Id = 73a10003744d4d73937859bef0ac9406
+

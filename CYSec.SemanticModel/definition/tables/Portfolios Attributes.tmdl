@@ -1,0 +1,1973 @@
+table 'Portfolios Attributes'
+	isHidden
+	lineageTag: 587c9716-25c7-411a-be43-59e70ecb8ad3
+
+	column 'Portfolio Nk'
+		dataType: string
+		lineageTag: 9efa1860-19ab-4e00-85d6-583844432da6
+		summarizeBy: none
+		sourceColumn: Portfolio Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Code'
+		dataType: string
+		lineageTag: 509508f2-5de6-4425-b5d2-62a9cb62b2c2
+		summarizeBy: none
+		sourceColumn: Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As of Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: 04c19e14-9a9c-408e-9d09-b350fc07c6f3
+		summarizeBy: sum
+		sourceColumn: As of Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As of Date (D)'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: a1df676a-804f-408e-85f3-11233b1d94d0
+		summarizeBy: none
+		sourceColumn: As of Date (D)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'As of Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: d44e6eaa-38c1-4082-862e-33410bc5314e
+		summarizeBy: sum
+		sourceColumn: As of Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As of Month'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4ae63979-04a5-4613-94f9-1d445ad42e19
+		summarizeBy: sum
+		sourceColumn: As of Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Legacy Portfolio Code'
+		dataType: string
+		lineageTag: e7711f02-396c-4ae1-91f7-bd311570f133
+		summarizeBy: none
+		sourceColumn: Legacy Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Name'
+		dataType: string
+		lineageTag: d3959e6c-9936-424a-bd4d-d455424fb20a
+		summarizeBy: none
+		sourceColumn: Portfolio Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Code & Name'
+		dataType: string
+		lineageTag: 0781c5a2-d811-40cb-b730-3fd380a0f787
+		summarizeBy: none
+		sourceColumn: Portfolio Code & Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Code (D)'
+		dataType: string
+		lineageTag: 8631e70d-06a3-49fe-a68c-169ec3964ee9
+		summarizeBy: none
+		sourceColumn: Group Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Group Code & Name'
+		dataType: string
+		lineageTag: b76d2a2e-2b55-429c-87d1-0e5b4c104e18
+		summarizeBy: none
+		sourceColumn: Portfolio Group Code & Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Name'
+		dataType: string
+		lineageTag: b54ce204-e17f-4edc-ab56-f6c491c7df15
+		summarizeBy: none
+		sourceColumn: Group Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Ccy Code (D)'
+		dataType: string
+		lineageTag: a4b1e031-f614-4c2e-a1d1-d015e1e701f5
+		summarizeBy: none
+		sourceColumn: Base Ccy Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Ccy Name'
+		dataType: string
+		lineageTag: adb4e3bb-dbb2-4da8-a665-388b4409aa99
+		summarizeBy: none
+		sourceColumn: Base Ccy Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operating Ccy Code'
+		dataType: string
+		lineageTag: f6e220bf-4931-4e50-a5e2-37b7069dc361
+		summarizeBy: none
+		sourceColumn: Operating Ccy Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operating Ccy Name'
+		dataType: string
+		lineageTag: e2b5d9c7-af03-48f7-8197-6176f8658c96
+		summarizeBy: none
+		sourceColumn: Operating Ccy Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Filter Type'
+		dataType: string
+		lineageTag: 5012dd15-6723-4a21-a438-0d05e5f24d2f
+		summarizeBy: none
+		sourceColumn: Portfolio Filter Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Client Region Name'
+		dataType: string
+		lineageTag: d6ed74d3-8834-400d-bf85-f344afc3300d
+		summarizeBy: none
+		sourceColumn: Client Region Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Sub Type'
+		dataType: string
+		lineageTag: 53842287-fc90-4523-8e55-336f75f80a6c
+		summarizeBy: none
+		sourceColumn: Group Sub Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Client ID'
+		dataType: string
+		lineageTag: a2cb261d-4be7-4d0b-892a-a8b3e429a7c9
+		summarizeBy: none
+		sourceColumn: Client ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Client Name'
+		dataType: string
+		lineageTag: 1fa322c1-c8af-4c45-bb3c-5aa5fad2674b
+		summarizeBy: none
+		sourceColumn: Client Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Client 2 Name'
+		dataType: string
+		lineageTag: eeef3936-5e26-4515-a2b9-603fec67b1ee
+		summarizeBy: none
+		sourceColumn: Client 2 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Int Ext (D)'
+		dataType: string
+		lineageTag: df37617d-fdba-43e9-8d2f-24cc89e149d4
+		summarizeBy: none
+		sourceColumn: Int Ext (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Relationship Manager Name'
+		dataType: string
+		lineageTag: eec60b0a-f26f-4735-aabf-adbe7ce7b6b7
+		summarizeBy: none
+		sourceColumn: Relationship Manager Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Legacy Code (D)'
+		dataType: string
+		lineageTag: e401023f-369d-48f3-a172-9be194e112e1
+		summarizeBy: none
+		sourceColumn: Legacy Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Type'
+		dataType: string
+		lineageTag: 362e28f5-8ed2-469e-a234-9ccb776340ad
+		summarizeBy: none
+		sourceColumn: Portfolio Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Seed Portfolio Ind (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: ffc95461-52a6-4420-b5f3-d09f54e490e0
+		summarizeBy: sum
+		sourceColumn: Seed Portfolio Ind (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Immediate Liquidity Pool Code (D)'
+		dataType: string
+		lineageTag: 5a8aa45b-faa9-4321-bd18-5a9bdf5e138d
+		summarizeBy: none
+		sourceColumn: Immediate Liquidity Pool Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inv Lp Port Code (D)'
+		dataType: string
+		lineageTag: fda594b7-cf18-498d-aa58-b5a43d1efe95
+		summarizeBy: none
+		sourceColumn: Inv Lp Port Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lot Closing Method (D)'
+		dataType: string
+		lineageTag: 7c07f06a-5b5c-4a13-8e90-462aa6cae4ed
+		summarizeBy: none
+		sourceColumn: Lot Closing Method (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lpcd Participate Ind'
+		dataType: int64
+		formatString: 0
+		lineageTag: ab935f52-1e38-4a27-8a5b-d2bba02243c2
+		summarizeBy: sum
+		sourceColumn: Lpcd Participate Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Private Portf Ind (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 34cf7e15-6c8b-4352-8334-9d1d63a684cc
+		summarizeBy: sum
+		sourceColumn: Private Portf Ind (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Separate Account Ind (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 183a85c6-aabf-4dd8-9e48-df2338f0e6f6
+		summarizeBy: sum
+		sourceColumn: Separate Account Ind (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Deposit Type (D)'
+		dataType: string
+		lineageTag: 474614a2-510e-473c-8641-67a2811834b6
+		summarizeBy: none
+		sourceColumn: Deposit Type (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asia Lgaap Trading Philosophy Code'
+		dataType: string
+		lineageTag: c31f1b74-c3f5-4ad5-9397-f93490a3edb7
+		summarizeBy: none
+		sourceColumn: Asia Lgaap Trading Philosophy Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'On off Balance'
+		dataType: string
+		lineageTag: f66e548b-5875-4e0d-8bbf-414f441a9fe3
+		summarizeBy: none
+		sourceColumn: On off Balance
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Liability Surplus (D)'
+		dataType: string
+		lineageTag: 423f876d-7304-4e75-8829-589e0655568e
+		summarizeBy: none
+		sourceColumn: Liability Surplus (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Sleeve Status'
+		dataType: string
+		lineageTag: 22dfbd09-da2b-45a6-9d57-ce88257c6524
+		summarizeBy: none
+		sourceColumn: Portfolio Sleeve Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transfer Agent 1'
+		dataType: string
+		lineageTag: 99f44cdf-481d-4a59-bead-afaacc3993c0
+		summarizeBy: none
+		sourceColumn: Transfer Agent 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transfer Agent 2'
+		dataType: string
+		lineageTag: 670c7d4c-8a36-4f87-b078-63aea903abb6
+		summarizeBy: none
+		sourceColumn: Transfer Agent 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transfer Agent 3'
+		dataType: string
+		lineageTag: a89b3600-78f6-4859-9183-aa8289b44299
+		summarizeBy: none
+		sourceColumn: Transfer Agent 3
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transfer Agent Name 1'
+		dataType: string
+		lineageTag: 2da7c494-a89c-4aa8-91bd-4c459fc2edfa
+		summarizeBy: none
+		sourceColumn: Transfer Agent Name 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transfer Agent Name 2'
+		dataType: string
+		lineageTag: ee43cbb4-e8b2-4339-ac79-ee1b2c5f120c
+		summarizeBy: none
+		sourceColumn: Transfer Agent Name 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transfer Agent Name 3'
+		dataType: string
+		lineageTag: 68e560c7-a1e7-4765-a9a9-81e1a746d941
+		summarizeBy: none
+		sourceColumn: Transfer Agent Name 3
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Payment Recon Principle Code (D)'
+		dataType: string
+		lineageTag: 44340d54-6a65-4bde-8815-e25c14ad14f1
+		summarizeBy: none
+		sourceColumn: Payment Recon Principle Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Client Reporting Required Ind'
+		dataType: int64
+		formatString: 0
+		lineageTag: 218511e6-a604-4c8c-ab6d-2253bb0e1368
+		summarizeBy: sum
+		sourceColumn: Client Reporting Required Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hedge Participation Ind'
+		dataType: int64
+		formatString: 0
+		lineageTag: a15b255e-25a1-4621-92ea-9d08fa1d1861
+		summarizeBy: sum
+		sourceColumn: Hedge Participation Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IFRS9 Business Model Code'
+		dataType: string
+		lineageTag: e1ac675c-c85f-4492-80ee-c023c471a268
+		summarizeBy: none
+		sourceColumn: IFRS9 Business Model Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IFRS9 Ind'
+		dataType: int64
+		formatString: 0
+		lineageTag: 699eed53-90da-4bda-a0d2-f816cb09122b
+		summarizeBy: sum
+		sourceColumn: IFRS9 Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'House Holding Acct Ind'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8334178d-3176-42e4-b0b2-56c1b933762c
+		summarizeBy: sum
+		sourceColumn: House Holding Acct Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nafi Group Code'
+		dataType: string
+		lineageTag: f5b678b2-c02c-455a-afe5-2f7888a80b5e
+		summarizeBy: none
+		sourceColumn: Nafi Group Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Par Nonpar'
+		dataType: string
+		lineageTag: d83a2251-61bb-4443-a312-9c670777a07f
+		summarizeBy: none
+		sourceColumn: Par Nonpar
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Platform Code'
+		dataType: string
+		lineageTag: 4f0d9603-d433-4b77-93c7-0c9d002aff93
+		summarizeBy: none
+		sourceColumn: Platform Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trust Ind'
+		dataType: string
+		lineageTag: e972a433-cb7c-4d49-8324-ed81e7c738e6
+		summarizeBy: none
+		sourceColumn: Trust Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Required Ind'
+		dataType: int64
+		formatString: 0
+		lineageTag: a1e2f3cc-535f-452b-84ff-a0725cc81051
+		summarizeBy: sum
+		sourceColumn: Accounting Required Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Work Area (D)'
+		dataType: string
+		lineageTag: 410a7512-9062-47c7-9bcd-3b3b6cca7b1c
+		summarizeBy: none
+		sourceColumn: Work Area (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mim Indicator'
+		dataType: string
+		lineageTag: d1e3cfd0-75b3-4acc-8611-5ed779915102
+		summarizeBy: none
+		sourceColumn: Mim Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Subfund Retag Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: b0425b2a-2eda-4ffd-9f12-0d326e17ce96
+		summarizeBy: none
+		sourceColumn: Subfund Retag Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Subfund Retag Is Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 7cd5b62d-5429-4922-8257-44b990b97392
+		summarizeBy: none
+		sourceColumn: Subfund Retag Is Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Portfolio Manager Alt Name (D)'
+		dataType: string
+		lineageTag: eeb54b11-fc5f-45c2-a61f-a5bb96165003
+		summarizeBy: none
+		sourceColumn: Portfolio Manager Alt Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm Market Segment Name (D)'
+		dataType: string
+		lineageTag: 2947dd97-10ec-45dd-b8b6-d4bcb50fa8e7
+		summarizeBy: none
+		sourceColumn: Alm Market Segment Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm ALCO (D)'
+		dataType: string
+		lineageTag: 6a860067-3b9c-4068-94fc-9b7b232e2bb7
+		summarizeBy: none
+		sourceColumn: Alm ALCO (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm Segment Name (D)'
+		dataType: string
+		lineageTag: ec530698-1396-4aba-aec4-c6b0d1b3e241
+		summarizeBy: none
+		sourceColumn: Alm Segment Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm Subfund Name (D)'
+		dataType: string
+		lineageTag: 0ca9c5ce-c5dd-4a3b-bf82-84963f25f744
+		summarizeBy: none
+		sourceColumn: Alm Subfund Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm Cntry Name (D)'
+		dataType: string
+		lineageTag: 9f649f21-7a38-4f30-8946-27e27823a2f4
+		summarizeBy: none
+		sourceColumn: Alm Cntry Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm Ccy Code (D)'
+		dataType: string
+		lineageTag: 2427fe25-95dc-4cb5-ada6-33e78ec0dd29
+		summarizeBy: none
+		sourceColumn: Alm Ccy Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm Fi Benchmark Name (D)'
+		dataType: string
+		lineageTag: 629ee177-eab5-414d-b092-3a2155964426
+		summarizeBy: none
+		sourceColumn: Alm Fi Benchmark Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm Reason (D)'
+		dataType: string
+		lineageTag: a02b8cc1-f067-4a0e-8a07-91c519ee320d
+		summarizeBy: none
+		sourceColumn: Alm Reason (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm Sop Company Code (D)'
+		dataType: string
+		lineageTag: 93441937-f0eb-4572-98d2-1ec74666111a
+		summarizeBy: none
+		sourceColumn: Alm Sop Company Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm As of Date (D)'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 12b6ff56-6ec7-4529-ae9c-d2a50a9c38ab
+		summarizeBy: none
+		sourceColumn: Alm As of Date (D)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Custodian Legal Entity Identifier (D)'
+		dataType: string
+		lineageTag: 54495311-3e11-4630-ae1e-1a8244e30ed3
+		summarizeBy: none
+		sourceColumn: Custodian Legal Entity Identifier (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Custodian Country Name (D)'
+		dataType: string
+		lineageTag: 4418e62f-5097-40fc-a677-981fa693e94a
+		summarizeBy: none
+		sourceColumn: Custodian Country Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Custodian Company Address Txt (D)'
+		dataType: string
+		lineageTag: 3b4eeb01-29df-45fe-9a53-3faaa7ed0bf6
+		summarizeBy: none
+		sourceColumn: Custodian Company Address Txt (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Status (D)'
+		dataType: string
+		lineageTag: aa0ca60e-6555-4928-bd12-b89bfcbe33e4
+		summarizeBy: none
+		sourceColumn: Group Status (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Portfolio Manager Name'
+		dataType: string
+		lineageTag: 2b1ea8c1-e556-48d6-8797-5f6e5a7d951a
+		summarizeBy: none
+		sourceColumn: Group Portfolio Manager Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Legal Entity (D)'
+		dataType: string
+		lineageTag: bc04fca1-1474-4811-b7d7-f542061b81c5
+		summarizeBy: none
+		sourceColumn: Legal Entity (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Domicile Cntry Code (D)'
+		dataType: string
+		lineageTag: 370dafe8-34cc-48db-8366-cb407749152b
+		summarizeBy: none
+		sourceColumn: Domicile Cntry Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Strategy Code'
+		dataType: string
+		lineageTag: b3cfad4f-6ac0-4ea3-9945-37195b1f5b37
+		summarizeBy: none
+		sourceColumn: Group Strategy Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Strategy Name (D)'
+		dataType: string
+		lineageTag: b958a929-46f4-41b9-ba1d-5601d723c538
+		summarizeBy: none
+		sourceColumn: Group Strategy Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Custodian (D)'
+		dataType: string
+		lineageTag: 173311d3-e265-497d-bc93-75e668e56047
+		summarizeBy: none
+		sourceColumn: Custodian (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Custodian ID (D)'
+		dataType: string
+		lineageTag: c93977f2-6765-47ce-9f5f-25f794870143
+		summarizeBy: none
+		sourceColumn: Custodian ID (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Custodian Name (D)'
+		dataType: string
+		lineageTag: 80272c27-34f3-4bf1-b020-8f2902139d5e
+		summarizeBy: none
+		sourceColumn: Custodian Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year End'
+		dataType: string
+		lineageTag: 00ee2c8b-f88e-49a2-be9c-701b6bce65b4
+		summarizeBy: none
+		sourceColumn: Fiscal Year End
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Long Name'
+		dataType: string
+		lineageTag: 4d913290-17cf-48df-ac13-8259aee43044
+		summarizeBy: none
+		sourceColumn: Group Long Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Performance Start Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 722a12bb-dfe4-4094-ad13-86675ba07914
+		summarizeBy: none
+		sourceColumn: Group Performance Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Group Inception Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 3eeae49d-4569-4b46-9a49-65a3d4b3f8a7
+		summarizeBy: none
+		sourceColumn: Group Inception Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Group Benchmark 1 ID'
+		dataType: string
+		lineageTag: 29efc1a3-9c9d-49dc-9bf1-53d4cdeb9835
+		summarizeBy: none
+		sourceColumn: Group Benchmark 1 ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Benchmark 2 ID'
+		dataType: string
+		lineageTag: dbf14d66-862c-4d84-9127-d3de2c5a6f5e
+		summarizeBy: none
+		sourceColumn: Group Benchmark 2 ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Benchmark 1 Name'
+		dataType: string
+		lineageTag: 14275594-6609-43a4-a4bf-cae9c3b90b7d
+		summarizeBy: none
+		sourceColumn: Group Benchmark 1 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Benchmark 2 Name'
+		dataType: string
+		lineageTag: e08ffc56-d77f-4492-b5ef-cb4aeeda3ce9
+		summarizeBy: none
+		sourceColumn: Group Benchmark 2 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Primary Language'
+		dataType: string
+		lineageTag: 1a616442-1077-4fe1-b1a0-6eb022063d07
+		summarizeBy: none
+		sourceColumn: Primary Language
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Tax ID'
+		dataType: string
+		lineageTag: be3b2b48-bcb7-407f-9b86-1a84bda75c54
+		summarizeBy: none
+		sourceColumn: Group Tax ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Tax Status'
+		dataType: string
+		lineageTag: 93d1d0dc-6333-4cf2-9e9a-a5e111a981cc
+		summarizeBy: none
+		sourceColumn: Group Tax Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Strategy Code (D)'
+		dataType: string
+		lineageTag: 959985a0-c23d-4f12-be6c-4cc364bac86a
+		summarizeBy: none
+		sourceColumn: Portfolio Strategy Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Strategy (D)'
+		dataType: string
+		lineageTag: 209acba5-7186-4d19-847e-6542cfdcbf5d
+		summarizeBy: none
+		sourceColumn: Portfolio Strategy (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Investment Mandate'
+		dataType: string
+		lineageTag: 1d69c651-93e0-4764-8150-8e4ccf8c52da
+		summarizeBy: none
+		sourceColumn: Investment Mandate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Asset Mix'
+		dataType: string
+		lineageTag: 346823a3-ab7e-4c61-9c15-705c7ff1e0cd
+		summarizeBy: none
+		sourceColumn: Portfolio Asset Mix
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Manager Name (D)'
+		dataType: string
+		lineageTag: 09ae548d-c2f2-4b00-879a-4275fe712423
+		summarizeBy: none
+		sourceColumn: Portfolio Manager Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Manager 2 Name'
+		dataType: string
+		lineageTag: 3ab9acb8-933e-42cb-8996-ed0c3add68d3
+		summarizeBy: none
+		sourceColumn: Portfolio Manager 2 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Team Name (D)'
+		dataType: string
+		lineageTag: f753301d-0894-4b08-b1e4-33dc46826bc4
+		summarizeBy: none
+		sourceColumn: Portfolio Team Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Team 2 Name'
+		dataType: string
+		lineageTag: b933f43c-7faa-4274-a7a1-2fb12973e2ef
+		summarizeBy: none
+		sourceColumn: Portfolio Team 2 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Performance Start Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 7df31a28-1280-4302-beb3-2f21efd17357
+		summarizeBy: none
+		sourceColumn: Performance Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Portfolio Start Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: addfd0f2-f334-468a-94fa-4c2c95de44d8
+		summarizeBy: none
+		sourceColumn: Portfolio Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Portfolio Benchmark 1 ID'
+		dataType: string
+		lineageTag: b4309577-04a6-4b18-a47c-fa6450d47bd2
+		summarizeBy: none
+		sourceColumn: Portfolio Benchmark 1 ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Benchmark 2 ID'
+		dataType: string
+		lineageTag: b00c07ff-6637-479d-87e0-f6be2cd09280
+		summarizeBy: none
+		sourceColumn: Portfolio Benchmark 2 ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Benchmark 1 Name'
+		dataType: string
+		lineageTag: dc6fdaaa-ae4d-4e5f-96b2-d99a634ec385
+		summarizeBy: none
+		sourceColumn: Portfolio Benchmark 1 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Benchmark 2 Name'
+		dataType: string
+		lineageTag: c60c0b62-ceb7-477f-a1fa-9e3d4dff8de5
+		summarizeBy: none
+		sourceColumn: Portfolio Benchmark 2 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IFRS Trading Philosophy Code (D)'
+		dataType: string
+		lineageTag: 0a6aac44-230a-46eb-9bce-d356c80be59a
+		summarizeBy: none
+		sourceColumn: IFRS Trading Philosophy Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IAS39 Trading Philosophy Code (D)'
+		dataType: string
+		lineageTag: 36fd7283-1f0b-4fa2-9c57-8216c82239e1
+		summarizeBy: none
+		sourceColumn: IAS39 Trading Philosophy Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JGAAP Trading Philosophy Code (D)'
+		dataType: string
+		lineageTag: be761388-19a2-4867-8150-a2f5ad4003e2
+		summarizeBy: none
+		sourceColumn: JGAAP Trading Philosophy Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'USGAAP Trading Philosophy Code (D)'
+		dataType: string
+		lineageTag: efe5c91c-4e93-4874-ac9b-add4803e3b4a
+		summarizeBy: none
+		sourceColumn: USGAAP Trading Philosophy Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Proxy Voting Ind (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4d121fcf-b84d-4c1a-a60a-364e32175337
+		summarizeBy: sum
+		sourceColumn: Proxy Voting Ind (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Portfolio Code'
+		dataType: string
+		lineageTag: 821d9891-5e71-4001-b8f9-01e1cc241415
+		summarizeBy: none
+		sourceColumn: Asset Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Custodian Account Num Code (D)'
+		dataType: string
+		lineageTag: f12a3533-5e3f-4bc3-9451-48c903a149cd
+		summarizeBy: none
+		sourceColumn: Custodian Account Num Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Status Code'
+		dataType: string
+		lineageTag: 12a5514d-6b13-4935-8202-728e875a81aa
+		summarizeBy: none
+		sourceColumn: Accounting Status Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lawson Legal Name'
+		dataType: string
+		lineageTag: 549f6711-402b-41ba-8bbf-25a9fdd9febc
+		summarizeBy: none
+		sourceColumn: Lawson Legal Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lawson Legal ID (D)'
+		dataType: string
+		lineageTag: f58d8b31-5b2a-4222-86c2-a26700a30eae
+		summarizeBy: none
+		sourceColumn: Lawson Legal ID (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lawson Segment Name'
+		dataType: string
+		lineageTag: 2bd0dfaa-f7a9-4b06-933d-40fe338862b9
+		summarizeBy: none
+		sourceColumn: Lawson Segment Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Subfund ID (D)'
+		dataType: string
+		lineageTag: 2be8ff2d-0d1b-4d3a-941d-fd91f6ae33ed
+		summarizeBy: none
+		sourceColumn: Subfund ID (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Subfund Name (D)'
+		dataType: string
+		lineageTag: d80a85d9-bc6e-4f14-a034-854628738b44
+		summarizeBy: none
+		sourceColumn: Subfund Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Subfund Join Key Code'
+		dataType: string
+		lineageTag: 250875c9-6bf5-4786-9243-0feee4e78303
+		summarizeBy: none
+		sourceColumn: Subfund Join Key Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Portfolio Value'
+		dataType: double
+		isHidden
+		lineageTag: efe6a276-df16-48f0-85ef-edf67490f2cc
+		summarizeBy: sum
+		sourceColumn: Base Portfolio Value
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Calculated Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn:ss AM/PM
+		lineageTag: 84d59d9d-a847-475c-8d8c-27ec3e49fa8d
+		summarizeBy: none
+		sourceColumn: Calculated Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Calculation'
+		dataType: string
+		lineageTag: 86cd5448-58c6-40ee-b20c-7e46935c5eb5
+		summarizeBy: none
+		sourceColumn: Portfolio Calculation
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month End Status Code'
+		dataType: string
+		lineageTag: 24c127ed-868b-4024-8a96-30a3fec982ba
+		summarizeBy: none
+		sourceColumn: Month End Status Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Iddl Region Cycle'
+		dataType: string
+		lineageTag: ff85ec74-423f-48aa-881e-b828efb03127
+		summarizeBy: none
+		sourceColumn: Iddl Region Cycle
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mam Business Group'
+		dataType: string
+		lineageTag: 57e93f42-cc43-4eaa-a1c0-4bb857eeae12
+		summarizeBy: none
+		sourceColumn: Mam Business Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Iddl Valuation Cycle'
+		dataType: string
+		lineageTag: dda5f84c-6adf-494e-b648-4b8fa53a441a
+		summarizeBy: none
+		sourceColumn: Iddl Valuation Cycle
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio As of Period'
+		dataType: string
+		lineageTag: e56e55f8-cecf-4512-bdaa-4af494c7f214
+		summarizeBy: none
+		sourceColumn: Portfolio As of Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lead Advisor Code (D)'
+		dataType: string
+		lineageTag: 406a48e3-0e54-471c-a503-ed75237d76d2
+		summarizeBy: none
+		sourceColumn: Lead Advisor Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lead Advisor Name (D)'
+		dataType: string
+		lineageTag: ee713c3e-dbda-4a0f-bf9d-9bd736318af1
+		summarizeBy: none
+		sourceColumn: Lead Advisor Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Advisor Code'
+		dataType: string
+		lineageTag: ac297e27-b270-463f-b4cd-836072e1357f
+		summarizeBy: none
+		sourceColumn: Sub Advisor Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Advisor Name'
+		dataType: string
+		lineageTag: 9de22016-5cfc-43e0-ba47-028b186b7312
+		summarizeBy: none
+		sourceColumn: Sub Advisor Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Advisor 2 Code'
+		dataType: string
+		lineageTag: 0bdc5a99-df82-4a67-bbab-77ebcd4d77dc
+		summarizeBy: none
+		sourceColumn: Sub Advisor 2 Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Advisor 2 Name'
+		dataType: string
+		lineageTag: 2e12600f-9e77-4975-ab8f-b9f8179513fd
+		summarizeBy: none
+		sourceColumn: Sub Advisor 2 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Advisor City'
+		dataType: string
+		lineageTag: aeddc914-84d2-480b-97e5-0d872965b3a6
+		summarizeBy: none
+		sourceColumn: Group Advisor City
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Advisor 2 City'
+		dataType: string
+		lineageTag: ed3ab048-e696-4b34-88b2-ce2ab4d78bc7
+		summarizeBy: none
+		sourceColumn: Group Advisor 2 City
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sleeve Manager City'
+		dataType: string
+		lineageTag: 74460f38-eaf8-4937-8d98-c8f927f90e4c
+		summarizeBy: none
+		sourceColumn: Sleeve Manager City
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pm Region Name'
+		dataType: string
+		lineageTag: 93902c23-48ad-4ae1-9a17-77b4052c926b
+		summarizeBy: none
+		sourceColumn: Pm Region Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Termination Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 852f96b6-e6e6-40d5-b4c4-fdc7822a9f9e
+		summarizeBy: none
+		sourceColumn: Termination Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Default Asset Class (D)'
+		dataType: string
+		lineageTag: e5399453-aea0-492c-b55c-85bb652a1f6a
+		summarizeBy: none
+		sourceColumn: Default Asset Class (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ledger Type'
+		dataType: string
+		lineageTag: 59c1979c-23a1-4e4d-b049-50c4ef10d14b
+		summarizeBy: none
+		sourceColumn: Ledger Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Business Objective'
+		dataType: string
+		lineageTag: 314eed0d-6de9-44d3-a9ec-6217d7186b2f
+		summarizeBy: none
+		sourceColumn: Group Business Objective
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sleeve Business Objective'
+		dataType: string
+		lineageTag: 89c0a39c-8e2c-441f-b81e-c84bb0df33f1
+		summarizeBy: none
+		sourceColumn: Sleeve Business Objective
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inventory Costing Method'
+		dataType: string
+		lineageTag: baeb9217-db27-41b6-8f3a-ec13fc2ce215
+		summarizeBy: none
+		sourceColumn: Inventory Costing Method
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sector Scheme'
+		dataType: string
+		lineageTag: ad7ba63a-a050-45eb-89b8-ec9452dc1695
+		summarizeBy: none
+		sourceColumn: Sector Scheme
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is Port'
+		dataType: int64
+		formatString: 0
+		lineageTag: 13e2ab46-95c4-4042-920b-585dd3b02636
+		summarizeBy: sum
+		sourceColumn: Is Port
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As Port'
+		dataType: int64
+		formatString: 0
+		lineageTag: d9550360-6535-456e-9d9c-4f7a3c87bf52
+		summarizeBy: sum
+		sourceColumn: As Port
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As Port Transaction'
+		dataType: int64
+		formatString: 0
+		lineageTag: e774eb22-a19b-43fa-99dd-b72d4ced13b8
+		summarizeBy: sum
+		sourceColumn: As Port Transaction
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As Bloomberg 7000'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4b01e773-e613-48d0-9e81-d89cb6b9b2c7
+		summarizeBy: sum
+		sourceColumn: As Bloomberg 7000
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As Cogent'
+		dataType: int64
+		formatString: 0
+		lineageTag: 88a8180e-5888-4de9-bfad-476be28d7533
+		summarizeBy: sum
+		sourceColumn: As Cogent
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As Factset'
+		dataType: int64
+		formatString: 0
+		lineageTag: 63f4da27-a869-4a92-a6ac-632d3ed175c5
+		summarizeBy: sum
+		sourceColumn: As Factset
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As Findur (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: fba86abf-8769-47a9-9e8e-748ab8e6ea97
+		summarizeBy: sum
+		sourceColumn: As Findur (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As Barraone'
+		dataType: int64
+		formatString: 0
+		lineageTag: a6d4ada6-9709-4c4a-85ef-019ef3e83a1c
+		summarizeBy: sum
+		sourceColumn: As Barraone
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As Bpm'
+		dataType: int64
+		formatString: 0
+		lineageTag: ca020486-88cb-4182-bb8b-2a101a227f75
+		summarizeBy: sum
+		sourceColumn: As Bpm
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Group Advisor Type List'
+		dataType: string
+		lineageTag: 8b2f97f8-5451-49ef-919e-8c6b13e65cc1
+		summarizeBy: none
+		sourceColumn: Portfolio Group Advisor Type List
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Allow Repo Ind'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9082c707-e8df-4140-9c1d-b5121d263f52
+		summarizeBy: sum
+		sourceColumn: Allow Repo Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Allow Short Repo Cash Ind'
+		dataType: int64
+		formatString: 0
+		lineageTag: 52910c88-f0f5-43a5-9bd2-a6ba637114ed
+		summarizeBy: sum
+		sourceColumn: Allow Short Repo Cash Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Allow Derivatives Ind (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 40d21cf5-76e0-4b2f-84bb-cbadcb36a757
+		summarizeBy: sum
+		sourceColumn: Allow Derivatives Ind (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is Model Portfolio Ind'
+		dataType: int64
+		formatString: 0
+		lineageTag: 866390c9-362b-48e3-8163-b3b2f4e91b83
+		summarizeBy: sum
+		sourceColumn: Is Model Portfolio Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Allow Securities Lending Ind (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 28d55ad0-ee13-4868-9e2a-66bd64874f08
+		summarizeBy: sum
+		sourceColumn: Allow Securities Lending Ind (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Performance End Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: d8f5990a-4c0d-45cd-8a1c-ddf242127803
+		summarizeBy: none
+		sourceColumn: Performance End Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Lead Sleeve Port Mgr Lgl Ent List'
+		dataType: string
+		lineageTag: b2cce123-9840-4e48-abbb-e03851cb3536
+		summarizeBy: none
+		sourceColumn: Lead Sleeve Port Mgr Lgl Ent List
+
+		annotation SummarizationSetBy = Automatic
+
+	column Advisory
+		dataType: string
+		lineageTag: 07a98feb-d8f0-47b2-8d39-19c6d1dd1bbb
+		summarizeBy: none
+		sourceColumn: Advisory
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Investment Desk (D)'
+		dataType: string
+		lineageTag: be7af51c-528e-4bf4-a35b-6f216661f14d
+		summarizeBy: none
+		sourceColumn: Investment Desk (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Territory Code (D)'
+		dataType: string
+		lineageTag: 63d4472c-f9a1-45e8-9bf3-8fa2923e0b28
+		summarizeBy: none
+		sourceColumn: Territory Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Owner (D)'
+		dataType: string
+		lineageTag: 1e7337a8-44d3-4b50-ba2c-8ddc53ceebbc
+		summarizeBy: none
+		sourceColumn: Portfolio Owner (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bank Account (D)'
+		dataType: string
+		lineageTag: b63b1e19-d018-4582-b31a-f0fbb6aa2941
+		summarizeBy: none
+		sourceColumn: Bank Account (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bank Ident (D)'
+		dataType: string
+		lineageTag: ac6a5c7c-9152-448c-888a-5a3a7ba0cb72
+		summarizeBy: none
+		sourceColumn: Bank Ident (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lending Indicator (D)'
+		dataType: string
+		lineageTag: c579dbf5-486a-4819-a8eb-8e7b3a2f4e32
+		summarizeBy: none
+		sourceColumn: Lending Indicator (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Maximis Portfolio Number'
+		dataType: string
+		lineageTag: b838c6ba-a2af-4f61-ba21-dd3d3d81e160
+		summarizeBy: none
+		sourceColumn: Maximis Portfolio Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Forecasted Indicator (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4d7022de-8d34-4bbc-bd81-9ed555bf0542
+		summarizeBy: sum
+		sourceColumn: Forecasted Indicator (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bank Account Number List (D)'
+		dataType: string
+		lineageTag: d1d73223-e562-46bc-95c8-b193e26ea7dc
+		summarizeBy: none
+		sourceColumn: Bank Account Number List (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Regulated Account Indicator (D)'
+		dataType: string
+		lineageTag: dfea562c-2fb0-4093-9ff6-2fd5d5ff58a2
+		summarizeBy: none
+		sourceColumn: Regulated Account Indicator (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bank Currencies List (D)'
+		dataType: string
+		lineageTag: 8d4775d7-8f14-48be-b63c-87eaf6f9e704
+		summarizeBy: none
+		sourceColumn: Bank Currencies List (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Other Invested Asset Code (D)'
+		dataType: string
+		lineageTag: 2ac8bff0-5cf3-4bdd-a126-80f9befa37f1
+		summarizeBy: none
+		sourceColumn: Other Invested Asset Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Custodian Account Number List'
+		dataType: string
+		lineageTag: a49b166f-22fb-442f-8d01-b4a990c35890
+		summarizeBy: none
+		sourceColumn: Custodian Account Number List
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sleeve Manager Team List'
+		dataType: string
+		lineageTag: a218477c-1b88-4d97-a3f3-ff16523781b4
+		summarizeBy: none
+		sourceColumn: Sleeve Manager Team List
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Created Ts'
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn:ss AM/PM
+		lineageTag: 470f00e6-c470-4174-9870-feabf6174fc0
+		summarizeBy: none
+		sourceColumn: Created Ts
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Updated Ts'
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn:ss AM/PM
+		lineageTag: b094d00f-9b5d-45fe-9f8b-f68bc1cf1183
+		summarizeBy: none
+		sourceColumn: Updated Ts
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'On/Off Bal Sheet' = IF (UPPER('Portfolios Attributes'[On off Balance])= "ON" ,"On","Off")
+		isHidden
+		lineageTag: 4be3111b-c008-4b82-b168-895b217f7631
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm Segment Currency'
+		dataType: string
+		lineageTag: 500d12d0-301c-4b8a-bd0b-9904384cde3c
+		summarizeBy: none
+		sourceColumn: Alm Segment Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column AS_KYRIBA
+		dataType: int64
+		formatString: 0
+		lineageTag: e1e20e10-b56d-4a53-8e85-076ad4d3fdd5
+		summarizeBy: sum
+		sourceColumn: AS_KYRIBA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACCOUNTING_CYCLE
+		dataType: string
+		lineageTag: 6cedc070-04ef-445c-a281-d53945bade9b
+		summarizeBy: none
+		sourceColumn: ACCOUNTING_CYCLE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ALLOW_CROSS_TRADES
+		dataType: string
+		lineageTag: ff0f4e62-e5ff-474a-9a41-39ed518182d6
+		summarizeBy: none
+		sourceColumn: ALLOW_CROSS_TRADES
+
+		annotation SummarizationSetBy = Automatic
+
+	column ALLOW_SHORT_POSITION
+		dataType: string
+		lineageTag: a5349ab9-0f08-4ecf-b235-bd2f488d44eb
+		summarizeBy: none
+		sourceColumn: ALLOW_SHORT_POSITION
+
+		annotation SummarizationSetBy = Automatic
+
+	column ALLOW_TBA
+		dataType: string
+		lineageTag: aea6b039-9b60-4663-9743-9eeca8094dab
+		summarizeBy: none
+		sourceColumn: ALLOW_TBA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ALLOW_TERM_LOANS
+		dataType: string
+		lineageTag: 8229b26f-a914-4d70-8700-b64ff578ecba
+		summarizeBy: none
+		sourceColumn: ALLOW_TERM_LOANS
+
+		annotation SummarizationSetBy = Automatic
+
+	column BUSINESS_UNIT
+		dataType: string
+		lineageTag: 5970f9af-ddf0-4a55-bffd-3396fc793e58
+		summarizeBy: none
+		sourceColumn: BUSINESS_UNIT
+
+		annotation SummarizationSetBy = Automatic
+
+	column DELETE_ZERO_POSITIONS
+		dataType: string
+		lineageTag: d8e9e755-bdda-4da6-a019-99d7ec68845d
+		summarizeBy: none
+		sourceColumn: DELETE_ZERO_POSITIONS
+
+		annotation SummarizationSetBy = Automatic
+
+	column DIVISION
+		dataType: string
+		lineageTag: 9b7263f1-4e93-4e51-9925-b74c95355100
+		summarizeBy: none
+		sourceColumn: DIVISION
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXPECTED_FUNDING_DATE
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 1981a465-13d0-428f-9ee8-e9576b1ce90f
+		summarizeBy: none
+		sourceColumn: EXPECTED_FUNDING_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_TRANSITION_PORTFOLIO
+		dataType: string
+		lineageTag: 1626c87b-ccc8-4e81-b061-599583f2f6c1
+		summarizeBy: none
+		sourceColumn: IS_TRANSITION_PORTFOLIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column NONPARTICIPATING_LPCD_REASON
+		dataType: string
+		lineageTag: b1d88e0e-c494-4fc9-bc57-93e2a9e63fce
+		summarizeBy: none
+		sourceColumn: NONPARTICIPATING_LPCD_REASON
+
+		annotation SummarizationSetBy = Automatic
+
+	column PORTF_REGION
+		dataType: string
+		lineageTag: fdf7af57-dd62-4749-95b7-99d1b1750b8b
+		summarizeBy: none
+		sourceColumn: PORTF_REGION
+
+		annotation SummarizationSetBy = Automatic
+
+	column PORTF_SWEEP_INDICATOR
+		dataType: string
+		lineageTag: 016c8b1b-9b8f-4885-bafd-c2ec34b5e954
+		summarizeBy: none
+		sourceColumn: PORTF_SWEEP_INDICATOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column RESERVE_NONRESERVE_CD
+		dataType: string
+		lineageTag: 3d99f195-2acd-41b5-9607-15d4aa235905
+		summarizeBy: none
+		sourceColumn: RESERVE_NONRESERVE_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column RETAINED_TRADE_PNL_HISTORY
+		dataType: string
+		lineageTag: 053ec7f8-990c-4b7b-8fa8-8a5101d03289
+		summarizeBy: none
+		sourceColumn: RETAINED_TRADE_PNL_HISTORY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SEGMENT_CURRENCY_CD
+		dataType: string
+		lineageTag: f64fd911-231f-4b3a-82d4-81ccfea2942c
+		summarizeBy: none
+		sourceColumn: SEGMENT_CURRENCY_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column SWEEP_DIRECTION_INDICATOR
+		dataType: string
+		lineageTag: 623da569-2832-4d34-baab-c2be60d9e2a6
+		summarizeBy: none
+		sourceColumn: SWEEP_DIRECTION_INDICATOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column TARGET_CASH_SWEEP_PORTF
+		dataType: string
+		lineageTag: 545d29f2-5a5b-4ab9-b5e8-a167ddb7c045
+		summarizeBy: none
+		sourceColumn: TARGET_CASH_SWEEP_PORTF
+
+		annotation SummarizationSetBy = Automatic
+
+	column ALM_SEGMENT_TYPE
+		dataType: string
+		lineageTag: 5b1f4331-5f05-4c22-b520-decf76012b2c
+		summarizeBy: none
+		sourceColumn: ALM_SEGMENT_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SLEEVE_MANAGER_COUNTRY_1
+		dataType: string
+		lineageTag: 9dcbd9fd-02c2-4a0b-99d3-fb896232deeb
+		summarizeBy: none
+		sourceColumn: SLEEVE_MANAGER_COUNTRY_1
+
+		annotation SummarizationSetBy = Automatic
+
+	column PORTFOLIO_GROUP_ADVISOR_COUNTRY_1
+		dataType: string
+		lineageTag: 6b74c420-9ee6-4fc6-b95a-6b631c330685
+		summarizeBy: none
+		sourceColumn: PORTFOLIO_GROUP_ADVISOR_COUNTRY_1
+
+		annotation SummarizationSetBy = Automatic
+
+	column PORTFOLIO_GROUP_ADVISOR_COUNTRY_2
+		dataType: string
+		lineageTag: 682a1361-52a5-4e25-a162-cb8c7aaa5f26
+		summarizeBy: none
+		sourceColumn: PORTFOLIO_GROUP_ADVISOR_COUNTRY_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column PORTFOLIO_GROUP_ADVISOR_COUNTRY_3
+		dataType: string
+		lineageTag: ebe774f5-5581-4065-91e1-36e7655ab63b
+		summarizeBy: none
+		sourceColumn: PORTFOLIO_GROUP_ADVISOR_COUNTRY_3
+
+		annotation SummarizationSetBy = Automatic
+
+	column PORTFOLIO_SLEEVE_TERMINATION_DATE
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: dc0d8312-33d0-4591-8cb6-6187da377af0
+		summarizeBy: none
+		sourceColumn: PORTFOLIO_SLEEVE_TERMINATION_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column TAX_REF_COUNTRY_CD
+		dataType: string
+		lineageTag: 97222f86-deae-48bd-9a7d-81f56a0a2929
+		summarizeBy: none
+		sourceColumn: TAX_REF_COUNTRY_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column PORTFOLIO_SLEEVE_CREATION_DATE
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 7cb9aa08-09cf-4d4d-b6c8-71d5cf5073e9
+		summarizeBy: none
+		sourceColumn: PORTFOLIO_SLEEVE_CREATION_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column PORTFOLIO_GROUP_ADVISOR_CITY_3
+		dataType: string
+		lineageTag: 8876a7b5-bb45-4448-ad68-75c14ceec8b0
+		summarizeBy: none
+		sourceColumn: PORTFOLIO_GROUP_ADVISOR_CITY_3
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alternate Pm Team'
+		dataType: string
+		lineageTag: 4a27016c-1af2-445d-9a7e-a55d65032d24
+		summarizeBy: none
+		sourceColumn: Alternate Pm Team
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Join Key'
+		dataType: string
+		lineageTag: 7473f71c-eec5-42da-9a78-0fa4c4ba926f
+		summarizeBy: none
+		sourceColumn: Portfolio Join Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tmv_Nk
+		dataType: string
+		lineageTag: 7a0a4dc8-889f-46f0-9bfd-247289825720
+		summarizeBy: none
+		sourceColumn: Tmv_Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Portfolios Attributes-aebf6d6a-8742-4b42-b1a7-d7bc6a908c8e' = m
+		mode: import
+		queryGroup: 'Infor GL'
+		source =
+				let
+				    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0), EnableQueryResultDownload="0"]),
+				    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+				    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+				    EDL_portfolio_dim = inv_semantic_ga_Schema{[Name="portfolio_dim",Kind="Table"]}[Data],
+				    #"Renamed Columns" = Table.RenameColumns(EDL_portfolio_dim,
+				            {
+				            {"PORTFOLIO_CD","Portfolio Code"}	,
+				            {"AS_OF_PERIOD","As of Period"}	,
+				            {"AS_OF_DT","As of Date"}	,
+				            {"AS_OF_YEAR","As of Year"}	,
+				            {"AS_OF_MONTH","As of Month"}	,
+				            {"LEGACY_PORTFOLIO_CD","Legacy Portfolio Code"}	,
+				            {"PORTFOLIO_NM","Portfolio Name"}	,
+				            {"PORTFOLIO_CODE_NM","Portfolio Code & Name"}	,
+				            {"GROUP_CD","Group Code"}	,
+				            {"PORTFOLIO_GROUP_CODE_NM","Portfolio Group Code & Name"}	,
+				            {"GROUP_NM","Group Name"}	,
+				            {"BASE_CCY_CD","Base Ccy Code"}	,
+				            {"BASE_CCY_NM","Base Ccy Name"}	,
+				            {"OPERATING_CCY_CD","Operating Ccy Code"}	,
+				            {"OPERATING_CCY_NM","Operating Ccy Name"}	,
+				            {"PORTFOLIO_FILTER_TYPE","Portfolio Filter Type"}	,
+				            {"CLIENT_REGION_NM","Client Region Name"}	,
+				            {"GROUP_SUB_TYPE","Group Sub Type"}	,
+				            {"CLIENT_ID","Client Id"}	,
+				            {"CLIENT_NM","Client Name"}	,
+				            {"CLIENT_2_NM","Client 2 Name"}	,
+				            {"INT_EXT","Int Ext"}	,
+				            {"RELATIONSHIP_MANAGER_NM","Relationship Manager Name"}	,
+				            {"LEGACY_CD","Legacy Code"}	,
+				            {"PORTFOLIO_TYPE","Portfolio Type"}	,
+				            {"SEED_PORTFOLIO_IND","Seed Portfolio Ind"}	,
+				            {"IMMEDIATE_LIQUIDITY_POOL_CD","Immediate Liquidity Pool Code"}	,
+				            {"INV_LP_PORT_CD","Inv Lp Port Code"}	,
+				            {"LOT_CLOSING_METHOD","Lot Closing Method"}	,
+				            {"LPCD_PARTICIPATE_IND","Lpcd Participate Ind"}	,
+				            {"PRIVATE_PORTF_IND","Private Portf Ind"}	,
+				            {"SEPARATE_ACCOUNT_IND","Separate Account Ind"}	,
+				            {"DEPOSIT_TYPE","Deposit Type"}	,
+				            {"ASIA_LGAAP_TRADING_PHILOSOPHY_CD","Asia Lgaap Trading Philosophy Code"}	,
+				            {"ON_OFF_BALANCE","On off Balance"}	,
+				            {"LIABILITY_SURPLUS","Liability Surplus"}	,
+				            {"PORTFOLIO_SLEEVE_STATUS","Portfolio Sleeve Status"}	,
+				            {"TRANSFER_AGENT_1","Transfer Agent 1"}	,
+				            {"TRANSFER_AGENT_2","Transfer Agent 2"}	,
+				            {"TRANSFER_AGENT_3","Transfer Agent 3"}	,
+				            {"TRANSFER_AGENT_NAME_1","Transfer Agent Name 1"}	,
+				            {"TRANSFER_AGENT_NAME_2","Transfer Agent Name 2"}	,
+				            {"TRANSFER_AGENT_NAME_3","Transfer Agent Name 3"}	,
+				            {"PAYMENT_RECON_PRINCIPLE_CD","Payment Recon Principle Code"}	,
+				            {"CLIENT_REPORTING_REQUIRED_IND","Client Reporting Required Ind"}	,
+				            {"HEDGE_PARTICIPATION_IND","Hedge Participation Ind"}	,
+				            {"IFRS9_BUSINESS_MODEL_CD","Ifrs9 Business Model Code"}	,
+				            {"IFRS9_IND","Ifrs9 Ind"}	,
+				            {"HOUSE_HOLDING_ACCT_IND","House Holding Acct Ind"}	,
+				            {"NAFI_GROUP_CD","Nafi Group Code"}	,
+				            {"PAR_NONPAR","Par Nonpar"}	,
+				            {"PLATFORM_CD","Platform Code"}	,
+				            {"TRUST_IND","Trust Ind"}	,
+				            {"ACCOUNTING_REQUIRED_IND","Accounting Required Ind"}	,
+				            {"WORK_AREA","Work Area"}	,
+				            {"MIM_INDICATOR","Mim Indicator"}	,
+				            {"SUBFUND_RETAG_DT","Subfund Retag Date"}	,
+				            {"SUBFUND_RETAG_IS_DT","Subfund Retag Is Date"}	,
+				            {"PORTFOLIO_MANAGER_ALT_NM","Portfolio Manager Alt Name"}	,
+				            {"ALM_MARKET_SEGMENT_NM","Alm Market Segment Name"}	,
+				            {"ALM_ALCO","Alm Alco"}	,
+				            {"ALM_SEGMENT_NM","Alm Segment Name"}	,
+				            {"ALM_SUBFUND_NM","Alm Subfund Name"}	,
+				            {"ALM_CNTRY_NM","Alm Cntry Name"}	,
+				            {"ALM_CCY_CD","Alm Ccy Code"}	,
+				            {"ALM_FI_BENCHMARK_NM","Alm Fi Benchmark Name"}	,
+				            {"ALM_REASON","Alm Reason"}	,
+				            {"ALM_SOP_COMPANY_CD","Alm Sop Company Code"}	,
+				            {"ALM_AS_OF_DT","Alm As of Date"}	,
+				            {"CUSTODIAN_LEGAL_ENTITY_IDENTIFIER","Custodian Legal Entity Identifier"}	,
+				            {"CUSTODIAN_CNTRY_NM","Custodian Cntry Name"}	,
+				            {"CUSTODIAN_COMPANY_ADDRESS_TXT","Custodian Company Address Txt"}	,
+				            {"GROUP_STATUS","Group Status"}	,
+				            {"GROUP_PORTFOLIO_MANAGER_NM","Group Portfolio Manager Name"}	,
+				            {"LEGAL_ENTITY","Legal Entity"}	,
+				            {"DOMICILE_CNTRY_CD","Domicile Cntry Code"}	,
+				            {"GROUP_STRATEGY_CD","Group Strategy Code"}	,
+				            {"GROUP_STRATEGY_NM","Group Strategy Name"}	,
+				            {"CUSTODIAN","Custodian"}	,
+				            {"CUSTODIAN_ID","Custodian Id"}	,
+				            {"CUSTODIAN_NM","Custodian Name"}	,
+				            {"FISCAL_YEAR_END","Fiscal Year End"}	,
+				            {"GROUP_LONG_NM","Group Long Name"}	,
+				            {"GROUP_PERFORMANCE_START_DT","Group Performance Start Date"}	,
+				            {"GROUP_INCEPTION_DT","Group Inception Date"}	,
+				            {"GROUP_BENCHMARK_1_ID","Group Benchmark 1 Id"}	,
+				            {"GROUP_BENCHMARK_2_ID","Group Benchmark 2 Id"}	,
+				            {"GROUP_BENCHMARK_1_NM","Group Benchmark 1 Name"}	,
+				            {"GROUP_BENCHMARK_2_NM","Group Benchmark 2 Name"}	,
+				            {"PRIMARY_LANGUAGE","Primary Language"}	,
+				            {"GROUP_TAX_ID","Group Tax Id"}	,
+				            {"GROUP_TAX_STATUS","Group Tax Status"}	,
+				            {"PORTFOLIO_STRATEGY_CD","Portfolio Strategy Code"}	,
+				            {"PORTFOLIO_STRATEGY","Portfolio Strategy"}	,
+				            {"INVESTMENT_MANDATE","Investment Mandate"}	,
+				            {"PORTFOLIO_ASSET_MIX","Portfolio Asset Mix"}	,
+				            {"PORTFOLIO_MANAGER_NM","Portfolio Manager Name"}	,
+				            {"PORTFOLIO_MANAGER_2_NM","Portfolio Manager 2 Name"}	,
+				            {"PORTFOLIO_TEAM_NM","Portfolio Team Name"}	,
+				            {"PORTFOLIO_TEAM_2_NM","Portfolio Team 2 Name"}	,
+				            {"PERFORMANCE_START_DT","Performance Start Date"}	,
+				            {"PORTFOLIO_START_DT","Portfolio Start Date"}	,
+				            {"PORTFOLIO_BENCHMARK_1_ID","Portfolio Benchmark 1 Id"}	,
+				            {"PORTFOLIO_BENCHMARK_2_ID","Portfolio Benchmark 2 Id"}	,
+				            {"PORTFOLIO_BENCHMARK_1_NM","Portfolio Benchmark 1 Name"}	,
+				            {"PORTFOLIO_BENCHMARK_2_NM","Portfolio Benchmark 2 Name"}	,
+				            {"IFRS_TRADING_PHILOSOPHY_CD","Ifrs Trading Philosophy Code"}	,
+				            {"IAS39_TRADING_PHILOSOPHY_CD","Ias39 Trading Philosophy Code"}	,
+				            {"JGAAP_TRADING_PHILOSOPHY_CD","Jgaap Trading Philosophy Code"}	,
+				            {"USGAAP_TRADING_PHILOSOPHY_CD","Usgaap Trading Philosophy Code"}	,
+				            {"PROXY_VOTING_IND","Proxy Voting Ind"}	,
+				            {"ASSET_PORTFOLIO_CD","Asset Portfolio Code"}	,
+				            {"CUSTODIAN_ACCOUNT_NUM_CD","Custodian Account Num Code"}	,
+				            {"ACCOUNTING_STATUS_CD","Accounting Status Code"}	,
+				            {"LAWSON_LEGAL_NM","Lawson Legal Name"}	,
+				            {"LAWSON_LEGAL_ID","Lawson Legal Id"}	,
+				            {"LAWSON_SEGMENT_NM","Lawson Segment Name"}	,
+				            {"SUBFUND_ID","Subfund Id"}	,
+				            {"SUBFUND_NM","Subfund Name"}	,
+				            {"SUBFUND_JOIN_KEY_CD","Subfund Join Key Code"}	,
+				            {"BASE_PORTFOLIO_VALUE","Base Portfolio Value"}	,
+				            {"CALCULATED_DT","Calculated Date"}	,
+				            {"PORTFOLIO_CALCULATION","Portfolio Calculation"}	,
+				            {"MONTH_END_STATUS_CD","Month End Status Code"}	,
+				            {"IDDL_REGION_CYCLE","Iddl Region Cycle"}	,
+				            {"MAM_BUSINESS_GROUP","Mam Business Group"}	,
+				            {"IDDL_VALUATION_CYCLE","Iddl Valuation Cycle"}	,
+				            {"PORTFOLIO_AS_OF_PERIOD","Portfolio As of Period"}	,
+				            {"LEAD_ADVISOR_CD","Lead Advisor Code"}	,
+				            {"LEAD_ADVISOR_NM","Lead Advisor Name"}	,
+				            {"SUB_ADVISOR_CD","Sub Advisor Code"}	,
+				            {"SUB_ADVISOR_NM","Sub Advisor Name"}	,
+				            {"SUB_ADVISOR_2_CD","Sub Advisor 2 Code"}	,
+				            {"SUB_ADVISOR_2_NM","Sub Advisor 2 Name"}	,
+				            {"GROUP_ADVISOR_CITY","Group Advisor City"}	,
+				            {"GROUP_ADVISOR_2_CITY","Group Advisor 2 City"}	,
+				            {"SLEEVE_MANAGER_CITY","Sleeve Manager City"}	,
+				            {"PM_REGION_NM","Pm Region Name"}	,
+				            {"TERMINATION_DT","Termination Date"}	,
+				            {"DEFAULT_ASSET_CLASS","Default Asset Class"}	,
+				            {"LEDGER_TYPE","Ledger Type"}	,
+				            {"GROUP_BUSINESS_OBJECTIVE","Group Business Objective"}	,
+				            {"SLEEVE_BUSINESS_OBJECTIVE","Sleeve Business Objective"}	,
+				            {"INVENTORY_COSTING_METHOD","Inventory Costing Method"}	,
+				            {"SECTOR_SCHEME","Sector Scheme"}	,
+				            {"IS_PORT","Is Port"}	,
+				            {"AS_PORT","As Port"}	,
+				            {"AS_PORT_TRANSACTION","As Port Transaction"}	,
+				            {"AS_BLOOMBERG_7000","As Bloomberg 7000"}	,
+				            {"AS_COGENT","As Cogent"}	,
+				            {"AS_FACTSET","As Factset"}	,
+				            {"AS_FINDUR","As Findur"}	,
+				            {"AS_BARRAONE","As Barraone"}	,
+				            {"AS_BPM","As Bpm"}	,
+				            {"PORTFOLIO_GROUP_ADVISOR_TYPE_LIST","Portfolio Group Advisor Type List"}	,
+				            {"ALLOW_REPO_IND","Allow Repo Ind"}	,
+				            {"ALLOW_SHORT_REPO_CASH_IND","Allow Short Repo Cash Ind"}	,
+				            {"ALLOW_DERIVATIVES_IND","Allow Derivatives Ind"}	,
+				            {"IS_MODEL_PORTFOLIO_IND","Is Model Portfolio Ind"}	,
+				            {"ALLOW_SECURITIES_LENDING_IND","Allow Securities Lending Ind"}	,
+				            {"PERFORMANCE_END_DATE","Performance End Date"}	,
+				            {"LEAD_SLEEVE_PORT_MGR_LGL_ENT_LIST","Lead Sleeve Port Mgr Lgl Ent List"}	,
+				            {"ADVISORY","Advisory"}	,
+				            {"CREATED_TS","Created Ts"}	,
+				            {"UPDATED_TS","Updated Ts"},
+				            {"PORTFOLIO_JOIN_KEY","Portfolio Join Key"},
+				            {"TMV_NK","Tmv_Nk"}
+				}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Renamed Columns",{{"INVESTMENT_DESK", "Investment Desk"}, {"TERRITORY_CODE", "Territory Code"}, {"PORTFOLIO_OWNER", "Portfolio Owner"}, {"BANK_ACCOUNT", "Bank Account"}, {"BANK_IDENT", "Bank Ident"}, {"LENDING_INDICATOR", "Lending Indicator"}, {"MAXIMIS_PORTFOLIO_NUMBER", "Maximis Portfolio Number"}}),
+				    #"Renamed Columns2" = Table.RenameColumns(#"Renamed Columns1",{{"PORTFOLIO_NK", "Portfolio Nk"}, {"FORECASTED_INDICATOR", "Forecasted Indicator (D)"}, {"Investment Desk", "Investment Desk (D)"}, {"OTHER_INVESTED_ASSET_CD", "Other Invested Asset Code (D)"}, {"BANK_CURRENCIES_LIST", "Bank Currencies List (D)"}, {"BANK_ACCOUNT_NUMBER_LIST", "Bank Account Number List (D)"}, {"Territory Code", "Territory Code (D)"}, {"Subfund Name", "Subfund Name (D)"}, {"Portfolio Strategy", "Portfolio Strategy (D)"}, {"Portfolio Strategy Code", "Portfolio Strategy Code (D)"}, {"Portfolio Team Name", "Portfolio Team Name (D)"}, {"REGULATED_ACCOUNT_IND", "Regulated Account Indicator (D)"}, {"Portfolio Owner", "Portfolio Owner (D)"}, {"Portfolio Manager Alt Name", "Portfolio Manager Alt Name (D)"}, {"CUSTODIAN_ACCOUNT_NUMBER_LIST", "Custodian Account Number List"}, {"SLEEVE_MANAGER_TEAM_LIST", "Sleeve Manager Team List"}, {"Ifrs Trading Philosophy Code", "IFRS Trading Philosophy Code (D)"}, {"Ifrs9 Business Model Code", "IFRS9 Business Model Code"}, {"Ifrs9 Ind", "IFRS9 Ind"}, {"Jgaap Trading Philosophy Code", "JGAAP Trading Philosophy Code (D)"}, {"Ias39 Trading Philosophy Code", "IAS39 Trading Philosophy Code (D)"}, {"Usgaap Trading Philosophy Code", "USGAAP Trading Philosophy Code (D)"}, {"Allow Derivatives Ind", "Allow Derivatives Ind (D)"}, {"Allow Securities Lending Ind", "Allow Securities Lending Ind (D)"}, {"Alm As of Date", "Alm As of Date (D)"}, {"Alm Fi Benchmark Name", "Alm Fi Benchmark Name (D)"}, {"Liability Surplus", "Liability Surplus (D)"}, {"Custodian Name", "Custodian Name (D)"}, {"Lending Indicator", "Lending Indicator (D)"}, {"Bank Account", "Bank Account (D)"}, {"Bank Ident", "Bank Ident (D)"}, {"Lead Advisor Code", "Lead Advisor Code (D)"}, {"Lead Advisor Name", "Lead Advisor Name (D)"}, {"Custodian Legal Entity Identifier", "Custodian Legal Entity Identifier (D)"}, {"Custodian Cntry Name", "Custodian Country Name (D)"}, {"Custodian Company Address Txt", "Custodian Company Address Txt (D)"}, {"Custodian Id", "Custodian ID (D)"}, {"Custodian", "Custodian (D)"}, {"Custodian Account Num Code", "Custodian Account Num Code (D)"}, {"Immediate Liquidity Pool Code", "Immediate Liquidity Pool Code (D)"}, {"Inv Lp Port Code", "Inv Lp Port Code (D)"}, {"Payment Recon Principle Code", "Payment Recon Principle Code (D)"}, {"Default Asset Class", "Default Asset Class (D)"}, {"Lot Closing Method", "Lot Closing Method (D)"}, {"Group Code", "Group Code (D)"}, {"Group Status", "Group Status (D)"}, {"Int Ext", "Int Ext (D)"}, {"Legacy Code", "Legacy Code (D)"}, {"Group Strategy Name", "Group Strategy Name (D)"}, {"Legal Entity", "Legal Entity (D)"}, {"Alm Reason", "Alm Reason (D)"}, {"Alm Alco", "Alm ALCO (D)"}, {"Deposit Type", "Deposit Type (D)"}, {"Alm Subfund Name", "Alm Subfund Name (D)"}, {"Alm Sop Company Code", "Alm Sop Company Code (D)"}, {"Alm Segment Name", "Alm Segment Name (D)"}, {"Alm Market Segment Name", "Alm Market Segment Name (D)"}, {"Alm Cntry Name", "Alm Cntry Name (D)"}, {"Alm Ccy Code", "Alm Ccy Code (D)"}, {"Domicile Cntry Code", "Domicile Cntry Code (D)"}, {"As Findur", "As Findur (D)"}, {"As of Date", "As of Date (D)"}, {"Work Area", "Work Area (D)"}, {"Base Ccy Code", "Base Ccy Code (D)"}, {"Subfund Id", "Subfund ID (D)"}, {"Separate Account Ind", "Separate Account Ind (D)"}, {"Seed Portfolio Ind", "Seed Portfolio Ind (D)"}, {"Lawson Legal Id", "Lawson Legal ID (D)"}, {"Portfolio Manager Name", "Portfolio Manager Name (D)"}, {"Proxy Voting Ind", "Proxy Voting Ind (D)"}, {"Private Portf Ind", "Private Portf Ind (D)"}, {"Group Benchmark 2 Id", "Group Benchmark 2 ID"}, {"Group Benchmark 1 Id", "Group Benchmark 1 ID"}, {"Group Tax Id", "Group Tax ID"}, {"Client Id", "Client ID"}, {"Portfolio Benchmark 1 Id", "Portfolio Benchmark 1 ID"}, {"Portfolio Benchmark 2 Id", "Portfolio Benchmark 2 ID"}, {"ALM_SEGMENT_CURRENCY", "Alm Segment Currency"}, {"ALTERNATE_PM_TEAM", "Alternate Pm Team"}})
+				in
+				    #"Renamed Columns2"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

@@ -1,0 +1,7 @@
+role 'Indonesia Portfolios Only'
+	modelPermission: read
+
+	tablePermission Portfolios = [Domicile Cntry Code] = "ID" || [Sleeve Manager City] = "Jakarta" || [Group Advisor City] = "Jakarta" || [Group Advisor 2 City] = "Jakarta"
+
+	annotation PBI_Id = 0719528cdc114d3f98d35e8cb5782357
+

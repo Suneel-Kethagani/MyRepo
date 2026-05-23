@@ -1,0 +1,23 @@
+table 'Impairment Slicer'
+	isHidden
+	lineageTag: 4b04258a-9842-48ca-8698-0990e94d9cc3
+
+	column Values
+		dataType: string
+		lineageTag: 0245f14d-7db3-45d0-8318-764210600e29
+		summarizeBy: none
+		sourceColumn: Values
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Impairment Slicer-ed8bdfff-d01e-4fd6-a047-79133bab59d2' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45Wci5KTcksUQhKTc4vSy2qVIrVgYt55hYkZhblpuaVgEUDSpNyMpMVXAtLM0sqFfxDQjwxVBRlliWWpOJUEgsA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Values = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Values", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

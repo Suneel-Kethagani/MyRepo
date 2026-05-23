@@ -1,0 +1,139 @@
+table 'Adjust GL Reclass Fact'
+	lineageTag: 04bb89a9-eec4-4191-aa44-59006ff327a4
+
+	column 'Security Nk'
+		dataType: string
+		lineageTag: 644b2d44-9733-42c4-9f6d-a24885344611
+		summarizeBy: none
+		sourceColumn: Security Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Accounting Unit Cd'
+		dataType: string
+		lineageTag: ec636a01-eeed-4540-b1cc-3eac933dce68
+		summarizeBy: none
+		sourceColumn: Company Accounting Unit Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Nk'
+		dataType: string
+		lineageTag: 6dd377e1-ca2f-4673-aff5-007c11537f3f
+		summarizeBy: none
+		sourceColumn: Portfolio Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Framework Code'
+		dataType: string
+		lineageTag: 9419e18c-7d57-4c7f-bb20-14f650b87e5b
+		summarizeBy: none
+		sourceColumn: Framework Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Txn Dt'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 51c37cc9-8f1f-4d5c-a5b8-e2d097d20ee2
+		summarizeBy: none
+		sourceColumn: Txn Dt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Cat Asset Type Cd'
+		dataType: string
+		lineageTag: b8fda10b-ef5b-4e11-83bb-6f25bd1231da
+		summarizeBy: none
+		sourceColumn: Cat Asset Type Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Acct Num'
+		dataType: string
+		lineageTag: 2b50fb43-cf55-44fd-8356-24c6009c49e1
+		summarizeBy: none
+		sourceColumn: GL Acct Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Txn Num'
+		dataType: string
+		lineageTag: 4e09ef40-6adf-4b3f-9a9b-825c19f51050
+		summarizeBy: none
+		sourceColumn: Txn Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column Comments
+		dataType: string
+		lineageTag: 5bbe174c-fa20-457c-aba1-78f02cb25bcf
+		summarizeBy: none
+		sourceColumn: Comments
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Scd Lot Id'
+		dataType: string
+		lineageTag: 5fa2a2a9-880b-4b99-b95b-ba97af7c1925
+		summarizeBy: none
+		sourceColumn: Scd Lot Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Post Dt'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: b0869d8b-953c-4fc1-baac-9049f70a3399
+		summarizeBy: none
+		sourceColumn: Post Dt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'GL Classification'
+		dataType: string
+		lineageTag: 4ac1566b-9d55-4bfa-88fa-f80094d75a8d
+		summarizeBy: none
+		sourceColumn: GL Classification
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SCD GL Classification'
+		dataType: string
+		lineageTag: 02ac34dd-6abb-4bec-9486-b5d98ace0833
+		summarizeBy: none
+		sourceColumn: SCD GL Classification
+
+		annotation SummarizationSetBy = Automatic
+
+	column Flag
+		dataType: string
+		lineageTag: 37798726-98ad-4bce-ae69-29a73f52175f
+		summarizeBy: none
+		sourceColumn: Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Adjust GL Reclass Fact-2c6ce728-06d0-4296-9db7-4289ab207c6d' = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0), EnableQueryResultDownload="0"]),
+				    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+				    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+				    EDL_adjust_reclass_fact_dq = inv_semantic_ga_Schema{[Name="adjust_reclass_fact_dq",Kind="Table"]}[Data],
+				    #"Filtered Rows" = Table.SelectRows(EDL_adjust_reclass_fact_dq, each [FLAG] = "TO"),
+				    #"Renamed Columns" = Table.RenameColumns(#"Filtered Rows",{{"ASSET_KEY", "Security Nk"}, {"COMPANY_ACCOUNTING_UNIT_CD", "Company Accounting Unit Cd"}, {"PORTFOLIO_NK", "Portfolio Nk"}, {"FRAMEWORK_CD", "Framework Code"}, {"TXN_DT", "Txn Dt"}, {"CAT_ASSET_TYPE_CD", "Cat Asset Type Cd"}, {"GL_ACCT_NUM", "GL Acct Num"}, {"TXN_NUM", "Txn Num"}, {"COMMENTS", "Comments"}, {"SCD_LOT_ID", "Scd Lot Id"}, {"POST_DT", "Post Dt"}, {"LOCAL_TXN_AMT", "Local Txn Amt"}, {"FUNC_TXN_AMT", "Func Txn Amt"}, {"CAD_TXN_AMT", "CAD Txn Amt"}, {"USD_TXN_AMT", "USD Txn Amt"}, {"HKD_TXN_AMT", "HKD Txn Amt"}, {"BASE_TXN_AMT", "Base Txn Amt"}, {"GL_CLASSIFICATION", "GL Classification"}, {"SCD_GL_CLASSIFICATION", "SCD GL Classification"}, {"FLAG", "Flag"}}),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Renamed Columns",{ "Security Nk", "Company Accounting Unit Cd", "Portfolio Nk", "Framework Code", "Txn Dt", "Cat Asset Type Cd", "GL Acct Num", "Txn Num", "Comments", "Scd Lot Id", "Post Dt", "GL Classification", "SCD GL Classification","Flag"})
+				in
+				    #"Removed Other Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

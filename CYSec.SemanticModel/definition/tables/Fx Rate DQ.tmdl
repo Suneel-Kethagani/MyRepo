@@ -1,0 +1,335 @@
+table 'Fx Rate DQ'
+	lineageTag: b7d3ccbf-a0a2-4983-a43b-f5bbc73191c9
+
+	measure 'Rep Rate' =
+			
+			
+			VAR bsRate =
+			SWITCH (
+				SELECTEDVALUE ('Reporting Currency'[Rep In Currency]),
+				"CAD", SUM ('Fx Rate DQ'[CAD BS Rate]),
+				"USD", SUM ('Fx Rate DQ'[USD BS Rate]),
+				"HKD", SUM ('Fx Rate DQ'[HKD BS Rate]),
+				SUM ('Fx Rate DQ'[Func BS Rate])
+			)
+			/*
+			VAR isRate =
+			SWITCH (
+				SELECTEDVALUE ('Reporting Currency'[Rep In Currency]),
+				"CAD", SUM ('Fx Rate'[CAD IS Rate]),
+				"USD", SUM ('Fx Rate'[USD IS Rate]),
+				"HKD", SUM ('Fx Rate'[HKD IS Rate]),
+				SUM ('Fx Rate'[Func IS Rate])
+			)
+			*/
+			RETURN bsRate
+			// IF ( SELECTEDVALUE ('Accounts'[Acct Category], "BS") = "BS", bsRate, isRate)
+		formatString: 0.000000
+		lineageTag: a01292c6-1e91-490c-8699-12ea6acb0336
+
+	measure 'Rep Rate (IS)' = ```
+			
+			
+			VAR isRate =
+			SWITCH (
+			    SELECTEDVALUE ('Reporting Currency'[Rep In Currency]),
+			    "CAD", SUM ('Fx Rate DQ'[CAD IS Rate]),
+			    "USD", SUM ('Fx Rate DQ'[USD IS Rate]),
+			    "HKD", SUM ('Fx Rate DQ'[HKD IS Rate]),
+			    SUM ('Fx Rate DQ'[Func IS Rate])
+			)
+			
+			RETURN isRate
+			
+			```
+		lineageTag: 4fbc060d-719f-4a23-a458-0580b48ad89c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'FX Join Key'
+		dataType: string
+		lineageTag: e878bad5-7147-4607-9f22-b772bfd64cc7
+		summarizeBy: none
+		sourceColumn: FX Join Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Func BS Rate'
+		dataType: double
+		lineageTag: 05047015-6b9b-4bc6-8e6c-534877e3a272
+		summarizeBy: sum
+		sourceColumn: Func BS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CAD BS Rate'
+		dataType: double
+		lineageTag: 68df9f9d-235e-4586-9f52-0818234cc2ec
+		summarizeBy: sum
+		sourceColumn: CAD BS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'USD BS Rate'
+		dataType: double
+		lineageTag: e41368be-30f7-46c3-96bb-578644381e26
+		summarizeBy: sum
+		sourceColumn: USD BS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'HKD BS Rate'
+		dataType: double
+		lineageTag: b53c2d7a-a27d-4bee-944b-fa6a534d5b2f
+		summarizeBy: sum
+		sourceColumn: HKD BS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Prev Func BS Rate'
+		dataType: double
+		lineageTag: 3a4ebd26-aaef-4c2b-9703-5e980c1d3fee
+		summarizeBy: sum
+		sourceColumn: Prev Func BS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Prev CAD BS Rate'
+		dataType: double
+		lineageTag: eac3b1ac-cf09-467e-a9bd-f64c7f134f65
+		summarizeBy: sum
+		sourceColumn: Prev CAD BS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Prev USD BS Rate'
+		dataType: double
+		lineageTag: 5bee0df5-a754-4421-8864-a1601194e09f
+		summarizeBy: sum
+		sourceColumn: Prev USD BS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Prev HKD BS Rate'
+		dataType: double
+		lineageTag: 08baa7be-bffb-48b8-be09-262446907f04
+		summarizeBy: sum
+		sourceColumn: Prev HKD BS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Func IS Rate'
+		dataType: double
+		lineageTag: 0a6adf88-8da2-4d26-b069-2b3b71a5e6b6
+		summarizeBy: sum
+		sourceColumn: Func IS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CAD IS Rate'
+		dataType: double
+		lineageTag: fbdade07-4ce2-4eec-8ab0-b70911baa0fa
+		summarizeBy: sum
+		sourceColumn: CAD IS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'USD IS Rate'
+		dataType: double
+		lineageTag: 822ba8c0-2128-4c6b-8829-323fd3e60fd3
+		summarizeBy: sum
+		sourceColumn: USD IS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'HKD IS Rate'
+		dataType: double
+		lineageTag: d60a2840-1a81-4896-a6b1-b87397209b16
+		summarizeBy: sum
+		sourceColumn: HKD IS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Prev Func IS Rate'
+		dataType: double
+		lineageTag: e97b2c7e-f3fc-49f0-84e1-8bce0ff74044
+		summarizeBy: sum
+		sourceColumn: Prev Func IS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Prev CAD IS Rate'
+		dataType: double
+		lineageTag: fd6b5d70-6445-4c9f-9ed9-bfc83a4ae12f
+		summarizeBy: sum
+		sourceColumn: Prev CAD IS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Prev USD IS Rate'
+		dataType: double
+		lineageTag: d47f6753-4816-49d5-80a2-2aff5fcaeff3
+		summarizeBy: sum
+		sourceColumn: Prev USD IS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Prev HKD IS Rate'
+		dataType: double
+		lineageTag: 545d0df2-5a5e-4706-8fb6-f3fa5ccf5c30
+		summarizeBy: sum
+		sourceColumn: Prev HKD IS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CTA Func BS Rate'
+		dataType: double
+		lineageTag: abc0fb33-e015-409c-8bde-3afd9a1b6acd
+		summarizeBy: sum
+		sourceColumn: CTA Func BS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CTA CAD BS Rate'
+		dataType: double
+		lineageTag: c4bcbdbb-57b6-4757-8462-fe62330c91b4
+		summarizeBy: sum
+		sourceColumn: CTA CAD BS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CTA USD BS Rate'
+		dataType: double
+		lineageTag: 415521fe-2ae9-4f11-8855-ac940851373b
+		summarizeBy: sum
+		sourceColumn: CTA USD BS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CTA HKD BS Rate'
+		dataType: double
+		lineageTag: 82776479-ee5c-4cbb-9c07-864f35c0850b
+		summarizeBy: sum
+		sourceColumn: CTA HKD BS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CTA Func IS Rate'
+		dataType: double
+		lineageTag: 737a31ed-43e4-40dc-9d78-eeba7cfd7001
+		summarizeBy: sum
+		sourceColumn: CTA Func IS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CTA CAD IS Rate'
+		dataType: double
+		lineageTag: 50b0da72-1c27-4881-a2f5-8791831f3d1f
+		summarizeBy: sum
+		sourceColumn: CTA CAD IS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CTA USD IS Rate'
+		dataType: double
+		lineageTag: 5710bfc8-a081-4ee9-b112-0c7c58ad3f8f
+		summarizeBy: sum
+		sourceColumn: CTA USD IS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CTA HKD IS Rate'
+		dataType: double
+		lineageTag: e17c33c3-fac1-491d-8f63-0a1e4c0e1c39
+		summarizeBy: sum
+		sourceColumn: CTA HKD IS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FROM_CCY = LEFT('Fx Rate DQ'[FX Join Key],3)
+		lineageTag: 151e2269-7b1b-4573-9ff4-526fe49c58e2
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column TO_CCY = MID('Fx Rate DQ'[FX Join Key],5,3)
+		lineageTag: 70775f66-5b00-416f-ba1c-963f1a451f2f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERIOD = VALUE(RIGHT('Fx Rate DQ'[FX Join Key],6))
+		lineageTag: c37f46fa-abf5-4134-a359-dd4900676813
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Fx Rate DQ-1abb4d8e-c82b-4c6c-a723-b506aeda0583' = m
+		mode: import
+		queryGroup: 'Custom Dimension Tables'
+		source =
+				let
+				    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0), EnableQueryResultDownload="0"]),
+				    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+				    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+				    EDL_currency_conversion_dim_dq= inv_semantic_ga_Schema{[Name="currency_conversion_dim_dq",Kind="Table"]}[Data],
+				    #"Removed Other Columns" = Table.SelectColumns(EDL_currency_conversion_dim_dq,{"BS_RATE", "TO_CAD_BS_RATE", "TO_USD_BS_RATE", "TO_HKD_BS_RATE", "PREV_BS_RATE", "PREV_TO_CAD_BS_RATE", "PREV_TO_USD_BS_RATE", "PREV_TO_HKD_BS_RATE", "IS_RATE", "TO_CAD_IS_RATE", "TO_USD_IS_RATE", "TO_HKD_IS_RATE", "PREV_IS_RATE", "PREV_TO_CAD_IS_RATE", "PREV_TO_USD_IS_RATE", "PREV_TO_HKD_IS_RATE", "CTA_BS_RATE", "CTA_CAD_BS_RATE", "CTA_USD_BS_RATE", "CTA_HKD_BS_RATE", "CTA_IS_RATE", "CTA_CAD_IS_RATE", "CTA_USD_IS_RATE", "CTA_HKD_IS_RATE", "FX_RATE_KEY"}),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Removed Other Columns",{"FX_RATE_KEY", "BS_RATE", "TO_CAD_BS_RATE", "TO_USD_BS_RATE", "TO_HKD_BS_RATE", "PREV_BS_RATE", "PREV_TO_CAD_BS_RATE", "PREV_TO_USD_BS_RATE", "PREV_TO_HKD_BS_RATE", "IS_RATE", "TO_CAD_IS_RATE", "TO_USD_IS_RATE", "TO_HKD_IS_RATE", "PREV_IS_RATE", "PREV_TO_CAD_IS_RATE", "PREV_TO_USD_IS_RATE", "PREV_TO_HKD_IS_RATE", "CTA_BS_RATE", "CTA_CAD_BS_RATE", "CTA_USD_BS_RATE", "CTA_HKD_BS_RATE", "CTA_IS_RATE", "CTA_CAD_IS_RATE", "CTA_USD_IS_RATE", "CTA_HKD_IS_RATE"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Reordered Columns",{{"FX_RATE_KEY", "FX Join Key"}, {"BS_RATE", "Func BS Rate"}, {"TO_CAD_BS_RATE", "CAD BS Rate"}, {"TO_USD_BS_RATE", "USD BS Rate"}, {"TO_HKD_BS_RATE", "HKD BS Rate"}, {"PREV_BS_RATE", "Prev Func BS Rate"}, {"PREV_TO_CAD_BS_RATE", "Prev CAD BS Rate"}, {"PREV_TO_USD_BS_RATE", "Prev USD BS Rate"}, {"PREV_TO_HKD_BS_RATE", "Prev HKD BS Rate"}, {"IS_RATE", "Func IS Rate"}, {"TO_CAD_IS_RATE", "CAD IS Rate"}, {"TO_USD_IS_RATE", "USD IS Rate"}, {"TO_HKD_IS_RATE", "HKD IS Rate"}, {"PREV_IS_RATE", "Prev Func IS Rate"}, {"PREV_TO_CAD_IS_RATE", "Prev CAD IS Rate"}, {"PREV_TO_USD_IS_RATE", "Prev USD IS Rate"}, {"PREV_TO_HKD_IS_RATE", "Prev HKD IS Rate"}, {"CTA_BS_RATE", "CTA Func BS Rate"}, {"CTA_CAD_BS_RATE", "CTA CAD BS Rate"}, {"CTA_USD_BS_RATE", "CTA USD BS Rate"}, {"CTA_HKD_BS_RATE", "CTA HKD BS Rate"}, {"CTA_IS_RATE", "CTA Func IS Rate"}, {"CTA_CAD_IS_RATE", "CTA CAD IS Rate"}, {"CTA_USD_IS_RATE", "CTA USD IS Rate"}, {"CTA_HKD_IS_RATE", "CTA HKD IS Rate"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

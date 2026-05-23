@@ -1,0 +1,91 @@
+table 'Indonesian FX Rate'
+	lineageTag: 91fd4791-479e-40cd-a63d-f21e110af5d8
+
+	column 'From CCY'
+		dataType: string
+		lineageTag: f6016269-f936-4ad6-9291-44f9201a4612
+		summarizeBy: none
+		sourceColumn: From CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column Rate
+		dataType: double
+		formatString: 0.000000
+		lineageTag: dbe365ca-98d7-4149-bc5a-5df65f338bd9
+		summarizeBy: sum
+		sourceColumn: Rate
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Effective Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 8bea3a19-a8fe-470d-a9c9-bce0e8dc3fab
+		summarizeBy: none
+		sourceColumn: Effective Date
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'USD Rate'
+		dataType: double
+		formatString: 0.000000
+		lineageTag: 5b785d60-9866-40eb-ab28-462cb48a1596
+		summarizeBy: sum
+		sourceColumn: USD Rate
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Rate Source'
+		dataType: string
+		lineageTag: 237e1943-9fa4-44e6-8f3e-0ac011a50176
+		summarizeBy: none
+		sourceColumn: Rate Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Created TS'
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn:ss AM/PM
+		lineageTag: 17ffb001-6595-4a0b-89ce-a49b3e272265
+		summarizeBy: none
+		sourceColumn: Created TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Updated TS'
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn:ss AM/PM
+		lineageTag: a6164065-1b2a-401b-a200-31efe00e44fe
+		summarizeBy: none
+		sourceColumn: Updated TS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Indonesian FX Rate-b47cd650-3da8-4fcf-a5c3-229fab07eba6' = m
+		mode: import
+		queryGroup: 'Custom Dimension Tables'
+		source =
+				let
+				    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0), EnableQueryResultDownload="0"]),
+				    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+				    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+				    EDL_fx_rate_ind_dim = inv_semantic_ga_Schema{[Name="fx_rate_ind_dim",Kind="Table"]}[Data],
+				    #"Renamed Columns" = Table.RenameColumns(EDL_fx_rate_ind_dim,{{"FROM_CCY", "From CCY"}, {"RATE", "Rate"}, {"EFFECTIVE_DATE", "Effective Date"}, {"USD_RATE", "USD Rate"}, {"RATE_SOURCE", "Rate Source"}, {"CREATED_TS", "Created TS"}, {"UPDATED_TS", "Updated TS"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navigation
+

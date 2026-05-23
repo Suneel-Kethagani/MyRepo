@@ -1,0 +1,340 @@
+table 'Securities GL Txn fact - Elim'
+	lineageTag: 7f3a52b5-aeca-4c84-a284-d1db5074f072
+
+	measure 'Unreal Pl BV - Local (Sec Elim Adj)' =
+			
+			CALCULATE(
+			    SUM('Securities GL Txn fact - Elim'[Local Txn Amt]),
+			    'Securities GL Txn fact - Elim'[Account]="850044"
+			)
+		lineageTag: f3a18c40-0041-4e4d-b6f2-d7ab2af22b58
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Unreal Pl BV - Rep (Sec Elim Adj)' = ```
+			
+			VAR vSelectedCurrency = SELECTEDVALUE ('Reporting Currency'[Rep In Currency])
+			RETURN
+			SWITCH(
+			    vSelectedCurrency,
+			    "CAD",
+			    CALCULATE(
+			        SUMX(
+			            'Securities GL Txn fact - Elim',
+			            'Securities GL Txn fact - Elim'[Local Txn Amt]*RELATED('Fx Rate DQ'[CAD BS Rate])
+			        ),
+			        'Securities GL Txn fact - Elim'[Account]="850044"
+			    ),
+			    "HKD",
+			    CALCULATE(
+			        SUMX(
+			            'Securities GL Txn fact - Elim',
+			            'Securities GL Txn fact - Elim'[Local Txn Amt]*RELATED('Fx Rate DQ'[HKD BS Rate])
+			        ),
+			        'Securities GL Txn fact - Elim'[Account]="850044"
+			    ),
+			    "USD",
+			    CALCULATE(
+			        SUMX(
+			            'Securities GL Txn fact - Elim',
+			            'Securities GL Txn fact - Elim'[Local Txn Amt]*RELATED('Fx Rate DQ'[USD BS Rate])
+			        ),
+			        'Securities GL Txn fact - Elim'[Account]="850044"
+			    ),
+			    
+			    CALCULATE(
+			        SUMX(
+			            'Securities GL Txn fact - Elim',
+			            'Securities GL Txn fact - Elim'[Local Txn Amt]*RELATED('Fx Rate DQ'[Func BS Rate])
+			        ),
+			        'Securities GL Txn fact - Elim'[Account]="850044"
+			    )
+			)
+			
+			```
+		lineageTag: 6cb84352-c1f8-4750-8b4e-c0b457472ef1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Balance Book Value - Local(Sec Elim Adj)' =
+			
+			CALCULATE(
+			    SUM('Securities GL Txn fact - Elim'[Local Txn Amt]),
+			    'Securities GL Txn fact - Elim'[Account]="850064"
+			)
+		lineageTag: d9876c13-39be-4bde-b033-9d785eafd8b9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Balance Book Value - Rep(Sec Elim Adj)' = ```
+			
+			VAR vSelectedCurrency = SELECTEDVALUE ('Reporting Currency'[Rep In Currency])
+			RETURN
+			SWITCH(
+			    vSelectedCurrency,
+			    "CAD",
+			    CALCULATE(
+			        SUMX(
+			            'Securities GL Txn fact - Elim',
+			            'Securities GL Txn fact - Elim'[Local Txn Amt]*RELATED('Fx Rate DQ'[CAD BS Rate])
+			        ),
+			        'Securities GL Txn fact - Elim'[Account]="850064"
+			    ),
+			    "HKD",
+			    CALCULATE(
+			        SUMX(
+			            'Securities GL Txn fact - Elim',
+			            'Securities GL Txn fact - Elim'[Local Txn Amt]*RELATED('Fx Rate DQ'[HKD BS Rate])
+			        ),
+			        'Securities GL Txn fact - Elim'[Account]="850064"
+			    ),
+			    "USD",
+			    CALCULATE(
+			        SUMX(
+			            'Securities GL Txn fact - Elim',
+			            'Securities GL Txn fact - Elim'[Local Txn Amt]*RELATED('Fx Rate DQ'[USD BS Rate])
+			        ),
+			        'Securities GL Txn fact - Elim'[Account]="850064"
+			    ),
+			    
+			    CALCULATE(
+			        SUMX(
+			            'Securities GL Txn fact - Elim',
+			            'Securities GL Txn fact - Elim'[Local Txn Amt]*RELATED('Fx Rate DQ'[Func BS Rate])
+			        ),
+			        'Securities GL Txn fact - Elim'[Account]="850064"
+			    )
+			)
+			```
+		lineageTag: 33e5de26-6a61-4fe0-a3be-11970e185c74
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Security Elim Adjustment Title' = ```
+			
+			VAR maxdate =
+			    MAX ( 'Securities GL Txn fact - Elim'[Txn Dt])
+			RETURN
+			    "Security Elim Adjustment" & ", "
+			        & SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] ) & ", "
+			        & SELECTEDVALUE ( Framework[Framework Display] ) & ", "
+			        & FORMAT ( maxdate, "dd-mmm-yy" )
+			
+			```
+		lineageTag: 9dd16b1f-c0b0-428e-b980-16c288a994fb
+
+	column 'Company Accounting Unit'
+		dataType: string
+		lineageTag: 157d461b-10c6-4f7c-a54d-61a2b9c8d6e8
+		summarizeBy: none
+		sourceColumn: Company Accounting Unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio NK'
+		dataType: string
+		lineageTag: 8b9cc68c-332e-4da6-8678-56e700d7ed3a
+		summarizeBy: none
+		sourceColumn: Portfolio NK
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Framework Cd'
+		dataType: string
+		lineageTag: f0db623c-7059-4cae-9a6c-0672c84f0b63
+		summarizeBy: none
+		sourceColumn: Framework Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Txn Dt'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 45d72454-af54-4a98-b049-cac8ea723f1f
+		summarizeBy: none
+		sourceColumn: Txn Dt
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Fx Join Key'
+		dataType: string
+		lineageTag: 05e9846c-a200-41d0-918c-c60d68140de6
+		summarizeBy: none
+		sourceColumn: Fx Join Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Security Nk'
+		dataType: string
+		lineageTag: 175e263f-8d33-4aff-b326-36b386f884b2
+		summarizeBy: none
+		sourceColumn: Security Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Acct Num'
+		dataType: string
+		lineageTag: 2836e4b2-8bca-491f-83cc-9cdad656ba5c
+		summarizeBy: none
+		sourceColumn: GL Acct Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Acct Category'
+		dataType: string
+		lineageTag: e38674a6-0a14-4bb4-9eb2-dd390c81bdb2
+		summarizeBy: none
+		sourceColumn: Acct Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ISO3 Currency Cd'
+		dataType: string
+		lineageTag: 3964cfa5-dfe4-4e80-9953-c168a25da9f0
+		summarizeBy: none
+		sourceColumn: ISO3 Currency Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Functional CCY Cd'
+		dataType: string
+		lineageTag: cc1dc380-753b-49f8-926c-70ad18c61df5
+		summarizeBy: none
+		sourceColumn: Functional CCY Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Txn Num'
+		dataType: string
+		lineageTag: 9812e047-815c-4345-ac71-d3e45a5cbc25
+		summarizeBy: none
+		sourceColumn: Txn Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column Comments
+		dataType: string
+		lineageTag: fff8c91b-753f-465c-aa21-6eac849da434
+		summarizeBy: none
+		sourceColumn: Comments
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAT Adjusted Elements Txt'
+		dataType: string
+		lineageTag: 83e07bf9-7d60-41a9-a770-7fa93b17d2a0
+		summarizeBy: none
+		sourceColumn: CAT Adjusted Elements Txt
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bus Trans No'
+		dataType: string
+		lineageTag: e94789c1-af91-4b8c-a798-df2587707dd6
+		summarizeBy: none
+		sourceColumn: Bus Trans No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local Txn Amt'
+		dataType: double
+		lineageTag: 2adbbe09-1851-4494-8809-92290c9956a6
+		summarizeBy: sum
+		sourceColumn: Local Txn Amt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Src
+		dataType: string
+		lineageTag: 526d1e93-75c0-4ec6-b125-388460e41146
+		summarizeBy: none
+		sourceColumn: Src
+
+		annotation SummarizationSetBy = Automatic
+
+	column Account
+		dataType: string
+		lineageTag: 732186b4-c44d-4b5a-9fda-21916af9c88b
+		summarizeBy: none
+		sourceColumn: Account
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Unit' = RIGHT('Securities GL Txn fact - Elim'[Company Accounting Unit],6)
+		lineageTag: 23d32be5-2cc7-4cf7-b64a-af37884b49ed
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Company = ```
+			
+			VAR vCompany = LEFT('Securities GL Txn fact - Elim'[Company Accounting Unit],4)
+			VAR vCompanyName = 
+			CALCULATE(
+			    MAX(Company[Company Code & Name Display]),
+			    Company[Company]=vCompany,
+			    ALL('Securities GL Txn fact - Elim')
+			)
+			RETURN vCompanyName
+			```
+		lineageTag: 09d15776-fb1b-47bd-ba4e-5038596d0e8f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Structure Company' = 1086
+		formatString: 0
+		lineageTag: 2b2b08fe-244e-408f-94d8-fb2089ad900a
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Securities GL Txn fact - Elim-0f079b07-6b00-4d98-a7e4-25e4a1af2780' = m
+		mode: import
+		source = ```
+				let
+				Sql = "SELECT TXN.`COMPANY_ACCOUNTING_UNIT_CD` as `Company Accounting Unit`
+				      ,TXN.`PORTFOLIO_NK` as `Portfolio NK`
+				      ,TXN.`FRAMEWORK_CD` as `Framework Cd`
+				      ,TXN.`TXN_DT` as `Txn Dt`
+				      ,CONCAT(TXN.`ISO3_CURRENCY_CD`,'/','MYR/',CAST(TXN.`TXN_PERIOD` as STRING)) as `Fx Join Key`
+				      ,TXN.`ASSET_KEY` as `Security Nk`
+				      ,TXN.`GL_ACCT_NUM` as `GL Acct Num`
+				      ,TXN.`ACCT_CATEGORY` as `Acct Category`
+				      ,TXN.`ISO3_CURRENCY_CD` as `ISO3 Currency Cd`
+				      ,'MYR' as `Functional CCY Cd`
+				      ,TXN.`TXN_NUM` as `Txn Num`
+				      ,TXN.`COMMENTS` as `Comments`
+				      ,TXN.`CAT_ADJUSTED_ELEMENTS_TXT` as `CAT Adjusted Elements Txt`
+				      ,TXN.`SCD_LOT_ID` as `Bus Trans No`
+				      ,TXN.`LOCAL_TXN_AMT` as `Local Txn Amt`
+				      ,TXN.`SRC` as `Src`
+				,SUBSTRING(TXN.`GL_ACCT_NUM`,1,6) as `Account`
+				FROM "&Catalog&".inv_semantic_ga.`CONSOLIDATED_GL_TXN_FACT_DQ` TXN
+				INNER JOIN (SELECT ACC.`COMPANY_NUM_CD`, PRT.`PORTFOLIO_NK` FROM "&Catalog&".inv_semantic_ga.`PORTFOLIO_DIM` PRT JOIN "&Catalog&".inv_semantic_ga.`ACCOUNTING_UNIT_DIM` ACC ON PRT.`SUBFUND_JOIN_KEY_CD`=ACC.`COMPANY_ACCOUNTING_UNIT_CD`) CMPRT 
+				ON TXN.`PORTFOLIO_NK`=CMPRT.`PORTFOLIO_NK`
+				WHERE `SRC`='CAT' 
+				AND `SYS_CD` IN ('JT','AS') 
+				AND `CAT_ASSET_TYPE_CD`='Securities' 
+				AND `COMMENTS` NOT LIKE 'TDP%' 
+				AND SUBSTRING(`GL_ACCT_NUM`,1,6) IN ('850044','850064')
+				AND LEFT(TXN.`COMPANY_ACCOUNTING_UNIT_CD`,4)<>CMPRT.`COMPANY_NUM_CD` 
+				AND LEFT(TXN.`COMPANY_ACCOUNTING_UNIT_CD`,4)='1086'",
+				    Source = Value.NativeQuery(Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0)]){[Name=Catalog,Kind="Database"]}[Data], Sql, null, [EnableFolding=true]),
+				    #"Filtered Rows" = Table.SelectRows(Source, each true)
+				in
+				    #"Filtered Rows"
+				```
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

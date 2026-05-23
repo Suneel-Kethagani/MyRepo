@@ -1,0 +1,7 @@
+role 'Singapore Portfolios Only'
+	modelPermission: read
+
+	tablePermission Portfolios = [Domicile Cntry Code] = "SG" || [Sleeve Manager City] = "Singapore" || [Group Advisor City] = "Singapore" || [Group Advisor 2 City] = "Singapore" || [Advisory] = "MIMSG"
+
+	annotation PBI_Id = 9033420b524246d7883096002eb7665b
+

@@ -1,0 +1,6697 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "d279aa066471ec63107c",
+  "position": {
+    "x": 0,
+    "y": 312.15686274509807,
+    "z": 47000,
+    "height": 407.843137254902,
+    "width": 1280,
+    "tabOrder": 47000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "Company Code & Name Display"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.Company Code & Name Display",
+              "active": true,
+              "displayName": "Co > Unit > Port > Tran Type > Security > Tran# > Lot"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "Accounting Unit Code & Name Display"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.Accounting Unit Code & Name Display",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Portfolios"
+                    }
+                  },
+                  "Property": "Portfolio Code & Name"
+                }
+              },
+              "queryRef": "Portfolios.Portfolio Code & Name",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "Trans Type"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.Trans Type",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities"
+                    }
+                  },
+                  "Property": "Primary Security ID & Desc"
+                }
+              },
+              "queryRef": "Securities DQ.Primary Security ID & Desc",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "Transaction No"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.Transaction No",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "Lot ID"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.Lot ID",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Bus Trans Number"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Bus Trans Number)",
+              "displayName": "#Txns"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "From/To"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.From/To)",
+              "displayName": "From/To"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Lot Nominal"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Securities Transaction GA Fact.Lot Nominal)",
+              "displayName": "Nominal"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Net Amount - Local"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Securities Transaction GA Fact.Net Amount - Local)",
+              "displayName": "Net Amount"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Nominal Incoming Amount"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Securities Transaction GA Fact.Nominal Incoming Amount)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "Legal Entity (Sec Tran)"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.Legal Entity (Sec Tran)",
+              "displayName": "Legal Entity"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "Segment (Sec Tran)"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.Segment (Sec Tran)",
+              "displayName": "Segment"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Par/NonPar"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Par/NonPar)",
+              "displayName": "Par/NonPar"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Product"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Product)",
+              "displayName": "Product"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Purpose"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Purpose)1",
+              "displayName": "Purpose"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Transfer Type (BV vs MV)"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Transfer Type (BV vs MV))",
+              "displayName": "Transfer Type (BV vs MV)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Transfer Purpose (Inter or Intra)"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Transfer Purpose (Inter or Intra))",
+              "displayName": "Transfer Purpose (Inter or Intra)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Transasofdate"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Trade Date)",
+              "displayName": "Trade Date"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Post Date"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Post Date)",
+              "displayName": "Post Date"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Bus Trans Code"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Bus Trans Code)",
+              "displayName": "Bus Trans Code"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Asset Class (Sec Tran)"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Asset Class (Sec Tran-Slicer))",
+              "displayName": "Asset Class"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "SCD Security Type (Sec Tran)"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Security Type (Sec Tran))",
+              "displayName": "Security Type"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Asset Group (Sec Tran)"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Security Group (Sec Tran))",
+              "displayName": "Security Group"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Local Currency"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Local Currency)",
+              "displayName": "Currency (Local)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Nominal Outgoing Amount"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Securities Transaction GA Fact.Nominal Outgoing Amount)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Trans Price Local"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Securities Transaction GA Fact.Trans Price Local)",
+              "displayName": "Transaction Price"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Settle Date"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Settle Date)",
+              "displayName": "Settle Date"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Actual Settle Date"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Actual Settle Date)",
+              "displayName": "Actual Settle Date"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Payment Date"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Payment Date)",
+              "displayName": "Payment Date"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Elementary Trans Code "
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Elementary Trans Code )",
+              "displayName": "Elementary Trans Code"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Trans Category"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Trans Category)",
+              "displayName": "Trans Category"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Bus Trans Subcategory"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Bus Trans Subcategory)",
+              "displayName": "Trans Sub Category"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Groupcode"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Groupcode)",
+              "displayName": "Groups"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "GL Class"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.GL Class)",
+              "displayName": "GL Asset Class"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Settle days CC"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "CountNonNull(Securities Transaction GA Fact.Settle days CC)",
+              "displayName": "Settle days"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Late days"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Sum(Securities Transaction GA Fact.Late days)",
+              "displayName": "Late days"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "Units - Lots Level"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.Units - Lots Level",
+              "displayName": "Units"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Settle Amount (D)"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "CountNonNull(Securities Transaction GA Fact.Settle Amount)",
+              "displayName": "Settle Amount"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Settle Ccy Code"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Settle Ccy Code)",
+              "displayName": "Settle"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Base"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Base)",
+              "displayName": "Base"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "Book Value - Rep (Sec Trans)"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.Book Value - Rep (Sec Trans)",
+              "displayName": "Current BV (Rep)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Book Value - Local unsigned"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Securities Transaction GA Fact.Book Value - Local)",
+              "displayName": "Current BV (Local)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "Cost Value - Rep"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.Rep Original BV Cost (Sec Trans)1",
+              "displayName": "Original BV (Rep)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "Realized Gain/Loss - Rep (Sec Trans)"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.Realized Gain/Loss - Rep (Sec Trans)",
+              "displayName": "Realized G/L (Rep)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "Income Gross Amount - Rep (Sec Trans)"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.Income Gross Amount - Rep (Sec Trans)",
+              "nativeQueryRef": "Income (Rep)",
+              "displayName": "Income (Rep)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "Amortization/Accretion - Rep (Sec Trans)"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.Rep Market amortization/accretion (Sec Trans)",
+              "displayName": "Mkt Unrealized Amort (Rep)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "OID Amortization/Accretion - Rep (Sec Trans)"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.Rep OID amortization/accretion (Sec Trans)",
+              "displayName": "OID Amort (Rep)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "OTTI Impairment - Rep (Sec Trans)"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.OTTI Impairment - Rep (Sec Trans)",
+              "displayName": "OTTI (Rep)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "Change AOCI BV - Rep"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.Change AOCI BV - Rep",
+              "displayName": "AOCI (Rep)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "Deferred PL - Rep (Sec Trans)"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.Deferred PL - Rep (Sec Trans)",
+              "displayName": "Deferred G/L (Rep)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "Transaction Amount (Sec Tran)"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.Transaction Amount (Sec Tran)",
+              "displayName": "Transaction Amount"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Settle Price"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "CountNonNull(Securities Transaction GA Fact.Settle Price)",
+              "displayName": "Settle Price"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "Settle Principal (Tran)"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.Settle Principal (Tran)",
+              "displayName": "Settle Principal"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "Settle Interest (Tran)"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.Settle Interest (Tran)",
+              "displayName": "Settle Interest"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Broker Code"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Broker Code)",
+              "displayName": "Broker"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Cmmt"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Cmmt)",
+              "displayName": "Comment"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Sub Broker"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Sub Broker)",
+              "displayName": "Sub-Broker Code"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Sub Broker Des"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Sub Broker Des)",
+              "displayName": "Sub-Broker Description"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "Isin (Sec Tran)"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.Isin (Sec Tran)",
+              "displayName": "ISIN"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Local"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Local)",
+              "displayName": "Local"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "Rep Rate (Sec Trans)"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.Rep Rate (Sec Trans)",
+              "displayName": "Rep Rate"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "Asset Type (Sec Tran)"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.Asset Type (Sec Tran)",
+              "displayName": "Asset Type"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "User Name"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.User Nm)",
+              "displayName": "User"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Post Time"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Post Time)",
+              "displayName": "Post Time"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "Max of Post Hour"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.Max of Post Hour"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "SCD Security ID"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.SCD Security ID)",
+              "displayName": "SCD Security ID"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Original Face"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Securities Transaction GA Fact.Original Face)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "Factor (Sec Tran)"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.Factor (Sec Tran)",
+              "displayName": "Factor"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Nominal Basis"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Securities Transaction GA Fact.Nominal Basis)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Trans Status"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Trans Status)",
+              "displayName": "Status"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Ipo"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Ipo)",
+              "displayName": "IPO Flag"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Long Note 3"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Long Note 3)",
+              "displayName": "BBG Long Note 3"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Long Note 4"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Long Note 4)",
+              "displayName": "BBG Long Note 4"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Long Note 5"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Long Note 5)",
+              "displayName": "BBG Long Note 5"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "ML IFRS 13 Level (Sec Tran)"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.Ml IFRS 13 Level (Sec Tran)",
+              "displayName": "IFRS Level"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Region"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Region)",
+              "displayName": "Cycle"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Original System Tran Number"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Original System Tran Number)",
+              "displayName": "Original Txn Number"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Transaction Purpose"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Transaction Purpose)",
+              "displayName": "Transaction Purpose"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Backpost Month"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Backpost Month)",
+              "displayName": "Backpost"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Materiality"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "CountNonNull(Securities Transaction GA Fact.Materiality)",
+              "displayName": "Materiality"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "Sector (Sec Tran)"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.Sector (Sec Tran)",
+              "displayName": "Sector"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "PortSecKey"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.PortSecKey)",
+              "displayName": "PortSecKey"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "IAS39 Trading Philosophy Code (Sec Tran)"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.IAS39 Trading Philosophy Code (Sec Tran)",
+              "displayName": "IAS39 Purpose"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "IFRS Trading Philosophy Code (Sec Tran)"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.IFRS Trading Philosophy Code (Sec Tran)",
+              "displayName": "IFRS Purpose"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "USGAAP Trading Philosophy Code (Sec Tran)"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.USGAAP Trading Philosophy Code (Sec Tran)",
+              "displayName": "Local GAAP Purpose"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "JGAAP Trading Philosophy Code (Sec Tran)"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.JGAAP Trading Philosophy Code (Sec Tran)",
+              "displayName": "JGAAP Purpose"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Src Security ID"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Src Security ID)",
+              "displayName": "Security ID"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "Security Description (Sec Tran)"
+                }
+              },
+              "queryRef": "Securities Transaction GA Fact.Security Desc",
+              "displayName": "Security Description"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Source ID"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Source ID)",
+              "displayName": "Source ID"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Processed Ind"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Processed Ind)",
+              "displayName": "Processed Ind"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Trans Status Actual"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Trans Status Actual)",
+              "displayName": "XFR Status"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Data Source"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Securities Transaction GA Fact.Data Source)",
+              "displayName": "Data Source"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Total Cash Proceeds"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Securities Transaction GA Fact.Total Cash Proceeds)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Interest Trade Local"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Securities Transaction GA Fact.Interest Trade Local)",
+              "displayName": "Accrued Interest"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Units/Quantity"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Securities Transaction GA Fact.Units/Quantity)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Transaction GA Fact"
+                        }
+                      },
+                      "Property": "Manulife Local Price"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Securities Transaction GA Fact.Manulife Local Price)",
+              "displayName": "Market Price"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Portfolios"
+                  }
+                },
+                "Property": "Portfolio Code & Name"
+              }
+            },
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Trans Type"
+              }
+            },
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Transaction No"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnFormatting": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(cube_manubank_asset.Primary ID)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_asset.IFRS FV Rep"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_BsRate"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_asset.CM_IFRS BV Local"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_asset.CM_IFRS FV Local"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_asset.IFRS BV Rep"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Company.CM_#Company"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Accounting Unit.CM_#Accounting Units"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CountNonNull(Company.IFRS Ind)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CountNonNull(Company.NAIC Ind)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Company.USTAX Ind"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Company.IAS39 Ind"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Company.USGAAP Ind"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Company.JGAAP Ind"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_Reporting Currency"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_Local Currency"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Settle Date)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Post Date)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Settle Ccy Code)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Broker Code)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Cmmt)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Sub Broker)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Sub Broker Des)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.User Nm)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Post Time)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Transaction GA Fact.Max of Post Hour"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(Securities Transaction GA Fact.Original Face)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(Securities Transaction GA Fact.Nominal Basis)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Trans Status)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Ipo)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Long Note 3)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Long Note 4)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Long Note 5)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Region)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Original System Tran Number)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Transaction Purpose)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Backpost Month)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Transaction GA Fact.Sector (Sec Tran)"
+          }
+        },
+        {
+          "properties": {
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Transaction GA Fact.Factor (Sec Tran)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Transaction GA Fact.Asset Type (Sec Tran)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Transaction GA Fact.Isin (Sec Tran)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Trade Date)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Actual Settle Date)"
+          }
+        },
+        {
+          "properties": {
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(Securities Transaction GA Fact.Late days)"
+          }
+        },
+        {
+          "properties": {
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Transaction GA Fact.Security Desc"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CountNonNull(Securities Transaction GA Fact.Settle days CC)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.PortSecKey)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.From/To)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Transaction GA Fact.Legal Entity (Sec Tran)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Transaction GA Fact.Segment (Sec Tran)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Par/NonPar)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Transfer Purpose (Inter or Intra))"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Transfer Type (BV vs MV))"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Bus Trans Code)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Asset Class (Sec Tran-Slicer))"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Security Group (Sec Tran))"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Security Type (Sec Tran))"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Local Currency)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Trans Category)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Groupcode)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Product)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Source ID)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Src Security ID)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CountNonNull(Securities Transaction GA Fact.Materiality)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Transaction GA Fact.Ml IFRS 13 Level (Sec Tran)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.SCD Security ID)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Local)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CountNonNull(Securities Transaction GA Fact.Settle Price)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Base)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.GL Class)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Bus Trans Subcategory)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Elementary Trans Code )"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Payment Date)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Purpose)1"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(Securities Transaction GA Fact.Lot Nominal)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Transaction GA Fact.IAS39 Trading Philosophy Code (Sec Tran)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Transaction GA Fact.IFRS Trading Philosophy Code (Sec Tran)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Transaction GA Fact.USGAAP Trading Philosophy Code (Sec Tran)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Trans Status Actual)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(Securities Transaction GA Fact.Total Cash Proceeds)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(Securities Transaction GA Fact.Interest Trade Local)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(Securities Transaction GA Fact.Units/Quantity)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Processed Ind)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Securities Transaction GA Fact.Data Source)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Transaction GA Fact.JGAAP Trading Philosophy Code (Sec Tran)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CountNonNull(Securities Transaction GA Fact.Settle Amount)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Transaction GA Fact.Rep Rate (Sec Trans)"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#000000'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.1
+                    }
+                  }
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontColorPrimary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#000000'"
+                    }
+                  }
+                }
+              }
+            },
+            "backColorPrimary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "backColorSecondary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#ffffff'"
+                    }
+                  }
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "75.84598771378771D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_Reporting Currency"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "173.7561472134972D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_asset.CM_IFRS BV Local"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "143.39090796393296D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_asset.CM_IFRS FV Local"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "150.1470551774302D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_BsRate"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "74.85882207097207D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_Local Currency"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "176.74331285631285D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_asset.IFRS FV Rep"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "164.30106746364245D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_asset.IFRS BV Rep"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "40.935828214078214D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(cube_manubank_asset.Primary ID)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "201.24973003490504D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.Lending Asset Name"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "160.8459877137877D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_Market Value Rep"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "148.89732514252515D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_Book Value Rep"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "148.89732514252515D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_Book Value Local"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "146.9101594997095D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cube_manubank_mortgage_value.CM_Market Value Local"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "160.62780364165366D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(cube_manubank_mortgage_value.Effective Date)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "501.81304575461337D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Entities.Lei Name"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "77.47523984550656D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Company.Alternate Currency Code"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Transaction GA Fact"
+                    }
+                  },
+                  "Property": "Security Transfers Title"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#000000'"
+                    }
+                  }
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.1
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI Bold'', wf_segoe-ui_bold, helvetica, arial, sans-serif'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "Filter1a34b161909d402e3750",
+        "ordinal": 0,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "Transaction No"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filtera3bf47684ce23bcdd7d3",
+        "ordinal": 1,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Settle Date"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter6b02fc4284199b4e96ac",
+        "ordinal": 2,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Post Date"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter6bd4e2689ebe1fc71077",
+        "ordinal": 3,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Settle Ccy Code"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter55185a5abeb7cbfecdd0",
+        "ordinal": 4,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Units"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "Filtercdad7af779ed3d0caf68",
+        "ordinal": 5,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Settle Price"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterc82875cc75dc70f78cd7",
+        "ordinal": 6,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Broker Code"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterc08285c17b987d1ff990",
+        "ordinal": 7,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Cmmt"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter03b920cdca412b5a2a9c",
+        "ordinal": 8,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Sub Broker"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter428fec51d14caedcf92a",
+        "ordinal": 9,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Sub Broker Des"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter75a256eb7abd53321f2b",
+        "ordinal": 10,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "User Name"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter1d477e2e60d292e9c8d5",
+        "ordinal": 11,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Post Time"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filtere8fbab7ef4e86a972346",
+        "ordinal": 12,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "Max of Post Hour"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterd8976510011d90f42f8a",
+        "ordinal": 13,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Original Face"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter67543ff38339094ea9ff",
+        "ordinal": 14,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Nominal Basis"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter6b8393c9af7d4de0cd8c",
+        "ordinal": 15,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Trans Status"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterc866b0bc67dcb2288e50",
+        "ordinal": 16,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Ipo"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter4ac1f2935b343c68749a",
+        "ordinal": 17,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Long Note 3"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter14db9e449984f4ff6cbe",
+        "ordinal": 18,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Long Note 4"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filtere04cfb90f13fddf976ee",
+        "ordinal": 19,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Long Note 5"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterc883a383349241af5df3",
+        "ordinal": 20,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Region"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterf2dd483b363b6d1762a8",
+        "ordinal": 21,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Original System Tran Number"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter7114396cde9bced07217",
+        "ordinal": 22,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Transaction Purpose"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter539f566302999099c37e",
+        "ordinal": 23,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Backpost Month"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter2a51450f7cd2825683c2",
+        "ordinal": 24,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "Security Description (Sec Tran)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter244cb40b4c8bce63e201",
+        "ordinal": 25,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "Rep Rate (Security Transaction)"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "Filter74536468220bdeda2055",
+        "ordinal": 26,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "PortSecKey"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter028d99409b7d0106a816",
+        "ordinal": 27,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "Trans Type"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filter8617855d3e428f74a2fe",
+        "ordinal": 28,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "Isin (Sec Tran)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter0245071f60a5cd2d67b8",
+        "ordinal": 29,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "Asset Type (Sec Tran)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter21ee24eb3e14ff1ca0d6",
+        "ordinal": 30,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "Factor (Sec Tran)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filtere8de7c111561c06857b5",
+        "ordinal": 31,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "Sector (Sec Tran)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter80f5fbf82ecc74f42927",
+        "ordinal": 32,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "Amortization/Accretion - Rep (Sec Trans)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter6aa86c942f8c65f60061",
+        "ordinal": 33,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "OID Amortization/Accretion - Rep (Sec Trans)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterfde6770d8ab2bf39d09d",
+        "ordinal": 34,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Materiality"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter8222df92369571151a65",
+        "ordinal": 35,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "Cost Value - Rep"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter4bd13dbfb594896cd8c6",
+        "ordinal": 36,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Actual Settle Date"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filtercdd4a9840220bfb10cb8",
+        "ordinal": 37,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Portfolios"
+              }
+            },
+            "Property": "Portfolio Code & Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filter8acc70ce16835d9410b1",
+        "ordinal": 38,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "Settle Principal (Tran)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter928dab1571186908c309",
+        "ordinal": 39,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "Settle Interest (Tran)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter8ba0fcdc144f6e45d3a5",
+        "ordinal": 40,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Transasofdate"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter69c3f6512396d903b8b4",
+        "ordinal": 41,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Late days"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filtere90453bb3564556c3689",
+        "ordinal": 42,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Settle days CC"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter84b4c74ce19b593c0cdc",
+        "ordinal": 43,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Bus Trans Number"
+              }
+            },
+            "Function": 5
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter70af178f7b6f77caddd6",
+        "ordinal": 44,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "From/To"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter2407d7c784742c8656a6",
+        "ordinal": 45,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "Legal Entity (Sec Tran)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter8a84fac13dcdb2c5609d",
+        "ordinal": 46,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "Segment (Sec Tran)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterc9ae6ed6297b2f66a990",
+        "ordinal": 47,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Par/NonPar"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter2bd56a1778754ae61bc9",
+        "ordinal": 48,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Transfer Purpose (Inter or Intra)"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter7a1f6375001d4558b844",
+        "ordinal": 49,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Transfer Type (BV vs MV)"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter50a8680894a64821aff9",
+        "ordinal": 50,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Bus Trans Code"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter3ac2a665140090aeb197",
+        "ordinal": 51,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Asset Class (Sec Tran)"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter783a6e050bc74824485c",
+        "ordinal": 52,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Asset Group (Sec Tran)"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter0026bb1dc39942cdb42b",
+        "ordinal": 53,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "SCD Security Type (Sec Tran)"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter37b5158d36e1a3cab3bf",
+        "ordinal": 54,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Local Currency"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterb07f44bc67246c53e177",
+        "ordinal": 55,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Lot Nominal"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filteraab603758d39e8dc2b0b",
+        "ordinal": 56,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Nominal Incoming Amount"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter9e906864244a3c0a23b8",
+        "ordinal": 57,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Nominal Outgoing Amount"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filtercbb20ea5b0b0ee7a0a9a",
+        "ordinal": 58,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Trans Category"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterca519b1f95f1b38b9aed",
+        "ordinal": 59,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Groupcode"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterc1b9b4aee7e1aac34cba",
+        "ordinal": 60,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Product"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter54c67fb1cd00a0071683",
+        "ordinal": 61,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Net Amount - Local"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter9c0db428cc20c8760685",
+        "ordinal": 62,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Purpose"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter87d89880d42d358855be",
+        "ordinal": 63,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Trans Price Local"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filtera1b61345a63e30a8d498",
+        "ordinal": 64,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Payment Date"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter6bdaa36b8089e0a501d4",
+        "ordinal": 65,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Elementary Trans Code "
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterd013f94a2c310cae973d",
+        "ordinal": 66,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Bus Trans Subcategory"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter1eff8fb0a09a4606560a",
+        "ordinal": 67,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "GL Class"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filtera2f186d5070abb8b0837",
+        "ordinal": 68,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Base"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter419f5e8b36bab0403aa3",
+        "ordinal": 69,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "Book Value - Rep (Sec Trans)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter40435e45d0d10a2ba306",
+        "ordinal": 70,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Book Value - Local unsigned"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filtercdebd810e335ac64db79",
+        "ordinal": 71,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "Realized Gain/Loss - Rep (Sec Trans)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterd10bfce45d8d749067d2",
+        "ordinal": 72,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "Income Gross Amount - Rep"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "Filter1edadb72a2291008c3a7",
+        "ordinal": 73,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "OTTI Impairment - Rep (Sec Trans)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter30266300000343300202",
+        "ordinal": 74,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "Change AOCI BV - Rep"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter86e13432c7ea72066c61",
+        "ordinal": 75,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "Deferred PL - Rep (Sec Trans)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterd082d6f002a8054611d7",
+        "ordinal": 76,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "Transaction Amount (Sec Tran)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter314072ef9aca7121057c",
+        "ordinal": 77,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Source ID"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter486b40291cc1aea90c2a",
+        "ordinal": 78,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Src Security ID"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterf3a4201e5ed9eb828cb9",
+        "ordinal": 79,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "ML IFRS 13 Level (Sec Tran)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter76f0533e19c0007709e8",
+        "ordinal": 80,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "SCD Security ID"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter342074370ed97776039e",
+        "ordinal": 81,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Local"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter96ad2bbc91a236c54be9",
+        "ordinal": 82,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "Company Code & Name Display"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filter5498fc5953464c820016",
+        "ordinal": 83,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "Accounting Unit Code & Name Display"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filter3119eab5225b4bb2bdc0",
+        "ordinal": 84,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "IAS39 Trading Philosophy Code (Sec Tran)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter6a5888709737f9611f6a",
+        "ordinal": 85,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "IFRS Trading Philosophy Code (Sec Tran)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter64c215675d7b5174bfab",
+        "ordinal": 86,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "USGAAP Trading Philosophy Code (Sec Tran)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filtera643c36f880986969201",
+        "ordinal": 87,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "Lot ID"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filter0f7788e1a802e28c3285",
+        "ordinal": 88,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Trans Status Actual"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterdc21e2a96ba447d45066",
+        "ordinal": 89,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Total Cash Proceeds"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter614d6de89a988a5f9f62",
+        "ordinal": 90,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Interest Trade Local"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter429fdbb376110d650038",
+        "ordinal": 91,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Units/Quantity"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filtercfb5a4b08259c0d3de89",
+        "ordinal": 92,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Processed Ind"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter1d4a77cf6590509b1b3e",
+        "ordinal": 93,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Data Source"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterf49956a33dc5032cf3cb",
+        "ordinal": 94,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "JGAAP Trading Philosophy Code (Sec Tran)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterfb15438bc3df29b952b7",
+        "ordinal": 95,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Transaction GA Fact"
+                  }
+                },
+                "Property": "Settle Amount (D)"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter321319316095e587d7b5",
+        "ordinal": 96,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities"
+              }
+            },
+            "Property": "Primary Security ID & Desc"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filterd62d37839001d55503ec",
+        "ordinal": 97,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "Rep Rate (Sec Trans)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter167ae405a5098d11ad6e",
+        "ordinal": 98,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Transaction GA Fact"
+              }
+            },
+            "Property": "Units - Lots Level"
+          }
+        },
+        "type": "Advanced"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "author": {
+    "name": "Joao Pires",
+    "email": "joao.pires@devscope.net"
+  },
+  "resources": [
+    {
+      "resourceId": "rId0",
+      "sourceType": 5,
+      "file": "resources/FilterByList507A2DBEC31244C8AAABDE9BA541F723.pbiviz.json"
+    }
+  ],
+  "visual": {
+    "guid": "FilterByList507A2DBEC31244C8AAABDE9BA541F723",
+    "name": "FilterByList",
+    "displayName": "Filter by List",
+    "version": "1.0.0",
+    "description": "Filter the report with a list of values coming from, for example, an Excel.",
+    "supportUrl": "https://www.devscope.net/Contacts/Support.aspx",
+    "gitHubUrl": "https://github.com/DevScope/terms/tree/master/FilterByList",
+    "visualClassName": "Visual"
+  },
+  "metadata": {
+    "pbivizjson": {
+      "resourceId": "rId0"
+    }
+  }
+}

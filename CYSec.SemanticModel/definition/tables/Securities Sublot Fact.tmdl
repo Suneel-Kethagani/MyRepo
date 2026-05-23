@@ -1,0 +1,852 @@
+table 'Securities Sublot Fact'
+	lineageTag: 14d7f8dc-6853-439f-8d36-a256e695cbd9
+
+	measure 'Balanced Amortized AOCI - Local' = ```
+			
+			
+			    IF (
+			        ISFILTERED ( 'Period'[Date] ),
+			         SUM ( 'Securities Sublot Fact'[Balanced Amortized AOCI - Local (D)] ),
+			        CALCULATE (
+			             SUM ( 'Securities Sublot Fact'[Balanced Amortized AOCI - Local (D)] ),
+			            LASTDATE ( 'Securities Sublot Fact'[As of Date] )
+			        )
+			    )
+			
+			```
+		lineageTag: 9159c207-cfb8-4b1b-a880-0959f9f24e91
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Balance Remaining AOCI - Local' = ```
+			
+			
+			    IF (
+			        ISFILTERED ( 'Period'[Date] ),
+			        SUM('Securities Sublot Fact'[Balance Remaining AOCI - Local (D)]),
+			        CALCULATE (
+			            SUM('Securities Sublot Fact'[Balance Remaining AOCI - Local (D)]),
+			            LASTDATE ( 'Securities Sublot Fact'[As of Date]  )
+			        )
+			    )
+			
+			/*VAR closePerd =
+			    MAX ( Period[Period End Date] )
+			RETURN
+			    CALCULATE (
+			        SUM ( 'Sublot Fact'[Balance Remaining AOCI - Local (D)] ),
+			        FILTER ( 'Sublot Fact', 'Sublot Fact'[As of Date] = closePerd )
+			    )*/
+			```
+		lineageTag: 2e758712-549b-42d1-bc1c-fc7127c67f58
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Reporting Currency (Sublot)' =
+			
+			VAR SelectedCurrency =
+			    SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] )
+			VAR ReportingCurrency =
+			    IF (
+			        SelectedCurrency = "Company",
+			        FIRSTNONBLANK ( 'Securities Sublot Fact'[Functional CCY Code], TRUE () ),
+			        IF (
+			            SelectedCurrency = "SCD Base",
+			            FIRSTNONBLANK ( 'Securities Sublot Fact'[Base], TRUE () ),
+			            SelectedCurrency
+			        )
+			    )
+			RETURN
+			    ReportingCurrency
+		lineageTag: 4ed43c4f-5074-4a2a-a014-89b1ff74503f
+
+	measure 'Balance Remaining AOCI - Rep' = ```
+			
+			SWITCH (
+			    SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] ),
+			    "SCD Base",
+			        IF (
+			            ISFILTERED ( 'Period'[Date] ),
+			            SUM ( 'Securities Sublot Fact'[Balance Remaining AOCI - Base] ),
+			            CALCULATE (
+			                SUM ( 'Securities Sublot Fact'[Balance Remaining AOCI - Base] ),
+			                LASTDATE ( 'Securities Sublot Fact'[As of Date] )
+			            )
+			        ),
+			    IF (
+			        ISFILTERED ( 'Period'[Date] ),
+			        SUMX (
+			            'Securities Sublot Fact',
+			            'Securities Sublot Fact'[Balance Remaining AOCI - Local (D)] * 'Fx Rate DQ'[Rep Rate]
+			        ),
+			        CALCULATE (
+			            SUMX (
+			                'Securities Sublot Fact',
+			                'Securities Sublot Fact'[Balance Remaining AOCI - Local (D)] * 'Fx Rate DQ'[Rep Rate]
+			            ),
+			            LASTDATE ( 'Securities Sublot Fact'[As of Date]  )
+			        )
+			    )
+			)
+			/*IF (
+			            SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] ) = "SCD Base",
+			            SUM ( 'Securities Sublot Fact'[Balance Remaining AOCI - Base] ),
+			            SUMX ( 'Securities Sublot Fact', 'Securities Sublot Fact'[Balance Remaining AOCI - Local (D)] ) * 'Securities Sublot Fact'[Rep Rate (Sublot)]
+			        )
+			VAR closePerd =
+			    MAX ( Period[Period End Date] )
+			RETURN
+			    CALCULATE (
+			        IF (
+			            SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] ) = "SCD Base",
+			            SUM ( 'Sublot Fact'[Balance Remaining AOCI - Base] ),
+			            SUMX ( 'Sublot Fact', 'Sublot Fact'[Balance Remaining AOCI - Local (D)] ) * 'Sublot Fact'[Rep Rate (Sublot)]
+			        ),
+			        FILTER ( 'Sublot Fact', 'Sublot Fact'[As of Date] = closePerd )
+			    )*/
+			
+			```
+		lineageTag: 0ffcae09-1bcb-471f-8329-2880595b93f5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Balanced Amortized AOCI - Rep' =
+			
+			SWITCH (
+			    SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] ),
+			    "SCD Base",
+			        IF (
+			            ISFILTERED ( 'Period'[Date] ),
+			            SUM ( 'Securities Sublot Fact'[Balanced Amortized AOCI - Base] ),
+			            CALCULATE (
+			                SUM ( 'Securities Sublot Fact'[Balanced Amortized AOCI - Base] ),
+			                LASTDATE ( 'Securities Sublot Fact'[As of Date] )
+			            )
+			        ),
+			    IF (
+			        ISFILTERED ( 'Period'[Date] ),
+			        SUMX (
+			            'Securities Sublot Fact',
+			            'Securities Sublot Fact'[Balanced Amortized AOCI - Local (D)] * 'Fx Rate DQ'[Rep Rate]
+			        ),
+			        CALCULATE (
+			            SUMX (
+			                'Securities Sublot Fact',
+			                'Securities Sublot Fact'[Balanced Amortized AOCI - Local (D)] * 'Fx Rate DQ'[Rep Rate]
+			            ),
+			            LASTDATE ( 'Securities Sublot Fact'[As of Date] )
+			        )
+			    )
+			)
+			
+			/*IF (
+			            SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] ) = "SCD Base",
+			            SUM ( 'Securities Sublot Fact'[Balanced Amortized AOCI - Base] ),
+			            SUMX ( 'Securities Sublot Fact', 'Securities Sublot Fact'[Balanced Amortized AOCI - Local (D)] ) * 'Securities Sublot Fact'[Rep Rate (Sublot)]
+			        )
+			VAR closePerd =
+			    MAX ( Period[Period End Date] )
+			RETURN
+			    CALCULATE (
+			        IF (
+			            SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] ) = "SCD Base",
+			            SUM ( 'Sublot Fact'[Balanced Amortized AOCI - Base] ),
+			            SUMX ( 'Sublot Fact', 'Sublot Fact'[Balanced Amortized AOCI - Local (D)] ) * 'Sublot Fact'[Rep Rate (Sublot)]
+			        ),
+			        FILTER ( 'Sublot Fact', 'Sublot Fact'[As of Date] = closePerd )
+			    )*/
+		lineageTag: 9e17710a-548d-4fca-be1d-9487bfa526ce
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Balance Original AOCI - Rep' = [Balanced Amortized AOCI - Rep] + [Balance Remaining AOCI - Rep]
+		lineageTag: 9eacafd7-de0a-4bac-a3d8-e6c09241ae2a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Balance Original AOCI - Local' = [Balanced Amortized AOCI - Local] + [Balance Remaining AOCI - Local]
+		lineageTag: be7d6af4-3846-410c-851b-121c910421e6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'AOCI Hedge Par' = ```
+			
+			    IF (
+			        ISFILTERED ( 'Period'[Date] ),
+			        SUM ( 'Securities Sublot Fact'[AOCI Hedge Par (D)] ),
+			        CALCULATE (
+			            SUM ( 'Securities Sublot Fact'[AOCI Hedge Par (D)] ),
+			            LASTDATE ( 'Securities Sublot Fact'[As of Date]  )
+			        )
+			    )
+			
+			/*VAR closePerd =
+			    MAX ( Period[Period End Date] )
+			RETURN
+			    CALCULATE (
+			        SUM ( 'Sublot Fact'[AOCI Hedge Par (D)] ),
+			        FILTER ( 'Sublot Fact', 'Sublot Fact'[As of Date] = closePerd )
+			    )*/
+			```
+		lineageTag: aeff63cb-d819-4295-9914-dba8e2da3e92
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Sublot Hedges Positions Title' = ```
+			
+			VAR maxPerd =
+			    MAX ( 'Securities Sublot Fact'[As of Date] )
+			VAR repCur =
+			    SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] )
+			VAR title =
+			    "Sublot Hedges Positions, " & repCur & ", "
+			        & SELECTEDVALUE ( Framework[Framework Display] ) & ", "
+			        & FORMAT ( maxPerd, "dd-Mmm-yy" )
+			RETURN
+			    title
+			
+			```
+		lineageTag: 172331a2-2852-4516-99be-af1a9aa55489
+
+	measure 'Non Zero Filter(Sublot Hedge)' = If([AOCI Book Yield]+ [AOCI Hedge Par] <> 0 , 1, 0)
+		formatString: 0
+		isHidden
+		lineageTag: 178863c4-7a1d-460c-85ec-ec19fd7654e0
+
+	measure 'AOCI Book Yield' = ```
+			
+			    IF (
+			        ISFILTERED ( 'Period'[Date] ),
+			        SUM ( 'Securities Sublot Fact'[AOCI Book Yield (D)] ),
+			        CALCULATE (
+			            SUM ( 'Securities Sublot Fact'[AOCI Book Yield (D)] ),
+			            LASTDATE ( 'Securities Sublot Fact'[As of Date]  )
+			        )
+			    )
+			
+			/*VAR closePerd =
+			    MAX ( Period[Period End Date] )
+			RETURN
+			    CALCULATE (
+			        SUM ( 'Sublot Fact'[AOCI Book Yield (D)] ),
+			        FILTER ( 'Sublot Fact', 'Sublot Fact'[As of Date] = closePerd )
+			    )*/
+			```
+		lineageTag: 9286ee63-b3a6-4b07-88eb-4c24da0b74ad
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'AOCI Amortized - Local (SPH)' =
+			
+			
+			VAR closePerd =
+			    max('Period'[Period])
+			RETURN
+			    CALCULATE (
+			        SUM('Securities Sublot Fact'[Balanced Amortized AOCI - Local (D)] ),
+			         All('Period'), 'Securities Sublot Fact'[As of Period] <= closePerd
+			    )
+		displayFolder: Sublot Rollforward Attributes
+		lineageTag: 5ad299e8-6091-42b7-8358-510833558756
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'AOCI Amortized - Rep (SPH)' = ```
+			
+			VAR closePerd =
+			    MAX ( 'Period'[Period] )
+			RETURN
+			    CALCULATE (
+			        IF (
+			            SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] ) = "SCD Base",
+			            SUM ( 'Securities Sublot Fact'[Balanced Amortized AOCI - Base] ),
+			            SUMX ( 'Securities Sublot Fact', 'Securities Sublot Fact'[Balanced Amortized AOCI - Local (D)] ) * 'Fx Rate DQ'[Rep Rate]),
+			        All('Period'), 'Securities Sublot Fact'[As of Period] <= closePerd 
+			    )
+			```
+		displayFolder: Sublot Rollforward Attributes
+		lineageTag: 9feb3c02-4e36-4eda-8294-7d3c1d4eb8cb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'AOCI Original - Rep (SPH)' = [AOCI Amortized - Rep (SPH)] + [AOCI Remaining - Rep (SPH)]
+		displayFolder: Sublot Rollforward Attributes
+		lineageTag: 47929781-a697-4c4f-b0fe-bf70fa10fb19
+
+	measure 'AOCI Original - Local (SPH)' = [AOCI Amortized - Local (SPH)] + [AOCI Remaining - Local (SPH)]
+		displayFolder: Sublot Rollforward Attributes
+		lineageTag: 1427c19f-36aa-4464-9761-8630e05a0297
+
+	measure 'AOCI Remaining - Rep (SPH)' = ```
+			
+			VAR closePerd =
+			    MAX ( 'Period'[Period] )
+			RETURN
+			    CALCULATE (
+			        IF (
+			            SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] ) = "SCD Base",
+			            SUM ( 'Securities Sublot Fact'[Balance Remaining AOCI - Base] ),
+			            SUMX ( 'Securities Sublot Fact', 'Securities Sublot Fact'[Balance Remaining AOCI - Local (D)] ) * 'Fx Rate DQ'[Rep Rate]
+			        ),
+			        All('Period'), 'Securities Sublot Fact'[As of Period] <= closePerd 
+			    )
+			```
+		displayFolder: Sublot Rollforward Attributes
+		lineageTag: f7aad67f-2f83-493c-806a-ddecd143f8a5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'AOCI Remaining - Local (SPH)' = ```
+			
+			VAR closePerd =
+			    max('Period'[Period])
+			RETURN
+			    CALCULATE (
+			        SUM ('Securities Sublot Fact'[Balance Remaining AOCI - Local (D)] ),
+			        All('Period'),  'Securities Sublot Fact'[As of Period] <= closePerd 
+			    )
+			```
+		displayFolder: Sublot Rollforward Attributes
+		lineageTag: cfb249c8-5e7e-4799-94cb-5137d4b6ecb9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Sublot Position History Title' =
+			
+			VAR maxPerd =
+			    MAX ( 'Securities Sublot Fact'[As of Date] )
+			VAR repCur =
+			    SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] )
+			VAR title =
+			    "Sublot Position History, " & repCur & ", "
+			        & SELECTEDVALUE ( Framework[Framework Display] ) & ", "
+			        & FORMAT ( maxPerd, "dd-Mmm-yy" )
+			RETURN
+			    title
+		displayFolder: Sublot Rollforward Attributes
+		lineageTag: e152f348-f967-405d-a832-d71a416998be
+
+	measure 'AOCI Hedge Findur ID Sublot (SPH)' =
+			
+			VAR closePerd =
+			    max('Period'[Period])
+			RETURN
+			    CALCULATE (
+			        COUNT('Securities Sublot Fact'[AOCI Hedge Findur ID]),
+			         All('Period'), 'Securities Sublot Fact'[As of Period] <= closePerd
+			    )
+		formatString: 0
+		displayFolder: Sublot Rollforward Attributes
+		lineageTag: f5b1275e-a038-46fa-a704-38eb179bc72c
+
+	measure 'Rep Rate (Sec Sublot)' = AVERAGEX( 'Securities Sublot Fact', 1 * 'Fx Rate DQ'[Rep Rate])
+		formatString: 0.000000
+		lineageTag: 3d157f31-362c-4754-967d-d8689c48587f
+
+	column 'Security NK'
+		dataType: string
+		lineageTag: eb9c2371-a7a3-42d6-b79c-aa6a7f334e67
+		summarizeBy: none
+		sourceColumn: Security NK
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Positions ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 281a43f3-9fe7-4409-a963-c2373ad2c3b9
+		summarizeBy: count
+		sourceColumn: Src Positions ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As of Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: c95fcc22-aff7-44e4-bcf8-9a2cb3b05b28
+		summarizeBy: none
+		sourceColumn: As of Date
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'As of Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2e0d5abe-f28d-46f4-ac71-1a376b6669ff
+		summarizeBy: sum
+		sourceColumn: As of Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AOCI Allocation ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 051decd8-a612-460b-8aa7-2fe64b8675a4
+		summarizeBy: count
+		sourceColumn: AOCI Allocation ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AOCI Inception Index'
+		dataType: int64
+		formatString: 0
+		lineageTag: f4ca4592-9514-478e-88ad-327c5faee488
+		summarizeBy: sum
+		sourceColumn: AOCI Inception Index
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Component No'
+		dataType: int64
+		formatString: 0
+		lineageTag: b7e6b1d2-1984-4fba-b6ff-744b0e421f6e
+		summarizeBy: sum
+		sourceColumn: Component No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Originating System No'
+		dataType: int64
+		formatString: 0
+		lineageTag: 79697fed-a3f3-4f0f-afd6-c3914a815977
+		summarizeBy: none
+		sourceColumn: Originating System No
+
+		annotation SummarizationSetBy = User
+
+	column 'Asset Portfolio Code'
+		dataType: string
+		lineageTag: 5a1a1651-c3c4-4abe-98d2-22329c4b1fc3
+		summarizeBy: none
+		sourceColumn: Asset Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Code'
+		dataType: string
+		lineageTag: 8d184db4-1412-43d4-925e-9b3eef60968f
+		summarizeBy: none
+		sourceColumn: Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Name'
+		dataType: string
+		lineageTag: 38d13d01-f060-49cb-b812-6a4ed3ee5b1e
+		summarizeBy: none
+		sourceColumn: Portfolio Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Code & Name'
+		dataType: string
+		lineageTag: be742ee9-0d97-45c4-8993-e56b5d994c16
+		summarizeBy: none
+		sourceColumn: Portfolio Code & Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio NK'
+		dataType: string
+		lineageTag: d3ed84fd-1b91-477c-98ba-b865d7a10caa
+		summarizeBy: none
+		sourceColumn: Portfolio NK
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Unit Code & Name'
+		dataType: string
+		lineageTag: 7697bd46-adb2-4d6a-ab76-cd3d7e71243f
+		summarizeBy: none
+		sourceColumn: Accounting Unit Code & Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Code & Name'
+		dataType: string
+		lineageTag: 63758c1f-07f3-4f33-9cfd-03469a3f3aa3
+		summarizeBy: none
+		sourceColumn: Company Code & Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Group Code'
+		dataType: string
+		lineageTag: 1ff9888f-e6ba-4227-a600-716f66a99b7a
+		summarizeBy: none
+		sourceColumn: Portfolio Group Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Local
+		dataType: string
+		lineageTag: 7313d884-3de3-4971-ae6e-66749f9e3473
+		summarizeBy: none
+		sourceColumn: Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column Base
+		dataType: string
+		lineageTag: 4ad77fb8-8262-4cb6-afc0-8bb1bef50b2e
+		summarizeBy: none
+		sourceColumn: Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Framework Code'
+		dataType: string
+		lineageTag: 5113fbe8-c0b9-4596-9bc7-3f1e6d454629
+		summarizeBy: none
+		sourceColumn: Framework Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SCD Security ID'
+		dataType: string
+		lineageTag: bae9b6af-d2f9-4b72-b2f7-ee8b1eda7674
+		summarizeBy: none
+		sourceColumn: SCD Security ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SCD Security Name'
+		dataType: string
+		lineageTag: ff92fb26-a2a2-4673-a86b-fc7257bbd696
+		summarizeBy: none
+		sourceColumn: SCD Security Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SCD Instrument Category'
+		dataType: string
+		lineageTag: 19a3bdba-0c6a-426d-afdc-9da06ad9522a
+		summarizeBy: none
+		sourceColumn: SCD Instrument Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Instrument Type'
+		dataType: string
+		lineageTag: 23c6eb70-850f-4cce-b2cc-05835188a3d4
+		summarizeBy: none
+		sourceColumn: Instrument Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Class'
+		dataType: string
+		lineageTag: 5764976a-8214-4fdf-8c8d-1be53fe7ea7b
+		summarizeBy: none
+		sourceColumn: Asset Class
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lot ID'
+		dataType: string
+		lineageTag: 9db6ad5f-edce-486a-a841-5f717847250a
+		summarizeBy: none
+		sourceColumn: Lot ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Underlier Src Security ID'
+		dataType: string
+		lineageTag: 5c29a7a7-4012-4d72-9c56-910eda37b459
+		summarizeBy: none
+		sourceColumn: Underlier Src Security ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Underlier Src Market ID'
+		dataType: string
+		lineageTag: 03c8f2c9-a80b-4124-bf33-2e26a94d90d9
+		summarizeBy: none
+		sourceColumn: Underlier Src Market ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Underlier Src Security'
+		dataType: string
+		lineageTag: cda5234f-7eec-41a1-ba30-a3e93712048c
+		summarizeBy: none
+		sourceColumn: Underlier Src Security
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Underlier Security NK'
+		dataType: string
+		lineageTag: a09ede1b-7d7c-45eb-86ec-ad1cc65250cb
+		summarizeBy: none
+		sourceColumn: Underlier Security NK
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Functional CCY Code'
+		dataType: string
+		lineageTag: 87f925fe-d2ba-4993-b980-54ebe0400c98
+		summarizeBy: none
+		sourceColumn: Functional CCY Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local To Func Rate'
+		dataType: double
+		lineageTag: 0cc3cd4e-b66e-4d4c-97d3-f4eca630a875
+		summarizeBy: sum
+		sourceColumn: Local To Func Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Local To CAD Rate'
+		dataType: double
+		lineageTag: c7169d93-33ab-4746-a64e-51c17308e1c6
+		summarizeBy: sum
+		sourceColumn: Local To CAD Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Local To USD Rate'
+		dataType: double
+		lineageTag: 6e5fc5d4-c56c-4b7e-9361-d810f462c723
+		summarizeBy: sum
+		sourceColumn: Local To USD Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Local To HKD Rate'
+		dataType: double
+		lineageTag: 1f83376e-466c-4bf4-9ded-63fe5fad17bd
+		summarizeBy: sum
+		sourceColumn: Local To HKD Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'AOCI Hedge Findur ID'
+		dataType: string
+		lineageTag: 6b671eb7-81aa-4ff4-9970-ff5bb6e98716
+		summarizeBy: none
+		sourceColumn: AOCI Hedge Findur ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AOCI Hedge Type'
+		dataType: string
+		lineageTag: ad1c90c5-ee8b-449c-bdf0-6c2d81e75a29
+		summarizeBy: none
+		sourceColumn: AOCI Hedge Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AOCI Book Yield (D)'
+		dataType: double
+		lineageTag: dca0fd6e-1ed4-4bf6-a6be-e6d05172f160
+		summarizeBy: sum
+		sourceColumn: AOCI Book Yield (D)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'AOCI Hedge Par (D)'
+		dataType: double
+		lineageTag: 798165f9-e4d1-4b0a-b8db-c38c4a680447
+		summarizeBy: sum
+		sourceColumn: AOCI Hedge Par (D)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Month End Status'
+		dataType: string
+		lineageTag: 568a069b-ce90-4aad-9317-260a49a6339d
+		summarizeBy: none
+		sourceColumn: Month End Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balanced Amortized AOCI - Base'
+		dataType: double
+		lineageTag: 056dd922-9930-4bb0-a7c8-2baadd2417ad
+		summarizeBy: sum
+		sourceColumn: Balanced Amortized AOCI - Base
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Balance Remaining AOCI - Base'
+		dataType: double
+		lineageTag: 705e372b-6e00-4d03-a430-9ba582c077cb
+		summarizeBy: sum
+		sourceColumn: Balance Remaining AOCI - Base
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Balanced Amortized AOCI - Local (D)'
+		dataType: double
+		lineageTag: 2db62c9c-f660-46b0-ae6a-ccf082e2c5a7
+		summarizeBy: sum
+		sourceColumn: Balanced Amortized AOCI - Local (D)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Balance Remaining AOCI - Local (D)'
+		dataType: double
+		lineageTag: e5a434c6-682a-4e05-8cf4-5a2866c5649a
+		summarizeBy: sum
+		sourceColumn: Balance Remaining AOCI - Local (D)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Primary Security ID & Desc (Sublot)' = RELATED('Securities'[Primary Security ID & Desc])
+		lineageTag: f0c2a762-517e-43e0-972a-48361fff1921
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Class (Sublot)' = RELATED('Securities'[Asset Class])
+		lineageTag: fa78bcab-3016-4677-8c6f-da9d7f8f105d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Group (Sublot)' = RELATED('Securities'[Asset Group])
+		lineageTag: aa6f0811-dc8c-4c7d-97ca-16c480a98009
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Type (Sublot)' = RELATED('Securities'[Asset Type])
+		lineageTag: 38d3480c-36a5-4c1d-b105-d89726ddeb30
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bus Trans Num'
+		dataType: string
+		lineageTag: 99ce9bde-41a8-4aab-95b0-17a0b38c1f02
+		summarizeBy: none
+		sourceColumn: Bus Trans Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Code & Name Display' =
+			
+			IF (
+			    'Securities Sublot Fact'[Company Code & Name]
+			        IN { "Not Applicable - Not Applicable", "Not Available - Not Available" },
+			    "9999 - Off Balance Sheet Company",
+			    'Securities Sublot Fact'[Company Code & Name]
+			)
+		lineageTag: 34fed896-52f7-4691-9430-2122ac15e487
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Unit Code & Name Display' =
+			
+			IF (
+			    'Securities Sublot Fact'[Accounting Unit Code & Name]
+			        IN {"Not Applicable - Not Applicable", "Not Available - Not Available" },
+			    "9999 - Off Balance Sheet Acct Unit",
+			    'Securities Sublot Fact'[Accounting Unit Code & Name]
+			)
+		lineageTag: b0a38400-de5f-46b2-9e8e-bb09d3eb564b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Security ID'
+		dataType: string
+		sourceProviderType: nvarchar(100)
+		lineageTag: 5c5dd402-22ba-4bbe-b694-e9e5d5c5a7cf
+		summarizeBy: none
+		sourceColumn: Src Security ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		sourceProviderType: nvarchar(100)
+		lineageTag: 5f1318e0-d853-4790-a010-d292edfb0600
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Updated Ts'
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn:ss AM/PM
+		sourceProviderType: datetime2
+		lineageTag: da1f1db1-ce3a-4bad-a590-4f28ede1f5c9
+		summarizeBy: none
+		sourceColumn: Updated Ts
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Primary Security ID (Sublot)' = RELATED('Securities'[Primary Security ID])
+		lineageTag: f037fafa-dcd2-4441-b260-96a5748881c2
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FX Join Key'
+		dataType: string
+		lineageTag: 4d12f3dd-7fd2-4360-8ba6-af14836d4c45
+		summarizeBy: none
+		sourceColumn: FX Join Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unique Sublot ID'
+		dataType: string
+		lineageTag: 8d50d671-28c7-4de1-b775-d78b6bb3088b
+		summarizeBy: none
+		sourceColumn: Unique Sublot ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Securities Sublot Fact-c580f83a-f9bc-4e56-8117-6f9773ec484b' = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0), EnableQueryResultDownload="0"]),
+				    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+				    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+				    EDL_securities_sub_lot_fact = inv_semantic_ga_Schema{[Name="securities_sub_lot_fact_dq",Kind="Table"]}[Data],
+				    #"Removed Other Columns" = Table.SelectColumns(EDL_securities_sub_lot_fact,{"SRC_SECURITY_ID", "SECURITY_NK", "SRC_POSITIONS_ID", "AS_OF_DT", "AS_OF_PERIOD", "BUS_TRANS_NO", "AOCI_ALLOCATION_ID", "AOCI_INCEPTION_INDEX", "COMPONENT_NO", "ORIGINATING_SYSTEM_NO", "ASSET_PORTFOLIO_CD", "PORTFOLIO_CD", "PORTFOLIO_NM", "PORTFOLIO_CODE_NM", "PORTFOLIO_NK", "ACCOUNTING_UNIT_CODE_NAME", "COMPANY_CODE_NAME", "PORTFOLIO_GROUP_CD", "LOCAL_CURRENCY_CD", "BASE_CURRENCY_CD", "FRAMEWORK_CD", "SCD_SECURITY_ID", "SCD_SECURITY_NAME", "SCD_INSTRUMENT_CATEGORY", "INSTRUMENT_TYPE", "ASSET_CLASS", "LOT_ID", "UNDERLIER_SRC_SECURITY_ID", "UNDERLIER_SRC_MARKET_ID", "UNDERLIER_SRC_SECURITY", "UNDERLIER_SECURITY_NK", "FUNCTIONAL_CCY_CD", "LOCAL_TO_FUNC_RATE", "LOCAL_TO_CAD_RATE", "LOCAL_TO_USD_RATE", "LOCAL_TO_HKD_RATE", "AOCI_HEDGE_FINDUR_ID", "AOCI_HEDGE_TYPE", "AOCI_BOOK_YIELD", "AOCI_HEDGE_PAR", "MONTH_END_STATUS", "BALANCE_AMORTISED_AOCI_BASE_CCY", "BALANCE_REMAINING_AOCI_BASE_CCY", "BALANCE_AMORTISED_AOCI_LOCAL_CCY", "BALANCE_REMAINING_AOCI_LOCAL_CCY", "REGION", "UPDATED_TS", "FX_JOIN_KEY", "UNIQUE_SUBLOT_ID"}),
+				    #"Load data from specific date"= Table.SelectRows(#"Removed Other Columns",each Date.From([AS_OF_DT]) >= pCutOffDate),
+				    #"Renamed Columns" = Table.RenameColumns(#"Load data from specific date",{{"SRC_SECURITY_ID", "Src Security ID"}, {"SECURITY_NK", "Security NK"}, {"SRC_POSITIONS_ID", "Src Positions ID"}, {"AS_OF_DT", "As of Date"}, {"AS_OF_PERIOD", "As of Period"}, {"AOCI_ALLOCATION_ID", "AOCI Allocation ID"}, {"AOCI_INCEPTION_INDEX", "AOCI Inception Index"}, {"COMPONENT_NO", "Component No"}, {"ORIGINATING_SYSTEM_NO", "Originating System No"}, {"ASSET_PORTFOLIO_CD", "Asset Portfolio Code"}, {"PORTFOLIO_CD", "Portfolio Code"}, {"PORTFOLIO_NK", "Portfolio NK"}, {"PORTFOLIO_GROUP_CD", "Portfolio Group Code"}, {"LOCAL_CURRENCY_CD", "Local"}, {"BASE_CURRENCY_CD", "Base"}, {"FRAMEWORK_CD", "Framework Code"}, {"SCD_SECURITY_ID", "SCD Security ID"}, {"SCD_SECURITY_NAME", "SCD Security Name"}, {"SCD_INSTRUMENT_CATEGORY", "SCD Instrument Category"}, {"INSTRUMENT_TYPE", "Instrument Type"}, {"LOT_ID", "Lot ID"}, {"UNDERLIER_SRC_SECURITY_ID", "Underlier Src Security ID"}, {"UNDERLIER_SRC_SECURITY", "Underlier Src Security"}, {"UNDERLIER_SRC_MARKET_ID", "Underlier Src Market ID"}, {"UNDERLIER_SECURITY_NK", "Underlier Security NK"}, {"AOCI_HEDGE_FINDUR_ID", "AOCI Hedge Findur ID"}, {"AOCI_HEDGE_TYPE", "AOCI Hedge Type"}, {"AOCI_BOOK_YIELD", "AOCI Book Yield (D)"}, {"AOCI_HEDGE_PAR", "AOCI Hedge Par (D)"}, {"MONTH_END_STATUS", "Month End Status"}, {"BALANCE_AMORTISED_AOCI_BASE_CCY", "Balanced Amortized AOCI - Base"}, {"BALANCE_REMAINING_AOCI_BASE_CCY", "Balance Remaining AOCI - Base"}, {"BALANCE_REMAINING_AOCI_LOCAL_CCY", "Balance Remaining AOCI - Local (D)"}, {"BALANCE_AMORTISED_AOCI_LOCAL_CCY", "Balanced Amortized AOCI - Local (D)"}, {"PORTFOLIO_NM", "Portfolio Name"}, {"PORTFOLIO_CODE_NM", "Portfolio Code & Name"}, {"ACCOUNTING_UNIT_CODE_NAME", "Accounting Unit Code & Name"}, {"COMPANY_CODE_NAME", "Company Code & Name"}, {"ASSET_CLASS", "Asset Class"}, {"FUNCTIONAL_CCY_CD", "Functional CCY Code"}, {"LOCAL_TO_FUNC_RATE", "Local To Func Rate"}, {"LOCAL_TO_CAD_RATE", "Local To CAD Rate"}, {"LOCAL_TO_USD_RATE", "Local To USD Rate"}, {"LOCAL_TO_HKD_RATE", "Local To HKD Rate"},{"FX_JOIN_KEY", "FX Join Key"},{"UNIQUE_SUBLOT_ID","Unique Sublot ID"},{"BUS_TRANS_NO", "Bus Trans Num"}, {"REGION", "Region"}, {"UPDATED_TS", "Updated Ts"}
+				}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"Bus Trans Num", type text}, {"Lot ID", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

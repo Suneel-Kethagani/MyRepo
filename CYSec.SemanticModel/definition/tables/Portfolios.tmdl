@@ -1,0 +1,4809 @@
+table Portfolios
+	lineageTag: a980d11d-2492-4e95-aebd-411c948adaba
+
+	/// The folder contains the Portfolio Changes Report attributes
+	measure 'Portfolio Changes Title' = ```
+			
+			VAR _min =
+			    EDATE ( MIN ( 'Period'[End of Month] ), -0 )
+			VAR MIN_PRD =
+			    VALUE ( YEAR ( _min ) & FORMAT ( MONTH ( _min ), "00" ) )
+			VAR MAX_PRD =
+			    MAX ( Period[Period] )
+			VAR startDate =
+			    CALCULATE (
+			        MIN ( Portfolios[As of Date (D)] ),
+			        Portfolios[As of Period] = MIN_PRD
+			    )
+			VAR endDate =
+			    CALCULATE (
+			        MAX ( Portfolios[As of Date (D)] ),
+			        Portfolios[As of Period] = MAX_PRD
+			    )
+			var st = date(year(startDate),month(startDate),1)
+			RETURN
+			    "Portfolio Changes, " & FORMAT ( if(isblank(startDate),startDate,st), "dd-mmm-yy" ) & " - "
+			        & FORMAT ( endDate, "dd-mmm-yy" )
+			
+			```
+		displayFolder: Portfolio Changes Report Attributes
+		lineageTag: b15a9441-9e4f-4813-8bb2-6b27dc1755dd
+
+	measure 'Portfolio List Filter' =
+			
+			CALCULATE (
+			    MAX ( Portfolios[As of Period] ),
+			    FILTER ( Portfolios, Portfolios[As of Period] = MAX ( Period[Period] ) )
+			)
+		formatString: 0
+		lineageTag: 773d3de9-e1e8-42a1-8955-aa55d9798fae
+
+	measure LatestRowMarker = ```
+			
+			VAR maxDate =
+			    MAX ( Period[Period])
+			VAR inclusion =
+			    CALCULATE (
+			        COUNT ( Portfolios[Portfolio Code] ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = maxDate )
+			    )
+			RETURN
+			    inclusion
+			
+			```
+		formatString: 0
+		isHidden
+		lineageTag: eb84d6f4-2cf5-43aa-9f78-e808080532eb
+
+	measure #Port = DISTINCTCOUNT(Portfolios[Portfolio Code])
+		formatString: #,0
+		lineageTag: 5d7394c2-28fd-4454-9bea-e70ba8ba1606
+
+	measure 'Allow Derivatives Ind' = ```
+			
+			VAR maxdate =
+			    MAX ( 'Period'[Period] )
+			RETURN
+			    CALCULATE (
+			        SUM ( Portfolios[Allow Derivatives Ind (D)] ),
+			        Portfolios[As of Period] = maxdate
+			    )
+			
+			```
+		formatString: #,0
+		lineageTag: ece3d6cb-8df3-4476-aa19-2d79234cd1ea
+
+	measure 'Private Portf Ind' = ```
+			
+			VAR maxdate =
+			    MAX ( Period[Period] )
+			RETURN
+			    CALCULATE (
+			        SUM ( Portfolios[Private Portf Ind (D)] ),
+			        Portfolios[As of Period] = maxdate
+			    )
+			
+			```
+		formatString: #,0
+		lineageTag: 309981f4-57e8-414b-8aba-48ce887c763b
+
+	measure 'Seed Portfolio Ind' = ```
+			
+			VAR maxdate =
+			    MAX ( Period[Period] )
+			RETURN
+			    CALCULATE (
+			        SUM ( Portfolios[Seed Portfolio Ind (D)] ),
+			        Portfolios[As of Period] = maxdate
+			    )
+			
+			```
+		formatString: #,0
+		lineageTag: 0a7c7291-1955-43ed-a2d1-3b356bf55d2f
+
+	measure 'As of Date' = ```
+			
+			VAR MDS =
+			    MAX ( 'Period'[Period] )
+			RETURN
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[As of Date (D)], TRUE () ),
+			        Portfolios[As of Period] = MDS
+			    )
+			
+			```
+		formatString: yyyy-mm-dd
+		lineageTag: d04c56f3-56af-4e91-b493-eb7e4111cc56
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	measure 'Is on Findur' = ```
+			
+			VAR maxdate =
+			    MAX ( 'Period'[Period] )
+			RETURN
+			    CALCULATE (
+			        SUM ( Portfolios[Is on Findur (D)] ),
+			        Portfolios[As of Period] = maxdate
+			    )
+			
+			```
+		formatString: #,0
+		lineageTag: daccac8c-c950-4fe2-929e-622fa4ca1ec4
+
+	measure 'Separate Account Ind' = ```
+			
+			VAR maxdate =
+			    MAX ( Period[Period] )
+			RETURN
+			    CALCULATE (
+			        SUM ( Portfolios[Separate Account Ind (D)] ),
+			        Portfolios[As of period] = maxdate
+			    )
+			
+			```
+		formatString: #,0
+		lineageTag: 20f2711b-3d27-42e6-af62-fe0cf97866f2
+
+	measure 'Proxy Voting Ind' = ```
+			
+			VAR maxdate =
+			    MAX ( Period[Period] )
+			RETURN
+			    CALCULATE (
+			        SUM ( Portfolios[Proxy Voting Ind (D)] ),
+			        Portfolios[As of period] = maxdate
+			    )
+			
+			```
+		formatString: #,0
+		lineageTag: 48d435d3-eaed-4c2d-9660-590c53a5cd78
+
+	/// The folder contains the Portfolio Changes Report attributes
+	measure 'Portfolio Change Master' = ```
+			
+			VAR maxDateRange =
+			    MAX ( Period[Period] )
+			VAR priorDateRange =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Period[Period], TRUE () ),
+			        FILTER (
+			            ALL ( Period ),
+			            Period[End of Month]
+			                = (
+			                    CALCULATE (
+			                        FIRSTNONBLANK ( Period[Start of Month], TRUE () ),
+			                        FILTER ( ALL ( Period ), Period[Period] = MIN ( Period[Period] ) )
+			                    ) - 1
+			                )
+			        )
+			    )
+			VAR minport =
+			    CALCULATE (
+			        COUNTROWS ( Portfolios ),
+			             FILTER ( Portfolios, Portfolios[Start Date Period] = priorDateRange)
+			    )
+			VAR maxport =
+			    CALCULATE (
+			        COUNTROWS ( Portfolios ),
+			       FILTER ( Portfolios, Portfolios[Start Date Period] = maxDateRange )
+			    )
+			VAR minport1 =
+			    CALCULATE (
+			        COUNTROWS ( Portfolios ),
+			         FILTER ( Portfolios, Portfolios[Termination Period] = priorDateRange)
+			    )
+			VAR maxport1 =
+			    CALCULATE (
+			        COUNTROWS ( Portfolios ),
+			        FILTER ( Portfolios, Portfolios[Termination Period] = maxDateRange)
+			    )
+			VAR minman =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[Portfolio Manager Name (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = priorDateRange )
+			    )
+			VAR maxman =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[Portfolio Manager Name (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = maxDateRange )
+			    )
+			VAR minopc =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[Operating Ccy Code], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = priorDateRange )
+			    )
+			VAR maxopc =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[Operating Ccy Code], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = maxDateRange )
+			    )
+			VAR minbcur =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[Base Ccy Code (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = priorDateRange )
+			    )
+			VAR maxbcur =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[Base Ccy Code (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = maxDateRange )
+			    )
+			VAR minsfnd =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[Subfund ID (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = priorDateRange )
+			    )
+			VAR maxsfnd =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[Subfund ID (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = maxDateRange )
+			    )
+			VAR minIFRS =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[IFRS Trading Philosophy Code (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = priorDateRange )
+			    )
+			VAR maxIFRS =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[IFRS Trading Philosophy Code (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = maxDateRange )
+			    )
+			VAR minUSGAAP =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[USGAAP Trading Philosophy Code (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = priorDateRange )
+			    )
+			VAR maxUSGAAP =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[USGAAP Trading Philosophy Code (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = maxDateRange )
+			    )
+			VAR minIAS39 =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[IAS39 Trading Philosophy Code (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = priorDateRange )
+			    )
+			VAR maxIAS39 =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[IAS39 Trading Philosophy Code (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = maxDateRange )
+			    )
+			VAR minJGAAP =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[JGAAP Trading Philosophy Code (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = priorDateRange )
+			    )
+			VAR maxJGAAP =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[JGAAP Trading Philosophy Code (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = maxDateRange )
+			    )
+			VAR minWorkArea =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[Work Area (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = priorDateRange )
+			    )
+			VAR maxWorkArea =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[Work Area (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = maxDateRange )
+			    )
+			VAR minName =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[Portfolio Name], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = priorDateRange )
+			    )
+			VAR maxName =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[Portfolio Name], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = maxDateRange )
+			    )
+			RETURN
+			    IF (
+			        AND ( OR ( minport1 = 0, ISBLANK ( minport1 ) ), maxport1 > 0 ),
+			        "Removed",//"New",
+			        --If port has no prior ref then New
+			        IF (  AND ( OR ( minport = 0, ISBLANK ( minport ) ), maxport > 0 ),
+			            //AND ( minport1 > 0, OR ( maxport1 = 0, ISBLANK ( maxport1 ) ) ),
+			             "New",//"Removed",
+			            -- else if prior port is absent in latest date, then removed
+			            IF (
+			                COALESCE ( minman, "" ) <> COALESCE ( maxman, "" ),
+			                "Changed",
+			                -- else if manager changes then 
+			                IF (
+			                    COALESCE ( minopc, "" ) <> COALESCE ( maxopc, "" ),
+			                    "Changed",
+			                    --else if OPC changed then "OPC"
+			                    IF (
+			                        COALESCE ( minbcur, "" ) <> COALESCE ( maxbcur, "" ),
+			                        "Changed",
+			                        IF (
+			                            COALESCE ( minsfnd, "" ) <> COALESCE ( maxsfnd, "" ),
+			                            "Changed",
+			                            IF (
+			                                COALESCE ( minName, "" ) <> COALESCE ( maxName, "" ),
+			                                "Changed",
+			                                IF (
+			                                    COALESCE ( minIFRS, "" ) <> COALESCE ( maxIFRS, "" ),
+			                                    "Changed",
+			                                    IF (
+			                                        COALESCE ( minUSGAAP, "" ) <> COALESCE ( maxUSGAAP, "" ),
+			                                        "Changed",
+			                                        IF (
+			                                            COALESCE ( minIAS39, "" ) <> COALESCE ( maxIAS39, "" ),
+			                                            "Changed",
+			                                            IF (
+			                                                COALESCE ( minJGAAP, "" ) <> COALESCE ( maxJGAAP, "" ),
+			                                                "Changed",
+			                                                IF (
+			                                                    COALESCE ( minWorkArea, "" ) = COALESCE ( maxWorkArea, "" ),
+			                                                    BLANK (),
+			                                                    "Changed"
+			                                                )
+			                                            )
+			                                        )
+			                                    )
+			                                )
+			                            )
+			                        )
+			                    )
+			                )
+			            )
+			        )
+			    )
+			
+			```
+		formatString: 0
+		displayFolder: Portfolio Changes Report Attributes
+		lineageTag: 41ac794f-5392-4693-ad53-69f28f8e3b38
+
+	/// The folder contains the Portfolio Changes Report attributes
+	measure 'New Port Legal ID' = ```
+			
+			VAR MDS =
+			    MAX ( Period[Period] )
+			RETURN
+			    IF (
+			        [Portfolio Change Master] = "New",
+			        CALCULATE (
+			            FIRSTNONBLANK ( Portfolios[Lawson Legal ID (D)], TRUE () ),
+			            FILTER ( Portfolios, Portfolios[As of Period] = mds )
+			        ),
+			        BLANK ()
+			    )
+			
+			```
+		formatString: 0
+		displayFolder: Portfolio Changes Report Attributes
+		lineageTag: 7c4660d9-1075-4d2d-a1b6-11c3f36f524b
+
+	/// The folder contains the Portfolio Changes Report attributes
+	measure 'Port Manager Changes' =
+			
+			VAR maxDateRange =
+			    MAX ( Period[Period] )
+			VAR priorDateRange =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Period[Period], TRUE () ),
+			        FILTER (
+			            ALL ( Period ),
+			            Period[End of Month]
+			                = (
+			                    CALCULATE (
+			                        FIRSTNONBLANK ( Period[Start of Month], TRUE () ),
+			                        FILTER ( ALL ( Period ), Period[Period] = MIN ( Period[Period] ) )
+			                    ) - 1
+			                )
+			        )
+			    )
+			VAR minport =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[Portfolio Manager Name (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = priorDateRange )
+			    )
+			VAR maxport =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[Portfolio Manager Name (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = maxDateRange )
+			    )
+			VAR minsec =
+			    CALCULATE (
+			        COUNTROWS ( 'Portfolios' ),
+			        FILTER (
+			            'Portfolios',
+			            'Portfolios'[As Of Period] = priorDateRange
+			        )
+			    )
+			VAR maxsec =
+			    CALCULATE (
+			        COUNTROWS ( 'Portfolios' ),
+			        FILTER (
+			            'Portfolios',
+			            'Portfolios'[As Of Period] = maxDateRange
+			        )
+			    )
+			RETURN
+			    IF (
+			        minsec > 0
+			            && maxsec > 0
+			            && minport <> maxport,
+			        CONCATENATE ( minport, CONCATENATE ( " -> ", maxport ) ),
+			        IF (
+			            AND ( ISBLANK ( minport ), NOT ( ISBLANK ( maxport ) ) ),
+			            maxport,
+			            BLANK ()
+			        )
+			    )
+		displayFolder: Portfolio Changes Report Attributes
+		lineageTag: 98a17d4e-c356-4b4d-83b8-f0b4959812fb
+
+	/// The folder contains the Portfolio Changes Report attributes
+	measure 'Port Base Currency Change' =
+			
+			VAR maxDateRange =
+			    MAX ( Period[Period] )
+			VAR priorDateRange =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Period[Period], TRUE () ),
+			        FILTER (
+			            ALL ( Period ),
+			            Period[End of Month]
+			                = (
+			                    CALCULATE (
+			                        FIRSTNONBLANK ( Period[Start of Month], TRUE () ),
+			                        FILTER ( ALL ( Period ), Period[Period] = MIN ( Period[Period] ) )
+			                    ) - 1
+			                )
+			        )
+			    )
+			VAR minport =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[Base Ccy Code (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = priorDateRange )
+			    )
+			VAR maxport =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[Base Ccy Code (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = maxDateRange )
+			    )
+			VAR minsec =
+			    CALCULATE (
+			        COUNTROWS ( 'Portfolios' ),
+			        FILTER (
+			            'Portfolios',
+			            'Portfolios'[As Of Period] = priorDateRange
+			        )
+			    )
+			VAR maxsec =
+			    CALCULATE (
+			        COUNTROWS ( 'Portfolios' ),
+			        FILTER (
+			            'Portfolios',
+			            'Portfolios'[As Of Period] = maxDateRange
+			        )
+			    )
+			RETURN
+			    IF (
+			        minsec > 0
+			            && maxsec > 0
+			            && minport <> maxport,
+			        CONCATENATE ( minport, CONCATENATE ( " -> ", maxport ) ),
+			        IF (
+			            AND ( ISBLANK ( minport ), NOT ( ISBLANK ( maxport ) ) ),
+			            maxport,
+			            BLANK ()
+			        )
+			    )
+		displayFolder: Portfolio Changes Report Attributes
+		lineageTag: dcc53521-3338-4a08-85fb-ad06fb29cbe8
+
+	/// The folder contains the Portfolio Changes Report attributes
+	measure 'Port Operating Currency Change' = ```
+			
+			VAR maxDateRange =
+			    MAX ( Period[Period] )
+			VAR priorDateRange =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Period[Period], TRUE () ),
+			        FILTER (
+			            ALL ( Period ),
+			            Period[End of Month]
+			                = (
+			                    CALCULATE (
+			                        FIRSTNONBLANK ( Period[Start of Month], TRUE () ),
+			                        FILTER ( ALL ( Period ), Period[Period] = MIN ( Period[Period] ) )
+			                    ) - 1
+			                )
+			        )
+			    )
+			VAR minport =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[Operating Ccy Code], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = priorDateRange )
+			    )
+			VAR maxport =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[Operating Ccy Code], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = maxDateRange )
+			    )
+			VAR minsec =
+			    CALCULATE (
+			        COUNTROWS ( 'Portfolios' ),
+			        FILTER (
+			            'Portfolios',
+			            'Portfolios'[As Of Period] = priorDateRange
+			        )
+			    )
+			VAR maxsec =
+			    CALCULATE (
+			        COUNTROWS ( 'Portfolios' ),
+			        FILTER (
+			            'Portfolios',
+			            'Portfolios'[As Of Period] = maxDateRange
+			        )
+			    )
+			RETURN
+			    IF (
+			        minsec > 0
+			            && maxsec > 0
+			            && minport <> maxport,
+			        CONCATENATE ( minport, CONCATENATE ( " -> ", maxport ) ),
+			        IF (
+			            AND ( ISBLANK ( minport ), NOT ( ISBLANK ( maxport ) ) ),
+			            maxport,
+			            BLANK ()
+			        )
+			    )
+			-- if minport==maxport or minport/maxport is blank, then nothing else show the changes
+			
+			```
+		displayFolder: Portfolio Changes Report Attributes
+		lineageTag: 7d9ba84d-1975-4366-a178-278b22c10b53
+
+	/// The folder contains the Portfolio Changes Report attributes
+	measure 'Port IFRS  Purpose Change' =
+			
+			VAR maxDateRange =
+			    MAX ( Period[Period] )
+			VAR _min =
+			    EDATE ( MIN ( 'Period'[End of Month] ), -1 )
+			VAR priorDateRange =
+			    VALUE ( YEAR ( _min ) & FORMAT ( MONTH ( _min ), "00" ) )
+			VAR minport =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[IFRS Trading Philosophy Code (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = priorDateRange )
+			    )
+			VAR maxport =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[IFRS Trading Philosophy Code (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = maxDateRange )
+			    )
+			VAR minsec =
+			    CALCULATE (
+			        COUNTROWS ( 'Portfolios' ),
+			        FILTER (
+			            'Portfolios',
+			            'Portfolios'[As Of Period] = priorDateRange
+			        )
+			    )
+			VAR maxsec =
+			    CALCULATE (
+			        COUNTROWS ( 'Portfolios' ),
+			        FILTER (
+			            'Portfolios',
+			            'Portfolios'[As Of Period] = maxDateRange
+			        )
+			    )
+			RETURN
+			    IF (
+			        minsec > 0
+			            && maxsec > 0
+			            && minport <> maxport,
+			        CONCATENATE ( minport, CONCATENATE ( " -> ", maxport ) ),
+			        IF (
+			            AND ( ISBLANK ( minport ), NOT ( ISBLANK ( maxport ) ) ),
+			            maxport,
+			            BLANK ()
+			        )
+			    )
+		displayFolder: Portfolio Changes Report Attributes
+		lineageTag: b4750a2f-9af3-4533-8d14-59f3d02adaeb
+
+	/// The folder contains the Portfolio Changes Report attributes
+	measure 'Port JGAAP  Purpose Change' =
+			
+			VAR maxDateRange =
+			    MAX ( Period[Period] )
+			VAR priorDateRange =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Period[Period], TRUE () ),
+			        FILTER (
+			            ALL ( Period ),
+			            Period[End of Month]
+			                = (
+			                    CALCULATE (
+			                        FIRSTNONBLANK ( Period[Start of Month], TRUE () ),
+			                        FILTER ( ALL ( Period ), Period[Period] = MIN ( Period[Period] ) )
+			                    ) - 1
+			                )
+			        )
+			    )
+			VAR minport =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[JGAAP Trading Philosophy Code (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = priorDateRange )
+			    )
+			VAR maxport =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[JGAAP Trading Philosophy Code (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = maxDateRange )
+			    )
+			VAR minsec =
+			    CALCULATE (
+			        COUNTROWS ( 'Portfolios' ),
+			        FILTER (
+			            'Portfolios',
+			            'Portfolios'[As Of Period] = priorDateRange
+			        )
+			    )
+			VAR maxsec =
+			    CALCULATE (
+			        COUNTROWS ( 'Portfolios' ),
+			        FILTER (
+			            'Portfolios',
+			            'Portfolios'[As Of Period] = maxDateRange
+			        )
+			    )
+			RETURN
+			    IF (
+			        minsec > 0
+			            && maxsec > 0
+			            && minport <> maxport,
+			        CONCATENATE ( minport, CONCATENATE ( " -> ", maxport ) ),
+			        IF (
+			            AND ( ISBLANK ( minport ), NOT ( ISBLANK ( maxport ) ) ),
+			            maxport,
+			            BLANK ()
+			        )
+			    )
+		displayFolder: Portfolio Changes Report Attributes
+		lineageTag: 17690b6a-3c43-4fd1-8ba5-bf2a470ada4f
+
+	/// The folder contains the Portfolio Changes Report attributes
+	measure 'Port IAS39  Purpose Change' =
+			
+			VAR maxDateRange =
+			    MAX ( Period[Period] )
+			VAR priorDateRange =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Period[Period], TRUE () ),
+			        FILTER (
+			            ALL ( Period ),
+			            Period[End of Month]
+			                = (
+			                    CALCULATE (
+			                        FIRSTNONBLANK ( Period[Start of Month], TRUE () ),
+			                        FILTER ( ALL ( Period ), Period[Period] = MIN ( Period[Period] ) )
+			                    ) - 1
+			                )
+			        )
+			    )
+			VAR minport =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[IAS39 Trading Philosophy Code (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = priorDateRange )
+			    )
+			VAR maxport =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[IAS39 Trading Philosophy Code (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = maxDateRange )
+			    )
+			VAR minsec =
+			    CALCULATE (
+			        COUNTROWS ( 'Portfolios' ),
+			        FILTER (
+			            'Portfolios',
+			            'Portfolios'[As Of Period] = priorDateRange
+			        )
+			    )
+			VAR maxsec =
+			    CALCULATE (
+			        COUNTROWS ( 'Portfolios' ),
+			        FILTER (
+			            'Portfolios',
+			            'Portfolios'[As Of Period] = maxDateRange
+			        )
+			    )
+			RETURN
+			    IF (
+			        minsec > 0
+			            && maxsec > 0
+			            && minport <> maxport,
+			        CONCATENATE ( minport, CONCATENATE ( " -> ", maxport ) ),
+			        IF (
+			            AND ( ISBLANK ( minport ), NOT ( ISBLANK ( maxport ) ) ),
+			            maxport,
+			            BLANK ()
+			        )
+			    )
+		displayFolder: Portfolio Changes Report Attributes
+		lineageTag: 3eadd050-cb7b-401a-928a-bba8aed7fd2a
+
+	/// The folder contains the Portfolio Changes Report attributes
+	measure 'Port USGAAP  Purpose Change' =
+			
+			VAR maxDateRange =
+			    MAX ( Period[Period] )
+			VAR priorDateRange =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Period[Period], TRUE () ),
+			        FILTER (
+			            ALL ( Period ),
+			            Period[End of Month]
+			                = (
+			                    CALCULATE (
+			                        FIRSTNONBLANK ( Period[Start of Month], TRUE () ),
+			                        FILTER ( ALL ( Period ), Period[Period] = MIN ( Period[Period] ) )
+			                    ) - 1
+			                )
+			        )
+			    )
+			VAR minport =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[USGAAP Trading Philosophy Code (D)], TRUE () ),
+			        FILTER ( Portfolios , Portfolios[As of Period] = priorDateRange )
+			    )
+			VAR maxport =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[USGAAP Trading Philosophy Code (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = maxDateRange )
+			    )
+			VAR minsec =
+			    CALCULATE (
+			        COUNTROWS ( 'Portfolios' ),
+			        FILTER (
+			            'Portfolios',
+			            'Portfolios'[As Of Period] = priorDateRange
+			        )
+			    )
+			VAR maxsec =
+			    CALCULATE (
+			        COUNTROWS ( 'Portfolios' ),
+			        FILTER (
+			            'Portfolios',
+			            'Portfolios'[As Of Period] = maxDateRange
+			        )
+			    )
+			RETURN
+			    IF (
+			        minsec > 0
+			            && maxsec > 0
+			            && minport <> maxport,
+			        CONCATENATE ( minport, CONCATENATE ( " -> ", maxport ) ),
+			        IF (
+			            AND ( ISBLANK ( minport ), NOT ( ISBLANK ( maxport ) ) ),
+			            maxport,
+			            BLANK ()
+			        )
+			    )
+		displayFolder: Portfolio Changes Report Attributes
+		lineageTag: e5c789d1-0b43-4634-aee1-b8192a36e256
+
+	/// The folder contains the Portfolio Changes Report attributes
+	measure 'Port Subfund Change' =
+			
+			VAR maxDateRange =
+			    MAX ( Period[Period] )
+			VAR priorDateRange =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Period[Period], TRUE () ),
+			        FILTER (
+			            ALL ( Period ),
+			            Period[End of Month]
+			                = (
+			                    CALCULATE (
+			                        FIRSTNONBLANK ( Period[Start of Month], TRUE () ),
+			                        FILTER ( ALL ( Period ), Period[Period] = MIN ( Period[Period] ) )
+			                    ) - 1
+			                )
+			        )
+			    )
+			VAR minport =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[Subfund ID (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = priorDateRange )
+			    )
+			VAR maxport =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[Subfund ID (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = maxDateRange )
+			    )
+			VAR minsec =
+			    CALCULATE (
+			        COUNTROWS ( 'Portfolios' ),
+			        FILTER (
+			            'Portfolios',
+			            'Portfolios'[As Of Period] = priorDateRange
+			        )
+			    )
+			VAR maxsec =
+			    CALCULATE (
+			        COUNTROWS ( 'Portfolios' ),
+			        FILTER (
+			            'Portfolios',
+			            'Portfolios'[As Of Period] = maxDateRange
+			        )
+			    )
+			RETURN
+			    IF (
+			        minsec > 0
+			            && maxsec > 0
+			            && minport <> maxport,
+			        CONCATENATE ( minport, CONCATENATE ( " -> ", maxport ) ),
+			        IF (
+			            AND ( ISBLANK ( minport ), NOT ( ISBLANK ( maxport ) ) ),
+			            maxport,
+			            BLANK ()
+			        )
+			    )
+		displayFolder: Portfolio Changes Report Attributes
+		lineageTag: 229e0187-421e-401f-af2b-999121caf676
+
+	measure 'Portfolio List Title' =
+			
+			VAR MAX_DT =
+			    MAX ( 'Period'[Period] )
+			VAR endDate =
+			    CALCULATE (
+			        MAX ( Portfolios[As of Date (D)] ),
+			        Portfolios[As of Period] = MAX_DT
+			    )
+			RETURN
+			    "Portfolios" & ", "
+			        & SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] ) & ", "
+			        & SELECTEDVALUE ( Framework[Framework Display] ) & ", "
+			        & FORMAT ( endDate, "dd-mmm-yy" )
+		lineageTag: e4cc1d4f-2895-4e02-83a3-91cb543d13f2
+
+	/// The folder contains the Portfolio Changes Report attributes
+	measure 'Port Work Area Change' =
+			
+			VAR maxDateRange =
+			    MAX ( Period[Period] )
+			VAR priorDateRange =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Period[Period], TRUE () ),
+			        FILTER (
+			            ALL ( Period ),
+			            Period[Start of Month]
+			                = (
+			                    CALCULATE (
+			                        FIRSTNONBLANK ( Period[End of Month], TRUE () ),
+			                        FILTER ( ALL ( Period ), Period[Period] = MIN ( Period[Period] ) )
+			                    ) - 1
+			                )
+			        )
+			    )
+			VAR minport =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[Work Area (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = priorDateRange )
+			    )
+			VAR maxport =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[Work Area (D)], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = maxDateRange )
+			    )
+			VAR minsec =
+			    CALCULATE (
+			        COUNTROWS ( 'Portfolios' ),
+			        FILTER (
+			            'Portfolios',
+			            'Portfolios'[As Of Period] = priorDateRange
+			        )
+			    )
+			VAR maxsec =
+			    CALCULATE (
+			        COUNTROWS ( 'Portfolios' ),
+			        FILTER (
+			            'Portfolios',
+			            'Portfolios'[As Of Period] = maxDateRange
+			        )
+			    )
+			RETURN
+			    IF (
+			        minsec > 0
+			            && maxsec > 0
+			            && minport <> maxport,
+			        CONCATENATE ( minport, CONCATENATE ( " -> ", maxport ) ),
+			        IF (
+			            AND ( ISBLANK ( minport ), NOT ( ISBLANK ( maxport ) ) ),
+			            maxport,
+			            BLANK ()
+			        )
+			    )
+		displayFolder: Portfolio Changes Report Attributes
+		lineageTag: ad39a637-dfaf-4848-a5c2-197c9659b3ed
+
+	/// The folder contains the Portfolio Changes Report attributes
+	measure 'Portfolio Name Change' =
+			
+			VAR maxDateRange =
+			    MAX ( Period[Period] )
+			VAR priorDateRange =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Period[Period], TRUE () ),
+			        FILTER (
+			            ALL ( Period ),
+			            Period[End of Month]
+			                = (
+			                    CALCULATE (
+			                        FIRSTNONBLANK ( Period[Start of Month], TRUE () ),
+			                        FILTER ( ALL ( Period ), Period[Period] = MIN ( Period[Period] ) )
+			                    ) - 1
+			                )
+			        )
+			    )
+			VAR minport =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[Portfolio Name], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = priorDateRange )
+			    )
+			VAR maxport =
+			    CALCULATE (
+			        FIRSTNONBLANK ( Portfolios[Portfolio Name], TRUE () ),
+			        FILTER ( Portfolios, Portfolios[As of Period] = maxDateRange )
+			    )
+			VAR minsec =
+			    CALCULATE (
+			        COUNTROWS ( 'Portfolios' ),
+			        FILTER (
+			            'Portfolios',
+			            'Portfolios'[As Of Period] = priorDateRange
+			        )
+			    )
+			VAR maxsec =
+			    CALCULATE (
+			        COUNTROWS ( 'Portfolios' ),
+			        FILTER (
+			            'Portfolios',
+			            'Portfolios'[As Of Period] = maxDateRange
+			        )
+			    )
+			RETURN
+			    IF (
+			        minsec > 0
+			            && maxsec > 0
+			            && minport <> maxport,
+			        CONCATENATE ( minport, CONCATENATE ( " -> ", maxport ) ),
+			        IF (
+			            AND ( ISBLANK ( minport ), NOT ( ISBLANK ( maxport ) ) ),
+			            maxport,
+			            BLANK ()
+			        )
+			    )
+		displayFolder: Portfolio Changes Report Attributes
+		lineageTag: d4cc7903-ca2c-4d05-8708-cb3f935a2696
+
+	/// The folder contains the Portfolio Changes Report attributes
+	measure 'Portfolio Changes Filter' =
+			
+			VAR portChange = [Portfolio Change Master]
+			VAR slicer =
+			    SELECTEDVALUE ( 'Portfolio Change Types'[Type] )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        slicer = "All", 1,
+			        portChange = slicer, 1,
+			        0
+			    )
+		formatString: #,0
+		displayFolder: Portfolio Changes Report Attributes
+		lineageTag: a682d522-b2c9-4ee0-bc3b-f7eb23846b26
+
+	measure 'Alm As of Date' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR ALM =
+			    CALCULATE (
+			        MAX ('Portfolios'[Alm As of Date (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    ALM
+		formatString: yyyy-mm-dd
+		lineageTag: c54f9b23-53ef-467d-8b68-87c3b84e1ba2
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	measure 'IAS39 Purpose' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR IAS39 =
+			    CALCULATE (
+			        MAX ('Portfolios'[IAS39 Trading Philosophy Code (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    IAS39
+		lineageTag: b1345e0b-f347-45af-8e82-1da9bc1b922c
+
+	measure 'IFRS Purpose' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR IFRS =
+			    CALCULATE (
+			        MAX ('Portfolios'[IFRS Trading Philosophy Code (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    IFRS
+		lineageTag: 5f1c604b-7dbd-4db1-a4ae-94be485f4461
+
+	measure 'JGAAP Purpose' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR Jgaap =
+			    CALCULATE (
+			        MAX ('Portfolios'[JGAAP Trading Philosophy Code (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    Jgaap
+		lineageTag: 6cdc46a3-8e14-4d22-804e-7fbb1e6dcc60
+
+	measure 'Lawson Legal ID' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR LLI =
+			    CALCULATE (
+			        MAX ('Portfolios'[Lawson Legal ID (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    LLI
+		lineageTag: 7983e1ba-40cb-43c8-9ef9-81c2a7c530ea
+
+	measure 'Subfund ID' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR Subfund =
+			    CALCULATE (
+			        MAX ('Portfolios'[Subfund ID (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    Subfund
+		lineageTag: 6d6e1947-3f5d-4e70-bb70-2cb1719e0bde
+
+	measure 'USGAAP Purpose' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR USGAAP =
+			    CALCULATE (
+			        MAX ('Portfolios'[USGAAP Trading Philosophy Code (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    USGAAP
+		lineageTag: 0eb03251-6dfa-49e4-9d65-8221f815a156
+
+	measure 'Operating Ccy Code (CM)' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR opCurr =
+			    CALCULATE (
+			        MAX ('Portfolios'[Operating Ccy Code]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    OpCurr
+		lineageTag: 116f156c-7846-49fc-8379-f35e28000af9
+
+	measure 'Work Area' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR workArea =
+			    CALCULATE (
+			        MAX ('Portfolios'[Work Area (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    workArea
+		lineageTag: cb83f867-d2e3-42b1-bbb3-a9ec81ce961a
+
+	measure 'Base Ccy Code' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR baseCurr =
+			    CALCULATE (
+			        MAX ('Portfolios'[Base Ccy Code (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    baseCurr
+		lineageTag: 423778ff-e0cd-4572-9c0c-638b4f552eec
+
+	measure 'Portfolio Manager Name' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR portMan =
+			    CALCULATE (
+			        MAX ('Portfolios'[Portfolio Manager Name (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    portMan
+		lineageTag: 8acf9e60-7251-4fb9-81d6-ec8c947b0854
+
+	measure 'Forecasted Indicator' = ```
+			
+			VAR maxdate =
+			    MAX ( Period[Period] )
+			RETURN
+			    CALCULATE (
+			        SUM ( Portfolios[Forecasted Indicator (D)] ),
+			        Portfolios[As of period] = maxdate
+			    )
+			
+			```
+		formatString: #,0
+		lineageTag: 14cac285-1ec2-4ca1-a283-3f2de7c54e00
+
+	measure 'Allow Securities Lending Ind' = ```
+			
+			VAR maxdate =
+			    MAX ( 'Period'[Period] )
+			RETURN
+			    CALCULATE (
+			        SUM ( Portfolios[Allow Securities Lending Ind (D)] ),
+			        Portfolios[As of Period] = maxdate
+			    )
+			
+			```
+		formatString: 0
+		lineageTag: ca4af2f7-fc18-43b7-93db-1f69b52ee676
+
+	measure 'On/Off Bal Sheet (CM)' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR OnOff =
+			    CALCULATE (
+			        FIRSTNONBLANK ( 'Portfolios'[On/Off Bal Sheet], TRUE () ),
+			        'Portfolios'[As of Period] = maxPred
+			    )
+			RETURN
+			    OnOff
+		lineageTag: 13b91610-cd46-441d-9ed9-efe0ffff02da
+
+	measure 'Investment Desk' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR I_desk =
+			    CALCULATE (
+			        FIRSTNONBLANK ( 'Portfolios'[Investment Desk (D)], TRUE () ),
+			        'Portfolios'[As of Period] = maxPred
+			    )
+			RETURN
+			    I_desk
+		lineageTag: ffec389e-7ff7-4a30-9e71-84aae2fd58d1
+
+	measure 'Alm Fi Benchmark Name' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR ALMBench =
+			    CALCULATE (
+			        FIRSTNONBLANK ( 'Portfolios'[Alm Fi Benchmark Name (D)], TRUE () ),
+			        'Portfolios'[As of Period] = maxPred
+			    )
+			RETURN
+			    ALMBench
+		lineageTag: 7a64c1d8-72aa-4f9c-a423-35768f07542b
+
+	measure 'Territory Code' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR Port =
+			    CALCULATE (
+			        MAX ('Portfolios'[Territory Code (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    Port
+		lineageTag: 0c3986ab-50f1-4392-8afc-bc468f7a7a13
+
+	measure 'Subfund Name' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR Port =
+			    CALCULATE (
+			        MAX ('Portfolios'[Subfund Name (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    Port
+		lineageTag: 5a4561db-3164-473e-be19-34185efdd2e6
+
+	measure 'Portfolio Team Name' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR Port =
+			    CALCULATE (
+			        MAX ('Portfolios'[Portfolio Team Name (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    Port
+		lineageTag: 63e36f5a-7e29-4a82-8d0b-73eea886f5c8
+
+	measure 'Portfolio Strategy Code' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR Port =
+			    CALCULATE (
+			        MAX ('Portfolios'[Portfolio Strategy Code (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    Port
+		lineageTag: 50f7fbb0-b18c-4ef8-bc8a-1523fe012cbc
+
+	measure 'Portfolio Strategy' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR Port =
+			    CALCULATE (
+			        MAX ('Portfolios'[Portfolio Strategy (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    Port
+		lineageTag: c29d7ba3-074e-4ebb-b918-577fb469fed9
+
+	measure 'Portfolio Owner' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR Port =
+			    CALCULATE (
+			        MAX ('Portfolios'[Portfolio Owner (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    Port
+		lineageTag: c6e2edfc-0e2f-4984-be9a-5e70840f05e9
+
+	measure 'Portfolio Manager Alt Name' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR Port =
+			    CALCULATE (
+			        MAX ('Portfolios'[Portfolio Manager Alt Name (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    Port
+		lineageTag: 68c4040e-0a55-4f5a-a098-805199eb3cd5
+
+	measure 'Bank Account Number List' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR BankList =
+			    CALCULATE (
+			        MAX ('Portfolios'[Bank Account Number List (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    BankList
+		lineageTag: 22695e01-b946-4475-ac55-ac80f62a0c80
+
+	measure 'Bank Currencies List' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR BankList =
+			    CALCULATE (
+			        MAX ('Portfolios'[Bank Currencies List (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    BankList
+		lineageTag: 59488f2d-b883-4d1f-aa31-017fa8d9e258
+
+	measure 'Regulated Account Indicator' = ```
+			
+			VAR maxdate =
+			    MAX ( Period[Period] )
+			RETURN
+			    CALCULATE (
+			        FIRSTNONBLANK(Portfolios[Regulated Account Indicator (D)],TRUE() ),
+			        Portfolios[As of period] = maxdate
+			    )
+			
+			```
+		lineageTag: b1ca64b4-f89d-42fd-b664-96f8ba5180aa
+
+	measure 'Other Invested Asset Code' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR Other_asset_cd =
+			    CALCULATE (
+			        FIRSTNONBLANK ( 'Portfolios'[Other Invested Asset Code (D)], TRUE () ),
+			        'Portfolios'[As of Period] = maxPred
+			    )
+			RETURN
+			    Other_asset_cd
+		lineageTag: 48a4bd8f-9cda-4502-9272-ca5043e87372
+
+	measure 'Liability Surplus' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR Port =
+			    CALCULATE (
+			        MAX ('Portfolios'[Liability Surplus (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    Port
+		lineageTag: b1e5f886-3d14-4523-8de3-30eb95c769d3
+
+	measure 'Custodian Name' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR Port =
+			    CALCULATE (
+			        MAX ('Portfolios'[Custodian Name (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    Port
+		lineageTag: 8eca4fd0-b9e7-4a9e-b700-60c4ccb8a734
+
+	measure 'Lending Indicator' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Lending Indicator (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: b2e35eb4-cdf0-4553-9d66-f0bab2e8255f
+
+	measure 'Bank Account' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Bank Account (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: d838e17c-c646-4e6c-9223-5a6068d4e891
+
+	measure 'Bank Ident' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Bank Ident (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: 3fa9c395-a0b0-4b37-90d0-8fe7f2c8f4dc
+
+	measure 'Lead Advisor Code' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Lead Advisor Code (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: 12cd7cb7-9d48-4d10-a796-842211a3d9a0
+
+	measure 'Lead Advisor Name' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Lead Advisor Name (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: dfe8ad25-fa6e-47bb-ae7a-7e63461e65ec
+
+	measure 'Custodian Legal Entity Identifier' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Custodian Legal Entity Identifier (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: 970a2e19-e25d-45fa-9cf7-0c0eb764b07c
+
+	measure 'Custodian Country Name' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Custodian Country Name (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: e4a987c8-55e1-4db7-ae10-cd7bd47c634a
+
+	measure 'Custodian Company Address Txt' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Custodian Company Address Txt (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: 2ee33128-9d56-4948-8ea1-fd72c6a50288
+
+	measure 'Custodian ID' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Custodian ID (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: 91364e91-bc9c-427a-8bd6-482d0f11a671
+
+	measure Custodian =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Custodian (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: 0ac93f91-7cf7-4769-802d-0b1d9578e247
+
+	measure 'Custodian Account Num Code' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Custodian Account Num Code (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: 88c69293-a0bd-426b-8939-892e9129aa5e
+
+	measure 'Intermediate Liquidity Pool Port Code' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Intermediate Liquidity Pool Port Code (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: 54506479-bba4-46d8-b997-76383846ecb7
+
+	measure 'Inv Lp Port Code' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Inv Lp Port Code (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: c1d63fe7-cb38-433c-a138-4c9c28f3e2c3
+
+	measure 'Payment Recon Principle Code - AutoSettle Rule' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR Port =
+			    CALCULATE (
+			        MAX ('Portfolios'[Payment Recon Principle Code - AutoSettle Rule (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    Port
+		lineageTag: 9d3ce82d-cf0d-4107-b57b-8fe110993d00
+
+	measure 'Default Asset Class' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Default Asset Class (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: 014e0c3b-ab68-4238-a582-c0137c21f667
+
+	measure 'Lot Closing Method' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Lot Closing Method (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: 24f09ed9-6058-4a36-817d-6b7b9c62abfc
+
+	measure 'Group Code' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Group Code (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: dc288d8a-82af-482d-aeb7-2fc2d4c9b04d
+
+	measure 'Portfolio Group Status' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Portfolio Group Status (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: 4cfca1c0-1e31-436b-b543-ee7d4855fc98
+
+	measure 'Int Ext' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Int Ext (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: fc10447c-2d27-4d36-b311-dbb4df579a1c
+
+	measure 'Legacy Code' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Legacy Code (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: ac7ca989-79bb-4b69-a4dc-431eeda16564
+
+	measure 'Group Strategy Name' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Group Strategy Name (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: 0b1d3468-c05d-41c0-937d-a0c5730cad76
+
+	measure 'Legal Entity' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Legal Entity (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: aef8b5f8-0d9b-41f1-a4bc-1fa040681804
+
+	measure 'Alm Reason' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Alm Reason (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: 3b83f57b-0bbc-4628-bba1-34769ed92703
+
+	measure 'Alm ALCO' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Alm ALCO (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: 875b407a-8bc1-4e21-b963-7ec84c8bddf3
+
+	measure 'Deposit Type' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Deposit Type (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: fa02ba72-60ec-425c-95f8-0abe6f50f216
+
+	measure 'Alm Subfund Name' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Alm Subfund Name (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: b7b08361-c94b-44b0-847d-e75492bd1af1
+
+	measure 'Alm Sop Company Code' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Alm Sop Company Code (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: 1664cf14-2a80-40dd-9f73-9ce9302f0c14
+
+	measure 'Alm Segment Name' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Alm Segment Name (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: 910c48f2-bf1b-4344-bc8b-34b98bc99e4c
+
+	measure 'Alm Market Segment Name' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Alm Market Segment Name (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: e2b313c2-5736-441f-84c7-a788fb9c6248
+
+	measure 'Alm Cntry Name' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Alm Cntry Name (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: d2507d96-96aa-478e-9683-81f6a17309e7
+
+	measure 'Alm Ccy Code' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Alm Ccy Code (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: b3ae5041-85d9-40f2-9803-32a45d49d4f3
+
+	measure 'Domicile Cntry Code' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Domicile Cntry Code (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: 9b8da088-4ae1-4068-8b52-0e25df5ddc46
+
+	measure 'ALM Segment Currency' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Alm Segment Currency (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: 1f5182d0-4355-44b2-8b10-5130229fed9b
+
+	measure 'Month End Status Code' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR I_desk =
+			    CALCULATE (
+			        FIRSTNONBLANK ( 'Portfolios'[Month End Status Code (D)], TRUE () ),
+			        'Portfolios'[As of Period] = maxPred
+			    )
+			RETURN
+			    I_desk
+		lineageTag: 64e79950-80a2-42a0-8854-99b04a99ea8b
+
+	measure 'Is on Bloomberg 7000' = ```
+			
+			VAR maxdate =
+			    MAX ( 'Period'[Period] )
+			RETURN
+			    CALCULATE (
+			        SUM ( Portfolios[Is on Bloomberg 7000 (D)] ),
+			        Portfolios[As of Period] = maxdate
+			    )
+			
+			```
+		formatString: 0
+		lineageTag: dbb222f9-6ca1-4400-bd8b-d2369ce37a7a
+
+	measure 'Liquidity Pool Participant Indicator' = ```
+			
+			VAR maxdate =
+			    MAX ( Period[Period] )
+			RETURN
+			    CALCULATE (
+			        SUM ( Portfolios[Liquidity Pool Participant Indicator (D)] ),
+			        Portfolios[As of Period] = maxdate
+			    )
+			
+			```
+		formatString: 0
+		lineageTag: d9a2de93-b718-4962-9cd3-f3a121571697
+
+	measure 'Allow Cross Trades' = ```
+			
+			VAR maxdate =
+			    MAX ( 'Period'[Period] )
+			RETURN
+			    CALCULATE (
+			        SUM ( Portfolios[Allow Cross Trades (D)] ),
+			        Portfolios[As of Period] = maxdate
+			    )
+			
+			```
+		formatString: 0
+		lineageTag: 9e1c4fa6-b75b-4e66-9478-fd086485ed31
+
+	measure 'Allow Short Position' = ```
+			
+			VAR maxdate =
+			    MAX ( 'Period'[Period] )
+			RETURN
+			    CALCULATE (
+			        SUM ( Portfolios[Allow Short Position (D)] ),
+			        Portfolios[As of Period] = maxdate
+			    )
+			
+			```
+		formatString: 0
+		lineageTag: 23bb061f-74ff-4b74-889c-15bdca21aa82
+
+	measure 'Allow TBA' = ```
+			
+			VAR maxdate =
+			    MAX ( 'Period'[Period] )
+			RETURN
+			    CALCULATE (
+			        SUM ( Portfolios[Allow TBA (D)] ),
+			        Portfolios[As of Period] = maxdate
+			    )
+			
+			```
+		formatString: 0
+		lineageTag: 58976383-2c61-458e-885c-4901433c6505
+
+	measure 'Allow Term Loans' = ```
+			
+			VAR maxdate =
+			    MAX ( 'Period'[Period] )
+			RETURN
+			    CALCULATE (
+			        SUM ( Portfolios[Allow Term Loans (D)] ),
+			        Portfolios[As of Period] = maxdate
+			    )
+			
+			```
+		formatString: 0
+		lineageTag: 15b5c056-1ad0-46a9-b94f-6110d68399eb
+
+	measure 'Delete zero Positions' = ```
+			
+			VAR maxdate =
+			    MAX ( 'Period'[Period] )
+			RETURN
+			    CALCULATE (
+			        SUM ( Portfolios[Delete zero Positions (D)] ),
+			        Portfolios[As of Period] = maxdate
+			    )
+			
+			```
+		formatString: 0
+		lineageTag: 48a6db26-18c5-453d-a0a6-26e740e4da32
+
+	measure 'Is Transition Portfolio' = ```
+			
+			VAR maxdate =
+			    MAX ( 'Period'[Period] )
+			RETURN
+			    CALCULATE (
+			        SUM ( Portfolios[Is Transition Portfolio (D)] ),
+			        Portfolios[As of Period] = maxdate
+			    )
+			
+			```
+		formatString: 0
+		lineageTag: 8e8c5b96-7773-4042-b0c1-11509ab1930a
+
+	measure 'Portf Sweep Indicator' = ```
+			
+			VAR maxdate =
+			    MAX ( 'Period'[Period] )
+			RETURN
+			    CALCULATE (
+			        SUM ( Portfolios[Portf Sweep Indicator (D)] ),
+			        Portfolios[As of Period] = maxdate
+			    )
+			
+			```
+		formatString: 0
+		lineageTag: 70388ac3-a0ec-42d2-9133-a392905f2be5
+
+	measure 'Retained Trade PNL History' = ```
+			
+			VAR maxdate =
+			    MAX ( 'Period'[Period] )
+			RETURN
+			    CALCULATE (
+			        SUM ( Portfolios[Retained Trade PNL History (D)] ),
+			        Portfolios[As of Period] = maxdate
+			    )
+			
+			```
+		formatString: 0
+		lineageTag: f1fb431e-1c81-42de-89c4-456803330dde
+
+	measure 'Sweep Direction Indicator' = ```
+			
+			VAR maxdate =
+			    MAX ( 'Period'[Period] )
+			RETURN
+			    CALCULATE (
+			        SUM ( Portfolios[Sweep Direction Indicator (D)] ),
+			        Portfolios[As of Period] = maxdate
+			    )
+			
+			```
+		formatString: 0
+		lineageTag: c57e8de3-d6ee-42d8-8b22-422d5652295a
+
+	measure 'Target Cash Sweep Portf' = ```
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			return
+			    CALCULATE (
+			        MAX ('Portfolios'[Target Cash Sweep Portf (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			
+			```
+		lineageTag: 0368044b-8153-4c49-ae45-7659d11e5586
+
+	measure 'Segment Currency Code' = ```
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			return
+			    CALCULATE (
+			        MAX ('Portfolios'[Segment Currency Code (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			
+			```
+		lineageTag: a95b870a-2127-4d1e-95b5-5b3140e83934
+
+	measure 'Subfund Income Start Date' = ```
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			return
+			    CALCULATE (
+			        MAX ('Portfolios'[Subfund Income Start Date (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			
+			```
+		formatString: yyyy-mm-dd
+		lineageTag: 53fc8640-bd3d-4884-a293-3836b5a2a7fc
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	measure 'Subfund Effective Date' = ```
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			return
+			    CALCULATE (
+			        MAX ('Portfolios'[Subfund Effective Date (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			
+			```
+		formatString: yyyy-mm-dd
+		lineageTag: 4f96d53e-32ca-409e-b5bd-73a8f0a33724
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	measure 'Reserve NonReserve Code' = ```
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			return
+			    CALCULATE (
+			        MAX ('Portfolios'[Reserve NonReserve Code (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			
+			```
+		lineageTag: d9205f46-95d3-4a1b-b965-7e9619cfd1a9
+
+	measure 'Portf Region' = ```
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			return
+			    CALCULATE (
+			        MAX ('Portfolios'[Portf Region (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			
+			```
+		lineageTag: addd222a-d4df-42bb-8095-2ebb360942d5
+
+	measure 'Group Name' = ```
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			return
+			    CALCULATE (
+			        MAX ('Portfolios'[Group Name (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			
+			```
+		lineageTag: 72bb4d1f-4e9c-4e04-bacc-a983b3889e7d
+
+	measure 'Non-Participating Liquidity Pool Reason' = ```
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			return
+			    CALCULATE (
+			        MAX ('Portfolios'[Non-Participating Liquidity Pool Reason (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			
+			```
+		lineageTag: dc59bb70-111e-4c14-95a4-f33ae8cd1dd2
+
+	measure 'Expected Funding Date' = ```
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			return
+			    CALCULATE (
+			        MAX ('Portfolios'[Expected Funding Date (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			
+			```
+		formatString: yyyy-mm-dd
+		lineageTag: 512e8b4b-da2d-4008-8711-8949ac42f534
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	measure Division = ```
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			return
+			    CALCULATE (
+			        MAX ('Portfolios'[Division (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			
+			```
+		lineageTag: 814aaed5-496e-4115-983c-26425fa56357
+
+	measure 'Business Unit' = ```
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			return
+			    CALCULATE (
+			        MAX ('Portfolios'[Business Unit (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			
+			```
+		lineageTag: 88ea7c75-eb83-4bfd-8f34-7ebd692081fc
+
+	measure 'Business Objective' = ```
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			return
+			    CALCULATE (
+			        MAX ('Portfolios'[Business Objective (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			
+			```
+		lineageTag: ad841c63-45c7-46df-a021-4572898c7438
+
+	measure 'Accounting Cycle' = ```
+			
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			var R=
+			    CALCULATE (
+			        MAX ('Portfolios'[Accounting Cycle (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			return
+			R
+			
+			```
+		lineageTag: 86089a0a-4040-4072-a782-fbf18192552f
+
+	measure 'Mim Indicator' = ```
+			
+			VAR maxdate =
+			    MAX ( Period[Period] )
+			RETURN
+			    CALCULATE (
+			        SUM ( Portfolios[Mim Indicator (D)] ),
+			        Portfolios[As of period] = maxdate
+			    )
+			
+			```
+		formatString: 0
+		lineageTag: 847e795e-7779-4893-a53d-4dd0b9e6555d
+
+	measure 'Portfolio Sleeve Status' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Portfolio Sleeve Status (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: 8d59c615-62bf-43ca-b4de-e16ae3a41ac4
+
+	measure 'Latest Flag Port' = ```
+			
+			VAR latestdt =
+			    CALCULATE (
+			        MAX ( Portfolios[As of Date (D)] ),
+			        ALLEXCEPT ( Portfolios, Portfolios[Portfolio Code & Name] )
+			    )
+			VAR calc =
+			    IF ( MAX ( Portfolios[As of Date (D)] ) = latestdt, 1, 0 )
+			RETURN
+			    calc
+			
+			```
+		formatString: 0
+		isHidden
+		lineageTag: dd5a10e7-66d0-498e-94a7-534254af83ca
+
+	measure 'Portfolio Group Termination Date' = ```
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			return
+			    CALCULATE (
+			        MAX ('Portfolios'[Termination Date (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			
+			```
+		formatString: yyyy-mm-dd
+		lineageTag: 6eec96a4-9621-40ed-a34e-9cca93e6b44b
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	measure 'Alm Category' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Alm Category (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: d2f5c218-d146-49ef-994c-b4821f683f79
+
+	measure 'Portfolio Sleeve Creation Date' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR ALM =
+			    CALCULATE (
+			        MAX ('Portfolios'[Portfolio Sleeve Creation Date (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    ALM
+		formatString: yyyy-mm-dd
+		lineageTag: aea00c42-387e-4cfb-b540-2e1e7f40aedf
+
+	measure 'Tax Ref Country Code' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Tax Ref Country Code (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: c9cf31ad-4116-4f48-9692-2ade792f0db9
+
+	measure 'Termination Date' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR ALM =
+			    CALCULATE (
+			        MAX ('Portfolios'[Portfolio Sleeve termination Date (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    ALM
+		formatString: yyyy-mm-dd
+		lineageTag: 04e540b1-d660-4a5a-b065-d0e3fb493f05
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	measure 'Portfolio Group Advisor City 3' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR ALM =
+			    CALCULATE (
+			        MAX ('Portfolios'[Portfolio Group Advisor City 3 (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    ALM
+		lineageTag: a03752df-f8b9-4010-879a-c439b70dd41f
+
+	measure 'Portfolio Group Advisor Country 3' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR ALM =
+			    CALCULATE (
+			        MAX ('Portfolios'[Portfolio Group Advisor Country 3 (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    ALM
+		lineageTag: 0c80e3de-d1be-4018-b21a-9756ad9dbcda
+
+	measure 'Portfolio Group Advisor Country 2' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR ALM =
+			    CALCULATE (
+			        MAX ('Portfolios'[Portfolio Group Advisor Country 2 (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    ALM
+		lineageTag: fc9e85fd-fc9c-4be9-88ea-dfe0e3140c4c
+
+	measure 'Portfolio Group Advisor Country 1' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR ALM =
+			    CALCULATE (
+			        MAX ('Portfolios'[Portfolio Group Advisor Country 1 (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    ALM
+		lineageTag: c3d5cd32-43e1-4ea9-9752-fd254ad1e7f2
+
+	measure 'Sleeve Manager Country 1' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Sleeve Manager Country 1 (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: 235a63ad-ea5a-4706-b993-addaa2e45ffc
+
+	measure 'Group inception date' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			return
+			    CALCULATE (
+			        MAX ('Portfolios'[Group inception date (d)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+		formatString: yyyy-mm-dd
+		lineageTag: 1f475f41-60db-42d1-94eb-79ddd1d70f50
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	measure 'Total Portfolio Accrued Market Value' = ```
+			
+			 VAR maxdate =MAX ( Period[Date] )
+			VAR mindate = MIN(Period[Date])
+			var R =
+			    CALCULATE (
+			       SUM ( 'Total Market Value GA Fact'[Total Portfolio Accrued Market Value]),
+			        'Total Market Value GA Fact'[Effective Date] <= maxdate && 'Total Market Value GA Fact'[Effective Date] >= mindate
+			,CROSSFILTER(Portfolios[Tmv_Nk],'Total Market Value GA Fact'[Tmv_Nk],Both)
+			    )
+			 VAR maxdate1 =MAX ( Period[Period] )
+			var R1 =
+			    CALCULATE (
+			       SUM ( 'Total Market Value GA Fact'[Total Portfolio Accrued Market Value]),
+			        'Total Market Value GA Fact'[Effective Period]= maxdate1
+			,CROSSFILTER(Portfolios[Tmv_Nk],'Total Market Value GA Fact'[Tmv_Nk],Both)
+			    )
+			
+			RETURN
+			R1
+			
+			```
+		lineageTag: d3c5fc72-76f3-4942-96e6-9c970d183442
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Balance Book Value Base Ccy' = ```
+			
+			VAR maxdate =MAX ( Period[Period] )
+			var R =
+			    CALCULATE (
+			        SUM ( 'Total Market Value GA Fact'[Balance Book Value Base CCY]),
+			        'Total Market Value GA Fact'[Effective Period] = maxdate ,CROSSFILTER(Portfolios[Tmv_Nk],'Total Market Value GA Fact'[Tmv_Nk],Both))
+			RETURN
+			R
+			
+			```
+		formatString: #,0.00
+		lineageTag: 6c61821a-1c3f-4f41-a466-d0d97a6ab006
+
+	measure 'Carrying Value Base CCY' =
+			
+			VAR maxdate1 =MAX ( Period[Date] )
+			VAR mindate = MIN(Period[Date])
+			var R =
+			    CALCULATE (
+			       SUM ( 'Total Market Value GA Fact'[Carrying Value Base CCY]),
+			        'Total Market Value GA Fact'[Effective Date] <= maxdate1 && 'Total Market Value GA Fact'[Effective Date] >= mindate,CROSSFILTER(Portfolios[Tmv_Nk],'Total Market Value GA Fact'[Tmv_Nk],Both))
+			VAR maxdate =MAX ( Period[Period] )
+			var R2 =
+			    CALCULATE (
+			        SUM ( 'Total Market Value GA Fact'[Carrying Value Base CCY]),
+			        'Total Market Value GA Fact'[Effective Period] = maxdate ,CROSSFILTER(Portfolios[Tmv_Nk],'Total Market Value GA Fact'[Tmv_Nk],Both))
+			RETURN
+			R2
+		lineageTag: fe871f3e-5d4a-4bb4-ad31-ef359c7cbef7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Alternate PM Team' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR calc =
+			    CALCULATE (
+			        MAX ('Portfolios'[Alternate PM Team (D)]),
+			        FILTER('Portfolios', 'Portfolios'[As of Period] = maxPred)
+			    )
+			RETURN
+			    calc
+		lineageTag: f41ee5e2-72cd-4838-a256-30663770d21d
+
+	measure LatestMonthMarker =
+			
+			VAR maxDate =
+			    MAX ( Period[Period])
+			VAR inclusion =
+			    CALCULATE (
+			       Count(Portfolios[As of Date (D)]),
+			        FILTER ( Portfolios, Portfolios[As of Period] = maxDate )
+			    )
+			RETURN
+			    inclusion
+		formatString: 0
+		isHidden
+		lineageTag: d68b86f2-1139-4780-958a-7ef35822d00f
+
+	measure LatestTMVMarker =
+			
+			VAR maxDate =
+			    MAX ( Period[Period])
+			VAR inclusion =
+			    CALCULATE (
+			       COUNT('Total Market Value GA Fact'[Effective Date]),
+			        FILTER ( 'Total Market Value GA Fact', 'Total Market Value GA Fact'[Effective Period] = maxDate )
+			    )
+			RETURN
+			    inclusion
+		formatString: 0
+		lineageTag: 9866b775-0864-4618-9c42-0340c5ad04fd
+
+	measure 'As Kyriba' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR askyriba =
+			    CALCULATE (
+			        FIRSTNONBLANK ( 'Portfolios'[As Kyriba (D)], TRUE () ),
+			        'Portfolios'[As of Period] = maxPred
+			    )
+			RETURN
+			  askyriba
+		formatString: 0
+		lineageTag: 32c9a2c8-1e79-49c5-878a-00a690931da0
+
+	measure 'Eligible Portfolios' =
+			
+			VAR vSelectedPeriod= VALUE(FORMAT(MAX(Period[Date]),"YYYYMM"))
+			RETURN
+			CALCULATE(
+			    COUNTROWS(Portfolios),
+			    Portfolios[As of Period]=vSelectedPeriod
+			)
+		formatString: 0
+		lineageTag: a9fb5b19-c602-4c51-9acc-f64b326874c2
+
+	column 'Portfolio Code'
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(500)
+		lineageTag: 171fe5f8-b586-4188-98a5-bf98c8f6d4eb
+		summarizeBy: none
+		sourceColumn: Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As of Period'
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 689d6caf-9c32-4a5c-885b-1056b712088e
+		summarizeBy: none
+		sourceColumn: As of Period
+
+		annotation SummarizationSetBy = User
+
+	column 'As of Date (D)'
+		dataType: dateTime
+		isNullable: false
+		formatString: yyyy-mm-dd
+		sourceProviderType: date
+		lineageTag: 741d6391-4149-45a9-8f7e-fa3952c970d1
+		summarizeBy: none
+		sourceColumn: As of Date (D)
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'As of Year'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 67caf577-deb3-43c5-b053-3afb8b6a7c7e
+		summarizeBy: none
+		sourceColumn: As of Year
+
+		annotation SummarizationSetBy = User
+
+	column 'As of Month'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 281eecce-f312-4d75-b86b-9510bc07b266
+		summarizeBy: none
+		sourceColumn: As of Month
+
+		annotation SummarizationSetBy = User
+
+	column 'Legacy Portfolio Code'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: 5ffe80b1-3164-4ef9-ad9e-b7a2ed51ef7e
+		summarizeBy: none
+		sourceColumn: Legacy Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Name'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: 186ae511-7068-4d02-be1b-771e09a24d6c
+		summarizeBy: none
+		sourceColumn: Portfolio Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Code & Name'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: 0655a58d-822c-4a88-959d-91e3342f00e7
+		summarizeBy: none
+		sourceColumn: Portfolio Code & Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Code (D)'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: be4b4a7d-2896-4177-81c0-8ee01eb6e85e
+		summarizeBy: none
+		sourceColumn: Group Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Group Code & Name'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: c206e4ee-1559-433e-96c2-62095a9a5857
+		summarizeBy: none
+		sourceColumn: Portfolio Group Code & Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Name (D)'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: 1333187f-7882-4351-a7f6-bbedc4dd4861
+		summarizeBy: none
+		sourceColumn: Group Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Ccy Code (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: e314c5a4-d5d6-4a27-b26e-80d402db6599
+		summarizeBy: none
+		sourceColumn: Base Ccy Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Ccy Name'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 5fd7fa56-3079-432a-9604-cccf00c99f0f
+		summarizeBy: none
+		sourceColumn: Base Ccy Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operating Ccy Code'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: fe5f49e7-af03-4f95-84b7-b4f723b84b80
+		summarizeBy: none
+		sourceColumn: Operating Ccy Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operating Ccy Name'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 228e1fae-c031-4c04-84c9-09ab799b2446
+		summarizeBy: none
+		sourceColumn: Operating Ccy Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Filter Type'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: 5d511e20-9b08-4b1e-b390-7cd1ffdf2bb5
+		summarizeBy: none
+		sourceColumn: Portfolio Filter Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Client Region Name'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 06a86fda-bf3d-439d-82da-cff56ca85c78
+		summarizeBy: none
+		sourceColumn: Client Region Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Sub Type'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: 16892b9f-39b5-456b-b8a1-29a25bbae029
+		summarizeBy: none
+		sourceColumn: Group Sub Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Client ID'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: 27ff73c9-a1ea-4e0a-aaa1-f13cfade9310
+		summarizeBy: none
+		sourceColumn: Client ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Client Name'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: 1024296d-0f11-4332-ba14-f838f48417ed
+		summarizeBy: none
+		sourceColumn: Client Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Client 2 Name'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: 0b1c0816-d069-43e6-9f65-82efee606a3a
+		summarizeBy: none
+		sourceColumn: Client 2 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Int Ext (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 14821623-47e4-429f-9a99-2051ca5b511a
+		summarizeBy: none
+		sourceColumn: Int Ext (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Relationship Manager Name'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: bd59b4bc-8671-46d1-b9e7-21a5ebbcfa39
+		summarizeBy: none
+		sourceColumn: Relationship Manager Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Legacy Code (D)'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: a35b2209-fa48-42c9-abeb-92e0a6a04875
+		summarizeBy: none
+		sourceColumn: Legacy Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Type'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: dc169d34-5a2f-4564-8439-a020334fe70c
+		summarizeBy: none
+		sourceColumn: Portfolio Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Seed Portfolio Ind (D)'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c3f1de8b-efb0-41a8-8d25-0f9390db8106
+		summarizeBy: sum
+		sourceColumn: Seed Portfolio Ind (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Intermediate Liquidity Pool Port Code (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: c438880a-8c83-4784-9e29-194475a7a520
+		summarizeBy: none
+		sourceColumn: Intermediate Liquidity Pool Port Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inv Lp Port Code (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 03703b37-f207-419d-8bd3-e59cf50dcc8a
+		summarizeBy: none
+		sourceColumn: Inv Lp Port Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lot Closing Method (D)'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: a3e2d15b-1d13-43a3-b98c-2305e4771422
+		summarizeBy: none
+		sourceColumn: Lot Closing Method (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Liquidity Pool Participant Indicator (D)'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 99edf95e-dcf8-40ae-8081-9de9b609169e
+		summarizeBy: none
+		sourceColumn: Liquidity Pool Participant Indicator (D)
+
+		annotation SummarizationSetBy = User
+
+	column 'Private Portf Ind (D)'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e82a7245-dca8-4047-b516-afa4c8c8d137
+		summarizeBy: sum
+		sourceColumn: Private Portf Ind (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Separate Account Ind (D)'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ce62b6ae-329b-412a-ab2a-19c6509d3f0a
+		summarizeBy: sum
+		sourceColumn: Separate Account Ind (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Deposit Type (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 4ab39543-a3f7-4abb-8493-9fcba51d9936
+		summarizeBy: none
+		sourceColumn: Deposit Type (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asia Lgaap Trading Philosophy Code'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: f2e4a55b-79fc-48a0-9631-cf53bc4c5d26
+		summarizeBy: none
+		sourceColumn: Asia Lgaap Trading Philosophy Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'On off Balance'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: f79cb6f6-f7d1-4023-87e6-e3ee02eb754c
+		summarizeBy: none
+		sourceColumn: On off Balance
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Liability Surplus (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 4b2b4f0b-50d7-4cd6-bf56-1ea4354bd215
+		summarizeBy: none
+		sourceColumn: Liability Surplus (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Sleeve Status (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: b15630a7-2cf1-478e-9f78-f611c5480b5c
+		summarizeBy: none
+		sourceColumn: Portfolio Sleeve Status (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transfer Agent 1'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 5d06f125-2f43-4b27-8ad3-0b4f0ec59f34
+		summarizeBy: none
+		sourceColumn: Transfer Agent 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transfer Agent 2'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: eb7e02d2-bc86-449a-932b-e869cc75a094
+		summarizeBy: none
+		sourceColumn: Transfer Agent 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transfer Agent 3'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 39b460df-b1ed-47a2-8118-c2f61f187a6c
+		summarizeBy: none
+		sourceColumn: Transfer Agent 3
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transfer Agent Name 1'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: e7706aef-de99-4dc7-983f-aaf64150dbbf
+		summarizeBy: none
+		sourceColumn: Transfer Agent Name 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transfer Agent Name 2'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: b3b4dd28-3871-436c-92cb-2e57a3c58258
+		summarizeBy: none
+		sourceColumn: Transfer Agent Name 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transfer Agent Name 3'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: fe92d196-c40e-43f9-88ae-f625c543eee9
+		summarizeBy: none
+		sourceColumn: Transfer Agent Name 3
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Payment Recon Principle Code - AutoSettle Rule (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 0bdd5fe3-1369-4f99-8798-d3b2e2990c12
+		summarizeBy: none
+		sourceColumn: Payment Recon Principle Code - AutoSettle Rule (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Client Reporting Required Ind'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 24b854db-6f92-4c57-a41f-834a22f71625
+		summarizeBy: sum
+		sourceColumn: Client Reporting Required Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hedge Participation Ind'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 7020e5cb-95ff-416a-99f8-25ae7264650b
+		summarizeBy: none
+		sourceColumn: Hedge Participation Ind
+
+		annotation SummarizationSetBy = User
+
+	column 'IFRS9 Business Model Code'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 6837c627-ca70-4949-b000-5fcff8409c71
+		summarizeBy: none
+		sourceColumn: IFRS9 Business Model Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IFRS9 Ind'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 2a8f26e2-a686-4311-af46-a37c507b7f1d
+		summarizeBy: none
+		sourceColumn: IFRS9 Ind
+
+		annotation SummarizationSetBy = User
+
+	column 'House Holding Acct Ind'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 71be4ff4-09ef-4576-bf46-6cb6b9d3d818
+		summarizeBy: none
+		sourceColumn: House Holding Acct Ind
+
+		annotation SummarizationSetBy = User
+
+	column 'Nafi Group Code'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 8cd708e8-4314-4404-8d65-31a41fcd2b1b
+		summarizeBy: none
+		sourceColumn: Nafi Group Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Par Nonpar'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 53a2564a-037f-45b1-b989-655c1e7cb3bc
+		summarizeBy: none
+		sourceColumn: Par Nonpar
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Platform Code'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: d90ca1fe-d979-40b3-9aaf-8356dca3837f
+		summarizeBy: none
+		sourceColumn: Platform Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trust Ind'
+		dataType: string
+		lineageTag: cf63121f-33b5-4ff3-ad3d-cf65fd0263ac
+		summarizeBy: none
+		sourceColumn: Trust Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Required Ind'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 61f0c799-666f-45ae-86c7-2ed9bb02e702
+		summarizeBy: none
+		sourceColumn: Accounting Required Ind
+
+		annotation SummarizationSetBy = User
+
+	column 'Work Area (D)'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: b53001ff-8c4c-495f-9654-de9f3efe0c1b
+		summarizeBy: none
+		sourceColumn: Work Area (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mim Indicator (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 861baf99-1e65-4e6b-a8e7-31a65527518c
+		summarizeBy: sum
+		sourceColumn: Mim Indicator (D)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Subfund Effective Date (D)'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		sourceProviderType: date
+		lineageTag: 81aacd10-1c10-41f7-b9db-2a3da6cc800a
+		summarizeBy: none
+		sourceColumn: Subfund Effective Date (D)
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Subfund Income Start Date (D)'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		sourceProviderType: date
+		lineageTag: 75351c6e-06f0-48ff-a129-2c64d92b0990
+		summarizeBy: none
+		sourceColumn: Subfund Income Start Date (D)
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Portfolio Manager Alt Name (D)'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: fe8ee5ff-96e3-4504-8b33-485d643380df
+		summarizeBy: none
+		sourceColumn: Portfolio Manager Alt Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm Market Segment Name (D)'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: 98b12f54-11e5-4803-b71c-576059b50c85
+		summarizeBy: none
+		sourceColumn: Alm Market Segment Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm ALCO (D)'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: 0768d65b-988b-45ec-9900-f362853e606a
+		summarizeBy: none
+		sourceColumn: Alm ALCO (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm Segment Name (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: fd4404d0-c9ac-49b8-a614-e82a6710d1a5
+		summarizeBy: none
+		sourceColumn: Alm Segment Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm Subfund Name (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 0a778332-dd79-4eaa-8799-c4f9b87578c2
+		summarizeBy: none
+		sourceColumn: Alm Subfund Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm Cntry Name (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: fd2376fc-9778-4d39-9520-a6d0a7279ee6
+		summarizeBy: none
+		sourceColumn: Alm Cntry Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm Ccy Code (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 50c975db-1d0c-4122-9e18-5981daa2bc3c
+		summarizeBy: none
+		sourceColumn: Alm Ccy Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm Fi Benchmark Name (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: df31158d-3213-4b20-941f-0cccc456a24c
+		summarizeBy: none
+		sourceColumn: Alm Fi Benchmark Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm Reason (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 83275c00-9ab4-4c56-97be-be08933ecf40
+		summarizeBy: none
+		sourceColumn: Alm Reason (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm Sop Company Code (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 347e7696-caba-45b1-a811-ff021ec49ee9
+		summarizeBy: none
+		sourceColumn: Alm Sop Company Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm As of Date (D)'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		sourceProviderType: date
+		lineageTag: bfe0d3e2-8dcd-463f-8efb-62af53b5f902
+		summarizeBy: none
+		sourceColumn: Alm As of Date (D)
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Custodian Legal Entity Identifier (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 345b0e92-b39d-403c-810a-e66e7a8f9eb8
+		summarizeBy: none
+		sourceColumn: Custodian Legal Entity Identifier (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Custodian Country Name (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 5d4457f7-9334-48c1-98f5-ebddcb5153bf
+		summarizeBy: none
+		sourceColumn: Custodian Country Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Custodian Company Address Txt (D)'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: db274e8b-ad1b-4e2f-939a-1fba44096162
+		summarizeBy: none
+		sourceColumn: Custodian Company Address Txt (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Group Status (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 5e559a6a-afdd-445e-92f3-1b64bf2b532f
+		summarizeBy: none
+		sourceColumn: Portfolio Group Status (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Portfolio Manager Name'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: c002299b-1ef8-42b5-9b1b-36db16bb8930
+		summarizeBy: none
+		sourceColumn: Group Portfolio Manager Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Legal Entity (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: bc0abe80-aa5d-46ee-93c5-aeec152eb07b
+		summarizeBy: none
+		sourceColumn: Legal Entity (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Domicile Cntry Code (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 8c2cbdfd-bb5a-4e9d-af6b-fc0c4045bceb
+		summarizeBy: none
+		sourceColumn: Domicile Cntry Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Strategy Code'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: f06e42ee-3842-4f53-972f-f032ca898b1b
+		summarizeBy: none
+		sourceColumn: Group Strategy Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Strategy Name (D)'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: 281b3c57-e7a4-47f0-965d-297d8f7b09c1
+		summarizeBy: none
+		sourceColumn: Group Strategy Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Custodian (D)'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: 9ac42637-2b4a-4690-841d-37b2aabf5528
+		summarizeBy: none
+		sourceColumn: Custodian (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Custodian ID (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: a979bb13-7358-45be-b2bd-2c67e75aedcb
+		summarizeBy: none
+		sourceColumn: Custodian ID (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Custodian Name (D)'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: b9be5bab-c6a2-469b-a191-9864c088baa8
+		summarizeBy: none
+		sourceColumn: Custodian Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year End'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 4a5eb158-b5c1-4ef7-9c6a-35320267c67e
+		summarizeBy: none
+		sourceColumn: Fiscal Year End
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Long Name'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: db47ce9e-7883-4e5a-a59b-2124263004bd
+		summarizeBy: none
+		sourceColumn: Group Long Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Performance Start Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		sourceProviderType: date
+		lineageTag: e7846309-044e-4bf9-b44b-fb94de4885a7
+		summarizeBy: none
+		sourceColumn: Group Performance Start Date
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Group Inception Date (D)'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		sourceProviderType: date
+		lineageTag: 8f1a5392-b12e-479f-8bba-55f96ffe2104
+		summarizeBy: none
+		sourceColumn: Group Inception Date (D)
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Group Benchmark 1 ID'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 55527d0d-bfa9-4fde-b160-db6ba8f5c0f3
+		summarizeBy: none
+		sourceColumn: Group Benchmark 1 ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Benchmark 2 ID'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 8e8f30f8-6ff5-4982-b9ad-ee7be7c0c08c
+		summarizeBy: none
+		sourceColumn: Group Benchmark 2 ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Benchmark 1 Name'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: c9909288-3f21-4a41-85f7-13f9df546cd5
+		summarizeBy: none
+		sourceColumn: Group Benchmark 1 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Benchmark 2 Name'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: 07288a5b-48a6-44da-af06-34e932b9c9b3
+		summarizeBy: none
+		sourceColumn: Group Benchmark 2 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Primary Language'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 32234091-92b8-4cc1-bac9-bbf4aa1e6a2d
+		summarizeBy: none
+		sourceColumn: Primary Language
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Tax ID'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 387f328b-28b3-4c08-ad50-ec3a6acba264
+		summarizeBy: none
+		sourceColumn: Group Tax ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Tax Status'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: be015237-42b9-40d1-942e-1e8e1ff0e8a8
+		summarizeBy: none
+		sourceColumn: Group Tax Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Strategy Code (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 8f359a39-1e31-49f8-ada4-d8275781150d
+		summarizeBy: none
+		sourceColumn: Portfolio Strategy Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Strategy (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: baf82cca-ea0d-41cd-b47c-5da1d4e1493a
+		summarizeBy: none
+		sourceColumn: Portfolio Strategy (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Investment Mandate'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: eca5b53e-d138-4735-b09d-f5874e788320
+		summarizeBy: none
+		sourceColumn: Investment Mandate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Asset Mix'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: bfba5dff-fa44-42bf-9864-1b4ec7f16634
+		summarizeBy: none
+		sourceColumn: Portfolio Asset Mix
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Manager Name (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 2788176b-ed4c-4b0f-9260-22ed159aabfd
+		summarizeBy: none
+		sourceColumn: Portfolio Manager Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Manager 2 Name'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: f9b7559c-6db9-41ea-8174-4c0f831985ad
+		summarizeBy: none
+		sourceColumn: Portfolio Manager 2 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Team Name (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 8dbd43dd-e197-43ca-9fc8-30797c4bbd6f
+		summarizeBy: none
+		sourceColumn: Portfolio Team Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Team 2 Name'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: e2307bd1-37d2-4c14-aa94-89e00f90e37d
+		summarizeBy: none
+		sourceColumn: Portfolio Team 2 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Performance Start Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		sourceProviderType: date
+		lineageTag: c95ade63-e2af-460d-a58f-4fc695788a84
+		summarizeBy: none
+		sourceColumn: Performance Start Date
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Portfolio Start Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		sourceProviderType: date
+		lineageTag: 8919aacb-6e97-4b9f-bc96-2ff61e0c6830
+		summarizeBy: none
+		sourceColumn: Portfolio Start Date
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Portfolio Benchmark 1 ID'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 3fc4a4c2-b6a8-44c4-a504-05386c7ed357
+		summarizeBy: none
+		sourceColumn: Portfolio Benchmark 1 ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Benchmark 2 ID'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: f125d86a-c631-420b-b6e4-b1af32de9a6e
+		summarizeBy: none
+		sourceColumn: Portfolio Benchmark 2 ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Benchmark 1 Name'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: 84c50981-4d15-417e-ae1b-527198d150b3
+		summarizeBy: none
+		sourceColumn: Portfolio Benchmark 1 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Benchmark 2 Name'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: 521baf0e-f643-47f7-ba6a-e8b306896746
+		summarizeBy: none
+		sourceColumn: Portfolio Benchmark 2 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IFRS Trading Philosophy Code (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: a721a5b2-b96b-4429-bbe7-26373f58791e
+		summarizeBy: none
+		sourceColumn: IFRS Trading Philosophy Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IAS39 Trading Philosophy Code (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 1c449e94-6bdf-4395-8ebf-715a462bd128
+		summarizeBy: none
+		sourceColumn: IAS39 Trading Philosophy Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JGAAP Trading Philosophy Code (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 4a1579b1-e816-4044-addb-522c27426510
+		summarizeBy: none
+		sourceColumn: JGAAP Trading Philosophy Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'USGAAP Trading Philosophy Code (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: bb599683-2e68-42d2-bd37-1c4f65c7cdc4
+		summarizeBy: none
+		sourceColumn: USGAAP Trading Philosophy Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Proxy Voting Ind (D)'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 6a88f629-ac75-4f6a-b1eb-db164480a286
+		summarizeBy: sum
+		sourceColumn: Proxy Voting Ind (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Portfolio Code'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: bb53870d-046b-4fcc-8062-09cfbe55eec3
+		summarizeBy: none
+		sourceColumn: Asset Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Custodian Account Num Code (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: c6537081-c8c8-4e52-bf1e-984ccfeb4ecb
+		summarizeBy: none
+		sourceColumn: Custodian Account Num Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Status Code (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: a91b678a-1544-4c05-a810-30c947961bba
+		summarizeBy: none
+		sourceColumn: Accounting Status Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lawson Legal Name'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: 976a8956-53e1-41ab-8429-b0b601d58470
+		summarizeBy: none
+		sourceColumn: Lawson Legal Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lawson Legal ID (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 240021a1-7351-43a8-a12a-b71ad7cfedab
+		summarizeBy: none
+		sourceColumn: Lawson Legal ID (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lawson Segment Name'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: dadf7a47-91b9-4236-a61a-c0580008ea12
+		summarizeBy: none
+		sourceColumn: Lawson Segment Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Subfund ID (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 9acf419d-6e8e-4538-8273-9a1087e9f4de
+		summarizeBy: none
+		sourceColumn: Subfund ID (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Subfund Name (D)'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: 251c3586-e4e5-4798-a2d2-443ad7a135fd
+		summarizeBy: none
+		sourceColumn: Subfund Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Subfund Join Key Code'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: c2464c2b-cf9e-49fe-95a5-35018aefc93f
+		summarizeBy: none
+		sourceColumn: Subfund Join Key Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Portfolio Value (D)'
+		dataType: double
+		isHidden
+		sourceProviderType: decimal(38, 12)
+		lineageTag: 059e4d31-06f9-4d51-a1b3-d7f59936fa5d
+		summarizeBy: sum
+		sourceColumn: Base Portfolio Value (D)
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Calculated Date (D)'
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn:ss AM/PM
+		lineageTag: dfb444d6-aa62-4f55-8c6c-95b6a7680424
+		summarizeBy: none
+		sourceColumn: Calculated Date (D)
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Portfolio Calculation (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 8c2a9f2f-431e-483f-ad34-703bd9f02030
+		summarizeBy: none
+		sourceColumn: Portfolio Calculation (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month End Status Code (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: c361f77e-49dd-47e5-a01d-cbe29ceaf462
+		summarizeBy: none
+		sourceColumn: Month End Status Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Iddl Region Cycle (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 843c7c68-f990-4bbc-aea7-a1c5a32695a4
+		summarizeBy: none
+		sourceColumn: Iddl Region Cycle (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mam Business Group (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 41d7152c-b655-410f-a3a3-c72500d6d69c
+		summarizeBy: none
+		sourceColumn: Mam Business Group (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Iddl Valuation Cycle (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: af05e3b6-a97f-496e-9c2f-766879f107bf
+		summarizeBy: none
+		sourceColumn: Iddl Valuation Cycle (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio As of Period'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: a2d79691-d781-4f2c-a024-cf5d584b3fb1
+		summarizeBy: none
+		sourceColumn: Portfolio As of Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lead Advisor Code (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 449f4f78-1f66-4a4b-9cd2-9c2f842088ac
+		summarizeBy: none
+		sourceColumn: Lead Advisor Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lead Advisor Name (D)'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: 58e10efc-8bb9-45a3-8cef-86d71c98f556
+		summarizeBy: none
+		sourceColumn: Lead Advisor Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Advisor Code'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 8d15ee35-87ad-4e25-836b-fde255d5af35
+		summarizeBy: none
+		sourceColumn: Sub Advisor Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Advisor Name'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: b75cdff8-fddf-442b-a407-013046fe1b32
+		summarizeBy: none
+		sourceColumn: Sub Advisor Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Advisor 2 Code'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 4b416d25-6460-4680-8972-31a3e404a1da
+		summarizeBy: none
+		sourceColumn: Sub Advisor 2 Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Advisor 2 Name'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: 37fa0b89-abe9-4a8c-a6ee-3ea8e621dbd9
+		summarizeBy: none
+		sourceColumn: Sub Advisor 2 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Advisor City'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 48626377-e04c-44e7-8f60-c7c09c1d78f9
+		summarizeBy: none
+		sourceColumn: Group Advisor City
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Advisor 2 City'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: afb971c2-914e-433b-9908-466faa4476da
+		summarizeBy: none
+		sourceColumn: Group Advisor 2 City
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sleeve Manager City'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 52b6ef69-18a1-4a58-8603-4674ea195958
+		summarizeBy: none
+		sourceColumn: Sleeve Manager City
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pm Region Name'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: ef61a412-14a4-47e8-a094-3bbd3f3d6773
+		summarizeBy: none
+		sourceColumn: Pm Region Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Termination Date (D)'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		sourceProviderType: date
+		lineageTag: 9e9b298a-f08f-48a2-9954-a49c7c9691ea
+		summarizeBy: none
+		sourceColumn: Termination Date (D)
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Default Asset Class (D)'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: c284f601-1712-42df-9276-75a169466ed5
+		summarizeBy: none
+		sourceColumn: Default Asset Class (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ledger Type'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: b80792bf-5479-4fc2-a2de-2563810cfdcc
+		summarizeBy: none
+		sourceColumn: Ledger Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Business Objective'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: 60973425-6499-4cef-b67c-0c22007b8176
+		summarizeBy: none
+		sourceColumn: Group Business Objective
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Business Objective (D)'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: 444a43aa-82e0-40a9-a99c-6b49f09ff4e5
+		summarizeBy: none
+		sourceColumn: Business Objective (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inventory Costing Method'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 3e699250-0a45-423e-8fa1-3c218c7f6477
+		summarizeBy: none
+		sourceColumn: Inventory Costing Method
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sector Scheme'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 9faf5295-8e2e-43fc-8087-73455ae08d2b
+		summarizeBy: none
+		sourceColumn: Sector Scheme
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is Port'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 8bf01e2e-f867-4b6e-a6ca-67a8bcc4abe9
+		summarizeBy: none
+		sourceColumn: Is Port
+
+		annotation SummarizationSetBy = User
+
+	column 'As Port'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5b78f3d1-5c78-43af-a9eb-7979232a8869
+		summarizeBy: none
+		sourceColumn: As Port
+
+		annotation SummarizationSetBy = User
+
+	column 'As Port Transaction'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 0d71fa16-658a-45f1-854f-d1a0c85114a8
+		summarizeBy: none
+		sourceColumn: As Port Transaction
+
+		annotation SummarizationSetBy = User
+
+	column 'Is on Bloomberg 7000 (D)'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 75781c03-ecee-4fed-be99-c0c70d934753
+		summarizeBy: none
+		sourceColumn: Is on Bloomberg 7000 (D)
+
+		annotation SummarizationSetBy = User
+
+	column 'As Cogent'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 15822727-641f-4390-b64b-7236f1e9f708
+		summarizeBy: none
+		sourceColumn: As Cogent
+
+		annotation SummarizationSetBy = User
+
+	column 'As Factset'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 59ee5a15-9ff9-44f8-b6ec-8683f7de79c3
+		summarizeBy: none
+		sourceColumn: As Factset
+
+		annotation SummarizationSetBy = User
+
+	column 'Is on Findur (D)'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ce80df2c-7105-4a99-a58b-1152d142298a
+		summarizeBy: none
+		sourceColumn: Is on Findur (D)
+
+		annotation SummarizationSetBy = User
+
+	column 'As Barraone'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3a11fdac-a92b-4343-a4a4-2f33f3370306
+		summarizeBy: none
+		sourceColumn: As Barraone
+
+		annotation SummarizationSetBy = User
+
+	column 'As Bpm'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5c9a407f-f3ff-4e1f-883e-700107891996
+		summarizeBy: none
+		sourceColumn: As Bpm
+
+		annotation SummarizationSetBy = User
+
+	column 'Portfolio Group Advisor Type List'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: 708088df-9ac2-414d-86ab-0730a741eb98
+		summarizeBy: none
+		sourceColumn: Portfolio Group Advisor Type List
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Allow Repo Ind'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: bf6ea69a-c8a1-4eb8-a87a-b85ed7314a24
+		summarizeBy: none
+		sourceColumn: Allow Repo Ind
+
+		annotation SummarizationSetBy = User
+
+	column 'Allow Short Repo Cash Ind'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5085713b-12e8-4ad1-8551-98c94afa9401
+		summarizeBy: none
+		sourceColumn: Allow Short Repo Cash Ind
+
+		annotation SummarizationSetBy = User
+
+	column 'Allow Derivatives Ind (D)'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f9ac9591-a66a-446e-af0d-19628e33506b
+		summarizeBy: none
+		sourceColumn: Allow Derivatives Ind (D)
+
+		annotation SummarizationSetBy = User
+
+	column 'Is Model Portfolio Ind'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3aa7f825-d4a9-437f-a22b-023825963e26
+		summarizeBy: none
+		sourceColumn: Is Model Portfolio Ind
+
+		annotation SummarizationSetBy = User
+
+	column 'Allow Securities Lending Ind (D)'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 98772bdd-a415-40f9-ad48-56195ec2ed45
+		summarizeBy: none
+		sourceColumn: Allow Securities Lending Ind (D)
+
+		annotation SummarizationSetBy = User
+
+	column 'Performance End Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		sourceProviderType: date
+		lineageTag: 78c78a4f-7479-49d4-a586-f1bbf92351a8
+		summarizeBy: none
+		sourceColumn: Performance End Date
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Lead Sleeve Port Mgr Lgl Ent List'
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: c9da74c7-ebef-4798-bc36-da778f7f4510
+		summarizeBy: none
+		sourceColumn: Lead Sleeve Port Mgr Lgl Ent List
+
+		annotation SummarizationSetBy = Automatic
+
+	column Advisory
+		dataType: string
+		sourceProviderType: varchar(500)
+		lineageTag: 8a80ec9f-86c1-4f8c-b693-b62c45ec38b4
+		summarizeBy: none
+		sourceColumn: Advisory
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Created Ts'
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn:ss AM/PM
+		sourceProviderType: datetime2
+		lineageTag: 10abb044-411c-4f97-bd7c-ff241b4a4114
+		summarizeBy: none
+		sourceColumn: Created Ts
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Updated Ts'
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn:ss AM/PM
+		sourceProviderType: datetime2
+		lineageTag: d7317d4a-408c-4998-96e6-ff93515d74a6
+		summarizeBy: none
+		sourceColumn: Updated Ts
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Code Name' = ```
+			
+			IF (
+			    LEN ( Portfolios[Portfolio Code] ) = 13,
+			    Portfolios[Portfolio Code & Name] & " - " & Portfolios[Default Asset Class (D)],
+			    Portfolios[Portfolio Code & Name]
+			)
+			
+			```
+		lineageTag: 58d9d879-72af-4335-b8f1-4e1bbf431edf
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Investment Desk (D)'
+		dataType: string
+		lineageTag: c043f218-61ae-4952-9101-4dcacc2ae5bc
+		summarizeBy: none
+		sourceColumn: Investment Desk (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Territory Code (D)'
+		dataType: string
+		lineageTag: fbc68be1-2a09-4156-b990-2083c4eb172a
+		summarizeBy: none
+		sourceColumn: Territory Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Owner (D)'
+		dataType: string
+		lineageTag: 6a5fb983-4763-43dc-b8c1-d9bea0155a15
+		summarizeBy: none
+		sourceColumn: Portfolio Owner (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bank Account (D)'
+		dataType: string
+		lineageTag: b0de2296-6325-4299-8337-58969a596bd2
+		summarizeBy: none
+		sourceColumn: Bank Account (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bank Ident (D)'
+		dataType: string
+		lineageTag: c2a30930-bca7-469a-89ff-28c5afc4d2e0
+		summarizeBy: none
+		sourceColumn: Bank Ident (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lending Indicator (D)'
+		dataType: string
+		lineageTag: 1537e97a-b5b2-4eab-afa4-aa35d24cc130
+		summarizeBy: none
+		sourceColumn: Lending Indicator (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Maximis Portfolio Number'
+		dataType: string
+		lineageTag: f9b15208-d711-4d61-83da-eefe46123da2
+		summarizeBy: none
+		sourceColumn: Maximis Portfolio Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Nk'
+		dataType: string
+		isKey
+		lineageTag: 870d72af-3b08-4b51-a5d9-4d4460e31c6c
+		summarizeBy: none
+		sourceColumn: Portfolio Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'On/Off Bal Sheet' = IF (UPPER('Portfolios'[On off Balance])= "ON" ,"On","Off")
+		isHidden
+		lineageTag: 54796fb5-a76a-4157-ae5b-2599c9bdcc9e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Forecasted Indicator (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7487119d-1d2f-4253-9b49-8008efcd2e24
+		summarizeBy: none
+		sourceColumn: Forecasted Indicator (D)
+
+		annotation SummarizationSetBy = User
+
+	column 'Bank Account Number List (D)'
+		dataType: string
+		lineageTag: 79b911c9-c8b0-42c5-b3bb-cd98ea5f5953
+		summarizeBy: none
+		sourceColumn: Bank Account Number List (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Regulated Account Indicator (D)'
+		dataType: string
+		lineageTag: f146839b-c1c1-4cfd-864c-d5338d12ae3b
+		summarizeBy: none
+		sourceColumn: Regulated Account Indicator (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bank Currencies List (D)'
+		dataType: string
+		lineageTag: eb6bf5be-c00e-49de-9124-780e2c262a9f
+		summarizeBy: none
+		sourceColumn: Bank Currencies List (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Other Invested Asset Code (D)'
+		dataType: string
+		lineageTag: e529d6b4-3b2b-4550-809e-23ddae180c67
+		summarizeBy: none
+		sourceColumn: Other Invested Asset Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Custodian Account Number List'
+		dataType: string
+		lineageTag: 4975e02e-50cb-4d78-b518-857a43cdb2d3
+		summarizeBy: none
+		sourceColumn: Custodian Account Number List
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sleeve Manager Team List'
+		dataType: string
+		lineageTag: 2bd2b107-abae-4a1f-9ca7-bdbbc03274dc
+		summarizeBy: none
+		sourceColumn: Sleeve Manager Team List
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm Segment Currency (D)'
+		dataType: string
+		lineageTag: 2ff828a4-509e-4287-bd1f-db2b6cae3b7a
+		summarizeBy: none
+		sourceColumn: Alm Segment Currency (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Name Display'
+		dataType: string
+		lineageTag: 9102dc5e-1c93-4265-aebd-dd197c0e1a90
+		summarizeBy: none
+		sourceColumn: Portfolio Name Display
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As Kyriba (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: b2202cd0-8b8a-4060-8766-86d58c7c87e1
+		summarizeBy: sum
+		sourceColumn: As Kyriba (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Cycle (D)'
+		dataType: string
+		lineageTag: 9bd43113-95cd-471d-b226-87a183b476e7
+		summarizeBy: none
+		sourceColumn: Accounting Cycle (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Business Unit (D)'
+		dataType: string
+		lineageTag: 6f1c23b6-4ecc-442d-aaed-b1e0248bda58
+		summarizeBy: none
+		sourceColumn: Business Unit (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Division (D)'
+		dataType: string
+		lineageTag: 3b853029-ce81-4f83-a5a1-fef9c2c8de21
+		summarizeBy: none
+		sourceColumn: Division (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Expected Funding Date (D)'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 0a084878-8e33-44f2-837a-68c9d588e0cf
+		summarizeBy: none
+		sourceColumn: Expected Funding Date (D)
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Non-Participating Liquidity Pool Reason (D)'
+		dataType: string
+		lineageTag: fc878953-7e26-41c6-9d3f-4324f4756578
+		summarizeBy: none
+		sourceColumn: Non-Participating Liquidity Pool Reason (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portf Region (D)'
+		dataType: string
+		lineageTag: 1c320015-831e-4c38-9739-f8cae1555b3e
+		summarizeBy: none
+		sourceColumn: Portf Region (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reserve NonReserve Code (D)'
+		dataType: string
+		lineageTag: d0b2b7e4-38b2-4088-b507-0987766c5d3b
+		summarizeBy: none
+		sourceColumn: Reserve NonReserve Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Segment Currency Code (D)'
+		dataType: string
+		lineageTag: f4e8a7f7-7809-494b-9706-ad554efe49d7
+		summarizeBy: none
+		sourceColumn: Segment Currency Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Target Cash Sweep Portf (D)'
+		dataType: string
+		lineageTag: 870af586-7896-4374-8013-23fd3ddb34ca
+		summarizeBy: none
+		sourceColumn: Target Cash Sweep Portf (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sweep Direction Indicator (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 213a7aba-8a70-448f-ac26-c6c0c5fdb625
+		summarizeBy: sum
+		sourceColumn: Sweep Direction Indicator (D)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Retained Trade PNL History (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: d9e329f1-3dd9-4efd-ac9d-78a1fca859a4
+		summarizeBy: sum
+		sourceColumn: Retained Trade PNL History (D)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Portf Sweep Indicator (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: f853b4eb-16ed-4b35-be70-457dee9fbaea
+		summarizeBy: sum
+		sourceColumn: Portf Sweep Indicator (D)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Is Transition Portfolio (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 142951ce-5b63-4423-b047-118c74c311e4
+		summarizeBy: sum
+		sourceColumn: Is Transition Portfolio (D)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Delete zero Positions (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9fe187bf-8ae4-4f72-8f30-890f43551cb4
+		summarizeBy: sum
+		sourceColumn: Delete zero Positions (D)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Allow Term Loans (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 1cf8a84c-5e49-472c-95f7-ad1b11439629
+		summarizeBy: sum
+		sourceColumn: Allow Term Loans (D)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Allow TBA (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 31d7a10d-3414-4513-8217-5c2c6ebb6bf8
+		summarizeBy: sum
+		sourceColumn: Allow TBA (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Allow Cross Trades (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 15b53e8a-895e-439e-b1ba-4ab43fda7c02
+		summarizeBy: sum
+		sourceColumn: Allow Cross Trades (D)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Allow Short Position (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 263868e4-d7b0-49d7-8fe0-2f2574745a89
+		summarizeBy: sum
+		sourceColumn: Allow Short Position (D)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Alm Category (D)'
+		dataType: string
+		lineageTag: 3fe59d56-68a1-4f9e-ab46-4b45de69aed2
+		summarizeBy: none
+		sourceColumn: Alm Category (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sleeve Manager Country 1 (D)'
+		dataType: string
+		lineageTag: e76c1cbf-34f0-4527-af0d-c0e0d65db808
+		summarizeBy: none
+		sourceColumn: Sleeve Manager Country 1 (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Group Advisor Country 1 (D)'
+		dataType: string
+		lineageTag: eebccaa9-be6f-4d26-9f18-cc45335a4ec5
+		summarizeBy: none
+		sourceColumn: Portfolio Group Advisor Country 1 (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Group Advisor Country 2 (D)'
+		dataType: string
+		lineageTag: 2c8adf49-3c48-4832-acda-d7c11e2670f1
+		summarizeBy: none
+		sourceColumn: Portfolio Group Advisor Country 2 (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Group Advisor Country 3 (D)'
+		dataType: string
+		lineageTag: 450b260c-dc46-4f96-95f0-54bee9f8019a
+		summarizeBy: none
+		sourceColumn: Portfolio Group Advisor Country 3 (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Sleeve Termination Date (D)'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 3c460e14-0d10-49b3-9143-fd75bff5b7a8
+		summarizeBy: none
+		sourceColumn: Portfolio Sleeve Termination Date (D)
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Tax Ref Country Code (D)'
+		dataType: string
+		lineageTag: 1e6d8287-9a72-4508-9efd-fbb08a863fe3
+		summarizeBy: none
+		sourceColumn: Tax Ref Country Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Sleeve Creation Date (D)'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: f200f848-2f3e-4917-a299-4a0b981f01d5
+		summarizeBy: none
+		sourceColumn: Portfolio Sleeve Creation Date (D)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Portfolio Group Advisor City 3 (D)'
+		dataType: string
+		lineageTag: 70e65502-38a2-4be8-a918-2e4f8c538c30
+		summarizeBy: none
+		sourceColumn: Portfolio Group Advisor City 3 (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alternate PM Team (D)'
+		dataType: string
+		lineageTag: 58677519-ce62-4a4b-99fe-d609b0e9ffb9
+		summarizeBy: none
+		sourceColumn: Alternate PM Team (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'latest month' =
+			var a = SELECTEDVALUE(Period[Period])
+			return
+			if(Portfolios[As of Period]=a,"Latest","")
+			
+			
+			
+			/*var t= TODAY()
+			return
+			if(Portfolios[As of Date (D)] <= TODAY() && Portfolios[As of Date (D)]>= TODAY()-45, "Latest Month","")*/
+		isHidden
+		lineageTag: e7e2f63e-3479-45bf-9efe-ac688f52f01f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Termination Period' = ```
+			
+			var month = MONTH(Portfolios[Portfolio Sleeve Termination Date (D)])
+			return CONCATENATE(YEAR(Portfolios[Portfolio Sleeve Termination Date (D)]),if(month<10,concatenate(0,month),month))
+			
+			```
+		dataType: int64
+		formatString: 0
+		lineageTag: fa3e1068-4618-4a86-a243-179bfe0e0c0d
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Creation Period' = ```
+			
+			var month = MONTH(Portfolios[Portfolio Sleeve Creation Date (D)])
+			return CONCATENATE(YEAR(Portfolios[Portfolio Sleeve Creation Date (D)]),if(month<10,concatenate(0,month),month))
+			
+			```
+		dataType: int64
+		formatString: 0
+		lineageTag: c9beb99a-62d9-492e-b215-37f9c64163b3
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Start Date Period' =
+			
+			var month = MONTH(Portfolios[Portfolio Start Date])
+			return CONCATENATE(YEAR(Portfolios[Portfolio Start Date]),if(month<10,concatenate(0,month),month))
+		dataType: int64
+		formatString: 0
+		lineageTag: 228307a5-5ec8-4e89-88d0-da9fbae68d38
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Code Name - Never Use' = 'Portfolios'[Portfolio Code Name]
+		isHidden
+		lineageTag: 44b8ed40-8974-4c8f-bf1e-fa8d25b11e0a
+		summarizeBy: none
+		sortByColumn: 'As of Date (D)'
+
+		changedProperty = SortByColumn
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Join Key'
+		dataType: string
+		lineageTag: 8762554f-3a8d-4391-9687-a81f2dbcae9e
+		summarizeBy: none
+		sourceColumn: Portfolio Join Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tmv_Nk
+		dataType: string
+		lineageTag: 8b57b888-b0a3-4495-9f45-bbb603198202
+		summarizeBy: none
+		sourceColumn: Tmv_Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Portfolios-89456d9e-fc4b-499a-a1f2-e0faf3ee230a = m
+		mode: import
+		queryGroup: 'Infor GL'
+		source = ```
+				let
+				    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0), EnableQueryResultDownload="0"]),
+				    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+				    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+				    EDL_portfolio_dim = inv_semantic_ga_Schema{[Name="portfolio_dim",Kind="Table"]}[Data],
+				    #"Renamed Columns" = Table.RenameColumns(EDL_portfolio_dim,
+				            {
+				            {"PORTFOLIO_CD","Portfolio Code"}          ,
+				            {"AS_OF_PERIOD","As of Period"} ,
+				            {"AS_OF_DT","As of Date"}            ,
+				            {"AS_OF_YEAR","As of Year"}        ,
+				            {"AS_OF_MONTH","As of Month"}              ,
+				            {"LEGACY_PORTFOLIO_CD","Legacy Portfolio Code"}          ,
+				            {"PORTFOLIO_NM","Portfolio Name"}       ,
+				            {"PORTFOLIO_CODE_NM","Portfolio Code & Name"}          ,
+				            {"GROUP_CD","Group Code"}       ,
+				            {"PORTFOLIO_GROUP_CODE_NM","Portfolio Group Code & Name"}           ,
+				            {"GROUP_NM","Group Name"}    ,
+				            {"BASE_CCY_CD","Base Ccy Code"}             ,
+				            {"BASE_CCY_NM","Base Ccy Name"}         ,
+				            {"OPERATING_CCY_CD","Operating Ccy Code"}     ,
+				            {"OPERATING_CCY_NM","Operating Ccy Name"}  ,
+				            {"PORTFOLIO_FILTER_TYPE","Portfolio Filter Type"}            ,
+				            {"CLIENT_REGION_NM","Client Region Name"}     ,
+				            {"GROUP_SUB_TYPE","Group Sub Type"} ,
+				            {"CLIENT_ID","Client Id"} ,
+				            {"CLIENT_NM","Client Name"}     ,
+				            {"CLIENT_2_NM","Client 2 Name"}             ,
+				            {"INT_EXT","Int Ext"}        ,
+				            {"RELATIONSHIP_MANAGER_NM","Relationship Manager Name"}               ,
+				            {"LEGACY_CD","Legacy Code"}     ,
+				            {"PORTFOLIO_TYPE","Portfolio Type"}       ,
+				            {"SEED_PORTFOLIO_IND","Seed Portfolio Ind"}     ,
+				            {"IMMEDIATE_LIQUIDITY_POOL_CD","Immediate Liquidity Pool Code"}     ,
+				            {"INV_LP_PORT_CD","Inv Lp Port Code"}  ,
+				            {"LOT_CLOSING_METHOD","Lot Closing Method"}              ,
+				            {"LPCD_PARTICIPATE_IND","Lpcd Participate Ind"}              ,
+				            {"PRIVATE_PORTF_IND","Private Portf Ind"}           ,
+				            {"SEPARATE_ACCOUNT_IND","Separate Account Ind"}      ,
+				            {"DEPOSIT_TYPE","Deposit Type"}              ,
+				            {"ASIA_LGAAP_TRADING_PHILOSOPHY_CD","Asia Lgaap Trading Philosophy Code"}             ,
+				            {"ON_OFF_BALANCE","On off Balance"}   ,
+				            {"LIABILITY_SURPLUS","Liability Surplus"} ,
+				            {"PORTFOLIO_SLEEVE_STATUS","Portfolio Sleeve Status"} ,
+				            {"TRANSFER_AGENT_1","Transfer Agent 1"}           ,
+				            {"TRANSFER_AGENT_2","Transfer Agent 2"}           ,
+				            {"TRANSFER_AGENT_3","Transfer Agent 3"}           ,
+				            {"TRANSFER_AGENT_NAME_1","Transfer Agent Name 1"}               ,
+				            {"TRANSFER_AGENT_NAME_2","Transfer Agent Name 2"}               ,
+				            {"TRANSFER_AGENT_NAME_3","Transfer Agent Name 3"}               ,
+				            {"PAYMENT_RECON_PRINCIPLE_CD","Payment Recon Principle Code"}      ,
+				            {"CLIENT_REPORTING_REQUIRED_IND","Client Reporting Required Ind"}  ,
+				            {"HEDGE_PARTICIPATION_IND","Hedge Participation Ind"}              ,
+				            {"IFRS9_BUSINESS_MODEL_CD","Ifrs9 Business Model Code"}       ,
+				            {"IFRS9_IND","Ifrs9 Ind"} ,
+				            {"HOUSE_HOLDING_ACCT_IND","House Holding Acct Ind"}              ,
+				            {"NAFI_GROUP_CD","Nafi Group Code"}  ,
+				            {"PAR_NONPAR","Par Nonpar"}   ,
+				            {"PLATFORM_CD","Platform Code"}           ,
+				            {"TRUST_IND","Trust Ind"}             ,
+				            {"ACCOUNTING_REQUIRED_IND","Accounting Required Ind"}        ,
+				            {"WORK_AREA","Work Area"}      ,
+				            {"MIM_INDICATOR","Mim Indicator"}       ,
+				            {"SUBFUND_RETAG_DT","Subfund Retag Date"}   ,
+				            {"SUBFUND_RETAG_IS_DT","Subfund Retag Is Date"}         ,
+				            {"PORTFOLIO_MANAGER_ALT_NM","Portfolio Manager Alt Name"}            ,
+				            {"ALM_MARKET_SEGMENT_NM","Alm Market Segment Name"}  ,
+				            {"ALM_ALCO","Alm Alco"}              ,
+				            {"ALM_SEGMENT_NM","Alm Segment Name"}     ,
+				            {"ALM_SUBFUND_NM","Alm Subfund Name"}      ,
+				            {"ALM_CNTRY_NM","Alm Cntry Name"}  ,
+				            {"ALM_CCY_CD","Alm Ccy Code"} ,
+				            {"ALM_FI_BENCHMARK_NM","Alm Fi Benchmark Name"} ,
+				            {"ALM_REASON","Alm Reason"}  ,
+				            {"ALM_SOP_COMPANY_CD","Alm Sop Company Code"}   ,
+				            {"ALM_AS_OF_DT","Alm As of Date"}        ,
+				            {"CUSTODIAN_LEGAL_ENTITY_IDENTIFIER","Custodian Legal Entity Identifier"}       ,
+				            {"CUSTODIAN_CNTRY_NM","Custodian Cntry Name"}        ,
+				            {"CUSTODIAN_COMPANY_ADDRESS_TXT","Custodian Company Address Txt"}        ,
+				            {"GROUP_STATUS","Group Status"}           ,
+				            {"GROUP_PORTFOLIO_MANAGER_NM","Group Portfolio Manager Name"}             ,
+				            {"LEGAL_ENTITY","Legal Entity"}  ,
+				            {"DOMICILE_CNTRY_CD","Domicile Cntry Code"}  ,
+				            {"GROUP_STRATEGY_CD","Group Strategy Code"}               ,
+				            {"GROUP_STRATEGY_NM","Group Strategy Name"}           ,
+				            {"CUSTODIAN","Custodian"}          ,
+				            {"CUSTODIAN_ID","Custodian Id"}              ,
+				            {"CUSTODIAN_NM","Custodian Name"}   ,
+				            {"FISCAL_YEAR_END","Fiscal Year End"}    ,
+				            {"GROUP_LONG_NM","Group Long Name"}           ,
+				            {"GROUP_PERFORMANCE_START_DT","Group Performance Start Date"}   ,
+				            {"GROUP_INCEPTION_DT","Group Inception Date"}            ,
+				            {"GROUP_BENCHMARK_1_ID","Group Benchmark 1 Id"}   ,
+				            {"GROUP_BENCHMARK_2_ID","Group Benchmark 2 Id"}   ,
+				            {"GROUP_BENCHMARK_1_NM","Group Benchmark 1 Name"}       ,
+				            {"GROUP_BENCHMARK_2_NM","Group Benchmark 2 Name"}       ,
+				            {"PRIMARY_LANGUAGE","Primary Language"}       ,
+				            {"GROUP_TAX_ID","Group Tax Id"}             ,
+				            {"GROUP_TAX_STATUS","Group Tax Status"}         ,
+				            {"PORTFOLIO_STRATEGY_CD","Portfolio Strategy Code"}  ,
+				            {"PORTFOLIO_STRATEGY","Portfolio Strategy"}     ,
+				            {"INVESTMENT_MANDATE","Investment Mandate"}          ,
+				            {"PORTFOLIO_ASSET_MIX","Portfolio Asset Mix"} ,
+				            {"PORTFOLIO_MANAGER_NM","Portfolio Manager Name"}            ,
+				            {"PORTFOLIO_MANAGER_2_NM","Portfolio Manager 2 Name"}    ,
+				            {"PORTFOLIO_TEAM_NM","Portfolio Team Name"}            ,
+				            {"PORTFOLIO_TEAM_2_NM","Portfolio Team 2 Name"}    ,
+				            {"PERFORMANCE_START_DT","Performance Start Date"} ,
+				            {"PORTFOLIO_START_DT","Portfolio Start Date"}  ,
+				            {"PORTFOLIO_BENCHMARK_1_ID","Portfolio Benchmark 1 Id"}      ,
+				            {"PORTFOLIO_BENCHMARK_2_ID","Portfolio Benchmark 2 Id"}      ,
+				            {"PORTFOLIO_BENCHMARK_1_NM","Portfolio Benchmark 1 Name"}          ,
+				            {"PORTFOLIO_BENCHMARK_2_NM","Portfolio Benchmark 2 Name"}          ,
+				            {"IFRS_TRADING_PHILOSOPHY_CD","Ifrs Trading Philosophy Code"}            ,
+				            {"IAS39_TRADING_PHILOSOPHY_CD","Ias39 Trading Philosophy Code"}     ,
+				            {"JGAAP_TRADING_PHILOSOPHY_CD","Jgaap Trading Philosophy Code"}   ,
+				            {"USGAAP_TRADING_PHILOSOPHY_CD","Usgaap Trading Philosophy Code"}           ,
+				            {"PROXY_VOTING_IND","Proxy Voting Ind"}           ,
+				            {"ASSET_PORTFOLIO_CD","Asset Portfolio Code"} ,
+				            {"CUSTODIAN_ACCOUNT_NUM_CD","Custodian Account Num Code"}       ,
+				            {"ACCOUNTING_STATUS_CD","Accounting Status Code"} ,
+				            {"LAWSON_LEGAL_NM","Lawson Legal Name"}    ,
+				            {"LAWSON_LEGAL_ID","Lawson Legal Id"}               ,
+				            {"LAWSON_SEGMENT_NM","Lawson Segment Name"}     ,
+				            {"SUBFUND_ID","Subfund Id"}      ,
+				            {"SUBFUND_NM","Subfund Name"}           ,
+				            {"SUBFUND_JOIN_KEY_CD","Subfund Join Key Code"}       ,
+				            {"BASE_PORTFOLIO_VALUE","Base Portfolio Value"}          ,
+				            {"CALCULATED_DT","Calculated Date"}    ,
+				            {"PORTFOLIO_CALCULATION","Portfolio Calculation"}        ,
+				            {"MONTH_END_STATUS_CD","Month End Status Code"}  ,
+				            {"IDDL_REGION_CYCLE","Iddl Region Cycle"}          ,
+				            {"MAM_BUSINESS_GROUP","Mam Business Group"}         ,
+				            {"IDDL_VALUATION_CYCLE","Iddl Valuation Cycle"}             ,
+				            {"PORTFOLIO_AS_OF_PERIOD","Portfolio As of Period"}    ,
+				            {"LEAD_ADVISOR_CD","Lead Advisor Code"}          ,
+				            {"LEAD_ADVISOR_NM","Lead Advisor Name"}       ,
+				            {"SUB_ADVISOR_CD","Sub Advisor Code"}              ,
+				            {"SUB_ADVISOR_NM","Sub Advisor Name"}           ,
+				            {"SUB_ADVISOR_2_CD","Sub Advisor 2 Code"}      ,
+				            {"SUB_ADVISOR_2_NM","Sub Advisor 2 Name"}   ,
+				            {"GROUP_ADVISOR_CITY","Group Advisor City"}  ,
+				            {"GROUP_ADVISOR_2_CITY","Group Advisor 2 City"}          ,
+				            {"SLEEVE_MANAGER_CITY","Sleeve Manager City"}            ,
+				            {"PM_REGION_NM","Pm Region Name"} ,
+				            {"TERMINATION_DT","Termination Date"}              ,
+				            {"DEFAULT_ASSET_CLASS","Default Asset Class"} ,
+				            {"LEDGER_TYPE","Ledger Type"}  ,
+				            {"GROUP_BUSINESS_OBJECTIVE","Group Business Objective"}       ,
+				            {"SLEEVE_BUSINESS_OBJECTIVE","Sleeve Business Objective"}       ,
+				            {"INVENTORY_COSTING_METHOD","Inventory Costing Method"} ,
+				            {"SECTOR_SCHEME","Sector Scheme"}     ,
+				            {"IS_PORT","Is Port"}        ,
+				            {"AS_PORT","As Port"}     ,
+				            {"AS_PORT_TRANSACTION","As Port Transaction"}              ,
+				            {"AS_BLOOMBERG_7000","As Bloomberg 7000"}  ,
+				            {"AS_COGENT","As Cogent"}         ,
+				            {"AS_FACTSET","As Factset"}         ,
+				            {"AS_FINDUR","As Findur"}            ,
+				            {"AS_BARRAONE","As Barraone"} ,
+				            {"AS_BPM","As Bpm"}      ,
+				            {"PORTFOLIO_GROUP_ADVISOR_TYPE_LIST","Portfolio Group Advisor Type List"}  ,
+				            {"ALLOW_REPO_IND","Allow Repo Ind"}  ,
+				            {"ALLOW_SHORT_REPO_CASH_IND","Allow Short Repo Cash Ind"}               ,
+				            {"ALLOW_DERIVATIVES_IND","Allow Derivatives Ind"}       ,
+				            {"IS_MODEL_PORTFOLIO_IND","Is Model Portfolio Ind"}   ,
+				            {"ALLOW_SECURITIES_LENDING_IND","Allow Securities Lending Ind"}        ,
+				            {"PERFORMANCE_END_DATE","Performance End Date"}  ,
+				            {"LEAD_SLEEVE_PORT_MGR_LGL_ENT_LIST","Lead Sleeve Port Mgr Lgl Ent List"}   ,
+				            {"ADVISORY","Advisory"} ,
+				            {"CREATED_TS","Created Ts"}       ,
+				            {"UPDATED_TS","Updated Ts"},
+				            {"PORTFOLIO_JOIN_KEY","Portfolio Join Key"},
+				            {"TMV_NK","Tmv_Nk"}   
+				}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Renamed Columns",{{"INVESTMENT_DESK", "Investment Desk"}, {"TERRITORY_CODE", "Territory Code"}, {"PORTFOLIO_OWNER", "Portfolio Owner"}, {"BANK_ACCOUNT", "Bank Account"}, {"BANK_IDENT", "Bank Ident"}, {"LENDING_INDICATOR", "Lending Indicator"}, {"MAXIMIS_PORTFOLIO_NUMBER", "Maximis Portfolio Number"}}),
+				    #"Renamed Columns2" = Table.RenameColumns(#"Renamed Columns1",{{"PORTFOLIO_NK", "Portfolio Nk"}, {"FORECASTED_INDICATOR", "Forecasted Indicator (D)"}, {"Investment Desk", "Investment Desk (D)"}, {"OTHER_INVESTED_ASSET_CD", "Other Invested Asset Code (D)"}, {"BANK_CURRENCIES_LIST", "Bank Currencies List (D)"}, {"BANK_ACCOUNT_NUMBER_LIST", "Bank Account Number List (D)"}, {"Territory Code", "Territory Code (D)"}, {"Subfund Name", "Subfund Name (D)"}, {"Portfolio Strategy", "Portfolio Strategy (D)"}, {"Portfolio Strategy Code", "Portfolio Strategy Code (D)"}, {"Portfolio Team Name", "Portfolio Team Name (D)"}, {"REGULATED_ACCOUNT_IND", "Regulated Account Indicator (D)"}, {"Portfolio Owner", "Portfolio Owner (D)"}, {"Portfolio Manager Alt Name", "Portfolio Manager Alt Name (D)"}, {"CUSTODIAN_ACCOUNT_NUMBER_LIST", "Custodian Account Number List"}, {"SLEEVE_MANAGER_TEAM_LIST", "Sleeve Manager Team List"}, {"Ifrs Trading Philosophy Code", "IFRS Trading Philosophy Code (D)"}, {"Ifrs9 Business Model Code", "IFRS9 Business Model Code"}, {"Ifrs9 Ind", "IFRS9 Ind"}, {"Jgaap Trading Philosophy Code", "JGAAP Trading Philosophy Code (D)"}, {"Ias39 Trading Philosophy Code", "IAS39 Trading Philosophy Code (D)"}, {"Usgaap Trading Philosophy Code", "USGAAP Trading Philosophy Code (D)"}, {"Allow Derivatives Ind", "Allow Derivatives Ind (D)"}, {"Allow Securities Lending Ind", "Allow Securities Lending Ind (D)"}, {"Alm As of Date", "Alm As of Date (D)"}, {"Alm Fi Benchmark Name", "Alm Fi Benchmark Name (D)"}, {"Liability Surplus", "Liability Surplus (D)"}, {"Custodian Name", "Custodian Name (D)"}, {"Lending Indicator", "Lending Indicator (D)"}, {"Bank Account", "Bank Account (D)"}, {"Bank Ident", "Bank Ident (D)"}, {"Lead Advisor Code", "Lead Advisor Code (D)"}, {"Lead Advisor Name", "Lead Advisor Name (D)"}, {"Custodian Legal Entity Identifier", "Custodian Legal Entity Identifier (D)"}, {"Custodian Cntry Name", "Custodian Country Name (D)"}, {"Custodian Company Address Txt", "Custodian Company Address Txt (D)"}, {"Custodian Id", "Custodian ID (D)"}, {"Custodian", "Custodian (D)"}, {"Custodian Account Num Code", "Custodian Account Num Code (D)"}, {"Immediate Liquidity Pool Code", "Immediate Liquidity Pool Code (D)"}, {"Inv Lp Port Code", "Inv Lp Port Code (D)"}, {"Payment Recon Principle Code", "Payment Recon Principle Code (D)"}, {"Default Asset Class", "Default Asset Class (D)"}, {"Lot Closing Method", "Lot Closing Method (D)"}, {"Group Code", "Group Code (D)"}, {"Group Status", "Group Status (D)"}, {"Int Ext", "Int Ext (D)"}, {"Legacy Code", "Legacy Code (D)"}, {"Group Strategy Name", "Group Strategy Name (D)"}, {"Legal Entity", "Legal Entity (D)"}, {"Alm Reason", "Alm Reason (D)"}, {"Alm Alco", "Alm ALCO (D)"}, {"Deposit Type", "Deposit Type (D)"}, {"Alm Subfund Name", "Alm Subfund Name (D)"}, {"Alm Sop Company Code", "Alm Sop Company Code (D)"}, {"Alm Segment Name", "Alm Segment Name (D)"}, {"Alm Market Segment Name", "Alm Market Segment Name (D)"}, {"Alm Cntry Name", "Alm Cntry Name (D)"}, {"Alm Ccy Code", "Alm Ccy Code (D)"}, {"Domicile Cntry Code", "Domicile Cntry Code (D)"}, {"As Findur", "As Findur (D)"}, {"As of Date", "As of Date (D)"}, {"Work Area", "Work Area (D)"}, {"Base Ccy Code", "Base Ccy Code (D)"}, {"Subfund Id", "Subfund ID (D)"}, {"Separate Account Ind", "Separate Account Ind (D)"}, {"Seed Portfolio Ind", "Seed Portfolio Ind (D)"}, {"Lawson Legal Id", "Lawson Legal ID (D)"}, {"Portfolio Manager Name", "Portfolio Manager Name (D)"}, {"Proxy Voting Ind", "Proxy Voting Ind (D)"}, {"Private Portf Ind", "Private Portf Ind (D)"}, {"Group Benchmark 2 Id", "Group Benchmark 2 ID"}, {"Group Benchmark 1 Id", "Group Benchmark 1 ID"}, {"Group Tax Id", "Group Tax ID"}, {"Client Id", "Client ID"}, {"Portfolio Benchmark 1 Id", "Portfolio Benchmark 1 ID"}, {"Portfolio Benchmark 2 Id", "Portfolio Benchmark 2 ID"}, {"ALM_SEGMENT_CURRENCY", "Alm Segment Currency (D)"}, {"Portfolio Name", "Portfolio Name"}}),
+				    #"Renamed Columns3" = Table.RenameColumns(#"Renamed Columns2",{{"Base Portfolio Value", "Base Portfolio Value (D)"}, {"Month End Status Code", "Month End Status Code (D)"}, {"Calculated Date", "Calculated Date (D)"}, {"Lpcd Participate Ind", "Lpcd Participate Ind (D)"}, {"As Bloomberg 7000", "As Bloomberg 7000 (D)"}}),
+				    #"Renamed Columns4" = Table.RenameColumns(#"Renamed Columns3",{{"ACCOUNTING_CYCLE", "Accounting Cycle (D)"},{"AS_KYRIBA", "As Kyriba (D)"},  {"BUSINESS_UNIT", "Business Unit (D)"}, {"DIVISION", "Division (D)"}, {"EXPECTED_FUNDING_DATE", "Expected Funding Date (D)"}, {"NONPARTICIPATING_LPCD_REASON", "Non Participating LPCD Reason (D)"}, {"PORTF_REGION", "Portf Region (D)"}, {"RESERVE_NONRESERVE_CD", "Reserve NonReserve Code (D)"}, {"SEGMENT_CURRENCY_CD", "Segment Currency Code (D)"}, {"TARGET_CASH_SWEEP_PORTF", "Target Cash Sweep Portf (D)"}}),
+				    #"Added Conditional Column8" = Table.AddColumn(#"Renamed Columns4", "Sweep Direction Indicator (D)", each if [SWEEP_DIRECTION_INDICATOR] = "Y" then 1 else null),
+				    #"Added Conditional Column7" = Table.AddColumn(#"Added Conditional Column8", "Retained Trade PNL History (D)", each if [RETAINED_TRADE_PNL_HISTORY] = "Y" then 1 else null),
+				    #"Added Conditional Column6" = Table.AddColumn(#"Added Conditional Column7", "Portf Sweep Indicator (D)", each if [PORTF_SWEEP_INDICATOR] = "Y" then 1 else null),
+				    #"Added Conditional Column5" = Table.AddColumn(#"Added Conditional Column6", "Is Transition Portfolio (D)", each if [IS_TRANSITION_PORTFOLIO] = "Y" then 1 else null),
+				    #"Added Conditional Column4" = Table.AddColumn(#"Added Conditional Column5", "Delete zero Positions (D)", each if [DELETE_ZERO_POSITIONS] = "Y" then 1 else null),
+				    #"Added Conditional Column3" = Table.AddColumn(#"Added Conditional Column4", "Allow Term Loans (D)", each if [ALLOW_TERM_LOANS] = "Y" then 1 else null),
+				    #"Added Conditional Column2" = Table.AddColumn(#"Added Conditional Column3", "Allow TBA (D)", each if [ALLOW_TBA] = "Y" then 1 else null),
+				    #"Added Conditional Column" = Table.AddColumn(#"Added Conditional Column2", "Allow Cross Trades (D)", each if [ALLOW_CROSS_TRADES] = "Y" then 1 else null),
+				    #"Added Conditional Column1" = Table.AddColumn(#"Added Conditional Column", "Allow Short Position (D)", each if [ALLOW_SHORT_POSITION] = "Y" then 1 else null),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Added Conditional Column1",{"Portfolio Nk", "Portfolio Code", "As of Period", "As of Date (D)", "As of Year", "As of Month", "Legacy Portfolio Code", "Portfolio Name", "Portfolio Code & Name", "Group Code (D)", "Portfolio Group Code & Name", "Group Name", "Base Ccy Code (D)", "Base Ccy Name", "Operating Ccy Code", "Operating Ccy Name", "Portfolio Filter Type", "Client Region Name", "Group Sub Type", "Client ID", "Client Name", "Client 2 Name", "Int Ext (D)", "Relationship Manager Name", "Legacy Code (D)", "Portfolio Type", "Seed Portfolio Ind (D)", "Immediate Liquidity Pool Code (D)", "Inv Lp Port Code (D)", "Lot Closing Method (D)", "Lpcd Participate Ind (D)", "Private Portf Ind (D)", "Separate Account Ind (D)", "Deposit Type (D)", "Asia Lgaap Trading Philosophy Code", "On off Balance", "Liability Surplus (D)", "Portfolio Sleeve Status", "Transfer Agent 1", "Transfer Agent 2", "Transfer Agent 3", "Transfer Agent Name 1", "Transfer Agent Name 2", "Transfer Agent Name 3", "Payment Recon Principle Code (D)", "Client Reporting Required Ind", "Hedge Participation Ind", "IFRS9 Business Model Code", "IFRS9 Ind", "House Holding Acct Ind", "Nafi Group Code", "Par Nonpar", "Platform Code", "Trust Ind", "Accounting Required Ind", "Work Area (D)", "Mim Indicator", "Subfund Retag Date", "Subfund Retag Is Date", "Portfolio Manager Alt Name (D)", "Alm Market Segment Name (D)", "Alm ALCO (D)", "Alm Segment Name (D)", "Alm Subfund Name (D)", "Alm Cntry Name (D)", "Alm Ccy Code (D)", "Alm Fi Benchmark Name (D)", "Alm Reason (D)", "Alm Sop Company Code (D)", "Alm As of Date (D)", "Custodian Legal Entity Identifier (D)", "Custodian Country Name (D)", "Custodian Company Address Txt (D)", "Group Status (D)", "Group Portfolio Manager Name", "Legal Entity (D)", "Domicile Cntry Code (D)", "Group Strategy Code", "Group Strategy Name (D)", "Custodian (D)", "Custodian ID (D)", "Custodian Name (D)", "Fiscal Year End", "Group Long Name", "Group Performance Start Date", "Group Inception Date", "Group Benchmark 1 ID", "Group Benchmark 2 ID", "Group Benchmark 1 Name", "Group Benchmark 2 Name", "Primary Language", "Group Tax ID", "Group Tax Status", "Portfolio Strategy Code (D)", "Portfolio Strategy (D)", "Investment Mandate", "Portfolio Asset Mix", "Portfolio Manager Name (D)", "Portfolio Manager 2 Name", "Portfolio Team Name (D)", "Portfolio Team 2 Name", "Performance Start Date", "Portfolio Start Date", "Portfolio Benchmark 1 ID", "Portfolio Benchmark 2 ID", "Portfolio Benchmark 1 Name", "Portfolio Benchmark 2 Name", "IFRS Trading Philosophy Code (D)", "IAS39 Trading Philosophy Code (D)", "JGAAP Trading Philosophy Code (D)", "USGAAP Trading Philosophy Code (D)", "Proxy Voting Ind (D)", "Asset Portfolio Code", "Custodian Account Num Code (D)", "Accounting Status Code", "Lawson Legal Name", "Lawson Legal ID (D)", "Lawson Segment Name", "Subfund ID (D)", "Subfund Name (D)", "Subfund Join Key Code", "Base Portfolio Value (D)", "Calculated Date (D)", "Portfolio Calculation", "Month End Status Code (D)", "Iddl Region Cycle", "Mam Business Group", "Iddl Valuation Cycle", "Portfolio As of Period", "Lead Advisor Code (D)", "Lead Advisor Name (D)", "Sub Advisor Code", "Sub Advisor Name", "Sub Advisor 2 Code", "Sub Advisor 2 Name", "Group Advisor City", "Group Advisor 2 City", "Sleeve Manager City", "Pm Region Name", "Termination Date", "Default Asset Class (D)", "Ledger Type", "Group Business Objective", "Sleeve Business Objective", "Inventory Costing Method", "Sector Scheme", "Is Port", "As Port", "As Port Transaction", "As Bloomberg 7000 (D)", "As Cogent", "As Factset", "As Findur (D)", "As Barraone", "As Bpm", "Portfolio Group Advisor Type List", "Allow Repo Ind", "Allow Short Repo Cash Ind", "Allow Derivatives Ind (D)", "Is Model Portfolio Ind", "Allow Securities Lending Ind (D)", "Performance End Date", "Lead Sleeve Port Mgr Lgl Ent List", "Advisory", "Investment Desk (D)", "Territory Code (D)", "Portfolio Owner (D)", "Bank Account (D)", "Bank Ident (D)", "Lending Indicator (D)", "Maximis Portfolio Number", "Forecasted Indicator (D)", "Bank Account Number List (D)", "Regulated Account Indicator (D)", "Bank Currencies List (D)", "Other Invested Asset Code (D)", "Custodian Account Number List", "Sleeve Manager Team List", "Created Ts", "Updated Ts", "Alm Segment Currency (D)", "As Kyriba (D)", "Accounting Cycle (D)", "Business Unit (D)", "Division (D)", "Expected Funding Date (D)", "Non Participating LPCD Reason (D)", "Portf Region (D)", "Reserve NonReserve Code (D)", "Segment Currency Code (D)", "Target Cash Sweep Portf (D)", "ALM_SEGMENT_TYPE", "SLEEVE_MANAGER_COUNTRY_1", "PORTFOLIO_GROUP_ADVISOR_COUNTRY_1", "PORTFOLIO_GROUP_ADVISOR_COUNTRY_2", "PORTFOLIO_GROUP_ADVISOR_COUNTRY_3", "PORTFOLIO_SLEEVE_TERMINATION_DATE", "TAX_REF_COUNTRY_CD", "PORTFOLIO_SLEEVE_CREATION_DATE", "PORTFOLIO_GROUP_ADVISOR_CITY_3", "ALTERNATE_PM_TEAM", "Portfolio Join Key", "Sweep Direction Indicator (D)", "Retained Trade PNL History (D)", "Portf Sweep Indicator (D)", "Is Transition Portfolio (D)", "Delete zero Positions (D)", "Allow Term Loans (D)", "Allow TBA (D)", "Allow Cross Trades (D)", "Allow Short Position (D)","Tmv_Nk"}),
+				    #"Renamed Columns5" = Table.RenameColumns(#"Removed Other Columns",{{"Subfund Retag Is Date", "Subfund Income Start Date (D)"}, {"Subfund Retag Date", "Subfund Effective Date (D)"}, {"Group Name", "Group Name (D)"}, {"Sleeve Business Objective", "Business Objective (D)"}, {"Mim Indicator", "Mim Indicator (D)"}, {"As Findur (D)", "Is on Findur (D)"}, {"Portfolio Sleeve Status", "Portfolio Sleeve Status (D)"}, {"As Bloomberg 7000 (D)", "Is on Bloomberg 7000 (D)"}, {"Immediate Liquidity Pool Code (D)", "Intermediate Liquidity Pool Port Code (D)"}, {"Lpcd Participate Ind (D)", "Liquidity Pool Participant Indicator (D)"}, {"Payment Recon Principle Code (D)", "Payment Recon Principle Code - AutoSettle Rule (D)"}, {"Group Status (D)", "Portfolio Group Status (D)"}, {"Termination Date", "Termination Date (D)"}, {"ALM_SEGMENT_TYPE", "Alm Category (D)"}, {"SLEEVE_MANAGER_COUNTRY_1", "Sleeve Manager Country 1 (D)"}, {"PORTFOLIO_GROUP_ADVISOR_COUNTRY_1", "Portfolio Group Advisor Country 1 (D)"}, {"PORTFOLIO_GROUP_ADVISOR_COUNTRY_2", "Portfolio Group Advisor Country 2 (D)"}, {"PORTFOLIO_GROUP_ADVISOR_COUNTRY_3", "Portfolio Group Advisor Country 3 (D)"}, {"PORTFOLIO_SLEEVE_TERMINATION_DATE", "Portfolio Sleeve Termination Date (D)"}, {"TAX_REF_COUNTRY_CD", "Tax Ref Country Code (D)"}, {"PORTFOLIO_SLEEVE_CREATION_DATE", "Portfolio Sleeve Creation Date (D)"}, {"PORTFOLIO_GROUP_ADVISOR_CITY_3", "Portfolio Group Advisor City 3 (D)"}, {"Group Inception Date", "Group Inception Date (D)"}, {"ALTERNATE_PM_TEAM", "Alternate PM Team"}}),
+				    #"Renamed Columns6" = Table.RenameColumns(#"Renamed Columns5",{{"Accounting Status Code", "Accounting Status Code (D)"}, {"Portfolio Calculation", "Portfolio Calculation (D)"}, {"Iddl Region Cycle", "Iddl Region Cycle (D)"}, {"Mam Business Group", "Mam Business Group (D)"}, {"Iddl Valuation Cycle", "Iddl Valuation Cycle (D)"}, {"Alternate PM Team", "Alternate PM Team (D)"}, {"Non Participating LPCD Reason (D)", "Non-Participating Liquidity Pool Reason (D)"}}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns6",{{"Allow Short Position (D)", Int64.Type}, {"Allow Cross Trades (D)", Int64.Type}, {"Allow TBA (D)", Int64.Type}, {"Allow Term Loans (D)", Int64.Type}, {"Delete zero Positions (D)", Int64.Type}, {"Is Transition Portfolio (D)", Int64.Type}, {"Portf Sweep Indicator (D)", Int64.Type}, {"Retained Trade PNL History (D)", Int64.Type}, {"Sweep Direction Indicator (D)", Int64.Type}, {"Mim Indicator (D)", Int64.Type}}),
+				    #"Added Custom1" = Table.AddColumn(#"Changed Type", "Portfolio Name Display", each Text.AfterDelimiter([#"Portfolio Code & Name"], " - "))
+				in
+				    #"Added Custom1"
+				```
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

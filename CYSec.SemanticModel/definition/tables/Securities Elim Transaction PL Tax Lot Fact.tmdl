@@ -1,0 +1,535 @@
+table 'Securities Elim Transaction PL Tax Lot Fact'
+	lineageTag: 4138735e-4f64-4b4a-8f22-6e042dd59d15
+
+	measure 'Real Amortization - Local' = SUM ( 'Securities Elim Transaction PL Tax Lot Fact'[Real Amortisation Local Ccy])
+		lineageTag: 0c84effc-e1fe-4435-83ef-238dac81fd27
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Real Amortization - Rep' = ```
+			
+			VAR Selected_Currency = SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] )
+			RETURN
+			IF(
+			    Selected_Currency = "SCD Base",
+			    SUM ('Securities Elim Transaction PL Tax Lot Fact'[Real Amortisation Base Ccy] ),
+			    SUMX (
+			        'Securities Elim Transaction PL Tax Lot Fact',
+			        'Securities Elim Transaction PL Tax Lot Fact'[Real Amortisation Local Ccy]
+			        * SWITCH (
+			            SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] ),
+			            "Company", 'Securities Elim Transaction PL Tax Lot Fact'[Local To Func Rate],
+			            "USD", 'Securities Elim Transaction PL Tax Lot Fact'[Local To USD Rate],
+			            "CAD", 'Securities Elim Transaction PL Tax Lot Fact'[Local To CAD Rate],
+			            "HKD", 'Securities Elim Transaction PL Tax Lot Fact'[Local To HKD Rate]
+			            )
+			        )
+			)
+			   
+			```
+		lineageTag: 6e5e1b37-0712-4d85-a3d6-30f1eee53469
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Securities Elim Transactions Title' = ```
+			
+			VAR maxdate =
+			    MAX ( Period[Date] )
+			RETURN
+			    "Security Elim Transactions" & ", "
+			        & SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] ) & ", "
+			        & SELECTEDVALUE ( Framework[Framework Display] ) & ", "
+			        & FORMAT ( maxdate, "MMM-YY" )
+			
+			```
+		lineageTag: acd2ad8f-23d1-4986-a739-903e82240c74
+
+	measure 'Sublot AOCI - Local (Sec Elim)' = ```
+			
+			var vAoci_key =
+			SUMMARIZE (
+			    'Securities Elim Transaction PL Tax Lot Fact',
+			    'Securities Elim Transaction PL Tax Lot Fact'[Originating System No],
+			    'Securities Elim Transaction PL Tax Lot Fact'[Match Src Transaction ID],
+			    'Securities Elim Transaction PL Tax Lot Fact'[Src Transaction ID],
+			    'Securities Elim Transaction PL Tax Lot Fact'[Bus Trans No],
+			    'Securities Elim Transaction PL Tax Lot Fact'[Framework CD]
+			)
+			var vResult = 
+			CALCULATE( 
+			    SUM('Securities Elim Transaction PL Tax Lot AOCI Fact'[Sublot AOCI - Local]),
+			    TREATAS (
+			        vAoci_key,
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Originating System No],
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Match Src Transaction ID],
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Src Transaction Id],
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Bus Trans no],
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Framework Code]
+			    )
+			)
+			
+			RETURN vResult
+			```
+		lineageTag: f8e790bb-c9c4-47f0-adb6-d3bdc8dece60
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Sublot Amort AOCI - Local (Sec Elim)' = ```
+			
+			var vAoci_key =
+			SUMMARIZE (
+			    'Securities Elim Transaction PL Tax Lot Fact',
+			    'Securities Elim Transaction PL Tax Lot Fact'[Originating System No],
+			    'Securities Elim Transaction PL Tax Lot Fact'[Match Src Transaction ID],
+			    'Securities Elim Transaction PL Tax Lot Fact'[Src Transaction ID],
+			    'Securities Elim Transaction PL Tax Lot Fact'[Bus Trans No],
+			    'Securities Elim Transaction PL Tax Lot Fact'[Framework CD]
+			)
+			var vResult = 
+			CALCULATE( 
+			    SUM('Securities Elim Transaction PL Tax Lot AOCI Fact'[Sublot Amort AOCI - local]),
+			    TREATAS (
+			        vAoci_key,
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Originating System No],
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Match Src Transaction ID],
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Src Transaction Id],
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Bus Trans no],
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Framework Code]
+			    )
+			)
+			
+			RETURN vResult
+			```
+		lineageTag: 8d3c0c8d-d7ac-41a6-b181-8a7d45c380fb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Sublot Amort AOCI - Rep (Sec Elim)' = ```
+			
+			var vAoci_key =
+			SUMMARIZE (
+			    'Securities Elim Transaction PL Tax Lot Fact',
+			    'Securities Elim Transaction PL Tax Lot Fact'[Originating System No],
+			    'Securities Elim Transaction PL Tax Lot Fact'[Match Src Transaction ID],
+			    'Securities Elim Transaction PL Tax Lot Fact'[Src Transaction ID],
+			    'Securities Elim Transaction PL Tax Lot Fact'[Bus Trans No],
+			    'Securities Elim Transaction PL Tax Lot Fact'[Framework CD]
+			)
+			var vResult = 
+			SWITCH (
+			    SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] ),
+			    "SCD Base",
+			    CALCULATE( 
+			        SUM('Securities Elim Transaction PL Tax Lot AOCI Fact'[Sublot Amort AOCI - Base]),
+			        TREATAS (
+			        vAoci_key,
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Originating System No],
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Match Src Transaction ID],
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Src Transaction Id],
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Bus Trans no],
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Framework Code]
+			        )
+			    ),
+			    CALCULATE( 
+			        SUMX(
+			            'Securities Elim Transaction PL Tax Lot AOCI Fact',
+			            'Securities Elim Transaction PL Tax Lot AOCI Fact'[Sublot Amort AOCI - Local] * 'Fx Rate DQ'[Rep Rate]
+			        ),
+			        TREATAS (
+			        vAoci_key,
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Originating System No],
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Match Src Transaction ID],
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Src Transaction Id],
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Bus Trans no],
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Framework Code]
+			        )
+			    )
+			)
+			
+			RETURN vResult
+			```
+		lineageTag: ce3a2974-e434-445a-bfaa-e51cfaef0421
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Sublot AOCI - Rep (Sec Elim)' = ```
+			
+			var vAoci_key =
+			SUMMARIZE (
+			    'Securities Elim Transaction PL Tax Lot Fact',
+			    'Securities Elim Transaction PL Tax Lot Fact'[Originating System No],
+			    'Securities Elim Transaction PL Tax Lot Fact'[Match Src Transaction ID],
+			    'Securities Elim Transaction PL Tax Lot Fact'[Src Transaction ID],
+			    'Securities Elim Transaction PL Tax Lot Fact'[Bus Trans No],
+			    'Securities Elim Transaction PL Tax Lot Fact'[Framework CD]
+			)
+			var vResult = 
+			SWITCH (
+			    SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] ),
+			    "SCD Base",
+			    CALCULATE( 
+			        SUM('Securities Elim Transaction PL Tax Lot AOCI Fact'[Sublot AOCI - Base]),
+			        TREATAS (
+			        vAoci_key,
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Originating System No],
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Match Src Transaction ID],
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Src Transaction Id],
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Bus Trans no],
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Framework Code]
+			        )
+			    ),
+			    CALCULATE( 
+			        SUMX(
+			            'Securities Elim Transaction PL Tax Lot AOCI Fact',
+			            'Securities Elim Transaction PL Tax Lot AOCI Fact'[Sublot AOCI - Local] * 'Fx Rate DQ'[Rep Rate]
+			        ),
+			        TREATAS (
+			        vAoci_key,
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Originating System No],
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Match Src Transaction ID],
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Src Transaction Id],
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Bus Trans no],
+			        'Securities Elim Transaction PL Tax Lot AOCI Fact'[Framework Code]
+			        )
+			    )
+			)
+			
+			RETURN vResult
+			```
+		lineageTag: 5e444209-fdf7-4518-aaf2-41451b0bacbc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Yield For Math Adj (Sec Elim)' =
+			
+			CALCULATE (
+			    MAX('Securities Elim Transaction PL Tax Lot Fact'[Yield For Math Adj]),
+			    CROSSFILTER('Securities Elim Lot Fact'[Security Nk],Securities[Security NK],Both)
+			    )
+		lineageTag: 363bba9f-e413-44e1-a76e-4b87be94ce76
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Framework CD'
+		dataType: string
+		lineageTag: cd38045b-8024-4848-a388-7d893fc0d96e
+		summarizeBy: none
+		sourceColumn: Framework CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As Of Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: 65341744-64c3-4cce-982f-f0992d328d67
+		summarizeBy: sum
+		sourceColumn: As Of Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Security NK'
+		dataType: string
+		lineageTag: 639e8548-517f-4fa5-a16f-1cfa7e244177
+		summarizeBy: none
+		sourceColumn: Security NK
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio NK'
+		dataType: string
+		lineageTag: c196473a-9447-4fbd-b064-595057c3a1f2
+		summarizeBy: none
+		sourceColumn: Portfolio NK
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Unit Code Name'
+		dataType: string
+		lineageTag: 0cd5d129-b5b6-4b5b-9f83-cc53d8d06bc3
+		summarizeBy: none
+		sourceColumn: Accounting Unit Code Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Code Name'
+		dataType: string
+		lineageTag: 8676104d-07fc-4fab-ab92-ab87f2a2bc65
+		summarizeBy: none
+		sourceColumn: Company Code Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Class'
+		dataType: string
+		lineageTag: 1c5f9dae-29d2-47a3-948f-0e9ec518aac3
+		summarizeBy: none
+		sourceColumn: GL Class
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Functional CCY Cd'
+		dataType: string
+		lineageTag: b64ce4c5-9c3a-42dd-84cf-840a6c7bc69b
+		summarizeBy: none
+		sourceColumn: Functional CCY Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local To Func Rate'
+		dataType: double
+		lineageTag: 827f5299-ebfe-4862-b08b-533ca179cbbe
+		summarizeBy: sum
+		sourceColumn: Local To Func Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Local to CAD Rate'
+		dataType: double
+		lineageTag: 319e3e52-175d-4d05-9ca9-b21669618d75
+		summarizeBy: sum
+		sourceColumn: Local to CAD Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Local to USD Rate'
+		dataType: double
+		lineageTag: 5eb90efc-75fe-4f24-a9e3-7d4b398f365e
+		summarizeBy: sum
+		sourceColumn: Local to USD Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Local to HKD Rate'
+		dataType: double
+		lineageTag: cf99d63b-ae05-44a4-89dd-1ce2a0189026
+		summarizeBy: sum
+		sourceColumn: Local to HKD Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Asset Portfolio Code'
+		dataType: string
+		lineageTag: 15c07c18-1c42-462c-a025-99c90501984f
+		summarizeBy: none
+		sourceColumn: Asset Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local Currency Code'
+		dataType: string
+		lineageTag: 788110ef-1af7-4a20-9b6d-f6f74dd0eef1
+		summarizeBy: none
+		sourceColumn: Local Currency Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Currency Name'
+		dataType: string
+		lineageTag: 7d79180f-a293-43e9-8717-354c1eef07dd
+		summarizeBy: none
+		sourceColumn: Currency Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Security'
+		dataType: string
+		lineageTag: f2185813-792d-4e0f-9c37-863fa55dbf48
+		summarizeBy: none
+		sourceColumn: Src Security
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Market Id'
+		dataType: string
+		lineageTag: 81029a22-77cf-4c32-a3e4-53b46989ca7d
+		summarizeBy: none
+		sourceColumn: Src Market Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SRC Security Id'
+		dataType: string
+		lineageTag: 0626ba8f-3cf9-404c-81f8-d397835c79bf
+		summarizeBy: none
+		sourceColumn: SRC Security Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trade Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 2c267208-8129-40eb-bd3a-0ac2f5b6736a
+		summarizeBy: none
+		sourceColumn: Trade Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Accounting Framework IK'
+		dataType: int64
+		formatString: 0
+		lineageTag: 158baec9-007e-4786-b6a9-ac776e6ca9fa
+		summarizeBy: sum
+		sourceColumn: Accounting Framework IK
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bus Trans No'
+		dataType: int64
+		formatString: 0
+		lineageTag: cf21cfcd-2d6f-4707-a123-075cca067e7b
+		summarizeBy: none
+		sourceColumn: Bus Trans No
+
+		annotation SummarizationSetBy = User
+
+	column 'Match Src Transaction ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 65ace5d3-4f42-4f6c-bd21-84f6c503b1d3
+		summarizeBy: none
+		sourceColumn: Match Src Transaction ID
+
+		annotation SummarizationSetBy = User
+
+	column 'Tax Lot IX'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9b5a4158-fcf1-4199-bf80-1a85753d6d68
+		summarizeBy: sum
+		sourceColumn: Tax Lot IX
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Transaction ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0bbd7f44-dcad-4de9-a134-c8c3e2c38d8e
+		summarizeBy: none
+		sourceColumn: Src Transaction ID
+
+		annotation SummarizationSetBy = User
+
+	column Src
+		dataType: string
+		lineageTag: 40ac39ab-2121-41d9-bc51-97b23fd9a675
+		summarizeBy: none
+		sourceColumn: Src
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bus Trans Code No'
+		dataType: int64
+		formatString: 0
+		lineageTag: 05a2c134-b9ef-4ef0-81cf-1fbafab35d61
+		summarizeBy: sum
+		sourceColumn: Bus Trans Code No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Real Amortisation Base Ccy'
+		dataType: double
+		lineageTag: afa00448-1eb2-4fcb-a7b9-91f2d0d201e6
+		summarizeBy: sum
+		sourceColumn: Real Amortisation Base Ccy
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Real Amortisation Local Ccy'
+		dataType: double
+		lineageTag: 247b0cc9-5a6e-4dad-aad6-2918e026db18
+		summarizeBy: sum
+		sourceColumn: Real Amortisation Local Ccy
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Trans Status'
+		dataType: string
+		lineageTag: b87b7050-7ae6-4d6d-8595-43b95c1cc4a1
+		summarizeBy: none
+		sourceColumn: Trans Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trans Type'
+		dataType: string
+		lineageTag: 8b86bd44-6770-4c0b-9915-bd18488effc8
+		summarizeBy: none
+		sourceColumn: Trans Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trans Category'
+		dataType: string
+		lineageTag: ddcc9e7e-c51d-4482-b35a-613a6675277c
+		summarizeBy: none
+		sourceColumn: Trans Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Structure Company'
+		dataType: string
+		lineageTag: 76dc22aa-4b6f-4b64-80d1-45f8d4cb1a69
+		summarizeBy: none
+		sourceColumn: Group Structure Company
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lot Id'
+		dataType: string
+		lineageTag: 0a38bb0f-9102-41a0-8b22-e2e842fc436a
+		summarizeBy: none
+		sourceColumn: Lot Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Originating System No'
+		dataType: int64
+		formatString: 0
+		lineageTag: 20ad653b-28ed-4df1-9e5c-90153d514cf4
+		summarizeBy: sum
+		sourceColumn: Originating System No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Yield For Math Adj'
+		dataType: double
+		lineageTag: eafcb717-003b-4be9-b8ca-5ed1e8153bd5
+		summarizeBy: sum
+		sourceColumn: Yield For Math Adj
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Securities Elim Transaction PL Tax Lot Fact-f56e5ce6-0ba2-4743-81bf-38990e841fe3' = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0), EnableQueryResultDownload="0"]),
+				    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+				    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+				    EDL_securities_elim_transaction_pl_tax_lot_fact_dq= inv_semantic_ga_Schema{[Name="securities_elim_transaction_pl_tax_lot_fact_dq",Kind="Table"]}[Data],
+				    #"Removed Other Columns" = Table.SelectColumns(EDL_securities_elim_transaction_pl_tax_lot_fact_dq,{"FRAMEWORK_CD", "AS_OF_PERIOD", "SECURITY_NK", "PORTFOLIO_NK", "ACCOUNTING_UNIT_CODE_NAME", "COMPANY_CODE_NAME", "GL_CLASS", "FUNCTIONAL_CCY_CD", "LOCAL_TO_FUNC_RATE", "LOCAL_TO_CAD_RATE", "LOCAL_TO_USD_RATE", "LOCAL_TO_HKD_RATE", "ASSET_PORTFOLIO_CODE", "LOCAL_CURRENCY_CODE", "CURRENCY_NAME", "SRC_SECURITY", "SRC_MARKET_ID", "SRC_SECURITY_ID", "TRADE_DT", "ACCOUNTING_FRAMEWORK_IK", "BUS_TRANS_NO", "MATCH_SRC_TRANSACTION_ID", "TAX_LOT_IX", "SRC_TRANSACTION_ID", "ORIGINATING_SYSTEM_NO", "SRC", "BUS_TRANS_CODE_NO", "REAL_AMORTISATION_BASE_CCY", "REAL_AMORTISATION_LOCAL_CCY", "TRANS_STATUS", "TRANS_TYPE", "TRANS_CATEGORY", "GROUP_STRUCTURE_COMPANY", "yield_for_math_adj"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Other Columns",{{"FRAMEWORK_CD", "Framework CD"}, {"AS_OF_PERIOD", "As Of Period"}, {"SECURITY_NK", "Security NK"}, {"PORTFOLIO_NK", "Portfolio NK"}, {"ACCOUNTING_UNIT_CODE_NAME", "Accounting Unit Code Name"}, {"COMPANY_CODE_NAME", "Company Code Name"}, {"GL_CLASS", "GL Class"}, {"FUNCTIONAL_CCY_CD", "Functional CCY Cd"}, {"LOCAL_TO_FUNC_RATE", "Local To Func Rate"}, {"LOCAL_TO_CAD_RATE", "Local to CAD Rate"}, {"LOCAL_TO_USD_RATE", "Local to USD Rate"}, {"LOCAL_TO_HKD_RATE", "Local to HKD Rate"}, {"ASSET_PORTFOLIO_CODE", "Asset Portfolio Code"}, {"LOCAL_CURRENCY_CODE", "Local Currency Code"}, {"CURRENCY_NAME", "Currency Name"}, {"SRC_SECURITY", "Src Security"}, {"SRC_MARKET_ID", "Src Market Id"}, {"SRC_SECURITY_ID", "SRC Security Id"}, {"TRADE_DT", "Trade Date"}, {"ACCOUNTING_FRAMEWORK_IK", "Accounting Framework IK"}, {"BUS_TRANS_NO", "Bus Trans No"}, {"MATCH_SRC_TRANSACTION_ID", "Match Src Transaction ID"}, {"TAX_LOT_IX", "Tax Lot IX"}, {"SRC_TRANSACTION_ID", "Src Transaction ID"}, {"SRC", "Src"}, {"ORIGINATING_SYSTEM_NO", "Originating System No"}, {"BUS_TRANS_CODE_NO", "Bus Trans Code No"}, {"REAL_AMORTISATION_BASE_CCY", "Real Amortisation Base Ccy"}, {"REAL_AMORTISATION_LOCAL_CCY", "Real Amortisation Local Ccy"}, {"TRANS_STATUS", "Trans Status"}, {"TRANS_TYPE", "Trans Type"}, {"TRANS_CATEGORY", "Trans Category"}, {"GROUP_STRUCTURE_COMPANY", "Group Structure Company"},{"yield_for_math_adj","Yield For Math Adj"}}),
+				    #"Added Custom" = Table.AddColumn(#"Renamed Columns", "Lot Id", each Number.ToText([Bus Trans No]) &"-"& Number.ToText([Match Src Transaction ID]) &"-"& Text.PadStart(Number.ToText([Tax Lot IX]),2,"0"))
+				in
+				    #"Added Custom"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

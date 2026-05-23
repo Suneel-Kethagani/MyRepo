@@ -1,0 +1,9 @@
+role 'Malaysia Portfolios Only'
+	modelPermission: read
+
+	tablePermission Portfolios =
+			[Domicile Cntry Code] = "MY" || [Sleeve Manager City] = "Kuala Lumpur" || [Group Advisor City] = "Kuala Lumpur"
+			|| [Group Advisor 2 City] = "Kuala Lumpur"
+
+	annotation PBI_Id = e9e94deb0a2840fabe66bce896c359bf
+

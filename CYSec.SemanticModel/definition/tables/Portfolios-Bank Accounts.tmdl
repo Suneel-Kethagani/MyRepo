@@ -1,0 +1,333 @@
+table 'Portfolios-Bank Accounts'
+	lineageTag: f3e68f6a-02da-454c-8c76-fbef43167973
+
+	measure 'LatestRowMarker (Portfolios-Bank Accounts)' = ```
+			
+			VAR maxDate =
+			    MAX ( Period[Period])
+			VAR inclusion =
+			    CALCULATE (
+			        COUNT ( 'Portfolios-Bank Accounts'[Portfolio Code] ),
+			        FILTER ( 'Portfolios-Bank Accounts', 'Portfolios-Bank Accounts'[As Of Period] = maxDate )
+			    )
+			RETURN
+			    inclusion
+				
+			```
+		formatString: 0
+		lineageTag: 9f22b711-e860-4d3f-a423-be5c3a018e50
+
+	measure 'Portfolio-Bank Accounts Title' =
+			
+			VAR MAX_DT =
+			    MAX ( 'Period'[Period] )
+			VAR endDate =
+			    CALCULATE (
+			        MAX ( 'Portfolios-Bank Accounts'[As Of Date] ),
+			        'Portfolios-Bank Accounts'[As Of Period] = MAX_DT
+			    )
+			RETURN
+			    "Portfolios" & ", "
+			        // & SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] ) & ", "
+			        // & SELECTEDVALUE ( Framework[Framework Display] ) & ", "
+			        & FORMAT ( endDate, "dd-mmm-yy" )
+		lineageTag: d6ac7519-221d-4ed5-9f95-1c712c2a5960
+
+	column 'Portfolio Code'
+		dataType: string
+		lineageTag: e2e9074e-feff-4d63-ae8a-954fbdaeddf2
+		summarizeBy: none
+		sourceColumn: Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As Of Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: f7f36e14-6a28-440f-98b0-38de87969e41
+		summarizeBy: sum
+		sourceColumn: As Of Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As Of Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e8b1e605-aaaf-46d1-b1cd-3a55c17c861c
+		summarizeBy: none
+		sourceColumn: As Of Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Portfolio Code Name'
+		dataType: string
+		lineageTag: 698a786e-9f2b-4343-9749-69f1199107c3
+		summarizeBy: none
+		sourceColumn: Portfolio Code Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Ccy Code'
+		dataType: string
+		lineageTag: 36e33692-31b0-4aca-99f0-fc24f4482357
+		summarizeBy: none
+		sourceColumn: Base Ccy Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Intermediate Liquidity Pool Port Code'
+		dataType: string
+		lineageTag: 5e88d523-7b58-4d42-b1b3-5e6caa56bf06
+		summarizeBy: none
+		sourceColumn: Intermediate Liquidity Pool Port Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inv Liquidity Pool Port Code'
+		dataType: string
+		lineageTag: 41752b79-bc49-414a-ac2a-2d919cf25320
+		summarizeBy: none
+		sourceColumn: Inv Liquidity Pool Port Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Liquidity Pool Participant Indicator'
+		dataType: int64
+		formatString: 0
+		lineageTag: 501b8c86-14b3-4fb1-93e3-9ffa32c99a04
+		summarizeBy: sum
+		sourceColumn: Liquidity Pool Participant Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Private Portf Ind'
+		dataType: int64
+		formatString: 0
+		lineageTag: 969838e9-ba9a-4c81-b9bb-738fb442ff64
+		summarizeBy: sum
+		sourceColumn: Private Portf Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Sleeve status'
+		dataType: string
+		lineageTag: 04a908df-0889-414b-a78a-1b1dce1fff88
+		summarizeBy: none
+		sourceColumn: Portfolio Sleeve status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Payment Recon Principle Code - AutoSettle Rule'
+		dataType: string
+		lineageTag: afa1cf27-ea52-4e7e-8a2a-ecb2d0577964
+		summarizeBy: none
+		sourceColumn: Payment Recon Principle Code - AutoSettle Rule
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mim Indicator'
+		dataType: string
+		lineageTag: 209a287c-1ea5-46d3-ade2-ada16f25c859
+		summarizeBy: none
+		sourceColumn: Mim Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Custodian Country'
+		dataType: string
+		lineageTag: c939ca7d-0b05-4b68-8a2e-209ba21026ac
+		summarizeBy: none
+		sourceColumn: Custodian Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Custodian Bank'
+		dataType: string
+		lineageTag: 4a7e86be-86d8-464b-a3ee-564f887e3351
+		summarizeBy: none
+		sourceColumn: Custodian Bank
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Manager Name'
+		dataType: string
+		lineageTag: f8551dd9-0dde-412c-bc58-b5caa3d69465
+		summarizeBy: none
+		sourceColumn: Portfolio Manager Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Start Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 01720ad0-fc58-447e-a6d4-9663cc3c6b5a
+		summarizeBy: none
+		sourceColumn: Portfolio Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Custodian Account Num Code'
+		dataType: string
+		lineageTag: f5ca9f9a-2e08-4080-8716-949eed84c35e
+		summarizeBy: none
+		sourceColumn: Custodian Account Num Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lawson Legal ID'
+		dataType: string
+		lineageTag: 29034559-1e36-459e-9a95-0172ecc956fa
+		summarizeBy: none
+		sourceColumn: Lawson Legal ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Subfund Join Key Code'
+		dataType: string
+		lineageTag: 0c6c3bae-0c84-4567-bb29-bd762119a5cf
+		summarizeBy: none
+		sourceColumn: Subfund Join Key Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Default Asset Class'
+		dataType: string
+		lineageTag: 5a3f382a-fa44-43a0-815c-4fcc5b5e175e
+		summarizeBy: none
+		sourceColumn: Default Asset Class
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ledger Type'
+		dataType: string
+		lineageTag: e13ef82b-375d-490f-b50a-a4f83f18f2ae
+		summarizeBy: none
+		sourceColumn: Ledger Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Investment Desk'
+		dataType: string
+		lineageTag: 017a3743-20e9-4ec5-bb77-d3b7c49ee7f6
+		summarizeBy: none
+		sourceColumn: Investment Desk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Owner'
+		dataType: string
+		lineageTag: 23af82f4-4d0e-4c03-8903-c57bc5648529
+		summarizeBy: none
+		sourceColumn: Portfolio Owner
+
+		annotation SummarizationSetBy = Automatic
+
+	column BANK_ACCOUNT
+		dataType: string
+		lineageTag: 6bdcdcab-3378-4a49-b57d-1e7d2784fbf7
+		summarizeBy: none
+		sourceColumn: BANK_ACCOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bank Ident'
+		dataType: string
+		lineageTag: e8099832-6458-4289-b629-2baf5145bfda
+		summarizeBy: none
+		sourceColumn: Bank Ident
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Forecasted Indicator'
+		dataType: int64
+		formatString: 0
+		lineageTag: 921ea905-0bd2-4606-ae76-449507326a7b
+		summarizeBy: sum
+		sourceColumn: Forecasted Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Regulated Account Indicator'
+		dataType: string
+		lineageTag: 23e62e74-a75c-424d-b74b-30530bcfaba8
+		summarizeBy: none
+		sourceColumn: Regulated Account Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is On Kyriba'
+		dataType: int64
+		formatString: 0
+		lineageTag: 95898b95-bcdd-4d4f-9c00-d1586cead781
+		summarizeBy: sum
+		sourceColumn: Is On Kyriba
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sleeve Manager Country'
+		dataType: string
+		lineageTag: 37759579-58e9-4809-b3e6-0e8dc7726763
+		summarizeBy: none
+		sourceColumn: Sleeve Manager Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bank Account Number'
+		dataType: string
+		lineageTag: 410748ae-a6b9-4995-9547-efbc3ba95154
+		summarizeBy: none
+		sourceColumn: Bank Account Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bank Currency'
+		dataType: string
+		lineageTag: 4cfb17df-bc74-4fb2-b458-412c7627477b
+		summarizeBy: none
+		sourceColumn: Bank Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Portfolios-Bank Accounts' = m
+		mode: import
+		queryGroup: 'Infor GL'
+		source = ```
+				let
+				    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0), EnableQueryResultDownload="0"]),
+				    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+				    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+				    EDL_portfolio_dim = inv_semantic_ga_Schema{[Name="portfolio_dim",Kind="Table"]}[Data],
+				    #"Removed Other Columns" = Table.SelectColumns(EDL_portfolio_dim,{"PORTFOLIO_CD", "AS_OF_PERIOD", "AS_OF_DT", "PORTFOLIO_CODE_NM", "BASE_CCY_CD", "IMMEDIATE_LIQUIDITY_POOL_CD", "INV_LP_PORT_CD", "LPCD_PARTICIPATE_IND", "PRIVATE_PORTF_IND", "PORTFOLIO_SLEEVE_STATUS", "PAYMENT_RECON_PRINCIPLE_CD", "MIM_INDICATOR", "CUSTODIAN_CNTRY_NM", "CUSTODIAN_NM", "PORTFOLIO_MANAGER_NM", "PORTFOLIO_START_DT", "CUSTODIAN_ACCOUNT_NUM_CD", "LAWSON_LEGAL_ID", "SUBFUND_JOIN_KEY_CD", "DEFAULT_ASSET_CLASS", "LEDGER_TYPE", "INVESTMENT_DESK", "PORTFOLIO_OWNER", "BANK_ACCOUNT", "BANK_IDENT", "FORECASTED_INDICATOR", "BANK_ACCOUNT_NUMBER_LIST", "REGULATED_ACCOUNT_IND", "BANK_CURRENCIES_LIST", "AS_KYRIBA", "SLEEVE_MANAGER_COUNTRY_1"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Other Columns",{{"MIM_INDICATOR", "Mim Indicator"}, {"PORTFOLIO_CD", "Portfolio Code"}, {"PORTFOLIO_CODE_NM", "Portfolio Code Name"}, {"BASE_CCY_CD", "Base Ccy Code"}, {"CUSTODIAN_CNTRY_NM", "Custodian Country"}, {"BANK_IDENT", "Bank Ident"}, {"FORECASTED_INDICATOR", "Forecasted Indicator"}, {"BANK_ACCOUNT_NUMBER_LIST", "Bank Account Number"}, {"REGULATED_ACCOUNT_IND", "Regulated Account Indicator"}, {"BANK_CURRENCIES_LIST", "Bank Currency"}, {"AS_KYRIBA", "Is On Kyriba"}, {"SLEEVE_MANAGER_COUNTRY_1", "Sleeve Manager Country"}, {"PORTFOLIO_OWNER", "Portfolio Owner"}, {"INVESTMENT_DESK", "Investment Desk"}, {"SUBFUND_JOIN_KEY_CD", "Subfund Join Key Code"}, {"LAWSON_LEGAL_ID", "Lawson Legal ID"}, {"PORTFOLIO_START_DT", "Portfolio Start Date"}, {"PORTFOLIO_MANAGER_NM", "Portfolio Manager Name"}, {"PRIVATE_PORTF_IND", "Private Portf Ind"}, {"PAYMENT_RECON_PRINCIPLE_CD", "Payment Recon Principle Code - AutoSettle Rule"}, {"IMMEDIATE_LIQUIDITY_POOL_CD", "Intermediate Liquidity Pool Port Code"}, {"AS_OF_DT", "As Of Date"}, {"INV_LP_PORT_CD", "Inv Liquidity Pool Port Code"}, {"LPCD_PARTICIPATE_IND", "Liquidity Pool Participant Indicator"}, {"CUSTODIAN_NM", "Custodian Bank"}, {"DEFAULT_ASSET_CLASS", "Default Asset Class"}, {"LEDGER_TYPE", "Ledger Type"}, {"PORTFOLIO_SLEEVE_STATUS", "Portfolio Sleeve status"}, {"AS_OF_PERIOD", "As Of Period"}, {"CUSTODIAN_ACCOUNT_NUM_CD", "Custodian Account Num Code"}}),
+				    
+				    #"Filtered Rows" = Table.SelectRows(#"Renamed Columns", each [Bank Account Number] <> null and [Bank Account Number] <> ""),
+				    #"Added Custom11" = Table.AddColumn(#"Filtered Rows", "BAList", each Text.Split([#"Bank Account Number"],",")),
+				    #"Added Custom12" = Table.AddColumn(#"Added Custom11", "BACList", each Text.Split([#"Bank Currency"],""",""")),
+				    #"Added Custom22" = Table.AddColumn(#"Added Custom12", "Table1", each Table.FromColumns({[BAList],[BACList]})),
+				    #"Removed Columns1" = Table.RemoveColumns(#"Added Custom22",{"BAList", "BACList"}),
+				    #"Expanded Table1" = Table.ExpandTableColumn(#"Removed Columns1", "Table1", {"Column1", "Column2"}, {"Table1.Column1", "Table1.Column2"}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Expanded Table1","""","",Replacer.ReplaceText,{"Table1.Column2"}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Replaced Value",{{"Table1.Column1", "BA"}, {"Table1.Column2", "BAC"}}),
+				    #"Filled Down1" = Table.FillDown(#"Renamed Columns1",{"BA"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Filled Down1",null,"NULL",Replacer.ReplaceValue,{"BAC"}),
+				    #"Added Custom" = Table.AddColumn(#"Replaced Value2", "BAList", each Text.Split([BA],"")),
+				    #"Added Custom1" = Table.AddColumn(#"Added Custom", "BACList", each Text.Split([BAC],",")),
+				    #"Added Custom2" = Table.AddColumn(#"Added Custom1", "Consolidated", each Table.FromColumns({[BAList],[BACList]})),
+				    #"Removed Columns" = Table.RemoveColumns(#"Added Custom2",{"BA", "BAC", "BAList", "BACList"}),
+				    #"Expanded Consolidated" = Table.ExpandTableColumn(#"Removed Columns", "Consolidated", {"Column1", "Column2"}, {"Consolidated.Column1", "Consolidated.Column2"}),
+				    #"Filled Down" = Table.FillDown(#"Expanded Consolidated",{"Consolidated.Column1"}),
+				    #"Trimmed Text" = Table.TransformColumns(#"Filled Down",{{"Consolidated.Column2", Text.Trim, type text}, {"Consolidated.Column1", Text.Trim, type text}}),
+				    #"Removed Columns2" = Table.RemoveColumns(#"Trimmed Text",{"Bank Account Number", "Bank Currency"}),
+				    #"Renamed Columns2" = Table.RenameColumns(#"Removed Columns2",{{"Consolidated.Column1", "Bank Account Number"}, {"Consolidated.Column2", "Bank Currency"}})
+				in
+				    #"Renamed Columns2"
+				```
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

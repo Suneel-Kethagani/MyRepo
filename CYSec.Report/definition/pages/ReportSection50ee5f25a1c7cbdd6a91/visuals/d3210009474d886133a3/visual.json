@@ -1,0 +1,1684 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "d3210009474d886133a3",
+  "position": {
+    "x": 1.797752808988764,
+    "y": 199.55056179775281,
+    "z": 6000,
+    "height": 521.3483146067415,
+    "width": 1278.2022471910111,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Sublot Fact"
+                    }
+                  },
+                  "Property": "Company Code & Name Display"
+                }
+              },
+              "queryRef": "Sublot Fact.Company Code & Name Display",
+              "active": true,
+              "displayName": "Company > Subfund > Portfolio > Hedge Type > Security > Lot > Hedge ID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Sublot Fact"
+                    }
+                  },
+                  "Property": "Accounting Unit Code & Name Display"
+                }
+              },
+              "queryRef": "Sublot Fact.Accounting Unit Code & Name Display",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Sublot Fact"
+                    }
+                  },
+                  "Property": "Portfolio Code & Name"
+                }
+              },
+              "queryRef": "Sublot Fact.Portfolio Code & Name",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Sublot Fact"
+                    }
+                  },
+                  "Property": "AOCI Hedge Type"
+                }
+              },
+              "queryRef": "Sublot Fact.AOCI Hedge Type",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Sublot Fact"
+                    }
+                  },
+                  "Property": "Primary Security ID & Desc (Sublot)"
+                }
+              },
+              "queryRef": "Sublot Fact.Primary Security ID & Desc (Sublot Hedge)",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Sublot Fact"
+                    }
+                  },
+                  "Property": "Unique Sublot ID"
+                }
+              },
+              "queryRef": "Sublot Fact.Unique Sublot ID",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Sublot Fact"
+                    }
+                  },
+                  "Property": "AOCI Hedge Findur ID"
+                }
+              },
+              "queryRef": "Sublot Fact.AOCI Hedge Findur ID",
+              "active": true,
+              "displayName": "AOCI Hedge Findur ID"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Sublot Fact"
+                        }
+                      },
+                      "Property": "AOCI Hedge Findur ID"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "Min(Sublot Fact.AOCI Hedge Findur ID)",
+              "displayName": "#Hedges"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Sublot Fact"
+                    }
+                  },
+                  "Property": "Reporting Currency (Sublot)"
+                }
+              },
+              "queryRef": "Sublot Fact.Reporting Currency (Sublot Hedges)",
+              "displayName": "Rep"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Sublot Fact"
+                    }
+                  },
+                  "Property": "Balance Original AOCI - Rep"
+                }
+              },
+              "queryRef": "Sublot Fact.AOCI Original Amount Rep",
+              "displayName": "AOCI Original Rep"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Sublot Fact"
+                    }
+                  },
+                  "Property": "Balanced Amortized AOCI - Rep"
+                }
+              },
+              "queryRef": "Sublot Fact.AOCI Amortized amount Rep",
+              "displayName": "AOCI Amortized Rep"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Sublot Fact"
+                    }
+                  },
+                  "Property": "Balance Remaining AOCI - Rep"
+                }
+              },
+              "queryRef": "Sublot Fact.AOCI Remaining Balance Rep",
+              "displayName": "AOCI Remaining Rep"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Sublot Fact"
+                    }
+                  },
+                  "Property": "AOCI Hedge Par"
+                }
+              },
+              "queryRef": "Securities Sublot Fact.AOCI Hedge Par"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Sublot Fact"
+                    }
+                  },
+                  "Property": "AOCI Book Yield"
+                }
+              },
+              "queryRef": "Securities Sublot Fact.AOCI Book Yield"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Sublot Fact"
+                        }
+                      },
+                      "Property": "Local"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Sublot Fact.Local Currency Code)",
+              "displayName": "Local"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Sublot Fact"
+                    }
+                  },
+                  "Property": "Rep Rate (Sec Sublot)"
+                }
+              },
+              "queryRef": "Securities Sublot Fact.Rep Rate (Sec Sublot)",
+              "displayName": "Rep Rate"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Sublot Fact"
+                    }
+                  },
+                  "Property": "Balance Original AOCI - Local"
+                }
+              },
+              "queryRef": "Securities Sublot Fact.Balance Original AOCI - Local",
+              "displayName": "AOCI Original Local"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Sublot Fact"
+                    }
+                  },
+                  "Property": "Balanced Amortized AOCI - Local"
+                }
+              },
+              "queryRef": "Securities Sublot Fact.Balanced Amortized AOCI - Local",
+              "displayName": "AOCI Amortized Local"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Sublot Fact"
+                    }
+                  },
+                  "Property": "Balance Remaining AOCI - Local"
+                }
+              },
+              "queryRef": "Securities Sublot Fact.Balance Remaining AOCI - Local",
+              "displayName": "AOCI Remaining  Local"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Sublot Fact"
+                        }
+                      },
+                      "Property": "AOCI Inception Index"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Sum(Sublot Fact.AOCI Inception Index)",
+              "displayName": "AOCI Inception Index"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Sublot Fact"
+                        }
+                      },
+                      "Property": "Month End Status"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Min(Sublot Fact.Month End Status)",
+              "displayName": "Month End Status"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Sublot Fact"
+                  }
+                },
+                "Property": "Portfolio Code & Name"
+              }
+            },
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Sublot Fact"
+                  }
+                },
+                "Property": "AOCI Hedge Type"
+              }
+            },
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Sublot Fact"
+                  }
+                },
+                "Property": "AOCI Hedge Findur ID"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "gridVerticalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#ffffff'"
+                    }
+                  }
+                }
+              }
+            },
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.1
+                    }
+                  }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Auto'"
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontColorPrimary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "backColorPrimary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "backColorSecondary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sublot Fact.Reporting Currency (Sublot Hedges)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Sublot Fact.Company ID)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Sublot Fact.Company Name)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Sublot Fact.Subfund ID)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Sublot Fact.Subfund Name)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Sublot Fact.Portfolio Code)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Sublot Fact.Portfolio Group Code)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Sublot Fact.Framework Code)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Sublot Fact.SCD Security ID)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Sublot Fact.SCD Instrument Category)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Sublot Fact.Instrument Type)"
+          }
+        },
+        {
+          "properties": {
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Sublot Fact.Lot ID)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(Sublot Fact.AOCI Inception Index)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Sublot Fact.AOCI Hedge Findur ID)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Sublot Fact.Local Currency Code)"
+          }
+        },
+        {
+          "properties": {
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Sublot Fact.AOCI Book Yield"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Sublot Fact.Month End Status)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Sublot Fact.Rep Rate (Sec Sublot)"
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#e6e6e6'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI Bold'', wf_segoe-ui_bold, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Sublot Fact"
+                    }
+                  },
+                  "Property": "Sublot Hedges Positions Title"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "keepLayerOrder": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "Filter9bf988ea3ceab473c790",
+        "ordinal": 0,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Sublot Fact"
+              }
+            },
+            "Property": "Non Zero Filter(Sublot Hedge)"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "s",
+              "Entity": "Securities Sublot Fact",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 0,
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "s"
+                        }
+                      },
+                      "Property": "Non Zero Filter(Sublot Hedge)"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "1L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "Filter99f96b6104e06834b4dd",
+        "ordinal": 1,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Sublot Fact"
+              }
+            },
+            "Property": "Reporting Currency (Sublot)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter4cdd56bcec46a6c6668b",
+        "ordinal": 2,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Sublot Fact"
+              }
+            },
+            "Property": "Balance Original AOCI - Rep"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterbee06a9d9a3505d5acb9",
+        "ordinal": 3,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Sublot Fact"
+              }
+            },
+            "Property": "Balanced Amortized AOCI - Rep"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter5bd0550a3c12b186cbe5",
+        "ordinal": 4,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Sublot Fact"
+              }
+            },
+            "Property": "Balance Remaining AOCI - Rep"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter1e8c730d054da7c20469",
+        "ordinal": 5,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Sublot Fact"
+                  }
+                },
+                "Property": "Local"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterc7b18306401c8bb21c1d",
+        "ordinal": 6,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Sublot Fact"
+              }
+            },
+            "Property": "Portfolio Code & Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filtera6bc4b5a105936200e31",
+        "ordinal": 7,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Sublot Fact"
+              }
+            },
+            "Property": "AOCI Hedge Findur ID"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filter6813652a29ec964ae467",
+        "ordinal": 8,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Sublot Fact"
+              }
+            },
+            "Property": "Primary Security ID & Desc (Sublot)"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filter3b0142b375b6703ca702",
+        "ordinal": 9,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Sublot Fact"
+                  }
+                },
+                "Property": "Month End Status"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter1ae031a0e1bb4ba32176",
+        "ordinal": 10,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Sublot Fact"
+                  }
+                },
+                "Property": "AOCI Inception Index"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter280415d37b2031a95353",
+        "ordinal": 11,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Sublot Fact"
+              }
+            },
+            "Property": "AOCI Hedge Type"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filterf1530389550985e0190b",
+        "ordinal": 12,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Sublot Fact"
+                  }
+                },
+                "Property": "AOCI Hedge Findur ID"
+              }
+            },
+            "Function": 5
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter9c03d074e07ee632b512",
+        "ordinal": 13,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Sublot Fact"
+              }
+            },
+            "Property": "Unique Sublot ID"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filter6add107984601aa9e36c",
+        "ordinal": 14,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Sublot Fact"
+              }
+            },
+            "Property": "Accounting Unit Code & Name Display"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filter446329547237ab9e3838",
+        "ordinal": 15,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Sublot Fact"
+              }
+            },
+            "Property": "Company Code & Name Display"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filter2d5728577b6e50c4d7a1",
+        "ordinal": 16,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Sublot Fact"
+              }
+            },
+            "Property": "Balanced Amortized AOCI - Local"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filtera50ec7643b8c4138bcf4",
+        "ordinal": 17,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Sublot Fact"
+              }
+            },
+            "Property": "Balance Remaining AOCI - Local"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterc61c3098a40499ca2985",
+        "ordinal": 18,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Sublot Fact"
+              }
+            },
+            "Property": "Balance Original AOCI - Local"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterf2399af0cdf6e0970b98",
+        "ordinal": 19,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Sublot Fact"
+              }
+            },
+            "Property": "AOCI Hedge Par"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter4b65cbd9145e9a4ff89e",
+        "ordinal": 20,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Sublot Fact"
+              }
+            },
+            "Property": "AOCI Book Yield"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filtera350aadb8a6548604b53",
+        "ordinal": 21,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Sublot Fact"
+              }
+            },
+            "Property": "Rep Rate (Sec Sublot)"
+          }
+        },
+        "type": "Advanced"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  }
+}

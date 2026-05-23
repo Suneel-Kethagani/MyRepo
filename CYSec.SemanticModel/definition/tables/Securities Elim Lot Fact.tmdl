@@ -1,0 +1,1087 @@
+table 'Securities Elim Lot Fact'
+	lineageTag: 7f9f22d1-afad-4f8d-9301-0096045ba6ef
+
+	measure 'Balance Book Value Elim Local' = ```
+			
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			    SUM('Securities Elim Lot Fact'[Balance Book Value Local CCY]),
+			    CALCULATE (
+			        SUM('Securities Elim Lot Fact'[Balance Book Value Local CCY]),
+			        LASTDATE ('Securities Elim Lot Fact'[Effective Date])
+			       
+			    )
+			) 
+			```
+		lineageTag: 4947dd58-47c5-45d7-9db6-23627a135a52
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Balance Book Value Elim Rep' = ```
+			
+			SWITCH (
+			    SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] ),
+			    "SCD Base",
+			        IF (
+			            ISFILTERED ( Period[Date] ),
+			            SUM ( 'Securities Elim Lot Fact'[Balance Book Value Base CCY] ),
+			            CALCULATE (
+			                SUM ( 'Securities Elim Lot Fact'[Balance Book Value Base CCY] ),
+			                LASTDATE ( 'Securities Elim Lot Fact'[Effective Date] )
+			            )
+			        ),
+			    IF (
+			        ISFILTERED ( Period[Date] ),
+			        SUMX (
+			            'Securities Elim Lot Fact',
+			            'Securities Elim Lot Fact'[Balance Book Value local CCY] * 'Fx Rate DQ'[Rep Rate]
+			            
+			        ),
+			        CALCULATE (
+			            SUMX (
+			                'Securities Elim Lot Fact',
+			                'Securities Elim Lot Fact'[Balance Book Value local CCY] * 'Fx Rate DQ'[Rep Rate]
+			                    
+			            ),
+			            LASTDATE ( 'Securities Elim Lot Fact'[Effective Date] )
+			        )
+			    )
+			)
+			```
+		lineageTag: c93e4aff-458a-424c-b06f-4098380a74d1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Security Elim Lots Title' = ```
+			
+			VAR maxdate =
+			    MAX ( 'Securities Elim Lot Fact'[Effective Date] )
+			RETURN
+			    "Security Elim Lots" & ", "
+			        & SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] ) & ", "
+			        & SELECTEDVALUE ( Framework[Framework Display] ) & ", "
+			        & FORMAT ( maxdate, "dd-mmm-yy" )
+			
+			```
+		lineageTag: 55a0bea7-e615-450c-a692-b859db78f933
+
+	measure 'AOCI Remain Balance BV - Local (Sec Elim)' =
+			
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			    SUM('Securities Elim Lot Fact'[AOCI Remain Balance BV Local CCY]),
+			    CALCULATE (
+			        SUM('Securities Elim Lot Fact'[AOCI Remain Balance BV Local CCY]),
+			        LASTDATE ( 'Securities Elim Lot Fact'[Effective Date] )
+			    )
+			)
+		lineageTag: 83b3d8de-4548-44f8-9bc0-cb79a8da4d9f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'AOCI Remain Balance BV - Rep (Sec Elim)' = ```
+			
+			SWITCH (
+			    SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] ),
+			    "SCD Base",
+			        IF (
+			            ISFILTERED ( Period[Date] ),
+			            SUM ('Securities Elim Lot Fact'[AOCI Remain Balance BV Base CCY] ),
+			            CALCULATE (
+			                SUM ( 'Securities Elim Lot Fact'[AOCI Remain Balance BV Base CCY] ),
+			                LASTDATE ( 'Securities Elim Lot Fact'[Effective Date] )
+			            )
+			        ),
+			    IF (
+			        ISFILTERED ( Period[Date] ),
+			        SUMX (
+			            'Securities Elim Lot Fact',
+			            'Securities Elim Lot Fact'[AOCI Remain Balance BV Local CCY] * 'Fx Rate DQ'[Rep Rate]
+			        ),
+			        CALCULATE (
+			            SUMX (
+			                'Securities Elim Lot Fact',
+			                'Securities Elim Lot Fact'[AOCI Remain Balance BV Local CCY] * 'Fx Rate DQ'[Rep Rate]
+			            ),
+			            LASTDATE ( 'Securities Elim Lot Fact'[Effective Date] )
+			        )
+			    )
+			)
+			
+			```
+		lineageTag: ec288878-e158-4e88-8161-e3a36bda399c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Unreal Pl BV - Local (Sec Elim)' =
+			
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			    SUM('Securities Elim Lot Fact'[Unreal PL Book Value Local CCY]),
+			    CALCULATE (
+			        SUM('Securities Elim Lot Fact'[Unreal PL Book Value Local CCY]),
+			        LASTDATE ( 'Securities Elim Lot Fact'[Effective Date] )
+			    )
+			)
+		lineageTag: 296ecdbd-aa4b-482b-bccf-f27d73cdfbbf
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Unreal Pl BV - Rep (Sec Elim)' = ```
+			
+			SWITCH (
+			    SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] ),
+			    "SCD Base",
+			        IF (
+			            ISFILTERED ( Period[Date] ),
+			            SUM ('Securities Elim Lot Fact'[Unreal Pl Book Value Base CCY]),
+			            CALCULATE (
+			                SUM ( 'Securities Elim Lot Fact'[Unreal Pl Book Value Base CCY]),
+			                LASTDATE ( 'Securities Elim Lot Fact'[Effective Date] )
+			            )
+			        ),
+			    IF (
+			        ISFILTERED ( Period[Date] ),
+			        SUMX (
+			            'Securities Elim Lot Fact',
+			            'Securities Elim Lot Fact'[Unreal Pl Book Value Local CCY] * 'Fx Rate DQ'[Rep Rate]
+			        ),
+			        CALCULATE (
+			            SUMX (
+			                'Securities Elim Lot Fact',
+			                'Securities Elim Lot Fact'[Unreal Pl Book Value Local CCY] * 'Fx Rate DQ'[Rep Rate]
+			            ),
+			            LASTDATE ( 'Securities Elim Lot Fact'[Effective Date] )
+			        )
+			    )
+			)
+			
+			```
+		lineageTag: 3ef14c98-54c3-4801-b207-b0bb42341300
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'ECL/CECL Impairment - Local (Sec Elim)' = ```
+			
+			
+			SWITCH(SELECTEDVALUE ( Framework[Framework] ),
+			"IFRS9",
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			            SUM ( 'Securities Elim Lot Fact'[Balance Cl Allowance Local CCY] )
+			            + SUM ( 'Securities Elim Lot Fact'[Balance Write Off Local CCY] ),
+			    CALCULATE (
+			                SUM ( 'Securities Elim Lot Fact'[Balance Cl Allowance Local CCY] )
+			            + SUM ( 'Securities Elim Lot Fact'[Balance Write Off Local ccy] ),
+			        LASTDATE('Securities Elim Lot Fact'[Effective Date])
+			    )),
+			"USGAAP",
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			        SUM ( 'Securities Elim Lot Fact'[Balance Recog CL Allowance Local ccy] )
+			            + SUM ( 'Securities Elim Lot Fact'[Balance Write Off Local ccy] ),
+			    CALCULATE (
+			        SUM ( 'Securities Elim Lot Fact'[Balance Recog CL Allowance Local ccy] )
+			            + SUM ( 'Securities Elim Lot Fact'[Balance Write Off Local ccy] ),
+			        LASTDATE('Securities Elim Lot Fact'[Effective Date])
+			    )),
+			"IAS39",
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			        SUM ( 'Securities Elim Lot Fact'[Balance Impairment Local ccy] )
+			            + SUM ( 'Securities Elim Lot Fact'[Balance Write Off Local ccy] ),
+			    CALCULATE (
+			        SUM ( 'Securities Elim Lot Fact'[Balance Impairment Local ccy] )
+			            + SUM ( 'Securities Elim Lot Fact'[Balance Write Off Local ccy] ),
+			        LASTDATE('Securities Elim Lot Fact'[Effective Date])
+			    )),
+			"JGAAP",
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			        SUM ( 'Securities Elim Lot Fact'[Balance Impairment Local ccy] )
+			            + SUM ( 'Securities Elim Lot Fact'[Balance Write Off Local ccy] ),
+			    CALCULATE(
+			        SUM ( 'Securities lots Fact'[Balance Impairment - Local] )
+			            + SUM ( 'Securities Elim Lot Fact'[Balance Write Off Local ccy] ),
+			        LASTDATE('Securities Elim Lot Fact'[Effective Date])
+			    )),
+			"NAIC",
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			        SUM ( 'Securities Elim Lot Fact'[Balance Impairment Local ccy] )
+			            + SUM ( 'Securities Elim Lot Fact'[Balance Write Off Local ccy] ),
+			    CALCULATE (
+			        SUM ( 'Securities Elim Lot Fact'[Balance Impairment Local ccy] )
+			            + SUM ( 'Securities Elim Lot Fact'[Balance Write Off Local ccy] ),
+			        LASTDATE('Securities Elim Lot Fact'[Effective Date])
+			    ))
+			,BLANK())
+			
+			```
+		lineageTag: 73c23aa4-c3dd-4483-b62d-2fbe57428c39
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'ECL/CECL Impairment - Rep (Sec Elim)' = ```
+			
+			VAR FW =
+			    SELECTEDVALUE ( Framework[Framework] )
+			VAR IFRS9_FW = 'Securities Elim Lot Fact'[Balance CL Allowance - Rep (Sec Elim)] + 'Securities Elim Lot Fact'[Balance Write Off - Rep (Sec Elim)]
+			VAR USGAAP_FW = 'Securities Elim Lot Fact'[Balance Recog CL Allowance - Rep (Sec Elim)] + 'Securities Elim Lot Fact'[Balance Write Off - Rep (Sec Elim)]
+			VAR IAS39_JGAAP_NAIC_FW = 'Securities Elim Lot Fact'[OTTI Impairment - Rep (Sec Elim)] + 'Securities Elim Lot Fact'[Balance Write Off - Rep (Sec Elim)]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        FW = "IFRS9",IFRS9_FW,
+			        FW = "USGAAP",USGAAP_FW,
+			        FW = "IAS39"|| FW = "JGAAP"|| FW = "NAIC" ,IAS39_JGAAP_NAIC_FW,
+			        BLANK ()
+			    )
+			
+			```
+		lineageTag: a635d13f-ad67-4802-9776-dfb8437a824d
+
+	measure 'Balance CL Allowance - Rep (Sec Elim)' =
+			
+			
+			SWITCH(
+			SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+			"SCD Base",
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			    SUM('Securities Elim Lot Fact'[Balance CL Allowance Base ccy]),
+			    CALCULATE (
+			        SUM('Securities Elim Lot Fact'[Balance CL Allowance Base ccy]),
+			        LASTDATE('Securities Elim Lot Fact'[Effective Date])
+			    )
+			),
+			
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			    SUMX (
+			        'Securities Elim Lot Fact',
+			        'Securities Elim Lot Fact'[Balance CL Allowance Local ccy] * 'Fx Rate DQ'[Rep Rate]
+			    ),
+			    CALCULATE (
+			        SUMX (
+			            'Securities Elim Lot Fact',
+			            'Securities Elim Lot Fact'[Balance CL Allowance Local ccy] * 'Fx Rate DQ'[Rep Rate]
+			        ),
+			        LASTDATE('Securities Elim Lot Fact'[Effective Date])
+			    )
+			))
+		lineageTag: f778f235-0bbc-4c18-a24e-bfe4e5849b82
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Balance Write Off - Rep (Sec Elim)' =
+			
+			
+			SWITCH(
+			SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+			"SCD Base",
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			    SUM('Securities Elim lot Fact'[Balance Write Off Base ccy]),
+			    CALCULATE (
+			        SUM('Securities Elim lot Fact'[Balance Write Off Base ccy]),
+			        LASTDATE('Securities Elim Lot Fact'[Effective Date])
+			    )
+			),
+			
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			    SUMX (
+			        'Securities Elim lot Fact',
+			        'Securities Elim lot Fact'[Balance Write Off Local ccy] * 'Fx Rate DQ'[Rep Rate]
+			    ),
+			    CALCULATE (
+			        SUMX (
+			            'Securities Elim lot Fact',
+			            'Securities Elim lot Fact'[Balance Write Off Local ccy] * 'Fx Rate DQ'[Rep Rate]
+			        ),
+			        LASTDATE('Securities Elim Lot Fact'[Effective Date])
+			    )
+			))
+		lineageTag: c4b81e62-6c57-473b-a726-f40cf7f58b31
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Balance Recog CL Allowance - Rep (Sec Elim)' =
+			
+			
+			SWITCH(
+			SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+			"SCD Base",
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			    SUM('Securities Elim lot Fact'[Balance Recog CL Allowance base ccy]),
+			    CALCULATE (
+			        SUM('Securities Elim lot Fact'[Balance Recog CL Allowance base ccy]),
+			        LASTDATE('Securities Elim Lot Fact'[Effective Date])
+			    )
+			),
+			
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			    SUMX (
+			        'Securities Elim lot Fact',
+			        'Securities Elim lot Fact'[Balance Recog CL Allowance local ccy] * 'Fx Rate DQ'[Rep Rate]
+			    ),
+			    CALCULATE (
+			        SUMX (
+			            'Securities Elim lot Fact',
+			            'Securities Elim lot Fact'[Balance Recog CL Allowance local ccy] * 'Fx Rate DQ'[Rep Rate]
+			        ),
+			        LASTDATE('Securities Elim Lot Fact'[Effective Date])
+			    )
+			))
+		lineageTag: 7f0da681-6394-461f-a05c-c50affe468b4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'OTTI Impairment - Rep (Sec Elim)' =
+			
+			SWITCH(
+			SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+			"SCD Base",
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			    SUM('Securities Elim Lot Fact'[Balance Impairment CCY Base CCY]),
+			    CALCULATE(
+			        SUM('Securities Elim lot Fact'[Balance Impairment CCY Base CCY]),
+			        LASTDATE('Securities Elim Lot Fact'[Effective Date])
+			    )
+			),
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			    SUMX (
+			        'Securities Elim lot Fact',
+			        'Securities Elim Lot Fact'[Balance Impairment Local CCY] * 'Fx Rate DQ'[Rep Rate]
+			    ),
+			    CALCULATE(
+			        SUMX (
+			            'Securities Elim lot Fact',
+			            'Securities Elim lot Fact'[Balance Impairment local ccy] * 'Fx Rate DQ'[Rep Rate]
+			        ),
+			        LASTDATE('Securities Elim Lot Fact'[Effective Date])
+			    )
+			))
+		lineageTag: 4578cf3b-d43f-4574-807e-e9f9ca1d948c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Balance Recog CL Allowance - Local (Sec Elim)' =
+			
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			    SUM('Securities Elim Lot Fact'[Balance Recog Cl Allowance Local CCY]),
+			    CALCULATE (
+			        SUM('Securities Elim Lot Fact'[Balance Recog Cl Allowance Local CCY]),
+			        LASTDATE ( 'Securities Elim Lot Fact'[Effective Date] )
+			    )
+			)
+		lineageTag: 64cafe3a-8e93-4ba1-8fdf-c5ae463b490a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Final Staging Text (Sec Elim)' = ```
+			
+			VAR vCreditimpairmentStage = MAX('Securities Elim Lot Fact'[Credit Impairment Stage])
+			RETURN
+			IF(
+			    ISINSCOPE(Securities[Primary Security ID & Desc]),
+			    VAR vCATStagingText =
+			    MAXX(
+			        'Securities Elim Lot Fact',
+			        VAR vAssetID = 'Securities Elim Lot Fact'[SCD Security ID]
+			        VAR vFramework='Securities Elim Lot Fact'[Framework Cd]
+			        VAR vPeriod='Securities Elim Lot Fact'[As Of Period]
+			        VAR vLatestDate = 
+			        CALCULATE(
+			            MAX('Cat Staging Text Fact'[Txn Dt]),
+			            'Cat Staging Text Fact'[Asset Id]=vAssetID,
+			            'Cat Staging Text Fact'[Framework Cd]=vFramework,
+			            'Cat Staging Text Fact'[Txn Period]<=vPeriod
+			        )
+			        RETURN
+			        
+			        CALCULATE(
+			            MAX('Cat Staging Text Fact'[Staging Txt]),
+			            'Cat Staging Text Fact'[Asset Id]=vAssetID,
+			            'Cat Staging Text Fact'[Framework Cd]=vFramework,
+			            'Cat Staging Text Fact'[Txn Dt]=vLatestDate
+			        )
+			    )
+			    RETURN
+			    COALESCE(vCATStagingText,vCreditimpairmentStage)
+			)
+			
+			```
+		lineageTag: 0cdc4ad8-eff4-42b2-b037-36b77c93c963
+
+	measure 'Staging Text (Sec Elim)' = ```
+			
+			IF(
+			    ISINSCOPE(Securities[Primary Security ID & Desc]),
+			    VAR vCATStagingText =
+			    MAXX(
+			        'Securities Elim Lot Fact',
+			        VAR vAssetID = 'Securities Elim Lot Fact'[SCD Security ID]
+			        VAR vFramework='Securities Elim Lot Fact'[Framework Cd]
+			        VAR vPeriod='Securities Elim Lot Fact'[As Of Period]
+			        VAR vLatestDate = 
+			        CALCULATE(
+			            MAX('Cat Staging Text Fact'[Txn Dt]),
+			            'Cat Staging Text Fact'[Asset Id]=vAssetID,
+			            'Cat Staging Text Fact'[Framework Cd]=vFramework,
+			            'Cat Staging Text Fact'[Txn Period]<=vPeriod
+			        )
+			        RETURN
+			        
+			        CALCULATE(
+			            MAX('Cat Staging Text Fact'[Staging Txt]),
+			            'Cat Staging Text Fact'[Asset Id]=vAssetID,
+			            'Cat Staging Text Fact'[Framework Cd]=vFramework,
+			            'Cat Staging Text Fact'[Txn Dt]=vLatestDate
+			        )
+			    )
+			    RETURN
+			   vCATStagingText)
+			```
+		lineageTag: 98006a52-aa0c-415b-adb7-209202030252
+
+	measure 'Balance Write Off - Local (Sec Elim)' = ```
+			
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			    SUM('Securities Elim Lot Fact'[Balance Write Off Local CCY]),
+			    CALCULATE (
+			        SUM('Securities Elim Lot Fact'[Balance Write Off Local CCY]),
+			        LASTDATE ('Securities Elim Lot Fact'[Effective Date])
+			       
+			    )
+			) 
+			```
+		lineageTag: 51bd756a-ea71-4d14-9442-11a2d8c76c88
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Balance CL Allowance - Local (Sec Elim)' = ```
+			
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			    SUM('Securities Elim Lot Fact'[Balance Cl Allowance Local CCY]),
+			    CALCULATE (
+			        SUM('Securities Elim Lot Fact'[Balance Cl Allowance Local CCY]),
+			        LASTDATE ('Securities Elim Lot Fact'[Effective Date])
+			       
+			    )
+			) 
+			```
+		lineageTag: 7682c20e-7917-4686-b013-2a061569377e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'OTTI Impairment - Local (Sec Elim)' =
+			
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			    SUM('Securities Elim Lot Fact'[Balance Impairment Local CCY]),
+			    CALCULATE (
+			SUM('Securities Elim Lot Fact'[Balance Impairment local ccy]),
+			LASTDATE ( 'Securities Elim Lot Fact'[Effective Date] )
+			)
+			)
+		lineageTag: ee0905d8-413a-433f-9604-c5d192191a56
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Balance Impairment Sec Base (Sec Elim)' =
+			
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			    SUM('Securities Elim Lot Fact'[Balance Impairment Sec Base CCY]),
+			    CALCULATE (
+			        SUM('Securities Elim Lot Fact'[Balance Impairment Sec Base CCY]),
+			        LASTDATE ( 'Securities Elim Lot Fact'[Effective Date] )
+			)
+			)
+		lineageTag: 1d64f73f-5033-4d0a-960a-a6380bc8e20e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Framework Cd'
+		dataType: string
+		lineageTag: 189d1060-5883-4562-a244-54f05cc3faf9
+		summarizeBy: none
+		sourceColumn: Framework Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Portfolio Code'
+		dataType: string
+		lineageTag: 105d98ef-a398-45e2-860e-d816bfc66237
+		summarizeBy: none
+		sourceColumn: Asset Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Security Nk'
+		dataType: string
+		lineageTag: d529ba86-5aba-47bb-b371-9bc00cbef02f
+		summarizeBy: none
+		sourceColumn: Security Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Nk'
+		dataType: string
+		lineageTag: f1ea1be5-c6e0-4552-91c9-c6e7cb8e5aaa
+		summarizeBy: none
+		sourceColumn: Portfolio Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Effective Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 51de7416-b5c7-471c-a0bf-4a23ef72daf3
+		summarizeBy: none
+		sourceColumn: Effective Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'As Of Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0a3f9a6e-09bf-4cde-8418-ee39d468d33a
+		summarizeBy: sum
+		sourceColumn: As Of Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sec Maturity Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 55cdb9fa-c716-4f9c-b8e2-06c44737ff24
+		summarizeBy: none
+		sourceColumn: Sec Maturity Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Unit Code Name'
+		dataType: string
+		lineageTag: bc593c79-be95-49c2-a4f0-9473ddeaccf9
+		summarizeBy: none
+		sourceColumn: Accounting Unit Code Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Code Name'
+		dataType: string
+		lineageTag: a21c0bf0-3e91-4236-b598-ddaa83ae0442
+		summarizeBy: none
+		sourceColumn: Company Code Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Code Nm'
+		dataType: string
+		lineageTag: b6c2ad45-b9cb-47ea-8ac8-5bb160f0e9b2
+		summarizeBy: none
+		sourceColumn: Portfolio Code Nm
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Gl Class'
+		dataType: string
+		lineageTag: 4d5a91a3-fdbd-44b2-9d4c-00e75f604ba1
+		summarizeBy: none
+		sourceColumn: Gl Class
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SRC Security Id'
+		dataType: string
+		lineageTag: 34e8ca6c-9355-40b9-9138-500f168e4588
+		summarizeBy: none
+		sourceColumn: SRC Security Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Scd Security Id'
+		dataType: string
+		lineageTag: 71f53edc-640f-4466-8196-2f1aa7c4aa2c
+		summarizeBy: none
+		sourceColumn: Scd Security Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Positions Id'
+		dataType: string
+		lineageTag: 2ab5f6ca-51d4-4e9e-bc91-3fa50806bbc4
+		summarizeBy: none
+		sourceColumn: Src Positions Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Market Id'
+		dataType: string
+		lineageTag: 9d2e8b81-3f7e-41b7-8a2b-2fcfb58654ee
+		summarizeBy: none
+		sourceColumn: Src Market Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Functional CCY CD'
+		dataType: string
+		lineageTag: f1bffc79-4a08-457f-a2e0-3bd17b475ec5
+		summarizeBy: none
+		sourceColumn: Functional CCY CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Structure Company'
+		dataType: string
+		lineageTag: 0ba75c7b-4dc6-4a52-951e-408495939930
+		summarizeBy: none
+		sourceColumn: Group Structure Company
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ext Tax Lot No Ik'
+		dataType: string
+		lineageTag: 5f43f221-94a3-4fb1-8617-a81129863aa8
+		summarizeBy: none
+		sourceColumn: Ext Tax Lot No Ik
+
+		annotation SummarizationSetBy = Automatic
+
+	column SRC
+		dataType: string
+		lineageTag: b5762e4e-158e-4a66-88cb-d1153a5149f1
+		summarizeBy: none
+		sourceColumn: SRC
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Calculation Date Full'
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn:ss AM/PM
+		lineageTag: 72d1d768-c7d4-4fca-b85e-2f5be024aa9a
+		summarizeBy: none
+		sourceColumn: Calculation Date Full
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Component No'
+		dataType: string
+		lineageTag: c032dbb1-500a-4403-823a-952052e1ec26
+		summarizeBy: none
+		sourceColumn: Component No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Calculation Ik'
+		dataType: string
+		lineageTag: 4cf7dd72-acce-4c3d-9824-7729c694a735
+		summarizeBy: none
+		sourceColumn: Portfolio Calculation Ik
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Originating System No'
+		dataType: string
+		lineageTag: 65cca037-3f47-4677-af8b-b42942e71708
+		summarizeBy: none
+		sourceColumn: Originating System No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lot Id'
+		dataType: string
+		lineageTag: ae1b55ad-c121-4c3f-86a1-e9bda76ec9e6
+		summarizeBy: none
+		sourceColumn: Lot Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Match Index'
+		dataType: string
+		lineageTag: ccec0c38-8aef-4f86-b279-dff79293f79d
+		summarizeBy: none
+		sourceColumn: Match Index
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Node Ik'
+		dataType: string
+		lineageTag: 04f4585f-3897-4d83-a2be-2f1881e85932
+		summarizeBy: none
+		sourceColumn: Node Ik
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local To Func Rate'
+		dataType: double
+		lineageTag: 6e5a1b40-35ba-4c42-a5d4-b85053eca4a5
+		summarizeBy: sum
+		sourceColumn: Local To Func Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Local To Cad Rate'
+		dataType: double
+		lineageTag: 9ec6656d-bdf8-48d6-92c7-9da743fa333b
+		summarizeBy: sum
+		sourceColumn: Local To Cad Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Local To Usd Rate'
+		dataType: double
+		lineageTag: 8c5e00c5-7c19-458f-a23c-3556e76a08f5
+		summarizeBy: sum
+		sourceColumn: Local To Usd Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Local To Hkd Rate'
+		dataType: double
+		lineageTag: 8ac6ab19-686a-481b-83fe-ffd70ff3ccf2
+		summarizeBy: sum
+		sourceColumn: Local To Hkd Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Bal Interest Appreciation Base CCY'
+		dataType: double
+		lineageTag: 51400f3f-03be-499a-84f6-4a392c253aee
+		summarizeBy: sum
+		sourceColumn: Bal Interest Appreciation Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Bal Interest Appreciation Local CCY'
+		dataType: double
+		lineageTag: c5418cc3-d9eb-4fe0-86bd-b31fcea4855c
+		summarizeBy: sum
+		sourceColumn: Bal Interest Appreciation Local CCY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'AOCI Remain Balance Bv Base CCY'
+		dataType: double
+		lineageTag: b5f25182-3763-4724-99e7-df0b12f0e7b7
+		summarizeBy: sum
+		sourceColumn: AOCI Remain Balance Bv Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'AOCI Remain Balance Non Bv Base CCY'
+		dataType: double
+		lineageTag: 76f912b5-c81d-43aa-bd90-bbeedf52884b
+		summarizeBy: sum
+		sourceColumn: AOCI Remain Balance Non Bv Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Balance Recog Cl Allowance Base CCY'
+		dataType: double
+		lineageTag: 160fd87c-b5b2-4c85-9479-d11542aab16c
+		summarizeBy: sum
+		sourceColumn: Balance Recog Cl Allowance Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Balance Write Off Base CCY'
+		dataType: double
+		lineageTag: a3df0dfc-14ec-4d0c-a201-481a804e381f
+		summarizeBy: sum
+		sourceColumn: Balance Write Off Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Balance Impairement Base CCY'
+		dataType: double
+		lineageTag: ec80b31a-b12e-40a4-aea9-23974ad91407
+		summarizeBy: sum
+		sourceColumn: Balance Impairement Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Balance Cl Allowance Base CCY'
+		dataType: double
+		lineageTag: 3543c52b-75e5-45e4-987f-7e73bfd47917
+		summarizeBy: sum
+		sourceColumn: Balance Cl Allowance Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Unreal Pl Book Sec Base CCY'
+		dataType: double
+		lineageTag: 354a175e-7c0b-45a8-a705-3980a3e68cbc
+		summarizeBy: sum
+		sourceColumn: Unreal Pl Book Sec Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Unreal Pl Book CCY Base CCY'
+		dataType: double
+		lineageTag: 68194fe3-944d-43c7-8782-021b66ca2b75
+		summarizeBy: sum
+		sourceColumn: Unreal Pl Book CCY Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Balance Book Value Base CCY'
+		dataType: double
+		lineageTag: 311af83d-7e5d-4665-b979-8cdb5a2d847b
+		summarizeBy: sum
+		sourceColumn: Balance Book Value Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'AOCI Remain Balance BV Local CCY'
+		dataType: double
+		lineageTag: ae29f758-bdb6-45af-847a-ef6b2be59468
+		summarizeBy: sum
+		sourceColumn: AOCI Remain Balance BV Local CCY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'AOCI Remain Balance Non BV Local CCY'
+		dataType: double
+		lineageTag: be5ec2fb-cd13-4688-bdf6-cfb4f03c6695
+		summarizeBy: sum
+		sourceColumn: AOCI Remain Balance Non BV Local CCY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Balance Recog Cl Allowance Local CCY'
+		dataType: double
+		lineageTag: 40a7ed23-46fc-499f-8a93-dba7c2c01a71
+		summarizeBy: sum
+		sourceColumn: Balance Recog Cl Allowance Local CCY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Balance Write Off Local CCY'
+		dataType: double
+		lineageTag: d807f5a5-01b2-40fd-b046-ea16ea0724e7
+		summarizeBy: sum
+		sourceColumn: Balance Write Off Local CCY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Balance Cl Allowance Local CCY'
+		dataType: double
+		lineageTag: 9f45ccf9-a2cc-415b-a59e-3bde5c6f3a08
+		summarizeBy: sum
+		sourceColumn: Balance Cl Allowance Local CCY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Balance Book Value Local CCY'
+		dataType: double
+		lineageTag: a7f8932a-3d87-4e19-aa08-bb5f39a73e7c
+		summarizeBy: sum
+		sourceColumn: Balance Book Value Local CCY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Balance Deferred Pl Base CCY'
+		dataType: double
+		lineageTag: 2c480bf4-dc74-4c94-83cc-c3692aea7fe9
+		summarizeBy: sum
+		sourceColumn: Balance Deferred Pl Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Balance Deferred Pl Local CCY'
+		dataType: double
+		lineageTag: 31636b4d-6dc5-4289-a922-2d7a94b6434b
+		summarizeBy: sum
+		sourceColumn: Balance Deferred Pl Local CCY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Balance Impairment CCY Base CCY'
+		dataType: double
+		lineageTag: 72d340b8-7d0e-4e72-bb66-5d087afea60b
+		summarizeBy: sum
+		sourceColumn: Balance Impairment CCY Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Balance Impairment Local CCY'
+		dataType: double
+		lineageTag: 169edde2-51f2-459c-9699-82db4d431746
+		summarizeBy: sum
+		sourceColumn: Balance Impairment Local CCY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Balance Impairment Sec Base CCY'
+		dataType: double
+		lineageTag: ab46d5a2-c221-4e58-9007-86a8df304c55
+		summarizeBy: sum
+		sourceColumn: Balance Impairment Sec Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Business Transaction No'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5e7598ae-fe05-42d2-8761-a060905bba3b
+		summarizeBy: sum
+		sourceColumn: Business Transaction No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Ik'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9d6895f1-d1d8-4f58-b4ff-0ab936fe9cb1
+		summarizeBy: sum
+		sourceColumn: Transaction Ik
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unreal Pl Book Value Local CCY'
+		dataType: double
+		lineageTag: 604dc3bd-c8d3-4b57-88ee-c4f1143ec14d
+		summarizeBy: sum
+		sourceColumn: Unreal Pl Book Value Local CCY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Unreal Pl Book Value Base CCY'
+		dataType: double
+		lineageTag: 54e51cec-e1af-4fad-b59c-8f320fe80e44
+		summarizeBy: sum
+		sourceColumn: Unreal Pl Book Value Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Credit Impairment Stage'
+		dataType: string
+		lineageTag: a9a5e75a-df9e-4e1e-87b8-7b0722899e27
+		summarizeBy: none
+		sourceColumn: Credit Impairment Stage
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local Currency Code'
+		dataType: string
+		lineageTag: c28b2fa0-2274-44af-842d-6006e869acbb
+		summarizeBy: none
+		sourceColumn: Local Currency Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FX Join Key'
+		dataType: string
+		lineageTag: 561066a4-e20f-433d-a5d9-4f55b77750af
+		summarizeBy: none
+		sourceColumn: FX Join Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Effective Matching Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 2ee3eb3b-3eb4-44fa-854a-2105e84a5a79
+		summarizeBy: none
+		sourceColumn: Effective Matching Date
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Original ML Rating'
+		dataType: string
+		lineageTag: c0e8fb30-443c-4390-87db-d872ec54e5b1
+		summarizeBy: none
+		sourceColumn: Original ML Rating
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Securities Elim Lot Fact-d8fbca35-e7d3-419a-8a60-03d66221ef5e' = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0), EnableQueryResultDownload="0"]),
+				    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+				    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+				    EDL_securities_elim_lots_fact_dq = inv_semantic_ga_Schema{[Name="securities_elim_lots_fact_dq",Kind="Table"]}[Data],
+				    #"Removed Other Columns" = Table.SelectColumns(EDL_securities_elim_lots_fact_dq,{"FRAMEWORK_CD", "ASSET_PORTFOLIO_CODE", "SECURITY_NK", "PORTFOLIO_NK", "EFFECTIVE_DATE", "AS_OF_PERIOD", "SEC_MATURITY_DATE", "ACCOUNTING_UNIT_CODE_NAME", "COMPANY_CODE_NAME", "PORTFOLIO_CODE_NM", "GL_CLASS", "SRC_SECURITY_ID", "SCD_SECURITY_ID", "SRC_POSITIONS_ID", "SRC_MARKET_ID", "FUNCTIONAL_CCY_CD", "GROUP_STRUCTURE_COMPANY", "EXT_TAX_LOT_NO_IK", "SRC", "CALCULATION_DATE_FULL", "component_no", "portfolio_calculation_ik", "originating_system_no", "LOT_ID", "match_index", "node_ik", "LOCAL_TO_FUNC_RATE", "LOCAL_TO_CAD_RATE", "LOCAL_TO_USD_RATE", "LOCAL_TO_HKD_RATE", "BAL_INTEREST_APPRECIATION_BASE_CCY", "BAL_INTEREST_APPRECIATION_LOCAL_CCY", "AOCI_REMAIN_BALANCE_BV_BASE_CCY", "AOCI_REMAIN_BALANCE_NON_BV_BASE_CCY", "BALANCE_RECOG_CL_ALLOWANCE_BASE_CCY", "BALANCE_WRITE_OFF_BASE_CCY", "BALANCE_IMPAIRMENT_BASE_CCY", "BALANCE_CL_ALLOWANCE_BASE_CCY", "UNREAL_PL_BOOK_SEC_BASE_CCY", "UNREAL_PL_BOOK_CCY_BASE_CCY", "BALANCE_BOOK_VALUE_BASE_CCY", "AOCI_REMAIN_BALANCE_BV_LOCAL_CCY", "AOCI_REMAIN_BALANCE_NON_BV_LOCAL_CCY", "BALANCE_RECOG_CL_ALLOWANCE_LOCAL_CCY", "BALANCE_WRITE_OFF_LOCAL_CCY", "BALANCE_CL_ALLOWANCE_LOCAL_CCY", "BALANCE_BOOK_VALUE_LOCAL_CCY", "BALANCE_DEFERRED_PL_BASE_CCY", "BALANCE_DEFERRED_PL_LOCAL_CCY", "BALANCE_IMPAIRMENT_CCY_BASE_CCY", "BALANCE_IMPAIRMENT_LOCAL_CCY", "BALANCE_IMPAIRMENT_SEC_BASE_CCY", "UNREAL_PL_BOOK_VALUE_BASE_CCY", "UNREAL_PL_BOOK_VALUE_LOCAL_CCY", "BUSINESS_TRANSACTION_NO", "TRANSACTIONS_IK", "CREDIT_IMPAIRMENT_STAGE", "LOCAL_CURRENCY_CODE", "FX_JOIN_KEY", "EFFECTIVE_MATCHING_DATE", "ORIGINAL_ML_RATING"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Other Columns",{{"FRAMEWORK_CD", "Framework Cd"}, {"ASSET_PORTFOLIO_CODE", "Asset Portfolio Code"}, {"SECURITY_NK", "Security Nk"}, {"PORTFOLIO_NK", "Portfolio Nk"}, {"EFFECTIVE_DATE", "Effective Date"}, {"AS_OF_PERIOD", "As Of Period"}, {"SEC_MATURITY_DATE", "Sec Maturity Date"}, {"ACCOUNTING_UNIT_CODE_NAME", "Accounting Unit Code Name"}, {"COMPANY_CODE_NAME", "Company Code Name"}, {"PORTFOLIO_CODE_NM", "Portfolio Code Nm"}, {"GL_CLASS", "Gl Class"}, {"SRC_SECURITY_ID", "SRC Security Id"}, {"SCD_SECURITY_ID", "Scd Security Id"}, {"SRC_POSITIONS_ID", "Src Positions Id"}, {"SRC_MARKET_ID", "Src Market Id"}, {"FUNCTIONAL_CCY_CD", "Functional CCY CD"}, {"GROUP_STRUCTURE_COMPANY", "Group Structure Company"}, {"EXT_TAX_LOT_NO_IK", "Ext Tax Lot No Ik"}, {"CALCULATION_DATE_FULL", "Calculation Date Full"}, {"component_no", "Component No"}, {"portfolio_calculation_ik", "Portfolio Calculation Ik"}, {"originating_system_no", "Originating System No"}, {"LOT_ID", "Lot Id"}, {"match_index", "Match Index"}, {"node_ik", "Node Ik"}, {"LOCAL_TO_FUNC_RATE", "Local To Func Rate"}, {"LOCAL_TO_CAD_RATE", "Local To Cad Rate"}, {"LOCAL_TO_USD_RATE", "Local To Usd Rate"}, {"LOCAL_TO_HKD_RATE", "Local To Hkd Rate"}, {"BAL_INTEREST_APPRECIATION_BASE_CCY", "Bal Interest Appreciation Base CCY"}, {"BAL_INTEREST_APPRECIATION_LOCAL_CCY", "Bal Interest Appreciation Local CCY"}, {"AOCI_REMAIN_BALANCE_BV_BASE_CCY", "AOCI Remain Balance Bv Base CCY"}, {"AOCI_REMAIN_BALANCE_NON_BV_BASE_CCY", "AOCI Remain Balance Non Bv Base CCY"}, {"BALANCE_RECOG_CL_ALLOWANCE_BASE_CCY", "Balance Recog Cl Allowance Base CCY"}, {"BALANCE_WRITE_OFF_BASE_CCY", "Balance Write Off Base CCY"}, {"BALANCE_IMPAIRMENT_BASE_CCY", "Balance Impairement Base CCY"}, {"BALANCE_CL_ALLOWANCE_BASE_CCY", "Balance Cl Allowance Base CCY"}, {"UNREAL_PL_BOOK_SEC_BASE_CCY", "Unreal Pl Book Sec Base CCY"}, {"UNREAL_PL_BOOK_CCY_BASE_CCY", "Unreal Pl Book CCY Base CCY"}, {"BALANCE_BOOK_VALUE_BASE_CCY", "Balance Book Value Base CCY"}, {"AOCI_REMAIN_BALANCE_BV_LOCAL_CCY", "AOCI Remain Balance BV Local CCY"}, {"AOCI_REMAIN_BALANCE_NON_BV_LOCAL_CCY", "AOCI Remain Balance Non BV Local CCY"}, {"BALANCE_RECOG_CL_ALLOWANCE_LOCAL_CCY", "Balance Recog Cl Allowance Local CCY"}, {"BALANCE_WRITE_OFF_LOCAL_CCY", "Balance Write Off Local CCY"}, {"BALANCE_CL_ALLOWANCE_LOCAL_CCY", "Balance Cl Allowance Local CCY"}, {"BALANCE_BOOK_VALUE_LOCAL_CCY", "Balance Book Value Local CCY"}, {"BALANCE_DEFERRED_PL_BASE_CCY", "Balance Deferred Pl Base CCY"}, {"BALANCE_DEFERRED_PL_LOCAL_CCY", "Balance Deferred Pl Local CCY"}, {"BALANCE_IMPAIRMENT_CCY_BASE_CCY", "Balance Impairment CCY Base CCY"}, {"BALANCE_IMPAIRMENT_LOCAL_CCY", "Balance Impairment Local CCY"}, {"BALANCE_IMPAIRMENT_SEC_BASE_CCY", "Balance Impairment Sec Base CCY"}, {"BUSINESS_TRANSACTION_NO", "Business Transaction No"}, {"TRANSACTIONS_IK", "Transaction Ik"}, {"UNREAL_PL_BOOK_VALUE_LOCAL_CCY", "Unreal Pl Book Value Local CCY"}, {"UNREAL_PL_BOOK_VALUE_BASE_CCY", "Unreal Pl Book Value Base CCY"}, {"CREDIT_IMPAIRMENT_STAGE", "Credit Impairment Stage"}, {"FX_JOIN_KEY", "FX Join Key"}, {"LOCAL_CURRENCY_CODE", "Local Currency Code"}, {"EFFECTIVE_MATCHING_DATE", "Effective Matching Date"}, {"ORIGINAL_ML_RATING", "Original ML Rating"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

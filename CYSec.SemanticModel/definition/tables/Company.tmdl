@@ -1,0 +1,258 @@
+table Company
+	lineageTag: ece73412-8b0a-489f-9eca-a8ef396b321e
+
+	/// Count of Companies as a metric
+	measure #Company = ```
+			
+			DISTINCTCOUNT ( Company[Company] )
+			
+			```
+		formatString: #,0
+		lineageTag: 0864d847-dba9-45f9-9641-65d987688433
+
+	measure 'Framework Exists' =
+			
+			SWITCH (
+			    SELECTEDVALUE ( Framework[Framework] ),
+			    "IAS39", COUNT ( 'Company'[IAS39 Ind] ),
+			    "NAIC", COUNT ( 'Company'[NAIC Ind] ),
+			    "JGAAP", COUNT ( 'Company'[JGAAP Ind] ),
+			    "USGAAP", COUNT ( 'Company'[USGAAP Ind] ),
+			    "IFRS9", COUNT ( 'Company'[IFRS Ind] ),
+			    "USTAX", COUNT ( 'Company'[USTAX Ind] )
+			)
+			-- To check if the selected framework from Menu page exists for corresponding portfolio
+		formatString: 0
+		lineageTag: a4e27ed8-4b29-46e8-a89e-63947de95221
+
+	column Company
+		dataType: string
+		isKey
+		lineageTag: 55446d15-a1a2-459c-be22-ebbad122c194
+		summarizeBy: none
+		sourceColumn: Company
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Name'
+		dataType: string
+		lineageTag: 1973d87b-21f5-4618-b8c3-d6dfebeaf4cc
+		summarizeBy: none
+		sourceColumn: Company Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Last Year Closed'
+		dataType: int64
+		formatString: 0
+		lineageTag: bf07ba57-c6bc-4dc7-925f-4a1cec087fc9
+		summarizeBy: none
+		sourceColumn: Last Year Closed
+
+		annotation SummarizationSetBy = User
+
+	column 'Functional Currency Code'
+		dataType: string
+		lineageTag: 70e70bc0-5a29-40ad-9508-6660164c4ff7
+		summarizeBy: none
+		sourceColumn: Functional Currency Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alternate Currency Code'
+		dataType: string
+		lineageTag: bdca0379-04e3-409e-88b7-f46244e3771a
+		summarizeBy: none
+		sourceColumn: Alternate Currency Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column '2nd Alt Currency Code'
+		dataType: string
+		lineageTag: 59246200-4bcd-4c14-a785-4e97e9e98e90
+		summarizeBy: none
+		sourceColumn: 2nd Alt Currency Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: 797da4f6-7b2e-4fe2-a0f9-2bd62ba23cd4
+		summarizeBy: none
+		sourceColumn: Fiscal Year
+
+		annotation SummarizationSetBy = User
+
+	column Period
+		dataType: int64
+		formatString: 0
+		lineageTag: c790b254-df8f-4353-ab85-af5daf789a49
+		summarizeBy: none
+		sourceColumn: Period
+
+		annotation SummarizationSetBy = User
+
+	column 'Fund Active Ind'
+		dataType: string
+		lineageTag: b92b90b5-e7b2-4da4-8f8e-900aeeea563a
+		summarizeBy: none
+		sourceColumn: Fund Active Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Infor Basis List'
+		dataType: string
+		lineageTag: 1d7efbbd-dccf-4adb-b293-23dd183b2d43
+		summarizeBy: none
+		sourceColumn: Infor Basis List
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IFRS Ind'
+		dataType: int64
+		formatString: #,0
+		lineageTag: 7725371e-5a5d-4726-b92d-619e81a7cc29
+		summarizeBy: none
+		sourceColumn: IFRS Ind
+
+		annotation SummarizationSetBy = User
+
+	column 'NAIC Ind'
+		dataType: int64
+		formatString: #,0
+		lineageTag: 5efcd14b-a225-4d3c-8371-570f5c49e731
+		summarizeBy: none
+		sourceColumn: NAIC Ind
+
+		annotation SummarizationSetBy = User
+
+	column 'USGAAP Ind'
+		dataType: int64
+		formatString: #,0
+		lineageTag: 30ba25e9-68da-42c0-a76e-c62f975e001b
+		summarizeBy: none
+		sourceColumn: USGAAP Ind
+
+		annotation SummarizationSetBy = User
+
+	column 'USTAX Ind'
+		dataType: int64
+		formatString: #,0
+		lineageTag: a6d8c6a2-c1c1-412b-bae3-0dfd48222736
+		summarizeBy: none
+		sourceColumn: USTAX Ind
+
+		annotation SummarizationSetBy = User
+
+	column 'JGAAP Ind'
+		dataType: int64
+		formatString: #,0
+		lineageTag: f4080a07-9e55-44ee-8182-b5af01b8d94a
+		summarizeBy: none
+		sourceColumn: JGAAP Ind
+
+		annotation SummarizationSetBy = User
+
+	column 'IAS39 Ind'
+		dataType: int64
+		formatString: #,0
+		lineageTag: 533b63ab-1998-46f3-bbad-93ab44c1afe0
+		summarizeBy: none
+		sourceColumn: IAS39 Ind
+
+		annotation SummarizationSetBy = User
+
+	column 'NAIC Basis Name'
+		dataType: string
+		lineageTag: af6cd841-3fbe-4a8c-8db9-ec2e774ac41c
+		summarizeBy: none
+		sourceColumn: NAIC Basis Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'USTAX Basis'
+		dataType: string
+		lineageTag: 409fbaae-338d-4476-8f11-cac7e8ba2208
+		summarizeBy: none
+		sourceColumn: USTAX Basis
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Code & Name'
+		dataType: string
+		lineageTag: 006ce80c-8f47-4060-959f-fa472e95d781
+		summarizeBy: none
+		sourceColumn: Company Code & Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Creation Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 8865d230-a911-421e-a0dc-fd791ea59e7b
+		summarizeBy: none
+		sourceColumn: Creation Date
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Update Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: d766638d-101a-480c-bf84-59fc6a918218
+		summarizeBy: none
+		sourceColumn: Update Date
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Target Framework List'
+		dataType: string
+		lineageTag: f012bb04-1e47-4899-aee1-3bbde4417e34
+		summarizeBy: none
+		sourceColumn: Target Framework List
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Code & Name Display' =
+			
+			IF (
+			    Company[Company Code & Name]
+			        IN { "Not Applicable - Not Applicable", "Not Available - Not Available" },
+			    "9999 - Off Balance Sheet Company",
+			    Company[Company Code & Name]
+			)
+		lineageTag: e70641ba-9606-4249-888f-c396462fec84
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Company-fb7cf50a-3d78-434b-b8be-a4de83bf69b0 = m
+		mode: import
+		queryGroup: 'Infor GL'
+		source =
+				let
+				    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0), EnableQueryResultDownload="0"]),
+				    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+				    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+				    EDL_company_dim = inv_semantic_ga_Schema{[Name="company_dim",Kind="Table"]}[Data],
+				    #"Removed Other Columns" = Table.SelectColumns(EDL_company_dim,{"COMPANY_NUM_CD", "COMPANY_NM", "COMPANY_CODE_NAME", "LAST_YEAR_CLOSED", "FUNCTIONAL_CCY_CD", "ALT_CCY_CD", "2ND_ALT_CCY_CD", "FISCAL_YEAR", "CURR_PERIOD", "CREATION_DT", "UPDATE_DT", "FUND_ACTIVE_IND", "INFOR_BASIS_LIST", "TARGET_FW_CD_LIST", "IFRS_IND", "NAIC_IND", "USGAAP_IND", "USTAX_IND", "JGAAP_IND", "IAS39_IND", "NAIC_BASIS_NM", "USTAX_BASIS_NM"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Other Columns",{{"COMPANY_NUM_CD", "Company"}, {"COMPANY_NM", "Company Name"}, {"LAST_YEAR_CLOSED", "Last Year Closed"}, {"FUNCTIONAL_CCY_CD", "Functional Currency Code"}, {"ALT_CCY_CD", "Alternate Currency Code"}, {"2ND_ALT_CCY_CD", "2nd Alt Currency Code"}, {"FISCAL_YEAR", "Fiscal Year"}, {"CURR_PERIOD", "Period"}, {"FUND_ACTIVE_IND", "Fund Active Ind"}, {"INFOR_BASIS_LIST", "Infor Basis List"}, {"IFRS_IND", "IFRS Ind"}, {"NAIC_IND", "NAIC Ind"}, {"USGAAP_IND", "USGAAP Ind"}, {"USTAX_IND", "USTAX Ind"}, {"JGAAP_IND", "JGAAP Ind"}, {"IAS39_IND", "IAS39 Ind"}, {"NAIC_BASIS_NM", "NAIC Basis Name"}, {"USTAX_BASIS_NM", "USTAX Basis"}, {"COMPANY_CODE_NAME", "Company Code & Name"}, {"CREATION_DT", "Creation Date"}, {"UPDATE_DT", "Update Date"}, {"TARGET_FW_CD_LIST", "Target Framework List"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

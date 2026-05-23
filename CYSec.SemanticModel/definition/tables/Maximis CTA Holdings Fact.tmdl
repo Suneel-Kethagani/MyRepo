@@ -1,0 +1,162 @@
+table 'Maximis CTA Holdings Fact'
+	lineageTag: 027568e6-322c-4898-a8a3-1e9123113a10
+
+	column 'Maximis Lot ID'
+		dataType: string
+		lineageTag: 674110c2-f16d-4dff-b217-8dc16768e6ef
+		summarizeBy: none
+		sourceColumn: Maximis Lot ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lot ID'
+		dataType: string
+		lineageTag: 75e93602-959b-4d07-9874-93fdd23f80a9
+		summarizeBy: none
+		sourceColumn: Lot ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Original Trade Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 4c5f9ebd-8ed5-489f-a614-4c9eff67104c
+		summarizeBy: none
+		sourceColumn: Original Trade Date
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'Original Post Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: be20fa45-8863-46df-8499-51f2c293edf9
+		summarizeBy: none
+		sourceColumn: Original Post Date
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'Original Acquired Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: aa96a423-8a57-4815-8bd2-302aa87fb7cb
+		summarizeBy: none
+		sourceColumn: Original Acquired Date
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'Original Transaction Code'
+		dataType: string
+		lineageTag: 4cc69b8d-1d53-41ed-9906-1f67b47ef452
+		summarizeBy: none
+		sourceColumn: Original Transaction Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Original Transaction Type'
+		dataType: string
+		lineageTag: c9b0007d-8e2b-4b00-9662-b14bc4772272
+		summarizeBy: none
+		sourceColumn: Original Transaction Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Original BS Rate'
+		dataType: double
+		formatString: 0.000000000
+		lineageTag: af7105fe-5a7c-46d2-9eca-47d8bc433ae2
+		summarizeBy: sum
+		sourceColumn: Original BS Rate
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Acq BS Rate Mon Vs NonMon'
+		dataType: double
+		formatString: 0.000000000
+		lineageTag: f16d4b25-2160-4f0b-ab59-ece5a4b8d950
+		summarizeBy: sum
+		sourceColumn: Acq BS Rate Mon Vs NonMon
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Original FX Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 24652520-6364-4c25-813c-adb6b998240b
+		summarizeBy: none
+		sourceColumn: Original FX Date
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'Original Accounting Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: ed5583bb-ef5d-4209-a4eb-8a6c3c0cff65
+		summarizeBy: none
+		sourceColumn: Original Accounting Date
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'Created Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn:ss AM/PM
+		lineageTag: 8e7ab3b2-2ad7-473b-894f-e83b16d0f31f
+		summarizeBy: none
+		sourceColumn: Created Date
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	partition 'Maximis CTA Holdings Fact-bf86ac2c-5293-44b5-99a4-9ed2ac4eff15' = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0), EnableQueryResultDownload="0"]),
+				    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+				    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+				    EDL_maximis_cta_holdings_fact_dq = inv_semantic_ga_Schema{[Name="maximis_cta_holdings_fact_dq",Kind="Table"]}[Data],
+				    #"Removed Other Columns" = Table.SelectColumns(EDL_maximis_cta_holdings_fact_dq,{"ACQ_TRD_TICKET", "LOT_ID", "ACQUIRE_TRD_DTE", "ACQ_TRD_POST_DTE", "ORIG_ACQ_DTE", "ACQ_TRD_TXN_CODE", "ACQ_TRD_TYPE", "ACQ_B_S_FX_RATE", "ACQ_B_S_FX_RATE_QTD_M_LTD_NonM", "ACQ_FX_DATE", "ACQ_ACCTG_DTE", "CreatedDate"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Other Columns",{{"ACQ_TRD_TICKET", "Maximis Lot ID"}, {"LOT_ID", "Lot ID"}, {"ACQUIRE_TRD_DTE", "Original Trade Date"}, {"ACQ_TRD_POST_DTE", "Original Post Date"}, {"ORIG_ACQ_DTE", "Original Acquired Date"}, {"ACQ_TRD_TXN_CODE", "Original Transaction Code"}, {"ACQ_TRD_TYPE", "Original Transaction Type"}, {"ACQ_B_S_FX_RATE", "Original BS Rate"}, {"ACQ_FX_DATE", "Original FX Date"}, {"ACQ_ACCTG_DTE", "Original Accounting Date"}, {"CreatedDate", "Created Date"}, {"ACQ_B_S_FX_RATE_QTD_M_LTD_NonM", "Acq BS Rate Mon Vs NonMon"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

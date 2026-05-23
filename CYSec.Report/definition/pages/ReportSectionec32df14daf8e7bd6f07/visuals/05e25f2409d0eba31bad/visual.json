@@ -1,0 +1,559 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "05e25f2409d0eba31bad",
+  "position": {
+    "x": 0,
+    "y": 342.72409778812573,
+    "z": 0,
+    "height": 78.9755529685681,
+    "width": 430.64027939464489,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "cube_accounting_unit"
+                    }
+                  },
+                  "Property": "Summary Legal Entity Name"
+                }
+              },
+              "queryRef": "cube_accounting_unit.Summary Legal Entity Name",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "cube_accounting_unit"
+                    }
+                  },
+                  "Property": "Summary Legal 1 Entity Name"
+                }
+              },
+              "queryRef": "cube_accounting_unit.Summary Legal 1 Entity Name",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "cube_accounting_unit"
+                    }
+                  },
+                  "Property": "Summary Legal 2 Entity Name"
+                }
+              },
+              "queryRef": "cube_accounting_unit.Summary Legal 2 Entity Name",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "cube_accounting_unit"
+                    }
+                  },
+                  "Property": "Summary Legal 3 Entity Name"
+                }
+              },
+              "queryRef": "cube_accounting_unit.Summary Legal 3 Entity Name",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "cube_accounting_unit"
+                    }
+                  },
+                  "Property": "Summary Legal 4 Entity Name"
+                }
+              },
+              "queryRef": "cube_accounting_unit.Summary Legal 4 Entity Name",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "cube_accounting_unit"
+                    }
+                  },
+                  "Property": "Summary Legal 5 Entity Name"
+                }
+              },
+              "queryRef": "cube_accounting_unit.Summary Legal 5 Entity Name",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "cube_accounting_unit"
+                    }
+                  },
+                  "Property": "Summary Legal 6 Entity Name"
+                }
+              },
+              "queryRef": "cube_accounting_unit.Summary Legal 6 Entity Name",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "cube_accounting_unit"
+                    }
+                  },
+                  "Property": "Summary Legal 7 Entity Name"
+                }
+              },
+              "queryRef": "cube_accounting_unit.Summary Legal 7 Entity Name",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "cube_accounting_unit"
+                    }
+                  },
+                  "Property": "Summary Legal 8 Entity Name"
+                }
+              },
+              "queryRef": "cube_accounting_unit.Summary Legal 8 Entity Name",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "cube_accounting_unit"
+                    }
+                  },
+                  "Property": "Summary Legal 9 Entity Name"
+                }
+              },
+              "queryRef": "cube_accounting_unit.Summary Legal 9 Entity Name",
+              "active": false
+            }
+          ]
+        }
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Values"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "cube_accounting_unit.Summary Legal Entity Name"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "cube_accounting_unit"
+                    }
+                  },
+                  "Property": "Summary Legal Entity Name"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "cube_accounting_unit.Summary Legal 1 Entity Name"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "cube_accounting_unit"
+                    }
+                  },
+                  "Property": "Summary Legal 1 Entity Name"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "cube_accounting_unit.Summary Legal 2 Entity Name"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "cube_accounting_unit"
+                    }
+                  },
+                  "Property": "Summary Legal 2 Entity Name"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "cube_accounting_unit.Summary Legal 3 Entity Name"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "cube_accounting_unit"
+                    }
+                  },
+                  "Property": "Summary Legal 3 Entity Name"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "cube_accounting_unit.Summary Legal 4 Entity Name"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "cube_accounting_unit"
+                    }
+                  },
+                  "Property": "Summary Legal 4 Entity Name"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "cube_accounting_unit.Summary Legal 5 Entity Name"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "cube_accounting_unit.Summary Legal 6 Entity Name"
+            ],
+            "isCollapsed": true
+          },
+          {
+            "queryRefs": [
+              "cube_accounting_unit.Summary Legal 7 Entity Name"
+            ],
+            "isCollapsed": true
+          },
+          {
+            "queryRefs": [
+              "cube_accounting_unit.Summary Legal 8 Entity Name"
+            ],
+            "isCollapsed": true
+          },
+          {
+            "queryRefs": [
+              "cube_accounting_unit.Summary Legal 9 Entity Name"
+            ],
+            "isCollapsed": true
+          }
+        ],
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "''"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "''"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                }
+              ]
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'MFC CONSOL'"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'0147MHBL CONSOL'"
+                      }
+                    }
+                  ],
+                  "isToggled": true,
+                  "children": [
+                    {
+                      "identityValues": [
+                        {
+                          "Literal": {
+                            "Value": "'0331MFAL CONSOL'"
+                          }
+                        }
+                      ],
+                      "isToggled": true,
+                      "children": [
+                        {
+                          "identityValues": [
+                            {
+                              "Literal": {
+                                "Value": "'0014MLISING CONSOL'"
+                              }
+                            }
+                          ],
+                          "isToggled": true,
+                          "children": [
+                            {
+                              "identityValues": [
+                                {
+                                  "Literal": {
+                                    "Value": "'NA'"
+                                  }
+                                }
+                              ],
+                              "isToggled": true
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "selection": [
+        {
+          "properties": {
+            "singleSelect": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "strictSingleSelect": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "items": [
+        {
+          "properties": {
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Legal ID'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "Filter32bd58f82009971ad1c8",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "cube_company_accounting_unit"
+              }
+            },
+            "Property": "CC_Company Disp"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "c",
+              "Entity": "cube_company_accounting_unit",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "c"
+                              }
+                            },
+                            "Property": "CC_Company Disp"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "null"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "' - Not Applicable'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "' - Not Available'"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "isHidden": true
+}

@@ -1,0 +1,19 @@
+table 'Target Loss'
+	isHidden
+	lineageTag: bea810ab-3e79-4d1e-b7e9-e3ae3c96377b
+
+	column 'Loss Percent'
+		isHidden
+		formatString: 0
+		lineageTag: f35adcba-7728-45e4-bac0-38bb76b042f6
+		summarizeBy: sum
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Target Loss-d42129ba-8c75-45c1-95fc-151e8dbfaf41' = calculated
+		mode: import
+		source = GENERATESERIES(1,100)
+
+	annotation PBI_Id = b2bbfc021d754ffbaca2e7ee03de65ba
+

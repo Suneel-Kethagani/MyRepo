@@ -1,0 +1,568 @@
+table 'Securities Tax Lot Deferred Pl Fact'
+	lineageTag: f18078bf-69e4-4e17-9c68-fbc349d6f5b1
+
+	measure 'Security Tax Lots Deferred PL Title' =
+			
+			VAR maxdate =
+			    MAX ( 'Securities Tax Lot Deferred PL Fact'[As Of Date] )
+			RETURN
+			    "Security Tax Lots Deferred PL" & ", "
+			        & SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] ) & ", "
+			        & SELECTEDVALUE ( Framework[Framework Display] ) & ", "
+			        & FORMAT ( maxdate, "dd-mmm-yy" )
+		lineageTag: 0003fd9a-8531-48be-a11d-b2e34b25a59e
+
+	measure 'Balance Deferred PL - Local CCY' =
+			
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			    SUM('Securities Tax Lot Deferred Pl Fact'[Balance Deferred Pl Local]),
+			    CALCULATE(
+			        SUM('Securities Tax Lot Deferred Pl Fact'[Balance Deferred Pl Local]),
+			        LASTDATE('Securities Tax Lot Deferred Pl Fact'[As Of Date])
+			    )
+			)
+		lineageTag: cb7bc359-7fa2-4bb2-85d3-f34388717888
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Balance Deferred PL - Rep CCY' =
+			
+			SWITCH(
+			SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+			"SCD Base",
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			    SUM('Securities Tax Lot Deferred Pl Fact'[Balance Deferred Pl Base]),
+			    CALCULATE (
+			        SUM('Securities Tax Lot Deferred Pl Fact'[Balance Deferred Pl Base]),
+			        LASTDATE ('Securities Tax Lot Deferred Pl Fact'[As Of Date] )
+			    )
+			),
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			    SUMX (
+			        'Securities Tax Lot Deferred Pl Fact',
+			        'Securities Tax Lot Deferred Pl Fact'[Balance Deferred Pl Local] * 'Fx Rate DQ'[Rep Rate]
+			    ),
+			    CALCULATE (
+			      SUMX (
+			        'Securities Tax Lot Deferred Pl Fact',
+			        'Securities Tax Lot Deferred Pl Fact'[Balance Deferred Pl Local] * 'Fx Rate DQ'[Rep Rate]
+			        ),
+			        LASTDATE (  'Securities Tax Lot Deferred Pl Fact'[As Of Date] )
+			)))
+		lineageTag: 0030f19a-2753-4e65-8599-cc5a94505708
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'P Or L Book Ccy Local' = ```
+			
+			CALCULATE( 
+			SUM('Securities Transaction GA Fact'[P Or L Book CCY Local]), 
+			    TREATAS(
+			            VALUES('Securities Tax Lot Deferred Pl Fact'[Lot Id]), 
+			                   'Securities Transaction GA Fact'[Lot Id] ) 
+			)
+			```
+		lineageTag: d98f5aab-f803-4fdd-9822-7720780d580c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'P Or L Book Sec Base Ccy' = ```
+			
+			CALCULATE( 
+			        SUM('Securities Transaction GA Fact'[P Or L Book Sec Base Ccy]), 
+			            TREATAS( 
+			                VALUES('Securities Tax Lot Deferred Pl Fact'[Lot Id]), 
+			                        'Securities Transaction GA Fact'[Lot Id] 
+			                    )
+			)
+			
+			```
+		lineageTag: f0c15c89-1d84-4fed-baeb-303b0801554a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Framework Code'
+		dataType: string
+		lineageTag: 7dcf4dcf-703b-490c-8d4f-6b6d5a25e0d2
+		summarizeBy: none
+		sourceColumn: Framework Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As Of Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: f1420e65-a7b8-4245-b16d-4ccbb178d715
+		summarizeBy: sum
+		sourceColumn: As Of Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Security Nk'
+		dataType: string
+		lineageTag: 5158ac6f-43a1-49d1-a56e-b2bfb5243fee
+		summarizeBy: none
+		sourceColumn: Security Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Nk'
+		dataType: string
+		lineageTag: 09c77b45-5ac3-4ad3-b339-05a4f4f6a81f
+		summarizeBy: none
+		sourceColumn: Portfolio Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Unit Code Name'
+		dataType: string
+		lineageTag: ad3e072a-f399-4dd6-b95b-d09af515b296
+		summarizeBy: none
+		sourceColumn: Accounting Unit Code Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Code Name'
+		dataType: string
+		lineageTag: 0827b2d6-36f8-4e31-8098-787bb8c51fc9
+		summarizeBy: none
+		sourceColumn: Company Code Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Gl Class'
+		dataType: string
+		lineageTag: 16e54941-44c5-4a32-bfdb-cfdccdf43b13
+		summarizeBy: none
+		sourceColumn: Gl Class
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Functional Code CCY'
+		dataType: string
+		lineageTag: fc6e64a1-f130-4370-98a7-c5a2713ca85a
+		summarizeBy: none
+		sourceColumn: Functional Code CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local To Func Rate'
+		dataType: double
+		lineageTag: 1d06627d-9863-46a5-8af1-e3f5ca208fdb
+		summarizeBy: sum
+		sourceColumn: Local To Func Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Local To Cad Rate'
+		dataType: double
+		formatString: 0.000000
+		lineageTag: b29ca22d-50c8-4cdd-a4f0-e33e9e730c4c
+		summarizeBy: sum
+		sourceColumn: Local To Cad Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Local To Usd Rate'
+		dataType: double
+		lineageTag: d2c5c65a-f0ec-4771-9f2c-b55b745a5a34
+		summarizeBy: sum
+		sourceColumn: Local To Usd Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Local To Hkd Rate'
+		dataType: double
+		lineageTag: 63dec21f-f74d-4c54-b2a4-066514082455
+		summarizeBy: sum
+		sourceColumn: Local To Hkd Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Accounting Framework'
+		dataType: string
+		lineageTag: 83854851-f7a0-46bb-9276-dd792f21024c
+		summarizeBy: none
+		sourceColumn: Accounting Framework
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Portfolio Code'
+		dataType: string
+		lineageTag: 04badbf3-1fc7-4281-85f3-834c502095a6
+		summarizeBy: none
+		sourceColumn: Asset Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Subfund Id'
+		dataType: string
+		lineageTag: 6c5f1b3b-32db-447b-9533-0a9eb82f0cad
+		summarizeBy: none
+		sourceColumn: Subfund Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Subfund Name'
+		dataType: string
+		lineageTag: e0fdc861-70ac-45d8-9605-d5f5a03ab9ae
+		summarizeBy: none
+		sourceColumn: Subfund Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local Currancy Code'
+		dataType: string
+		lineageTag: 87ba5829-c5e1-4c46-b52e-67ac6bf7da8a
+		summarizeBy: none
+		sourceColumn: Local Currancy Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SCD Security Id'
+		dataType: string
+		lineageTag: 1702bfec-df64-4ad8-9396-4e79d0c0e87e
+		summarizeBy: none
+		sourceColumn: SCD Security Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SCD Security Name'
+		dataType: string
+		lineageTag: 2f6144bf-5daa-4ab5-95ca-97b587dbeba1
+		summarizeBy: none
+		sourceColumn: SCD Security Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Group Code'
+		dataType: string
+		lineageTag: 35606612-8e97-4d4e-8e96-4e756b2d8514
+		summarizeBy: none
+		sourceColumn: Portfolio Group Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SRC Security Id'
+		dataType: string
+		lineageTag: e1897620-f4e4-41cd-9f7f-50210e1ff9ec
+		summarizeBy: none
+		sourceColumn: SRC Security Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SRC Security'
+		dataType: string
+		lineageTag: 4a45147d-08e0-4b8c-b875-7f98ac6687bf
+		summarizeBy: none
+		sourceColumn: SRC Security
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SRC Market Id'
+		dataType: string
+		lineageTag: 75dbb0b0-ffb7-44c9-9616-d540a40afe25
+		summarizeBy: none
+		sourceColumn: SRC Market Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Component No'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6e9266fe-4bba-4621-a23b-e2527af5c1be
+		summarizeBy: sum
+		sourceColumn: Component No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction No Linked To'
+		dataType: int64
+		formatString: 0
+		lineageTag: e1191087-4c9f-4adc-8b0b-eea512ecb5cf
+		summarizeBy: sum
+		sourceColumn: Transaction No Linked To
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DGL Inception Trans No'
+		dataType: int64
+		formatString: 0
+		lineageTag: cba87f61-c838-441a-81a8-54c5ec6cadb8
+		summarizeBy: sum
+		sourceColumn: DGL Inception Trans No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Code'
+		dataType: string
+		lineageTag: 4e5de701-bc86-4f6e-8639-9f29297a73ab
+		summarizeBy: none
+		sourceColumn: Transaction Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Code Linked To'
+		dataType: string
+		lineageTag: b40f36b2-3000-4928-bfd8-e86b19c2ed21
+		summarizeBy: none
+		sourceColumn: Transaction Code Linked To
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Elementory Trans Code'
+		dataType: string
+		lineageTag: 019ede1e-d0f1-4f43-b5dd-d7f86d2304d6
+		summarizeBy: none
+		sourceColumn: Elementory Trans Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Elementory Trans Code Linked To'
+		dataType: string
+		lineageTag: 0f6e75f6-0e10-4022-9b10-60279e8644ca
+		summarizeBy: none
+		sourceColumn: Elementory Trans Code Linked To
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DGL Inception Business Transaction No'
+		dataType: double
+		formatString: 0
+		lineageTag: fe80b93e-42f3-44be-b095-e0128d207746
+		summarizeBy: sum
+		sourceColumn: DGL Inception Business Transaction No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SRC Postion Id'
+		dataType: int64
+		formatString: 0
+		lineageTag: 184f0db4-a71c-4410-9648-20c2cfe17d0f
+		summarizeBy: count
+		sourceColumn: SRC Postion Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Match Index'
+		dataType: int64
+		formatString: 0
+		lineageTag: f8841301-3a9e-481d-ad4f-6576d1272e55
+		summarizeBy: sum
+		sourceColumn: Match Index
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Originating System No'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2e977e58-905b-4e52-b0a7-29d13e43ff51
+		summarizeBy: sum
+		sourceColumn: Originating System No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Calculation Ik'
+		dataType: int64
+		formatString: 0
+		lineageTag: c5828a52-fafe-4e40-a8b3-e0aed95716fb
+		summarizeBy: sum
+		sourceColumn: Portfolio Calculation Ik
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lot Id'
+		dataType: string
+		lineageTag: d2059532-4672-4223-b5b6-c32dfecc973a
+		summarizeBy: none
+		sourceColumn: Lot Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column SRC
+		dataType: string
+		lineageTag: 6a652a72-4ca9-415d-8be4-8548e8d9a76a
+		summarizeBy: none
+		sourceColumn: SRC
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Deferred Pl Base'
+		dataType: double
+		lineageTag: 86188fa6-859e-4345-80ec-8a53ba5d3245
+		summarizeBy: sum
+		sourceColumn: Balance Deferred Pl Base
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Balance Deferred Pl Local'
+		dataType: double
+		lineageTag: 3f2afd74-2c9c-4874-9584-1268f6765f4d
+		summarizeBy: sum
+		sourceColumn: Balance Deferred Pl Local
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Accounting Framework Ik'
+		dataType: int64
+		formatString: 0
+		lineageTag: 453229f5-903b-4705-ae18-37407269714e
+		summarizeBy: sum
+		sourceColumn: Accounting Framework Ik
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction No'
+		dataType: int64
+		formatString: 0
+		lineageTag: f3c9d66b-0067-4e28-ad06-3ac8562bf7a3
+		summarizeBy: sum
+		sourceColumn: Transaction No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction No In Origination System'
+		dataType: double
+		lineageTag: d8cd9fa7-b748-4e26-b677-da3e1ad38020
+		summarizeBy: sum
+		sourceColumn: Transaction No In Origination System
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Ws Orig Buy Txn Id'
+		dataType: int64
+		formatString: 0
+		lineageTag: a9e2bad1-8b4d-4064-b3c6-3c6aa64db295
+		summarizeBy: count
+		sourceColumn: Ws Orig Buy Txn Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ws Sales Txn Id'
+		dataType: double
+		lineageTag: ea693432-2fe2-4a13-ba58-0d2da04da1e5
+		summarizeBy: count
+		sourceColumn: Ws Sales Txn Id
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'As Of Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 602d3d8b-cf5f-4a02-b820-da5580302f16
+		summarizeBy: none
+		sourceColumn: As Of Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'From Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: cbe235fc-c2c1-4164-829c-4c1cf3b54f28
+		summarizeBy: none
+		sourceColumn: From Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DGL Direction'
+		dataType: string
+		lineageTag: 0acda4e2-aa10-4d5f-8610-fb9744dc1545
+		summarizeBy: none
+		sourceColumn: DGL Direction
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Original Transaction No'
+		dataType: string
+		lineageTag: 412cc5d4-873c-4f2f-8e75-7041289e6e57
+		summarizeBy: none
+		sourceColumn: Original Transaction No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Original Tax Lot Trans No'
+		dataType: string
+		lineageTag: 2c1293e1-735f-4484-823e-8afe4f0823fe
+		summarizeBy: none
+		sourceColumn: Original Tax Lot Trans No
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nominal
+		dataType: double
+		lineageTag: 58c11bd0-6902-44d5-8e82-8f1aef607247
+		summarizeBy: sum
+		sourceColumn: Nominal
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Effective Matching Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: c09faede-a147-456c-891f-09cdfc3463fe
+		summarizeBy: none
+		sourceColumn: Effective Matching Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Deferred PL CCY Base'
+		dataType: double
+		lineageTag: 0843db35-bc1f-4387-ade0-8eb992e1e6ab
+		summarizeBy: sum
+		sourceColumn: Balance Deferred PL CCY Base
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'FX Join Key'
+		dataType: string
+		lineageTag: cec2001a-93b4-4d56-bf8c-c9e581f9ebca
+		summarizeBy: none
+		sourceColumn: FX Join Key
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Securities Tax Lot Deferred Pl Fact-6dc92d87-ee54-4b85-8341-2d2640bf2c03' = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0), EnableQueryResultDownload="0"]),
+				    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+				    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+				    EDL_securities_tax_lot_deferred_pl_fact_dq = inv_semantic_ga_Schema{[Name="securities_tax_lot_deferred_pl_fact_dq",Kind="Table"]}[Data],
+				    #"Removed Other Columns" = Table.SelectColumns(EDL_securities_tax_lot_deferred_pl_fact_dq,{"FRAMEWORK_CD", "AS_OF_PERIOD", "SECURITY_NK", "PORTFOLIO_NK", "ACCOUNTING_UNIT_CODE_NAME", "COMPANY_CODE_NAME", "GL_CLASS", "FUNCTIONAL_CCY_CD", "LOCAL_TO_FUNC_RATE", "LOCAL_TO_CAD_RATE", "LOCAL_TO_USD_RATE", "LOCAL_TO_HKD_RATE", "ACCOUNTING_FRAMEWORK", "ASSET_PORTFOLIO_CODE", "SUBFUND_ID", "SUBFUND_NAME", "Local_Currency_Code", "SCD_SECURITY_ID", "SCD_SECURITY_NAME", "PORTFOLIO_GROUP_CODE", "SRC_SECURITY_ID", "SRC_SECURITY", "SRC_MARKET_ID", "COMPONENT_NO", "TRANSACTION_NO_LINKED_TO", "DGL_INCEPTION_TRANS_NO", "TRANSACTION_CODE", "TRANSACTION_CODE_LINKED_TO", "ELEMENTARY_TRANS_CODE", "ELEMENTARY_TRANS_CODE_LINKED_TO", "DGL_INCEPTION_BUSINESS_TRANSACTION_NO", "SRC_POSITIONS_ID", "MATCH_INDEX", "ORIGINATING_SYSTEM_NO", "PORTFOLIO_CALCULATION_IK", "SRC", "BALANCE_DEFERRED_PL_BASE_CCY", "BALANCE_DEFERRED_PL_LOCAL_CCY", "ACCOUNTING_FRAMEWORK_IK", "TRANSACTION_NO", "TRANSACTION_NO_IN_ORIGINATING_SYSTEM", "WS_ORIG_BUY_TXN_ID", "WS_SALE_TXN_ID", "AS_OF_DATE", "LOT_ID", "FROM_DATE", "DGL_DIRECTION", "ORIGINAL_TRANSACTION_NO", "ORIGINAL_TAX_LOT_TRANS_NO", "NOMINAL", "EFFECTIVE_MATCHING_DATE", "BALANCE_DEFERRED_PL_CCY_BASE_CCY","FX_JOIN_KEY"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Other Columns",{{"FRAMEWORK_CD", "Framework Code"}, {"AS_OF_PERIOD", "As Of Period"}, {"SECURITY_NK", "Security Nk"}, {"PORTFOLIO_NK", "Portfolio Nk"}, {"ACCOUNTING_UNIT_CODE_NAME", "Accounting Unit Code Name"}, {"COMPANY_CODE_NAME", "Company Code Name"}, {"GL_CLASS", "Gl Class"}, {"FUNCTIONAL_CCY_CD", "Functional Code CCY"}, {"LOCAL_TO_FUNC_RATE", "Local To Func Rate"}, {"LOCAL_TO_CAD_RATE", "Local To Cad Rate"}, {"LOCAL_TO_USD_RATE", "Local To Usd Rate"}, {"LOCAL_TO_HKD_RATE", "Local To Hkd Rate"}, {"ACCOUNTING_FRAMEWORK", "Accounting Framework"}, {"ASSET_PORTFOLIO_CODE", "Asset Portfolio Code"}, {"SUBFUND_ID", "Subfund Id"}, {"SUBFUND_NAME", "Subfund Name"}, {"Local_Currency_Code", "Local Currancy Code"}, {"SCD_SECURITY_ID", "SCD Security Id"}, {"SCD_SECURITY_NAME", "SCD Security Name"}, {"PORTFOLIO_GROUP_CODE", "Portfolio Group Code"}, {"SRC_SECURITY_ID", "SRC Security Id"}, {"SRC_SECURITY", "SRC Security"}, {"SRC_MARKET_ID", "SRC Market Id"}, {"COMPONENT_NO", "Component No"}, {"TRANSACTION_NO_LINKED_TO", "Transaction No Linked To"}, {"DGL_INCEPTION_TRANS_NO", "DGL Inception Trans No"}, {"TRANSACTION_CODE", "Transaction Code"}, {"TRANSACTION_CODE_LINKED_TO", "Transaction Code Linked To"}, {"ELEMENTARY_TRANS_CODE", "Elementory Trans Code"}, {"ELEMENTARY_TRANS_CODE_LINKED_TO", "Elementory Trans Code Linked To"}, {"DGL_INCEPTION_BUSINESS_TRANSACTION_NO", "DGL Inception Business Transaction No"}, {"SRC_POSITIONS_ID", "SRC Postion Id"}, {"MATCH_INDEX", "Match Index"}, {"ORIGINATING_SYSTEM_NO", "Originating System No"}, {"PORTFOLIO_CALCULATION_IK", "Portfolio Calculation Ik"}, {"LOT_ID", "Lot Id"}, {"BALANCE_DEFERRED_PL_BASE_CCY", "Balance Deferred Pl Base"}, {"BALANCE_DEFERRED_PL_LOCAL_CCY", "Balance Deferred Pl Local"}, {"ACCOUNTING_FRAMEWORK_IK", "Accounting Framework Ik"}, {"TRANSACTION_NO", "Transaction No"}, {"TRANSACTION_NO_IN_ORIGINATING_SYSTEM", "Transaction No In Origination System"}, {"WS_ORIG_BUY_TXN_ID", "Ws Orig Buy Txn Id"}, {"WS_SALE_TXN_ID", "Ws Sales Txn Id"}, {"AS_OF_DATE", "As Of Date"}, {"FROM_DATE", "From Date"}, {"DGL_DIRECTION", "DGL Direction"}, {"ORIGINAL_TRANSACTION_NO", "Original Transaction No"}, {"ORIGINAL_TAX_LOT_TRANS_NO", "Original Tax Lot Trans No"}, {"NOMINAL", "Nominal"}, {"EFFECTIVE_MATCHING_DATE", "Effective Matching Date"}, {"BALANCE_DEFERRED_PL_CCY_BASE_CCY", "Balance Deferred PL CCY Base"},{"FX_JOIN_KEY","FX Join Key"}}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"As Of Date", type date}, {"Original Transaction No", type text}, {"Original Tax Lot Trans No", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

@@ -1,0 +1,464 @@
+table 'Securities JVE Fact'
+	lineageTag: 3f7839cc-5291-4682-97de-0f4c6165d655
+
+	measure 'Book Value - Adjustment Local' = CALCULATE(Sum('Securities JVE Fact'[Local Txn Amt]),FILTER(ALL(Period[Date]),Period[Date]<=MAX(Period[Date])))
+		lineageTag: 0f51cea4-9ffb-4837-b0e1-5d7494c62d71
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Book Value - Adjustment Rep' = ```
+			
+			VAR vSelectedCurrency = SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] )
+			
+			VAR vBookValueLTD= 
+			CALCULATE (
+			    SWITCH (
+				vSelectedCurrency,
+				"CAD", 'Securities JVE Fact'[JVE Adjustment Amount (CAD)],
+			    "HKD", 'Securities JVE Fact'[JVE Adjustment Amount (HKD)],
+			    "USD", 'Securities JVE Fact'[JVE Adjustment Amount (USD)],
+			    'Securities JVE Fact'[JVE Adjustment Amount (Func)]
+			    ),
+			    FILTER(ALL(Period[Date]),Period[Date]<=MAX(Period[Date]))
+			)
+			
+			RETURN vBookValueLTD
+			```
+		lineageTag: dbd0924a-da34-4ad0-9c6c-0d2f2f1d3edf
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Market Value - Adjustment Local' = CALCULATE(Sum('Securities JVE Fact'[Local Txn Amt]),FILTER(ALL(Period[Date]),Period[Date]<=MAX(Period[Date])))
+		lineageTag: 8db6a966-3cae-42fc-bba3-d0303b45eb0c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Market Value - Adjustment Rep' = ```
+			
+			VAR vSelectedCurrency = SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] )
+			
+			VAR vMarketValueLTD= 
+			CALCULATE (
+			    SWITCH (
+				vSelectedCurrency,
+				"CAD", 'Securities JVE Fact'[JVE Adjustment Amount (CAD)],
+			    "HKD", 'Securities JVE Fact'[JVE Adjustment Amount (HKD)],
+			    "USD", 'Securities JVE Fact'[JVE Adjustment Amount (USD)],
+			    'Securities JVE Fact'[JVE Adjustment Amount (Func)]
+			    ),
+			    FILTER(ALL(Period[Date]),Period[Date]<=MAX(Period[Date]))
+			)
+			
+			RETURN vMarketValueLTD
+			```
+		lineageTag: 09a22e21-a8b0-46a6-8150-1e76434ab7ce
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'JVE Securities Title' = ```
+			
+			VAR maxdate =
+			    MAX ( Period[Date] )
+			RETURN
+			    "Positional Balances from JVE Securities" & ", "
+			        & SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] ) & ", "
+			        & SELECTEDVALUE ( Framework[Framework Display] ) & ", "
+			        & FORMAT ( maxdate, "MMM-YY" )
+			
+			```
+		lineageTag: d76fff00-4a98-447b-979d-21d3b345ee6a
+
+	measure 'JVE Adjustment Amount (CAD)' = ```
+			
+			VAR vSelectedCurrency = SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] )
+			VAR vLatestPeriodSelected = MAX(Period[Period])
+			RETURN
+			SUMX(
+			    'Securities JVE Fact',
+			    VAR vLocalCurr = 'Securities JVE Fact'[ISO3 Currency Cd]
+			    VAR vFuncCurr = 'Securities JVE Fact'[Functional CCY cd]
+			    VAR vFuncBSRate = 
+			        CALCULATE(
+			            SELECTEDVALUE('Fx Rate DQ'[Func BS Rate]),
+			            'Fx Rate DQ'[FROM_CCY]=vLocalCurr,
+			            'Fx Rate DQ'[TO_CCY]=vFuncCurr,
+			            'Fx Rate DQ'[PERIOD]=vLatestPeriodSelected,
+			            REMOVEFILTERS('Fx Rate DQ')
+			        )
+			    VAR vRepBSRate = 
+			        CALCULATE(
+			            SELECTEDVALUE('Fx Rate DQ'[Func BS Rate]),
+			            'Fx Rate DQ'[FROM_CCY]=vFuncCurr,
+			            'Fx Rate DQ'[TO_CCY]="CAD",
+			            'Fx Rate DQ'[PERIOD]=vLatestPeriodSelected,
+			            REMOVEFILTERS('Fx Rate DQ')
+			        )
+			    RETURN 'Securities JVE Fact'[Local Txn Amt]*vFuncBSRate*vRepBSRate
+			    )
+			
+			```
+		lineageTag: fd609f10-2966-4eca-b5e5-45c821fa5ef2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'JVE Adjustment Amount (Func)' = ```
+			
+			VAR vSelectedCurrency = SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] )
+			VAR vLatestPeriodSelected = MAX(Period[Period])
+			RETURN
+			SUMX(
+			    'Securities JVE Fact',
+			    VAR vLocalCurr = 'Securities JVE Fact'[ISO3 Currency Cd]
+			    VAR vFuncCurr = 'Securities JVE Fact'[Functional CCY Cd]
+			    VAR vFuncBSRate = 
+			        CALCULATE(
+			            SELECTEDVALUE('Fx Rate DQ'[Func BS Rate]),
+			            'Fx Rate DQ'[FROM_CCY]=vLocalCurr,
+			            'Fx Rate DQ'[TO_CCY]=vFuncCurr,
+			            'Fx Rate DQ'[PERIOD]=vLatestPeriodSelected,
+			            REMOVEFILTERS('Fx Rate DQ')
+			        )
+			   RETURN 'Securities JVE Fact'[Local Txn Amt]*vFuncBSRate
+			)
+			```
+		lineageTag: 1a8e5a9b-0bf4-49e0-ba57-7c754af77cca
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'JVE Adjustment Amount (HKD)' = ```
+			
+			VAR vSelectedCurrency = SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] )
+			VAR vLatestPeriodSelected = MAX(Period[Period])
+			RETURN
+			SUMX(
+			    'Securities JVE Fact',
+			    VAR vLocalCurr = 'Securities JVE Fact'[ISO3 Currency Cd]
+			    VAR vFuncCurr = 'Securities JVE Fact'[Functional CCY cd]
+			    VAR vFuncBSRate = 
+			        CALCULATE(
+			            SELECTEDVALUE('Fx Rate DQ'[Func BS Rate]),
+			            'Fx Rate DQ'[FROM_CCY]=vLocalCurr,
+			            'Fx Rate DQ'[TO_CCY]=vFuncCurr,
+			            'Fx Rate DQ'[PERIOD]=vLatestPeriodSelected,
+			            REMOVEFILTERS('Fx Rate DQ')
+			        )
+			    VAR vRepBSRate = 
+			        CALCULATE(
+			            SELECTEDVALUE('Fx Rate DQ'[Func BS Rate]),
+			            'Fx Rate DQ'[FROM_CCY]=vFuncCurr,
+			            'Fx Rate DQ'[TO_CCY]="HKD",
+			            'Fx Rate DQ'[PERIOD]=vLatestPeriodSelected,
+			            REMOVEFILTERS('Fx Rate DQ')
+			        )
+			    RETURN 'Securities JVE Fact'[Local Txn Amt]*vFuncBSRate*vRepBSRate
+			)
+			```
+		lineageTag: 18083a4f-4531-4ad8-a782-892fd110ae39
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'JVE Adjustment Amount (USD)' = ```
+			
+			VAR vSelectedCurrency = SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] )
+			VAR vLatestPeriodSelected = MAX(Period[Period])
+			RETURN
+			SUMX(
+			    'Securities JVE Fact',
+			    VAR vLocalCurr = 'Securities JVE Fact'[ISO3 Currency Cd]
+			    VAR vFuncCurr = 'Securities JVE fact'[Functional CCY Cd]
+			    VAR vFuncBSRate = 
+			        CALCULATE(
+			            SELECTEDVALUE('Fx Rate DQ'[Func BS Rate]),
+			            'Fx Rate DQ'[FROM_CCY]=vLocalCurr,
+			            'Fx Rate DQ'[TO_CCY]=vFuncCurr,
+			            'Fx Rate DQ'[PERIOD]=vLatestPeriodSelected,
+			            REMOVEFILTERS('Fx Rate DQ')
+			        )
+			    VAR vRepBSRate = 
+			        CALCULATE(
+			            SELECTEDVALUE('Fx Rate DQ'[Func BS Rate]),
+			            'Fx Rate DQ'[FROM_CCY]=vFuncCurr,
+			            'Fx Rate DQ'[TO_CCY]="USD",
+			            'Fx Rate DQ'[PERIOD]=vLatestPeriodSelected,
+			            REMOVEFILTERS('Fx Rate DQ')
+			        )
+			    RETURN 'Securities JVE Fact'[Local Txn Amt]*vFuncBSRate*vRepBSRate
+			)
+			```
+		lineageTag: 9de0fd32-8ecc-4f9c-b0a8-057ed70c1326
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Company Accounting Unit'
+		dataType: string
+		lineageTag: 44ee354d-f730-401c-9a98-af556fd76a38
+		summarizeBy: none
+		sourceColumn: Company Accounting Unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Nk'
+		dataType: string
+		lineageTag: e6bda38b-6de4-4f9e-a74d-bc952fd2ddcd
+		summarizeBy: none
+		sourceColumn: Portfolio Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	column Framework
+		dataType: string
+		lineageTag: 62637595-ae66-4d7f-89be-c6e06d2a0b5a
+		summarizeBy: none
+		sourceColumn: Framework
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Txn Dt'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 4ccf6652-0c7d-471e-9398-93f2284e6d2b
+		summarizeBy: none
+		sourceColumn: Txn Dt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Txn Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8a083919-cfab-4b58-8cbe-17a6c7ecc31e
+		summarizeBy: sum
+		sourceColumn: Txn Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fx Join Key'
+		dataType: string
+		lineageTag: 9e3cf9aa-eaf8-47c7-9cfb-4cb88d18e299
+		summarizeBy: none
+		sourceColumn: Fx Join Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Key'
+		dataType: string
+		lineageTag: c630af04-04c0-4dff-9968-f5513413456d
+		summarizeBy: none
+		sourceColumn: Asset Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAT Asset Type Cd'
+		dataType: string
+		lineageTag: fa05ce80-d46c-45fd-9d1e-37dcbc8877ca
+		summarizeBy: none
+		sourceColumn: CAT Asset Type Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAT Event Cd'
+		dataType: string
+		lineageTag: e2a3af78-edeb-423b-82c4-2bef3570919a
+		summarizeBy: none
+		sourceColumn: CAT Event Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Acct Num'
+		dataType: string
+		lineageTag: 37553a12-5bf3-4bc8-a1ca-e069ed532ab5
+		summarizeBy: none
+		sourceColumn: GL Acct Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Acct Category'
+		dataType: string
+		lineageTag: 6b67c0b2-f15d-4bc8-905e-e9682b36fefb
+		summarizeBy: none
+		sourceColumn: Acct Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ISO3 Currency Cd'
+		dataType: string
+		lineageTag: eeec6675-37a2-4200-a89e-edec8fb46adb
+		summarizeBy: none
+		sourceColumn: ISO3 Currency Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Functional CCY Cd'
+		dataType: string
+		lineageTag: 428ad735-798c-477e-8fb4-6c27d7e1ad56
+		summarizeBy: none
+		sourceColumn: Functional CCY Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sys Cd'
+		dataType: string
+		lineageTag: 66fed9d7-02d8-4034-a98e-bc57e6338ff3
+		summarizeBy: none
+		sourceColumn: Sys Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lowest Level Flag'
+		dataType: string
+		lineageTag: 72f4977e-45c0-4d5c-9590-c0db34ed393e
+		summarizeBy: none
+		sourceColumn: Lowest Level Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Txn Num'
+		dataType: string
+		lineageTag: c8e89beb-2871-47ac-b3df-7892c22bf940
+		summarizeBy: none
+		sourceColumn: Txn Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Txn Desc'
+		dataType: string
+		lineageTag: fd926a10-2990-459a-be1c-fc468c47d0a8
+		summarizeBy: none
+		sourceColumn: Txn Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Txn Type'
+		dataType: string
+		lineageTag: 1ffc8837-6049-4466-b865-52d8b022d057
+		summarizeBy: none
+		sourceColumn: Txn Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Comments
+		dataType: string
+		lineageTag: 5d0e40c8-b4ae-4de6-9342-b9c8f95c5ec7
+		summarizeBy: none
+		sourceColumn: Comments
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SCD Lot ID'
+		dataType: string
+		lineageTag: 4dd4dadd-9a05-45b9-abb0-bdbabbbd8f72
+		summarizeBy: none
+		sourceColumn: SCD Lot ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local Txn Amt'
+		dataType: double
+		lineageTag: a1b61666-cf55-4786-bd4a-38944bec9c1a
+		summarizeBy: sum
+		sourceColumn: Local Txn Amt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Func Txn Amt'
+		dataType: double
+		lineageTag: 9a282b2f-2d2f-4de4-a459-fdb23754cfe8
+		summarizeBy: sum
+		sourceColumn: Func Txn Amt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CAD Txn Amt'
+		dataType: double
+		lineageTag: e31870bd-0657-41a5-a9c7-e21f68e5f44e
+		summarizeBy: sum
+		sourceColumn: CAD Txn Amt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'USD Txn Amt'
+		dataType: double
+		lineageTag: 9fa06223-6520-48ef-877c-c4aaab3aaef5
+		summarizeBy: sum
+		sourceColumn: USD Txn Amt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'HKD Txn Amt'
+		dataType: double
+		lineageTag: 1e1c16a3-74ea-4630-b979-1a2f40f5db50
+		summarizeBy: sum
+		sourceColumn: HKD Txn Amt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Base Txn Amt'
+		dataType: double
+		lineageTag: fe9562a7-72a5-4cb1-86d7-379110a06e58
+		summarizeBy: sum
+		sourceColumn: Base Txn Amt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Src
+		dataType: string
+		lineageTag: ca6d763d-e96c-4826-b6a6-404076693f31
+		summarizeBy: none
+		sourceColumn: Src
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SCD Bus Trans No'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5983320d-e51a-4bd6-96f0-6f73bad07f0b
+		summarizeBy: sum
+		sourceColumn: SCD Bus Trans No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAT Adjusted Elements Txt'
+		dataType: string
+		lineageTag: 04502da3-aa6f-4e80-ae24-f68d64116d03
+		summarizeBy: none
+		sourceColumn: CAT Adjusted Elements Txt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Securities JVE Fact-65106585-58ee-4354-a067-b3c11b102060' = m
+		mode: import
+		source = ```
+				let
+				    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0), EnableQueryResultDownload="0"]),
+				    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+				    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+				    EDL_consolidated_gl_txn_fact_dq= inv_semantic_ga_Schema{[Name="consolidated_gl_txn_fact_dq",Kind="Table"]}[Data],
+				    #"Removed Other Columns" = Table.SelectColumns(EDL_consolidated_gl_txn_fact_dq,{"COMPANY_ACCOUNTING_UNIT_CD", "PORTFOLIO_NK", "FRAMEWORK_CD", "TXN_DT", "TXN_PERIOD", "FX_JOIN_KEY", "ASSET_KEY", "CAT_ASSET_TYPE_CD", "CAT_EVENT_CD", "GL_ACCT_NUM", "ACCT_CATEGORY", "ISO3_CURRENCY_CD", "FUNCTIONAL_CCY_CD", "SYS_CD", "LOWEST_LEVEL_FLAG", "TXN_NUM", "TXN_DESC", "TXN_TYPE", "COMMENTS", "CAT_ADJUSTED_ELEMENTS_TXT", "SCD_LOT_ID", "LOCAL_TXN_AMT", "FUNC_TXN_AMT", "CAD_TXN_AMT", "USD_TXN_AMT", "HKD_TXN_AMT", "BASE_TXN_AMT", "SRC", "SCD_BUS_TRANS_NO"}),
+				    #"Filtered Rows" = Table.SelectRows(#"Removed Other Columns", 
+				                                            each [SRC] = "CAT" 
+				                                            and [CAT_ASSET_TYPE_CD] = "Securities"
+				                                            and Text.StartsWith([COMMENTS], "JVE")
+				                                            and [CAT_ADJUSTED_ELEMENTS_TXT] <> "INCOME - DIV"
+				                                        ),
+				    #"Renamed Columns" = Table.RenameColumns(#"Filtered Rows",{{"COMPANY_ACCOUNTING_UNIT_CD", "Company Accounting Unit"}, {"PORTFOLIO_NK", "Portfolio Nk"}, {"FRAMEWORK_CD", "Framework"}, {"TXN_DT", "Txn Dt"}, {"TXN_PERIOD", "Txn Period"}, {"FX_JOIN_KEY", "Fx Join Key"}, {"ASSET_KEY", "Asset Key"}, {"CAT_ASSET_TYPE_CD", "CAT Asset Type Cd"}, {"CAT_EVENT_CD", "CAT Event Cd"}, {"GL_ACCT_NUM", "GL Acct Num"}, {"ACCT_CATEGORY", "Acct Category"}, {"ISO3_CURRENCY_CD", "ISO3 Currency Cd"}, {"FUNCTIONAL_CCY_CD", "Functional CCY Cd"}, {"SYS_CD", "Sys Cd"}, {"LOWEST_LEVEL_FLAG", "Lowest Level Flag"}, {"TXN_NUM", "Txn Num"}, {"TXN_DESC", "Txn Desc"}, {"TXN_TYPE", "Txn Type"}, {"COMMENTS", "Comments"}, {"SCD_LOT_ID", "SCD Lot ID"}, {"LOCAL_TXN_AMT", "Local Txn Amt"}, {"FUNC_TXN_AMT", "Func Txn Amt"}, {"CAD_TXN_AMT", "CAD Txn Amt"}, {"USD_TXN_AMT", "USD Txn Amt"}, {"HKD_TXN_AMT", "HKD Txn Amt"}, {"BASE_TXN_AMT", "Base Txn Amt"}, {"SRC", "Src"}, {"SCD_BUS_TRANS_NO", "SCD Bus Trans No"},{"CAT_ADJUSTED_ELEMENTS_TXT", "CAT Adjusted Elements Txt"}})
+				in
+				    #"Renamed Columns"
+				```
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

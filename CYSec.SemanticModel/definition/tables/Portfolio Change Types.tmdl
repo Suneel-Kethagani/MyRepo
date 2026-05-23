@@ -1,0 +1,18 @@
+table 'Portfolio Change Types'
+	isHidden
+	lineageTag: e677b8d4-2a1d-4b74-8332-ad482b2b158b
+
+	column Type
+		isHidden
+		lineageTag: de084316-7a6e-4e1d-bc4e-f49f0696c396
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Portfolio Change Types-ccbcbf1d-463e-44ab-a7fe-e3d44da11c89' = calculated
+		mode: import
+		source = {( "All"), ("Changed"),("New"),("Removed")}
+
+	annotation PBI_Id = 5c2a5a09f76147b18f07eebcd8c3b33b
+

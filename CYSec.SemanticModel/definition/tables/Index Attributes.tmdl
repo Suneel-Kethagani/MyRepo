@@ -1,0 +1,34 @@
+table 'Index Attributes'
+	lineageTag: fa5d4e82-3d0e-43d0-8f9e-2beac76bf364
+
+	column 'Index Nm'
+		dataType: string
+		lineageTag: 110fd92d-0dc1-4743-b5ba-53eb21b79aca
+		summarizeBy: none
+		sourceColumn: Index Nm
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Security Id'
+		dataType: string
+		lineageTag: 92909f89-f858-40fe-b551-665b1a3a4278
+		summarizeBy: none
+		sourceColumn: Src Security Id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Index Attributes-336d9fe0-b280-4aa0-ae7f-0434fd7c6272' = m
+		mode: import
+		queryGroup: Rimes
+		source =
+				let
+				    Source = #"Index Constituent",
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"Index Nm", "Src Security Id"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns")
+				in
+				    #"Removed Duplicates"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+
