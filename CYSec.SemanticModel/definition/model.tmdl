@@ -41,7 +41,7 @@ annotation __LastRPTime = 133135932020694653
 
 annotation __TEdtr = 1
 
-annotation PBI_ProTooling = ["TMDLView_Desktop","DevMode"]
+annotation PBI_ProTooling = ["TMDLView_Desktop","DevMode","TMDL-Extension"]
 
 ref table Company
 ref table 'Accounting Unit'
