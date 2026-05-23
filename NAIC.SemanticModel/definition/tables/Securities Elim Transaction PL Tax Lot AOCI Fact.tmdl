@@ -1,0 +1,240 @@
+table 'Securities Elim Transaction PL Tax Lot AOCI Fact'
+	lineageTag: 2aaacc27-d812-4a86-912c-d0bce65ed73d
+	sourceLineageTag: 2846388b-1cad-4e3a-9877-23e2fd8c2d0e
+
+	column 'Asset portfolio Code'
+		dataType: string
+		lineageTag: 63859b67-a1b1-4e2c-8f20-25fba2d442da
+		sourceLineageTag: 20972f1c-8ef5-48d3-905f-a0d05a47b17c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Asset portfolio Code
+
+		annotation SummarizationSetBy = User
+
+	column 'Src Security Id'
+		dataType: string
+		lineageTag: 1b20132d-166b-451d-8d9f-2170e2d434b5
+		sourceLineageTag: 15fbe92d-a9bd-42f6-84ec-c20facd45f09
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src Security Id
+
+		annotation SummarizationSetBy = User
+
+	column 'AOCI Inception Trans No'
+		dataType: int64
+		formatString: 0
+		lineageTag: d6559376-3fac-4534-8470-14dbcd8d649a
+		sourceLineageTag: 74acb2ee-81a4-4ae6-82dc-ac4068fa51b8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: AOCI Inception Trans No
+
+		annotation SummarizationSetBy = User
+
+	column 'Bus Trans No'
+		dataType: int64
+		formatString: 0
+		lineageTag: b8907ce8-3c79-4990-8f56-d9e2b00b0b18
+		sourceLineageTag: 2638ad64-fdd1-432d-ab3e-86065760b521
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Bus Trans No
+
+		annotation SummarizationSetBy = User
+
+	column 'Match Src Transaction Id'
+		dataType: int64
+		formatString: 0
+		lineageTag: ef07e0b4-32bc-4ace-bfb4-0a441f4b51a5
+		sourceLineageTag: a2ecdb9c-2f8b-4256-9323-4d729b3773db
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: Match Src Transaction Id
+
+		annotation SummarizationSetBy = User
+
+	column 'Originating System No'
+		dataType: int64
+		formatString: 0
+		lineageTag: 258d5b46-e99c-4174-af5e-9dc23d54984d
+		sourceLineageTag: 6796dc62-b916-4625-950c-0a93bcf5486f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Originating System No
+
+		annotation SummarizationSetBy = User
+
+	column 'Tax Lot Ix'
+		dataType: int64
+		formatString: 0
+		lineageTag: 316e8a0e-30cb-4998-8da7-07b01960b88c
+		sourceLineageTag: ace35f1e-5571-4ac1-9fea-7a2499066f8e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Tax Lot Ix
+
+		annotation SummarizationSetBy = User
+
+	column 'Temporarily Booked'
+		dataType: int64
+		formatString: 0
+		lineageTag: 06f97f0f-44ff-466b-9a84-26aac46d80a3
+		sourceLineageTag: c4937b5f-6551-4dcc-8859-a5bc916d1869
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Temporarily Booked
+
+		annotation SummarizationSetBy = User
+
+	column 'Src Transaction Id'
+		dataType: int64
+		formatString: 0
+		lineageTag: 64fd4a08-d960-453f-a94b-b191f9966946
+		sourceLineageTag: b62599b4-1895-4822-bd9b-393f25523581
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: Src Transaction Id
+
+		annotation SummarizationSetBy = User
+
+	column 'Elim Tax Lot No Ik'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b9e6a14-260e-4413-ac6a-d4a49f92061b
+		sourceLineageTag: 0954e74c-e11d-4037-b3d2-77e1c6e761d7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Elim Tax Lot No Ik
+
+		annotation SummarizationSetBy = User
+
+	column 'AOCI Inception Ix'
+		dataType: int64
+		formatString: 0
+		lineageTag: 485bb16e-bcd8-492e-9158-479b530eb765
+		sourceLineageTag: 1f580a3d-f9a3-4e95-9ce5-959832963e52
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: AOCI Inception Ix
+
+		annotation SummarizationSetBy = User
+
+	column 'Local Currency Code'
+		dataType: string
+		lineageTag: 9c8eaa7c-daf4-43c6-93c8-c2881574b00e
+		sourceLineageTag: 68c605dc-bd5b-4cf6-9fd1-f4cb5925aa25
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Local Currency Code
+
+		annotation SummarizationSetBy = User
+
+	column 'Src Market Id'
+		dataType: string
+		lineageTag: 8b2bd470-13a6-4a73-b6da-7249d9290520
+		sourceLineageTag: 7443e34a-7561-4144-9d0b-bc33a25cc1d5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src Market Id
+
+		annotation SummarizationSetBy = User
+
+	column 'Sublot AOCI - Base'
+		dataType: double
+		lineageTag: cce7ac9b-7c58-4799-a4ff-96a4de6b2f8c
+		sourceLineageTag: 07bfe7fe-d555-41ac-8989-503d8d35ff02
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Sublot AOCI - Base
+
+		annotation SummarizationSetBy = User
+
+	column 'Sublot AOCI - Local'
+		dataType: double
+		lineageTag: 454c4514-d37e-47b4-bf96-2806f5aacba9
+		sourceLineageTag: 0dfad779-7689-4ba8-8bb5-4491553f2647
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Sublot AOCI - Local
+
+		annotation SummarizationSetBy = User
+
+	column 'Sublot Amort AOCI - Base'
+		dataType: double
+		lineageTag: e56b5074-ffcb-4815-8182-6e054b791429
+		sourceLineageTag: 65394ce2-3f13-4931-a5e9-764c18574711
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Sublot Amort AOCI - Base
+
+		annotation SummarizationSetBy = User
+
+	column 'Sublot Amort AOCI - Local'
+		dataType: double
+		lineageTag: 2655d4a7-e303-480b-89b3-fb4224057093
+		sourceLineageTag: 8f5652b7-75ce-46b7-af5a-be7886680c01
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Sublot Amort AOCI - Local
+
+		annotation SummarizationSetBy = User
+
+	column 'Trade Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: ec08f28b-1962-4049-b92d-ca1386b602a8
+		sourceLineageTag: e0f3b3d0-1ae9-483e-b3fc-0f34aa7cba58
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Trade Date
+
+		annotation SummarizationSetBy = User
+
+	column 'Security Nk'
+		dataType: string
+		lineageTag: 55215042-487f-49ad-9557-e94b63de0ee3
+		sourceLineageTag: 6164b434-995e-4d09-81e6-db9a59fa17a2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Security Nk
+
+		annotation SummarizationSetBy = User
+
+	column 'Portfolio Nk'
+		dataType: string
+		lineageTag: cc871771-438a-4c7d-bab1-f07bed4c1082
+		sourceLineageTag: b3dcbcc4-bb85-4faa-b3a0-7afac3603f99
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Nk
+
+		annotation SummarizationSetBy = User
+
+	column 'Framework Code'
+		dataType: string
+		lineageTag: c6b85eb5-06dd-447e-a189-49b5f5fda1c6
+		sourceLineageTag: 068f17ab-2efc-459f-91e7-8debc3f30ae3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Framework Code
+
+		annotation SummarizationSetBy = User
+
+	column 'FX Join Key'
+		dataType: string
+		lineageTag: ccbf7040-e9bd-4ac3-b58b-30a1728d2f87
+		sourceLineageTag: 64a34d60-a3f4-4700-b978-5e303a0fdac0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FX Join Key
+
+		annotation SummarizationSetBy = User
+
+	partition 'Securities Elim Transaction PL Tax Lot AOCI Fact' = entity
+		mode: directQuery
+		source
+			entityName: Securities Elim Transaction PL Tax Lot AOCI Fact
+			expressionSource: 'DirectQuery to AS - Securities'
+

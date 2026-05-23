@@ -1,0 +1,89 @@
+table 'Transaction History Slicer'
+	isHidden
+	lineageTag: 2b1dcc09-35e8-4438-a1f4-e3ff8d312284
+	sourceLineageTag: 3d83f1c4-0bc4-46db-9429-3c5c32e75b88
+
+	measure 'Remove Date Filter' = EXTERNALMEASURE("Remove Date Filter", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		isHidden
+		lineageTag: 68a70ad9-2b8c-42ec-931d-aecf3a01cb49
+		sourceLineageTag: 072fc7b6-ae40-488b-94c6-12ef210408e6
+		dataCategory: Uncategorized
+
+	column 'Trans Status'
+		dataType: string
+		lineageTag: 5fd6eee0-6c5c-4537-8d46-b25fff27b1dc
+		sourceLineageTag: 189949c6-dc6a-4054-86f9-14b32f151ec4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Trans Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trans Category'
+		dataType: string
+		lineageTag: 608e67ec-7a97-48f7-b8c3-ee4d975735f8
+		sourceLineageTag: cdeefcc2-b246-4d50-9369-d186fdde0c6c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Trans Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trans Type'
+		dataType: string
+		lineageTag: e28f222b-1474-43e4-b139-8f362525525b
+		sourceLineageTag: 86313316-20fc-4011-a730-6a8d171c38a7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Trans Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Framework Code'
+		dataType: string
+		lineageTag: 68e584b4-f03d-412e-bb71-4f2759913096
+		sourceLineageTag: cadb58ec-30f0-4cac-8570-4e16ce435126
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Framework Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Code'
+		dataType: string
+		lineageTag: a66e25cd-99fa-444b-8b91-7ea227ee4da5
+		sourceLineageTag: 5160d501-f78b-4b33-8bc0-2b098f36b4ce
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As Of Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: b91d44f3-c0e8-46e1-bfae-76dbd66c4216
+		sourceLineageTag: b7b48d55-7a73-45b3-bea2-80f3eaf686be
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: As Of Period
+
+		annotation SummarizationSetBy = User
+
+	column 'Security NK'
+		dataType: string
+		lineageTag: 91b60399-a839-42b6-a36e-7163f9e569c3
+		sourceLineageTag: 2d916e46-97a5-420b-a01a-dc234e541447
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Security NK
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Transaction History Slicer-ff2b91be-0fc0-4f22-867a-888aed28681d' = entity
+		mode: directQuery
+		source
+			entityName: Transaction History Slicer
+			expressionSource: 'DirectQuery to AS - Securities'
+

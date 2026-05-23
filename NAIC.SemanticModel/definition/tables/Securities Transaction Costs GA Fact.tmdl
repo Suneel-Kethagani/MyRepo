@@ -1,0 +1,959 @@
+table 'Securities Transaction Costs GA Fact'
+	lineageTag: b9234524-feef-4875-8e0c-7cba93ae8b7f
+	sourceLineageTag: d52fe19c-2d08-4b12-94e0-7694b67b1fed
+
+	measure 'Cost type(M)' = EXTERNALMEASURE("Cost type(M)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: ca17d422-edb7-4b79-a013-01adeb6699ca
+		sourceLineageTag: a516cd99-72f7-4b18-8fd2-00f2cf1058e2
+		dataCategory: Uncategorized
+
+	measure 'Bank Charges - Local' = EXTERNALMEASURE("Bank Charges - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 1cdad499-fbe1-4127-a55d-fd32c2a9059d
+		sourceLineageTag: 781209d2-41f1-44f9-a1b0-df29c7bfc6ea
+		dataCategory: Uncategorized
+
+	measure 'Broker Fee - Local' = EXTERNALMEASURE("Broker Fee - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: a2f758e7-9c1a-4709-95bd-366b771b612f
+		sourceLineageTag: e2f269e7-e86f-4af6-9575-a6fbc01d631d
+		dataCategory: Uncategorized
+
+	measure 'Commission - Local' = EXTERNALMEASURE("Commission - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 0555ed16-0ee3-4046-b60a-ae59c9e8e837
+		sourceLineageTag: 2ae2f2f0-4f23-436e-a87a-c993ffe0da20
+		dataCategory: Uncategorized
+
+	measure 'Commitment Fee - Local' = EXTERNALMEASURE("Commitment Fee - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 8466437c-84ba-4d0a-a9d3-4ce85306bbca
+		sourceLineageTag: fba82663-7247-41ea-bba3-dc0c2be61773
+		dataCategory: Uncategorized
+
+	measure 'Consumption Tax - Local' = EXTERNALMEASURE("Consumption Tax - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: bf73ae27-226f-4112-924d-31369181d562
+		sourceLineageTag: 0f9ea4a4-a994-4339-ad64-58cdcc0585cf
+		dataCategory: Uncategorized
+
+	measure 'Coupon/Dividend tax - Local' = EXTERNALMEASURE("Coupon/Dividend tax - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 6697d535-0406-46ff-a7a3-96fd7ced7b19
+		sourceLineageTag: 31ea51f4-e595-40eb-bdeb-a17bd3aff9e2
+		dataCategory: Uncategorized
+
+	measure 'Exchange Fee - Local' = EXTERNALMEASURE("Exchange Fee - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 38962a57-fd73-49f9-9eb2-c79c26fd4d84
+		sourceLineageTag: 86a43756-bdfc-456a-b997-b66906269a81
+		dataCategory: Uncategorized
+
+	measure 'EXCHANGFEE - Local' = EXTERNALMEASURE("EXCHANGFEE - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 0a4d092b-622a-45ef-a26a-ec529d6e5a0d
+		sourceLineageTag: bc9427af-3ead-4207-88f0-b5e37d72183f
+		dataCategory: Uncategorized
+
+	measure 'Federal Income Tax Withheld - Local' = EXTERNALMEASURE("Federal Income Tax Withheld - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 61c33115-ae81-42f6-9d73-1336173ad69d
+		sourceLineageTag: 0043765e-f951-4546-996e-883f7b72c5c3
+		dataCategory: Uncategorized
+
+	measure 'Restitution Expected - Local' = EXTERNALMEASURE("Restitution Expected - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: ff8365ec-b611-4f47-b6db-3e57be9935c7
+		sourceLineageTag: 106b175f-fe06-4166-8673-67d631345d4e
+		dataCategory: Uncategorized
+
+	measure 'Restitution Received - Local' = EXTERNALMEASURE("Restitution Received - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: b900d986-6f46-4325-a353-71d00334ea74
+		sourceLineageTag: 2c7817d0-d58c-4e56-9360-20a9aaa380c3
+		dataCategory: Uncategorized
+
+	measure 'State Income Tax Withheld - Local' = EXTERNALMEASURE("State Income Tax Withheld - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 2a5dbfab-92ca-4aac-98fa-e3602f9bc472
+		sourceLineageTag: 71decfb9-fbf9-405e-b13c-2bf0f5b0c328
+		dataCategory: Uncategorized
+
+	measure 'Withholding Tax - Income - Local' = EXTERNALMEASURE("Withholding Tax - Income - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 44056e34-e259-4813-a94c-c3c37f08c541
+		sourceLineageTag: 8ed5ccf1-d4b9-4bad-a015-6fc6f934a4cb
+		dataCategory: Uncategorized
+
+	measure 'ALTS_CARRY - Income - Local' = EXTERNALMEASURE("ALTS_CARRY - Income - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 361f60bb-48c6-40ba-b3a7-ec6ec8f31633
+		sourceLineageTag: e5c1163a-ebee-4f11-a70b-c21e84c13a73
+		dataCategory: Uncategorized
+
+	measure 'Subsequent Close Interest - Local' = EXTERNALMEASURE("Subsequent Close Interest - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 623ddf40-5380-41ca-b321-4e7662b1c494
+		sourceLineageTag: d0e60428-42a8-4ff8-a103-e80be74807a5
+		dataCategory: Uncategorized
+
+	measure 'Dividend - Local' = EXTERNALMEASURE("Dividend - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 1532d76b-0065-46e8-ae68-2eeb6e48d956
+		sourceLineageTag: ad3033e7-033a-4551-af49-4de40bd0c490
+		dataCategory: Uncategorized
+
+	measure 'Expenses Inside Commitment - Local' = EXTERNALMEASURE("Expenses Inside Commitment - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 11787757-4d51-4afa-be9a-5d16214a015e
+		sourceLineageTag: af97b74e-21d0-4db6-8637-448684b57507
+		dataCategory: Uncategorized
+
+	measure 'Expenses Outside Commitment - Local' = EXTERNALMEASURE("Expenses Outside Commitment - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 12344e29-42e9-4f39-9e1f-fc755d289eed
+		sourceLineageTag: a2104ac4-ed47-459a-88be-17c1b32bf25f
+		dataCategory: Uncategorized
+
+	measure 'Fee Discount - Local' = EXTERNALMEASURE("Fee Discount - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: a87a42b3-1e39-4a5c-b41a-ed1e7b778a99
+		sourceLineageTag: d7bf9490-d3d0-4412-8205-943ccf896165
+		dataCategory: Uncategorized
+
+	measure 'Interest - Local' = EXTERNALMEASURE("Interest - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 7e5aa1c8-45a9-4cb4-a033-9e779880f8bb
+		sourceLineageTag: 8d3de0d2-ca36-42fd-bd4d-5287f633848b
+		dataCategory: Uncategorized
+
+	measure 'Loss - Local' = EXTERNALMEASURE("Loss - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 0a851c80-a3c6-4ea5-9392-d45dff96f268
+		sourceLineageTag: 643f56ff-8af2-40e3-8073-360b65a1e9b2
+		dataCategory: Uncategorized
+
+	measure 'Late Closing Fee Outside Commitment - Local' = EXTERNALMEASURE("Late Closing Fee Outside Commitment - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: e10a3c58-f216-4a6c-9ed4-27b38125cffe
+		sourceLineageTag: 726cef70-baaa-4d75-abe7-dd0709852572
+		dataCategory: Uncategorized
+
+	measure 'Management Fee Inside Commitment - Local' = EXTERNALMEASURE("Management Fee Inside Commitment - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 502bf965-7f3e-415b-be3f-538c3e676023
+		sourceLineageTag: 1fffaecd-22b4-49fe-9b80-0e1403b40f6c
+		dataCategory: Uncategorized
+
+	measure 'Management Fee Outside Commitment - Local' = EXTERNALMEASURE("Management Fee Outside Commitment - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 12d619de-a384-4fbd-84bf-0dbc84353a41
+		sourceLineageTag: 8dac0b4f-4c8e-4bf1-8b00-122b219c7604
+		dataCategory: Uncategorized
+
+	measure 'Other Income From Investment - Local' = EXTERNALMEASURE("Other Income From Investment - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 45f69f17-1c90-4929-bd0c-08b5183cd481
+		sourceLineageTag: 379d8d63-12d0-4934-933c-f25732cc527c
+		dataCategory: Uncategorized
+
+	measure 'Profit - Local' = EXTERNALMEASURE("Profit - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: c978327e-e330-4e1b-9029-133fe53d86f7
+		sourceLineageTag: 44ee3bcd-45d3-4566-8670-b4b901c111c9
+		dataCategory: Uncategorized
+
+	measure 'Partnership Expenses Inside Commitment - Local' = EXTERNALMEASURE("Partnership Expenses Inside Commitment - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 14bea6a7-5dea-4dc9-9416-1a1232a751de
+		sourceLineageTag: cff598b5-19ca-4343-a2e1-4d762e3782c3
+		dataCategory: Uncategorized
+
+	measure 'Partnership Expenses Outside Commitment - Local' = EXTERNALMEASURE("Partnership Expenses Outside Commitment - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: c7151beb-2580-4376-b7e8-75e2475fa950
+		sourceLineageTag: 2a1f633f-f522-4e11-a592-b95ebcba6db4
+		dataCategory: Uncategorized
+
+	measure 'Withholding Tax - Local' = EXTERNALMEASURE("Withholding Tax - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 205492b1-ac89-4369-b78c-fad554947215
+		sourceLineageTag: df504d5d-da6c-42d5-a555-6fc3662131ac
+		dataCategory: Uncategorized
+
+	measure 'Alternative Foreign withholding tax - Local' = EXTERNALMEASURE("Alternative Foreign withholding tax - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 968bd1b3-9b45-4870-a601-86da03ac3421
+		sourceLineageTag: 4c8a8be2-43dd-4a32-a984-01c8749444c8
+		dataCategory: Uncategorized
+
+	measure 'Alternative State withholding tax - Local' = EXTERNALMEASURE("Alternative State withholding tax - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 4666375a-a220-4c80-b8f5-86d2207b4621
+		sourceLineageTag: 887bb334-4168-44e8-8e98-5a871f4564c4
+		dataCategory: Uncategorized
+
+	measure 'Alternative Federal withholding tax - Local' = EXTERNALMEASURE("Alternative Federal withholding tax - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 4fee424d-2244-4895-8a56-3f058873bf56
+		sourceLineageTag: f7d3f1b6-afce-4a9c-9e25-f4a055eea469
+		dataCategory: Uncategorized
+
+	measure 'Bank Charges - Rep' = EXTERNALMEASURE("Bank Charges - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: b118d4bf-99c4-4200-9136-6d1f338be400
+		sourceLineageTag: e355ebe4-266f-4bf6-a921-ae0f30fa2246
+		dataCategory: Uncategorized
+
+	measure 'Broker Fee - Rep' = EXTERNALMEASURE("Broker Fee - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: a324f608-8ede-4a44-b20f-621e16a026b5
+		sourceLineageTag: 18f79d98-f7b3-42b6-ada7-079b4747e3db
+		dataCategory: Uncategorized
+
+	measure 'Commission - Rep' = EXTERNALMEASURE("Commission - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: 428ccecc-d76d-42ff-8d05-4eb141ebe9ac
+		sourceLineageTag: bb031e5f-7910-4989-aa65-fd496c6eae47
+		dataCategory: Uncategorized
+
+	measure 'Commitment Fee - Rep' = EXTERNALMEASURE("Commitment Fee - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: b72b0142-9536-4199-8007-05f9e36e9129
+		sourceLineageTag: 42c328db-6c34-44e2-938b-ed7fd1ce3209
+		dataCategory: Uncategorized
+
+	measure 'Consumption Tax - Rep' = EXTERNALMEASURE("Consumption Tax - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: 4de6c374-2479-4d69-b4db-3564815b5cd7
+		sourceLineageTag: 404a3d9d-d259-48c5-8333-96f3b6e22209
+		dataCategory: Uncategorized
+
+	measure 'Coupon/Dividend tax - Rep' = EXTERNALMEASURE("Coupon/Dividend tax - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: 286b8c25-0304-4872-bad8-b2b0cec24833
+		sourceLineageTag: 300af4e0-501e-492e-ab63-437bf33aef65
+		dataCategory: Uncategorized
+
+	measure 'Exchange Fee - Rep' = EXTERNALMEASURE("Exchange Fee - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: 15d85932-8a9b-4ccf-9566-6777a06625a1
+		sourceLineageTag: 5d6140c9-f6d9-46e4-bdfe-0605390f28d2
+		dataCategory: Uncategorized
+
+	measure 'EXCHANGFEE - Rep' = EXTERNALMEASURE("EXCHANGFEE - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: 9ce06ba8-bc1b-42d3-a28c-db6cc0ef280b
+		sourceLineageTag: cb75b24b-8511-4c2e-b073-4630b5694ccb
+		dataCategory: Uncategorized
+
+	measure 'Federal Income Tax Withheld - Rep' = EXTERNALMEASURE("Federal Income Tax Withheld - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: 3a8791bc-3cb4-4209-a7f1-7a63a5134950
+		sourceLineageTag: baff5c86-6ae0-4fc3-9d22-8a987ccf22e2
+		dataCategory: Uncategorized
+
+	measure 'Restitution Expected - Rep' = EXTERNALMEASURE("Restitution Expected - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: 5b404bb0-df23-4bfc-9201-1f41e093518b
+		sourceLineageTag: 78a6a024-1b2e-4718-834f-d2687883d977
+		dataCategory: Uncategorized
+
+	measure 'Restitution Received - Rep' = EXTERNALMEASURE("Restitution Received - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: fc909e3c-2944-417c-8c52-9a2cd0ff2895
+		sourceLineageTag: f0c74374-7285-4a4f-bede-c0ae8c23f401
+		dataCategory: Uncategorized
+
+	measure 'State Income Tax Withheld - Rep' = EXTERNALMEASURE("State Income Tax Withheld - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: bc958ec2-3597-45a9-97ad-32d515d29f26
+		sourceLineageTag: 49c56d43-876f-4c65-923c-befc09303f76
+		dataCategory: Uncategorized
+
+	measure 'Withholding Tax - Income - Rep' = EXTERNALMEASURE("Withholding Tax - Income - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: 7699e891-c026-43df-ac2a-15a1b4aa3e52
+		sourceLineageTag: 325fa384-0203-4713-83fa-a5743eca18db
+		dataCategory: Uncategorized
+
+	measure 'Carried Interest Paid - Rep' = EXTERNALMEASURE("Carried Interest Paid - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: 755645cf-8232-49d9-a860-3d9351d1f4be
+		sourceLineageTag: 383dc97c-35f1-4c48-9b6e-d685ce992ec6
+		dataCategory: Uncategorized
+
+	measure 'Carried Interest Paid - Local' = EXTERNALMEASURE("Carried Interest Paid - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 85e13478-0b9b-4e12-aa2f-aea99960ef8c
+		sourceLineageTag: 7b66cb71-b048-4400-b9f2-07d11c8bb07b
+		dataCategory: Uncategorized
+
+	measure 'Subsequent Close Interest - Rep' = EXTERNALMEASURE("Subsequent Close Interest - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: 3dea2bd5-b213-4047-a2d8-466181d5ebb6
+		sourceLineageTag: d615e977-d3e0-4655-8355-ea5baefe07de
+		dataCategory: Uncategorized
+
+	measure 'Dividend - Rep' = EXTERNALMEASURE("Dividend - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: 4771f52f-a3e9-4e1f-aed9-d35f9d8bc92e
+		sourceLineageTag: bd374d53-fe35-4225-8215-74a1bd267fd8
+		dataCategory: Uncategorized
+
+	measure 'Expenses Inside Commitment - Rep' = EXTERNALMEASURE("Expenses Inside Commitment - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: d1b8a485-b9b0-4130-958f-2e584bf09e31
+		sourceLineageTag: c339f8fd-a0f0-458e-8a81-e90ef6baa230
+		dataCategory: Uncategorized
+
+	measure 'Expenses Outside Commitment - Rep' = EXTERNALMEASURE("Expenses Outside Commitment - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: 71f6c5df-e656-4c17-ae1f-e2fe812045b4
+		sourceLineageTag: 955c911d-1285-4a66-ad60-6d2b15309f74
+		dataCategory: Uncategorized
+
+	measure 'Fee Discount - Rep' = EXTERNALMEASURE("Fee Discount - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: 57954499-08be-4c2e-ac16-240ecd0bc6dc
+		sourceLineageTag: d5ca0afd-2d54-441c-81f6-82c79c191320
+		dataCategory: Uncategorized
+
+	measure 'Interest - Rep' = EXTERNALMEASURE("Interest - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: 26b42c0c-729b-490c-b3f8-36bfd9e7dbdf
+		sourceLineageTag: 061588db-1153-49af-819e-304f690734cb
+		dataCategory: Uncategorized
+
+	measure 'Loss - Rep' = EXTERNALMEASURE("Loss - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: 9d4e1d52-5186-45ae-a0db-e2b17dc2d9f6
+		sourceLineageTag: 03ed7ddb-8c42-42e2-9339-91e55a55ffca
+		dataCategory: Uncategorized
+
+	measure 'Late Closing Fee Outside Commitment - Rep' = EXTERNALMEASURE("Late Closing Fee Outside Commitment - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: 8ffb4766-2b7a-420b-ac2b-54d24fa368c4
+		sourceLineageTag: a10d1fe6-79d7-4054-9e78-973bcfcac7ce
+		dataCategory: Uncategorized
+
+	measure 'Management Fee Inside Commitment - Rep' = EXTERNALMEASURE("Management Fee Inside Commitment - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: 9313e64e-f88c-47eb-a0ab-b36ce73dbdc3
+		sourceLineageTag: 7d8c129a-c781-4cf5-89ca-8be059173124
+		dataCategory: Uncategorized
+
+	measure 'Management Fee Outside Commitment - Rep' = EXTERNALMEASURE("Management Fee Outside Commitment - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: dc0a07b8-f615-4ff6-b939-bf3552997c1e
+		sourceLineageTag: 55b0f5e7-8a33-4f61-b1f7-ef1b55ad2e53
+		dataCategory: Uncategorized
+
+	measure 'Other Income From Investment - Rep' = EXTERNALMEASURE("Other Income From Investment - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: 9471e6d0-e306-48d1-b9ef-d3e31fe51ad7
+		sourceLineageTag: f3af723c-b7ba-4503-837c-cf5e9790c48e
+		dataCategory: Uncategorized
+
+	measure 'Profit - Rep' = EXTERNALMEASURE("Profit - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: 417650cc-8de5-4dc1-b8e7-b4688833bcf2
+		sourceLineageTag: e7b847db-e5ef-441c-9759-937e9a1d0e19
+		dataCategory: Uncategorized
+
+	measure 'Partnership Expenses Inside Commitment - Rep' = EXTERNALMEASURE("Partnership Expenses Inside Commitment - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: f3609858-1d1e-462a-b28e-37c5ca9138a9
+		sourceLineageTag: b79a2a28-b92d-4255-b426-6fbacdc5402e
+		dataCategory: Uncategorized
+
+	measure 'Partnership Expenses Outside Commitment - Rep' = EXTERNALMEASURE("Partnership Expenses Outside Commitment - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: cf603050-ad4e-46ed-87a7-3872daa7b4eb
+		sourceLineageTag: 0ee020d2-0053-44f8-bc89-43821ca05201
+		dataCategory: Uncategorized
+
+	measure 'Withholding Tax - Rep' = EXTERNALMEASURE("Withholding Tax - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: 641a67b7-2cf5-4088-8bd8-48faf1706849
+		sourceLineageTag: 5dd356b5-7d38-4050-a581-837f58877e34
+		dataCategory: Uncategorized
+
+	measure 'Alternative Federal withholding tax - Rep' = EXTERNALMEASURE("Alternative Federal withholding tax - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: 3d584078-6856-4971-95a7-ff43a11aacd8
+		sourceLineageTag: aaf45a31-4177-43f6-99e5-6f81453299f9
+		dataCategory: Uncategorized
+
+	measure 'Alternative Foreign withholding tax - Rep' = EXTERNALMEASURE("Alternative Foreign withholding tax - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: affff9d5-dc4f-4796-bc21-b90c93c8661a
+		sourceLineageTag: 3a93cb8f-bed3-4154-a912-c281bba3bfd4
+		dataCategory: Uncategorized
+
+	measure 'Alternative State withholding tax - Rep' = EXTERNALMEASURE("Alternative State withholding tax - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: 81ca55eb-9391-4629-aae3-b9a23940a517
+		sourceLineageTag: 6587feed-bc94-449d-9c44-152e1669995a
+		dataCategory: Uncategorized
+
+	measure 'Stamp Duty Fee - Local' = EXTERNALMEASURE("Stamp Duty Fee - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 303b1d30-3c79-4196-b141-7dfc78ebe203
+		sourceLineageTag: fcb73d72-a5f7-4a04-bd83-ecbb5a074001
+		dataCategory: Uncategorized
+
+	measure 'Stamp Duty Fee - Rep' = EXTERNALMEASURE("Stamp Duty Fee - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: 5e8cc6fe-ed46-439d-affb-9221194b3fa7
+		sourceLineageTag: 7888f78f-21db-4b72-bc2b-e827cd5bcb15
+		dataCategory: Uncategorized
+
+	measure 'Miscellaneous Fee - Local' = EXTERNALMEASURE("Miscellaneous Fee - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 58df4629-9881-48cb-bd40-d84701fa83c0
+		sourceLineageTag: 14fb601d-e035-40a0-bb9d-abc113cd709e
+		dataCategory: Uncategorized
+
+	measure 'Miscellaneous Fee - Rep' = EXTERNALMEASURE("Miscellaneous Fee - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: 59126f29-4711-47f7-8c87-c2d27095c7e0
+		sourceLineageTag: a860cbbe-71ad-4f30-a61e-84959d5dfd1a
+		dataCategory: Uncategorized
+
+	measure 'Indonesian VAT - Local' = EXTERNALMEASURE("Indonesian VAT - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: d57ac2ad-eed3-479d-92df-7874f5583dc2
+		sourceLineageTag: da73b61c-25c7-45e9-b467-c594f881e9ff
+		dataCategory: Uncategorized
+
+	measure 'Indonesian VAT - Rep' = EXTERNALMEASURE("Indonesian VAT - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: 01fcf65d-116c-4a7d-9026-0c135a485806
+		sourceLineageTag: 3e7715ff-5a12-414d-8bd6-ca77d22fe916
+		dataCategory: Uncategorized
+
+	measure 'Indonesian Selling Tax - Local' = EXTERNALMEASURE("Indonesian Selling Tax - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: fc04d8ad-564d-488d-be78-eaa68eeeeee0
+		sourceLineageTag: bd8161ea-da73-404b-9922-015f4b276085
+		dataCategory: Uncategorized
+
+	measure 'Indonesian Selling Tax - Rep' = EXTERNALMEASURE("Indonesian Selling Tax - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: 5bb5fda8-5e26-4fcd-b920-812a3c9422e3
+		sourceLineageTag: cbfe91fb-5671-4fc6-a966-1cf9fb30efbf
+		dataCategory: Uncategorized
+
+	measure 'Indonesian Withholding Tax on Commission - Local' = EXTERNALMEASURE("Indonesian Withholding Tax on Commission - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 188649e0-5195-4297-bb4b-6a879ca09fe8
+		sourceLineageTag: 37f0cb26-59db-4f83-9141-f590bb5a7873
+		dataCategory: Uncategorized
+
+	measure 'Indonesian Withholding Tax on Commission - Rep' = EXTERNALMEASURE("Indonesian Withholding Tax on Commission - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: ae579a76-5444-4fd9-a0a9-273bdab0f37a
+		sourceLineageTag: 3211dfc5-f13d-40f4-a803-17e1d9bd729b
+		dataCategory: Uncategorized
+
+	measure 'Indonesian Tax - Capital Gains Tax - Local' = EXTERNALMEASURE("Indonesian Tax - Capital Gains Tax - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 3bd0429d-39bd-4345-b231-bcf94375a2f9
+		sourceLineageTag: d6c583ec-4bc7-4bcc-aa83-6a01886a609e
+		dataCategory: Uncategorized
+
+	measure 'Indonesian Tax - Capital Gains Tax - Rep' = EXTERNALMEASURE("Indonesian Tax - Capital Gains Tax - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: 6134207d-c0e3-481d-b47e-d3e451b6efa6
+		sourceLineageTag: 3884bdfb-67c2-47b2-a20c-fad78929c4fc
+		dataCategory: Uncategorized
+
+	measure 'Indonesian Tax - ML Withholding Income Tax - Local' = EXTERNALMEASURE("Indonesian Tax - ML Withholding Income Tax - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: 770d60e7-5272-469b-bc42-b2e27a6cf8c2
+		sourceLineageTag: 9756526a-90e4-4cc7-bc9b-d200528bb192
+		dataCategory: Uncategorized
+
+	measure 'Indonesian Tax - ML Withholding Income Tax - Rep' = EXTERNALMEASURE("Indonesian Tax - ML Withholding Income Tax - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: 5b39a0de-d15c-4d79-8865-7d398e065aa5
+		sourceLineageTag: e60788d7-f47c-4843-a6e9-402881c43855
+		dataCategory: Uncategorized
+
+	measure 'Indonesian Tax - Received Seller''s Withholding - Local' = EXTERNALMEASURE("Indonesian Tax - Received Seller's Withholding - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: f0e53b62-d84a-434d-91dd-0dcc2ca80454
+		sourceLineageTag: 1bbca683-d8a6-4be0-b18c-0fc6014849f8
+		dataCategory: Uncategorized
+
+	measure 'Indonesian Tax - Received Seller''s Withholding - Rep' = EXTERNALMEASURE("Indonesian Tax - Received Seller's Withholding - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: 08851f67-3d4a-4530-af05-322f899aad18
+		sourceLineageTag: 430050e7-7bdb-4940-9608-7fe91fdfa331
+		dataCategory: Uncategorized
+
+	measure 'Philippine Tax - ML Withholding Income Tax - Local' = EXTERNALMEASURE("Philippine Tax - ML Withholding Income Tax - Local", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Local
+		lineageTag: ce16312c-c535-446c-bdcb-936fd823f8a0
+		sourceLineageTag: 64de693b-4b03-4682-82e6-d19f7398f8e7
+		dataCategory: Uncategorized
+
+	measure 'Philippine Tax - ML Withholding Income Tax - Rep' = EXTERNALMEASURE("Philippine Tax - ML Withholding Income Tax - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Trade Cost Rep
+		lineageTag: d76817ca-f0fc-471a-aa36-9aee81d4eb5b
+		sourceLineageTag: c540541b-f93b-46c5-b423-2f32954b909a
+		dataCategory: Uncategorized
+
+	measure 'Consumption Fee - Local' = EXTERNALMEASURE("Consumption Fee - Local", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 05ed2efb-e165-404f-8973-5c37ecb3ce67
+		sourceLineageTag: ed840ce9-820c-418e-99e9-2ff95042e3fe
+		dataCategory: Uncategorized
+
+	measure 'Consumption Fee - Rep' = EXTERNALMEASURE("Consumption Fee - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 8a750e58-9c7b-43a7-8f55-064296e92d97
+		sourceLineageTag: e4386505-75c7-4412-b1f3-fb5865350834
+		dataCategory: Uncategorized
+
+	measure 'Reverse Cash Settlement - Local' = EXTERNALMEASURE("Reverse Cash Settlement - Local", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 83897a6f-93ef-46fc-aa36-7ad1a9634cd0
+		sourceLineageTag: 92692ab6-97a0-4e97-8972-a737fd70ca80
+		dataCategory: Uncategorized
+
+	measure 'Reverse Cash Settlement - Rep' = EXTERNALMEASURE("Reverse Cash Settlement - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 2b40e0ee-21c7-4673-8655-0fe661f313a1
+		sourceLineageTag: f42b58f6-c1df-4de2-9c2b-c4829f82c523
+		dataCategory: Uncategorized
+
+	column 'Trade Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 38b04244-d058-4714-9c85-1017330401dd
+		sourceLineageTag: f2cba6ce-1912-411b-bd4a-ebdc7e71e705
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Trade Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Originating Sys No'
+		dataType: double
+		lineageTag: ee3d2e33-87c6-47ec-8558-3c8651caed26
+		sourceLineageTag: d8eab977-480b-457a-b92e-b1294cd48250
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Originating Sys No
+
+		annotation SummarizationSetBy = Automatic
+
+	column Source
+		dataType: string
+		lineageTag: 43cc1086-08f0-4f40-9814-0887c67b9e7c
+		sourceLineageTag: cbd7f548-1d26-409f-b6e2-7f8591b37270
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Cost Base'
+		dataType: double
+		lineageTag: 0940122e-c55e-4ac8-9646-836f3da7bccd
+		sourceLineageTag: 8d8b50a2-7dd5-4341-ab6a-60773e195def
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Transaction Cost Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Cost Local'
+		dataType: double
+		lineageTag: 6593a45b-d488-4567-b6f2-3cca83e98662
+		sourceLineageTag: 850ccfbf-9996-4166-8c35-3a5ae0bc7531
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Transaction Cost Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Cost Settle'
+		dataType: double
+		lineageTag: b78707a0-b8b9-4bbb-a78a-4d27318b1427
+		sourceLineageTag: 1220efec-be4b-4c60-b936-bfde8e091c17
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Transaction Cost Settle
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Calculation Basis'
+		dataType: string
+		lineageTag: 590a3b17-f870-4b19-ba30-78feb5284573
+		sourceLineageTag: 8b58966c-7b8a-4add-ad93-ce0c4eaa833b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Calculation Basis
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Category Of Cost'
+		dataType: string
+		lineageTag: 1b2a576d-5057-49ae-84a9-5e831ed2663f
+		sourceLineageTag: df3153d0-91b4-48f1-a488-56003be48952
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Category Of Cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cost
+		dataType: string
+		lineageTag: a467172d-50c6-4f32-a3e4-8bec2abfbc72
+		sourceLineageTag: 859f67cc-c234-4653-ae4e-a68bd1334d1c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cost_Name
+		dataType: string
+		lineageTag: 47bd1a9f-a9a5-451a-88a5-062e5297104b
+		sourceLineageTag: e13fa9cf-07db-4649-a9c3-1dc73952cb11
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Cost_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Disallow Manual Input'
+		dataType: string
+		lineageTag: 92446502-4e52-408e-861e-f48c91fef165
+		sourceLineageTag: bc0d5bba-7127-40c9-98cd-705f4ccfa2a5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Disallow Manual Input
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Finance Booking Date'
+		dataType: string
+		lineageTag: 47cece80-9159-4b10-ae26-cd5982a05029
+		sourceLineageTag: 8e8be5b7-25bc-4817-9a37-d7f5c7152156
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Finance Booking Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Settlement Amount'
+		dataType: string
+		lineageTag: c8ff796b-eea8-4dda-9863-cac8ad6496e4
+		sourceLineageTag: 0e261209-f32d-4f25-8d1b-b38ac98cea58
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Settlement Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Influence Yield'
+		dataType: string
+		lineageTag: fda85b14-2317-4d9e-a71e-718844ed76c8
+		sourceLineageTag: b1fea952-2740-494d-b191-5626752d59a7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Influence Yield
+
+		annotation SummarizationSetBy = Automatic
+
+	column Currency
+		dataType: string
+		lineageTag: d6273cae-2dc6-486a-aa50-edb95ee5ec13
+		sourceLineageTag: 3cdfb38e-8f0d-4700-aeaf-34758df18c35
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Sign'
+		dataType: string
+		lineageTag: f946c3de-b932-4e8c-bec6-d65ef78cd0a4
+		sourceLineageTag: 93cf755a-0fcb-4fe6-8db1-f24c6c1c616b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Cost Sign
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sort
+		dataType: double
+		lineageTag: 58ec2867-b221-4f90-a6ca-92cc83137b8d
+		sourceLineageTag: 9e83a27e-7813-4b87-a630-7c2b8e042a68
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Sort
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Type'
+		dataType: string
+		lineageTag: 22ffba73-ede0-4dd2-8951-1927410474ec
+		sourceLineageTag: 5866382b-a8dd-4759-9a09-06fdd566090d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Cost Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unit Cost'
+		dataType: string
+		lineageTag: af421929-2264-4a6c-b2d2-09fb35d928b2
+		sourceLineageTag: bae1c08b-3161-44a3-a7b2-c3b8d637216f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Unit Cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Amount Cost Currency'
+		dataType: double
+		lineageTag: a311c7b1-cd63-4ef1-812f-6ab76e062fbf
+		sourceLineageTag: bb8de659-417a-44c1-b9ca-bdd2c6abbced
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Amount Cost Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bus Trans No'
+		dataType: string
+		lineageTag: 5e8f7f45-8d99-41b4-9bd7-b9932cb47b2b
+		sourceLineageTag: 72966e66-4211-411f-a431-acc22778459e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bus Trans No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Date Full'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 264953d7-960c-4ed6-ab9e-5ff6830be3a2
+		sourceLineageTag: 72386b53-0e4b-4417-9369-0de4d8d8fff7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Cost Date Full
+
+		annotation SummarizationSetBy = Automatic
+
+	column Index
+		dataType: double
+		lineageTag: b7d2e97c-7e63-4b62-bc4c-6b4b69cea68e
+		sourceLineageTag: 2fbc61d5-baa0-4ae0-a7e2-a76dcd6b0e7c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Index
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost text'
+		dataType: string
+		lineageTag: dc0f6ff1-45da-4b78-8388-f5078338446e
+		sourceLineageTag: c6a05a60-3fd5-4f51-89a7-0db424c45e0f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Cost text
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fx Rate'
+		dataType: double
+		lineageTag: 8e3bd958-462f-4b66-b238-08f0310bcc5a
+		sourceLineageTag: 7b55e6ec-a035-482b-9094-11a543947f99
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Fx Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Leg No'
+		dataType: int64
+		formatString: 0
+		lineageTag: 38f392cb-b478-4c20-be35-6adb56e2cfd8
+		sourceLineageTag: 9de1fcad-b4ef-4c23-9379-8d13d330f5cb
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Leg No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nett or Gross No'
+		dataType: double
+		lineageTag: 7118618d-c143-4056-9b1f-a7387f7dfac8
+		sourceLineageTag: 9fd48a1c-bee9-4311-8f80-5ab0cbe8ae46
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Nett or Gross No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Leg Identifiers'
+		dataType: double
+		lineageTag: ecca7163-8176-4083-a463-fbda4f050f5e
+		sourceLineageTag: 7d2d0dd1-302e-458d-93c9-47d5247d32b5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Leg Identifiers
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction IK'
+		dataType: string
+		lineageTag: 3af72839-f841-4faf-a219-9c665a5ba83e
+		sourceLineageTag: 3e84ef5c-a271-4b15-8175-aad2dfa5c44f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Transaction IK
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Settlement Date Contractual'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: f8046463-14d6-40d5-97d2-90cebc25a80b
+		sourceLineageTag: 95010036-43be-4840-89b7-c5a6b4350c09
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Settlement Date Contractual
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src User Created ID'
+		dataType: string
+		lineageTag: ee4981de-7a46-4933-aa45-efd6ca5aa36a
+		sourceLineageTag: 1d39d72b-6bd3-49b7-986e-08c6d7a3f584
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src User Created ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src User Created Name'
+		dataType: string
+		lineageTag: 37715c5f-4a4e-4e8a-9f6d-d0a8995dfbd6
+		sourceLineageTag: 99dca7d7-32c1-4d04-bef3-0ec7f0fc7935
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src User Created Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: 18ed3f40-4b8c-44cc-9b90-a5b2c6104e83
+		sourceLineageTag: e53e0205-38d8-48e9-8402-ecfc1e71776b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ML Business Group'
+		dataType: string
+		lineageTag: 9975193e-6347-41e2-88e4-87646867e831
+		sourceLineageTag: eb10456e-d8ed-4398-a3bd-5197d324dc9f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ML Business Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valuation Cycle'
+		dataType: string
+		lineageTag: 79316f69-c774-47d3-b459-75eba0489b2f
+		sourceLineageTag: a355711b-99c1-480a-bb13-57a9630c8380
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Valuation Cycle
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Owner Type'
+		dataType: string
+		lineageTag: c7322ed0-cbac-44f9-a033-4dbf9ba212ca
+		sourceLineageTag: 97718186-5b7f-4bb9-9ab9-5d0dc50c14a8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Owner Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mim Public Market Entity Ind'
+		dataType: string
+		lineageTag: 56010f6e-f735-4be2-8dff-e6fdd3b98bc7
+		sourceLineageTag: 57fbfada-30a9-4b5b-ae1c-eb98640ddbe3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Mim Public Market Entity Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Investment Mandate Code'
+		dataType: string
+		lineageTag: f4353115-4862-40de-aa3d-7b0a4477473f
+		sourceLineageTag: 871dc014-5c10-4824-824a-a28b91b5909e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Investment Mandate Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Created Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd hh:nn:ss AM/PM
+		lineageTag: 27650bbd-289b-4ab8-ab3f-2dc8c7abcdc7
+		sourceLineageTag: 7f3ee810-f45b-4bae-ae85-bb375956d33c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Created Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Updated Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd hh:nn:ss AM/PM
+		lineageTag: a2956bda-7417-4eee-ab89-39b40dea13b2
+		sourceLineageTag: aac1851d-5ee7-4797-b91b-e299ab02480b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Updated Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cost_NK
+		dataType: string
+		lineageTag: 3585d10f-afe8-4163-b3f5-72edb7e99151
+		sourceLineageTag: 0d749ca4-95bb-47f4-aeda-bac82290bd3e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Cost_NK
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FX Join Key'
+		dataType: string
+		lineageTag: feb12313-5861-44e5-92d1-bedf595fa4c6
+		sourceLineageTag: 31f83132-d195-44df-9ac8-93d04c984ca2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FX Join Key
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Securities Transaction Costs GA Fact-fac54832-7ea8-4499-a799-6424fe9e95b1' = entity
+		mode: directQuery
+		source
+			entityName: Securities Transaction Costs GA Fact
+			expressionSource: 'DirectQuery to AS - Securities'
+

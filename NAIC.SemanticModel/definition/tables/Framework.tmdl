@@ -1,0 +1,31 @@
+table Framework
+	lineageTag: 4a41a9ec-0771-4350-b206-6c0e63e102ac
+	sourceLineageTag: 7bb6ea1f-5df4-4d32-b950-9e35d71030b0
+
+	column Framework
+		dataType: string
+		isNullable: false
+		lineageTag: 68234131-8a58-4291-9572-df9d074868a0
+		sourceLineageTag: 9ccf6fbd-6e8d-4b18-b7ee-b1f065e81cce
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Framework
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Framework Display'
+		dataType: string
+		lineageTag: 1e762bae-23d0-439e-bb7b-665a961fa9e3
+		sourceLineageTag: e1289ce8-d967-47e0-b39c-3bd625cecc40
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Framework Display
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Framework-af7f5d07-9bc6-47cd-b26a-f7f76d9e4e18 = entity
+		mode: directQuery
+		source
+			entityName: Framework
+			expressionSource: 'DirectQuery to AS - Securities'
+

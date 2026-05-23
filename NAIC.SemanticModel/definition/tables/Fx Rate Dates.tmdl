@@ -1,0 +1,22 @@
+table 'Fx Rate Dates'
+	isHidden
+	lineageTag: 4e050604-95ac-4c90-b2fa-b0cd20d06ee8
+	sourceLineageTag: 0364f8b7-d39d-46f7-872a-4240722fd5e0
+
+	column 'Quarter End Selection'
+		dataType: string
+		isHidden
+		lineageTag: eabf366d-b51e-4ba6-8226-7dcc5c6dcb5c
+		sourceLineageTag: e8d221ab-3f63-4102-a6e3-da32f52704d0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Quarter End Selection
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Fx Rate Dates-615bce6f-f8b7-4fc9-9e6f-c3ccf0f7b8a9' = entity
+		mode: directQuery
+		source
+			entityName: Fx Rate Dates
+			expressionSource: 'DirectQuery to AS - Securities'
+

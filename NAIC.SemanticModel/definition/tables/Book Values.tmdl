@@ -1,0 +1,21 @@
+table 'Book Values'
+	isHidden
+	lineageTag: 8b0a6e8d-2d30-47b9-b071-557485615b70
+	sourceLineageTag: 2cb8503f-06ad-45a3-8fa0-128a6558492d
+
+	column 'Book Values'
+		dataType: string
+		lineageTag: eefe0b92-a7b5-45ef-80b2-0f92f35e8c48
+		sourceLineageTag: 7c8d6360-e432-48b1-875c-556cda994647
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Book Values
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Book Values-fb2b62cc-e081-428d-b13c-6767d033baf7' = entity
+		mode: directQuery
+		source
+			entityName: Book Values
+			expressionSource: 'DirectQuery to AS - Securities'
+

@@ -1,0 +1,22 @@
+table 'Portfolio Change Types'
+	isHidden
+	lineageTag: 7386d671-95fb-44f3-9727-58bfc45c1094
+	sourceLineageTag: e677b8d4-2a1d-4b74-8332-ad482b2b158b
+
+	column Type
+		dataType: string
+		isHidden
+		lineageTag: 3be8b4f5-819d-4397-94f9-6351ee71d88a
+		sourceLineageTag: de084316-7a6e-4e1d-bc4e-f49f0696c396
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Portfolio Change Types-65ebccea-64c2-4bab-9423-9decabd1fd5f' = entity
+		mode: directQuery
+		source
+			entityName: Portfolio Change Types
+			expressionSource: 'DirectQuery to AS - Securities'
+

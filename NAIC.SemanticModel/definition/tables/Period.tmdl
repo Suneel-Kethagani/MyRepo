@@ -1,0 +1,312 @@
+table Period
+	lineageTag: a7504159-aebe-4d70-bd07-0427b14c3c67
+	sourceLineageTag: 3b0a7758-758d-441c-9972-811cefe2258c
+
+	measure 'Position Data' = EXTERNALMEASURE("Position Data", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		lineageTag: 9a79c8fe-657a-47ee-9d0d-d2d80bd62b60
+		sourceLineageTag: 9ca00e0d-dd5f-400b-b9f0-0ebaa04c7f1e
+		dataCategory: Uncategorized
+
+	measure 'Look Through Data' = EXTERNALMEASURE("Look Through Data", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		lineageTag: 839ef137-94f3-423d-bc7a-68b434dd43cc
+		sourceLineageTag: 740611d2-bee7-428c-bc56-933570fea609
+		dataCategory: Uncategorized
+
+	column Date
+		dataType: dateTime
+		isNullable: false
+		formatString: yyyy\-mm\-dd
+		lineageTag: c5e32536-4a88-49f7-99e8-1892e39fca1f
+		sourceLineageTag: c7f4e5c3-e8cf-464f-b952-3b5539e646e5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month No'
+		dataType: int64
+		formatString: 0
+		lineageTag: cca659ae-b2f1-4570-b6f8-f8f8218f88f4
+		sourceLineageTag: e8b02a05-a808-431d-8de9-a7114871cdf8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Month No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Short Name'
+		dataType: string
+		lineageTag: 2dee9467-b79c-4a7c-a906-372331b7bad1
+		sourceLineageTag: 7b819263-1d0f-4ce1-ac25-c6e129297cb6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Month Short Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Name'
+		dataType: string
+		lineageTag: ec8f50de-e2c6-4720-9419-89f9604770d5
+		sourceLineageTag: 0ca02002-9e4c-4c54-a5bf-d1b8dd6e3baf
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Month Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Quarter Name'
+		dataType: string
+		lineageTag: 6a139c59-bcba-4932-8a5a-d047a1074dfa
+		sourceLineageTag: 07f545d4-117b-482e-b579-5513bcc66d1e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Quarter Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: cf96aa97-ebc3-41ac-bba7-52b5ab2fcd9e
+		sourceLineageTag: c314f8f8-ae24-4383-88db-a70ded3fc5cc
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Weekday
+		dataType: string
+		lineageTag: 7ea08b16-d30b-4b84-a874-4e8b88c0b610
+		sourceLineageTag: fe8df18b-5f4b-48c9-b52c-09c306eef21e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Weekday
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day of Week'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7ae13b53-eaf3-4922-96fd-e0215ef8a241
+		sourceLineageTag: 1220d50a-7f0a-407a-9e9f-a73d63e05b23
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Day of Week
+
+		annotation SummarizationSetBy = Automatic
+
+	column Period
+		dataType: int64
+		formatString: 0
+		lineageTag: c8631c21-8f1d-41ae-abb3-c5c8817851c5
+		sourceLineageTag: 40fdb779-b868-415e-9f8c-a7009be5887a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'End of Month'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 721d8352-3cfc-491e-9297-d0174690a3ba
+		sourceLineageTag: 7fe6a427-1867-41fa-b754-ed3fcc4811a3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: End of Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'End of Quarter'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 62968f0c-09dc-451e-b93c-aa355e51b23d
+		sourceLineageTag: 7c611265-0814-4262-ae13-9ef1f60a1b6f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: End of Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Start of Month'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 3290e87e-c906-4086-b1bb-74022d95afb5
+		sourceLineageTag: 98971c5a-652a-4048-8d89-eab1f1f10231
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Start of Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Start of Quarter'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 432d95b8-27f8-47df-9e27-dfab282d54af
+		sourceLineageTag: f9e0828f-daa9-47e3-bc1d-6a431977c18b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Start of Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: string
+		lineageTag: a4d1d3fc-6f4a-4499-9811-d88e07ae454d
+		sourceLineageTag: 7f179aab-f091-4d68-b196-89a076921244
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		dataType: string
+		lineageTag: a3d54a2f-518a-45e2-b8b6-07c1445dedbc
+		sourceLineageTag: 88be9ef2-3373-479a-9bda-4a68ad4d3607
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Latest Month Period'
+		dataType: string
+		lineageTag: 54a96152-ddb1-4b60-bf0a-b4683d2047b3
+		sourceLineageTag: f164fd79-a8a5-4154-8ff1-10fd14faf82d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Latest Month Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Prior Month Period'
+		dataType: string
+		lineageTag: 688f2130-4fa2-4d4e-9536-92364cd69854
+		sourceLineageTag: 8d2ce5dd-ef02-4da8-bc4e-43ca59df4e22
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Prior Month Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Latest Period Display'
+		dataType: string
+		lineageTag: 6aede703-b07f-4b34-849e-34e61e64d825
+		sourceLineageTag: 23ba4cd5-4bb4-4372-bc28-2c99e6a00d1b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Latest Period Display
+		sortByColumn: Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Future Period'
+		dataType: string
+		lineageTag: 231e14eb-0e1f-4999-be30-9973544a3171
+		sourceLineageTag: bd4807ae-f53a-4633-ab01-1ab16334f587
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Future Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sec Pos As Of Date'
+		dataType: dateTime
+		isHidden
+		formatString: yyyy\-mm\-dd
+		lineageTag: cf2dbc7f-ba4c-4189-b624-166306739014
+		sourceLineageTag: 488fbfe0-611e-4bec-b8dc-dbb904c1c342
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sec Pos As Of Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sec Pos Prior Month Period'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 5e74d47d-aa8a-4916-a8f4-29a12018d304
+		sourceLineageTag: 60f1deb8-d786-4e6d-9ed8-0ba93450e5db
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Sec Pos Prior Month Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sec Pos Latest Month Period'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b5cb4454-fe95-45dc-9023-dd18f3900e39
+		sourceLineageTag: 8fb670a1-aef0-47e4-8166-40dd294735da
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Sec Pos Latest Month Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sec Pos Latest Period Display'
+		dataType: string
+		lineageTag: 771d4b19-0b35-4a33-b2b7-4bccddef1dd8
+		sourceLineageTag: 4b773d43-c5b0-40f3-8c70-18caf99e3607
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sec Pos Latest Period Display
+		sortByColumn: Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sec Pos Future Period'
+		dataType: string
+		isHidden
+		lineageTag: 32623a60-ab46-4d1c-8374-81a53021032e
+		sourceLineageTag: 94eaa1b7-40a5-4fef-baf4-00b88287fa76
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sec Pos Future Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As Of Date Page Slicer'
+		dataType: string
+		lineageTag: 476bf6b4-07b9-4688-b2fb-505360459c3b
+		sourceLineageTag: 64f9c28a-ed48-47aa-9271-343396fbbdc2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: As Of Date Page Slicer
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Look Pos As Of Date'
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: c656e000-70a6-4266-856a-e10df84210ec
+		sourceLineageTag: b8cc3a21-f8c5-43ef-b920-f82e5e85bcb8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Look Pos As Of Date
+
+		annotation SummarizationSetBy = User
+
+	column 'As Of Date Page Slicer (Lookthrough)'
+		dataType: string
+		lineageTag: 20e07395-23e0-4276-8aa1-2816cfddecc7
+		sourceLineageTag: a0cefc26-4486-4866-94d1-3fd0ff8525d1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: As Of Date Page Slicer (Lookthrough)
+
+		annotation SummarizationSetBy = User
+
+	partition Period-0856cdbd-7af9-425b-b5d3-167f10e8f08f = entity
+		mode: directQuery
+		source
+			entityName: Period
+			expressionSource: 'DirectQuery to AS - Securities'
+

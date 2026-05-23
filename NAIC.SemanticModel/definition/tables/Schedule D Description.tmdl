@@ -1,0 +1,52 @@
+table 'Schedule D Description'
+	lineageTag: 074671dc-1405-4604-8e82-4d7f9a653c1a
+
+	column 'SUBCLASS CODE'
+		dataType: string
+		lineageTag: 8d7e8aa7-c563-4a6e-902e-def7ca4fab04
+		summarizeBy: none
+		sourceColumn: SUBCLASS CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SUBCLASS DESC'
+		dataType: string
+		lineageTag: 46aebf26-f115-4265-88b8-87dd90dbdc21
+		summarizeBy: none
+		sourceColumn: SUBCLASS DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column mytestingcolumn =
+			TODAY()
+			// TESTING PURPOSE
+		formatString: General Date
+		lineageTag: afb14dde-5058-4e3a-93cd-c5cf2a04d84a
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: 64857c65-ef4f-4611-a4b6-b639e85c182b
+			defaultHierarchy: LocalDateTable_4bd1c502-9b78-4a05-bc6b-e5ab99c20eb5.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Schedule D Description-6b7919d7-4bf3-4da6-8f2a-e530e4f385c5' = m
+		mode: import
+		source =
+				let
+				    Source = SharePoint.Files("https://mfc.sharepoint.com/sites/GAFlatFiles", [ApiVersion = 15]),
+				    #"Filtered Rows" = Table.SelectRows(Source, each ([Name] = "Sched D translation.xlsx")),
+				    #"Filtered Hidden Files1" = Table.SelectRows(#"Filtered Rows", each [Attributes]?[Hidden]? <> true),
+				    #"Invoke Custom Function1" = Table.AddColumn(#"Filtered Hidden Files1", "Transform File", each #"Transform File"([Content])),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Invoke Custom Function1", {"Name", "Source.Name"}),
+				    #"Removed Other Columns1" = Table.SelectColumns(#"Renamed Columns1", {"Source.Name", "Transform File"}),
+				    #"Expanded Table Column1" = Table.ExpandTableColumn(#"Removed Other Columns1", "Transform File", Table.ColumnNames(#"Transform File"(#"Sample File"))),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Expanded Table Column1",{{"Source.Name", type text}, {"MAXIMIS SUBCLASS CODE", type any}, {"MAXIMIS SUBCLASS DESC", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Source.Name"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Columns",{{"MAXIMIS SUBCLASS CODE", "SUBCLASS CODE"}, {"MAXIMIS SUBCLASS DESC", "SUBCLASS DESC"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+

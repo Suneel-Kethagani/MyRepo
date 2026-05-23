@@ -1,0 +1,730 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 2345.2055630618579,
+        "y": 827.39723937152178
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 989.8,
+            "y": 818
+          },
+          "nodeIndex": "Accounting Unit",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1207.5,
+            "y": 349.3
+          },
+          "nodeIndex": "Company",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2014.1,
+            "y": 1445.7
+          },
+          "nodeIndex": "Framework",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1932.2,
+            "y": 1076.2
+          },
+          "nodeIndex": "Period",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1616.4,
+            "y": 976.9
+          },
+          "nodeIndex": "Portfolios",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 5599.1,
+            "y": 1223.8
+          },
+          "nodeIndex": "Reporting Currency",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2345,
+            "y": 976.9
+          },
+          "nodeIndex": "Securities Position Fact",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7976.5,
+            "y": 0
+          },
+          "nodeIndex": "Schedule D Description",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 10056.5,
+            "y": 620.3
+          },
+          "nodeIndex": "Entities",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 10953,
+            "y": 1061
+          },
+          "nodeIndex": "Fx Rate Dates",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 12529,
+            "y": 1061
+          },
+          "nodeIndex": "Portfolio Change Types",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 9807.3,
+            "y": 432
+          },
+          "nodeIndex": "Securities",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 12933.8,
+            "y": 754.1
+          },
+          "nodeIndex": "Assumptions Slicer",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 13338.6,
+            "y": 754.1
+          },
+          "nodeIndex": "Book Values",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 13743.4,
+            "y": 730.1
+          },
+          "nodeIndex": "CAT Adjmt Config Table",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 14875,
+            "y": 559.3
+          },
+          "nodeIndex": "Fx Rate DQ",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 16081.1,
+            "y": 754.1
+          },
+          "nodeIndex": "Impairment Slicer",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 16485.9,
+            "y": 742.1
+          },
+          "nodeIndex": "Index Attributes",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 16890.7,
+            "y": 656.1
+          },
+          "nodeIndex": "Index Constituent",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 17295.6,
+            "y": 682.1
+          },
+          "nodeIndex": "Indonesian FX Rate",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 18105.2,
+            "y": 656.1
+          },
+          "nodeIndex": "Maximis CTA Holdings Fact",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 15365.5,
+            "y": 1971.7
+          },
+          "nodeIndex": "Month End Dates (Security)",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 14851.4,
+            "y": 1030.1
+          },
+          "nodeIndex": "Portfolios Attributes",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 14374.7,
+            "y": 1171.4
+          },
+          "nodeIndex": "Post Hour",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 18510,
+            "y": 656.1
+          },
+          "nodeIndex": "Securities Elim Lot Fact",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 14446.6,
+            "y": 1320
+          },
+          "nodeIndex": "Securities GL Txn fact",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 15257.8,
+            "y": 0
+          },
+          "nodeIndex": "Securities JVE Fact",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 14750.8,
+            "y": 197.4
+          },
+          "nodeIndex": "Securities Lookthrough Position Fact",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 15676.3,
+            "y": 1320.7
+          },
+          "nodeIndex": "Securities Lots Fact",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 15125.6,
+            "y": 470.8
+          },
+          "nodeIndex": "Securities Sublot Fact",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 15271.5,
+            "y": 941.6
+          },
+          "nodeIndex": "Securities Tax Lot Deferred Pl Fact",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 14148.3,
+            "y": 671.3
+          },
+          "nodeIndex": "Securities Transaction Costs GA Fact",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 14553.1,
+            "y": 700.6
+          },
+          "nodeIndex": "Securities Transaction GA Fact",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 19319.6,
+            "y": 658.1
+          },
+          "nodeIndex": "Security Ratings Periods Fact",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 20534.1,
+            "y": 754.1
+          },
+          "nodeIndex": "Target Loss",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 20938.9,
+            "y": 656.1
+          },
+          "nodeIndex": "Total Market Value GA Fact",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 21343.7,
+            "y": 670.1
+          },
+          "nodeIndex": "Transaction History Slicer",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 21748.5,
+            "y": 754.1
+          },
+          "nodeIndex": "Unfunded Slicer",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 22178,
+            "y": 14
+          },
+          "nodeIndex": "Cat Staging Text Fact",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 22607.6,
+            "y": 0
+          },
+          "nodeIndex": "Country Dim",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 23037.1,
+            "y": 0
+          },
+          "nodeIndex": "Securities Elim Transaction PL Tax Lot Fact",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "Adjust GL Reclass Fact",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 23321.1,
+            "y": 0
+          },
+          "nodeIndex": "Accounting Framework Philosophy",
+          "nodeLineageTag": "c02c48bd-c972-4277-bfaf-7741b3dbd4ae",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 23745.334066349849,
+            "y": 0
+          },
+          "nodeIndex": "Portfolios-Bank Accounts",
+          "nodeLineageTag": "88360b65-8b59-4be3-b664-07ccea7b1731",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 24169.568132699704,
+            "y": 0
+          },
+          "nodeIndex": "Securities Elim Transaction PL Tax Lot AOCI Fact",
+          "nodeLineageTag": "2aaacc27-d812-4a86-912c-d0bce65ed73d",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 24593.802199049554,
+            "y": 0
+          },
+          "nodeIndex": "Securities GL Txn fact - Elim",
+          "nodeLineageTag": "65a773e5-b2c3-4394-8ac4-c01fcfa3a6d1",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 25018.036265399409,
+            "y": 0
+          },
+          "nodeIndex": "Securities Transaction AOCI GA Fact",
+          "nodeLineageTag": "7d9a3b5c-022b-467c-97f0-ffdd71e3d7a5",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 25302.036265399409,
+            "y": 0
+          },
+          "nodeIndex": "Data Dictionary",
+          "nodeLineageTag": "fa65295b-c5ff-4689-8af2-bd2bc1803116",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 25726.27033174926,
+            "y": 0
+          },
+          "nodeIndex": "Demo_Dictionary",
+          "nodeLineageTag": "eaf3e91f-e1ba-49be-9576-1cb5ff8d7b81",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 97.333333333333343,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 1,
+      "scrollPosition": {
+        "x": 0,
+        "y": 100
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 5.3333320617675781,
+            "y": -25
+          },
+          "nodeIndex": "Company",
+          "nodeLineageTag": "30977aa5-ecf8-42f5-b05a-70ba9428ea5b",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 1,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 283.33333206176758,
+            "y": 11
+          },
+          "nodeIndex": "Accounting Unit",
+          "nodeLineageTag": "935d3158-11db-47cf-8718-9f819176921a",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 2,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 621.33333206176758,
+            "y": 30
+          },
+          "nodeIndex": "Securities Position Fact",
+          "nodeLineageTag": "edc4ab73-1a02-4c56-b34f-1b3c4aa30d0a",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 3,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 239,
+            "y": 208
+          },
+          "nodeIndex": "Portfolios",
+          "nodeLineageTag": "fb6115d9-d254-4a2b-adf7-f5a6acc24ad3",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 4,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 513.33333206176758,
+            "y": 244
+          },
+          "nodeIndex": "Securities Transaction GA Fact",
+          "nodeLineageTag": "9293577b-ee3d-47ab-ab30-d6ed49db4a5f",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 300
+        }
+      ],
+      "name": "Layout 1",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 2,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 165.33333206176758,
+            "y": 45
+          },
+          "nodeIndex": "Accounting Unit",
+          "nodeLineageTag": "935d3158-11db-47cf-8718-9f819176921a",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Layout 2",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Layout 2",
+  "defaultDiagram": "All tables"
+}

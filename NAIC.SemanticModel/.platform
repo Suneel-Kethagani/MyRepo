@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "NAIC"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "3f7bcb83-f6a0-42f6-877b-f9fb04af0a80"
+  }
+}

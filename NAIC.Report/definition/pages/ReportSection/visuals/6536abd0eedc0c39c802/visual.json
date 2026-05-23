@@ -1,0 +1,1691 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "6536abd0eedc0c39c802",
+  "position": {
+    "x": 23.721275018532246,
+    "y": 133.78799110452186,
+    "z": 0,
+    "height": 568.36174944403263,
+    "width": 1256.2787249814678,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "As Of Date"
+                }
+              },
+              "queryRef": "Securities Position Fact.As Of Date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Accounting Unit"
+                    }
+                  },
+                  "Property": "Legal ID"
+                }
+              },
+              "queryRef": "Accounting Unit.Legal ID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Primary ID_Final_Derived"
+                }
+              },
+              "queryRef": "Securities Position Fact.Primary ID_Final_Derived",
+              "displayName": "Primary Security ID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "SCD Security ID"
+                }
+              },
+              "queryRef": "Securities Position Fact.SCD Security ID"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Cusip (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Cusip (Sec Pos)",
+              "displayName": "Cusip (Sec Pos)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "ML Private Asset ID (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.ML Private Asset ID (Sec Pos)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities"
+                    }
+                  },
+                  "Property": "ID Cins"
+                }
+              },
+              "queryRef": "Securities.ID Cins"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Sedol (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Sedol (Sec Pos)",
+              "displayName": "Sedol (Sec Pos)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Isin (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Isin (Sec Pos)",
+              "displayName": "Isin (Sec Pos)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "SR Loan (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.SR Loan (Sec Pos)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Bpl Issuer (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Bpl Issuer (Sec Pos)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Security Name (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Security Name (Sec Pos)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Asset Group (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Asset Group (Sec Pos)",
+              "displayName": "Asset Group (Sec Pos)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities"
+                    }
+                  },
+                  "Property": "Asset Class"
+                }
+              },
+              "queryRef": "Securities.Asset Class"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "GL Class"
+                }
+              },
+              "queryRef": "Securities Position Fact.GL Class"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "ML NAIC Instrument Type Cd (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.ML NAIC Instrument Type Cd (Sec Pos)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Portfolio Code Extract"
+                }
+              },
+              "queryRef": "Securities Position Fact.Portfolio Code Extract",
+              "displayName": "Portfolio Code"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Accounting Unit"
+                    }
+                  },
+                  "Property": "Subfund ID"
+                }
+              },
+              "queryRef": "Accounting Unit.Subfund ID",
+              "displayName": "Subfund ID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Local"
+                }
+              },
+              "queryRef": "Securities Position Fact.Local",
+              "displayName": "Local"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "SCD Security Type"
+                }
+              },
+              "queryRef": "Securities Position Fact.SCD Security Type"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Private Placement (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Private Placement (Sec Pos)",
+              "displayName": "Private Placement (Sec Pos)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities"
+                    }
+                  },
+                  "Property": "Private Placement (Adj)"
+                }
+              },
+              "queryRef": "Securities.Private Placement (Adj)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "ML NAIC Report Part Cd (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.ML NAIC Report Part Cd (Sec Pos)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities"
+                    }
+                  },
+                  "Property": "144A Flag_Derived"
+                }
+              },
+              "queryRef": "Securities.144A Flag_Derived",
+              "displayName": "144A Flag"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities"
+                    }
+                  },
+                  "Property": "Maturity Date"
+                }
+              },
+              "queryRef": "Securities.Maturity Date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities"
+                    }
+                  },
+                  "Property": "Issue Dt"
+                }
+              },
+              "queryRef": "Securities.Issue Dt",
+              "displayName": "Issue Dt"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Country of Incorporation (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Country of Incorporation (Sec Pos)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Country Of Issue (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Country Of Issue (Sec Pos)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "State Code (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.State Code (Sec Pos)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "ML SD Class Desc (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.ML SD Class Desc (Sec Pos)",
+              "displayName": "ML SD Class Desc (Sec Pos)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "ML SD Type Desc (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.ML SD Type Desc (Sec Pos)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "NAIC Designation (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.NAIC Designation (Sec Pos)",
+              "displayName": "NAIC Designation (Sec Pos)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Numeric/Alpha Des"
+                }
+              },
+              "queryRef": "Securities Position Fact.Numeric/Alpha Des"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "ML IFRS 13 Level (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.ML IFRS 13 Level (Sec Pos)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Units"
+                }
+              },
+              "queryRef": "Securities Position Fact.Units",
+              "displayName": "Units"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Original Cost - Local"
+                }
+              },
+              "queryRef": "Securities Position Fact.Original Cost - Local",
+              "displayName": "Original Cost - Local"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Book Value - Local"
+                }
+              },
+              "queryRef": "Securities Position Fact.Book Value - Local",
+              "displayName": "Book Value - Local"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Carrying Value - Local"
+                }
+              },
+              "queryRef": "Securities Position Fact.Carrying Value - Local"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Carrying Value - Rep (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Carrying Value - Rep (Sec Pos)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Adjustment"
+                }
+              },
+              "queryRef": "Securities Position Fact.Adjustment"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Final BACV"
+                }
+              },
+              "queryRef": "Securities Position Fact.Final BACV"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Final Sch DA BACV"
+                }
+              },
+              "queryRef": "Securities Position Fact.Final Sch DA BACV"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Final Sch E2 BACV"
+                }
+              },
+              "queryRef": "Securities Position Fact.Final Sch E2 BACV"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "Fair Value Unaccrued - Local (D)"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Securities Position Fact.Fair Value Unaccrued - Local (D))"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Securities Position Fact"
+                    }
+                  },
+                  "Property": "Fair Value Unaccrued - Rep (Sec Pos)"
+                }
+              },
+              "queryRef": "Securities Position Fact.Fair Value Unaccrued - Rep (Sec Pos)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "Modified Duration YC"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Securities Position Fact.Modified Duration YC)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Securities Position Fact"
+                        }
+                      },
+                      "Property": "Convexity"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Securities Position Fact.Convexity)"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "436.4311494280955D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Securities Position Fact.ML SD Class Desc (Sec Pos)"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#21DA5C'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "Filter6598a1ba74c715703993",
+        "ordinal": 0,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Maturity Date (Sec Pos)"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "Filter1377e2101d809048460a",
+        "ordinal": 1,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Issue Dt (Sec Pos)"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "Filter39920236109ab4e32866",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Asset Group (Sec Pos)"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "s",
+              "Entity": "Securities Position Fact",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "s"
+                              }
+                            },
+                            "Property": "Asset Group (Sec Pos)"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Cash'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Liquidity Pool'"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "Filter2b3a7ed4aa00203a4ec8",
+        "ordinal": 3,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Accounting Unit"
+              }
+            },
+            "Property": "Subfund ID"
+          }
+        },
+        "type": "Categorical",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "Filter0da04e374241090c1006",
+        "ordinal": 4,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Accounting Unit"
+              }
+            },
+            "Property": "Legal ID"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "a",
+              "Entity": "Accounting Unit",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "a"
+                          }
+                        },
+                        "Property": "Legal ID"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'0019'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'0026'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'0094'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'0102'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'0203'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'0458'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "Filter9e854481143beb989e99",
+        "ordinal": 5,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Portfolios"
+              }
+            },
+            "Property": "Separate Account Ind"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "p",
+              "Entity": "Portfolios",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 0,
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "p"
+                        }
+                      },
+                      "Property": "Separate Account Ind"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "null"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "Filter855d3f657e9dc91425aa",
+        "ordinal": 6,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Cusip (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filtera6dd969207c2974fb3fe",
+        "ordinal": 7,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Sedol (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter73f518e13b9a480b7e6d",
+        "ordinal": 8,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Isin (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter8552ab168d0fbf196c0a",
+        "ordinal": 9,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Portfolio Code Extract"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filter2610132a68b6a6be76ea",
+        "ordinal": 10,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Local"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filter81aa55df823cc5c395ad",
+        "ordinal": 11,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "NAIC Designation (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterffba5a039848f1721468",
+        "ordinal": 12,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Units"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterc5daeb9ef071cafbe722",
+        "ordinal": 13,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Original Cost - Local"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter3ce7b9e923c06c07d45e",
+        "ordinal": 14,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Book Value - Local"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter053e5c44f6892f067035",
+        "ordinal": 15,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Modified Duration YC"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter603d459941578be55cd3",
+        "ordinal": 16,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Securities Position Fact"
+                  }
+                },
+                "Property": "Convexity"
+              }
+            },
+            "Function": 1
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "Filterc9c5aabad32b7e2fab21",
+        "ordinal": 17,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Fair Value Unaccrued - Local"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "Filter24190d98e4b2c1938843",
+        "ordinal": 18,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities"
+              }
+            },
+            "Property": "Asset Class"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filtera7fa84d15b053a0eff80",
+        "ordinal": 19,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Adjustment"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter7705d3d0e235feea9e34",
+        "ordinal": 20,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities"
+              }
+            },
+            "Property": "Maturity Date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filter099bbc37f112be344c0e",
+        "ordinal": 21,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities"
+              }
+            },
+            "Property": "Issue Dt"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filterc43f990231cb7f0f0525",
+        "ordinal": 22,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "GL Class"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filter69bb25de7acb4b12a748",
+        "ordinal": 23,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "ML SD Class Desc (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterfb97dc504f80203564fe",
+        "ordinal": 24,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Private Placement (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter66925d5d7cf042aa1b87",
+        "ordinal": 25,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "SCD Security Type"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filter23816229ab869555357b",
+        "ordinal": 26,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "SR Loan (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter273a637b9250f796db4c",
+        "ordinal": 27,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "ML IFRS 13 Level (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter26527de013142e9f7a9a",
+        "ordinal": 28,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Bpl Issuer (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter8cc6a97a1475dca7affd",
+        "ordinal": 29,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Fair Value Unaccrued - Rep (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterc744e031a8a1cb25adaa",
+        "ordinal": 30,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Carrying Value - Rep (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter3ff17de8e62153fa8b50",
+        "ordinal": 31,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Carrying Value - Local"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter680662f538c51a64d241",
+        "ordinal": 32,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "ML NAIC Report Part Cd (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter95d3d5ad4cfb342d099d",
+        "ordinal": 33,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities"
+              }
+            },
+            "Property": "ID Cins"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filter9629f2a16e8ed6d628f8",
+        "ordinal": 34,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Country Of Issue (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter6d4a8858306cc2a6da7b",
+        "ordinal": 35,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "State Code (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filterd31fd338519c940c9c20",
+        "ordinal": 36,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Country of Incorporation (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter759458f9b4aacbcfc4cc",
+        "ordinal": 37,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "SCD Security ID"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filter8f9449785d3766f2292a",
+        "ordinal": 38,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "ML Private Asset ID (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter17d675293e220bd623ef",
+        "ordinal": 39,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Numeric/Alpha Des"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter49ea64a59f709a87f5ed",
+        "ordinal": 40,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Security Name (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter6da67b184cc7fde26768",
+        "ordinal": 41,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Adjustment_USD"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "Filter118f6caca20a90166c51",
+        "ordinal": 42,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Final BACV_USD"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "Filterae1ad0859a400e028aa0",
+        "ordinal": 43,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Final Sch DA BACV_USD"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "Filterb028bb522c21fa70a4bd",
+        "ordinal": 44,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Final Sch E2 BACV_USD"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "Filter4bfe0ec28eeccaca4b6c",
+        "ordinal": 45,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "Primary ID_Final_Derived"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filter16daf6436bec7fedb78d",
+        "ordinal": 46,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "As Of Date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filter8ca21add6dcfa85e76a6",
+        "ordinal": 47,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "ML SD Type Desc (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "Filter5ccf0fc64f5a1c6829dd",
+        "ordinal": 48,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities"
+              }
+            },
+            "Property": "144A Flag_Derived"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "Filterf124ccc28c5efd1d5e8d",
+        "ordinal": 49,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Position Fact"
+              }
+            },
+            "Property": "ML NAIC Instrument Type Cd (Sec Pos)"
+          }
+        },
+        "type": "Advanced"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  }
+}

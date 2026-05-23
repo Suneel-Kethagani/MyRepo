@@ -1,0 +1,22 @@
+table 'Unfunded Slicer'
+	isHidden
+	lineageTag: ca931b68-c1bd-49a6-b691-c4bd47650993
+	sourceLineageTag: ea04bcb1-4ea6-4a73-ac72-4c727b5ade0a
+
+	column Value
+		dataType: string
+		isHidden
+		lineageTag: f4e44e61-1233-414b-a82c-97a0e48abc54
+		sourceLineageTag: 1572e58e-c37d-481b-b640-8b23fea61588
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Value
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Unfunded Slicer-a0006ec0-937b-4845-b3a2-372702ab3a8a' = entity
+		mode: directQuery
+		source
+			entityName: Unfunded Slicer
+			expressionSource: 'DirectQuery to AS - Securities'
+

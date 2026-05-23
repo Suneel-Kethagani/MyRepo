@@ -1,0 +1,92 @@
+table 'Cat Staging Text Fact'
+	lineageTag: 04ac90ea-e470-4ad9-a23f-a0dba7402270
+	sourceLineageTag: a0a735df-025c-4043-b0f6-3aad4e565c3d
+
+	column 'Framework Cd'
+		dataType: string
+		lineageTag: ed24f497-ee19-42ef-8450-f8568b905670
+		sourceLineageTag: 4bcaa4f3-039c-4536-893f-390ba8bb4838
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Framework Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Txn Dt'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: ed29de35-bbe7-4c1c-a592-0bf5e6c561aa
+		sourceLineageTag: e28aa790-f5ab-4ac4-8b9e-9ed3d39f72d2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Txn Dt
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Txn Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6f91b1ef-0b96-483b-abf5-87462cfe2f60
+		sourceLineageTag: dc576c09-a9d7-4bb4-876f-0b272e1d2d58
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Txn Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Id'
+		dataType: string
+		lineageTag: 8954e010-5881-49ec-a89e-ef37eff11747
+		sourceLineageTag: 9f39aa46-97fe-4bb5-8576-a655249c54e6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Asset Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cat Asset Type Cd'
+		dataType: string
+		lineageTag: d3a9a812-37eb-44be-9690-bc41de7b1845
+		sourceLineageTag: 6fb1bbea-936a-44ff-930a-e12ac5b78035
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Cat Asset Type Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Txn Num'
+		dataType: string
+		lineageTag: 5b4aea87-4987-4f79-88d3-708d2e31d4e9
+		sourceLineageTag: 92669d29-ab94-4102-8169-9761b3795ed6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Txn Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Staging Txt'
+		dataType: string
+		lineageTag: 067d41e0-66d1-438c-8f32-27e2826cd16d
+		sourceLineageTag: f6437efa-effb-424e-b1ab-d2d1518cef2d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Staging Txt
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Num Cd'
+		dataType: string
+		lineageTag: 51f5af2f-16c9-4ba0-800a-5420960e8e28
+		sourceLineageTag: 07f9334f-999e-4e5a-ae96-7ca58b8396db
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Company Num Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Cat Staging Text Fact-bc3ee62f-7d2a-49d1-a9a1-031b361c0e35' = entity
+		mode: directQuery
+		source
+			entityName: Cat Staging Text Fact
+			expressionSource: 'DirectQuery to AS - Securities'
+

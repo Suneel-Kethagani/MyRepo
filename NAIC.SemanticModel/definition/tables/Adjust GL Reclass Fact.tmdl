@@ -1,0 +1,152 @@
+table 'Adjust GL Reclass Fact'
+	lineageTag: d8e3303d-a5d3-4403-9d37-d13c52b5da3a
+	sourceLineageTag: 04bb89a9-eec4-4191-aa44-59006ff327a4
+
+	column 'Security Nk'
+		dataType: string
+		lineageTag: 3b0583b7-dd77-41db-a1ab-a00f917e0dbe
+		sourceLineageTag: 644b2d44-9733-42c4-9f6d-a24885344611
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Security Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Accounting Unit Cd'
+		dataType: string
+		lineageTag: ff240d58-ef08-42f3-be35-1f43ba7c8a3e
+		sourceLineageTag: ec636a01-eeed-4540-b1cc-3eac933dce68
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Company Accounting Unit Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Nk'
+		dataType: string
+		lineageTag: a54cdd6a-9d4b-43a2-95c7-ff3439eb328c
+		sourceLineageTag: 6dd377e1-ca2f-4673-aff5-007c11537f3f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Framework Code'
+		dataType: string
+		lineageTag: 9b23167f-8b3e-42ac-8e24-479ca77994eb
+		sourceLineageTag: 9419e18c-7d57-4c7f-bb20-14f650b87e5b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Framework Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Txn Dt'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 22b9cd79-3b4e-4f7c-a67c-ea49e95422ce
+		sourceLineageTag: 51c37cc9-8f1f-4d5c-a5b8-e2d097d20ee2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Txn Dt
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cat Asset Type Cd'
+		dataType: string
+		lineageTag: f05b3c5d-0243-4264-9c7e-c89b73eb679a
+		sourceLineageTag: b8fda10b-ef5b-4e11-83bb-6f25bd1231da
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Cat Asset Type Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Acct Num'
+		dataType: string
+		lineageTag: b997c163-fe67-46d5-aae5-9de68c95d88a
+		sourceLineageTag: 2b50fb43-cf55-44fd-8356-24c6009c49e1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: GL Acct Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Txn Num'
+		dataType: string
+		lineageTag: 66f258b1-a668-405f-a160-e405c2d5294a
+		sourceLineageTag: 4e09ef40-6adf-4b3f-9a9b-825c19f51050
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Txn Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column Comments
+		dataType: string
+		lineageTag: 8cdb55e7-ed7a-4304-b3fb-e3c802ea4ce2
+		sourceLineageTag: 5bbe174c-fa20-457c-aba1-78f02cb25bcf
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Comments
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Scd Lot Id'
+		dataType: string
+		lineageTag: 61c41a4c-483e-4bb7-b254-778ef4714dc1
+		sourceLineageTag: 5fa2a2a9-880b-4b99-b95b-ba97af7c1925
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Scd Lot Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Post Dt'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: cd094b9b-2afb-439d-9270-edb88abf5f09
+		sourceLineageTag: b0869d8b-953c-4fc1-baac-9049f70a3399
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Post Dt
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Classification'
+		dataType: string
+		lineageTag: ed5f3d7a-bb04-442b-9114-3739116444b6
+		sourceLineageTag: 4ac1566b-9d55-4bfa-88fa-f80094d75a8d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: GL Classification
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SCD GL Classification'
+		dataType: string
+		lineageTag: feac5e73-e0b9-47f0-8c2c-c5f507c48373
+		sourceLineageTag: 02ac34dd-6abb-4bec-9486-b5d98ace0833
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SCD GL Classification
+
+		annotation SummarizationSetBy = Automatic
+
+	column Flag
+		dataType: string
+		lineageTag: 25f7052b-5c2b-402b-8ba9-ce768fc4609e
+		sourceLineageTag: 37798726-98ad-4bce-ae69-29a73f52175f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Adjust GL Reclass Fact-1b9f4fb0-4d74-4c1a-8001-7193c6a2d585' = entity
+		mode: directQuery
+		source
+			entityName: Adjust GL Reclass Fact
+			expressionSource: 'DirectQuery to AS - Securities'
+

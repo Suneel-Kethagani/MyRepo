@@ -1,0 +1,793 @@
+table 'Index Constituent'
+	lineageTag: e41ac507-b499-4dc1-87df-bee15194622f
+	sourceLineageTag: a3af37a4-aa54-47d4-b878-911c4e6b26b0
+
+	measure 'Pricing Indices Title' = EXTERNALMEASURE("Pricing Indices Title", STRING, "DirectQuery to AS - Securities")
+		lineageTag: a54a1003-e6dc-42dc-b1dd-dbf18456d415
+		sourceLineageTag: b5d52e7b-114c-471d-b9bd-7c12bb3ca208
+		dataCategory: Uncategorized
+
+	column 'Index Constituent Dim Sk'
+		dataType: int64
+		formatString: 0
+		lineageTag: f9b4f8ad-bdcd-4f90-b0c3-4cbd43519e61
+		sourceLineageTag: 2ca37221-0ee9-4990-aaae-a44482a55416
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Index Constituent Dim Sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Effective Dt'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 67fa97a8-1ed7-43d1-92da-3d2d915344c7
+		sourceLineageTag: b89260ad-0725-4357-badc-bda6bb40dc69
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Effective Dt
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Index Id'
+		dataType: string
+		lineageTag: 3fb4747f-8284-400a-8be4-60b270f37cc1
+		sourceLineageTag: bf20e1fe-9e29-4572-804c-68bbf107972b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src Index Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Index Nm'
+		dataType: string
+		lineageTag: d24f2c16-7ba2-4ecc-bc58-da5ce7ac1831
+		sourceLineageTag: 72d00980-b9ea-4d4d-bf5c-c08b7f4129fb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Index Nm
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Security Id'
+		dataType: string
+		lineageTag: f105339b-698e-4a8e-8bcc-a3e6e9bc82f4
+		sourceLineageTag: 6ec6b19d-e13d-4ad2-bb2c-8ea9d026d438
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src Security Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column Universe
+		dataType: string
+		lineageTag: a5f7c210-7478-4a80-9825-7b3cf32dee2a
+		sourceLineageTag: 6abb7213-225d-40c9-9527-a3295669c624
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Universe
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Iso Base Currency'
+		dataType: string
+		lineageTag: 6b210dec-e044-413e-af49-617841f894cc
+		sourceLineageTag: 9cfc6681-0b67-4644-ba39-c1d130e136e8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Iso Base Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Return Type'
+		dataType: string
+		lineageTag: f413ff03-6cee-4b73-8876-9f852d49c2e0
+		sourceLineageTag: 4808e8a3-5ee0-4523-8ab8-e0f4b51fc986
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Return Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Vendor
+		dataType: string
+		lineageTag: 733dbf26-344f-4e76-a668-a284a30b458e
+		sourceLineageTag: 775c81bc-ef13-46ca-90f8-6085e80fea03
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Vendor
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Source Desc'
+		dataType: string
+		lineageTag: 554d8da1-e6fb-4e4d-b8ef-61d486b34c51
+		sourceLineageTag: c050cc01-7293-4e7a-af75-db1ffdc8ec1d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src Source Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Vendor Id'
+		dataType: string
+		lineageTag: 07cdb08e-3c3f-4d44-b7ae-c3b12c5dc21b
+		sourceLineageTag: 4654d50a-de15-4e42-ad83-60361c12ea6a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Vendor Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Vendor Sec Id'
+		dataType: string
+		lineageTag: 3fdbf572-71d8-4755-b3cd-b13ff26830e1
+		sourceLineageTag: 9950b3da-467c-4c5c-9a70-0935cdf70145
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Vendor Sec Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Manu Id'
+		dataType: string
+		lineageTag: 587d9589-6237-4922-a79e-9f40f520414c
+		sourceLineageTag: 33d171f3-dd60-4d2b-ae1e-03ba4fec5ab0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Manu Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hedged Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: cd55f028-e17a-4772-8a1e-11a4d0c35a8f
+		sourceLineageTag: a6695f60-3f6e-4fff-81e8-13bf9c763879
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Hedged Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column Isin
+		dataType: string
+		lineageTag: de191e18-46e5-4efb-9a33-6e3f8c1ad673
+		sourceLineageTag: 75b313e1-3ffb-4db8-9f3d-a32f9cc139b3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Isin
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cusip
+		dataType: string
+		lineageTag: 8fb10793-f8eb-4747-8aa4-ba7f47f2fb6d
+		sourceLineageTag: 85bcdb9f-c53c-4d34-a1d5-9e3c0bc34628
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Cusip
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sedol
+		dataType: string
+		lineageTag: 527dd243-7ddc-429c-bcb2-0ae5c34387f6
+		sourceLineageTag: 3ecb524f-8497-44ad-94ad-7b60b7b38347
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sedol
+
+		annotation SummarizationSetBy = Automatic
+
+	column Loanx
+		dataType: string
+		lineageTag: 5d9331f5-a388-4db1-a3e4-b9b4b50900d8
+		sourceLineageTag: dad1a0a4-1d43-49b0-9617-98a4cca0b97b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Loanx
+
+		annotation SummarizationSetBy = Automatic
+
+	column Lin
+		dataType: string
+		lineageTag: fdb5cccb-619a-4a0d-a6db-41f8d74beae2
+		sourceLineageTag: b1eb4f9e-8303-4665-a8a8-863f3641726b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Lin
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bloomberg Ticker'
+		dataType: string
+		lineageTag: ab5678fa-1890-4aad-81ce-1e9a894b0d32
+		sourceLineageTag: 9e2a2a94-56b8-407c-8f37-35c65320b23f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bloomberg Ticker
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bloomberg Figi'
+		dataType: string
+		lineageTag: ea1c39a3-7e6e-4c92-984b-44085986fd3c
+		sourceLineageTag: 0cc9da5e-74a8-4f6a-9c44-39e58ea441ef
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bloomberg Figi
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Constituent Nm'
+		dataType: string
+		lineageTag: 34bed9d2-8073-4db6-802c-27cfcdef30cf
+		sourceLineageTag: 46abb1ef-ae3e-4ca8-9447-41244f703171
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Constituent Nm
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Iso Country Cd'
+		dataType: string
+		lineageTag: 64eacc10-28d6-45ef-a3dc-107122769b39
+		sourceLineageTag: 7eece1ae-d1c8-4a5c-b622-9f49d6c57226
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Iso Country Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Region Cd'
+		dataType: string
+		lineageTag: 60ab6eb2-d985-4aef-8611-1e83eb8f186f
+		sourceLineageTag: 9a42c8fa-f836-4753-85c1-a6bebbd68cb0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Region Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Exch Cd'
+		dataType: string
+		lineageTag: 02bb15a5-147a-47f6-8ef1-578ceba7476f
+		sourceLineageTag: 6163a8a5-a2ee-443e-8e9d-04b8f24f6466
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Exch Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Iso Currency Cd'
+		dataType: string
+		lineageTag: 34197f46-ee09-4356-b04c-aea4590de30d
+		sourceLineageTag: 8235834f-0561-46be-b416-b2fddc18199b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Iso Currency Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local Price'
+		dataType: double
+		lineageTag: cce353c6-5647-4100-ba98-08f11e91e650
+		sourceLineageTag: a9a78b1e-80d7-44b2-b5ac-be464caf7508
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Local Price
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Price Base'
+		dataType: double
+		lineageTag: ff059d5f-3f35-491e-9960-2d02e078619f
+		sourceLineageTag: 4cec7e8c-b032-4afb-b260-b0e0ab13be27
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Price Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Clean Price'
+		dataType: double
+		lineageTag: 9c9342d6-6c08-426e-8430-0766d7c851d8
+		sourceLineageTag: 1ddfc2cf-6002-45cf-ba11-601e5e7dbaeb
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Clean Price
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Investable Shares'
+		dataType: double
+		lineageTag: 890dcee4-4846-46dc-9666-869ffceb94c0
+		sourceLineageTag: 0c5d4aea-824c-4671-bb70-b3d5a0f46f92
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Investable Shares
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Outstanding'
+		dataType: double
+		lineageTag: 228dfef9-048c-4add-a261-a37599bdefc3
+		sourceLineageTag: 9ba7a800-8c6b-4e7c-86e9-62060be19fff
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Total Outstanding
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inv Market Cap Local'
+		dataType: double
+		lineageTag: b93de595-b709-4353-aaff-54bf03f937dd
+		sourceLineageTag: 50e64ed6-e5b8-4ac1-967c-a8fcb6c8bfca
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Inv Market Cap Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inv Market Cap Base'
+		dataType: double
+		lineageTag: d91678db-ea29-442b-94dc-025c45423f6b
+		sourceLineageTag: d82ff5c2-f192-4514-b2d2-bbba9d0cf68b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Inv Market Cap Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Index Weight'
+		dataType: double
+		lineageTag: 1637be18-e80e-4c90-89af-e814e78b4624
+		sourceLineageTag: 0164884f-63b4-4ba3-b6a7-e721bfd3ac63
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Index Weight
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cons Size Flag'
+		dataType: string
+		lineageTag: 78564a8a-b04e-4ece-8927-2b290ec3dedb
+		sourceLineageTag: a7d7b0ae-9eef-459a-966a-978229e2deb3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Cons Size Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Daily Total Return'
+		dataType: double
+		lineageTag: 26f95eba-0cc9-4eae-9296-a64d0bb996b1
+		sourceLineageTag: 327743f6-f43b-4561-9e81-c08535ea3afe
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Daily Total Return
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Daily Price Return'
+		dataType: double
+		lineageTag: 274be0e5-8032-4a5b-9e39-8196724f35ed
+		sourceLineageTag: 97311119-3aac-4441-ac0e-5c0ba667dc3b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Daily Price Return
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Daily Net Return'
+		dataType: double
+		lineageTag: 21e3729f-3f32-433e-b774-95b74417458d
+		sourceLineageTag: 7322d3f0-5609-47c2-a740-36b12114b0fa
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Daily Net Return
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sector Level 1'
+		dataType: string
+		lineageTag: da7a4245-54ac-4861-8bc8-748b9c56676f
+		sourceLineageTag: 403eef6b-a7a9-4ee7-88eb-051724282d47
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sector Level 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sector Level 1 Desc'
+		dataType: string
+		lineageTag: 0b9a1c4b-e851-4dd1-a826-da2c662023c6
+		sourceLineageTag: 66ee1063-eb5c-48aa-a350-d7488955ebcb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sector Level 1 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sector Level 2'
+		dataType: string
+		lineageTag: a9af247a-fe82-4f28-a412-1db3fd5ff95c
+		sourceLineageTag: 38fba4ad-7ced-46ef-b885-bbb105f7f30d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sector Level 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sector Level 2 Desc'
+		dataType: string
+		lineageTag: cf878909-34b0-4b75-8e1c-ea1f1ae8a912
+		sourceLineageTag: 1d27119f-f4de-457e-8306-dc82075d2cc1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sector Level 2 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sector Level 3'
+		dataType: string
+		lineageTag: 21eafe86-bbe5-4e72-952a-f280dd8cd167
+		sourceLineageTag: adc7d733-745c-4a85-b48d-fe4991b37734
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sector Level 3
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sector Level 3 Desc'
+		dataType: string
+		lineageTag: 0d1a8c72-bca4-46de-abe2-fb68eb66b8c3
+		sourceLineageTag: 82b3f1bb-2297-4723-8d07-e439ebf13896
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sector Level 3 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sector Level 4'
+		dataType: string
+		lineageTag: 3e59345e-18d8-4306-804a-72cb8803b6bb
+		sourceLineageTag: 8929bc89-68d3-4322-aa50-a7c6a73cc2bc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sector Level 4
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sector Level 4 Desc'
+		dataType: string
+		lineageTag: 6b9a8b67-ba67-4bcb-9f5f-4979c6cec05c
+		sourceLineageTag: 1d30923c-8c74-4888-b54e-356420d97c30
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sector Level 4 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sector Schema'
+		dataType: string
+		lineageTag: b692e799-3d41-4656-b238-09430de714d7
+		sourceLineageTag: d92fbd52-54a7-4869-8ef4-903df0e3e8bc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sector Schema
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dividend
+		dataType: double
+		lineageTag: 47d3806e-86a6-4704-9994-092f6963f0bb
+		sourceLineageTag: 5e3b7407-ccc2-4bec-9495-290228482b71
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Dividend
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Div Ccy'
+		dataType: string
+		lineageTag: d923c0b1-85ed-43fc-9d18-c2a0dedd8c6e
+		sourceLineageTag: dbf881ea-c953-4ca4-aebf-0292adca8a34
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Div Ccy
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Growth Value Flag'
+		dataType: string
+		lineageTag: 043a509e-4703-40d9-80aa-5774700265c5
+		sourceLineageTag: 97f100b7-6196-4537-8671-03c6168e3aa1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Growth Value Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Growth Factor'
+		dataType: double
+		lineageTag: 609da52e-91f7-4587-8184-c3f6f0623bf6
+		sourceLineageTag: 9f19acf7-df3b-4464-a18d-4459dbee91ef
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Growth Factor
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Value Factor'
+		dataType: double
+		lineageTag: eaff11ac-e292-4abc-a8f4-7c062f531d3e
+		sourceLineageTag: 167802d2-68bf-4830-889a-daf1407d27cd
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Value Factor
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sec Market Flag'
+		dataType: string
+		lineageTag: a8ae9d01-1d5b-4ed5-b0b9-c9a25ef798c9
+		sourceLineageTag: 2fd75c55-539b-4069-89d0-6174ab115cb8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sec Market Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column Coupon
+		dataType: double
+		lineageTag: 06ceeb7d-e118-49b5-8be5-4bb4b5a7c441
+		sourceLineageTag: b8c1527b-8eb4-4148-8c41-01bb615452bf
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Coupon
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Maturity Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 5efcbcb3-0daa-4d94-885e-b2d3afcd4902
+		sourceLineageTag: 8b322ddc-41e3-4f62-a82a-f3370a0c5c63
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Maturity Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Years To Maturity'
+		dataType: double
+		lineageTag: f8ea1d4f-9801-4c2b-a2ab-79bb802134c6
+		sourceLineageTag: 15153fcd-e0cb-4ea6-9344-daa9bf6fd709
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Years To Maturity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accrued Interest'
+		dataType: double
+		lineageTag: cfab9fe1-ae3a-44bf-b1e0-78afc19acb7e
+		sourceLineageTag: dfa3b787-dedf-4e0b-92ff-7f4ce118ce17
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Accrued Interest
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Yield To Maturity'
+		dataType: double
+		lineageTag: 21731beb-13df-402b-a939-6872ad549c2f
+		sourceLineageTag: 8c782790-5372-4354-8af9-6a48ccd830cb
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Yield To Maturity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Yield To Worst'
+		dataType: double
+		lineageTag: 9072e550-66f8-4025-bb11-ce967b7b7e5a
+		sourceLineageTag: 95f25e47-6565-40b2-bf51-c590323bdbcc
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Yield To Worst
+
+		annotation SummarizationSetBy = Automatic
+
+	column Oas
+		dataType: double
+		lineageTag: a1964631-a451-45ae-ad41-99f1e9c18963
+		sourceLineageTag: 2780d322-f0bf-4cd5-bc1a-003274b26597
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Oas
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Macauley Duration'
+		dataType: double
+		lineageTag: fe061df2-b304-43ef-8f38-84d93102bec4
+		sourceLineageTag: 09b76f40-741e-4986-8b1f-69ed5cf84069
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Macauley Duration
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Modified Duration'
+		dataType: double
+		lineageTag: ec4293cd-8a6b-4c44-a4f2-f6b7aa9e3ff2
+		sourceLineageTag: 12bc2dc4-d285-4de1-bcf5-ab4915f970b3
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Modified Duration
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Isma Duration'
+		dataType: double
+		lineageTag: 5389fde2-dc74-4832-b725-b4dbe6b3b05f
+		sourceLineageTag: 68b96ab2-a767-4a20-80bf-8bab1c6e8204
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Isma Duration
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Spread Duration'
+		dataType: double
+		lineageTag: faf2aee1-90e2-4ab4-ad3a-40bb40c75fb4
+		sourceLineageTag: c9c5596d-176f-48c0-b6d9-f4d625b6535b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Spread Duration
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Duration To Worst'
+		dataType: double
+		lineageTag: dc1dbbdd-fa1b-40d6-aceb-ba63690f2784
+		sourceLineageTag: 2c5389aa-5a48-4d31-84cc-32fa9f859bc0
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Duration To Worst
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Effective Duration'
+		dataType: double
+		lineageTag: d35bbc1f-bf7e-494a-b39a-1fcd5d629601
+		sourceLineageTag: bcbc3561-e274-4413-bea4-71596e61cffa
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Effective Duration
+
+		annotation SummarizationSetBy = Automatic
+
+	column Convexity
+		dataType: double
+		lineageTag: b08c8e2d-66f7-4875-8cc9-460457207f3f
+		sourceLineageTag: bdb7edb8-36ee-41bf-a706-cb68eeafed4e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Convexity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Convexity To Worst'
+		dataType: double
+		lineageTag: 43439ff0-3641-4b5b-bdbf-a17c5c234204
+		sourceLineageTag: 177348ea-43d8-422f-a9de-5d23ba76551e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Convexity To Worst
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Average Life'
+		dataType: double
+		lineageTag: bbb288f8-a9a5-4d84-81a7-36382baa60da
+		sourceLineageTag: e81aaecc-7fb3-49ee-907a-8ef405378246
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Average Life
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quality
+		dataType: string
+		lineageTag: 551511a5-1c12-4e46-8d47-777876eb1bc7
+		sourceLineageTag: b8bb8fe8-3ba0-4749-8df5-3cbffcb6511f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Quality
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Orig Amount Outstanding'
+		dataType: double
+		lineageTag: c2064ba3-c28c-4c23-aff9-ca2cab826411
+		sourceLineageTag: 43cfd021-183d-4ab4-a108-6069854ad1e7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Orig Amount Outstanding
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Effective Mat Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 58171e4d-5ec8-4be5-9e6f-73cfdd45976d
+		sourceLineageTag: b7135b62-df8d-4927-b277-48c0a58f7181
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Effective Mat Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Next Call Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 5b4c060d-8fc5-49ac-b767-be63b0cf8d37
+		sourceLineageTag: eb6401a6-7702-4ff8-ac96-52273d6be57d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Next Call Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Par Weight In Index'
+		dataType: double
+		lineageTag: fe53f9d1-de68-4ff7-ae2d-222538643b51
+		sourceLineageTag: 85cf7eaa-e3bc-4cb5-8cb9-d3ad47361ec5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Par Weight In Index
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dv01
+		dataType: double
+		lineageTag: fd8f4af9-a25c-4389-ba41-aa6f25014065
+		sourceLineageTag: 3ad0b7e0-696d-4879-95e2-4839107db492
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Dv01
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Created Ts'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd hh:nn:ss AM/PM
+		lineageTag: daba7023-b92a-4a15-95dd-a1f16b55b122
+		sourceLineageTag: de06da79-6e9c-4daf-bc0d-5094ddb06f6e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Created Ts
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Updated Ts'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd hh:nn:ss AM/PM
+		lineageTag: 728bf123-7bde-4832-9006-1a9a6e118caa
+		sourceLineageTag: eeb6f598-e62d-4b38-a682-652150cff361
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Updated Ts
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Index Constituent-8d6e207c-c85d-4b82-89df-63f8c644cd51' = entity
+		mode: directQuery
+		source
+			entityName: Index Constituent
+			expressionSource: 'DirectQuery to AS - Securities'
+

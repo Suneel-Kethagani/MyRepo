@@ -1,0 +1,141 @@
+table Entities
+	isHidden
+	lineageTag: bb034967-d722-4edd-8643-4368900e3dd8
+	sourceLineageTag: 326be161-305c-4af0-9984-630fbecc64d6
+
+	column 'Country of Incorporation'
+		dataType: string
+		lineageTag: 6811bcd6-9a1f-49a1-8dcc-9e6dbdf41d6d
+		sourceLineageTag: 8b5e6ca5-0645-4c9e-8c78-b6c8ed34321a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Country of Incorporation
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Legal Entity Identifier'
+		dataType: string
+		lineageTag: f85c1684-f133-4a13-b822-c1f5c7ad9aa6
+		sourceLineageTag: 432bf109-fb4c-4b6d-a6f3-16b4956e3b2d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Legal Entity Identifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'RTG SP LT LC Issuer Credit'
+		dataType: string
+		lineageTag: 0e1028e7-2a18-4cd4-9cac-eb4056439c7e
+		sourceLineageTag: 6ae444c5-bf4d-4828-b9e9-d95ecce68b16
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: RTG SP LT LC Issuer Credit
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Id Bb Company'
+		dataType: string
+		lineageTag: 479f62ca-e877-48be-8e0d-31e1d9f8be2a
+		sourceLineageTag: 4ba4d5ce-e3ad-46b1-aaf2-3f70865e686d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Id Bb Company
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Id Bb Glb Company'
+		dataType: string
+		lineageTag: 9813fa5a-f3f7-4811-9fe8-cb5a9e484b3f
+		sourceLineageTag: 41023f3d-888f-48f1-a6b7-47ed39fdb360
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Id Bb Glb Company
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entity Join NK'
+		dataType: string
+		lineageTag: 3186a299-755d-41c1-a01a-0ce2de8a8c9b
+		sourceLineageTag: c7bd96d8-210f-408d-9010-0691799b5262
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Entity Join NK
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Country Of Domicile'
+		dataType: string
+		lineageTag: 2a4cd997-f340-41c4-9b19-4e1c7ac38f8e
+		sourceLineageTag: 0d4f0ac5-c39a-4d79-9e5e-debf20f83e87
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Country Of Domicile
+
+		annotation SummarizationSetBy = User
+
+	column 'Id Bb Ultimate Parent Co'
+		dataType: string
+		lineageTag: e4f1eb1b-f63b-4a02-a4c0-71f8331456a4
+		sourceLineageTag: d6912a6e-b647-44df-9eb2-2b97e723a0c0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Id Bb Ultimate Parent Co
+
+		annotation SummarizationSetBy = User
+
+	column 'Lei Ultimate Parent Company'
+		dataType: string
+		lineageTag: 616469ce-55f9-4631-a0f3-5d01884e6b03
+		sourceLineageTag: 8dd3b111-f87f-4611-9f62-55fbb998adc4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Lei Ultimate Parent Company
+
+		annotation SummarizationSetBy = User
+
+	column 'Id Bb Ultimate Parent Co Name'
+		dataType: string
+		lineageTag: d406f948-3c08-4340-9fe7-8c2412c8e123
+		sourceLineageTag: 022d7b1b-a345-4a04-9339-677ba536fe79
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Id Bb Ultimate Parent Co Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Ultimate Parent Company'
+		dataType: string
+		lineageTag: f1480324-b91c-4e17-b0e1-2420d934fc8a
+		sourceLineageTag: 558ddf5b-32d8-47bb-b9fb-36bd6617507f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ultimate Parent Company
+
+		annotation SummarizationSetBy = User
+
+	column 'Id Bb Glb Ultimate Parent Co'
+		dataType: string
+		lineageTag: 5346f263-a760-4dbd-b833-1870d4b2bd5b
+		sourceLineageTag: e9f3fa3e-26c9-4fbe-b9f1-3a379f0fd2a9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Id Bb Glb Ultimate Parent Co
+
+		annotation SummarizationSetBy = User
+
+	column 'MFC Equivalent(Risk)'
+		dataType: string
+		lineageTag: 6af32b9a-7a4e-4592-bb39-18fa9f81f9e0
+		sourceLineageTag: 0e596ccf-beea-4c3e-aadf-85ba9b3b78fe
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: MFC Equivalent(Risk)
+
+		annotation SummarizationSetBy = User
+
+	partition Entities-4f3f2594-369c-4e6e-8b7e-0f5691255692 = entity
+		mode: directQuery
+		source
+			entityName: Entities
+			expressionSource: 'DirectQuery to AS - Securities'
+

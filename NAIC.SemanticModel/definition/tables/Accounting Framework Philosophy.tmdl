@@ -1,0 +1,135 @@
+table 'Accounting Framework Philosophy'
+	lineageTag: c02c48bd-c972-4277-bfaf-7741b3dbd4ae
+	sourceLineageTag: 42fa9597-a5c5-4e84-b7cf-4098f22b1e57
+
+	column 'Acct Framework Phil Nk'
+		dataType: string
+		lineageTag: 3f5d77ac-8a8f-4241-af90-4c7d3894c468
+		sourceLineageTag: 24526c2f-8f96-42a6-933f-d3f96dcd02c1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Acct Framework Phil Nk
+
+		annotation SummarizationSetBy = User
+
+	column 'Portfolio Key'
+		dataType: string
+		lineageTag: 8798021f-b87a-4a93-8f38-bd6f045e105d
+		sourceLineageTag: 77329442-3ff9-4262-8aa0-141b0d41ba26
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Key
+
+		annotation SummarizationSetBy = User
+
+	column Src
+		dataType: string
+		lineageTag: e5c9f5e8-ffdf-42e1-941c-d141e715c654
+		sourceLineageTag: 83f287bf-9ca9-405e-ade4-a98365055788
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src
+
+		annotation SummarizationSetBy = User
+
+	column 'Portfolio Cd'
+		dataType: string
+		lineageTag: c2b3b467-9e04-4a44-bb2a-271a3195381a
+		sourceLineageTag: 0f3b6070-4966-458d-a321-36831570a9cd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Cd
+
+		annotation SummarizationSetBy = User
+
+	column 'Accounting Framework'
+		dataType: string
+		lineageTag: 36ed7d1e-cbe1-47da-9149-c909ec8654bd
+		sourceLineageTag: 2c94e457-560e-444a-8387-faacf38d4bae
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Accounting Framework
+
+		annotation SummarizationSetBy = User
+
+	column 'Trading Philosophy'
+		dataType: string
+		lineageTag: e17797d0-a23f-4ddd-9387-7d5a8b5d03ad
+		sourceLineageTag: 2b4112cc-04d7-43c9-8c9f-ccd94269dea6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Trading Philosophy
+
+		annotation SummarizationSetBy = User
+
+	column 'Bus Eff Date From'
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 6f776023-2cea-4848-a6d2-81435a7119e4
+		sourceLineageTag: 0efb20a9-e309-4d96-84bf-39c12a1f6620
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bus Eff Date From
+
+		annotation SummarizationSetBy = User
+
+	column 'Bus Eff Date To'
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: a4dc3aa1-22f5-48f4-a254-56c08f4b0067
+		sourceLineageTag: fd296044-5c73-4317-928c-eb1961fe47f1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bus Eff Date To
+
+		annotation SummarizationSetBy = User
+
+	column 'Smt Created Ts'
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: c3558cd1-3116-42fd-8cfc-84f7ed799490
+		sourceLineageTag: 343f28eb-f12d-42f5-ab07-d2de9ceb3fb4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Smt Created Ts
+
+		annotation SummarizationSetBy = User
+
+	column 'Dal Created Ts'
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: f57805c8-4f45-4092-918e-402746521b56
+		sourceLineageTag: b556bf1e-0640-4b15-9059-79ae9e2a6690
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Dal Created Ts
+
+		annotation SummarizationSetBy = User
+
+	column 'Acct Framework Philosophy Src Rank Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7228aec4-2b80-4b05-968e-976b686671b1
+		sourceLineageTag: 330a9b71-2c54-4130-8c30-a5454d2f66c5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Acct Framework Philosophy Src Rank Num
+
+		annotation SummarizationSetBy = User
+
+	column 'Asset Type Cd'
+		dataType: string
+		lineageTag: a7e7237a-b2a3-4b37-9153-5fa945ef13b6
+		sourceLineageTag: 0c21ee99-3ef1-4429-8d00-cc02279c5b86
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Asset Type Cd
+
+		annotation SummarizationSetBy = User
+
+	partition 'Accounting Framework Philosophy' = entity
+		mode: directQuery
+		source
+			entityName: Accounting Framework Philosophy
+			expressionSource: 'DirectQuery to AS - Securities'
+

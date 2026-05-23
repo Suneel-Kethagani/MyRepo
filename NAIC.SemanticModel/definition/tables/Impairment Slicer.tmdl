@@ -1,0 +1,21 @@
+table 'Impairment Slicer'
+	isHidden
+	lineageTag: 71e3ba6c-015c-4bcd-9831-30e23e354d9b
+	sourceLineageTag: 4b04258a-9842-48ca-8698-0990e94d9cc3
+
+	column Values
+		dataType: string
+		lineageTag: c9f6dfb5-5859-4855-888f-c0e05dccebc8
+		sourceLineageTag: 0245f14d-7db3-45d0-8318-764210600e29
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Values
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Impairment Slicer-1efdca1b-8b97-4cc0-a5f8-fd647336f983' = entity
+		mode: directQuery
+		source
+			entityName: Impairment Slicer
+			expressionSource: 'DirectQuery to AS - Securities'
+

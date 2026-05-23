@@ -1,0 +1,727 @@
+table 'Securities Elim Lot Fact'
+	lineageTag: e2171522-ee8c-4873-8583-3d60f635c221
+	sourceLineageTag: 7f9f22d1-afad-4f8d-9301-0096045ba6ef
+
+	measure 'Balance Book Value Elim Local' = EXTERNALMEASURE("Balance Book Value Elim Local", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 5e8c1146-9503-4380-9374-8790da867880
+		sourceLineageTag: 4947dd58-47c5-45d7-9db6-23627a135a52
+		dataCategory: Uncategorized
+
+	measure 'Balance Book Value Elim Rep' = EXTERNALMEASURE("Balance Book Value Elim Rep", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 7651265f-365d-4daf-ae4c-043fa24b58de
+		sourceLineageTag: c93e4aff-458a-424c-b06f-4098380a74d1
+		dataCategory: Uncategorized
+
+	measure 'Security Elim Lots Title' = EXTERNALMEASURE("Security Elim Lots Title", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 0e3390fb-07fb-44f5-ab2b-910802560a06
+		sourceLineageTag: 55a0bea7-e615-450c-a692-b859db78f933
+		dataCategory: Uncategorized
+
+	measure 'AOCI Remain Balance BV - Local (Sec Elim)' = EXTERNALMEASURE("AOCI Remain Balance BV - Local (Sec Elim)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 8ad1822c-ecf4-4ff2-bf24-41cdda8bb7fd
+		sourceLineageTag: 83b3d8de-4548-44f8-9bc0-cb79a8da4d9f
+		dataCategory: Uncategorized
+
+	measure 'AOCI Remain Balance BV - Rep (Sec Elim)' = EXTERNALMEASURE("AOCI Remain Balance BV - Rep (Sec Elim)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 85429dac-def0-43f3-b65a-154d33a4cffc
+		sourceLineageTag: ec288878-e158-4e88-8161-e3a36bda399c
+		dataCategory: Uncategorized
+
+	measure 'Unreal Pl BV - Local (Sec Elim)' = EXTERNALMEASURE("Unreal Pl BV - Local (Sec Elim)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 813a5c5d-8b8b-4a82-ba2e-2d8b3aa526ac
+		sourceLineageTag: 296ecdbd-aa4b-482b-bccf-f27d73cdfbbf
+		dataCategory: Uncategorized
+
+	measure 'Unreal Pl BV - Rep (Sec Elim)' = EXTERNALMEASURE("Unreal Pl BV - Rep (Sec Elim)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 728df0ab-1108-44e7-ada8-bf01434cce3f
+		sourceLineageTag: 3ef14c98-54c3-4801-b207-b0bb42341300
+		dataCategory: Uncategorized
+
+	measure 'ECL/CECL Impairment - Local (Sec Elim)' = EXTERNALMEASURE("ECL/CECL Impairment - Local (Sec Elim)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: c9aa4656-139d-4da9-a30d-0f1e606f9c3d
+		sourceLineageTag: 73c23aa4-c3dd-4483-b62d-2fbe57428c39
+		dataCategory: Uncategorized
+
+	measure 'ECL/CECL Impairment - Rep (Sec Elim)' = EXTERNALMEASURE("ECL/CECL Impairment - Rep (Sec Elim)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: f8f9116d-754c-451c-8294-a8be543f8ca0
+		sourceLineageTag: a635d13f-ad67-4802-9776-dfb8437a824d
+		dataCategory: Uncategorized
+
+	measure 'Balance CL Allowance - Rep (Sec Elim)' = EXTERNALMEASURE("Balance CL Allowance - Rep (Sec Elim)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 9467975a-b74f-4641-ae1b-d4d4a5b56662
+		sourceLineageTag: f778f235-0bbc-4c18-a24e-bfe4e5849b82
+		dataCategory: Uncategorized
+
+	measure 'Balance Write Off - Rep (Sec Elim)' = EXTERNALMEASURE("Balance Write Off - Rep (Sec Elim)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 03c50d5a-ade0-4d69-91ae-3a680bb61ee4
+		sourceLineageTag: c4b81e62-6c57-473b-a726-f40cf7f58b31
+		dataCategory: Uncategorized
+
+	measure 'Balance Recog CL Allowance - Rep (Sec Elim)' = EXTERNALMEASURE("Balance Recog CL Allowance - Rep (Sec Elim)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 8f23e27c-e971-434b-a115-5636c7a14716
+		sourceLineageTag: 7f0da681-6394-461f-a05c-c50affe468b4
+		dataCategory: Uncategorized
+
+	measure 'OTTI Impairment - Rep (Sec Elim)' = EXTERNALMEASURE("OTTI Impairment - Rep (Sec Elim)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 7ad6d820-9f93-48b4-aee5-347341454b73
+		sourceLineageTag: 4578cf3b-d43f-4574-807e-e9f9ca1d948c
+		dataCategory: Uncategorized
+
+	measure 'Balance Recog CL Allowance - Local (Sec Elim)' = EXTERNALMEASURE("Balance Recog CL Allowance - Local (Sec Elim)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 7fa0692e-ec69-4b6e-af69-0bf3b174432f
+		sourceLineageTag: 64cafe3a-8e93-4ba1-8fdf-c5ae463b490a
+		dataCategory: Uncategorized
+
+	measure 'Final Staging Text (Sec Elim)' = EXTERNALMEASURE("Final Staging Text (Sec Elim)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: de603d04-4bef-43b2-b88b-bbbc3f065cc2
+		sourceLineageTag: 0cdc4ad8-eff4-42b2-b037-36b77c93c963
+		dataCategory: Uncategorized
+
+	measure 'Staging Text (Sec Elim)' = EXTERNALMEASURE("Staging Text (Sec Elim)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: fa3aa84a-f1a7-4d22-ade4-9a506c3a6ce2
+		sourceLineageTag: 98006a52-aa0c-415b-adb7-209202030252
+		dataCategory: Uncategorized
+
+	measure 'Balance Write Off - Local (Sec Elim)' = EXTERNALMEASURE("Balance Write Off - Local (Sec Elim)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: ce9f04fa-d39e-4c8c-8aa1-2e230053aebf
+		sourceLineageTag: 51bd756a-ea71-4d14-9442-11a2d8c76c88
+		dataCategory: Uncategorized
+
+	measure 'Balance CL Allowance - Local (Sec Elim)' = EXTERNALMEASURE("Balance CL Allowance - Local (Sec Elim)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 922a1530-5adb-494a-8928-5275e6b65676
+		sourceLineageTag: 7682c20e-7917-4686-b013-2a061569377e
+		dataCategory: Uncategorized
+
+	measure 'OTTI Impairment - Local (Sec Elim)' = EXTERNALMEASURE("OTTI Impairment - Local (Sec Elim)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 3c50f39d-f12e-4761-bf05-1498d7bc7c15
+		sourceLineageTag: ee0905d8-413a-433f-9604-c5d192191a56
+		dataCategory: Uncategorized
+
+	measure 'Balance Impairment Sec Base (Sec Elim)' = EXTERNALMEASURE("Balance Impairment Sec Base (Sec Elim)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: edd570ac-0f9f-468f-b32c-dbe3bd6f6965
+		sourceLineageTag: 1d64f73f-5033-4d0a-960a-a6380bc8e20e
+		dataCategory: Uncategorized
+
+	column 'Framework Cd'
+		dataType: string
+		lineageTag: 97cfedab-f2aa-447c-90b9-ec6c5ff9c814
+		sourceLineageTag: 189d1060-5883-4562-a244-54f05cc3faf9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Framework Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Portfolio Code'
+		dataType: string
+		lineageTag: 93a9c549-fe4a-4eb4-9476-b8db60a02474
+		sourceLineageTag: 105d98ef-a398-45e2-860e-d816bfc66237
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Asset Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Security Nk'
+		dataType: string
+		lineageTag: 39e1bb59-32ae-4d87-a16e-ebea82a4fc7c
+		sourceLineageTag: d529ba86-5aba-47bb-b371-9bc00cbef02f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Security Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Nk'
+		dataType: string
+		lineageTag: 5a99a1ec-4da5-4834-8e71-e5068892e248
+		sourceLineageTag: f1ea1be5-c6e0-4552-91c9-c6e7cb8e5aaa
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Effective Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 1a181e4b-5039-4487-80c4-e2c9334be31f
+		sourceLineageTag: 51de7416-b5c7-471c-a0bf-4a23ef72daf3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Effective Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As Of Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: eb0209d9-01c1-4eb0-9254-873725f8f9bd
+		sourceLineageTag: 0a3f9a6e-09bf-4cde-8418-ee39d468d33a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: As Of Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sec Maturity Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 0b83b240-0767-4ddb-b7c5-ddc1f3bcb4e6
+		sourceLineageTag: 55cdb9fa-c716-4f9c-b8e2-06c44737ff24
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sec Maturity Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Unit Code Name'
+		dataType: string
+		lineageTag: a4f6e26e-1d1d-4a56-a40c-35a4ce44b90e
+		sourceLineageTag: bc593c79-be95-49c2-a4f0-9473ddeaccf9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Accounting Unit Code Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Code Name'
+		dataType: string
+		lineageTag: 6af6b02b-95dc-44b7-a873-374f192c4973
+		sourceLineageTag: a21c0bf0-3e91-4236-b598-ddaa83ae0442
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Company Code Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Code Nm'
+		dataType: string
+		lineageTag: 7cb9fe7a-c182-44a0-a7c0-574910f73073
+		sourceLineageTag: b6c2ad45-b9cb-47ea-8ac8-5bb160f0e9b2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Code Nm
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Gl Class'
+		dataType: string
+		lineageTag: 84310b6a-82d1-49a9-9666-31f174e30674
+		sourceLineageTag: 4d5a91a3-fdbd-44b2-9d4c-00e75f604ba1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Gl Class
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SRC Security Id'
+		dataType: string
+		lineageTag: 5f0829f8-9a04-4584-a14a-4660f78b71cb
+		sourceLineageTag: 34e8ca6c-9355-40b9-9138-500f168e4588
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SRC Security Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Scd Security Id'
+		dataType: string
+		lineageTag: 1f3a0634-0ee1-46b5-aa3c-829b492dfb04
+		sourceLineageTag: 71f53edc-640f-4466-8196-2f1aa7c4aa2c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Scd Security Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Positions Id'
+		dataType: string
+		lineageTag: 6082b1b4-2710-4d01-9eff-a2c9046730fa
+		sourceLineageTag: 2ab5f6ca-51d4-4e9e-bc91-3fa50806bbc4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src Positions Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Market Id'
+		dataType: string
+		lineageTag: e84d02ed-d5aa-4569-b191-952dc9f5c383
+		sourceLineageTag: 9d2e8b81-3f7e-41b7-8a2b-2fcfb58654ee
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src Market Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Functional CCY CD'
+		dataType: string
+		lineageTag: 787ea61b-c4bf-4e1d-bcd3-42771e43c46f
+		sourceLineageTag: f1bffc79-4a08-457f-a2e0-3bd17b475ec5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Functional CCY CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Structure Company'
+		dataType: string
+		lineageTag: a25b4cbb-198c-45a6-a52b-731140cb9451
+		sourceLineageTag: 0ba75c7b-4dc6-4a52-951e-408495939930
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Group Structure Company
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ext Tax Lot No Ik'
+		dataType: string
+		lineageTag: fddf1d7d-00ec-4db0-81d1-3c532a1451ba
+		sourceLineageTag: 5f43f221-94a3-4fb1-8617-a81129863aa8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ext Tax Lot No Ik
+
+		annotation SummarizationSetBy = Automatic
+
+	column SRC
+		dataType: string
+		lineageTag: 7ef963db-7059-4578-be8e-f12ff425e25d
+		sourceLineageTag: b5762e4e-158e-4a66-88cb-d1153a5149f1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SRC
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Calculation Date Full'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd hh:nn:ss AM/PM
+		lineageTag: 83870391-a485-42f6-b20b-ce740d1d2512
+		sourceLineageTag: 72d1d768-c7d4-4fca-b85e-2f5be024aa9a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Calculation Date Full
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Component No'
+		dataType: string
+		lineageTag: d84d84a0-f9d7-484b-97bf-0b2a6fd0244a
+		sourceLineageTag: c032dbb1-500a-4403-823a-952052e1ec26
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Component No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Calculation Ik'
+		dataType: string
+		lineageTag: c41f0e82-6fce-4607-b0f0-efae12ffe502
+		sourceLineageTag: 4cf7dd72-acce-4c3d-9824-7729c694a735
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Calculation Ik
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Originating System No'
+		dataType: string
+		lineageTag: a417d64c-9ee7-4582-bf99-3cd4a2f12895
+		sourceLineageTag: 65cca037-3f47-4677-af8b-b42942e71708
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Originating System No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lot Id'
+		dataType: string
+		lineageTag: 291c9f39-e23d-45b5-a174-2b63e2e54d8d
+		sourceLineageTag: ae1b55ad-c121-4c3f-86a1-e9bda76ec9e6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Lot Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Match Index'
+		dataType: string
+		lineageTag: 5570b5ab-7710-4a9d-92e6-97df9a21e16f
+		sourceLineageTag: ccec0c38-8aef-4f86-b279-dff79293f79d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Match Index
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Node Ik'
+		dataType: string
+		lineageTag: de81c816-7b46-486b-8eb9-306de21c676f
+		sourceLineageTag: 04f4585f-3897-4d83-a2be-2f1881e85932
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Node Ik
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local To Func Rate'
+		dataType: double
+		lineageTag: cac2e4e1-88ed-432b-bb3a-a2a1b81ecae5
+		sourceLineageTag: 6e5a1b40-35ba-4c42-a5d4-b85053eca4a5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Local To Func Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local To Cad Rate'
+		dataType: double
+		lineageTag: fbbeeb78-2b93-4771-99eb-d3947a595de2
+		sourceLineageTag: 9ec6656d-bdf8-48d6-92c7-9da743fa333b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Local To Cad Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local To Usd Rate'
+		dataType: double
+		lineageTag: 955c00e0-93ac-4a57-bf41-9d92c1b012a8
+		sourceLineageTag: 8c5e00c5-7c19-458f-a23c-3556e76a08f5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Local To Usd Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local To Hkd Rate'
+		dataType: double
+		lineageTag: 90e6546d-cb9a-4219-a818-81e58148f96b
+		sourceLineageTag: 8ac6ab19-686a-481b-83fe-ffd70ff3ccf2
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Local To Hkd Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bal Interest Appreciation Base CCY'
+		dataType: double
+		lineageTag: 9b5fa2c8-7b28-4f73-974e-8e8b44ad100e
+		sourceLineageTag: 51400f3f-03be-499a-84f6-4a392c253aee
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Bal Interest Appreciation Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bal Interest Appreciation Local CCY'
+		dataType: double
+		lineageTag: eb7046ce-d8e4-4e82-a5b9-5db8640cde62
+		sourceLineageTag: c5418cc3-d9eb-4fe0-86bd-b31fcea4855c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Bal Interest Appreciation Local CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AOCI Remain Balance Bv Base CCY'
+		dataType: double
+		lineageTag: 7e6d104c-3237-4624-81b0-80535404d297
+		sourceLineageTag: b5f25182-3763-4724-99e7-df0b12f0e7b7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: AOCI Remain Balance Bv Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AOCI Remain Balance Non Bv Base CCY'
+		dataType: double
+		lineageTag: bde8d242-b8d6-4734-bd24-5ecc50810819
+		sourceLineageTag: 76f912b5-c81d-43aa-bd90-bbeedf52884b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: AOCI Remain Balance Non Bv Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Recog Cl Allowance Base CCY'
+		dataType: double
+		lineageTag: 31051498-ca37-4c9a-b710-61fcdec7ddc3
+		sourceLineageTag: 160fd87c-b5b2-4c85-9479-d11542aab16c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Recog Cl Allowance Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Write Off Base CCY'
+		dataType: double
+		lineageTag: 3238be2c-6900-4dbf-94d1-07aa32f0703e
+		sourceLineageTag: a3df0dfc-14ec-4d0c-a201-481a804e381f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Write Off Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Impairement Base CCY'
+		dataType: double
+		lineageTag: ea8ca166-ae0a-49fe-b6fb-9ca396b20c2a
+		sourceLineageTag: ec80b31a-b12e-40a4-aea9-23974ad91407
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Impairement Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Cl Allowance Base CCY'
+		dataType: double
+		lineageTag: 607784ca-a50c-492c-ae8e-bbff83324f6a
+		sourceLineageTag: 3543c52b-75e5-45e4-987f-7e73bfd47917
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Cl Allowance Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unreal Pl Book Sec Base CCY'
+		dataType: double
+		lineageTag: f1050523-1d06-43bc-9fb8-c285a4ff18d7
+		sourceLineageTag: 354a175e-7c0b-45a8-a705-3980a3e68cbc
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Unreal Pl Book Sec Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unreal Pl Book CCY Base CCY'
+		dataType: double
+		lineageTag: a8e1d170-2201-47af-821b-38ab97b616f9
+		sourceLineageTag: 68194fe3-944d-43c7-8782-021b66ca2b75
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Unreal Pl Book CCY Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Book Value Base CCY'
+		dataType: double
+		lineageTag: c3d42720-218c-4a82-ae12-8920759df902
+		sourceLineageTag: 311af83d-7e5d-4665-b979-8cdb5a2d847b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Book Value Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AOCI Remain Balance BV Local CCY'
+		dataType: double
+		lineageTag: a06264d6-4492-4ac9-99cf-ef83ca1bdd05
+		sourceLineageTag: ae29f758-bdb6-45af-847a-ef6b2be59468
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: AOCI Remain Balance BV Local CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AOCI Remain Balance Non BV Local CCY'
+		dataType: double
+		lineageTag: b93a4fc7-8e73-45af-ac03-28f29085fe49
+		sourceLineageTag: be5ec2fb-cd13-4688-bdf6-cfb4f03c6695
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: AOCI Remain Balance Non BV Local CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Recog Cl Allowance Local CCY'
+		dataType: double
+		lineageTag: b2baccd0-08d0-4c72-878c-a3972c839921
+		sourceLineageTag: 40a7ed23-46fc-499f-8a93-dba7c2c01a71
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Recog Cl Allowance Local CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Write Off Local CCY'
+		dataType: double
+		lineageTag: 1ac46bb7-4adc-461b-ad43-682c20e1963b
+		sourceLineageTag: d807f5a5-01b2-40fd-b046-ea16ea0724e7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Write Off Local CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Cl Allowance Local CCY'
+		dataType: double
+		lineageTag: 304ac331-36e6-4e15-a3ff-5d952661b8dd
+		sourceLineageTag: 9f45ccf9-a2cc-415b-a59e-3bde5c6f3a08
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Cl Allowance Local CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Book Value Local CCY'
+		dataType: double
+		lineageTag: 329a692b-b522-4a33-88b8-e92f822079dc
+		sourceLineageTag: a7f8932a-3d87-4e19-aa08-bb5f39a73e7c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Book Value Local CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Deferred Pl Base CCY'
+		dataType: double
+		lineageTag: e1d3aa2e-4258-437a-9d3a-f3baff7e2bd3
+		sourceLineageTag: 2c480bf4-dc74-4c94-83cc-c3692aea7fe9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Deferred Pl Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Deferred Pl Local CCY'
+		dataType: double
+		lineageTag: dfd2b4a9-3f80-45af-b26f-d77093cd13f4
+		sourceLineageTag: 31636b4d-6dc5-4289-a922-2d7a94b6434b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Deferred Pl Local CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Impairment CCY Base CCY'
+		dataType: double
+		lineageTag: 353f384a-6125-468e-a85b-2aa74e0fd3a9
+		sourceLineageTag: 72d340b8-7d0e-4e72-bb66-5d087afea60b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Impairment CCY Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Impairment Local CCY'
+		dataType: double
+		lineageTag: f72f138d-90b4-43ed-95aa-be14abd66be3
+		sourceLineageTag: 169edde2-51f2-459c-9699-82db4d431746
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Impairment Local CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Impairment Sec Base CCY'
+		dataType: double
+		lineageTag: 5d7093a3-e380-446d-a5c9-515108c61d31
+		sourceLineageTag: ab46d5a2-c221-4e58-9007-86a8df304c55
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Impairment Sec Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Business Transaction No'
+		dataType: int64
+		formatString: 0
+		lineageTag: d197ec53-b8fe-42b7-a10f-bd9b26d10b79
+		sourceLineageTag: 5e7598ae-fe05-42d2-8761-a060905bba3b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Business Transaction No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Ik'
+		dataType: int64
+		formatString: 0
+		lineageTag: 22a3c474-e963-41db-bca1-7cef12cf7e87
+		sourceLineageTag: 9d6895f1-d1d8-4f58-b4ff-0ab936fe9cb1
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Transaction Ik
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unreal Pl Book Value Local CCY'
+		dataType: double
+		lineageTag: 7e31e418-1a2c-405d-b8f7-880ab49201a8
+		sourceLineageTag: 604dc3bd-c8d3-4b57-88ee-c4f1143ec14d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Unreal Pl Book Value Local CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unreal Pl Book Value Base CCY'
+		dataType: double
+		lineageTag: e2303e63-313a-45af-976f-c92fdf32b444
+		sourceLineageTag: 54e51cec-e1af-4fad-b59c-8f320fe80e44
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Unreal Pl Book Value Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Credit Impairment Stage'
+		dataType: string
+		lineageTag: 2575bdcf-1c98-4cb0-85f1-efeffa055ec6
+		sourceLineageTag: a9a5e75a-df9e-4e1e-87b8-7b0722899e27
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Credit Impairment Stage
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local Currency Code'
+		dataType: string
+		lineageTag: 2a784048-4586-4a27-9d53-470d106ebd38
+		sourceLineageTag: c28b2fa0-2274-44af-842d-6006e869acbb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Local Currency Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FX Join Key'
+		dataType: string
+		lineageTag: 27d33364-50b3-489c-8655-dd144fd9bd3d
+		sourceLineageTag: 561066a4-e20f-433d-a5d9-4f55b77750af
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FX Join Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Effective Matching Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: a68dab7e-dbfe-4605-88ec-92e0e9e736d0
+		sourceLineageTag: 2ee3eb3b-3eb4-44fa-854a-2105e84a5a79
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Effective Matching Date
+
+		annotation SummarizationSetBy = User
+
+	column 'Original ML Rating'
+		dataType: string
+		lineageTag: 3e5153fb-f28f-43dc-8155-1b1666559e24
+		sourceLineageTag: c0e8fb30-443c-4390-87db-d872ec54e5b1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Original ML Rating
+
+		annotation SummarizationSetBy = User
+
+	partition 'Securities Elim Lot Fact-5693af2c-54a7-4092-a6ff-a49726c4a386' = entity
+		mode: directQuery
+		source
+			entityName: Securities Elim Lot Fact
+			expressionSource: 'DirectQuery to AS - Securities'
+

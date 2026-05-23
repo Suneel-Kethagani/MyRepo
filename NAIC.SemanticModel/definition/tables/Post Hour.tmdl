@@ -1,0 +1,24 @@
+table 'Post Hour'
+	isHidden
+	lineageTag: ceb812ec-3b9c-416f-862c-f1c961ea82bd
+	sourceLineageTag: 44e9399e-49e0-49e1-b0de-e7c3cf17e842
+
+	column Value
+		dataType: int64
+		isHidden
+		isNullable: false
+		formatString: 0
+		lineageTag: bb27d4dd-b9c3-43d4-b47b-dc5a7b7c6a6c
+		sourceLineageTag: 8938d99b-5c11-49ae-b7f7-1f6153ada1ce
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Value
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Post Hour-f63f9e3f-9257-4953-b678-d1eefd7bc9e6' = entity
+		mode: directQuery
+		source
+			entityName: Post Hour
+			expressionSource: 'DirectQuery to AS - Securities'
+

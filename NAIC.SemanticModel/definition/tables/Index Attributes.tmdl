@@ -1,0 +1,30 @@
+table 'Index Attributes'
+	lineageTag: 16d669be-6ffe-4f61-a4b1-9411f06f773d
+	sourceLineageTag: fa5d4e82-3d0e-43d0-8f9e-2beac76bf364
+
+	column 'Index Nm'
+		dataType: string
+		lineageTag: abde5c3a-a812-4531-899a-d4f70c936510
+		sourceLineageTag: 110fd92d-0dc1-4743-b5ba-53eb21b79aca
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Index Nm
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Security Id'
+		dataType: string
+		lineageTag: a1b980ef-66cb-4441-bc5e-11db24631994
+		sourceLineageTag: 92909f89-f858-40fe-b551-665b1a3a4278
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src Security Id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Index Attributes-25a7835f-e24b-4850-be7c-994599192ce8' = entity
+		mode: directQuery
+		source
+			entityName: Index Attributes
+			expressionSource: 'DirectQuery to AS - Securities'
+

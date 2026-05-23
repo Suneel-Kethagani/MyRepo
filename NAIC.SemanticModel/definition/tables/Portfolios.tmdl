@@ -1,0 +1,3020 @@
+table Portfolios
+	lineageTag: fb6115d9-d254-4a2b-adf7-f5a6acc24ad3
+	sourceLineageTag: a980d11d-2492-4e95-aebd-411c948adaba
+
+	/// The folder contains the Portfolio Changes Report attributes
+	measure 'Portfolio Changes Title' = EXTERNALMEASURE("Portfolio Changes Title", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Changes Report Attributes
+		lineageTag: 68df3a93-c87b-4c48-829c-a523136a12e3
+		sourceLineageTag: b15a9441-9e4f-4813-8bb2-6b27dc1755dd
+		dataCategory: Uncategorized
+
+	measure 'Portfolio List Filter' = EXTERNALMEASURE("Portfolio List Filter", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		lineageTag: caef8e2c-0585-4cc1-922f-ed6a83afb310
+		sourceLineageTag: 773d3de9-e1e8-42a1-8955-aa55d9798fae
+		dataCategory: Uncategorized
+
+	measure LatestRowMarker = EXTERNALMEASURE("LatestRowMarker", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		isHidden
+		lineageTag: e5bfd494-5762-46bb-b88d-9f7bf8d5bfaf
+		sourceLineageTag: eb84d6f4-2cf5-43aa-9f78-e808080532eb
+		dataCategory: Uncategorized
+
+	measure #Port = EXTERNALMEASURE("#Port", INTEGER, "DirectQuery to AS - Securities")
+		formatString: #,0
+		lineageTag: 6db96368-029c-4251-adab-ee327c9f309d
+		sourceLineageTag: 5d7394c2-28fd-4454-9bea-e70ba8ba1606
+		dataCategory: Uncategorized
+
+	measure 'Allow Derivatives Ind' = EXTERNALMEASURE("Allow Derivatives Ind", INTEGER, "DirectQuery to AS - Securities")
+		formatString: #,0
+		lineageTag: 4ac1d28a-cd4c-42c3-81fa-8df2027276df
+		sourceLineageTag: ece3d6cb-8df3-4476-aa19-2d79234cd1ea
+		dataCategory: Uncategorized
+
+	measure 'Private Portf Ind' = EXTERNALMEASURE("Private Portf Ind", INTEGER, "DirectQuery to AS - Securities")
+		formatString: #,0
+		lineageTag: a8ae8282-2b91-49c6-b867-75f5251dbf05
+		sourceLineageTag: 309981f4-57e8-414b-8aba-48ce887c763b
+		dataCategory: Uncategorized
+
+	measure 'Seed Portfolio Ind' = EXTERNALMEASURE("Seed Portfolio Ind", INTEGER, "DirectQuery to AS - Securities")
+		formatString: #,0
+		lineageTag: 8e771968-79b4-417f-aee1-7898ffe3fc82
+		sourceLineageTag: 0a7c7291-1955-43ed-a2d1-3b356bf55d2f
+		dataCategory: Uncategorized
+
+	measure 'As of Date' = EXTERNALMEASURE("As of Date", DATETIME, "DirectQuery to AS - Securities")
+		formatString: yyyy\-mm\-dd
+		lineageTag: 4e8eeca7-9283-401b-b72f-adc9c9827126
+		sourceLineageTag: d04c56f3-56af-4e91-b493-eb7e4111cc56
+		dataCategory: Uncategorized
+
+	measure 'Is on Findur' = EXTERNALMEASURE("Is on Findur", INTEGER, "DirectQuery to AS - Securities")
+		formatString: #,0
+		lineageTag: 8ddad784-4a3a-4f76-a2b0-cfde8b958640
+		sourceLineageTag: daccac8c-c950-4fe2-929e-622fa4ca1ec4
+		dataCategory: Uncategorized
+
+	measure 'Separate Account Ind' = EXTERNALMEASURE("Separate Account Ind", INTEGER, "DirectQuery to AS - Securities")
+		formatString: #,0
+		lineageTag: 349f4533-f088-49dc-835d-c48d8ec8ed3b
+		sourceLineageTag: 20f2711b-3d27-42e6-af62-fe0cf97866f2
+		dataCategory: Uncategorized
+
+	measure 'Proxy Voting Ind' = EXTERNALMEASURE("Proxy Voting Ind", INTEGER, "DirectQuery to AS - Securities")
+		formatString: #,0
+		lineageTag: 1fe0c4b7-19be-4225-b307-18e25c7de672
+		sourceLineageTag: 48d435d3-eaed-4c2d-9660-590c53a5cd78
+		dataCategory: Uncategorized
+
+	/// The folder contains the Portfolio Changes Report attributes
+	measure 'Portfolio Change Master' = EXTERNALMEASURE("Portfolio Change Master", STRING, "DirectQuery to AS - Securities")
+		formatString: 0
+		displayFolder: Portfolio Changes Report Attributes
+		lineageTag: b392dae2-50fe-46cd-81b7-c7cc76d27f19
+		sourceLineageTag: 41ac794f-5392-4693-ad53-69f28f8e3b38
+		dataCategory: Uncategorized
+
+	/// The folder contains the Portfolio Changes Report attributes
+	measure 'New Port Legal ID' = EXTERNALMEASURE("New Port Legal ID", STRING, "DirectQuery to AS - Securities")
+		formatString: 0
+		displayFolder: Portfolio Changes Report Attributes
+		lineageTag: 2a68122f-ddf1-4440-bf33-7ec55c0bfccc
+		sourceLineageTag: 7c4660d9-1075-4d2d-a1b6-11c3f36f524b
+		dataCategory: Uncategorized
+
+	/// The folder contains the Portfolio Changes Report attributes
+	measure 'Port Manager Changes' = EXTERNALMEASURE("Port Manager Changes", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Changes Report Attributes
+		lineageTag: 6b3f4cfc-4a8d-4b78-b5ee-b71101ebce5b
+		sourceLineageTag: 98a17d4e-c356-4b4d-83b8-f0b4959812fb
+		dataCategory: Uncategorized
+
+	/// The folder contains the Portfolio Changes Report attributes
+	measure 'Port Base Currency Change' = EXTERNALMEASURE("Port Base Currency Change", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Changes Report Attributes
+		lineageTag: b0d559ad-0176-4dc1-92d2-cfed4335b1ea
+		sourceLineageTag: dcc53521-3338-4a08-85fb-ad06fb29cbe8
+		dataCategory: Uncategorized
+
+	/// The folder contains the Portfolio Changes Report attributes
+	measure 'Port Operating Currency Change' = EXTERNALMEASURE("Port Operating Currency Change", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Changes Report Attributes
+		lineageTag: ba6bb0e3-dd89-4060-9608-0062e4107dd3
+		sourceLineageTag: 7d9ba84d-1975-4366-a178-278b22c10b53
+		dataCategory: Uncategorized
+
+	/// The folder contains the Portfolio Changes Report attributes
+	measure 'Port IFRS  Purpose Change' = EXTERNALMEASURE("Port IFRS  Purpose Change", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Changes Report Attributes
+		lineageTag: 65f2d98b-dc94-449f-9bd1-1f498c60e2b6
+		sourceLineageTag: b4750a2f-9af3-4533-8d14-59f3d02adaeb
+		dataCategory: Uncategorized
+
+	/// The folder contains the Portfolio Changes Report attributes
+	measure 'Port JGAAP  Purpose Change' = EXTERNALMEASURE("Port JGAAP  Purpose Change", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Changes Report Attributes
+		lineageTag: b32a29a2-d230-40b7-b187-f29308e5158e
+		sourceLineageTag: 17690b6a-3c43-4fd1-8ba5-bf2a470ada4f
+		dataCategory: Uncategorized
+
+	/// The folder contains the Portfolio Changes Report attributes
+	measure 'Port IAS39  Purpose Change' = EXTERNALMEASURE("Port IAS39  Purpose Change", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Changes Report Attributes
+		lineageTag: 44aa1c69-f1d6-4fba-8044-95e0b974eac0
+		sourceLineageTag: 3eadd050-cb7b-401a-928a-bba8aed7fd2a
+		dataCategory: Uncategorized
+
+	/// The folder contains the Portfolio Changes Report attributes
+	measure 'Port USGAAP  Purpose Change' = EXTERNALMEASURE("Port USGAAP  Purpose Change", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Changes Report Attributes
+		lineageTag: 6189c967-7219-40d7-8703-8d00a757f1ab
+		sourceLineageTag: e5c789d1-0b43-4634-aee1-b8192a36e256
+		dataCategory: Uncategorized
+
+	/// The folder contains the Portfolio Changes Report attributes
+	measure 'Port Subfund Change' = EXTERNALMEASURE("Port Subfund Change", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Changes Report Attributes
+		lineageTag: 5a0d83ad-fc21-4aea-96b6-727702bf97e4
+		sourceLineageTag: 229e0187-421e-401f-af2b-999121caf676
+		dataCategory: Uncategorized
+
+	measure 'Portfolio List Title' = EXTERNALMEASURE("Portfolio List Title", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 144d25bf-4ec3-423a-9082-edeff8d6543f
+		sourceLineageTag: e4cc1d4f-2895-4e02-83a3-91cb543d13f2
+		dataCategory: Uncategorized
+
+	/// The folder contains the Portfolio Changes Report attributes
+	measure 'Port Work Area Change' = EXTERNALMEASURE("Port Work Area Change", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Changes Report Attributes
+		lineageTag: 0fa90c75-0105-466a-a121-5664ac0e2b47
+		sourceLineageTag: ad39a637-dfaf-4848-a5c2-197c9659b3ed
+		dataCategory: Uncategorized
+
+	/// The folder contains the Portfolio Changes Report attributes
+	measure 'Portfolio Name Change' = EXTERNALMEASURE("Portfolio Name Change", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Changes Report Attributes
+		lineageTag: cf4357ba-a55a-401d-a7f1-3d0aa613668a
+		sourceLineageTag: d4cc7903-ca2c-4d05-8708-cb3f935a2696
+		dataCategory: Uncategorized
+
+	/// The folder contains the Portfolio Changes Report attributes
+	measure 'Portfolio Changes Filter' = EXTERNALMEASURE("Portfolio Changes Filter", INTEGER, "DirectQuery to AS - Securities")
+		formatString: #,0
+		displayFolder: Portfolio Changes Report Attributes
+		lineageTag: 341cc150-d013-43f5-b36e-e81dc2338586
+		sourceLineageTag: a682d522-b2c9-4ee0-bc3b-f7eb23846b26
+		dataCategory: Uncategorized
+
+	measure 'Alm As of Date' = EXTERNALMEASURE("Alm As of Date", DATETIME, "DirectQuery to AS - Securities")
+		formatString: yyyy\-mm\-dd
+		lineageTag: 2fe40ea2-ae05-4df5-a191-d075e91fc9c5
+		sourceLineageTag: c54f9b23-53ef-467d-8b68-87c3b84e1ba2
+		dataCategory: Uncategorized
+
+	measure 'IAS39 Purpose' = EXTERNALMEASURE("IAS39 Purpose", STRING, "DirectQuery to AS - Securities")
+		lineageTag: cc15910b-0b26-45c1-8358-6c98c11dc89c
+		sourceLineageTag: b1345e0b-f347-45af-8e82-1da9bc1b922c
+		dataCategory: Uncategorized
+
+	measure 'IFRS Purpose' = EXTERNALMEASURE("IFRS Purpose", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 0fb892c3-f721-49b5-9d47-e599e83595fa
+		sourceLineageTag: 5f1c604b-7dbd-4db1-a4ae-94be485f4461
+		dataCategory: Uncategorized
+
+	measure 'JGAAP Purpose' = EXTERNALMEASURE("JGAAP Purpose", STRING, "DirectQuery to AS - Securities")
+		lineageTag: e971300f-8912-47d5-aff1-19c703b848d3
+		sourceLineageTag: 6cdc46a3-8e14-4d22-804e-7fbb1e6dcc60
+		dataCategory: Uncategorized
+
+	measure 'Lawson Legal ID' = EXTERNALMEASURE("Lawson Legal ID", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 33bdcc0b-4eeb-4259-a591-3e4b35944c1e
+		sourceLineageTag: 7983e1ba-40cb-43c8-9ef9-81c2a7c530ea
+		dataCategory: Uncategorized
+
+	measure 'Subfund ID' = EXTERNALMEASURE("Subfund ID", STRING, "DirectQuery to AS - Securities")
+		lineageTag: b9207275-3d93-4fe3-87e1-179999bad932
+		sourceLineageTag: 6d6e1947-3f5d-4e70-bb70-2cb1719e0bde
+		dataCategory: Uncategorized
+
+	measure 'USGAAP Purpose' = EXTERNALMEASURE("USGAAP Purpose", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 71013f38-1d0e-4659-8820-766c2e2441f6
+		sourceLineageTag: 0eb03251-6dfa-49e4-9d65-8221f815a156
+		dataCategory: Uncategorized
+
+	measure 'Operating Ccy Code (CM)' = EXTERNALMEASURE("Operating Ccy Code (CM)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 7ca9b98f-20ac-4f40-b4a9-63191e2a9761
+		sourceLineageTag: 116f156c-7846-49fc-8379-f35e28000af9
+		dataCategory: Uncategorized
+
+	measure 'Work Area' = EXTERNALMEASURE("Work Area", STRING, "DirectQuery to AS - Securities")
+		lineageTag: df11d69a-9ef6-47a8-89ae-03ad0ca138f3
+		sourceLineageTag: cb83f867-d2e3-42b1-bbb3-a9ec81ce961a
+		dataCategory: Uncategorized
+
+	measure 'Base Ccy Code' = EXTERNALMEASURE("Base Ccy Code", STRING, "DirectQuery to AS - Securities")
+		lineageTag: d278ed28-cfa7-4cd7-9860-1f32105b2be1
+		sourceLineageTag: 423778ff-e0cd-4572-9c0c-638b4f552eec
+		dataCategory: Uncategorized
+
+	measure 'Portfolio Manager Name' = EXTERNALMEASURE("Portfolio Manager Name", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 0b64b454-f3ed-4eab-959e-e4093943b608
+		sourceLineageTag: 8acf9e60-7251-4fb9-81d6-ec8c947b0854
+		dataCategory: Uncategorized
+
+	measure 'Forecasted Indicator' = EXTERNALMEASURE("Forecasted Indicator", INTEGER, "DirectQuery to AS - Securities")
+		formatString: #,0
+		lineageTag: 44ca4b67-843b-481e-985a-1eb005ba3267
+		sourceLineageTag: 14cac285-1ec2-4ca1-a283-3f2de7c54e00
+		dataCategory: Uncategorized
+
+	measure 'Allow Securities Lending Ind' = EXTERNALMEASURE("Allow Securities Lending Ind", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		lineageTag: 84ff61a3-74ee-4835-8414-f24320417b43
+		sourceLineageTag: ca4af2f7-fc18-43b7-93db-1f69b52ee676
+		dataCategory: Uncategorized
+
+	measure 'On/Off Bal Sheet (CM)' = EXTERNALMEASURE("On/Off Bal Sheet (CM)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: a65c9931-4b90-4413-b89a-4c8fceb5c607
+		sourceLineageTag: 13b91610-cd46-441d-9ed9-efe0ffff02da
+		dataCategory: Uncategorized
+
+	measure 'Investment Desk' = EXTERNALMEASURE("Investment Desk", STRING, "DirectQuery to AS - Securities")
+		lineageTag: a38fe14b-9943-4ab4-97d4-cdf0b72e0ac1
+		sourceLineageTag: ffec389e-7ff7-4a30-9e71-84aae2fd58d1
+		dataCategory: Uncategorized
+
+	measure 'Alm Fi Benchmark Name' = EXTERNALMEASURE("Alm Fi Benchmark Name", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 26fe6e0f-acd3-4bf5-b74f-c348b1cb2c32
+		sourceLineageTag: 7a64c1d8-72aa-4f9c-a423-35768f07542b
+		dataCategory: Uncategorized
+
+	measure 'Territory Code' = EXTERNALMEASURE("Territory Code", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 157653f3-2f57-4c5a-81a4-ea09deb47fab
+		sourceLineageTag: 0c3986ab-50f1-4392-8afc-bc468f7a7a13
+		dataCategory: Uncategorized
+
+	measure 'Subfund Name' = EXTERNALMEASURE("Subfund Name", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 63789586-8980-4146-949f-4fe21d9f7af5
+		sourceLineageTag: 5a4561db-3164-473e-be19-34185efdd2e6
+		dataCategory: Uncategorized
+
+	measure 'Portfolio Team Name' = EXTERNALMEASURE("Portfolio Team Name", STRING, "DirectQuery to AS - Securities")
+		lineageTag: cae5d30d-6647-4105-ac7c-cf936d1c6451
+		sourceLineageTag: 63e36f5a-7e29-4a82-8d0b-73eea886f5c8
+		dataCategory: Uncategorized
+
+	measure 'Portfolio Strategy Code' = EXTERNALMEASURE("Portfolio Strategy Code", STRING, "DirectQuery to AS - Securities")
+		lineageTag: d973e38e-4fde-4132-969c-a92535ccb766
+		sourceLineageTag: 50f7fbb0-b18c-4ef8-bc8a-1523fe012cbc
+		dataCategory: Uncategorized
+
+	measure 'Portfolio Strategy' = EXTERNALMEASURE("Portfolio Strategy", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 06f6b4df-08dd-4749-a183-3a6ba045e2e5
+		sourceLineageTag: c29d7ba3-074e-4ebb-b918-577fb469fed9
+		dataCategory: Uncategorized
+
+	measure 'Portfolio Owner' = EXTERNALMEASURE("Portfolio Owner", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 9debff8b-655e-4a73-959f-c184edc0ef02
+		sourceLineageTag: c6e2edfc-0e2f-4984-be9a-5e70840f05e9
+		dataCategory: Uncategorized
+
+	measure 'Portfolio Manager Alt Name' = EXTERNALMEASURE("Portfolio Manager Alt Name", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 949618b5-e77a-448f-8444-aea4276e1b77
+		sourceLineageTag: 68c4040e-0a55-4f5a-a098-805199eb3cd5
+		dataCategory: Uncategorized
+
+	measure 'Bank Account Number List' = EXTERNALMEASURE("Bank Account Number List", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 9fd2061b-07cb-424b-b81d-b0e182eb2445
+		sourceLineageTag: 22695e01-b946-4475-ac55-ac80f62a0c80
+		dataCategory: Uncategorized
+
+	measure 'Bank Currencies List' = EXTERNALMEASURE("Bank Currencies List", STRING, "DirectQuery to AS - Securities")
+		lineageTag: c48343bd-2398-46f5-b9ab-6761ed649d80
+		sourceLineageTag: 59488f2d-b883-4d1f-aa31-017fa8d9e258
+		dataCategory: Uncategorized
+
+	measure 'Regulated Account Indicator' = EXTERNALMEASURE("Regulated Account Indicator", STRING, "DirectQuery to AS - Securities")
+		lineageTag: e8106dee-d38c-43a6-9802-f557dd805471
+		sourceLineageTag: b1ca64b4-f89d-42fd-b664-96f8ba5180aa
+		dataCategory: Uncategorized
+
+	measure 'Other Invested Asset Code' = EXTERNALMEASURE("Other Invested Asset Code", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 2203ba1f-2be4-4ffa-b2eb-552d942f432d
+		sourceLineageTag: 48a4bd8f-9cda-4502-9272-ca5043e87372
+		dataCategory: Uncategorized
+
+	measure 'Liability Surplus' = EXTERNALMEASURE("Liability Surplus", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 5409a609-6854-4cf1-a6dc-4e091fa3fb20
+		sourceLineageTag: b1e5f886-3d14-4523-8de3-30eb95c769d3
+		dataCategory: Uncategorized
+
+	measure 'Custodian Name' = EXTERNALMEASURE("Custodian Name", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 437a94b2-910d-4781-8f41-5de690938f98
+		sourceLineageTag: 8eca4fd0-b9e7-4a9e-b700-60c4ccb8a734
+		dataCategory: Uncategorized
+
+	measure 'Lending Indicator' = EXTERNALMEASURE("Lending Indicator", STRING, "DirectQuery to AS - Securities")
+		lineageTag: a8b687c7-beaf-4134-b170-668fcc7e24a3
+		sourceLineageTag: b2e35eb4-cdf0-4553-9d66-f0bab2e8255f
+		dataCategory: Uncategorized
+
+	measure 'Bank Account' = EXTERNALMEASURE("Bank Account", STRING, "DirectQuery to AS - Securities")
+		lineageTag: c804d780-5056-451c-8757-1da37805e023
+		sourceLineageTag: d838e17c-c646-4e6c-9223-5a6068d4e891
+		dataCategory: Uncategorized
+
+	measure 'Bank Ident' = EXTERNALMEASURE("Bank Ident", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 212cd109-6d46-44f6-ace3-8e3588f8cbc5
+		sourceLineageTag: 3fa9c395-a0b0-4b37-90d0-8fe7f2c8f4dc
+		dataCategory: Uncategorized
+
+	measure 'Lead Advisor Code' = EXTERNALMEASURE("Lead Advisor Code", STRING, "DirectQuery to AS - Securities")
+		lineageTag: d623f4c4-14f9-4bb6-bbf0-930a44c453d3
+		sourceLineageTag: 12cd7cb7-9d48-4d10-a796-842211a3d9a0
+		dataCategory: Uncategorized
+
+	measure 'Lead Advisor Name' = EXTERNALMEASURE("Lead Advisor Name", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 38937dc7-72c8-456d-a082-92a209d8a794
+		sourceLineageTag: dfe8ad25-fa6e-47bb-ae7a-7e63461e65ec
+		dataCategory: Uncategorized
+
+	measure 'Custodian Legal Entity Identifier' = EXTERNALMEASURE("Custodian Legal Entity Identifier", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 40c34f20-f491-4157-b481-ebcf783cdbdc
+		sourceLineageTag: 970a2e19-e25d-45fa-9cf7-0c0eb764b07c
+		dataCategory: Uncategorized
+
+	measure 'Custodian Country Name' = EXTERNALMEASURE("Custodian Country Name", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 9037b007-fd58-4fc0-b949-4eafb747c1b3
+		sourceLineageTag: e4a987c8-55e1-4db7-ae10-cd7bd47c634a
+		dataCategory: Uncategorized
+
+	measure 'Custodian Company Address Txt' = EXTERNALMEASURE("Custodian Company Address Txt", STRING, "DirectQuery to AS - Securities")
+		lineageTag: dfe8e2df-8f50-4bd7-a286-7fa1659c2a72
+		sourceLineageTag: 2ee33128-9d56-4948-8ea1-fd72c6a50288
+		dataCategory: Uncategorized
+
+	measure 'Custodian ID' = EXTERNALMEASURE("Custodian ID", STRING, "DirectQuery to AS - Securities")
+		lineageTag: f10acf8e-b152-405e-bbd9-287987bf4167
+		sourceLineageTag: 91364e91-bc9c-427a-8bd6-482d0f11a671
+		dataCategory: Uncategorized
+
+	measure Custodian = EXTERNALMEASURE("Custodian", STRING, "DirectQuery to AS - Securities")
+		lineageTag: d2ce8032-f4d8-4cdf-a7b7-9378e5ef6d0c
+		sourceLineageTag: 0ac93f91-7cf7-4769-802d-0b1d9578e247
+		dataCategory: Uncategorized
+
+	measure 'Custodian Account Num Code' = EXTERNALMEASURE("Custodian Account Num Code", STRING, "DirectQuery to AS - Securities")
+		lineageTag: adf6cbaa-fe7a-4639-b97d-ef52604db2f4
+		sourceLineageTag: 88c69293-a0bd-426b-8939-892e9129aa5e
+		dataCategory: Uncategorized
+
+	measure 'Intermediate Liquidity Pool Port Code' = EXTERNALMEASURE("Intermediate Liquidity Pool Port Code", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 8aedfec5-2a7d-4760-bc5a-8503249fc203
+		sourceLineageTag: 54506479-bba4-46d8-b997-76383846ecb7
+		dataCategory: Uncategorized
+
+	measure 'Inv Lp Port Code' = EXTERNALMEASURE("Inv Lp Port Code", STRING, "DirectQuery to AS - Securities")
+		lineageTag: edeb72dc-57e6-4357-bd48-8107be70f4fb
+		sourceLineageTag: c1d63fe7-cb38-433c-a138-4c9c28f3e2c3
+		dataCategory: Uncategorized
+
+	measure 'Payment Recon Principle Code - AutoSettle Rule' = EXTERNALMEASURE("Payment Recon Principle Code - AutoSettle Rule", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 171f8256-7e4c-4f66-b79a-7834de830884
+		sourceLineageTag: 9d3ce82d-cf0d-4107-b57b-8fe110993d00
+		dataCategory: Uncategorized
+
+	measure 'Default Asset Class' = EXTERNALMEASURE("Default Asset Class", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 87907c9f-d021-4bbe-8091-fce2842e82b9
+		sourceLineageTag: 014e0c3b-ab68-4238-a582-c0137c21f667
+		dataCategory: Uncategorized
+
+	measure 'Lot Closing Method' = EXTERNALMEASURE("Lot Closing Method", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 9d1c6289-73cc-40d5-928e-85f5b5ddf58b
+		sourceLineageTag: 24f09ed9-6058-4a36-817d-6b7b9c62abfc
+		dataCategory: Uncategorized
+
+	measure 'Group Code' = EXTERNALMEASURE("Group Code", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 5d51853d-b54d-4854-a439-dcc5e63576c5
+		sourceLineageTag: dc288d8a-82af-482d-aeb7-2fc2d4c9b04d
+		dataCategory: Uncategorized
+
+	measure 'Portfolio Group Status' = EXTERNALMEASURE("Portfolio Group Status", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 5ef04264-314a-4de5-a6df-33ece82aead5
+		sourceLineageTag: 4cfca1c0-1e31-436b-b543-ee7d4855fc98
+		dataCategory: Uncategorized
+
+	measure 'Int Ext' = EXTERNALMEASURE("Int Ext", STRING, "DirectQuery to AS - Securities")
+		lineageTag: a90db88f-8b21-4e80-a21b-e2b493b95649
+		sourceLineageTag: fc10447c-2d27-4d36-b311-dbb4df579a1c
+		dataCategory: Uncategorized
+
+	measure 'Legacy Code' = EXTERNALMEASURE("Legacy Code", STRING, "DirectQuery to AS - Securities")
+		lineageTag: d8e899fe-bbb8-42c6-8f98-0b27333d0cb7
+		sourceLineageTag: ac7ca989-79bb-4b69-a4dc-431eeda16564
+		dataCategory: Uncategorized
+
+	measure 'Group Strategy Name' = EXTERNALMEASURE("Group Strategy Name", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 138c0a8b-d4dd-46d3-a4e0-6a6557129974
+		sourceLineageTag: 0b1d3468-c05d-41c0-937d-a0c5730cad76
+		dataCategory: Uncategorized
+
+	measure 'Legal Entity' = EXTERNALMEASURE("Legal Entity", STRING, "DirectQuery to AS - Securities")
+		lineageTag: d225b597-ff75-4e90-ad20-b7dda8c95da7
+		sourceLineageTag: aef8b5f8-0d9b-41f1-a4bc-1fa040681804
+		dataCategory: Uncategorized
+
+	measure 'Alm Reason' = EXTERNALMEASURE("Alm Reason", STRING, "DirectQuery to AS - Securities")
+		lineageTag: d045c85b-7a82-4cfe-8091-e0f12262258a
+		sourceLineageTag: 3b83f57b-0bbc-4628-bba1-34769ed92703
+		dataCategory: Uncategorized
+
+	measure 'Alm ALCO' = EXTERNALMEASURE("Alm ALCO", STRING, "DirectQuery to AS - Securities")
+		lineageTag: aa8fa365-19ef-4027-a092-e3d6b84bc6fc
+		sourceLineageTag: 875b407a-8bc1-4e21-b963-7ec84c8bddf3
+		dataCategory: Uncategorized
+
+	measure 'Deposit Type' = EXTERNALMEASURE("Deposit Type", STRING, "DirectQuery to AS - Securities")
+		lineageTag: fd6fd923-3a36-41f8-9d50-1bc74fe9106a
+		sourceLineageTag: fa02ba72-60ec-425c-95f8-0abe6f50f216
+		dataCategory: Uncategorized
+
+	measure 'Alm Subfund Name' = EXTERNALMEASURE("Alm Subfund Name", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 9916ddc3-1404-48f1-880d-b6b68f62f14b
+		sourceLineageTag: b7b08361-c94b-44b0-847d-e75492bd1af1
+		dataCategory: Uncategorized
+
+	measure 'Alm Sop Company Code' = EXTERNALMEASURE("Alm Sop Company Code", STRING, "DirectQuery to AS - Securities")
+		lineageTag: d0bde220-bd01-40b4-9ba1-86d9abb22db9
+		sourceLineageTag: 1664cf14-2a80-40dd-9f73-9ce9302f0c14
+		dataCategory: Uncategorized
+
+	measure 'Alm Segment Name' = EXTERNALMEASURE("Alm Segment Name", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 6c653423-3815-438b-b04e-747e9868c3d3
+		sourceLineageTag: 910c48f2-bf1b-4344-bc8b-34b98bc99e4c
+		dataCategory: Uncategorized
+
+	measure 'Alm Market Segment Name' = EXTERNALMEASURE("Alm Market Segment Name", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 710a8f31-122c-4a2c-b84b-085826849842
+		sourceLineageTag: e2b313c2-5736-441f-84c7-a788fb9c6248
+		dataCategory: Uncategorized
+
+	measure 'Alm Cntry Name' = EXTERNALMEASURE("Alm Cntry Name", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 788cfe3d-a216-40a8-b690-04a6b3872c61
+		sourceLineageTag: d2507d96-96aa-478e-9683-81f6a17309e7
+		dataCategory: Uncategorized
+
+	measure 'Alm Ccy Code' = EXTERNALMEASURE("Alm Ccy Code", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 9ed7765e-45ef-4839-8ade-3b39ce20a74a
+		sourceLineageTag: b3ae5041-85d9-40f2-9803-32a45d49d4f3
+		dataCategory: Uncategorized
+
+	measure 'Domicile Cntry Code' = EXTERNALMEASURE("Domicile Cntry Code", STRING, "DirectQuery to AS - Securities")
+		lineageTag: b9e154d6-2462-4f70-84c6-ddd4a2377de2
+		sourceLineageTag: 9b8da088-4ae1-4068-8b52-0e25df5ddc46
+		dataCategory: Uncategorized
+
+	measure 'ALM Segment Currency' = EXTERNALMEASURE("ALM Segment Currency", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 83784eac-978b-4e57-b7c2-6433aba93990
+		sourceLineageTag: 1f5182d0-4355-44b2-8b10-5130229fed9b
+		dataCategory: Uncategorized
+
+	measure 'Month End Status Code' = EXTERNALMEASURE("Month End Status Code", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 45e83d21-61ed-4540-90b0-b21101a44a07
+		sourceLineageTag: 64e79950-80a2-42a0-8854-99b04a99ea8b
+		dataCategory: Uncategorized
+
+	measure 'Is on Bloomberg 7000' = EXTERNALMEASURE("Is on Bloomberg 7000", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		lineageTag: a27ded8f-1bea-4469-bb0f-6a55e17ad01f
+		sourceLineageTag: dbb222f9-6ca1-4400-bd8b-d2369ce37a7a
+		dataCategory: Uncategorized
+
+	measure 'Liquidity Pool Participant Indicator' = EXTERNALMEASURE("Liquidity Pool Participant Indicator", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		lineageTag: f182b277-c9bb-4789-a190-5278573647bf
+		sourceLineageTag: d9a2de93-b718-4962-9cd3-f3a121571697
+		dataCategory: Uncategorized
+
+	measure 'Allow Cross Trades' = EXTERNALMEASURE("Allow Cross Trades", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		lineageTag: 57834d7e-daaf-4679-8dbc-b62b4aa57a67
+		sourceLineageTag: 9e1c4fa6-b75b-4e66-9478-fd086485ed31
+		dataCategory: Uncategorized
+
+	measure 'Allow Short Position' = EXTERNALMEASURE("Allow Short Position", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		lineageTag: e0d384ee-020b-4d8c-9f6b-a103ca0b0363
+		sourceLineageTag: 23bb061f-74ff-4b74-889c-15bdca21aa82
+		dataCategory: Uncategorized
+
+	measure 'Allow TBA' = EXTERNALMEASURE("Allow TBA", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		lineageTag: 2fb40663-3082-4ab7-8fa4-45f8a8796c3e
+		sourceLineageTag: 58976383-2c61-458e-885c-4901433c6505
+		dataCategory: Uncategorized
+
+	measure 'Allow Term Loans' = EXTERNALMEASURE("Allow Term Loans", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		lineageTag: 50acc6e5-6cb7-4561-bcec-bb1f06c4bfc6
+		sourceLineageTag: 15b5c056-1ad0-46a9-b94f-6110d68399eb
+		dataCategory: Uncategorized
+
+	measure 'Delete zero Positions' = EXTERNALMEASURE("Delete zero Positions", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		lineageTag: 68cfac68-3b6e-4a43-832d-829d333de22d
+		sourceLineageTag: 48a6db26-18c5-453d-a0a6-26e740e4da32
+		dataCategory: Uncategorized
+
+	measure 'Is Transition Portfolio' = EXTERNALMEASURE("Is Transition Portfolio", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		lineageTag: 65b889a5-fe5b-41f3-8713-d0c2b97f2ff3
+		sourceLineageTag: 8e8c5b96-7773-4042-b0c1-11509ab1930a
+		dataCategory: Uncategorized
+
+	measure 'Portf Sweep Indicator' = EXTERNALMEASURE("Portf Sweep Indicator", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		lineageTag: 7868bc33-adea-41a2-840e-592d8e03d97a
+		sourceLineageTag: 70388ac3-a0ec-42d2-9133-a392905f2be5
+		dataCategory: Uncategorized
+
+	measure 'Retained Trade PNL History' = EXTERNALMEASURE("Retained Trade PNL History", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		lineageTag: 8ecc1fcd-ef1b-48fc-861e-cab70d449698
+		sourceLineageTag: f1fb431e-1c81-42de-89c4-456803330dde
+		dataCategory: Uncategorized
+
+	measure 'Sweep Direction Indicator' = EXTERNALMEASURE("Sweep Direction Indicator", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		lineageTag: ba405e07-5508-469e-ae1e-6fdfb564091f
+		sourceLineageTag: c57e8de3-d6ee-42d8-8b22-422d5652295a
+		dataCategory: Uncategorized
+
+	measure 'Target Cash Sweep Portf' = EXTERNALMEASURE("Target Cash Sweep Portf", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 023334ba-baa6-479c-a331-0a3217702c1f
+		sourceLineageTag: 0368044b-8153-4c49-ae45-7659d11e5586
+		dataCategory: Uncategorized
+
+	measure 'Segment Currency Code' = EXTERNALMEASURE("Segment Currency Code", STRING, "DirectQuery to AS - Securities")
+		lineageTag: b5b7f4f6-f2af-456a-aba3-7b436dbc793e
+		sourceLineageTag: a95b870a-2127-4d1e-95b5-5b3140e83934
+		dataCategory: Uncategorized
+
+	measure 'Subfund Income Start Date' = EXTERNALMEASURE("Subfund Income Start Date", DATETIME, "DirectQuery to AS - Securities")
+		formatString: yyyy\-mm\-dd
+		lineageTag: e7fdcb29-0a03-4072-99ac-78803eb7a1ac
+		sourceLineageTag: 53fc8640-bd3d-4884-a293-3836b5a2a7fc
+		dataCategory: Uncategorized
+
+	measure 'Subfund Effective Date' = EXTERNALMEASURE("Subfund Effective Date", DATETIME, "DirectQuery to AS - Securities")
+		formatString: yyyy\-mm\-dd
+		lineageTag: 15b11c4f-b825-450e-9eeb-8a98ae97c30e
+		sourceLineageTag: 4f96d53e-32ca-409e-b5bd-73a8f0a33724
+		dataCategory: Uncategorized
+
+	measure 'Reserve NonReserve Code' = EXTERNALMEASURE("Reserve NonReserve Code", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 030c5798-01db-45a1-9c4c-a180f6668e3a
+		sourceLineageTag: d9205f46-95d3-4a1b-b965-7e9619cfd1a9
+		dataCategory: Uncategorized
+
+	measure 'Portf Region' = EXTERNALMEASURE("Portf Region", STRING, "DirectQuery to AS - Securities")
+		lineageTag: a5f3ce01-b1ca-4640-883d-59d8bb937dd0
+		sourceLineageTag: addd222a-d4df-42bb-8095-2ebb360942d5
+		dataCategory: Uncategorized
+
+	measure 'Group Name' = EXTERNALMEASURE("Group Name", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 288e1f9e-43eb-4ff6-b24b-b4ff59346628
+		sourceLineageTag: 72bb4d1f-4e9c-4e04-bacc-a983b3889e7d
+		dataCategory: Uncategorized
+
+	measure 'Non-Participating Liquidity Pool Reason' = EXTERNALMEASURE("Non-Participating Liquidity Pool Reason", STRING, "DirectQuery to AS - Securities")
+		lineageTag: fa251051-a87c-495a-94f9-85822c93e3e6
+		sourceLineageTag: dc59bb70-111e-4c14-95a4-f33ae8cd1dd2
+		dataCategory: Uncategorized
+
+	measure 'Expected Funding Date' = EXTERNALMEASURE("Expected Funding Date", DATETIME, "DirectQuery to AS - Securities")
+		formatString: yyyy\-mm\-dd
+		lineageTag: 1b4a430c-1da0-4aea-b5ce-962bcf96d453
+		sourceLineageTag: 512e8b4b-da2d-4008-8711-8949ac42f534
+		dataCategory: Uncategorized
+
+	measure Division = EXTERNALMEASURE("Division", STRING, "DirectQuery to AS - Securities")
+		lineageTag: bcaa940f-9900-4483-b3a4-a82a4ee1c80a
+		sourceLineageTag: 814aaed5-496e-4115-983c-26425fa56357
+		dataCategory: Uncategorized
+
+	measure 'Business Unit' = EXTERNALMEASURE("Business Unit", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 77c7ada2-163c-415b-aa65-546016171afd
+		sourceLineageTag: 88ea7c75-eb83-4bfd-8f34-7ebd692081fc
+		dataCategory: Uncategorized
+
+	measure 'Business Objective' = EXTERNALMEASURE("Business Objective", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 4e6494a5-ddcd-41ac-bbf8-3987ece86b4a
+		sourceLineageTag: ad841c63-45c7-46df-a021-4572898c7438
+		dataCategory: Uncategorized
+
+	measure 'Accounting Cycle' = EXTERNALMEASURE("Accounting Cycle", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 07309057-0c29-46dd-8531-0a39d0495672
+		sourceLineageTag: 86089a0a-4040-4072-a782-fbf18192552f
+		dataCategory: Uncategorized
+
+	measure 'Mim Indicator' = EXTERNALMEASURE("Mim Indicator", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		lineageTag: 66bb002d-d991-405a-88c2-836c26ca6571
+		sourceLineageTag: 847e795e-7779-4893-a53d-4dd0b9e6555d
+		dataCategory: Uncategorized
+
+	measure 'Portfolio Sleeve Status' = EXTERNALMEASURE("Portfolio Sleeve Status", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 817c5f88-12c3-456e-b794-44324f2c639a
+		sourceLineageTag: 8d59c615-62bf-43ca-b4de-e16ae3a41ac4
+		dataCategory: Uncategorized
+
+	measure 'Latest Flag Port' = EXTERNALMEASURE("Latest Flag Port", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		isHidden
+		lineageTag: 5ac2863c-45a2-4149-8e75-0eb95015b0ef
+		sourceLineageTag: dd5a10e7-66d0-498e-94a7-534254af83ca
+		dataCategory: Uncategorized
+
+	measure 'Portfolio Group Termination Date' = EXTERNALMEASURE("Portfolio Group Termination Date", DATETIME, "DirectQuery to AS - Securities")
+		formatString: yyyy\-mm\-dd
+		lineageTag: d986f57a-4bf3-496c-84aa-cd226db5e107
+		sourceLineageTag: 6eec96a4-9621-40ed-a34e-9cca93e6b44b
+		dataCategory: Uncategorized
+
+	measure 'Alm Category' = EXTERNALMEASURE("Alm Category", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 20efac12-8d31-4f95-9420-e6c59f34db19
+		sourceLineageTag: d2f5c218-d146-49ef-994c-b4821f683f79
+		dataCategory: Uncategorized
+
+	measure 'Portfolio Sleeve Creation Date' = EXTERNALMEASURE("Portfolio Sleeve Creation Date", DATETIME, "DirectQuery to AS - Securities")
+		formatString: yyyy\-mm\-dd
+		lineageTag: 76502fc4-2e5f-4c7d-9e9d-5ac46f4552c3
+		sourceLineageTag: aea00c42-387e-4cfb-b540-2e1e7f40aedf
+		dataCategory: Uncategorized
+
+	measure 'Tax Ref Country Code' = EXTERNALMEASURE("Tax Ref Country Code", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 16fcf71b-b78b-499c-b62e-f4099ad61eda
+		sourceLineageTag: c9cf31ad-4116-4f48-9692-2ade792f0db9
+		dataCategory: Uncategorized
+
+	measure 'Termination Date' = EXTERNALMEASURE("Termination Date", DATETIME, "DirectQuery to AS - Securities")
+		formatString: yyyy\-mm\-dd
+		lineageTag: 51552ced-5096-4455-a3d6-d6fc60f812fc
+		sourceLineageTag: 04e540b1-d660-4a5a-b065-d0e3fb493f05
+		dataCategory: Uncategorized
+
+	measure 'Portfolio Group Advisor City 3' = EXTERNALMEASURE("Portfolio Group Advisor City 3", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 30e68c3e-f77d-436c-a23f-6e82f5c30a59
+		sourceLineageTag: a03752df-f8b9-4010-879a-c439b70dd41f
+		dataCategory: Uncategorized
+
+	measure 'Portfolio Group Advisor Country 3' = EXTERNALMEASURE("Portfolio Group Advisor Country 3", STRING, "DirectQuery to AS - Securities")
+		lineageTag: b2fc53c3-bcc9-43ac-9272-948e6012d122
+		sourceLineageTag: 0c80e3de-d1be-4018-b21a-9756ad9dbcda
+		dataCategory: Uncategorized
+
+	measure 'Portfolio Group Advisor Country 2' = EXTERNALMEASURE("Portfolio Group Advisor Country 2", STRING, "DirectQuery to AS - Securities")
+		lineageTag: f9266975-e72f-4943-8a37-e54037b7bfb9
+		sourceLineageTag: fc9e85fd-fc9c-4be9-88ea-dfe0e3140c4c
+		dataCategory: Uncategorized
+
+	measure 'Portfolio Group Advisor Country 1' = EXTERNALMEASURE("Portfolio Group Advisor Country 1", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 8e1a4df2-735f-44e7-b8bb-18f36a73837b
+		sourceLineageTag: c3d5cd32-43e1-4ea9-9752-fd254ad1e7f2
+		dataCategory: Uncategorized
+
+	measure 'Sleeve Manager Country 1' = EXTERNALMEASURE("Sleeve Manager Country 1", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 82e7abce-0488-467e-b727-f45c57e01e6f
+		sourceLineageTag: 235a63ad-ea5a-4706-b993-addaa2e45ffc
+		dataCategory: Uncategorized
+
+	measure 'Group inception date' = EXTERNALMEASURE("Group inception date", DATETIME, "DirectQuery to AS - Securities")
+		formatString: yyyy\-mm\-dd
+		lineageTag: ff29eafe-74bb-4845-ad06-d64c0a732f89
+		sourceLineageTag: 1f475f41-60db-42d1-94eb-79ddd1d70f50
+		dataCategory: Uncategorized
+
+	measure 'Total Portfolio Accrued Market Value' = EXTERNALMEASURE("Total Portfolio Accrued Market Value", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: a691c07f-e370-4a8e-9e87-69f52db192d4
+		sourceLineageTag: d3c5fc72-76f3-4942-96e6-9c970d183442
+		dataCategory: Uncategorized
+
+	measure 'Balance Book Value Base Ccy' = EXTERNALMEASURE("Balance Book Value Base Ccy", DOUBLE, "DirectQuery to AS - Securities")
+		formatString: #,0.00
+		lineageTag: 64d7a72e-dc7e-49f3-a998-e8fb9d64eaa5
+		sourceLineageTag: 6c61821a-1c3f-4f41-a466-d0d97a6ab006
+		dataCategory: Uncategorized
+
+	measure 'Carrying Value Base CCY' = EXTERNALMEASURE("Carrying Value Base CCY", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 02201b22-a7f0-4e69-b228-33f83ea46ed7
+		sourceLineageTag: fe871f3e-5d4a-4bb4-ad31-ef359c7cbef7
+		dataCategory: Uncategorized
+
+	measure 'Alternate PM Team' = EXTERNALMEASURE("Alternate PM Team", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 2b506115-79c7-4cb4-b039-40fd984ab633
+		sourceLineageTag: f41ee5e2-72cd-4838-a256-30663770d21d
+		dataCategory: Uncategorized
+
+	measure LatestMonthMarker = EXTERNALMEASURE("LatestMonthMarker", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		isHidden
+		lineageTag: 28f39701-6b0c-45ec-ba01-57ce66288ea7
+		sourceLineageTag: d68b86f2-1139-4780-958a-7ef35822d00f
+		dataCategory: Uncategorized
+
+	measure LatestTMVMarker = EXTERNALMEASURE("LatestTMVMarker", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		lineageTag: 085dd35c-e0a2-4848-a717-d5079d501f19
+		sourceLineageTag: 9866b775-0864-4618-9c42-0340c5ad04fd
+		dataCategory: Uncategorized
+
+	measure 'As Kyriba' = EXTERNALMEASURE("As Kyriba", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		lineageTag: 10b93526-b324-4a6d-b120-9537b747c88b
+		sourceLineageTag: 32c9a2c8-1e79-49c5-878a-00a690931da0
+		dataCategory: Uncategorized
+
+	measure 'Eligible Portfolios' = EXTERNALMEASURE("Eligible Portfolios", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		lineageTag: 2de02467-a4dc-4885-80c3-76dc3ae63d81
+		sourceLineageTag: a9fb5b19-c602-4c51-9acc-f64b326874c2
+		dataCategory: Uncategorized
+
+	column 'Portfolio Code'
+		dataType: string
+		isNullable: false
+		lineageTag: 0e7a3a05-33d7-4f07-99b2-5151e645d744
+		sourceLineageTag: 171fe5f8-b586-4188-98a5-bf98c8f6d4eb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As of Period'
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		lineageTag: 5fcdaa63-af05-4e61-b876-065af9c94160
+		sourceLineageTag: 689d6caf-9c32-4a5c-885b-1056b712088e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: As of Period
+
+		annotation SummarizationSetBy = User
+
+	column 'As of Date (D)'
+		dataType: dateTime
+		isNullable: false
+		formatString: yyyy\-mm\-dd
+		lineageTag: 21aec80c-650c-4e9b-a5ee-40e8023bbe0b
+		sourceLineageTag: 741d6391-4149-45a9-8f7e-fa3952c970d1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: As of Date (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As of Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7feb70b5-7b49-4262-bcf8-f5e71cd28df0
+		sourceLineageTag: 67caf577-deb3-43c5-b053-3afb8b6a7c7e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: As of Year
+
+		annotation SummarizationSetBy = User
+
+	column 'As of Month'
+		dataType: int64
+		formatString: 0
+		lineageTag: 1c959922-1486-40a8-a4cf-bc22a8589024
+		sourceLineageTag: 281eecce-f312-4d75-b86b-9510bc07b266
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: As of Month
+
+		annotation SummarizationSetBy = User
+
+	column 'Legacy Portfolio Code'
+		dataType: string
+		lineageTag: a97ebd1d-16ea-4d96-a194-b4ec040d672a
+		sourceLineageTag: 5ffe80b1-3164-4ef9-ad9e-b7a2ed51ef7e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Legacy Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Name'
+		dataType: string
+		lineageTag: 5154bb86-ceb9-4f13-a4f7-ecfc42249805
+		sourceLineageTag: 186ae511-7068-4d02-be1b-771e09a24d6c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Code & Name'
+		dataType: string
+		lineageTag: f074fd1b-2ed7-456a-bdc4-4682e0f155b6
+		sourceLineageTag: 0655a58d-822c-4a88-959d-91e3342f00e7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Code & Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Code (D)'
+		dataType: string
+		lineageTag: 56289e1d-68de-4a42-865c-7a9dd302a006
+		sourceLineageTag: be4b4a7d-2896-4177-81c0-8ee01eb6e85e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Group Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Group Code & Name'
+		dataType: string
+		lineageTag: 11aaa3ec-77cc-46df-a6b8-bfab2c8c9467
+		sourceLineageTag: c206e4ee-1559-433e-96c2-62095a9a5857
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Group Code & Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Name (D)'
+		dataType: string
+		lineageTag: 13245ecd-88d7-4d4a-97f8-8bba136cdf74
+		sourceLineageTag: 1333187f-7882-4351-a7f6-bbedc4dd4861
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Group Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Ccy Code (D)'
+		dataType: string
+		lineageTag: bd3190ba-f157-4b58-b785-7bf15032e2ed
+		sourceLineageTag: e314c5a4-d5d6-4a27-b26e-80d402db6599
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Base Ccy Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Ccy Name'
+		dataType: string
+		lineageTag: 9cbd105b-afda-4e9f-b320-16f1d15a0987
+		sourceLineageTag: 5fd7fa56-3079-432a-9604-cccf00c99f0f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Base Ccy Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operating Ccy Code'
+		dataType: string
+		lineageTag: d7692fc3-64e6-4fa7-bd2e-9ae4a46ab608
+		sourceLineageTag: fe5f49e7-af03-4f95-84b7-b4f723b84b80
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Operating Ccy Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operating Ccy Name'
+		dataType: string
+		lineageTag: decd5f68-bc08-4788-88c7-2df4732e97dc
+		sourceLineageTag: 228e1fae-c031-4c04-84c9-09ab799b2446
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Operating Ccy Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Filter Type'
+		dataType: string
+		lineageTag: acc0cfe1-4027-43d0-b8ff-615ad40fa7db
+		sourceLineageTag: 5d511e20-9b08-4b1e-b390-7cd1ffdf2bb5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Filter Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Client Region Name'
+		dataType: string
+		lineageTag: c9abecb3-617a-4b8e-8347-90f9332c746d
+		sourceLineageTag: 06a86fda-bf3d-439d-82da-cff56ca85c78
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Client Region Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Sub Type'
+		dataType: string
+		lineageTag: fa1e0a72-b064-4e02-8186-f4057375dfbd
+		sourceLineageTag: 16892b9f-39b5-456b-b8a1-29a25bbae029
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Group Sub Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Client ID'
+		dataType: string
+		lineageTag: 11fa2f9c-cfd9-46f9-afe3-ee92fbb1fd2a
+		sourceLineageTag: 27ff73c9-a1ea-4e0a-aaa1-f13cfade9310
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Client ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Client Name'
+		dataType: string
+		lineageTag: e89daf4b-8a4f-4130-864a-15045b9a8734
+		sourceLineageTag: 1024296d-0f11-4332-ba14-f838f48417ed
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Client Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Client 2 Name'
+		dataType: string
+		lineageTag: 0ac9b9f3-3da1-4fd1-909d-059a1a9ad32a
+		sourceLineageTag: 0b1c0816-d069-43e6-9f65-82efee606a3a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Client 2 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Int Ext (D)'
+		dataType: string
+		lineageTag: 7d2baac8-cae1-48c4-8638-8b2b513e7d3b
+		sourceLineageTag: 14821623-47e4-429f-9a99-2051ca5b511a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Int Ext (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Relationship Manager Name'
+		dataType: string
+		lineageTag: 78922e95-8593-405f-be6c-f61abb46676b
+		sourceLineageTag: bd59b4bc-8671-46d1-b9e7-21a5ebbcfa39
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Relationship Manager Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Legacy Code (D)'
+		dataType: string
+		lineageTag: 42f2bf89-5bc2-400a-a29c-b3e94aa1c2b9
+		sourceLineageTag: a35b2209-fa48-42c9-abeb-92e0a6a04875
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Legacy Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Type'
+		dataType: string
+		lineageTag: 40ec5038-3bca-4fa1-a742-27bd3153ad1c
+		sourceLineageTag: dc169d34-5a2f-4564-8439-a020334fe70c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Seed Portfolio Ind (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6f7cc4c2-238f-4b39-8a20-69b80cda52b5
+		sourceLineageTag: c3f1de8b-efb0-41a8-8d25-0f9390db8106
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Seed Portfolio Ind (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Intermediate Liquidity Pool Port Code (D)'
+		dataType: string
+		lineageTag: ba09f951-1fb8-434c-a1e0-24be5fb02d9a
+		sourceLineageTag: c438880a-8c83-4784-9e29-194475a7a520
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Intermediate Liquidity Pool Port Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inv Lp Port Code (D)'
+		dataType: string
+		lineageTag: 5c6e46c3-ed07-4122-a4d3-d98c54522a0e
+		sourceLineageTag: 03703b37-f207-419d-8bd3-e59cf50dcc8a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Inv Lp Port Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lot Closing Method (D)'
+		dataType: string
+		lineageTag: 9a32a3ec-d062-4bd9-81e6-0f8481b04fbe
+		sourceLineageTag: a3e2d15b-1d13-43a3-b98c-2305e4771422
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Lot Closing Method (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Liquidity Pool Participant Indicator (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8b2db60b-a8f4-47e3-a10a-c8388c083a05
+		sourceLineageTag: 99edf95e-dcf8-40ae-8081-9de9b609169e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Liquidity Pool Participant Indicator (D)
+
+		annotation SummarizationSetBy = User
+
+	column 'Private Portf Ind (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: d5408f5d-ef6b-449a-9a90-9f29b4921e25
+		sourceLineageTag: e82a7245-dca8-4047-b516-afa4c8c8d137
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Private Portf Ind (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Separate Account Ind (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: a11cb7fe-0708-42a5-9a94-533d79ef317f
+		sourceLineageTag: ce62b6ae-329b-412a-ab2a-19c6509d3f0a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Separate Account Ind (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Deposit Type (D)'
+		dataType: string
+		lineageTag: 2ac089e5-f99b-4c14-b694-cd61a9e50a34
+		sourceLineageTag: 4ab39543-a3f7-4abb-8493-9fcba51d9936
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Deposit Type (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asia Lgaap Trading Philosophy Code'
+		dataType: string
+		lineageTag: d651c901-7e80-4de0-b966-4be9d9db2cd8
+		sourceLineageTag: f2e4a55b-79fc-48a0-9631-cf53bc4c5d26
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Asia Lgaap Trading Philosophy Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'On off Balance'
+		dataType: string
+		lineageTag: 49fc791d-47a7-4ae4-837f-d38923269116
+		sourceLineageTag: f79cb6f6-f7d1-4023-87e6-e3ee02eb754c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: On off Balance
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Liability Surplus (D)'
+		dataType: string
+		lineageTag: 1338821f-0564-43ce-8ad4-89540f6cc763
+		sourceLineageTag: 4b2b4f0b-50d7-4cd6-bf56-1ea4354bd215
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Liability Surplus (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Sleeve Status (D)'
+		dataType: string
+		lineageTag: 2940cf65-147f-48c5-b877-5dc1ca3a00f3
+		sourceLineageTag: b15630a7-2cf1-478e-9f78-f611c5480b5c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Sleeve Status (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transfer Agent 1'
+		dataType: string
+		lineageTag: 79415566-de8d-4ff1-a4fb-2dd38711ee90
+		sourceLineageTag: 5d06f125-2f43-4b27-8ad3-0b4f0ec59f34
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Transfer Agent 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transfer Agent 2'
+		dataType: string
+		lineageTag: cec1d553-0871-44e9-b316-b6d8a2aefdd8
+		sourceLineageTag: eb7e02d2-bc86-449a-932b-e869cc75a094
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Transfer Agent 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transfer Agent 3'
+		dataType: string
+		lineageTag: f1b8fed1-c7bc-4fdf-926c-cbdcb3018321
+		sourceLineageTag: 39b460df-b1ed-47a2-8118-c2f61f187a6c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Transfer Agent 3
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transfer Agent Name 1'
+		dataType: string
+		lineageTag: 09fe5627-0132-487b-8671-82ebfd171fcc
+		sourceLineageTag: e7706aef-de99-4dc7-983f-aaf64150dbbf
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Transfer Agent Name 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transfer Agent Name 2'
+		dataType: string
+		lineageTag: 16e99307-b3d4-41ae-97ce-1be607977d40
+		sourceLineageTag: b3b4dd28-3871-436c-92cb-2e57a3c58258
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Transfer Agent Name 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transfer Agent Name 3'
+		dataType: string
+		lineageTag: d9267e3a-75ef-43f9-8799-07d0d3e685ae
+		sourceLineageTag: fe92d196-c40e-43f9-88ae-f625c543eee9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Transfer Agent Name 3
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Payment Recon Principle Code - AutoSettle Rule (D)'
+		dataType: string
+		lineageTag: 8cabf451-3d8c-4129-b007-b89d22dd599a
+		sourceLineageTag: 0bdd5fe3-1369-4f99-8798-d3b2e2990c12
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Payment Recon Principle Code - AutoSettle Rule (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Client Reporting Required Ind'
+		dataType: int64
+		formatString: 0
+		lineageTag: 67ea0341-a7b7-4eb9-b869-9cbd86860f2d
+		sourceLineageTag: 24b854db-6f92-4c57-a41f-834a22f71625
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Client Reporting Required Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hedge Participation Ind'
+		dataType: int64
+		formatString: 0
+		lineageTag: 486afc0a-90d0-443b-9916-dafe0baae53a
+		sourceLineageTag: 7020e5cb-95ff-416a-99f8-25ae7264650b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Hedge Participation Ind
+
+		annotation SummarizationSetBy = User
+
+	column 'IFRS9 Business Model Code'
+		dataType: string
+		lineageTag: 17dff879-8d98-4e79-a3bc-5cd1444e2c91
+		sourceLineageTag: 6837c627-ca70-4949-b000-5fcff8409c71
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: IFRS9 Business Model Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IFRS9 Ind'
+		dataType: int64
+		formatString: 0
+		lineageTag: d6667591-aa41-4896-a96b-0bcb3b5c8066
+		sourceLineageTag: 2a8f26e2-a686-4311-af46-a37c507b7f1d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: IFRS9 Ind
+
+		annotation SummarizationSetBy = User
+
+	column 'House Holding Acct Ind'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7a2d0154-c286-41c1-999f-c2a31c17c5ac
+		sourceLineageTag: 71be4ff4-09ef-4576-bf46-6cb6b9d3d818
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: House Holding Acct Ind
+
+		annotation SummarizationSetBy = User
+
+	column 'Nafi Group Code'
+		dataType: string
+		lineageTag: 0bbdcd55-d479-48c6-8b91-fc241c0347d2
+		sourceLineageTag: 8cd708e8-4314-4404-8d65-31a41fcd2b1b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Nafi Group Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Par Nonpar'
+		dataType: string
+		lineageTag: 21f2317c-398b-4787-8447-396f76fc748e
+		sourceLineageTag: 53a2564a-037f-45b1-b989-655c1e7cb3bc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Par Nonpar
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Platform Code'
+		dataType: string
+		lineageTag: 27e96ebc-8760-4753-b88f-39d29a49edf7
+		sourceLineageTag: d90ca1fe-d979-40b3-9aaf-8356dca3837f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Platform Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trust Ind'
+		dataType: string
+		lineageTag: aed865dd-f160-4ccd-a5a7-249ba3fc8325
+		sourceLineageTag: cf63121f-33b5-4ff3-ad3d-cf65fd0263ac
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Trust Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Required Ind'
+		dataType: int64
+		formatString: 0
+		lineageTag: 77828e42-b048-4be1-a87b-14b9cb4d4eca
+		sourceLineageTag: 61f0c799-666f-45ae-86c7-2ed9bb02e702
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Accounting Required Ind
+
+		annotation SummarizationSetBy = User
+
+	column 'Work Area (D)'
+		dataType: string
+		lineageTag: 8da8dd8f-43d9-4824-8f3a-9afb91ee6ee6
+		sourceLineageTag: b53001ff-8c4c-495f-9654-de9f3efe0c1b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Work Area (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mim Indicator (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: edc4f6a4-3f14-4cb8-b0b6-4aacd5d178b9
+		sourceLineageTag: 861baf99-1e65-4e6b-a8e7-31a65527518c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Mim Indicator (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Subfund Effective Date (D)'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 42e67cb4-5fd4-407e-9b1d-2fa2a0af57b9
+		sourceLineageTag: 81aacd10-1c10-41f7-b9db-2a3da6cc800a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Subfund Effective Date (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Subfund Income Start Date (D)'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 8b714bec-d16f-41d6-9328-b0a82500a61a
+		sourceLineageTag: 75351c6e-06f0-48ff-a129-2c64d92b0990
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Subfund Income Start Date (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Manager Alt Name (D)'
+		dataType: string
+		lineageTag: 9cead906-4d9a-4481-8172-42db892e24d0
+		sourceLineageTag: fe8ee5ff-96e3-4504-8b33-485d643380df
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Manager Alt Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm Market Segment Name (D)'
+		dataType: string
+		lineageTag: 2ec090bd-e151-45dd-8f96-d3376bebd32a
+		sourceLineageTag: 98b12f54-11e5-4803-b71c-576059b50c85
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Alm Market Segment Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm ALCO (D)'
+		dataType: string
+		lineageTag: 4a9a155d-1a4b-40ce-ac21-fe3c7e9c5714
+		sourceLineageTag: 0768d65b-988b-45ec-9900-f362853e606a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Alm ALCO (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm Segment Name (D)'
+		dataType: string
+		lineageTag: 02c17b08-18ea-4e54-9be3-c30fb211d00d
+		sourceLineageTag: fd4404d0-c9ac-49b8-a614-e82a6710d1a5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Alm Segment Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm Subfund Name (D)'
+		dataType: string
+		lineageTag: 2b3842cc-f959-4036-acd0-3aa75556f42d
+		sourceLineageTag: 0a778332-dd79-4eaa-8799-c4f9b87578c2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Alm Subfund Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm Cntry Name (D)'
+		dataType: string
+		lineageTag: b0a597b3-7b43-40e2-9d82-65875605166d
+		sourceLineageTag: fd2376fc-9778-4d39-9520-a6d0a7279ee6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Alm Cntry Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm Ccy Code (D)'
+		dataType: string
+		lineageTag: ef2c8640-c327-40a2-92c8-821cd6002eda
+		sourceLineageTag: 50c975db-1d0c-4122-9e18-5981daa2bc3c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Alm Ccy Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm Fi Benchmark Name (D)'
+		dataType: string
+		lineageTag: 59f7bf87-ebe3-4c8f-be3d-6fdca06c1eb6
+		sourceLineageTag: df31158d-3213-4b20-941f-0cccc456a24c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Alm Fi Benchmark Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm Reason (D)'
+		dataType: string
+		lineageTag: febbede4-f72f-454c-bde4-f003bad5732d
+		sourceLineageTag: 83275c00-9ab4-4c56-97be-be08933ecf40
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Alm Reason (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm Sop Company Code (D)'
+		dataType: string
+		lineageTag: 853f3308-ee30-4e89-b9c3-4a7276ea82ce
+		sourceLineageTag: 347e7696-caba-45b1-a811-ff021ec49ee9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Alm Sop Company Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm As of Date (D)'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 28084105-946c-40a0-8c83-257065c68853
+		sourceLineageTag: bfe0d3e2-8dcd-463f-8efb-62af53b5f902
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Alm As of Date (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Custodian Legal Entity Identifier (D)'
+		dataType: string
+		lineageTag: 1c96953e-17ab-492d-9521-54ffb3f30e37
+		sourceLineageTag: 345b0e92-b39d-403c-810a-e66e7a8f9eb8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Custodian Legal Entity Identifier (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Custodian Country Name (D)'
+		dataType: string
+		lineageTag: 4060cfd1-2a19-4129-98fa-d75b9bff02d7
+		sourceLineageTag: 5d4457f7-9334-48c1-98f5-ebddcb5153bf
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Custodian Country Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Custodian Company Address Txt (D)'
+		dataType: string
+		lineageTag: 473aec6c-8821-4714-8ef9-24668950078a
+		sourceLineageTag: db274e8b-ad1b-4e2f-939a-1fba44096162
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Custodian Company Address Txt (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Group Status (D)'
+		dataType: string
+		lineageTag: a3ed959a-8ca1-462b-b50a-086bea2f2499
+		sourceLineageTag: 5e559a6a-afdd-445e-92f3-1b64bf2b532f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Group Status (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Portfolio Manager Name'
+		dataType: string
+		lineageTag: 30520613-4611-40c5-8c9f-38958667c6a1
+		sourceLineageTag: c002299b-1ef8-42b5-9b1b-36db16bb8930
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Group Portfolio Manager Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Legal Entity (D)'
+		dataType: string
+		lineageTag: 88d3caa9-2c79-4f9f-9d92-ab06f785b407
+		sourceLineageTag: bc0abe80-aa5d-46ee-93c5-aeec152eb07b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Legal Entity (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Domicile Cntry Code (D)'
+		dataType: string
+		lineageTag: 4a1dbbf8-be3f-4c47-8dea-4dff4b8e2dbd
+		sourceLineageTag: 8c2cbdfd-bb5a-4e9d-af6b-fc0c4045bceb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Domicile Cntry Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Strategy Code'
+		dataType: string
+		lineageTag: 5746ff82-c0c0-45f9-9e6e-876546de6e33
+		sourceLineageTag: f06e42ee-3842-4f53-972f-f032ca898b1b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Group Strategy Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Strategy Name (D)'
+		dataType: string
+		lineageTag: 5e52d0d6-332b-4963-bded-cea81c6ec6d9
+		sourceLineageTag: 281b3c57-e7a4-47f0-965d-297d8f7b09c1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Group Strategy Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Custodian (D)'
+		dataType: string
+		lineageTag: fbe8b8d2-b0e2-49ef-a5eb-c1aefd7baf07
+		sourceLineageTag: 9ac42637-2b4a-4690-841d-37b2aabf5528
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Custodian (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Custodian ID (D)'
+		dataType: string
+		lineageTag: 39285d9e-24bc-4037-b467-a9b17c3b72a6
+		sourceLineageTag: a979bb13-7358-45be-b2bd-2c67e75aedcb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Custodian ID (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Custodian Name (D)'
+		dataType: string
+		lineageTag: e1142a32-d609-4061-87a9-6f23d606e823
+		sourceLineageTag: b9be5bab-c6a2-469b-a191-9864c088baa8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Custodian Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year End'
+		dataType: string
+		lineageTag: 50ace4e3-4b41-4b4b-83b7-38de821d5b06
+		sourceLineageTag: 4a5eb158-b5c1-4ef7-9c6a-35320267c67e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Fiscal Year End
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Long Name'
+		dataType: string
+		lineageTag: 5e37029d-9588-4530-9c68-0c2ee05210bb
+		sourceLineageTag: db47ce9e-7883-4e5a-a59b-2124263004bd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Group Long Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Performance Start Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: e3b6a384-5f54-495b-8137-3eb30c634029
+		sourceLineageTag: e7846309-044e-4bf9-b44b-fb94de4885a7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Group Performance Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Inception Date (D)'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 4c789a53-326c-497f-9c14-50efd03ddab7
+		sourceLineageTag: 8f1a5392-b12e-479f-8bba-55f96ffe2104
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Group Inception Date (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Benchmark 1 ID'
+		dataType: string
+		lineageTag: 9a39e71c-8191-4038-b95d-9d0ba873b882
+		sourceLineageTag: 55527d0d-bfa9-4fde-b160-db6ba8f5c0f3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Group Benchmark 1 ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Benchmark 2 ID'
+		dataType: string
+		lineageTag: 0ae906cb-cdc6-481d-b7c3-c65163b8b809
+		sourceLineageTag: 8e8f30f8-6ff5-4982-b9ad-ee7be7c0c08c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Group Benchmark 2 ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Benchmark 1 Name'
+		dataType: string
+		lineageTag: 94455f6a-2448-4ffe-8195-258720632746
+		sourceLineageTag: c9909288-3f21-4a41-85f7-13f9df546cd5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Group Benchmark 1 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Benchmark 2 Name'
+		dataType: string
+		lineageTag: 5de62959-f92c-4cfd-867f-062e269cdb7a
+		sourceLineageTag: 07288a5b-48a6-44da-af06-34e932b9c9b3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Group Benchmark 2 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Primary Language'
+		dataType: string
+		lineageTag: f4f57811-cd1b-4125-afe7-4df4039c89f6
+		sourceLineageTag: 32234091-92b8-4cc1-bac9-bbf4aa1e6a2d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Primary Language
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Tax ID'
+		dataType: string
+		lineageTag: 362e95e0-9dba-4ec7-880d-615da2740d57
+		sourceLineageTag: 387f328b-28b3-4c08-ad50-ec3a6acba264
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Group Tax ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Tax Status'
+		dataType: string
+		lineageTag: 42f30f3f-3ef9-47f5-a934-bbd99a7d6f64
+		sourceLineageTag: be015237-42b9-40d1-942e-1e8e1ff0e8a8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Group Tax Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Strategy Code (D)'
+		dataType: string
+		lineageTag: 9daf948c-2947-4d38-9274-fe4a6a492e0d
+		sourceLineageTag: 8f359a39-1e31-49f8-ada4-d8275781150d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Strategy Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Strategy (D)'
+		dataType: string
+		lineageTag: 696e329c-d6dd-4e1c-be16-005c201ff782
+		sourceLineageTag: baf82cca-ea0d-41cd-b47c-5da1d4e1493a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Strategy (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Investment Mandate'
+		dataType: string
+		lineageTag: a2ef40d3-4aee-4439-9121-feeb528252be
+		sourceLineageTag: eca5b53e-d138-4735-b09d-f5874e788320
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Investment Mandate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Asset Mix'
+		dataType: string
+		lineageTag: 343c571c-0434-48ab-898f-d316f3d47ce7
+		sourceLineageTag: bfba5dff-fa44-42bf-9864-1b4ec7f16634
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Asset Mix
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Manager Name (D)'
+		dataType: string
+		lineageTag: 29ed56d2-14e1-4946-8765-9e1378ab4697
+		sourceLineageTag: 2788176b-ed4c-4b0f-9260-22ed159aabfd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Manager Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Manager 2 Name'
+		dataType: string
+		lineageTag: c38e9926-ec0e-4131-a2ea-1376e29a11d1
+		sourceLineageTag: f9b7559c-6db9-41ea-8174-4c0f831985ad
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Manager 2 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Team Name (D)'
+		dataType: string
+		lineageTag: 530394f3-ddd2-4c4d-92c5-b678724cd1ac
+		sourceLineageTag: 8dbd43dd-e197-43ca-9fc8-30797c4bbd6f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Team Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Team 2 Name'
+		dataType: string
+		lineageTag: dbfd358a-63b5-40be-b2f7-b77503a9b961
+		sourceLineageTag: e2307bd1-37d2-4c14-aa94-89e00f90e37d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Team 2 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Performance Start Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 4ff5992f-4cd0-4c33-b02f-9759e352d70b
+		sourceLineageTag: c95ade63-e2af-460d-a58f-4fc695788a84
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Performance Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Start Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 2691ca4b-84a7-4efe-a09c-487e7e1d9fc0
+		sourceLineageTag: 8919aacb-6e97-4b9f-bc96-2ff61e0c6830
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Benchmark 1 ID'
+		dataType: string
+		lineageTag: 659a8e9b-7ae4-47db-a03a-b4ff20b22934
+		sourceLineageTag: 3fc4a4c2-b6a8-44c4-a504-05386c7ed357
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Benchmark 1 ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Benchmark 2 ID'
+		dataType: string
+		lineageTag: 6009f2d4-e2d1-47d4-95a1-8ee62ed66349
+		sourceLineageTag: f125d86a-c631-420b-b6e4-b1af32de9a6e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Benchmark 2 ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Benchmark 1 Name'
+		dataType: string
+		lineageTag: 99d11658-e666-486c-8e6e-dcd21a707cee
+		sourceLineageTag: 84c50981-4d15-417e-ae1b-527198d150b3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Benchmark 1 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Benchmark 2 Name'
+		dataType: string
+		lineageTag: 5d45c83e-41c7-447f-87e3-27d92ca567af
+		sourceLineageTag: 521baf0e-f643-47f7-ba6a-e8b306896746
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Benchmark 2 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IFRS Trading Philosophy Code (D)'
+		dataType: string
+		lineageTag: ee5c64ef-e9f7-4dd4-8c61-8c19078216c2
+		sourceLineageTag: a721a5b2-b96b-4429-bbe7-26373f58791e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: IFRS Trading Philosophy Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IAS39 Trading Philosophy Code (D)'
+		dataType: string
+		lineageTag: a84d8473-acb8-4a3e-9cfa-ed25a4543b2d
+		sourceLineageTag: 1c449e94-6bdf-4395-8ebf-715a462bd128
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: IAS39 Trading Philosophy Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JGAAP Trading Philosophy Code (D)'
+		dataType: string
+		lineageTag: b591c816-7097-45d2-9765-839ba4598ea9
+		sourceLineageTag: 4a1579b1-e816-4044-addb-522c27426510
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: JGAAP Trading Philosophy Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'USGAAP Trading Philosophy Code (D)'
+		dataType: string
+		lineageTag: 978492f9-b657-4ac7-a3d3-49d1c29e8a99
+		sourceLineageTag: bb599683-2e68-42d2-bd37-1c4f65c7cdc4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: USGAAP Trading Philosophy Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Proxy Voting Ind (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6463e0b4-e46f-4c7e-aaff-c3d7b1f3ef0b
+		sourceLineageTag: 6a88f629-ac75-4f6a-b1eb-db164480a286
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Proxy Voting Ind (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Portfolio Code'
+		dataType: string
+		lineageTag: f659f048-aed6-40fe-a651-16527e80f650
+		sourceLineageTag: bb53870d-046b-4fcc-8062-09cfbe55eec3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Asset Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Custodian Account Num Code (D)'
+		dataType: string
+		lineageTag: 834efa36-3ad9-43ff-849d-2e87824bc9e2
+		sourceLineageTag: c6537081-c8c8-4e52-bf1e-984ccfeb4ecb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Custodian Account Num Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Status Code (D)'
+		dataType: string
+		lineageTag: d01be9f5-30c6-445f-971c-30aac9b5b3b1
+		sourceLineageTag: a91b678a-1544-4c05-a810-30c947961bba
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Accounting Status Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lawson Legal Name'
+		dataType: string
+		lineageTag: 18a7f8de-b884-4673-ab80-3632182f2941
+		sourceLineageTag: 976a8956-53e1-41ab-8429-b0b601d58470
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Lawson Legal Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lawson Legal ID (D)'
+		dataType: string
+		lineageTag: 1780f257-bd4a-438e-88c0-53e7920e4a44
+		sourceLineageTag: 240021a1-7351-43a8-a12a-b71ad7cfedab
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Lawson Legal ID (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lawson Segment Name'
+		dataType: string
+		lineageTag: c9c4ada0-4252-416f-ab63-cff552132f2f
+		sourceLineageTag: dadf7a47-91b9-4236-a61a-c0580008ea12
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Lawson Segment Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Subfund ID (D)'
+		dataType: string
+		lineageTag: 3e432223-407f-427e-ae80-a7746527e046
+		sourceLineageTag: 9acf419d-6e8e-4538-8273-9a1087e9f4de
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Subfund ID (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Subfund Name (D)'
+		dataType: string
+		lineageTag: 04e00b67-b5d8-43ad-9349-70081c246c9b
+		sourceLineageTag: 251c3586-e4e5-4798-a2d2-443ad7a135fd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Subfund Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Subfund Join Key Code'
+		dataType: string
+		lineageTag: 50cfd53c-1d2d-4737-9949-04164bde2b3f
+		sourceLineageTag: c2464c2b-cf9e-49fe-95a5-35018aefc93f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Subfund Join Key Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Portfolio Value (D)'
+		dataType: double
+		isHidden
+		lineageTag: 84082fd9-9980-4451-825e-01fb948c7ec3
+		sourceLineageTag: 059e4d31-06f9-4d51-a1b3-d7f59936fa5d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Base Portfolio Value (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Calculated Date (D)'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd hh:nn:ss AM/PM
+		lineageTag: 6d95f5da-9cb0-4630-a500-5cbabefc13ea
+		sourceLineageTag: dfb444d6-aa62-4f55-8c6c-95b6a7680424
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Calculated Date (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Calculation (D)'
+		dataType: string
+		lineageTag: 4cdff372-99e2-468b-8e61-5c207c78e3bc
+		sourceLineageTag: 8c2a9f2f-431e-483f-ad34-703bd9f02030
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Calculation (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month End Status Code (D)'
+		dataType: string
+		lineageTag: dfacdba1-97cb-4e49-a218-e8ff45a97ec4
+		sourceLineageTag: c361f77e-49dd-47e5-a01d-cbe29ceaf462
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Month End Status Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Iddl Region Cycle (D)'
+		dataType: string
+		lineageTag: 8891445e-89ce-4e6d-9ff9-c2e9beb1c988
+		sourceLineageTag: 843c7c68-f990-4bbc-aea7-a1c5a32695a4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Iddl Region Cycle (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mam Business Group (D)'
+		dataType: string
+		lineageTag: 2327ef75-f921-4e13-b9ec-d74c64daa0e6
+		sourceLineageTag: 41d7152c-b655-410f-a3a3-c72500d6d69c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Mam Business Group (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Iddl Valuation Cycle (D)'
+		dataType: string
+		lineageTag: 5b3d86af-770a-4f37-ac9f-c6dcbb51c4e2
+		sourceLineageTag: af05e3b6-a97f-496e-9c2f-766879f107bf
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Iddl Valuation Cycle (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio As of Period'
+		dataType: string
+		lineageTag: 418609ee-b0ab-4559-92a9-0885a379aed6
+		sourceLineageTag: a2d79691-d781-4f2c-a024-cf5d584b3fb1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio As of Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lead Advisor Code (D)'
+		dataType: string
+		lineageTag: 55d74b04-b4d8-4d3e-99b9-2c5b9dd0f9fb
+		sourceLineageTag: 449f4f78-1f66-4a4b-9cd2-9c2f842088ac
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Lead Advisor Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lead Advisor Name (D)'
+		dataType: string
+		lineageTag: 1be90035-950e-40a5-b34d-af1bca474386
+		sourceLineageTag: 58e10efc-8bb9-45a3-8cef-86d71c98f556
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Lead Advisor Name (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Advisor Code'
+		dataType: string
+		lineageTag: 703d9280-e97e-401e-81a8-d1e45173bf1c
+		sourceLineageTag: 8d15ee35-87ad-4e25-836b-fde255d5af35
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sub Advisor Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Advisor Name'
+		dataType: string
+		lineageTag: 33888ee1-3570-473e-bc31-47710ec98c6b
+		sourceLineageTag: b75cdff8-fddf-442b-a407-013046fe1b32
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sub Advisor Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Advisor 2 Code'
+		dataType: string
+		lineageTag: 11c8e430-f9af-48d8-b0ca-3e99780f4251
+		sourceLineageTag: 4b416d25-6460-4680-8972-31a3e404a1da
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sub Advisor 2 Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Advisor 2 Name'
+		dataType: string
+		lineageTag: 8ea2da3f-1034-41c3-9184-49bf534fd0f3
+		sourceLineageTag: 37fa0b89-abe9-4a8c-a6ee-3ea8e621dbd9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sub Advisor 2 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Advisor City'
+		dataType: string
+		lineageTag: 6c4b2f5a-20f6-4eb8-86e5-959c23917abb
+		sourceLineageTag: 48626377-e04c-44e7-8f60-c7c09c1d78f9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Group Advisor City
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Advisor 2 City'
+		dataType: string
+		lineageTag: 252f80cb-4177-4e32-a6f0-26f3ed5571dd
+		sourceLineageTag: afb971c2-914e-433b-9908-466faa4476da
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Group Advisor 2 City
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sleeve Manager City'
+		dataType: string
+		lineageTag: ff1d4914-7146-408c-9c6a-fe0f58f65076
+		sourceLineageTag: 52b6ef69-18a1-4a58-8603-4674ea195958
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sleeve Manager City
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pm Region Name'
+		dataType: string
+		lineageTag: 1618bf1c-2933-435f-825d-7f13c6abcfd4
+		sourceLineageTag: ef61a412-14a4-47e8-a094-3bbd3f3d6773
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Pm Region Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Termination Date (D)'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 0c9c72cf-4831-42c6-add3-952136b66d52
+		sourceLineageTag: 9e9b298a-f08f-48a2-9954-a49c7c9691ea
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Termination Date (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Default Asset Class (D)'
+		dataType: string
+		lineageTag: 79c07ab9-2966-40ce-990c-9917798fd6e2
+		sourceLineageTag: c284f601-1712-42df-9276-75a169466ed5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Default Asset Class (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ledger Type'
+		dataType: string
+		lineageTag: 3812c25a-756c-43a3-9147-00b421a1ffdb
+		sourceLineageTag: b80792bf-5479-4fc2-a2de-2563810cfdcc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ledger Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Business Objective'
+		dataType: string
+		lineageTag: 9b8a0ad4-4065-4130-9440-4765cde88163
+		sourceLineageTag: 60973425-6499-4cef-b67c-0c22007b8176
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Group Business Objective
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Business Objective (D)'
+		dataType: string
+		lineageTag: 2153985c-6bf2-4149-8a73-5e7e0f4c626d
+		sourceLineageTag: 444a43aa-82e0-40a9-a99c-6b49f09ff4e5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Business Objective (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inventory Costing Method'
+		dataType: string
+		lineageTag: 396810fe-1309-4748-92e0-871a9f6505bb
+		sourceLineageTag: 3e699250-0a45-423e-8fa1-3c218c7f6477
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Inventory Costing Method
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sector Scheme'
+		dataType: string
+		lineageTag: b0c5663f-33bb-4645-9041-410dc3fa09e7
+		sourceLineageTag: 9faf5295-8e2e-43fc-8087-73455ae08d2b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sector Scheme
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is Port'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5ee336e8-7579-4af3-8c7d-4d6db30378fc
+		sourceLineageTag: 8bf01e2e-f867-4b6e-a6ca-67a8bcc4abe9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Is Port
+
+		annotation SummarizationSetBy = User
+
+	column 'As Port'
+		dataType: int64
+		formatString: 0
+		lineageTag: 87080955-d06a-4ee4-a1f1-ab21df5a328e
+		sourceLineageTag: 5b78f3d1-5c78-43af-a9eb-7979232a8869
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: As Port
+
+		annotation SummarizationSetBy = User
+
+	column 'As Port Transaction'
+		dataType: int64
+		formatString: 0
+		lineageTag: 62470472-aeb8-4638-9629-e5a143ccb5c6
+		sourceLineageTag: 0d71fa16-658a-45f1-854f-d1a0c85114a8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: As Port Transaction
+
+		annotation SummarizationSetBy = User
+
+	column 'Is on Bloomberg 7000 (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4d8e4a17-8252-4733-b2e8-d3671d6f598c
+		sourceLineageTag: 75781c03-ecee-4fed-be99-c0c70d934753
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Is on Bloomberg 7000 (D)
+
+		annotation SummarizationSetBy = User
+
+	column 'As Cogent'
+		dataType: int64
+		formatString: 0
+		lineageTag: d10df1b9-33f6-483d-bb74-36c0efefbf9e
+		sourceLineageTag: 15822727-641f-4390-b64b-7236f1e9f708
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: As Cogent
+
+		annotation SummarizationSetBy = User
+
+	column 'As Factset'
+		dataType: int64
+		formatString: 0
+		lineageTag: d547bee5-db85-42fc-90fa-83c6855fa662
+		sourceLineageTag: 59ee5a15-9ff9-44f8-b6ec-8683f7de79c3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: As Factset
+
+		annotation SummarizationSetBy = User
+
+	column 'Is on Findur (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 60f5ab4a-6447-4f84-8774-066cc5e7cc6c
+		sourceLineageTag: ce80df2c-7105-4a99-a58b-1152d142298a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Is on Findur (D)
+
+		annotation SummarizationSetBy = User
+
+	column 'As Barraone'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4c7b7e1e-9615-464c-8c9f-347c795751f4
+		sourceLineageTag: 3a11fdac-a92b-4343-a4a4-2f33f3370306
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: As Barraone
+
+		annotation SummarizationSetBy = User
+
+	column 'As Bpm'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0b982a01-fd1e-4af3-95e5-99f182964d4a
+		sourceLineageTag: 5c9a407f-f3ff-4e1f-883e-700107891996
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: As Bpm
+
+		annotation SummarizationSetBy = User
+
+	column 'Portfolio Group Advisor Type List'
+		dataType: string
+		lineageTag: 5abb8891-1b3f-4983-ab1c-7cffc0fdbe4e
+		sourceLineageTag: 708088df-9ac2-414d-86ab-0730a741eb98
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Group Advisor Type List
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Allow Repo Ind'
+		dataType: int64
+		formatString: 0
+		lineageTag: bb5e25c0-1cfb-4928-9291-7a97b52f8c28
+		sourceLineageTag: bf6ea69a-c8a1-4eb8-a87a-b85ed7314a24
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Allow Repo Ind
+
+		annotation SummarizationSetBy = User
+
+	column 'Allow Short Repo Cash Ind'
+		dataType: int64
+		formatString: 0
+		lineageTag: e41394ff-4bbe-4154-a7ba-4d5af22ca217
+		sourceLineageTag: 5085713b-12e8-4ad1-8551-98c94afa9401
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Allow Short Repo Cash Ind
+
+		annotation SummarizationSetBy = User
+
+	column 'Allow Derivatives Ind (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: ee9a94fb-c621-4423-b926-175907bde52f
+		sourceLineageTag: f9ac9591-a66a-446e-af0d-19628e33506b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Allow Derivatives Ind (D)
+
+		annotation SummarizationSetBy = User
+
+	column 'Is Model Portfolio Ind'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5e6280cf-2f02-49b1-97ae-04116983735d
+		sourceLineageTag: 3aa7f825-d4a9-437f-a22b-023825963e26
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Is Model Portfolio Ind
+
+		annotation SummarizationSetBy = User
+
+	column 'Allow Securities Lending Ind (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: be62fee2-52e5-47c1-b7db-6e6b094e6fb5
+		sourceLineageTag: 98772bdd-a415-40f9-ad48-56195ec2ed45
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Allow Securities Lending Ind (D)
+
+		annotation SummarizationSetBy = User
+
+	column 'Performance End Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 0e0a2fa4-5e45-48c7-8aaf-2793ffd70765
+		sourceLineageTag: 78c78a4f-7479-49d4-a586-f1bbf92351a8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Performance End Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lead Sleeve Port Mgr Lgl Ent List'
+		dataType: string
+		lineageTag: 48f45b4f-36bc-4e2d-9aa4-a962c3c88cea
+		sourceLineageTag: c9da74c7-ebef-4798-bc36-da778f7f4510
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Lead Sleeve Port Mgr Lgl Ent List
+
+		annotation SummarizationSetBy = Automatic
+
+	column Advisory
+		dataType: string
+		lineageTag: 58ce7c12-e0ad-43ba-a941-a5a4ddca598a
+		sourceLineageTag: 8a80ec9f-86c1-4f8c-b693-b62c45ec38b4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Advisory
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Created Ts'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd hh:nn:ss AM/PM
+		lineageTag: e62bb3d0-41f0-4081-a0f4-2f47e04ce802
+		sourceLineageTag: 10abb044-411c-4f97-bd7c-ff241b4a4114
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Created Ts
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Updated Ts'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd hh:nn:ss AM/PM
+		lineageTag: c5911dc3-5f39-4ac7-b8ac-d0d7962172d3
+		sourceLineageTag: d7317d4a-408c-4998-96e6-ff93515d74a6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Updated Ts
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Code Name'
+		dataType: string
+		lineageTag: d87b208f-897c-4623-8441-89044fd007b1
+		sourceLineageTag: 58d9d879-72af-4335-b8f1-4e1bbf431edf
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Code Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Investment Desk (D)'
+		dataType: string
+		lineageTag: d8e83532-d188-40c0-b4c5-df0cdd7d4c22
+		sourceLineageTag: c043f218-61ae-4952-9101-4dcacc2ae5bc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Investment Desk (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Territory Code (D)'
+		dataType: string
+		lineageTag: 20f5e600-2a6e-4ca3-a176-33d18bc0e797
+		sourceLineageTag: fbc68be1-2a09-4156-b990-2083c4eb172a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Territory Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Owner (D)'
+		dataType: string
+		lineageTag: 149cec1a-6c46-43d3-9534-66740842b850
+		sourceLineageTag: 6a5fb983-4763-43dc-b8c1-d9bea0155a15
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Owner (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bank Account (D)'
+		dataType: string
+		lineageTag: 38a2aab6-b485-4868-a3d4-2a8ed27a1746
+		sourceLineageTag: b0de2296-6325-4299-8337-58969a596bd2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bank Account (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bank Ident (D)'
+		dataType: string
+		lineageTag: a1410daa-d0f0-4538-8b55-68873a1bceda
+		sourceLineageTag: c2a30930-bca7-469a-89ff-28c5afc4d2e0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bank Ident (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lending Indicator (D)'
+		dataType: string
+		lineageTag: c781ac51-e3db-4ed8-b74c-3d6d0c4b035b
+		sourceLineageTag: 1537e97a-b5b2-4eab-afa4-aa35d24cc130
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Lending Indicator (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Maximis Portfolio Number'
+		dataType: string
+		lineageTag: d08d4836-6c50-439d-81c6-60ec0d36ddfb
+		sourceLineageTag: f9b15208-d711-4d61-83da-eefe46123da2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Maximis Portfolio Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Nk'
+		dataType: string
+		isNullable: false
+		lineageTag: 2670c328-3c76-4e11-a6fd-d71ecaaf8354
+		sourceLineageTag: 870d72af-3b08-4b51-a5d9-4d4460e31c6c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'On/Off Bal Sheet'
+		dataType: string
+		isHidden
+		lineageTag: daa99142-3868-4a42-962f-c500b27fb8de
+		sourceLineageTag: 54796fb5-a76a-4157-ae5b-2599c9bdcc9e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: On/Off Bal Sheet
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Forecasted Indicator (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: d55aafec-9516-484b-8f62-a24b29e88ecd
+		sourceLineageTag: 7487119d-1d2f-4253-9b49-8008efcd2e24
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Forecasted Indicator (D)
+
+		annotation SummarizationSetBy = User
+
+	column 'Bank Account Number List (D)'
+		dataType: string
+		lineageTag: 5d659c14-0cc0-446e-bc07-1db6ca9ae0c2
+		sourceLineageTag: 79b911c9-c8b0-42c5-b3bb-cd98ea5f5953
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bank Account Number List (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Regulated Account Indicator (D)'
+		dataType: string
+		lineageTag: 7b1caa47-5d9a-49af-bf44-1e7876f937b7
+		sourceLineageTag: f146839b-c1c1-4cfd-864c-d5338d12ae3b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Regulated Account Indicator (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bank Currencies List (D)'
+		dataType: string
+		lineageTag: 44a89316-7d00-4500-9aad-905b7c7f581c
+		sourceLineageTag: eb6bf5be-c00e-49de-9124-780e2c262a9f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bank Currencies List (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Other Invested Asset Code (D)'
+		dataType: string
+		lineageTag: 3e35ca00-1fec-4915-ae8b-fd550526e278
+		sourceLineageTag: e529d6b4-3b2b-4550-809e-23ddae180c67
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Other Invested Asset Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Custodian Account Number List'
+		dataType: string
+		lineageTag: 33e3f479-2dc3-4060-8f28-f059f8cdc06b
+		sourceLineageTag: 4975e02e-50cb-4d78-b518-857a43cdb2d3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Custodian Account Number List
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sleeve Manager Team List'
+		dataType: string
+		lineageTag: 9d897502-7fe1-4e03-a486-b670c40aaf1c
+		sourceLineageTag: 2bd2b107-abae-4a1f-9ca7-bdbbc03274dc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sleeve Manager Team List
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm Segment Currency (D)'
+		dataType: string
+		lineageTag: cb8abf12-d6a9-4636-8363-0b8ad1972151
+		sourceLineageTag: 2ff828a4-509e-4287-bd1f-db2b6cae3b7a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Alm Segment Currency (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Name Display'
+		dataType: string
+		lineageTag: ef5bd315-9156-4996-84d4-2d962c3ad76f
+		sourceLineageTag: 9102dc5e-1c93-4265-aebd-dd197c0e1a90
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Name Display
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As Kyriba (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 82312c78-8df0-484b-b08f-01a76bd3921c
+		sourceLineageTag: b2202cd0-8b8a-4060-8766-86d58c7c87e1
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: As Kyriba (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Cycle (D)'
+		dataType: string
+		lineageTag: e39c2769-4e1b-43ed-a0d5-38549633f0c4
+		sourceLineageTag: 9bd43113-95cd-471d-b226-87a183b476e7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Accounting Cycle (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Business Unit (D)'
+		dataType: string
+		lineageTag: e004e892-2ab4-41f2-800c-b8fb969efcec
+		sourceLineageTag: 6f1c23b6-4ecc-442d-aaed-b1e0248bda58
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Business Unit (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Division (D)'
+		dataType: string
+		lineageTag: 1f704ba8-e69c-4724-bb8d-e8b246f6ca9d
+		sourceLineageTag: 3b853029-ce81-4f83-a5a1-fef9c2c8de21
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Division (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Expected Funding Date (D)'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: d46d5a93-6ff6-4024-9387-b8e95b0b1a79
+		sourceLineageTag: 0a084878-8e33-44f2-837a-68c9d588e0cf
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Expected Funding Date (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Non-Participating Liquidity Pool Reason (D)'
+		dataType: string
+		lineageTag: 4eb6649a-bef0-4158-8ad9-9c2ca3f63f66
+		sourceLineageTag: fc878953-7e26-41c6-9d3f-4324f4756578
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Non-Participating Liquidity Pool Reason (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portf Region (D)'
+		dataType: string
+		lineageTag: be882319-1f16-409c-b3c4-09c702cc5a5a
+		sourceLineageTag: 1c320015-831e-4c38-9739-f8cae1555b3e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portf Region (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reserve NonReserve Code (D)'
+		dataType: string
+		lineageTag: 885b7aa5-1232-4865-bf49-1422f6eecad7
+		sourceLineageTag: d0b2b7e4-38b2-4088-b507-0987766c5d3b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Reserve NonReserve Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Segment Currency Code (D)'
+		dataType: string
+		lineageTag: 1135079f-b6b5-4526-aff0-59fe8411cb65
+		sourceLineageTag: f4e8a7f7-7809-494b-9706-ad554efe49d7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Segment Currency Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Target Cash Sweep Portf (D)'
+		dataType: string
+		lineageTag: 6dd310b7-1cc2-4db8-bdfa-813bffa2a8ca
+		sourceLineageTag: 870af586-7896-4374-8013-23fd3ddb34ca
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Target Cash Sweep Portf (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sweep Direction Indicator (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 17e7e3c3-b8d0-4a22-9c61-369e14192a6d
+		sourceLineageTag: 213a7aba-8a70-448f-ac26-c6c0c5fdb625
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Sweep Direction Indicator (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Retained Trade PNL History (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: c9996ced-58e4-403c-a0a6-f717ca33b0b3
+		sourceLineageTag: d9e329f1-3dd9-4efd-ac9d-78a1fca859a4
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Retained Trade PNL History (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portf Sweep Indicator (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: fd06f30b-4740-4cfc-9657-62ac071959da
+		sourceLineageTag: f853b4eb-16ed-4b35-be70-457dee9fbaea
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Portf Sweep Indicator (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is Transition Portfolio (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: c6c6a148-961a-403d-8441-10ab00a23b61
+		sourceLineageTag: 142951ce-5b63-4423-b047-118c74c311e4
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Is Transition Portfolio (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Delete zero Positions (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: b17cbe12-79c1-41cd-95c4-db7624ec33c9
+		sourceLineageTag: 9fe187bf-8ae4-4f72-8f30-890f43551cb4
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Delete zero Positions (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Allow Term Loans (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 69a0e58d-bfea-4cea-b91f-046aaa592b91
+		sourceLineageTag: 1cf8a84c-5e49-472c-95f7-ad1b11439629
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Allow Term Loans (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Allow TBA (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 45a0ebed-30ed-49a1-b9e5-1320fa51ebe7
+		sourceLineageTag: 31d7a10d-3414-4513-8217-5c2c6ebb6bf8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Allow TBA (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Allow Cross Trades (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 114fe7e9-6dee-4ba6-8a5b-b70ca8f12429
+		sourceLineageTag: 15b53e8a-895e-439e-b1ba-4ab43fda7c02
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Allow Cross Trades (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Allow Short Position (D)'
+		dataType: int64
+		formatString: 0
+		lineageTag: d181da24-c4e5-491e-932f-1fee60276deb
+		sourceLineageTag: 263868e4-d7b0-49d7-8fe0-2f2574745a89
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Allow Short Position (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm Category (D)'
+		dataType: string
+		lineageTag: 650310b5-0509-4524-be67-b528bd91e207
+		sourceLineageTag: 3fe59d56-68a1-4f9e-ab46-4b45de69aed2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Alm Category (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sleeve Manager Country 1 (D)'
+		dataType: string
+		lineageTag: 2f62be7f-c957-4392-b5f3-90db4662012e
+		sourceLineageTag: e76c1cbf-34f0-4527-af0d-c0e0d65db808
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sleeve Manager Country 1 (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Group Advisor Country 1 (D)'
+		dataType: string
+		lineageTag: 5325e899-7222-4327-a54c-b1aa3c7e9d65
+		sourceLineageTag: eebccaa9-be6f-4d26-9f18-cc45335a4ec5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Group Advisor Country 1 (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Group Advisor Country 2 (D)'
+		dataType: string
+		lineageTag: f3e42db2-51e6-41fb-9eb6-54c260101512
+		sourceLineageTag: 2c8adf49-3c48-4832-acda-d7c11e2670f1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Group Advisor Country 2 (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Group Advisor Country 3 (D)'
+		dataType: string
+		lineageTag: b13641c8-76e8-4b95-b443-03f7e5f35546
+		sourceLineageTag: 450b260c-dc46-4f96-95f0-54bee9f8019a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Group Advisor Country 3 (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Sleeve Termination Date (D)'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: becb75ee-85d2-4d34-b3a6-615728cb5640
+		sourceLineageTag: 3c460e14-0d10-49b3-9143-fd75bff5b7a8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Sleeve Termination Date (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tax Ref Country Code (D)'
+		dataType: string
+		lineageTag: f3f7ef98-1fec-4876-909b-2fc6800111ac
+		sourceLineageTag: 1e6d8287-9a72-4508-9efd-fbb08a863fe3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tax Ref Country Code (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Sleeve Creation Date (D)'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 1da6fedd-6b66-4cac-913d-12d53e1b9366
+		sourceLineageTag: f200f848-2f3e-4917-a299-4a0b981f01d5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Sleeve Creation Date (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Group Advisor City 3 (D)'
+		dataType: string
+		lineageTag: a651d289-f82f-4d85-bcdf-e765dd81242d
+		sourceLineageTag: 70e65502-38a2-4be8-a918-2e4f8c538c30
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Group Advisor City 3 (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alternate PM Team (D)'
+		dataType: string
+		lineageTag: 50407a49-85d3-498d-b577-9ab031312bf5
+		sourceLineageTag: 58677519-ce62-4a4b-99fe-d609b0e9ffb9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Alternate PM Team (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'latest month'
+		dataType: string
+		isHidden
+		lineageTag: c843d30c-28d8-4bc7-9156-3a44fb0180d7
+		sourceLineageTag: e7e2f63e-3479-45bf-9efe-ac688f52f01f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: latest month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Termination Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: b009a8b6-701f-481c-b965-610d72719fc5
+		sourceLineageTag: fa3e1068-4618-4a86-a243-179bfe0e0c0d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Termination Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Creation Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: f860995f-41cd-4556-b335-a7d5b2c05bfe
+		sourceLineageTag: c9beb99a-62d9-492e-b215-37f9c64163b3
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Creation Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Start Date Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4fa031c3-cc29-44d9-9a99-85af99fef8e0
+		sourceLineageTag: 228307a5-5ec8-4e89-88d0-da9fbae68d38
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Start Date Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Code Name - Never Use'
+		dataType: string
+		isHidden
+		lineageTag: bb0b630b-3b73-41b9-916a-4888beac360f
+		sourceLineageTag: 44b8ed40-8974-4c8f-bf1e-fa8d25b11e0a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Code Name - Never Use
+		sortByColumn: 'As of Date (D)'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Join Key'
+		dataType: string
+		lineageTag: 82fadd59-6a86-40f9-b88e-c426bb2706bb
+		sourceLineageTag: 8762554f-3a8d-4391-9687-a81f2dbcae9e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Join Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tmv_Nk
+		dataType: string
+		isNullable: false
+		lineageTag: 654546a1-a5f5-4d90-b4d2-6127141d05c0
+		sourceLineageTag: 8b57b888-b0a3-4495-9f45-bbb603198202
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tmv_Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Portfolios-ce100480-758b-460f-ad00-19df33023f8b = entity
+		mode: directQuery
+		source
+			entityName: Portfolios
+			expressionSource: 'DirectQuery to AS - Securities'
+

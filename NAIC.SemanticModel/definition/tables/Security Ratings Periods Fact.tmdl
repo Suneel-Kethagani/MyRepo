@@ -1,0 +1,113 @@
+table 'Security Ratings Periods Fact'
+	lineageTag: 2e40d86d-8cf8-4c35-b76b-eb49aef5aa2d
+	sourceLineageTag: 6259fa30-dc45-40fe-a513-fe0345a63311
+
+	column 'As Of Dt'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: b73be422-6cb6-4794-926b-1b313fb3f360
+		sourceLineageTag: 9c9e597b-8f09-46de-a767-3c2f086c64e0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: As Of Dt
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Security ID'
+		dataType: string
+		lineageTag: 1aedfbc9-c16f-4c62-a41d-24fbdc0e3eb1
+		sourceLineageTag: 56ebc1b5-b9ee-4e0d-ac38-a2eb644203f0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src Security ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Market ID'
+		dataType: string
+		lineageTag: 67c1c426-7b91-43cf-a44c-75ab070d38ee
+		sourceLineageTag: 3d8d9db6-0ebb-41b4-a85a-e43d55dbcd53
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src Market ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Rating CD'
+		dataType: string
+		lineageTag: 6eb9b9ac-887b-4409-aa4a-c5dad19f11d5
+		sourceLineageTag: 8e7945d9-f9fc-45f7-8945-6bae887aef24
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Rating CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Rating Agency CD'
+		dataType: string
+		lineageTag: a08d5471-6f8b-4155-ae95-61c8a5042403
+		sourceLineageTag: 23dec522-47ac-48d3-bd1d-95263dbf33b2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Rating Agency CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Endorsement Indicator'
+		dataType: string
+		lineageTag: 8754c7a7-3bb7-4639-a73a-6b70d59a61fb
+		sourceLineageTag: a1cf3a53-5cfb-4f27-9dae-69f0c7cec196
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Endorsement Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Updated TS'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd hh:nn:ss AM/PM
+		lineageTag: 7dfce424-ce9e-41b5-b7d4-9cf7f2e446b4
+		sourceLineageTag: 8fc5eb5a-f43b-42fa-8b5b-2f7bf3d7ba99
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src Updated TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column Src
+		dataType: string
+		lineageTag: 17f6a069-a231-43e4-9d54-13b19ba0c069
+		sourceLineageTag: 28fe814a-41a7-4425-83a8-9a0b3da952ee
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src
+
+		annotation SummarizationSetBy = Automatic
+
+	column SECURITY_IK
+		dataType: int64
+		formatString: 0
+		lineageTag: 36afedca-8611-4d67-9ade-065e5c07d278
+		sourceLineageTag: 77d0b3c7-9615-4f8f-a1c7-138d04bd84f8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SECURITY_IK
+
+		annotation SummarizationSetBy = User
+
+	column 'Security NK'
+		dataType: string
+		lineageTag: f5f85f0b-cfbd-4c97-9d0a-be49ef0d5ebd
+		sourceLineageTag: 22cbcf65-1721-4783-9488-98a76f3ac7ee
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Security NK
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Security Ratings Periods Fact-df960a58-ef71-4ae0-965d-3a45f9dad5b7' = entity
+		mode: directQuery
+		source
+			entityName: Security Ratings Periods Fact
+			expressionSource: 'DirectQuery to AS - Securities'
+

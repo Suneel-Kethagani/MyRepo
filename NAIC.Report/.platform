@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "NAIC"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "c053af5f-0c69-4170-aae3-d646f66f8759"
+  }
+}

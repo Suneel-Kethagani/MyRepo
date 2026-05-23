@@ -1,0 +1,256 @@
+table 'Total Market Value GA Fact'
+	lineageTag: 95503722-8495-4b45-8635-8b66c78e6a8e
+	sourceLineageTag: 15b84009-f564-4f97-bead-91c7b98fbf7e
+
+	measure 'Month End Status Code (TMV)' = EXTERNALMEASURE("Month End Status Code (TMV)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 52e5b32c-b5f3-40d3-9e53-94855dcaeedc
+		sourceLineageTag: 7cf1435c-8ee7-491e-b26f-00876f10a095
+		dataCategory: Uncategorized
+
+	measure 'Portfolio Calculation' = EXTERNALMEASURE("Portfolio Calculation", STRING, "DirectQuery to AS - Securities")
+		lineageTag: adb6cccb-142b-4e0c-8076-618715ec9ec3
+		sourceLineageTag: 99ae8804-6249-4fe9-a82e-de9434080815
+		dataCategory: Uncategorized
+
+	measure 'Iddl Region Cycle' = EXTERNALMEASURE("Iddl Region Cycle", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 9db61f65-248e-44eb-9e61-8101ae1d5363
+		sourceLineageTag: 77594487-58b2-4563-98ef-2175417a7274
+		dataCategory: Uncategorized
+
+	measure 'Mam Business Group' = EXTERNALMEASURE("Mam Business Group", STRING, "DirectQuery to AS - Securities")
+		lineageTag: db22287a-ce4a-4165-8dc6-fd9c84332fc1
+		sourceLineageTag: 3059c715-9361-4267-8e5b-68858896da53
+		dataCategory: Uncategorized
+
+	measure 'Iddl Valuation Cycle' = EXTERNALMEASURE("Iddl Valuation Cycle", STRING, "DirectQuery to AS - Securities")
+		lineageTag: ae92d52b-3143-4a91-a41e-2071afc11431
+		sourceLineageTag: c68c64c2-92c2-43df-abb1-26ada40ca309
+		dataCategory: Uncategorized
+
+	measure 'Accounting Status Code' = EXTERNALMEASURE("Accounting Status Code", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 462c2799-6b9b-4fb9-9e48-88c01410ce84
+		sourceLineageTag: 5f06d70e-8cf7-40ef-8844-8328c66de12f
+		dataCategory: Uncategorized
+
+	measure 'Base Portfolio Value' = EXTERNALMEASURE("Base Portfolio Value", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: bab02d72-84b1-4e2b-be61-e272b646fea5
+		sourceLineageTag: 75906c71-5882-4eb2-8fcd-f499de54d3fa
+		dataCategory: Uncategorized
+
+	measure 'Calculated Date' = EXTERNALMEASURE("Calculated Date", DATETIME, "DirectQuery to AS - Securities")
+		formatString: yyyy\-mm\-dd hh:nn:ss AM/PM
+		lineageTag: 1cec7cbf-fa36-41b1-b1b3-b0e3ec382750
+		sourceLineageTag: e9e701da-27b3-4ee7-a99a-2f86e55807f9
+		dataCategory: Uncategorized
+
+	column 'Portfolio Code'
+		dataType: string
+		lineageTag: 0fbeab9a-5c2d-46f8-9ab3-4a79594c548a
+		sourceLineageTag: 397b053e-86c1-4625-9d14-0a4aa86ab818
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Effective Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 052a5f64-6f20-4f37-b856-efaf3f9b218d
+		sourceLineageTag: 19f4cc3d-f336-4734-9576-e08d427965bb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Effective Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Currency
+		dataType: string
+		lineageTag: 8dd2b684-3a2c-486c-a4be-6265850f143f
+		sourceLineageTag: 7a5453dc-8f45-44f3-ae41-bae28124ef7b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Simplified Port Calc Code'
+		dataType: string
+		lineageTag: 6a418099-f6ee-4994-9d6a-df854ca5f02d
+		sourceLineageTag: eb27c130-77de-4438-a7dc-cde4f8dd9ac2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Simplified Port Calc Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Portfolio Accrued Market Value'
+		dataType: double
+		lineageTag: 93fa6b40-60b9-4ebe-b89f-611854325396
+		sourceLineageTag: fc0102ad-4e02-4a51-bf45-f07bf995575c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Total Portfolio Accrued Market Value
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Clean Value Base CCY'
+		dataType: double
+		lineageTag: dc143be6-b05a-4e20-9c1c-4d1a1dac76cc
+		sourceLineageTag: e5cc34c2-fe00-4360-a4fe-1d2a1ab673a7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Clean Value Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Book Value Base CCY'
+		dataType: double
+		lineageTag: 3b9a165c-ac58-4100-a5cc-0f2888fddc29
+		sourceLineageTag: ab88514c-bf22-451a-bb24-cbcee50cbd7f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Book Value Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Carrying Value Base CCY'
+		dataType: double
+		lineageTag: 3f281ed6-e3ed-4413-a9f6-e850b7bae0d2
+		sourceLineageTag: a03346b8-260e-45a1-82c5-e62a9ab86917
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Carrying Value Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Calculation Date Full'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd hh:nn:ss AM/PM
+		lineageTag: aacc186a-211a-456e-a010-0e05c489d77e
+		sourceLineageTag: f5f6cc7e-01b7-406c-96ab-f62e24daf4a3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Calculation Date Full
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Calculation (D)'
+		dataType: string
+		lineageTag: edaf199f-01c8-4d05-b242-f23aff9b9d59
+		sourceLineageTag: 39e5a4ec-c175-4771-a02b-cb8fbcc5247c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Calculation (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month End Status'
+		dataType: string
+		lineageTag: b9eaa66c-b4b3-4fe3-8cd5-f27877e460eb
+		sourceLineageTag: ec460246-0f80-40d5-b6e1-c20253af4f81
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Month End Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: 5c2ff24c-ba23-4296-a197-06b2bb1b7d85
+		sourceLineageTag: cfa51c60-2580-407f-8173-abe3eef5bea1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ml Business Group'
+		dataType: string
+		lineageTag: 5a7d9756-5ebf-46ab-8e81-9933bb30ae30
+		sourceLineageTag: a6f82ccc-2519-4545-a5df-54d14ee18290
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ml Business Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valuation Cycle'
+		dataType: string
+		lineageTag: d153b456-ee9f-403b-9e4d-fc9c36b4e453
+		sourceLineageTag: f582b9cb-79f1-486a-acd5-aa6cfdec3d56
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Valuation Cycle
+
+		annotation SummarizationSetBy = Automatic
+
+	column Framework
+		dataType: string
+		lineageTag: 91b4eaf4-066a-4dec-be83-40c7bdd98305
+		sourceLineageTag: ec6cdcfb-abca-4020-a923-02593346618a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Framework
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Status Code (CD)'
+		dataType: string
+		lineageTag: 996bbfa2-3f2c-4b8d-9a88-42a961e42cfb
+		sourceLineageTag: 5a562bb1-c212-4def-991e-3481c21eb492
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Accounting Status Code (CD)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Portfolio Value (D)'
+		dataType: double
+		isHidden
+		lineageTag: 399fa0e1-a0b3-40e9-b6f6-3a8692c968da
+		sourceLineageTag: 43940c37-3536-4e78-a0e8-0d3dba4690e8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Base Portfolio Value (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Latest As of Dt Slicer(Sec TMV)'
+		dataType: string
+		isHidden
+		lineageTag: b7c0c5d2-0983-48ae-b48a-106430ee648c
+		sourceLineageTag: dfebcf63-1ee9-4c65-8b89-31b1608792d2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Latest As of Dt Slicer(Sec TMV)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Effective Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2ae7b224-16f4-4ecb-b2dc-e5c9f2f5adca
+		sourceLineageTag: a60ad283-2925-407e-becb-a0efb3e240ef
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Effective Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tmv_Nk
+		dataType: string
+		lineageTag: e317b715-8637-4a78-994d-986ed4c713ae
+		sourceLineageTag: 8646e998-6483-4d39-9658-146063cc3502
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tmv_Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Total Market Value GA Fact-51d60a3f-99d4-4542-b164-3a02100c88b7' = entity
+		mode: directQuery
+		source
+			entityName: Total Market Value GA Fact
+			expressionSource: 'DirectQuery to AS - Securities'
+

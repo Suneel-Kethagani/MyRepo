@@ -1,0 +1,302 @@
+table 'Fx Rate DQ'
+	lineageTag: bc552912-76b8-4ce3-b06b-571ab2a40bcd
+	sourceLineageTag: b7d3ccbf-a0a2-4983-a43b-f5bbc73191c9
+
+	measure 'Rep Rate' = EXTERNALMEASURE("Rep Rate", DOUBLE, "DirectQuery to AS - Securities")
+		formatString: 0.000000
+		lineageTag: 38365494-32c6-4c87-a8a8-21f9f8b1776d
+		sourceLineageTag: a01292c6-1e91-490c-8699-12ea6acb0336
+		dataCategory: Uncategorized
+
+	measure 'Rep Rate (IS)' = EXTERNALMEASURE("Rep Rate (IS)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: e1a7820e-b6a4-4fe5-8c4c-9a96e3189782
+		sourceLineageTag: 4fbc060d-719f-4a23-a458-0580b48ad89c
+		dataCategory: Uncategorized
+
+	column 'FX Join Key'
+		dataType: string
+		isNullable: false
+		lineageTag: 6e0dbcee-749d-4657-a469-a79717f05bd8
+		sourceLineageTag: e878bad5-7147-4607-9f22-b772bfd64cc7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FX Join Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Func BS Rate'
+		dataType: double
+		lineageTag: 32bb7613-9e98-46a9-b3e7-3732596dfea7
+		sourceLineageTag: 05047015-6b9b-4bc6-8e6c-534877e3a272
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Func BS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAD BS Rate'
+		dataType: double
+		lineageTag: 002789f4-1332-4da1-8ab7-316e9eb30635
+		sourceLineageTag: 68df9f9d-235e-4586-9f52-0818234cc2ec
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CAD BS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'USD BS Rate'
+		dataType: double
+		lineageTag: c8d978cb-4fda-4bc7-9658-cd993dc3f961
+		sourceLineageTag: e41368be-30f7-46c3-96bb-578644381e26
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: USD BS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'HKD BS Rate'
+		dataType: double
+		lineageTag: e8e2dada-7609-4e31-aa6c-a7dfddbf71b7
+		sourceLineageTag: b53c2d7a-a27d-4bee-944b-fa6a534d5b2f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: HKD BS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Prev Func BS Rate'
+		dataType: double
+		lineageTag: 2cb30870-7d1b-4908-b89b-bde5b8ab1f61
+		sourceLineageTag: 3a4ebd26-aaef-4c2b-9703-5e980c1d3fee
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Prev Func BS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Prev CAD BS Rate'
+		dataType: double
+		lineageTag: b9241c47-e52e-49cf-825e-4b70b1262d92
+		sourceLineageTag: eac3b1ac-cf09-467e-a9bd-f64c7f134f65
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Prev CAD BS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Prev USD BS Rate'
+		dataType: double
+		lineageTag: 66401af2-c82e-4af9-b2c2-40db50dc8782
+		sourceLineageTag: 5bee0df5-a754-4421-8864-a1601194e09f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Prev USD BS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Prev HKD BS Rate'
+		dataType: double
+		lineageTag: ce55ed4b-dd92-4b06-a471-470d4e008c31
+		sourceLineageTag: 08baa7be-bffb-48b8-be09-262446907f04
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Prev HKD BS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Func IS Rate'
+		dataType: double
+		lineageTag: eeaca8b6-84d2-47a3-9ee4-0a58d2b0c8b0
+		sourceLineageTag: 0a6adf88-8da2-4d26-b069-2b3b71a5e6b6
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Func IS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAD IS Rate'
+		dataType: double
+		lineageTag: 801392b7-1442-43d7-b0e3-9a4fb88ace18
+		sourceLineageTag: fbdade07-4ce2-4eec-8ab0-b70911baa0fa
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CAD IS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'USD IS Rate'
+		dataType: double
+		lineageTag: 836b0a99-d1e6-4b25-8d09-bfc2c8bd0e94
+		sourceLineageTag: 822ba8c0-2128-4c6b-8829-323fd3e60fd3
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: USD IS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'HKD IS Rate'
+		dataType: double
+		lineageTag: ebecb9d2-82ba-40d0-bc2e-eb936bb7406c
+		sourceLineageTag: d60a2840-1a81-4896-a6b1-b87397209b16
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: HKD IS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Prev Func IS Rate'
+		dataType: double
+		lineageTag: 1115d4ec-b6f1-4bab-94bd-8279a10036b0
+		sourceLineageTag: e97b2c7e-f3fc-49f0-84e1-8bce0ff74044
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Prev Func IS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Prev CAD IS Rate'
+		dataType: double
+		lineageTag: 3da15ce2-d295-4e99-b3f7-e3f729551110
+		sourceLineageTag: fd6b5d70-6445-4c9f-9ed9-bfc83a4ae12f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Prev CAD IS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Prev USD IS Rate'
+		dataType: double
+		lineageTag: 1ccacc7e-3c07-4e8d-ab18-23f41257f8be
+		sourceLineageTag: d47f6753-4816-49d5-80a2-2aff5fcaeff3
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Prev USD IS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Prev HKD IS Rate'
+		dataType: double
+		lineageTag: d32dbe25-db25-4181-96c0-f9a548e60b8d
+		sourceLineageTag: 545d0df2-5a5e-4706-8fb6-f3fa5ccf5c30
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Prev HKD IS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CTA Func BS Rate'
+		dataType: double
+		lineageTag: 04328bb4-649b-4bb7-b408-a811d52140ea
+		sourceLineageTag: abc0fb33-e015-409c-8bde-3afd9a1b6acd
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CTA Func BS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CTA CAD BS Rate'
+		dataType: double
+		lineageTag: 2d288ff5-00bc-48e5-852d-624372f97e85
+		sourceLineageTag: c4bcbdbb-57b6-4757-8462-fe62330c91b4
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CTA CAD BS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CTA USD BS Rate'
+		dataType: double
+		lineageTag: 7301f0b2-6dfd-4dd0-aa14-790b153b4ec6
+		sourceLineageTag: 415521fe-2ae9-4f11-8855-ac940851373b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CTA USD BS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CTA HKD BS Rate'
+		dataType: double
+		lineageTag: 8279a7ca-0087-48d6-ab1c-5eb6463abde8
+		sourceLineageTag: 82776479-ee5c-4cbb-9c07-864f35c0850b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CTA HKD BS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CTA Func IS Rate'
+		dataType: double
+		lineageTag: b67d7df0-3d1e-4a1a-99fc-830258d909d8
+		sourceLineageTag: 737a31ed-43e4-40dc-9d78-eeba7cfd7001
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CTA Func IS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CTA CAD IS Rate'
+		dataType: double
+		lineageTag: ab9d2af3-3316-4505-b39b-f8b8920a28df
+		sourceLineageTag: 50b0da72-1c27-4881-a2f5-8791831f3d1f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CTA CAD IS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CTA USD IS Rate'
+		dataType: double
+		lineageTag: 4d776b5c-2996-486c-b3ef-c3dfa8703466
+		sourceLineageTag: 5710bfc8-a081-4ee9-b112-0c7c58ad3f8f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CTA USD IS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CTA HKD IS Rate'
+		dataType: double
+		lineageTag: 607ec593-e31c-4656-9534-ff609efab2d3
+		sourceLineageTag: e17c33c3-fac1-491d-8f63-0a1e4c0e1c39
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CTA HKD IS Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column FROM_CCY
+		dataType: string
+		lineageTag: 8ca91ea1-90d6-4f56-ad63-91e075b078e4
+		sourceLineageTag: 151e2269-7b1b-4573-9ff4-526fe49c58e2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FROM_CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column TO_CCY
+		dataType: string
+		lineageTag: 06134ac8-5e45-417b-a2f9-7722618da7ac
+		sourceLineageTag: 70775f66-5b00-416f-ba1c-963f1a451f2f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TO_CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERIOD
+		dataType: double
+		lineageTag: a570682f-d85b-4eb4-a800-afb07769173b
+		sourceLineageTag: c37f46fa-abf5-4134-a359-dd4900676813
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PERIOD
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Fx Rate DQ-f9846919-4fc0-4c63-b663-22949eb411c8' = entity
+		mode: directQuery
+		source
+			entityName: Fx Rate DQ
+			expressionSource: 'DirectQuery to AS - Securities'
+

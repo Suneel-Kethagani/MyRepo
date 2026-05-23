@@ -1,0 +1,138 @@
+table 'Maximis CTA Holdings Fact'
+	lineageTag: 2ec1e89b-65d8-4e19-9abb-04a9393b2023
+	sourceLineageTag: 027568e6-322c-4898-a8a3-1e9123113a10
+
+	column 'Maximis Lot ID'
+		dataType: string
+		lineageTag: ad5c8d69-09e2-426f-8462-dd63f6eb1822
+		sourceLineageTag: 674110c2-f16d-4dff-b217-8dc16768e6ef
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Maximis Lot ID
+
+		annotation SummarizationSetBy = User
+
+	column 'Lot ID'
+		dataType: string
+		lineageTag: 3702b712-b408-4479-9c4d-cad57261f79a
+		sourceLineageTag: 75e93602-959b-4d07-9874-93fdd23f80a9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Lot ID
+
+		annotation SummarizationSetBy = User
+
+	column 'Original Trade Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: a5030788-80dd-40a7-962d-98e57bea2eb9
+		sourceLineageTag: 4c5f9ebd-8ed5-489f-a614-4c9eff67104c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Original Trade Date
+
+		annotation SummarizationSetBy = User
+
+	column 'Original Post Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 8036dccb-d4f3-481b-809f-f7ece7ed4d84
+		sourceLineageTag: be20fa45-8863-46df-8499-51f2c293edf9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Original Post Date
+
+		annotation SummarizationSetBy = User
+
+	column 'Original Acquired Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 98c2a1dc-e323-40d2-ab0b-b607484565c8
+		sourceLineageTag: aa96a423-8a57-4815-8bd2-302aa87fb7cb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Original Acquired Date
+
+		annotation SummarizationSetBy = User
+
+	column 'Original Transaction Code'
+		dataType: string
+		lineageTag: b84c9a4f-a8c6-44ab-98ec-f5e566414574
+		sourceLineageTag: 4cc69b8d-1d53-41ed-9906-1f67b47ef452
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Original Transaction Code
+
+		annotation SummarizationSetBy = User
+
+	column 'Original Transaction Type'
+		dataType: string
+		lineageTag: 49ac4609-3f40-4695-8986-7283368117a7
+		sourceLineageTag: c9b0007d-8e2b-4b00-9662-b14bc4772272
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Original Transaction Type
+
+		annotation SummarizationSetBy = User
+
+	column 'Original BS Rate'
+		dataType: double
+		formatString: 0.000000000
+		lineageTag: 14255f4b-2507-48ab-ac84-bf1f679c894b
+		sourceLineageTag: af7105fe-5a7c-46d2-9eca-47d8bc433ae2
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Original BS Rate
+
+		annotation SummarizationSetBy = User
+
+	column 'Acq BS Rate Mon Vs NonMon'
+		dataType: double
+		formatString: 0.000000000
+		lineageTag: dd15cc40-3e92-4f4a-8390-9d3e957cc27c
+		sourceLineageTag: f16d4b25-2160-4f0b-ab59-ece5a4b8d950
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Acq BS Rate Mon Vs NonMon
+
+		annotation SummarizationSetBy = User
+
+	column 'Original FX Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 10e5c208-6c12-4afe-8cd3-1b922850efbb
+		sourceLineageTag: 24652520-6364-4c25-813c-adb6b998240b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Original FX Date
+
+		annotation SummarizationSetBy = User
+
+	column 'Original Accounting Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 3dc66896-804b-44f8-82ea-2e66c1dc5bca
+		sourceLineageTag: ed5583bb-ef5d-4209-a4eb-8a6c3c0cff65
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Original Accounting Date
+
+		annotation SummarizationSetBy = User
+
+	column 'Created Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd hh:nn:ss AM/PM
+		lineageTag: 20b67df4-4c44-479f-a01d-b080c295a70a
+		sourceLineageTag: 8e7ab3b2-2ad7-473b-894f-e83b16d0f31f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Created Date
+
+		annotation SummarizationSetBy = User
+
+	partition 'Maximis CTA Holdings Fact' = entity
+		mode: directQuery
+		source
+			entityName: Maximis CTA Holdings Fact
+			expressionSource: 'DirectQuery to AS - Securities'
+

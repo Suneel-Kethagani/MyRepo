@@ -1,0 +1,22 @@
+table 'Assumptions Slicer'
+	isHidden
+	lineageTag: 448c6f8a-ccf4-449d-8cf3-f730e3559a3f
+	sourceLineageTag: 39f9d078-854a-439a-8107-3a9836d07ff9
+
+	column Value
+		dataType: string
+		isHidden
+		lineageTag: 348f9bdb-8353-45ac-99f9-f20a31998f39
+		sourceLineageTag: 8c25a748-6233-4c01-a263-fdef355cd5b7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Value
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Assumptions Slicer-ae4cfb5c-4527-4741-a191-d467dc0d99c6' = entity
+		mode: directQuery
+		source
+			entityName: Assumptions Slicer
+			expressionSource: 'DirectQuery to AS - Securities'
+

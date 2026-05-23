@@ -1,0 +1,31 @@
+table 'CAT Adjmt Config Table'
+	lineageTag: 8c55025b-751f-4c7d-8848-956951d4f11e
+	sourceLineageTag: aae186ca-ffde-48c3-8ea6-d19f18b43b3c
+
+	column 'Measure Name'
+		dataType: string
+		lineageTag: e2fd5bd5-b40e-4777-8c10-39640d4a0c31
+		sourceLineageTag: 883281cf-4992-4d96-bb2e-ec8e5c60039d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Measure Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Acct Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: 822db9d1-d5ac-4732-a6df-afe045d75f69
+		sourceLineageTag: bd9462a9-5be0-4d82-a2fe-a91e28698fd5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: GL Acct Num
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'CAT Adjmt Config Table-6de0b93c-49ba-48e8-b303-a2036820315c' = entity
+		mode: directQuery
+		source
+			entityName: CAT Adjmt Config Table
+			expressionSource: 'DirectQuery to AS - Securities'
+

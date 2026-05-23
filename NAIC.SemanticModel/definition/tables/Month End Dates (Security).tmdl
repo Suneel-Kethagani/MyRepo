@@ -1,0 +1,23 @@
+table 'Month End Dates (Security)'
+	isHidden
+	lineageTag: a515cf57-fcab-464b-a62e-b685f8f57590
+	sourceLineageTag: 8362d08f-6539-4638-920a-76baaee6a1d6
+
+	column 'Month End Selection'
+		dataType: string
+		isHidden
+		isNullable: false
+		lineageTag: eaf5951a-5999-448e-91e6-a11fce3143e3
+		sourceLineageTag: a24c62ba-e5b0-453b-b313-789f2fd4ceba
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Month End Selection
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Month End Dates (Security)-90c873ee-5d87-427e-af64-2f05b16261f7' = entity
+		mode: directQuery
+		source
+			entityName: Month End Dates (Security)
+			expressionSource: 'DirectQuery to AS - Securities'
+

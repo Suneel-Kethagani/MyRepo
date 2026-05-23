@@ -1,0 +1,733 @@
+table 'Securities Lookthrough Position Fact'
+	lineageTag: d90f0a22-adf6-48aa-acac-a19168d8599e
+	sourceLineageTag: e865d2e8-2384-4e70-83c5-0b2c6def5db1
+
+	measure 'Rep Rate (Security Lookthrough)' = EXTERNALMEASURE("Rep Rate (Security Lookthrough)", DOUBLE, "DirectQuery to AS - Securities")
+		formatString: 0.000000
+		lineageTag: 8105bbe3-9b36-4be7-9196-d05207d2bd6f
+		sourceLineageTag: b12b760e-3346-44b8-9332-194e8388cab7
+		dataCategory: Uncategorized
+
+	measure 'Ownership %' = EXTERNALMEASURE("Ownership %", DOUBLE, "DirectQuery to AS - Securities")
+		formatString: 0.00000
+		lineageTag: f49732ba-502c-4611-a0cf-871da1a6fc39
+		sourceLineageTag: e83ec703-5c83-4f6b-b300-3af0a80c2151
+		dataCategory: Uncategorized
+
+	measure 'Reporting Currency (look Position)' = EXTERNALMEASURE("Reporting Currency (look Position)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 612bd04e-72f5-4c8b-ad48-25521220bb01
+		sourceLineageTag: 32bef179-7255-4953-898e-48dde14b3c29
+		dataCategory: Uncategorized
+
+	measure 'Nominal (Lookthrough)' = EXTERNALMEASURE("Nominal (Lookthrough)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: faf2b5ee-9fc9-488c-91e4-7f370aa6e364
+		sourceLineageTag: d6365186-c264-492c-8162-dbdb5b11189a
+		dataCategory: Uncategorized
+
+	measure 'Balance Book Value Local' = EXTERNALMEASURE("Balance Book Value Local", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 13b52770-2e39-42ba-a42e-396857250f07
+		sourceLineageTag: 95a650f0-1b10-4728-8816-c8bf9fe203ec
+		dataCategory: Uncategorized
+
+	measure 'Market Value Local' = EXTERNALMEASURE("Market Value Local", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 70ab9c7c-2b16-44c4-a600-48e64e8e0fcc
+		sourceLineageTag: 66c99c19-4369-4318-86d8-0fe5778ebfaa
+		dataCategory: Uncategorized
+
+	measure 'Accrual Local' = EXTERNALMEASURE("Accrual Local", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: a7dd4bbc-8033-4227-869f-2c4382412943
+		sourceLineageTag: 1d2b4011-fb69-4a39-81a4-6f9245f23882
+		dataCategory: Uncategorized
+
+	measure 'Security Lookthrough Position Title' = EXTERNALMEASURE("Security Lookthrough Position Title", STRING, "DirectQuery to AS - Securities")
+		lineageTag: b2d1e422-cfd2-449b-a190-d699c3ed545f
+		sourceLineageTag: a8337596-b528-4b65-ba71-07048fb3bf08
+		dataCategory: Uncategorized
+
+	measure 'Accrual Rep' = EXTERNALMEASURE("Accrual Rep", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 759a1381-adc6-445a-9f59-2d53fbc9a765
+		sourceLineageTag: dd79ad17-f0e1-4013-8a14-ae5e068e6462
+		dataCategory: Uncategorized
+
+	measure 'Market Value Rep' = EXTERNALMEASURE("Market Value Rep", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 26a766c9-954e-48dd-b6cd-4aa851a6366e
+		sourceLineageTag: 448e21f7-4464-4e6c-9f5f-9c021a597172
+		dataCategory: Uncategorized
+
+	measure 'Balance Book Value Rep' = EXTERNALMEASURE("Balance Book Value Rep", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 25a7dd43-b5ae-4888-a790-971cf9b3daac
+		sourceLineageTag: b627a7ae-32c6-4c04-a3df-90c18a06b001
+		dataCategory: Uncategorized
+
+	measure 'Balance Book Value - Adjustment Local(LThru)' = EXTERNALMEASURE("Balance Book Value - Adjustment Local(LThru)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: a70ce308-cc96-4c2a-ac6d-0b629431440c
+		sourceLineageTag: 054d7a5e-d01d-4ce1-99dc-bc1f02e45ff6
+		dataCategory: Uncategorized
+
+	measure 'Accrual - Adjustment Local(Lthru)' = EXTERNALMEASURE("Accrual - Adjustment Local(Lthru)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: cfae6451-97c5-469a-aefc-f8287784bdfe
+		sourceLineageTag: 4ae19b8c-50d6-493b-b431-27f8c57939f1
+		dataCategory: Uncategorized
+
+	measure 'Balance Book Value - Adjustment Rep (Lthru)' = EXTERNALMEASURE("Balance Book Value - Adjustment Rep (Lthru)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: abc7f445-1aff-47d5-aae4-c1965e9d3620
+		sourceLineageTag: 38393f4f-8c5f-4ed2-a6a3-fa51b118035b
+		dataCategory: Uncategorized
+
+	measure 'Accrual - Adjustment Rep (Lthru)' = EXTERNALMEASURE("Accrual - Adjustment Rep (Lthru)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 05eeb639-7e53-414b-b8c9-eab8976a3826
+		sourceLineageTag: ad7e39eb-341d-4e6b-af81-d195421c07f9
+		dataCategory: Uncategorized
+
+	measure 'Balance Book Value - Lookthrough Local (LThru)' = EXTERNALMEASURE("Balance Book Value - Lookthrough Local (LThru)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: bc3f73e7-e761-4d2d-917b-ef99dd11f312
+		sourceLineageTag: bf572b4a-fcb0-4461-959b-7b9b7ea2c919
+		dataCategory: Uncategorized
+
+	measure 'Balance Book Value - Lookthrough Rep (Lthru)' = EXTERNALMEASURE("Balance Book Value - Lookthrough Rep (Lthru)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 95121592-0e22-430a-b65c-401cca873486
+		sourceLineageTag: 63403e4b-5393-471e-a2b0-a112be2ef4c2
+		dataCategory: Uncategorized
+
+	measure 'Accrual - Lookthrough Local(Lthru)' = EXTERNALMEASURE("Accrual - Lookthrough Local(Lthru)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 2b649a60-5378-4cfc-bee9-8fca38b025e8
+		sourceLineageTag: 44739db9-2a37-4f7c-93c5-efab89efb448
+		dataCategory: Uncategorized
+
+	measure 'Accrual - Lookthrough Rep(Lthru)' = EXTERNALMEASURE("Accrual - Lookthrough Rep(Lthru)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 33af8150-b342-43c9-b27a-a36957468159
+		sourceLineageTag: 53068a35-9e90-4c10-93dd-2304314255e1
+		dataCategory: Uncategorized
+
+	measure 'Lthru Rowcount' = EXTERNALMEASURE("Lthru Rowcount", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		lineageTag: 44c1e483-025a-4c66-8017-2e0c483f9f3e
+		sourceLineageTag: e000a287-8f4d-46be-83c4-1acfe5108f3a
+		dataCategory: Uncategorized
+
+	measure 'Adjusted GL Class (Sec Lthru)' = EXTERNALMEASURE("Adjusted GL Class (Sec Lthru)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: ec390be6-ff04-4ba3-a7c8-986ceedcae7a
+		sourceLineageTag: 9bd51303-49fb-4888-95d4-7bec1d8d7c06
+		dataCategory: Uncategorized
+
+	measure 'Carrying Value - Local (LThru)' = EXTERNALMEASURE("Carrying Value - Local (LThru)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 4590f726-cdb7-4c6e-91d5-fdb8f5edc52a
+		sourceLineageTag: 513dcfc2-3db4-46ad-97ae-002b2c770dba
+		dataCategory: Uncategorized
+
+	measure 'Carrying Value - Rep (Lthru)' = EXTERNALMEASURE("Carrying Value - Rep (Lthru)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 42e8acda-ba82-4113-9b49-6adef3498c58
+		sourceLineageTag: aaa47c5c-d396-44df-a3d1-d6bc582ada0a
+		dataCategory: Uncategorized
+
+	measure 'Unrealized Gain/Loss - Rep (Lthru)' = EXTERNALMEASURE("Unrealized Gain/Loss - Rep (Lthru)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 379eb950-79e9-4dc6-aed8-959f2c0a86ad
+		sourceLineageTag: fd2ba372-6872-436a-8dcc-127082e06583
+		dataCategory: Uncategorized
+
+	measure 'Unrealized Gain/Loss - Local (LThru)' = EXTERNALMEASURE("Unrealized Gain/Loss - Local (LThru)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 0dd38b51-d181-4be1-a115-53b891adc0bd
+		sourceLineageTag: 96fc64e1-9d07-429f-bb37-245b86b0682c
+		dataCategory: Uncategorized
+
+	column 'Security Nk'
+		dataType: string
+		lineageTag: d38ebd6c-ca2d-457d-8ac3-616448d4c0a6
+		sourceLineageTag: cae6d5a1-f7fa-4372-adf2-adaccdbdad26
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Security Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lot Id'
+		dataType: string
+		lineageTag: d661c29c-a009-49c2-89c5-1e82c20593e1
+		sourceLineageTag: c2c39a86-0f61-4623-bca4-39b64f2f2ec2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Lot Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Nk'
+		dataType: string
+		lineageTag: 28dcca64-4352-45bb-babd-dba3a8ff93a4
+		sourceLineageTag: 7fade0ef-834a-4823-b6e2-2c0599e0ea16
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lookthrough Portfolio Code'
+		dataType: string
+		lineageTag: cf58627c-9aa8-48a0-8d01-dfaf9f7b4e44
+		sourceLineageTag: 52339d97-078e-40d1-ad81-fecc9fc82200
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Lookthrough Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Standalone Portfolio Code'
+		dataType: string
+		lineageTag: 8d1583ae-e9c6-4622-a3fb-75a57b0f9f15
+		sourceLineageTag: 69eea46a-53b1-443b-8b22-e0a81dea9111
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Standalone Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mim Ut Or Ga Ric Portfolio Code'
+		dataType: string
+		lineageTag: 10a1d939-e515-4ce3-85b5-9504f9973972
+		sourceLineageTag: 38923f8c-f8fe-42ef-ac80-899de8d7d4d4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Mim Ut Or Ga Ric Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fund Security'
+		dataType: string
+		lineageTag: 54a32c48-366a-4aac-8a6b-bfee7e21b816
+		sourceLineageTag: b29be8b1-e24f-48d2-a71d-6850669174a2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Fund Security
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ownership Percentage'
+		dataType: double
+		lineageTag: 339af587-b51c-4b39-8ca6-ba915056a9bc
+		sourceLineageTag: 9caaf373-03e9-4311-b942-5c51c47dcafa
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Ownership Percentage
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Effective Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 005dba27-49b9-49b4-a9e7-fcd423cd29df
+		sourceLineageTag: 51cbb4c7-1118-448c-820f-0ac3b1c5a5d0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Effective Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Framework Cd'
+		dataType: string
+		lineageTag: 712bb244-dd1b-4f0f-8788-b9fd788251a8
+		sourceLineageTag: 4b54d60d-7179-40cb-8931-8078adb7f8e5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Framework Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Calculation'
+		dataType: string
+		lineageTag: 9f4fecb7-5501-4370-ad61-68864c416f0b
+		sourceLineageTag: 24cf3e26-be8f-4806-b180-060ed9f1da4b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Calculation
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Positions Id'
+		dataType: string
+		lineageTag: da27494b-163b-4e7f-9ee3-fa0e3833f13d
+		sourceLineageTag: 1c80c64e-103f-4da1-b744-3a263cea373e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src Positions Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Match Index'
+		dataType: int64
+		formatString: 0
+		lineageTag: 67c94816-aac9-4bc8-872b-8e4581759d41
+		sourceLineageTag: 0948bbec-033c-4c65-a059-87c3d7b4af1c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Match Index
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ext Tax Lot No Ik'
+		dataType: int64
+		formatString: 0
+		lineageTag: 37de4f88-23b0-4666-ac78-2309c9d1cc74
+		sourceLineageTag: 675704c0-47bc-49f9-9463-ce8a505d6121
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Ext Tax Lot No Ik
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transactions Ik'
+		dataType: int64
+		formatString: 0
+		lineageTag: 74a7c6d9-f1d0-4d36-8978-8405f7f5fb79
+		sourceLineageTag: fb4250ea-cc86-4ef2-8834-a04dc422638b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Transactions Ik
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lawson Legal Id'
+		dataType: string
+		lineageTag: 36d6ac8f-fc6c-430b-a22d-483b3a402d0c
+		sourceLineageTag: dd98f7f8-5689-4957-9872-174c48b52399
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Lawson Legal Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Subfund Id'
+		dataType: string
+		lineageTag: cb723ab1-216d-44f6-afa3-760540a6386c
+		sourceLineageTag: d80487a8-6954-4145-b48a-ecfa4114cea7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Subfund Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Security Id'
+		dataType: string
+		lineageTag: 8d67f8da-854d-4b6e-bf19-7c1c57bf6637
+		sourceLineageTag: 9f0e479f-b09a-4976-8f67-2e27f721cc0a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src Security Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Market Id'
+		dataType: string
+		lineageTag: 6287cb15-bbbd-4aaa-b829-b48a0c5fd0e7
+		sourceLineageTag: 702e9237-3425-4c36-b667-440b5f5ab125
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src Market Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Id Cusip'
+		dataType: string
+		lineageTag: 726db2f6-4bea-4492-9a63-2d1b0263298e
+		sourceLineageTag: 79325818-6d22-4022-950e-7e7791cbb662
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Id Cusip
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Issuer Name'
+		dataType: string
+		lineageTag: 43893f90-134b-4e9f-93ce-c216b261f8d9
+		sourceLineageTag: 5538f50e-cc4f-4a66-bedf-b58f2316ce38
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Issuer Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Security Type'
+		dataType: string
+		lineageTag: f9b322b0-e581-4ae3-92f8-2901bba6cd13
+		sourceLineageTag: 44481137-d0e8-4b0b-80e9-5927c51271d5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Security Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ifrs9Purpose
+		dataType: string
+		lineageTag: e52ffd80-fe27-4bba-aa27-e92701fd9272
+		sourceLineageTag: ad1c7678-5650-46e3-8500-59294604b1c4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ifrs9Purpose
+
+		annotation SummarizationSetBy = Automatic
+
+	column Purpose
+		dataType: string
+		lineageTag: 2e0c10d9-914f-41f1-8809-6b80c10cd4b9
+		sourceLineageTag: c380b8dc-acc7-443f-a768-1e419430dc98
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Purpose
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local Currency Code'
+		dataType: string
+		lineageTag: 94bda07b-573b-492b-9700-a2bf2a1a685c
+		sourceLineageTag: b0e230bb-dc52-42a1-bd6f-f929e7c2fa4c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Local Currency Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Maturity Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: c93ac86a-54bf-47ab-80aa-fa757360a86b
+		sourceLineageTag: ac69b826-6ed5-4e4b-a29c-51c200123c69
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Maturity Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nominal (D)'
+		dataType: double
+		lineageTag: 010d4d90-50c3-4775-b75d-96d6447bafac
+		sourceLineageTag: 5e29ec6d-93ba-42b7-8114-a4f8c6e18b29
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Nominal (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Book Value Base Ccy'
+		dataType: double
+		lineageTag: 57e2ff63-c6ce-445f-b3d6-faa2784dd1b6
+		sourceLineageTag: 91e64ca5-ba5a-4606-a4ff-660d5a8b5762
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Book Value Base Ccy
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Book Value Local Ccy'
+		dataType: double
+		lineageTag: 4fe0dfbf-617c-47aa-80da-688f2cfc7971
+		sourceLineageTag: e9c94949-11a9-4833-88de-a8467f47c66d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Book Value Local Ccy
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Market Value Base'
+		dataType: double
+		lineageTag: 5ac9b4f9-c13b-4966-8818-01b7970f5a40
+		sourceLineageTag: 8cf0cbdb-9452-49ff-b24e-70f0c8b65ef4
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Market Value Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Market Value Local (D)'
+		dataType: double
+		lineageTag: 40509fcd-6205-4836-a283-5a2f172d4c77
+		sourceLineageTag: e8e30cdc-e532-46a6-b19e-1ce5488295ce
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Market Value Local (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accrual Base'
+		dataType: double
+		lineageTag: 172b8841-0cae-49e1-9b51-3ce0279b65bb
+		sourceLineageTag: 1a65a561-8d02-4f7d-a0fb-c3260e9d48ff
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Accrual Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accrual Local (D)'
+		dataType: double
+		lineageTag: b56ea0fe-17d3-435c-8122-9ae11268b77f
+		sourceLineageTag: e687a453-1171-44bd-9b08-420dab3b91a3
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Accrual Local (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Code Name'
+		dataType: string
+		lineageTag: 8148ff39-f887-4143-9928-4294f5a0b6fe
+		sourceLineageTag: e83b64ee-77c2-40d4-be71-89c8dd2a65fb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Code Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Unit Code Name'
+		dataType: string
+		lineageTag: ad5e2e98-43ed-49e3-b8f2-5d00fc948eed
+		sourceLineageTag: 93f739ee-a6fb-4e9b-9f42-68f276528131
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Accounting Unit Code Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Code Name'
+		dataType: string
+		lineageTag: 0c2e6f2c-922b-4974-a0dd-240006fe13de
+		sourceLineageTag: 45b7c44a-edf1-4052-a199-98f8807220b3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Company Code Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Functional Ccy Cd'
+		dataType: string
+		lineageTag: eb6b3f48-ddfd-4409-b8f0-fa0ed19a237e
+		sourceLineageTag: 182d6734-4c3b-485c-a789-192bb108408e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Functional Ccy Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local To Func Rate'
+		dataType: double
+		lineageTag: 0289fc69-4a48-4ab5-bbd3-d4dc09363797
+		sourceLineageTag: e46d5a5e-55b3-4c1a-8abe-0983f1a4bf77
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Local To Func Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local To Cad Rate'
+		dataType: double
+		lineageTag: 9495f434-bd17-4968-8ae8-37530557bab5
+		sourceLineageTag: b51b1fe1-95b6-493b-9c18-50ff9ec03a6f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Local To Cad Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local To Usd Rate'
+		dataType: double
+		lineageTag: bddd9e96-7b07-41eb-9a8e-b7ef19c1ce24
+		sourceLineageTag: 7c18f63e-e6bc-4458-9660-d37804b8acfd
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Local To Usd Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local To Hkd Rate'
+		dataType: double
+		lineageTag: ed1d7c93-0fd6-4b6b-b421-c313302c8be3
+		sourceLineageTag: 00b76d8c-6aa6-474f-a86d-5ac89d29545e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Local To Hkd Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Primary security ID & Desc Lookthrough Position'
+		dataType: string
+		lineageTag: 033edb33-8d55-4c9b-af8a-1cdab2a7627e
+		sourceLineageTag: 7cf37288-4b12-4f5e-94d4-a1e0bdb5871a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Primary security ID & Desc Lookthrough Position
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lot ID Updated'
+		dataType: string
+		lineageTag: 700bc2c4-e846-4da6-9061-69e9b1253be5
+		sourceLineageTag: a5c02406-9c5c-4091-9dbd-bfa665738662
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Lot ID Updated
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As Of Period'
+		dataType: string
+		lineageTag: 1c874009-f6c9-40f0-8976-1fd073c111ee
+		sourceLineageTag: 155a0a4d-eb8d-4863-98b9-0bc0e31e4ea9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: As Of Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column Base
+		dataType: string
+		lineageTag: f24ea6b4-9d07-4c57-977e-08f958292ade
+		sourceLineageTag: 40667e0e-8746-4882-9bc0-d63d278a8ec2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lookthrough Zero Remove Filter'
+		dataType: double
+		lineageTag: 7cfb2e4f-3bba-4958-ba9c-80bc3b87bc7d
+		sourceLineageTag: 39e4b983-059f-4199-91ef-eb5b8e83547b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Lookthrough Zero Remove Filter
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Investor Portfolio Code & Name'
+		dataType: string
+		lineageTag: ca531833-3d60-4896-9862-cb1dc167402b
+		sourceLineageTag: e1ebd42c-0f44-4136-91e9-f5d49d15453e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Investor Portfolio Code & Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Investor Accounting Unit Code & Name'
+		dataType: string
+		lineageTag: 2b662c2e-84c6-4c8d-a240-6d1baeac9587
+		sourceLineageTag: 5ab39eb4-37fa-4b90-b5f7-6f0c25012040
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Investor Accounting Unit Code & Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Investor Company Code & Name'
+		dataType: string
+		lineageTag: cdd424a1-b123-43a0-85ee-18e151f7dab2
+		sourceLineageTag: 04c53116-dcde-4444-a41c-6bba2ec4ed4d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Investor Company Code & Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lookthrough Portfolio Code & Name'
+		dataType: string
+		lineageTag: e34211e0-c313-4d86-a5e9-7da01355daff
+		sourceLineageTag: 7ea6ef25-56f9-429f-b6af-4974693db476
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Lookthrough Portfolio Code & Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ML Private Asset ID LThru'
+		dataType: string
+		lineageTag: fd3218d4-e3ef-4c2f-9bca-b6834c397603
+		sourceLineageTag: b0cda99a-a3b0-4751-829f-60419d16edd2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ML Private Asset ID LThru
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Type LThru'
+		dataType: string
+		lineageTag: 97d6ec5e-a13a-47fe-bc42-d2a04ad20393
+		sourceLineageTag: dc7b0cf8-6f08-423a-b14f-37de38650be0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Asset Type LThru
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Class LThru'
+		dataType: string
+		lineageTag: 1670115f-e483-47db-aa41-d6fce051568a
+		sourceLineageTag: 0d152399-64ea-4af6-bdb5-4a14da142ee8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Asset Class LThru
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Group LThru'
+		dataType: string
+		lineageTag: 14e1953d-d6f9-4728-a8ba-e8241c3d150d
+		sourceLineageTag: 1c2686ab-52b3-4edd-b0cc-8cbda19e1b59
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Asset Group LThru
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fx Join Key'
+		dataType: string
+		lineageTag: 6c085ebe-6f3a-41de-8162-983962613e95
+		sourceLineageTag: 35db3d54-a438-4156-b725-29801141c01f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Fx Join Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Carrying Value - Base'
+		dataType: double
+		lineageTag: 2e9e99af-537f-4cb4-93aa-09e6d64fedd5
+		sourceLineageTag: d5e477f1-a505-4436-81d7-2a3340019ca0
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Carrying Value - Base
+
+		annotation SummarizationSetBy = User
+
+	column 'Carrying Value - Local'
+		dataType: double
+		lineageTag: eb94862a-6bde-45e6-b7c2-e7d68d7af8de
+		sourceLineageTag: e612b712-07f1-4c79-9fa6-f157e0b5d31c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Carrying Value - Local
+
+		annotation SummarizationSetBy = User
+
+	column 'Unrealized Gain/Loss - Base'
+		dataType: double
+		lineageTag: 32e9b38e-a432-486c-8f20-e9bbdfa2b3cc
+		sourceLineageTag: d574cb64-4c39-4caf-9156-1066758654b9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Unrealized Gain/Loss - Base
+
+		annotation SummarizationSetBy = User
+
+	column 'Unrealized Gain/Loss - Local'
+		dataType: double
+		lineageTag: 3b2c97c6-463f-4ece-b64f-45b6777c05ed
+		sourceLineageTag: b5457a00-beed-4a1a-b095-c5aad9f5c989
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Unrealized Gain/Loss - Local
+
+		annotation SummarizationSetBy = User
+
+	partition 'Securities Lookthrough Position Fact-fc704491-5b1f-414e-abaa-74ed7094e6f7' = entity
+		mode: directQuery
+		source
+			entityName: Securities Lookthrough Position Fact
+			expressionSource: 'DirectQuery to AS - Securities'
+

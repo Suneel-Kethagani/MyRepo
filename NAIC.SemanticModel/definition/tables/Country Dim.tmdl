@@ -1,0 +1,112 @@
+table 'Country Dim'
+	lineageTag: 33824a40-eff5-401e-9d08-435f6320de9a
+	sourceLineageTag: 84b4209a-984e-4ca0-9ea1-07ec96286963
+
+	column 'ISO2 Country Cd'
+		dataType: string
+		lineageTag: 712f1a0b-3370-4d7c-99a3-18fe333c6ae8
+		sourceLineageTag: 6158d1cc-7d5a-42c6-bf32-8024b0b697ce
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ISO2 Country Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ISO3 Country Cd'
+		dataType: string
+		lineageTag: c70885c8-949f-4359-aeab-c477cea12db3
+		sourceLineageTag: 6e6164d8-8a0b-40da-97b6-c62715b01d2e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ISO3 Country Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Country Short Nm'
+		dataType: string
+		lineageTag: 79a5c95c-4cbe-4516-a01e-2df37e7e1c1c
+		sourceLineageTag: 773860ec-7d9e-4abe-86c9-3884d6e56d42
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Country Short Nm
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Country Long Nm'
+		dataType: string
+		lineageTag: 427f6571-6e89-423c-8598-5155938eeaa0
+		sourceLineageTag: fb17c632-89f7-4a88-ae82-491fbb561e8c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Country Long Nm
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dev Zone'
+		dataType: string
+		lineageTag: 989005ea-6ef3-4a47-96dc-b9dced7144a8
+		sourceLineageTag: 34f27f4e-3654-4d1b-8c51-32f419e58a09
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Dev Zone
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: a7f2398c-931c-4682-8cdd-a536dfbd7a8b
+		sourceLineageTag: ede62b27-8cab-4eea-b8c3-bec8ee695855
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Region'
+		dataType: string
+		lineageTag: 58db236b-e4b6-4ff6-a797-cecfff468a49
+		sourceLineageTag: 7579f845-f8c6-4dfd-bccf-2c58cdca4e5e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sub Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Country Development'
+		dataType: string
+		lineageTag: e8be970d-c45f-41e7-bcde-5f7e41b530f4
+		sourceLineageTag: f866f90c-5670-443a-b8ff-347cd87e69c2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Country Development
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Created Ts'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd hh:nn:ss AM/PM
+		lineageTag: 54ef5020-589c-4ac1-ba7c-86d18cfb41aa
+		sourceLineageTag: 91e5bc9a-201a-4a83-9cbd-639f0a6af89e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Created Ts
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Updated Ts'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd hh:nn:ss AM/PM
+		lineageTag: ee73ca69-5189-4de5-b5e2-0825c1cb2a53
+		sourceLineageTag: 5fdaf8cf-9af8-45d8-b35a-0e23aad95c7e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Updated Ts
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Country Dim-ba152b51-4462-4ed9-bca6-9d3894cccbcb' = entity
+		mode: directQuery
+		source
+			entityName: Country Dim
+			expressionSource: 'DirectQuery to AS - Securities'
+

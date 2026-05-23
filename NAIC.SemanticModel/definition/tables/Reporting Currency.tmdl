@@ -1,0 +1,20 @@
+table 'Reporting Currency'
+	lineageTag: 6912a106-214a-4209-9019-6bbfc077be9b
+	sourceLineageTag: 331ab637-4ee6-440e-b46e-a3251aa065a3
+
+	column 'Rep In Currency'
+		dataType: string
+		lineageTag: 8047adab-5e45-4f1e-99de-17075491747c
+		sourceLineageTag: e13da3d7-97e8-4133-9c6d-2b90b2b746a0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Rep In Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Reporting Currency-e2af624b-7b82-463b-a7b8-67453bb87878' = entity
+		mode: directQuery
+		source
+			entityName: Reporting Currency
+			expressionSource: 'DirectQuery to AS - Securities'
+

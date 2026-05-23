@@ -1,0 +1,23 @@
+table 'Target Loss'
+	isHidden
+	lineageTag: a623f975-520a-4fac-a37b-6948354ec8c6
+	sourceLineageTag: bea810ab-3e79-4d1e-b7e9-e3ae3c96377b
+
+	column 'Loss Percent'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 48b010f2-ccfc-4c1c-9a38-9fed1cd739f6
+		sourceLineageTag: f35adcba-7728-45e4-bac0-38bb76b042f6
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Loss Percent
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Target Loss-6de2aced-d3fd-4278-ab9a-78d0004708ce' = entity
+		mode: directQuery
+		source
+			entityName: Target Loss
+			expressionSource: 'DirectQuery to AS - Securities'
+

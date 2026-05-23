@@ -1,0 +1,77 @@
+model Model
+	defaultMode: directQuery
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+queryGroup 'Transform File from Query1'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'Transform File from Query1\Helper Queries'
+
+	annotation PBI_QueryGroupOrder = 0
+
+annotation PBI_QueryOrder = ["DirectQuery to AS - Securities","Schedule D Description","Parameter1","Transform Sample File","Sample File","Transform File"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table 'Accounting Unit'
+ref table 'Securities Position Fact'
+ref table 'Schedule D Description'
+ref table Company
+ref table Framework
+ref table 'Reporting Currency'
+ref table 'Fx Rate Dates'
+ref table 'Portfolio Change Types'
+ref table Securities
+ref table Portfolios
+ref table 'Securities Transaction GA Fact'
+ref table 'Month End Dates (Security)'
+ref table 'Securities Sublot Fact'
+ref table 'Securities Lots Fact'
+ref table 'Transaction History Slicer'
+ref table 'Target Loss'
+ref table 'Impairment Slicer'
+ref table 'Book Values'
+ref table 'Index Constituent'
+ref table 'Assumptions Slicer'
+ref table 'Unfunded Slicer'
+ref table 'Post Hour'
+ref table Entities
+ref table 'Portfolios Attributes'
+ref table 'Index Attributes'
+ref table Period
+ref table 'Fx Rate DQ'
+ref table 'Securities Lookthrough Position Fact'
+ref table 'Securities Transaction Costs GA Fact'
+ref table 'Total Market Value GA Fact'
+ref table 'Indonesian FX Rate'
+ref table 'Securities GL Txn fact'
+ref table 'Securities Tax Lot Deferred Pl Fact'
+ref table 'Securities Elim Lot Fact'
+ref table 'Securities JVE Fact'
+ref table 'Security Ratings Periods Fact'
+ref table 'Country Dim'
+ref table 'Securities Elim Transaction PL Tax Lot Fact'
+ref table 'Cat Staging Text Fact'
+ref table 'CAT Adjmt Config Table'
+ref table 'Adjust GL Reclass Fact'
+ref table 'Securities Transaction AOCI GA Fact'
+ref table 'Securities Elim Transaction PL Tax Lot AOCI Fact'
+ref table 'Securities GL Txn fact - Elim'
+ref table 'Portfolios-Bank Accounts'
+ref table 'Maximis CTA Holdings Fact'
+ref table 'Accounting Framework Philosophy'
+ref table Demo_Dictionary
+ref table 'Data Dictionary'
+ref table DateTableTemplate_d8c262ff-df46-4b12-9308-4765cf0a486b
+ref table LocalDateTable_4bd1c502-9b78-4a05-bc6b-e5ab99c20eb5
+
+ref cultureInfo en-US
+

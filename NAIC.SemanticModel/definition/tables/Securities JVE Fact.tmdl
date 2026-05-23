@@ -1,0 +1,348 @@
+table 'Securities JVE Fact'
+	lineageTag: 3b8b4963-0393-4f3a-8e03-5cafcf14a402
+	sourceLineageTag: 3f7839cc-5291-4682-97de-0f4c6165d655
+
+	measure 'Book Value - Adjustment Local' = EXTERNALMEASURE("Book Value - Adjustment Local", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 02f13df8-679c-4d21-89ea-335539d1b2e9
+		sourceLineageTag: 0f51cea4-9ffb-4837-b0e1-5d7494c62d71
+		dataCategory: Uncategorized
+
+	measure 'Book Value - Adjustment Rep' = EXTERNALMEASURE("Book Value - Adjustment Rep", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: d992ade6-1fb6-45b9-99b6-c7b748b694a7
+		sourceLineageTag: dbd0924a-da34-4ad0-9c6c-0d2f2f1d3edf
+		dataCategory: Uncategorized
+
+	measure 'Market Value - Adjustment Local' = EXTERNALMEASURE("Market Value - Adjustment Local", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: aa1c839f-79d6-4ff3-ba66-77830fae0427
+		sourceLineageTag: 8db6a966-3cae-42fc-bba3-d0303b45eb0c
+		dataCategory: Uncategorized
+
+	measure 'Market Value - Adjustment Rep' = EXTERNALMEASURE("Market Value - Adjustment Rep", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 3eca5d61-61a6-41d5-b5ca-926867d8da72
+		sourceLineageTag: 09a22e21-a8b0-46a6-8150-1e76434ab7ce
+		dataCategory: Uncategorized
+
+	measure 'JVE Securities Title' = EXTERNALMEASURE("JVE Securities Title", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 56e1586a-0256-4cb0-840d-15be4d56c969
+		sourceLineageTag: d76fff00-4a98-447b-979d-21d3b345ee6a
+		dataCategory: Uncategorized
+
+	measure 'JVE Adjustment Amount (CAD)' = EXTERNALMEASURE("JVE Adjustment Amount (CAD)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: d7483f83-c2a6-43b0-8bbb-ec70daaa3f26
+		sourceLineageTag: fd609f10-2966-4eca-b5e5-45c821fa5ef2
+		dataCategory: Uncategorized
+
+	measure 'JVE Adjustment Amount (Func)' = EXTERNALMEASURE("JVE Adjustment Amount (Func)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 2c17c500-3990-4bf1-8242-fcbac24be3f9
+		sourceLineageTag: 1a8e5a9b-0bf4-49e0-ba57-7c754af77cca
+		dataCategory: Uncategorized
+
+	measure 'JVE Adjustment Amount (HKD)' = EXTERNALMEASURE("JVE Adjustment Amount (HKD)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 7554678b-d2d2-412d-8db5-c6d5ca195cfc
+		sourceLineageTag: 18083a4f-4531-4ad8-a782-892fd110ae39
+		dataCategory: Uncategorized
+
+	measure 'JVE Adjustment Amount (USD)' = EXTERNALMEASURE("JVE Adjustment Amount (USD)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 8915ab5f-0d42-446f-af69-6f22ed30585c
+		sourceLineageTag: 9de0fd32-8ecc-4f9c-b0a8-057ed70c1326
+		dataCategory: Uncategorized
+
+	column 'Company Accounting Unit'
+		dataType: string
+		lineageTag: 4ab9948f-5daa-4592-8701-d75ee8cb2075
+		sourceLineageTag: 44ee354d-f730-401c-9a98-af556fd76a38
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Company Accounting Unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Nk'
+		dataType: string
+		lineageTag: 0f223629-bcb4-4e91-991c-24687186602e
+		sourceLineageTag: e6bda38b-6de4-4f9e-a74d-bc952fd2ddcd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	column Framework
+		dataType: string
+		lineageTag: f371c39c-66c0-4859-a1f9-06c9f749db52
+		sourceLineageTag: 62637595-ae66-4d7f-89be-c6e06d2a0b5a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Framework
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Txn Dt'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 82d7dd63-c22d-4470-9cf6-890a4d223cdd
+		sourceLineageTag: 4ccf6652-0c7d-471e-9398-93f2284e6d2b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Txn Dt
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Txn Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3919d03b-f1f2-4bcc-9d9e-48fd74c01158
+		sourceLineageTag: 8a083919-cfab-4b58-8cbe-17a6c7ecc31e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Txn Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fx Join Key'
+		dataType: string
+		lineageTag: a7759d0d-70c9-4d78-be93-7c239c844ae0
+		sourceLineageTag: 9e3cf9aa-eaf8-47c7-9cfb-4cb88d18e299
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Fx Join Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Key'
+		dataType: string
+		lineageTag: 86310f63-dff9-4171-a4f0-a8da47134375
+		sourceLineageTag: c630af04-04c0-4dff-9968-f5513413456d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Asset Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAT Asset Type Cd'
+		dataType: string
+		lineageTag: 0dd40b11-fbeb-4ba5-b071-9e88b74c9d18
+		sourceLineageTag: fa05ce80-d46c-45fd-9d1e-37dcbc8877ca
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CAT Asset Type Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAT Event Cd'
+		dataType: string
+		lineageTag: c9a6d603-bbc0-4c52-ac63-9c9989d64cb9
+		sourceLineageTag: e2a3af78-edeb-423b-82c4-2bef3570919a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CAT Event Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Acct Num'
+		dataType: string
+		lineageTag: 1a4e3162-0157-4d2c-b966-65d97a28ee7e
+		sourceLineageTag: 37553a12-5bf3-4bc8-a1ca-e069ed532ab5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: GL Acct Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Acct Category'
+		dataType: string
+		lineageTag: 08d88200-aacc-4923-804a-2195976270d6
+		sourceLineageTag: 6b67c0b2-f15d-4bc8-905e-e9682b36fefb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Acct Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ISO3 Currency Cd'
+		dataType: string
+		lineageTag: 3bf61543-c360-4590-8a22-31a5f2d15ee5
+		sourceLineageTag: eeec6675-37a2-4200-a89e-edec8fb46adb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ISO3 Currency Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Functional CCY Cd'
+		dataType: string
+		lineageTag: 77469cc9-fa3d-4cbf-997d-d6a0b841f293
+		sourceLineageTag: 428ad735-798c-477e-8fb4-6c27d7e1ad56
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Functional CCY Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sys Cd'
+		dataType: string
+		lineageTag: 317de490-83b9-4ca4-8c61-4879cf221860
+		sourceLineageTag: 66fed9d7-02d8-4034-a98e-bc57e6338ff3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sys Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lowest Level Flag'
+		dataType: string
+		lineageTag: a5fee190-e467-493d-a7b1-83cdeb01bab9
+		sourceLineageTag: 72f4977e-45c0-4d5c-9590-c0db34ed393e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Lowest Level Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Txn Num'
+		dataType: string
+		lineageTag: ed40c055-34fd-41ec-a0eb-4f617181c3b5
+		sourceLineageTag: c8e89beb-2871-47ac-b3df-7892c22bf940
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Txn Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Txn Desc'
+		dataType: string
+		lineageTag: 607422c3-0d16-4ccf-84f6-b5cc878f9615
+		sourceLineageTag: fd926a10-2990-459a-be1c-fc468c47d0a8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Txn Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Txn Type'
+		dataType: string
+		lineageTag: bbabf5c9-fedb-495a-b6c1-188d3d501620
+		sourceLineageTag: 1ffc8837-6049-4466-b865-52d8b022d057
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Txn Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Comments
+		dataType: string
+		lineageTag: 93ff65a6-9b8e-4aec-afeb-6b7d9ce6378e
+		sourceLineageTag: 5d0e40c8-b4ae-4de6-9342-b9c8f95c5ec7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Comments
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SCD Lot ID'
+		dataType: string
+		lineageTag: 95a81807-5c81-4a0e-9d09-1ecb7e524b8f
+		sourceLineageTag: 4dd4dadd-9a05-45b9-abb0-bdbabbbd8f72
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SCD Lot ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local Txn Amt'
+		dataType: double
+		lineageTag: 560e1bed-0deb-4192-9930-800ea32fe94d
+		sourceLineageTag: a1b61666-cf55-4786-bd4a-38944bec9c1a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Local Txn Amt
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Func Txn Amt'
+		dataType: double
+		lineageTag: 31dd49b6-eaf8-4049-9265-83a783eb027e
+		sourceLineageTag: 9a282b2f-2d2f-4de4-a459-fdb23754cfe8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Func Txn Amt
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAD Txn Amt'
+		dataType: double
+		lineageTag: 798924be-394d-4e9e-84da-e3725b8b0e87
+		sourceLineageTag: e31870bd-0657-41a5-a9c7-e21f68e5f44e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CAD Txn Amt
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'USD Txn Amt'
+		dataType: double
+		lineageTag: e2d2b160-2eaf-447a-a2ca-26a8a426e5cf
+		sourceLineageTag: 9fa06223-6520-48ef-877c-c4aaab3aaef5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: USD Txn Amt
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'HKD Txn Amt'
+		dataType: double
+		lineageTag: dcea8c03-21d5-4253-b8a1-8cb4f82e6fa9
+		sourceLineageTag: 1e1c16a3-74ea-4630-b979-1a2f40f5db50
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: HKD Txn Amt
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Txn Amt'
+		dataType: double
+		lineageTag: a2fbec2f-6c6c-471a-a059-69a599f52efa
+		sourceLineageTag: fe9562a7-72a5-4cb1-86d7-379110a06e58
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Base Txn Amt
+
+		annotation SummarizationSetBy = Automatic
+
+	column Src
+		dataType: string
+		lineageTag: 9ddd1620-3876-4754-9a4c-953cf2a04083
+		sourceLineageTag: ca6d763d-e96c-4826-b6a6-404076693f31
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SCD Bus Trans No'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9d49b090-95a2-41c5-81b6-d364f97d6cc4
+		sourceLineageTag: 5983320d-e51a-4bd6-96f0-6f73bad07f0b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: SCD Bus Trans No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAT Adjusted Elements Txt'
+		dataType: string
+		lineageTag: 16707950-e8c1-4b54-aa2f-6605b4590367
+		sourceLineageTag: 04502da3-aa6f-4e80-ae24-f68d64116d03
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CAT Adjusted Elements Txt
+
+		annotation SummarizationSetBy = User
+
+	partition 'Securities JVE Fact-a3933c94-e958-4d8c-9869-9cdb82932ca8' = entity
+		mode: directQuery
+		source
+			entityName: Securities JVE Fact
+			expressionSource: 'DirectQuery to AS - Securities'
+

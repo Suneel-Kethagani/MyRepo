@@ -1,0 +1,413 @@
+table 'Securities Elim Transaction PL Tax Lot Fact'
+	lineageTag: 4ac05127-cd75-492c-bdd0-35c763cfcba1
+	sourceLineageTag: 4138735e-4f64-4b4a-8f22-6e042dd59d15
+
+	measure 'Real Amortization - Local' = EXTERNALMEASURE("Real Amortization - Local", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 78e45711-87a7-4089-846c-555e66ae288e
+		sourceLineageTag: 0c84effc-e1fe-4435-83ef-238dac81fd27
+		dataCategory: Uncategorized
+
+	measure 'Real Amortization - Rep' = EXTERNALMEASURE("Real Amortization - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: d2fd9da8-6b10-471b-973c-8ddd154ef36c
+		sourceLineageTag: 6e5e1b37-0712-4d85-a3d6-30f1eee53469
+		dataCategory: Uncategorized
+
+	measure 'Securities Elim Transactions Title' = EXTERNALMEASURE("Securities Elim Transactions Title", STRING, "DirectQuery to AS - Securities")
+		lineageTag: d6b609fb-8963-45e8-bf61-7d5e1c3dfad8
+		sourceLineageTag: acd2ad8f-23d1-4986-a739-903e82240c74
+		dataCategory: Uncategorized
+
+	measure 'Sublot AOCI - Local (Sec Elim)' = EXTERNALMEASURE("Sublot AOCI - Local (Sec Elim)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 9506bfc1-6473-435d-93c8-e2b87804d1b1
+		sourceLineageTag: f8e790bb-c9c4-47f0-adb6-d3bdc8dece60
+		dataCategory: Uncategorized
+
+	measure 'Sublot Amort AOCI - Local (Sec Elim)' = EXTERNALMEASURE("Sublot Amort AOCI - Local (Sec Elim)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 4897b504-8a5c-479c-9c94-d67e9010cc3f
+		sourceLineageTag: 8d3c0c8d-d7ac-41a6-b181-8a7d45c380fb
+		dataCategory: Uncategorized
+
+	measure 'Sublot Amort AOCI - Rep (Sec Elim)' = EXTERNALMEASURE("Sublot Amort AOCI - Rep (Sec Elim)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 63795a5e-1d92-40c1-b684-c8a7e73da6be
+		sourceLineageTag: ce3a2974-e434-445a-bfaa-e51cfaef0421
+		dataCategory: Uncategorized
+
+	measure 'Sublot AOCI - Rep (Sec Elim)' = EXTERNALMEASURE("Sublot AOCI - Rep (Sec Elim)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 675d9ef2-a9f9-4478-b202-1ce6d623c0c3
+		sourceLineageTag: 5e444209-fdf7-4518-aaf2-41451b0bacbc
+		dataCategory: Uncategorized
+
+	measure 'Yield For Math Adj (Sec Elim)' = EXTERNALMEASURE("Yield For Math Adj (Sec Elim)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 2fe77c4b-d80c-4142-b4ad-d6c7795537d3
+		sourceLineageTag: 08188c00-e2aa-4807-9214-f87987630f12
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Framework CD'
+		dataType: string
+		lineageTag: 9452d1b7-3e2a-4145-ac19-f72f0e6353bb
+		sourceLineageTag: cd38045b-8024-4848-a388-7d893fc0d96e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Framework CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As Of Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: c6593fa7-23cc-401c-8d59-44230e9398e6
+		sourceLineageTag: 65341744-64c3-4cce-982f-f0992d328d67
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: As Of Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Security NK'
+		dataType: string
+		lineageTag: 3a3433ad-7aa4-478b-b5ae-ace331f6c45d
+		sourceLineageTag: 639e8548-517f-4fa5-a16f-1cfa7e244177
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Security NK
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio NK'
+		dataType: string
+		lineageTag: 1127cce2-d78a-48a4-9a83-3a68a4b663cd
+		sourceLineageTag: c196473a-9447-4fbd-b064-595057c3a1f2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio NK
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Unit Code Name'
+		dataType: string
+		lineageTag: 56431714-e7ef-4e07-ab1f-185bc2787699
+		sourceLineageTag: 0cd5d129-b5b6-4b5b-9f83-cc53d8d06bc3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Accounting Unit Code Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Code Name'
+		dataType: string
+		lineageTag: 26d7cfbe-3117-4039-ac92-40ba660613bc
+		sourceLineageTag: 8676104d-07fc-4fab-ab92-ab87f2a2bc65
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Company Code Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Class'
+		dataType: string
+		lineageTag: 53a02007-dba7-4113-a012-3d536e54de01
+		sourceLineageTag: 1c5f9dae-29d2-47a3-948f-0e9ec518aac3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: GL Class
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Functional CCY Cd'
+		dataType: string
+		lineageTag: 47d876c6-c4b9-4353-ab20-e16280ee9963
+		sourceLineageTag: b64ce4c5-9c3a-42dd-84cf-840a6c7bc69b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Functional CCY Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local To Func Rate'
+		dataType: double
+		lineageTag: 175876db-a1fa-43ec-912d-c409ce317839
+		sourceLineageTag: 827f5299-ebfe-4862-b08b-533ca179cbbe
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Local To Func Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local to CAD Rate'
+		dataType: double
+		lineageTag: 3d33b430-67fe-42cf-8a1a-dc2b5d862e82
+		sourceLineageTag: 319e3e52-175d-4d05-9ca9-b21669618d75
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Local to CAD Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local to USD Rate'
+		dataType: double
+		lineageTag: 9e5112c2-2ed6-4bb0-b743-3a5ac647baae
+		sourceLineageTag: 5eb90efc-75fe-4f24-a9e3-7d4b398f365e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Local to USD Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local to HKD Rate'
+		dataType: double
+		lineageTag: e05c5e92-009f-4601-8f43-c179d95731c3
+		sourceLineageTag: cf99d63b-ae05-44a4-89dd-1ce2a0189026
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Local to HKD Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Portfolio Code'
+		dataType: string
+		lineageTag: 4942742d-374c-40d7-b5e8-2c802cbad7c5
+		sourceLineageTag: 15c07c18-1c42-462c-a025-99c90501984f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Asset Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local Currency Code'
+		dataType: string
+		lineageTag: 7541d745-cfe9-4d88-9529-3b1c1acf1df9
+		sourceLineageTag: 788110ef-1af7-4a20-9b6d-f6f74dd0eef1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Local Currency Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Currency Name'
+		dataType: string
+		lineageTag: bfa8b89e-6e38-4efa-88e6-4479b9c8ec30
+		sourceLineageTag: 7d79180f-a293-43e9-8717-354c1eef07dd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Currency Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Security'
+		dataType: string
+		lineageTag: b2000ce2-0b3a-479e-8164-c5b7eea5a523
+		sourceLineageTag: f2185813-792d-4e0f-9c37-863fa55dbf48
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src Security
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Market Id'
+		dataType: string
+		lineageTag: cb61300a-aa2a-42eb-a137-35d989f96fa9
+		sourceLineageTag: 81029a22-77cf-4c32-a3e4-53b46989ca7d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src Market Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SRC Security Id'
+		dataType: string
+		lineageTag: dc7f5f7b-4e8a-45ec-8874-b2470d1741d0
+		sourceLineageTag: 0626ba8f-3cf9-404c-81f8-d397835c79bf
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SRC Security Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trade Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 2253735f-c6fb-4e00-ab40-722693457513
+		sourceLineageTag: 2c267208-8129-40eb-bd3a-0ac2f5b6736a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Trade Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Framework IK'
+		dataType: int64
+		formatString: 0
+		lineageTag: 082c8e1f-45e9-4de4-ac9f-86bc505f8186
+		sourceLineageTag: 158baec9-007e-4786-b6a9-ac776e6ca9fa
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Accounting Framework IK
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bus Trans No'
+		dataType: int64
+		formatString: 0
+		lineageTag: ebc837b0-39b6-4a77-a584-0910192c7893
+		sourceLineageTag: cf21cfcd-2d6f-4707-a123-075cca067e7b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bus Trans No
+
+		annotation SummarizationSetBy = User
+
+	column 'Match Src Transaction ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2667d0c6-d477-4baf-91d8-5028bcae5020
+		sourceLineageTag: 65ace5d3-4f42-4f6c-bd21-84f6c503b1d3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Match Src Transaction ID
+
+		annotation SummarizationSetBy = User
+
+	column 'Tax Lot IX'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4b44f53e-6116-4403-8e2a-1f9193f6a34b
+		sourceLineageTag: 9b5a4158-fcf1-4199-bf80-1a85753d6d68
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Tax Lot IX
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Transaction ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9e2595a0-7e97-4260-ad59-72f2de8afba5
+		sourceLineageTag: 0bbd7f44-dcad-4de9-a134-c8c3e2c38d8e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src Transaction ID
+
+		annotation SummarizationSetBy = User
+
+	column Src
+		dataType: string
+		lineageTag: 464e62ff-f913-4c6e-9715-3fa8bfd99e50
+		sourceLineageTag: 40ac39ab-2121-41d9-bc51-97b23fd9a675
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bus Trans Code No'
+		dataType: int64
+		formatString: 0
+		lineageTag: b1d2a412-ea7a-458f-b169-5369065ec28e
+		sourceLineageTag: 05a2c134-b9ef-4ef0-81cf-1fbafab35d61
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Bus Trans Code No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Real Amortisation Base Ccy'
+		dataType: double
+		lineageTag: 0d1f5c09-ad0b-4c80-984b-05032f8820a3
+		sourceLineageTag: afa00448-1eb2-4fcb-a7b9-91f2d0d201e6
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Real Amortisation Base Ccy
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Real Amortisation Local Ccy'
+		dataType: double
+		lineageTag: 9387f36e-8e01-4d31-9079-f165dc2c0fb3
+		sourceLineageTag: 247b0cc9-5a6e-4dad-aad6-2918e026db18
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Real Amortisation Local Ccy
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trans Status'
+		dataType: string
+		lineageTag: bddc0981-0d5f-4469-9660-f40b93abc1e3
+		sourceLineageTag: b87b7050-7ae6-4d6d-8595-43b95c1cc4a1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Trans Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trans Type'
+		dataType: string
+		lineageTag: 485288fd-ae45-40d9-b39e-878f72af8060
+		sourceLineageTag: 8b86bd44-6770-4c0b-9915-bd18488effc8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Trans Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trans Category'
+		dataType: string
+		lineageTag: 10a70e5d-4a13-4942-a865-4da1899054ac
+		sourceLineageTag: ddcc9e7e-c51d-4482-b35a-613a6675277c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Trans Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Structure Company'
+		dataType: string
+		lineageTag: e3a50bb2-2f4a-4800-865f-09df3b552037
+		sourceLineageTag: 76dc22aa-4b6f-4b64-80d1-45f8d4cb1a69
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Group Structure Company
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lot Id'
+		dataType: string
+		lineageTag: 97050345-6bca-4c9f-a1ee-7c9c3c3716a0
+		sourceLineageTag: 0a38bb0f-9102-41a0-8b22-e2e842fc436a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Lot Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Originating System No'
+		dataType: int64
+		formatString: 0
+		lineageTag: cd2b1a71-3f67-464d-ad29-31777e8038d1
+		sourceLineageTag: 20ad653b-28ed-4df1-9e5c-90153d514cf4
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Originating System No
+
+		annotation SummarizationSetBy = User
+
+	column 'Yield For Math Adj'
+		dataType: double
+		lineageTag: 2fa8257d-2e83-4d54-a10d-aac49f23ba90
+		sourceLineageTag: ea3c993f-7f8d-4d18-ad53-b147d50e862e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Yield For Math Adj
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Securities Elim Transaction PL Tax Lot Fact-e13ea7c2-a098-4d5b-aea5-91b328c98734' = entity
+		mode: directQuery
+		source
+			entityName: Securities Elim Transaction PL Tax Lot Fact
+			expressionSource: 'DirectQuery to AS - Securities'
+

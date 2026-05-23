@@ -1,0 +1,338 @@
+table 'Portfolios-Bank Accounts'
+	lineageTag: 88360b65-8b59-4be3-b664-07ccea7b1731
+	sourceLineageTag: f3e68f6a-02da-454c-8c76-fbef43167973
+
+	measure 'LatestRowMarker (Portfolios-Bank Accounts)' = EXTERNALMEASURE("LatestRowMarker (Portfolios-Bank Accounts)", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		lineageTag: 6ef53e9b-4060-483e-a31f-563b628d04b2
+		sourceLineageTag: 9f22b711-e860-4d3f-a423-be5c3a018e50
+		dataCategory: Uncategorized
+
+	measure 'Portfolio-Bank Accounts Title' = EXTERNALMEASURE("Portfolio-Bank Accounts Title", STRING, "DirectQuery to AS - Securities")
+		lineageTag: b942cd31-c8bc-4946-9121-89aac64ae59c
+		sourceLineageTag: d6ac7519-221d-4ed5-9f95-1c712c2a5960
+		dataCategory: Uncategorized
+
+	column 'Portfolio Code'
+		dataType: string
+		lineageTag: 012366df-cdfa-43e5-998b-e2ac92207616
+		sourceLineageTag: e2e9074e-feff-4d63-ae8a-954fbdaeddf2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Code
+
+		annotation SummarizationSetBy = User
+
+	column 'As Of Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: a989a578-1985-4cc7-86d9-2be182eddb2e
+		sourceLineageTag: f7f36e14-6a28-440f-98b0-38de87969e41
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: As Of Period
+
+		annotation SummarizationSetBy = User
+
+	column 'As Of Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 84f6e89e-0c8b-46a8-9409-bf9d0d2db1db
+		sourceLineageTag: e8b1e605-aaaf-46d1-b1cd-3a55c17c861c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: As Of Date
+
+		annotation SummarizationSetBy = User
+
+	column 'Portfolio Code Name'
+		dataType: string
+		lineageTag: ea1a4126-28cb-4292-9a00-0ce1e3753d06
+		sourceLineageTag: 698a786e-9f2b-4343-9749-69f1199107c3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Code Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Base Ccy Code'
+		dataType: string
+		lineageTag: 71d5d4a0-d88d-4dba-a120-e54acd6ed12b
+		sourceLineageTag: 36e33692-31b0-4aca-99f0-fc24f4482357
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Base Ccy Code
+
+		annotation SummarizationSetBy = User
+
+	column 'Intermediate Liquidity Pool Port Code'
+		dataType: string
+		lineageTag: ff51e2a2-4c32-4ab3-b973-d0affa513730
+		sourceLineageTag: 5e88d523-7b58-4d42-b1b3-5e6caa56bf06
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Intermediate Liquidity Pool Port Code
+
+		annotation SummarizationSetBy = User
+
+	column 'Inv Liquidity Pool Port Code'
+		dataType: string
+		lineageTag: ae70589b-f883-4c1b-a6c5-81282400b4d9
+		sourceLineageTag: 41752b79-bc49-414a-ac2a-2d919cf25320
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Inv Liquidity Pool Port Code
+
+		annotation SummarizationSetBy = User
+
+	column 'Liquidity Pool Participant Indicator'
+		dataType: int64
+		formatString: 0
+		lineageTag: 78ab1fc1-46a5-4cdf-9c8d-6457272866dc
+		sourceLineageTag: 501b8c86-14b3-4fb1-93e3-9ffa32c99a04
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Liquidity Pool Participant Indicator
+
+		annotation SummarizationSetBy = User
+
+	column 'Private Portf Ind'
+		dataType: int64
+		formatString: 0
+		lineageTag: d473eb6d-9b9d-419f-917f-76a0def43b9b
+		sourceLineageTag: 969838e9-ba9a-4c81-b9bb-738fb442ff64
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Private Portf Ind
+
+		annotation SummarizationSetBy = User
+
+	column 'Portfolio Sleeve status'
+		dataType: string
+		lineageTag: 01182532-08a5-46aa-b17c-fe9df22d90c2
+		sourceLineageTag: 04a908df-0889-414b-a78a-1b1dce1fff88
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Sleeve status
+
+		annotation SummarizationSetBy = User
+
+	column 'Payment Recon Principle Code - AutoSettle Rule'
+		dataType: string
+		lineageTag: 23e18471-7637-49d5-9fdd-2fa7c71554d6
+		sourceLineageTag: afa1cf27-ea52-4e7e-8a2a-ecb2d0577964
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Payment Recon Principle Code - AutoSettle Rule
+
+		annotation SummarizationSetBy = User
+
+	column 'Mim Indicator'
+		dataType: string
+		lineageTag: db0eaa20-cc06-47fd-946c-96418fb6fca7
+		sourceLineageTag: 209a287c-1ea5-46d3-ade2-ada16f25c859
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Mim Indicator
+
+		annotation SummarizationSetBy = User
+
+	column 'Custodian Country'
+		dataType: string
+		lineageTag: 1c4364f8-fc82-473f-b63f-dee8c57993da
+		sourceLineageTag: c939ca7d-0b05-4b68-8a2e-209ba21026ac
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Custodian Country
+
+		annotation SummarizationSetBy = User
+
+	column 'Custodian Bank'
+		dataType: string
+		lineageTag: 3a66a3d9-3969-42ca-a97a-59106a24fbe9
+		sourceLineageTag: 4a7e86be-86d8-464b-a3ee-564f887e3351
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Custodian Bank
+
+		annotation SummarizationSetBy = User
+
+	column 'Portfolio Manager Name'
+		dataType: string
+		lineageTag: 94b12e4c-f461-465f-9dda-bc14acc99eaa
+		sourceLineageTag: f8551dd9-0dde-412c-bc58-b5caa3d69465
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Manager Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Portfolio Start Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: c58575b5-c383-4b04-a8f9-e94cef3e168a
+		sourceLineageTag: 01720ad0-fc58-447e-a6d4-9663cc3c6b5a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Start Date
+
+		annotation SummarizationSetBy = User
+
+	column 'Custodian Account Num Code'
+		dataType: string
+		lineageTag: f2e52ba4-55b9-467e-8d54-dc38d6034fbc
+		sourceLineageTag: f5ca9f9a-2e08-4080-8716-949eed84c35e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Custodian Account Num Code
+
+		annotation SummarizationSetBy = User
+
+	column 'Lawson Legal ID'
+		dataType: string
+		lineageTag: 2cba2fc1-3db7-43eb-bad5-3502ead158fc
+		sourceLineageTag: 29034559-1e36-459e-9a95-0172ecc956fa
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Lawson Legal ID
+
+		annotation SummarizationSetBy = User
+
+	column 'Subfund Join Key Code'
+		dataType: string
+		lineageTag: 76ffc423-65d5-4fb7-bd23-5750d3854bfc
+		sourceLineageTag: 0c6c3bae-0c84-4567-bb29-bd762119a5cf
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Subfund Join Key Code
+
+		annotation SummarizationSetBy = User
+
+	column 'Default Asset Class'
+		dataType: string
+		lineageTag: 594b9813-e3ba-4f82-a273-495f6f8818b0
+		sourceLineageTag: 5a3f382a-fa44-43a0-815c-4fcc5b5e175e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Default Asset Class
+
+		annotation SummarizationSetBy = User
+
+	column 'Ledger Type'
+		dataType: string
+		lineageTag: 45e68ea4-26a9-434e-a855-1b29b1c72362
+		sourceLineageTag: e13ef82b-375d-490f-b50a-a4f83f18f2ae
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ledger Type
+
+		annotation SummarizationSetBy = User
+
+	column 'Investment Desk'
+		dataType: string
+		lineageTag: 44d1252e-c8fa-4948-805b-9d55050eb49e
+		sourceLineageTag: 017a3743-20e9-4ec5-bb77-d3b7c49ee7f6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Investment Desk
+
+		annotation SummarizationSetBy = User
+
+	column 'Portfolio Owner'
+		dataType: string
+		lineageTag: 7ff5bb6b-a70b-4f9b-aa34-4c7dc9f18321
+		sourceLineageTag: 23af82f4-4d0e-4c03-8903-c57bc5648529
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Owner
+
+		annotation SummarizationSetBy = User
+
+	column BANK_ACCOUNT
+		dataType: string
+		lineageTag: 9545acdf-0888-4f63-843e-1d25f350197b
+		sourceLineageTag: 6bdcdcab-3378-4a49-b57d-1e7d2784fbf7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: BANK_ACCOUNT
+
+		annotation SummarizationSetBy = User
+
+	column 'Bank Ident'
+		dataType: string
+		lineageTag: 3c52e9dd-4f78-42d9-89e7-fb10da2ae375
+		sourceLineageTag: e8099832-6458-4289-b629-2baf5145bfda
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bank Ident
+
+		annotation SummarizationSetBy = User
+
+	column 'Forecasted Indicator'
+		dataType: int64
+		formatString: 0
+		lineageTag: e723d5e9-9e75-4ddd-aee7-0116fe2877f0
+		sourceLineageTag: 921ea905-0bd2-4606-ae76-449507326a7b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Forecasted Indicator
+
+		annotation SummarizationSetBy = User
+
+	column 'Regulated Account Indicator'
+		dataType: string
+		lineageTag: 9fb739e1-c455-442c-9c68-ae34358a0bc3
+		sourceLineageTag: 23e62e74-a75c-424d-b74b-30530bcfaba8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Regulated Account Indicator
+
+		annotation SummarizationSetBy = User
+
+	column 'Is On Kyriba'
+		dataType: int64
+		formatString: 0
+		lineageTag: 14bc8284-f4ae-4aff-a87e-a98b1d3253f0
+		sourceLineageTag: 95898b95-bcdd-4d4f-9c00-d1586cead781
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Is On Kyriba
+
+		annotation SummarizationSetBy = User
+
+	column 'Sleeve Manager Country'
+		dataType: string
+		lineageTag: c4e7b92b-3aa0-4553-96b6-d53c7be95cf9
+		sourceLineageTag: 37759579-58e9-4809-b3e6-0e8dc7726763
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sleeve Manager Country
+
+		annotation SummarizationSetBy = User
+
+	column 'Bank Account Number'
+		dataType: string
+		lineageTag: 9d9264f1-5f2f-4986-a4ff-90bb2ec4e616
+		sourceLineageTag: 410748ae-a6b9-4995-9547-efbc3ba95154
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bank Account Number
+
+		annotation SummarizationSetBy = User
+
+	column 'Bank Currency'
+		dataType: string
+		lineageTag: c688c236-ae29-4aae-a546-eea217b14d5b
+		sourceLineageTag: 4cfb17df-bc74-4fb2-b458-412c7627477b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bank Currency
+
+		annotation SummarizationSetBy = User
+
+	partition 'Portfolios-Bank Accounts' = entity
+		mode: directQuery
+		source
+			entityName: Portfolios-Bank Accounts
+			expressionSource: 'DirectQuery to AS - Securities'
+

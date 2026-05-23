@@ -1,0 +1,4307 @@
+table 'Securities Transaction GA Fact'
+	lineageTag: 9293577b-ee3d-47ab-ab30-d6ed49db4a5f
+	sourceLineageTag: c44dc4d5-bb32-4570-bed2-86711ac4d3c2
+
+	measure '# of Transactions' = EXTERNALMEASURE("# of Transactions", INTEGER, "DirectQuery to AS - Securities")
+		formatString: #,0
+		lineageTag: 1c688ff6-1494-46d9-8cf2-5af9f66c84c2
+		sourceLineageTag: 11afa9bf-16d3-4906-aea1-3911a2baf20f
+		dataCategory: Uncategorized
+
+	measure 'Max of Post Hour' = EXTERNALMEASURE("Max of Post Hour", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		lineageTag: 82cc8737-1b65-4112-9d3e-5d1594e24c51
+		sourceLineageTag: 84812f66-1478-4e10-b707-7db68f750a48
+		dataCategory: Uncategorized
+
+	measure 'Security Transactions Title' = EXTERNALMEASURE("Security Transactions Title", STRING, "DirectQuery to AS - Securities")
+		lineageTag: ca07a64a-03e8-4709-9ffe-71129785c52f
+		sourceLineageTag: 92bc6fd6-8e74-4a79-a411-f335f119492a
+		dataCategory: Uncategorized
+
+	measure 'Security Description (Sec Tran)' = EXTERNALMEASURE("Security Description (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: da494e7f-77e2-4e9d-a64a-c41d43756512
+		sourceLineageTag: fb13ea9c-7b70-43a2-8d6e-c9f106f180e3
+		dataCategory: Uncategorized
+
+	measure '# Trans Src ID' = EXTERNALMEASURE("# Trans Src ID", INTEGER, "DirectQuery to AS - Securities")
+		formatString: #,0
+		lineageTag: 4e99cdfa-9c67-4b92-83fc-a803ebfb9de1
+		sourceLineageTag: b999f91c-0c34-4f5a-bef5-df95b7921745
+		dataCategory: Uncategorized
+
+	measure 'Reporting Currency (Security Transaction)' = EXTERNALMEASURE("Reporting Currency (Security Transaction)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 13e4b500-439a-420d-9731-e12bb7617e32
+		sourceLineageTag: 1bb67709-32da-4e82-82c2-fbef76edb227
+		dataCategory: Uncategorized
+
+	measure 'Rep Rate (Security Transaction)' = EXTERNALMEASURE("Rep Rate (Security Transaction)", DOUBLE, "DirectQuery to AS - Securities")
+		formatString: 0.000000
+		lineageTag: 1c06bfbe-af87-43bd-b9d9-db30733a0553
+		sourceLineageTag: 82a4ce43-ca73-4525-a849-d95a0309f985
+		dataCategory: Uncategorized
+
+	measure 'Amortized Cost - Rep (TH)' = EXTERNALMEASURE("Amortized Cost - Rep (TH)", DOUBLE, "DirectQuery to AS - Securities")
+		isHidden
+		displayFolder: Position Research Attributes
+		lineageTag: dc042c24-c248-4009-841b-5391595faab1
+		sourceLineageTag: 400085c1-2a71-49a5-8aef-be07cedf10bf
+		dataCategory: Uncategorized
+
+	measure 'Original Cost - Rep (TH)' = EXTERNALMEASURE("Original Cost - Rep (TH)", DOUBLE, "DirectQuery to AS - Securities")
+		isHidden
+		displayFolder: Position Research Attributes
+		lineageTag: 5a6eaf78-3002-4182-a5f0-9bd2b76899b8
+		sourceLineageTag: fe06e0db-f5ed-4a56-a3f5-be3369c32594
+		dataCategory: Uncategorized
+
+	measure 'Realized Gain/Loss - Rep (TH)' = EXTERNALMEASURE("Realized Gain/Loss - Rep (TH)", DOUBLE, "DirectQuery to AS - Securities")
+		isHidden
+		displayFolder: Position Research Attributes
+		lineageTag: 25764a83-197b-4b1d-9d81-5c36a909b716
+		sourceLineageTag: 13058e7e-7953-461a-a477-7bd44a6e47f6
+		dataCategory: Uncategorized
+
+	measure 'Transaction History Title' = EXTERNALMEASURE("Transaction History Title", STRING, "DirectQuery to AS - Securities")
+		isHidden
+		displayFolder: Position Research Attributes
+		lineageTag: 21ad3161-76d7-422e-8461-adc1719169cf
+		sourceLineageTag: 952e5478-7e4b-4c0f-ba86-f6c5ed21b7c4
+		dataCategory: Uncategorized
+
+	measure 'Units - Trans Level (TH)' = EXTERNALMEASURE("Units - Trans Level (TH)", DOUBLE, "DirectQuery to AS - Securities")
+		formatString: #,0.000
+		isHidden
+		displayFolder: Position Research Attributes
+		lineageTag: 75f0cc57-9aaf-446a-aa49-4d396654ee2a
+		sourceLineageTag: 55a2db18-11c0-4680-887f-15a3e642eb2a
+		dataCategory: Uncategorized
+
+	measure 'Asset Type (Sec Tran)' = EXTERNALMEASURE("Asset Type (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 89b8225e-48a4-4892-b419-479de4dc8d75
+		sourceLineageTag: b28124ec-ca98-4d4b-bcb7-2aa541901865
+		dataCategory: Uncategorized
+
+	measure 'Factor (Sec Tran)' = EXTERNALMEASURE("Factor (Sec Tran)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: e2d168bf-e19c-4065-a27f-05ff99c33cf1
+		sourceLineageTag: e7f15d2a-7ee7-471d-9861-3f324019c591
+		dataCategory: Uncategorized
+
+	measure 'Isin (Sec Tran)' = EXTERNALMEASURE("Isin (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: e552e294-ab05-488a-84c4-909d28c24394
+		sourceLineageTag: bd03b4ca-ee71-463b-968e-a29a9f624172
+		dataCategory: Uncategorized
+
+	measure 'Local ID (Sec Tran)' = EXTERNALMEASURE("Local ID (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 771293c3-14fe-471a-9d28-cf313987b824
+		sourceLineageTag: 50b3a661-f4c5-408d-9948-8d7a5c99b171
+		dataCategory: Uncategorized
+
+	measure 'ML IFRS 13 Level (Sec Tran)' = EXTERNALMEASURE("ML IFRS 13 Level (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 0f2feafd-cdb5-4ad6-9f71-bb184a01e462
+		sourceLineageTag: c2e28f5e-54f8-451f-9b78-558295e198d7
+		dataCategory: Uncategorized
+
+	measure 'Sector (Sec Tran)' = EXTERNALMEASURE("Sector (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 15d70ac0-5ebc-4242-90e8-1e9cafdf6876
+		sourceLineageTag: 5dc78e0d-f199-4464-81d1-0b383e2e3e38
+		dataCategory: Uncategorized
+
+	measure 'Book Value - Rep (Sec Trans)' = EXTERNALMEASURE("Book Value - Rep (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: SCD Transactions + CAT Adjustments
+		lineageTag: f7e106a4-115e-46d3-959b-889fda7273b3
+		sourceLineageTag: 36880490-0b5d-4175-a6ae-08ecb2ce6997
+		dataCategory: Uncategorized
+
+	measure 'Amortization/Accretion - Rep (Sec Trans)' = EXTERNALMEASURE("Amortization/Accretion - Rep (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: SCD Transactions + CAT Adjustments
+		lineageTag: a4db5fe1-98c8-4c83-b204-f0d71b64b080
+		sourceLineageTag: 8f1d5243-38b7-49d1-b63f-6581528542bc
+		dataCategory: Uncategorized
+
+	measure 'OID Amortization/Accretion - Rep (Sec Trans)' = EXTERNALMEASURE("OID Amortization/Accretion - Rep (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: f23d6907-9600-426a-b110-ed82ebd18874
+		sourceLineageTag: dc5e8f3e-7497-49f2-9b8b-c283c4026aa8
+		dataCategory: Uncategorized
+
+	measure 'OTTI Impairment - Rep (Sec Trans)' = EXTERNALMEASURE("OTTI Impairment - Rep (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: ea64fc16-3d1f-41b2-a398-df8e899eaa14
+		sourceLineageTag: e5089b9b-d433-4f5b-a511-d1baf30a1f14
+		dataCategory: Uncategorized
+
+	measure 'Change AOCI BV - Rep' = EXTERNALMEASURE("Change AOCI BV - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: dd2779ee-eafb-4fbd-bc68-8d36a1eef94f
+		sourceLineageTag: 947dbd86-0017-4aed-b339-4edd6b99705b
+		dataCategory: Uncategorized
+
+	measure 'Deferred PL - Rep (Sec Trans)' = EXTERNALMEASURE("Deferred PL - Rep (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: e98aee07-399c-4e1c-a2aa-d79c6207b9fd
+		sourceLineageTag: 30cef575-bd83-4408-876b-868e6e38391b
+		dataCategory: Uncategorized
+
+	measure 'Realized Gain/Loss Book - Rep (Sec Trans)' = EXTERNALMEASURE("Realized Gain/Loss Book - Rep (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: SCD Transactions + CAT Adjustments
+		lineageTag: 1bfb30fc-73e8-4a34-b263-5e163d9ef907
+		sourceLineageTag: e7777796-84f9-42fe-ae9a-9e5005ed4464
+		dataCategory: Uncategorized
+
+	measure 'Income Gross Amount - Rep (Sec Trans)' = EXTERNALMEASURE("Income Gross Amount - Rep (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: SCD Transactions + CAT Adjustments
+		lineageTag: 4d316325-c369-4fc9-bed8-9f5736cf7d69
+		sourceLineageTag: 7b5d8180-e43e-45cd-88ce-94cfb710d4d9
+		dataCategory: Uncategorized
+
+	measure 'Cost Value - Rep' = EXTERNALMEASURE("Cost Value - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: cf20e8ea-4d82-4b36-a4b2-84bf4c18ab55
+		sourceLineageTag: 4289b7ca-70fe-4f44-92c2-9303732bf9d2
+		dataCategory: Uncategorized
+
+	measure 'Settle Amount (TH)' = EXTERNALMEASURE("Settle Amount (TH)", DOUBLE, "DirectQuery to AS - Securities")
+		isHidden
+		displayFolder: Position Research Attributes
+		lineageTag: 1b86546c-d127-4818-8901-dee9b431d162
+		sourceLineageTag: d750d6c6-c301-4dd6-b198-d6eca4614150
+		dataCategory: Uncategorized
+
+	measure 'Settle Price (TH)' = EXTERNALMEASURE("Settle Price (TH)", DOUBLE, "DirectQuery to AS - Securities")
+		isHidden
+		displayFolder: Position Research Attributes
+		lineageTag: 1affc662-6174-4aef-ae51-39afeac1404d
+		sourceLineageTag: 2331e484-bcb1-49b0-98ca-80f68ba80862
+		dataCategory: Uncategorized
+
+	measure 'Settle (TH)' = EXTERNALMEASURE("Settle (TH)", STRING, "DirectQuery to AS - Securities")
+		isHidden
+		displayFolder: Position Research Attributes
+		lineageTag: 20276916-f827-4cdd-b41c-ed697650ee3f
+		sourceLineageTag: 24f0fba9-2e93-4333-8271-8fbe49d7169f
+		dataCategory: Uncategorized
+
+	measure '#Lots (TH)' = EXTERNALMEASURE("#Lots (TH)", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		isHidden
+		displayFolder: Position Research Attributes
+		lineageTag: 90275165-0975-49d9-8324-b79d1e91245d
+		sourceLineageTag: e55fd73e-bc71-4ad4-bc5c-89586b541b22
+		dataCategory: Uncategorized
+
+	measure 'Post Date (TH)' = EXTERNALMEASURE("Post Date (TH)", DATETIME, "DirectQuery to AS - Securities")
+		formatString: yyyy\-mm\-dd hh:nn:ss AM/PM
+		isHidden
+		displayFolder: Position Research Attributes
+		lineageTag: c138f95f-1472-485f-b412-2b33b49df0a3
+		sourceLineageTag: abc7b536-d1fe-4644-bd54-a5bb8b63dd21
+		dataCategory: Uncategorized
+
+	measure 'Settle Date (TH)' = EXTERNALMEASURE("Settle Date (TH)", DATETIME, "DirectQuery to AS - Securities")
+		formatString: yyyy\-mm\-dd
+		isHidden
+		displayFolder: Position Research Attributes
+		lineageTag: 21b19175-e2c8-44d5-93eb-b5dbe583e91f
+		sourceLineageTag: 3d6797cd-340b-48dc-b301-97737485c5c9
+		dataCategory: Uncategorized
+
+	measure 'Transaction No (TH)' = EXTERNALMEASURE("Transaction No (TH)", STRING, "DirectQuery to AS - Securities")
+		isHidden
+		displayFolder: Position Research Attributes
+		lineageTag: 503378c6-f8ea-400b-ba92-c452191de77f
+		sourceLineageTag: 4a3ba943-efa8-4bb7-9a1a-d29fa40ff0a1
+		dataCategory: Uncategorized
+
+	measure 'Slicer filter (TH)' = EXTERNALMEASURE("Slicer filter (TH)", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		isHidden
+		displayFolder: Position Research Attributes
+		lineageTag: 7c8d1a54-1403-4977-be3e-ee647650a40a
+		sourceLineageTag: 4ea321bc-ad73-45bc-b4e0-69ae899f479b
+		dataCategory: Uncategorized
+
+	measure 'User (TH)' = EXTERNALMEASURE("User (TH)", STRING, "DirectQuery to AS - Securities")
+		isHidden
+		displayFolder: Position Research Attributes
+		lineageTag: adfdb0fe-404f-40c7-a896-d3e1bfb85152
+		sourceLineageTag: 0eb44bce-e15a-474e-836d-98225770b56d
+		dataCategory: Uncategorized
+
+	measure 'Transaction Yield (TH)' = EXTERNALMEASURE("Transaction Yield (TH)", DOUBLE, "DirectQuery to AS - Securities")
+		isHidden
+		displayFolder: Position Research Attributes
+		lineageTag: b736e8ce-2e0a-453b-86e9-74ac4c27e0b1
+		sourceLineageTag: 0af957db-160c-4c5c-938b-440a6a8efc0e
+		dataCategory: Uncategorized
+
+	measure 'Book Value - Local (TH)' = EXTERNALMEASURE("Book Value - Local (TH)", DOUBLE, "DirectQuery to AS - Securities")
+		isHidden
+		displayFolder: Position Research Attributes
+		lineageTag: 1836b065-823b-4327-b05c-ea140537f9af
+		sourceLineageTag: ac4fb0a5-756f-4044-8e98-09ba2b4b2be7
+		dataCategory: Uncategorized
+
+	measure 'Transaction Amount (Sec Tran)' = EXTERNALMEASURE("Transaction Amount (Sec Tran)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 35a52c0d-508b-45b8-a2d3-720bc1de1298
+		sourceLineageTag: bc910c0d-9bbf-4764-8081-497e80fb05b3
+		dataCategory: Uncategorized
+
+	measure 'Settle Principal (Tran)' = EXTERNALMEASURE("Settle Principal (Tran)", DOUBLE, "DirectQuery to AS - Securities")
+		formatString: #,0.00
+		lineageTag: a1c0e210-051c-4990-a4f2-cbdfa6665f79
+		sourceLineageTag: e30714c0-354b-4ae9-93f5-ea7c53f22bc0
+		dataCategory: Uncategorized
+
+	measure 'Trans Type (TH)' = EXTERNALMEASURE("Trans Type (TH)", STRING, "DirectQuery to AS - Securities")
+		isHidden
+		displayFolder: Position Research Attributes
+		lineageTag: 6d08de38-5d8f-4fc0-95d3-eb6e0e39f106
+		sourceLineageTag: a085f707-6e6d-47c1-a8d0-f97ba59e66df
+		dataCategory: Uncategorized
+
+	measure 'Settle Interest (Tran)' = EXTERNALMEASURE("Settle Interest (Tran)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 14ba00bc-5ea2-4b30-8b0e-fe0d076428da
+		sourceLineageTag: fbcdeab4-b896-43d6-80de-0f02cd17ab4e
+		dataCategory: Uncategorized
+
+	measure 'Cusip (Sec Tran)' = EXTERNALMEASURE("Cusip (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: d16901a8-7546-45ec-af8f-4f5ddc8b3455
+		sourceLineageTag: 9cd3f862-e20a-4119-99b6-07eafcd309e5
+		dataCategory: Uncategorized
+
+	measure 'Accrual Currency (Sec Tran)' = EXTERNALMEASURE("Accrual Currency (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: f0f32ff2-e632-450e-ac88-734dd6cd2561
+		sourceLineageTag: bd49e06a-1a1a-4a60-8b01-21e344022f0e
+		dataCategory: Uncategorized
+
+	measure 'Portfolio Owner (Sec Tran)' = EXTERNALMEASURE("Portfolio Owner (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: 3fc91f49-46ed-427b-b6b3-cbb44d4c6be4
+		sourceLineageTag: dfaadfa7-f706-4049-b207-e7e0998e56d6
+		dataCategory: Uncategorized
+
+	measure 'Portfolio Sleeve Status (Sec Tran)' = EXTERNALMEASURE("Portfolio Sleeve Status (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: 984786fa-d1dc-4bbf-b7c6-9eba6be7437d
+		sourceLineageTag: 0b30ff14-802c-48df-87ba-fd40f6a1b887
+		dataCategory: Uncategorized
+
+	measure 'Private Portf Ind (Sec Tran)' = EXTERNALMEASURE("Private Portf Ind (Sec Tran)", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		displayFolder: Portfolio Attributes
+		lineageTag: 2827c904-ee50-43ec-aeea-49b6f1762eda
+		sourceLineageTag: f9e677be-85ae-41fe-a6da-bb1b8a5c3fd4
+		dataCategory: Uncategorized
+
+	measure 'Amortization/Accretion Realized - Rep (Sec Trans)' = EXTERNALMEASURE("Amortization/Accretion Realized - Rep (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 22b5e9e6-2d0f-456b-a121-94738716c27c
+		sourceLineageTag: 0923761e-470c-4c57-9275-fdecf0945ac2
+		dataCategory: Uncategorized
+
+	measure 'Maximis Portfolio Number (Sec Tran)' = EXTERNALMEASURE("Maximis Portfolio Number (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: 4e6c88b3-150f-492f-8bc3-9a04e6aa2cbe
+		sourceLineageTag: 6e8c88df-c530-4cec-9384-0b79bcbc7d53
+		dataCategory: Uncategorized
+
+	measure 'IAS39 Trading Philosophy Code (Sec Tran)' = EXTERNALMEASURE("IAS39 Trading Philosophy Code (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: d1f57471-8659-4a19-a7ce-8560a26c37c0
+		sourceLineageTag: d9ba4e8d-215f-4f03-8581-8fae696fc4b3
+		dataCategory: Uncategorized
+
+	measure 'IFRS Trading Philosophy Code (Sec Tran)' = EXTERNALMEASURE("IFRS Trading Philosophy Code (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: 29c5f216-4a74-4453-8199-2c84f2ffdb41
+		sourceLineageTag: abfcea17-f23f-4598-b6bb-3ed0eb21258c
+		dataCategory: Uncategorized
+
+	measure 'Portfolio Name (Sec Tran)' = EXTERNALMEASURE("Portfolio Name (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: 6ba96114-9902-4297-b0de-7136c70299ec
+		sourceLineageTag: a82bf43c-0ec0-490e-8b1e-9e2b4849d0d0
+		dataCategory: Uncategorized
+
+	measure 'Investment Desk (Sec Tran)' = EXTERNALMEASURE("Investment Desk (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: edd0192b-0db5-4017-8127-a93c2513e59b
+		sourceLineageTag: 9846809f-f2b5-4328-8905-fd897336b1bb
+		dataCategory: Uncategorized
+
+	measure 'Portfolio Manager Name (Sec Tran)' = EXTERNALMEASURE("Portfolio Manager Name (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: ab1e56a3-9089-4eda-8854-3302855a98d0
+		sourceLineageTag: 0919eb54-46c1-418a-a28d-023751b923c1
+		dataCategory: Uncategorized
+
+	measure 'FI Type (Sec Tran)' = EXTERNALMEASURE("FI Type (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 51fa303e-ca61-49e8-b913-abef6e418d78
+		sourceLineageTag: 2842a818-08ab-48d8-92e2-353d6fcb8f7c
+		dataCategory: Uncategorized
+
+	measure 'Issue Dt (Sec Tran)' = EXTERNALMEASURE("Issue Dt (Sec Tran)", DATETIME, "DirectQuery to AS - Securities")
+		formatString: yyyy\-mm\-dd
+		displayFolder: Security Values
+		lineageTag: 88edbb6c-7323-42a1-ad07-7d813c094e91
+		sourceLineageTag: 2b3404d7-f9b3-483f-ba24-216db92d47c9
+		dataCategory: Uncategorized
+
+	measure 'Transaction Amount (BackPosted)' = EXTERNALMEASURE("Transaction Amount (BackPosted)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: deb5a9bf-ddd6-4f10-bb00-54816415380b
+		sourceLineageTag: 820ab9be-683b-4c49-80c8-fd9240c467c0
+		dataCategory: Uncategorized
+
+	measure 'Report Portfolio Value' = EXTERNALMEASURE("Report Portfolio Value", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: c6e7d542-93f5-4e9a-9f40-01f3d77daa7c
+		sourceLineageTag: 64a26d70-45e8-4afe-a06c-446982492990
+		dataCategory: Uncategorized
+
+	measure 'Materiality (BPS)' = EXTERNALMEASURE("Materiality (BPS)", DOUBLE, "DirectQuery to AS - Securities")
+		formatString: 0.000000
+		lineageTag: 652c44de-3e44-4df6-b0c6-f800fccd1cb6
+		sourceLineageTag: 7f8f0017-2a7f-41f8-8390-1ab17f4a73fe
+		dataCategory: Uncategorized
+
+	measure 'Back-Posted Transactions Title' = EXTERNALMEASURE("Back-Posted Transactions Title", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 97ea225f-7bf9-4455-a48f-9178103ed6b5
+		sourceLineageTag: 43a01740-42cf-4f75-be70-a21d7e7ab6ba
+		dataCategory: Uncategorized
+
+	measure 'Client Reporting Required Ind (Sec Tran)' = EXTERNALMEASURE("Client Reporting Required Ind (Sec Tran)", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		displayFolder: Portfolio Attributes
+		lineageTag: 0197d6f8-ad17-49ef-b0ff-053ab18f9dc2
+		sourceLineageTag: d25182ec-f53e-4154-a6b0-cc6e171e874f
+		dataCategory: Uncategorized
+
+	measure 'Unpaid Amount - Local' = EXTERNALMEASURE("Unpaid Amount - Local", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 42a0562e-4a16-4a7d-a700-9f11caafd68f
+		sourceLineageTag: 7bb7897b-bdc2-4aee-bf3f-dc94eb3d72b5
+		dataCategory: Uncategorized
+
+	measure 'Current Timestamp (Sec Trans)' = EXTERNALMEASURE("Current Timestamp (Sec Trans)", DATETIME, "DirectQuery to AS - Securities")
+		formatString: yyyy\-mm\-dd hh:nn:ss AM/PM
+		lineageTag: 1fa67338-c5c0-43de-856d-51f5e1c049e0
+		sourceLineageTag: e2778e10-d1a1-4fdf-8620-42f6510c3328
+		dataCategory: Uncategorized
+
+	measure 'Day Count (Sec Tran)' = EXTERNALMEASURE("Day Count (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 2a0b3715-cc06-4970-949f-3884eb32f669
+		sourceLineageTag: 458569d7-71ac-4b9a-8cd8-bc6361abd3bd
+		dataCategory: Uncategorized
+
+	measure 'Maturity Date (Sec Tran)' = EXTERNALMEASURE("Maturity Date (Sec Tran)", DATETIME, "DirectQuery to AS - Securities")
+		formatString: yyyy\-mm\-dd
+		displayFolder: Security Values
+		lineageTag: 8c31ea20-d474-445b-b85a-12fc6827704b
+		sourceLineageTag: 0ed9e275-b77f-484d-9911-2559e959bd27
+		dataCategory: Uncategorized
+
+	measure 'Inv Lp Port Code (Sec Tran)' = EXTERNALMEASURE("Inv Lp Port Code (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: 0ce646cd-4074-42ec-bb04-320c915bba3e
+		sourceLineageTag: a04cffe8-dc8c-4475-9645-5702bbf1b785
+		dataCategory: Uncategorized
+
+	measure 'Lawson Legal ID (Sec Tran)' = EXTERNALMEASURE("Lawson Legal ID (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: 7173fd86-ac5f-4142-a374-8813a732a008
+		sourceLineageTag: b48f9608-b8e7-4700-a60a-4d57fb9cdfdd
+		dataCategory: Uncategorized
+
+	measure 'Liability Surplus (Sec Tran)' = EXTERNALMEASURE("Liability Surplus (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: 76695155-41cb-4965-848f-dfcce1042e62
+		sourceLineageTag: 2b8a0371-11c8-439b-916e-58f79feb4135
+		dataCategory: Uncategorized
+
+	measure 'Custodian Name (Sec Tran)' = EXTERNALMEASURE("Custodian Name (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: 6fc0f9b1-b2d5-4046-9ea1-77a30d30799c
+		sourceLineageTag: a68aac4b-4b7d-4ac7-bb4a-e25333840b5b
+		dataCategory: Uncategorized
+
+	measure 'Official PPN (Sec Tran)' = EXTERNALMEASURE("Official PPN (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: c6dc5611-6b3f-4136-820a-5d88a43c9db0
+		sourceLineageTag: b4c9d724-8e98-452a-9d80-a87603edb3f0
+		dataCategory: Uncategorized
+
+	measure 'Coupon (Sec Tran)' = EXTERNALMEASURE("Coupon (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 3e321399-a7a4-40ea-8af4-204d3eec0877
+		sourceLineageTag: 4540458e-c111-4d45-a102-95cdb55fb8c2
+		dataCategory: Uncategorized
+
+	measure 'S&P Short Term Rating (Sec Tran)' = EXTERNALMEASURE("S&P Short Term Rating (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: e24565e2-5d24-4bc9-b7d0-2efb0b9fde33
+		sourceLineageTag: 092b167e-444f-4649-96b3-ca9c784915fd
+		dataCategory: Uncategorized
+
+	measure 'Moodys Short Term Rating (Sec Tran)' = EXTERNALMEASURE("Moodys Short Term Rating (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 9ef85f8f-d1a5-430f-845f-1ffced767681
+		sourceLineageTag: 1d1e2495-d454-42b3-a261-f8b1980a4949
+		dataCategory: Uncategorized
+
+	measure 'Fitch Short Term Rating (Sec Tran)' = EXTERNALMEASURE("Fitch Short Term Rating (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 3daaa9fa-1878-4488-8ad8-9fcb15ddd6e5
+		sourceLineageTag: 29882453-3a7c-452d-a255-eceffd0064fc
+		dataCategory: Uncategorized
+
+	measure 'Dbrs (Sec Tran)' = EXTERNALMEASURE("Dbrs (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 507031be-71b3-4475-acc4-8de62e2b5cb4
+		sourceLineageTag: 0fd3b92b-79ad-47ad-8132-da288c0b6b8f
+		dataCategory: Uncategorized
+
+	measure 'Internal (Sec Tran)' = EXTERNALMEASURE("Internal (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 1f7a416c-63b3-4489-9826-5f5a8ca4f26d
+		sourceLineageTag: 8b5d4cc5-e8cd-4d8d-89d0-8da91071b603
+		dataCategory: Uncategorized
+
+	measure 'Maturity Days (Sec Tran)' = EXTERNALMEASURE("Maturity Days (Sec Tran)", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		displayFolder: Security Values
+		lineageTag: ff41c312-a52c-4acf-ad7d-d8aa8be7411d
+		sourceLineageTag: d99fd85e-3718-4bae-b497-bb59134f439a
+		dataCategory: Uncategorized
+
+	measure 'Realized Gain/Loss - Rep (Sec Trans)' = EXTERNALMEASURE("Realized Gain/Loss - Rep (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 85040c08-c397-41bb-a549-5d46a2ee4ab4
+		sourceLineageTag: 76302c47-c777-4d46-b067-f97590444a53
+		dataCategory: Uncategorized
+
+	measure 'Sedol (Sec Tran)' = EXTERNALMEASURE("Sedol (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 4e7e1772-96a5-4991-a086-f974afdd2a6e
+		sourceLineageTag: 184065f9-8675-4e5d-967a-10be7e098574
+		dataCategory: Uncategorized
+
+	measure 'Legal Entity (Sec Tran)' = EXTERNALMEASURE("Legal Entity (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: 41ec827c-cf1b-4735-aa2f-65d172387492
+		sourceLineageTag: 8f46eeb6-d229-4bcd-a655-f394d52ebe18
+		dataCategory: Uncategorized
+
+	measure 'Segment (Sec Tran)' = EXTERNALMEASURE("Segment (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: 9e63c134-08e7-43c0-9e0c-0dc909547286
+		sourceLineageTag: e818f9f6-c2fa-44dd-b379-f3b47ed30401
+		dataCategory: Uncategorized
+
+	measure 'Security Transfers Title' = EXTERNALMEASURE("Security Transfers Title", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 1190a8cc-23f0-4ac8-afce-d0f6baf83e48
+		sourceLineageTag: 43da29df-8e75-40e2-bdf5-4dbad213fb20
+		dataCategory: Uncategorized
+
+	measure 'JGAAP Trading Philosophy Code (Sec Tran)' = EXTERNALMEASURE("JGAAP Trading Philosophy Code (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: cd229e0b-4243-40b7-881e-e4001781574b
+		sourceLineageTag: 7d037a12-a042-4544-91fe-6caf2c341eb9
+		dataCategory: Uncategorized
+
+	measure 'S&P (Sec Tran)' = EXTERNALMEASURE("S&P (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: b7b894c5-c1fc-499f-b31d-7e2b0d3e5bf6
+		sourceLineageTag: c24fb872-c635-40fa-a279-a0474bce9c34
+		dataCategory: Uncategorized
+
+	measure 'Issuer (Sec Tran)' = EXTERNALMEASURE("Issuer (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: edf3d5f8-d97f-441a-9697-eba5d42f615d
+		sourceLineageTag: a861513e-074d-4c27-946a-4b7440030973
+		dataCategory: Uncategorized
+
+	measure 'AOCI Amortized - Rep (STH)' = EXTERNALMEASURE("AOCI Amortized - Rep (STH)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Sublot Rollforward Attributes
+		lineageTag: db2ccb8c-a5bd-4cb8-a3a3-a6b9e96098ea
+		sourceLineageTag: 55fff6af-0bcc-4900-8328-511521590cf3
+		dataCategory: Uncategorized
+
+	measure 'AOCI Amortized - Local (STH)' = EXTERNALMEASURE("AOCI Amortized - Local (STH)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Sublot Rollforward Attributes
+		lineageTag: 1cf61350-b16f-4caa-ac76-cb89c240f135
+		sourceLineageTag: 8dce1a46-8fc0-48d2-b6ea-f4e698915bd1
+		dataCategory: Uncategorized
+
+	measure 'AOCI Original - Rep (STH)' = EXTERNALMEASURE("AOCI Original - Rep (STH)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Sublot Rollforward Attributes
+		lineageTag: b677e57b-ee0c-4331-b177-3286a36c8b89
+		sourceLineageTag: 52f2b129-5fd8-46c6-9c30-8a41cd5172a1
+		dataCategory: Uncategorized
+
+	measure 'AOCI Original - Local (STH)' = EXTERNALMEASURE("AOCI Original - Local (STH)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Sublot Rollforward Attributes
+		lineageTag: 8d9d35f3-cf79-470b-9a9f-02673d8ccc6b
+		sourceLineageTag: 3bfe71f9-4c85-43ab-9528-f791ba4b98a3
+		dataCategory: Uncategorized
+
+	measure 'Infor Acquisition Rate (Sec Trans)' = EXTERNALMEASURE("Infor Acquisition Rate (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		formatString: 0.000000
+		lineageTag: 29e47d14-a24a-47dd-87f4-592438416206
+		sourceLineageTag: 36a7a52e-19a4-473f-b7fc-b5bc4b962a65
+		dataCategory: Uncategorized
+
+	measure 'USGAAP Trading Philosophy Code (Sec Tran)' = EXTERNALMEASURE("USGAAP Trading Philosophy Code (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: 006408d9-7fb8-442b-b274-80e7fd71809d
+		sourceLineageTag: 35c43c57-4d81-4dfd-8de9-c0c5f41c1c61
+		dataCategory: Uncategorized
+
+	measure 'Coupon Type (Sec Tran)' = EXTERNALMEASURE("Coupon Type (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: e780dccb-daf2-450b-9b09-e6c9d1202257
+		sourceLineageTag: 2c8ae5aa-0f2f-44a0-b16d-e56aef1e9856
+		dataCategory: Uncategorized
+
+	measure 'ML MFC Equivalent Rating (Sec Trans)' = EXTERNALMEASURE("ML MFC Equivalent Rating (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 6908237e-6313-490c-b6d6-c66fced9927c
+		sourceLineageTag: 9bd40eec-2395-46d0-ae74-cca6431f4b4e
+		dataCategory: Uncategorized
+
+	measure 'Schedule BA Asset Category Code (Sec Tran)' = EXTERNALMEASURE("Schedule BA Asset Category Code (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 873feb4e-5c4b-4001-80e0-2a816831a463
+		sourceLineageTag: 4d966ddf-c8d6-4806-8b43-4771571bb643
+		dataCategory: Uncategorized
+
+	measure 'Primary Asset Type (Sec Tran)' = EXTERNALMEASURE("Primary Asset Type (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 1193da1f-a14c-4b2a-9b71-b567192c3d34
+		sourceLineageTag: 66da5cba-b54e-4ece-9248-d28b09bf2747
+		dataCategory: Uncategorized
+
+	measure 'PM City (Sec Tran)' = EXTERNALMEASURE("PM City (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: 254fcf3b-5a2e-4e50-9b9b-b71e034b8189
+		sourceLineageTag: 56762d6f-5c49-4c8e-9ae8-195774790de9
+		dataCategory: Uncategorized
+
+	measure 'Portfolio Valuation Date (Sec Tran)' = EXTERNALMEASURE("Portfolio Valuation Date (Sec Tran)", DATETIME, "DirectQuery to AS - Securities")
+		formatString: yyyy\-mm\-dd
+		displayFolder: Portfolio Attributes
+		lineageTag: 40cace46-7a05-443a-a9bb-3daac98b0ce2
+		sourceLineageTag: b11136fc-cfb0-4210-9a6c-610b652b5feb
+		dataCategory: Uncategorized
+
+	measure 'Settle Amount By Portfolio' = EXTERNALMEASURE("Settle Amount By Portfolio", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 52301b6b-7c87-4fba-b141-ebd2a9b6d6f4
+		sourceLineageTag: c655c4bb-9397-44e8-b739-060ade9ebe1e
+		dataCategory: Uncategorized
+
+	measure 'Settle Amount By Security' = EXTERNALMEASURE("Settle Amount By Security", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 431a6651-2b83-4b96-9344-8a718d523a77
+		sourceLineageTag: 804fcf1e-38fa-4da6-aa08-8b8d88d80a84
+		dataCategory: Uncategorized
+
+	measure 'Materiality (BPS at Portfolio)' = EXTERNALMEASURE("Materiality (BPS at Portfolio)", DOUBLE, "DirectQuery to AS - Securities")
+		formatString: 0.000000
+		lineageTag: e148a3d9-582a-4db1-8c0a-bfdded6589f8
+		sourceLineageTag: 02a3f2ac-2536-47e1-9fc6-615e256503b9
+		dataCategory: Uncategorized
+
+	measure 'Materiality (BPS at Security)' = EXTERNALMEASURE("Materiality (BPS at Security)", DOUBLE, "DirectQuery to AS - Securities")
+		formatString: 0.000000
+		lineageTag: 7f79076a-c095-46b2-ae8c-6ad3adb03885
+		sourceLineageTag: 3a585a91-832b-4e1c-bf71-612cf07049fc
+		dataCategory: Uncategorized
+
+	measure 'Ticker (Sec Tran)' = EXTERNALMEASURE("Ticker (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 55a97900-33c6-456b-922b-6cfcf01e8fe2
+		sourceLineageTag: 1e4bf2a0-8c60-4710-a3cc-8e783d71a347
+		dataCategory: Uncategorized
+
+	measure 'FindurId - Slicer Sync Filter (STH)' = EXTERNALMEASURE("FindurId - Slicer Sync Filter (STH)", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		displayFolder: Sublot Rollforward Attributes
+		lineageTag: 08a978b0-f4d4-4dff-9e93-25e068e1baac
+		sourceLineageTag: 2a6ff253-a5f3-48e0-a669-d6de77f9eed7
+		dataCategory: Uncategorized
+
+	measure 'AOCI Hedge Findur ID Trans (STH)' = EXTERNALMEASURE("AOCI Hedge Findur ID Trans (STH)", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		displayFolder: Sublot Rollforward Attributes
+		lineageTag: 6d069050-f703-45be-861e-838284407d80
+		sourceLineageTag: bd28efc2-2b47-417b-94f3-695d91c80528
+		dataCategory: Uncategorized
+
+	measure 'Sublot Transaction History Title' = EXTERNALMEASURE("Sublot Transaction History Title", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Sublot Rollforward Attributes
+		lineageTag: 655e405d-4a51-40ca-bbfc-6c4fed83c8ca
+		sourceLineageTag: 0ed0aa7b-3ae3-45eb-ba23-ff36e76fc18e
+		dataCategory: Uncategorized
+
+	measure 'AOCI Remaining - Local (STH)' = EXTERNALMEASURE("AOCI Remaining - Local (STH)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Sublot Rollforward Attributes
+		lineageTag: d0501dbd-1138-4b84-8a92-4f2f3982fc11
+		sourceLineageTag: efc45e23-912d-4c65-ba6a-142c32e9f8d1
+		dataCategory: Uncategorized
+
+	measure 'AOCI Remaining - Rep (STH)' = EXTERNALMEASURE("AOCI Remaining - Rep (STH)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Sublot Rollforward Attributes
+		lineageTag: 6e1061f7-fe0d-4671-b2cc-82b279b838cd
+		sourceLineageTag: b6457f03-a826-48a7-98fd-be02732b1aa6
+		dataCategory: Uncategorized
+
+	measure 'NAIC Designation (Sec Tran)' = EXTERNALMEASURE("NAIC Designation (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 8a473479-f0ea-4c7c-89d3-7e6550e4587e
+		sourceLineageTag: 19e72cb0-5570-4896-8e90-1a53b361dfa9
+		dataCategory: Uncategorized
+
+	measure 'NAIC Rating (Sec Tran)' = EXTERNALMEASURE("NAIC Rating (Sec Tran)", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		displayFolder: Security Values
+		lineageTag: 692b67f8-e363-4396-9b8c-1d4085b103b2
+		sourceLineageTag: 7f18d14d-62d3-49d2-a669-f2b1cb78a5b4
+		dataCategory: Uncategorized
+
+	measure 'Units - Trans Level' = EXTERNALMEASURE("Units - Trans Level", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 71097908-e7f9-437f-b8b9-47c48a68ec46
+		sourceLineageTag: 0688978f-5e14-4664-ba95-f34c6c7e9928
+		dataCategory: Uncategorized
+
+	measure 'Settle Amount - Trans level' = EXTERNALMEASURE("Settle Amount - Trans level", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 5b86c5a3-863b-451e-b10e-0033e5d176cc
+		sourceLineageTag: 15721bc3-5192-44be-a581-528469867906
+		dataCategory: Uncategorized
+
+	measure 'Price - Local (Sec Tran)' = EXTERNALMEASURE("Price - Local (Sec Tran)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: ec3d03ca-c103-4b6e-b800-27b2513dc8ac
+		sourceLineageTag: 70cec9dd-413e-42fa-9d1f-e438daad9cc2
+		dataCategory: Uncategorized
+
+	measure 'Settle Amount' = EXTERNALMEASURE("Settle Amount", DOUBLE, "DirectQuery to AS - Securities")
+		isHidden
+		lineageTag: 744947fd-54a6-4699-82c6-8510fedb1621
+		sourceLineageTag: 65143e34-b466-41eb-adcb-fc0663aabd6d
+		dataCategory: Uncategorized
+
+	measure 'Base Interest' = EXTERNALMEASURE("Base Interest", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 42dbfde2-b310-4063-9ca2-176cae284ee1
+		sourceLineageTag: d85c82df-48ce-4559-9b3e-c4f955e7ec9a
+		dataCategory: Uncategorized
+
+	measure 'Units - Lots Level' = EXTERNALMEASURE("Units - Lots Level", DOUBLE, "DirectQuery to AS - Securities")
+		isHidden
+		lineageTag: b2f1caaa-7d6c-40f0-abfc-a8d9705bd86a
+		sourceLineageTag: 9950d7a7-19a3-4de3-8751-aa1241547d36
+		dataCategory: Uncategorized
+
+	measure 'Rep Rate (Sec Trans)' = EXTERNALMEASURE("Rep Rate (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		formatString: 0.000000
+		lineageTag: 05481103-1382-43ec-8171-d90b58c32bd9
+		sourceLineageTag: 55097e2a-4d02-4107-af92-22745e6b670e
+		dataCategory: Uncategorized
+
+	measure 'Units - Lot Level (TH)' = EXTERNALMEASURE("Units - Lot Level (TH)", DOUBLE, "DirectQuery to AS - Securities")
+		isHidden
+		displayFolder: Position Research Attributes
+		lineageTag: 45a29fc8-550c-4239-9c52-2152758313de
+		sourceLineageTag: 954e6b94-67f6-4d14-a0da-d22d25de3619
+		dataCategory: Uncategorized
+
+	measure 'Trade Date TH' = EXTERNALMEASURE("Trade Date TH", DATETIME, "DirectQuery to AS - Securities")
+		formatString: yyyy\-mm\-dd
+		isHidden
+		lineageTag: 1a0b0167-6e26-42c5-be50-35c96d1c46b0
+		sourceLineageTag: 4caf19f2-f619-4f84-9010-69e821917e2a
+		dataCategory: Uncategorized
+
+	measure 'Book Value - Local (Sec Trans)' = EXTERNALMEASURE("Book Value - Local (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: SCD Transactions + CAT Adjustments
+		lineageTag: 429ece1f-a642-414c-9d71-6fd0d0e692d6
+		sourceLineageTag: 3a7bc8c9-4101-4a01-be9c-7e1a2a55232d
+		dataCategory: Uncategorized
+
+	measure 'Cost Value - Local' = EXTERNALMEASURE("Cost Value - Local", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 133a6951-4a33-4698-9979-85107ea29cda
+		sourceLineageTag: 46d1acef-ec87-42ee-bec6-00a4fccaed4e
+		dataCategory: Uncategorized
+
+	measure 'Asset Portfolio Code (Sec Tran)' = EXTERNALMEASURE("Asset Portfolio Code (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: 3596b53a-6dfd-49a7-b876-87b568f0d4ff
+		sourceLineageTag: ea2d69ae-aef4-4b36-a892-c3c091446289
+		dataCategory: Uncategorized
+
+	measure 'ML Private Asset ID (Sec Tran)' = EXTERNALMEASURE("ML Private Asset ID (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 95abf73c-a885-4dab-8af4-33b14f0c11a9
+		sourceLineageTag: ea5950f8-e5c8-436e-9e60-11249fd0b458
+		dataCategory: Uncategorized
+
+	measure 'ML Private/Public Asset ID (Sec Tran)' = EXTERNALMEASURE("ML Private/Public Asset ID (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 9271fbb3-a648-4739-b75b-9c252e6a3b2a
+		sourceLineageTag: 5afb4568-dd9e-40f4-b1be-8107df2e510d
+		dataCategory: Uncategorized
+
+	measure 'Coupon Frequency (Sec Tran)' = EXTERNALMEASURE("Coupon Frequency (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 4249563b-e45d-4ebe-acc6-20346e0bdbc5
+		sourceLineageTag: 0febe173-88ca-411f-a5d4-6431714da4da
+		dataCategory: Uncategorized
+
+	measure '144A Flag (Sec Tran)' = EXTERNALMEASURE("144A Flag (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: d6250543-a49e-46ad-88dd-d2308337b144
+		sourceLineageTag: 21fea4b8-ca5c-4ec8-845f-8eca3d3b69fd
+		dataCategory: Uncategorized
+
+	measure 'Custodian (Sec Tran)' = EXTERNALMEASURE("Custodian (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 6b503245-28d4-4be0-8060-d9538d9d92d4
+		sourceLineageTag: b53377fa-8899-4810-8067-227575a3cbef
+		dataCategory: Uncategorized
+
+	measure 'OTTI Impairment - Local (Sec Tran)' = EXTERNALMEASURE("OTTI Impairment - Local (Sec Tran)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: bf6dc690-334a-47f5-8f29-2aa246085c9f
+		sourceLineageTag: 85965986-6396-4df5-86eb-9fe3c6f8d359
+		dataCategory: Uncategorized
+
+	measure 'Lot Level Unit' = EXTERNALMEASURE("Lot Level Unit", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 9fc22ecc-0dcb-4515-bdc2-35425e4fcddb
+		sourceLineageTag: 27c281c0-172f-4da4-8b20-2c20f597a995
+		dataCategory: Uncategorized
+
+	measure 'MRM Industry Group Name (Sec Trans)' = EXTERNALMEASURE("MRM Industry Group Name (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 0e436b73-0b2b-42cb-b8ba-e8b6d1cbfb54
+		sourceLineageTag: 7ed53789-e9e0-4eae-ae9e-7b942f7dc117
+		dataCategory: Uncategorized
+
+	measure 'MRM Industry Sector Name (Sec Trans)' = EXTERNALMEASURE("MRM Industry Sector Name (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: c0dbe61d-3949-47ab-b402-514d2824bbc0
+		sourceLineageTag: 26008709-3d2c-4938-89c2-19de60f09630
+		dataCategory: Uncategorized
+
+	measure 'MRM Industry Subgroup Name (Sec Trans)' = EXTERNALMEASURE("MRM Industry Subgroup Name (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: b234d423-346a-4529-aee8-7cf759ddbeaa
+		sourceLineageTag: 7fcd1a57-5dfe-482a-9521-338c4b531968
+		dataCategory: Uncategorized
+
+	measure 'MRM Sector Name (Sec Trans)' = EXTERNALMEASURE("MRM Sector Name (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 220be193-c689-4ba5-bd2c-fb898546afc2
+		sourceLineageTag: f4011ce7-831c-4c9d-99ea-5752814e4032
+		dataCategory: Uncategorized
+
+	measure 'Is PublicPP Ind (Sec Trans)' = EXTERNALMEASURE("Is PublicPP Ind (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: e589d9ca-101d-4096-aebe-737b67b8253c
+		sourceLineageTag: bac36d3f-0923-47d9-ac66-cc92dd30af58
+		dataCategory: Uncategorized
+
+	measure 'Deposit Rate (Sec Trans)' = EXTERNALMEASURE("Deposit Rate (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: dbe63ea3-3dfd-45f2-983b-04d8566d9882
+		sourceLineageTag: 7bda29c0-1bc8-4e83-a1ce-a8fc2c9d3181
+		dataCategory: Uncategorized
+
+	measure 'Realized Gain/Loss – Local(Sec Trans)' = EXTERNALMEASURE("Realized Gain/Loss – Local(Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 4bef5c63-c11d-48b1-8572-666b700d5c88
+		sourceLineageTag: d4a82396-bed9-4e3f-b733-3b24a97f76fe
+		dataCategory: Uncategorized
+
+	measure 'NAIC Initial SVO Rating' = EXTERNALMEASURE("NAIC Initial SVO Rating", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		lineageTag: 16da5fd5-8066-40ce-8662-2ea4404d16c6
+		sourceLineageTag: 34de1575-d198-4796-9b4e-5d43a70086f4
+		dataCategory: Uncategorized
+
+	measure 'NAIC Final SVO Rating' = EXTERNALMEASURE("NAIC Final SVO Rating", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		lineageTag: 5ca01355-664b-464f-b77c-d948bc4e9667
+		sourceLineageTag: 69106b21-4f86-4f80-89c2-4aafa5799548
+		dataCategory: Uncategorized
+
+	measure 'Wash Sale Parent Security Id(Sec Trans)' = EXTERNALMEASURE("Wash Sale Parent Security Id(Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: eaa15dd9-549e-4077-bb46-52381d28b7f3
+		sourceLineageTag: 08ba4eeb-2a2d-4599-a022-3f6b12e837e0
+		dataCategory: Uncategorized
+
+	measure 'Real Amortisation - Rep (Sec Trans)' = EXTERNALMEASURE("Real Amortisation - Rep (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 95709379-a2ae-439a-bc46-2b53457aa673
+		sourceLineageTag: 3f3ab391-80cc-427f-9614-2a4f58d73231
+		dataCategory: Uncategorized
+
+	measure 'Real Int Appr - Rep (Sec Trans)' = EXTERNALMEASURE("Real Int Appr - Rep (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 3b6b5517-2911-4622-8b39-b971ad090ac1
+		sourceLineageTag: 075d9cd5-4ec8-460e-8eba-021f6cefe919
+		dataCategory: Uncategorized
+
+	measure 'Endorsement Indicator (Sec Trans)' = EXTERNALMEASURE("Endorsement Indicator (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 743d0409-dc50-4048-9994-8c083dc6484b
+		sourceLineageTag: 55ecad33-c4f7-4af5-b489-d3cde014c4e3
+		dataCategory: Uncategorized
+
+	measure 'ML IRR Rating (Sec Trans)' = EXTERNALMEASURE("ML IRR Rating (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 4eadf20e-55f6-472b-a9b7-11e372f45304
+		sourceLineageTag: 5f2b44e7-80d2-4eeb-81d5-220cb163cdb0
+		dataCategory: Uncategorized
+
+	measure 'Private Placement (Sec Trans)' = EXTERNALMEASURE("Private Placement (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: a99c1a21-fe1e-4053-9447-9430c7c0bb33
+		sourceLineageTag: be17872f-c0e2-4c06-bd77-597c49e8dd08
+		dataCategory: Uncategorized
+
+	measure 'ML LICAT Inferred Rating (Sec Trans)' = EXTERNALMEASURE("ML LICAT Inferred Rating (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: ac3500a1-3bf6-4be4-9381-0bf640166dd0
+		sourceLineageTag: 08e229e4-c635-413e-81bb-204eb960c56c
+		dataCategory: Uncategorized
+
+	measure 'Settle Amount - Rep (Sec Trans)' = EXTERNALMEASURE("Settle Amount - Rep (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: edb468af-3630-416d-94b9-14c01eff667e
+		sourceLineageTag: 6f1bd684-ec1a-41d3-ac74-781ba61dc688
+		dataCategory: Uncategorized
+
+	measure 'Settle Principal - Rep (Sec Trans)' = EXTERNALMEASURE("Settle Principal - Rep (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: a29655d6-bb4b-420f-aff3-b061a2ec2fea
+		sourceLineageTag: 6a6dc0e2-be00-47c7-b907-4ed2821e29b3
+		dataCategory: Uncategorized
+
+	measure 'Issuer Country Cd (Sec Trans)' = EXTERNALMEASURE("Issuer Country Cd (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: a5c05b65-1472-4ca4-a571-6d99de9bf520
+		sourceLineageTag: 43421676-1744-4e42-8e4c-42a828cabad7
+		dataCategory: Uncategorized
+
+	measure 'Unreal OID Accretion - Local (Sec Trans)' = EXTERNALMEASURE("Unreal OID Accretion - Local (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: e3a32f7a-1907-4fa3-80a5-df84ad13b214
+		sourceLineageTag: 2feb366f-cf7e-45d5-b241-65f57c38a544
+		dataCategory: Uncategorized
+
+	measure 'Unreal OID Accretion - Rep (Sec Trans)' = EXTERNALMEASURE("Unreal OID Accretion - Rep (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 6941f39e-2a5f-4abf-b48a-5da88b460697
+		sourceLineageTag: 4b0310ed-4011-4dbe-8b84-4b7038e43761
+		dataCategory: Uncategorized
+
+	measure 'Amortized Cost - Rep (Sec Trans)' = EXTERNALMEASURE("Amortized Cost - Rep (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 10dac50f-6e13-48aa-b025-dc79d06d6da9
+		sourceLineageTag: 67e85eb4-4f0e-462b-a6c7-e87bff2edcce
+		dataCategory: Uncategorized
+
+	measure 'Realised Impairment - Rep (Sec Trans)' = EXTERNALMEASURE("Realised Impairment - Rep (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 32e01f57-036d-43ba-9184-594801adc83e
+		sourceLineageTag: 06272f41-de9c-4d3d-83f6-77e8120e1f3d
+		dataCategory: Uncategorized
+
+	measure 'Book Value - CAD (Sec Trans)' = EXTERNALMEASURE("Book Value - CAD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 593da5d1-9427-4e66-8ac8-2ebd87a48cee
+		sourceLineageTag: 0839b6be-6c57-49f8-8698-e1528d08dad7
+		dataCategory: Uncategorized
+
+	measure 'Book Value - FUNC (Sec Trans)' = EXTERNALMEASURE("Book Value - FUNC (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: a4851d1f-646c-491c-a25c-fb3408297757
+		sourceLineageTag: 80e7dffb-10ed-41e0-b48d-f6caada05462
+		dataCategory: Uncategorized
+
+	measure 'Book Value - HKD (Sec Trans)' = EXTERNALMEASURE("Book Value - HKD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: fcdfb532-d498-4e28-97c7-78c889b142e3
+		sourceLineageTag: 6417019c-398e-4ab2-a75b-bc5590212de9
+		dataCategory: Uncategorized
+
+	measure 'Book Value - USD (Sec Trans)' = EXTERNALMEASURE("Book Value - USD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: e0bb9beb-9b04-4ee7-a83f-a4f398f18691
+		sourceLineageTag: d9b633d2-fcfa-4542-854d-98c879872c75
+		dataCategory: Uncategorized
+
+	measure 'Change AOCI BV - CAD (Sec Trans)' = EXTERNALMEASURE("Change AOCI BV - CAD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 81c9122c-30aa-4430-8ce5-87c7430bcb2b
+		sourceLineageTag: 967fa8e2-f4f5-4868-90d0-31b83d5243a0
+		dataCategory: Uncategorized
+
+	measure 'Change AOCI BV - FUNC (Sec Trans)' = EXTERNALMEASURE("Change AOCI BV - FUNC (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 079bade8-be88-4607-a967-1250226adc5a
+		sourceLineageTag: 682cc720-07d3-4c5f-91eb-faef24165ba6
+		dataCategory: Uncategorized
+
+	measure 'Change AOCI BV - HKD (Sec Trans)' = EXTERNALMEASURE("Change AOCI BV - HKD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 06b6643a-88f4-4f94-ac90-576350043ccc
+		sourceLineageTag: 2186ae6a-12c2-4c38-9f8c-dcb5be788100
+		dataCategory: Uncategorized
+
+	measure 'Change AOCI BV - USD (Sec Trans)' = EXTERNALMEASURE("Change AOCI BV - USD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 17f23f1e-ce3b-43fc-9864-fa983643ef3d
+		sourceLineageTag: e11fe43c-2a02-4370-8c0f-a13cee21ae36
+		dataCategory: Uncategorized
+
+	measure 'Cost Value - CAD (Sec Trans)' = EXTERNALMEASURE("Cost Value - CAD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 27662514-76d3-4720-a536-bdb863789e4e
+		sourceLineageTag: 90c8898c-e359-4fdc-9e30-2069e5b8c5ae
+		dataCategory: Uncategorized
+
+	measure 'Cost Value - FUNC (Sec Trans)' = EXTERNALMEASURE("Cost Value - FUNC (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 8e568f24-9df2-4c25-ba78-72f9eb5cc675
+		sourceLineageTag: ac49f3a5-b38d-4eef-ba52-54fcec370a25
+		dataCategory: Uncategorized
+
+	measure 'Cost Value - HKD (Sec Trans)' = EXTERNALMEASURE("Cost Value - HKD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: c10c0d44-2c86-4865-a7c6-85a1af9028ee
+		sourceLineageTag: 3216c4f8-8c6f-4844-96ca-894f63c76645
+		dataCategory: Uncategorized
+
+	measure 'Cost Value - USD (Sec Trans)' = EXTERNALMEASURE("Cost Value - USD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: e97332c8-2e26-4d9f-8d61-56e123c5543d
+		sourceLineageTag: 41d036dd-1301-4dc9-9b48-2ef58ceb024c
+		dataCategory: Uncategorized
+
+	measure 'Deferred PL - CAD (Sec Trans)' = EXTERNALMEASURE("Deferred PL - CAD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: ed26ae35-adcc-4bf0-a967-46a777801006
+		sourceLineageTag: 85ac8550-7ade-49a3-afdd-37733556e737
+		dataCategory: Uncategorized
+
+	measure 'Deferred PL - FUNC (Sec Trans)' = EXTERNALMEASURE("Deferred PL - FUNC (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: ba9b8a13-425b-4abe-9bd1-b293d9fb7122
+		sourceLineageTag: 4f1c0210-a261-4885-8f03-28d2690d443b
+		dataCategory: Uncategorized
+
+	measure 'Deferred PL - HKD (Sec Trans)' = EXTERNALMEASURE("Deferred PL - HKD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 49b020c6-b465-40d5-8304-92138f1679fa
+		sourceLineageTag: 910c8a66-03f3-45c3-ac0e-270863df8e13
+		dataCategory: Uncategorized
+
+	measure 'Deferred PL - USD (Sec Trans)' = EXTERNALMEASURE("Deferred PL - USD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: c6d62027-fc0a-4b6a-810f-6a4d2163e069
+		sourceLineageTag: 79970ac2-f95e-4556-aa7b-0895d675965f
+		dataCategory: Uncategorized
+
+	measure 'Impairment - CAD (Sec Trans)' = EXTERNALMEASURE("Impairment - CAD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: a1079d92-835d-4844-bb9c-46815c12a9f4
+		sourceLineageTag: f32a5811-dd67-42e7-be28-88b5da1f5cd5
+		dataCategory: Uncategorized
+
+	measure 'Impairment - FUNC (Sec Trans)' = EXTERNALMEASURE("Impairment - FUNC (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 632e2595-5fc0-474f-9295-8f1abf7038eb
+		sourceLineageTag: 84b700a4-3552-4d88-8e81-d398a5c0cf74
+		dataCategory: Uncategorized
+
+	measure 'Impairment - HKD (Sec Trans)' = EXTERNALMEASURE("Impairment - HKD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 3ab88592-6c54-41f5-a54a-7f7a0522d29b
+		sourceLineageTag: 57cfe2e8-eac9-48ad-b354-5b3806fbe510
+		dataCategory: Uncategorized
+
+	measure 'Impairment - USD (Sec Trans)' = EXTERNALMEASURE("Impairment - USD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 6f507a68-d4bf-4c8f-b7cf-2177a6aafa3c
+		sourceLineageTag: b0fdb29f-cbc2-4572-a8fd-7a58e7f79ded
+		dataCategory: Uncategorized
+
+	measure 'Income Gross Amount - CAD (Sec Trans)' = EXTERNALMEASURE("Income Gross Amount - CAD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: f2528b0f-8eae-4944-803f-eab83db1414f
+		sourceLineageTag: 99287928-bb54-4e6c-8467-ce557e54130f
+		dataCategory: Uncategorized
+
+	measure 'Income Gross Amount - FUNC (Sec Trans)' = EXTERNALMEASURE("Income Gross Amount - FUNC (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 9bd41397-9b64-4809-81d5-11a7319e3009
+		sourceLineageTag: 1ac088ca-92cb-443e-8588-635f55ca83de
+		dataCategory: Uncategorized
+
+	measure 'Income Gross Amount - HKD (Sec Trans)' = EXTERNALMEASURE("Income Gross Amount - HKD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: bbd9856b-6134-4d60-a653-1f1c4bec2666
+		sourceLineageTag: 1595062e-c3dd-4c66-832b-d9e213b83033
+		dataCategory: Uncategorized
+
+	measure 'Income Gross Amount - USD (Sec Trans)' = EXTERNALMEASURE("Income Gross Amount - USD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 2034645f-2a89-45a7-bb18-06a8de78c220
+		sourceLineageTag: 84f66c79-dda4-4914-ba1b-668804db9f97
+		dataCategory: Uncategorized
+
+	measure 'Int Apr - CAD (Sec Trans)' = EXTERNALMEASURE("Int Apr - CAD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: ed94d31e-504f-4e07-bdd7-9ab3a7854b4f
+		sourceLineageTag: 1b811a15-d99a-49a2-ae50-362baecf9a23
+		dataCategory: Uncategorized
+
+	measure 'Int Apr - FUNC (Sec Trans)' = EXTERNALMEASURE("Int Apr - FUNC (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: b5502829-8a17-462c-a5ea-c1b09f9366e1
+		sourceLineageTag: 1c754051-338b-4d9b-8dbb-03f6aeee7690
+		dataCategory: Uncategorized
+
+	measure 'Int Apr - HKD (Sec Trans)' = EXTERNALMEASURE("Int Apr - HKD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 1030df04-6d6e-4c9e-a177-cd6f9c73237e
+		sourceLineageTag: 8ebc38d5-9318-4ad0-92f0-7402a5487c4c
+		dataCategory: Uncategorized
+
+	measure 'Int Apr - USD (Sec Trans)' = EXTERNALMEASURE("Int Apr - USD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: cd2b251c-9ccc-4466-aa2e-30e11d1ef048
+		sourceLineageTag: 04fd89bd-633d-46d1-935b-3e226f94798d
+		dataCategory: Uncategorized
+
+	measure 'OID Int Appr - CAD (Sec Trans)' = EXTERNALMEASURE("OID Int Appr - CAD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 875aea0b-f94c-4407-ba53-cf17d3008ad8
+		sourceLineageTag: a4bc84b2-60f4-47ba-910b-ef6b08abc5cb
+		dataCategory: Uncategorized
+
+	measure 'OID Int Appr - FUNC (Sec Trans)' = EXTERNALMEASURE("OID Int Appr - FUNC (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: e2eda4e9-05b5-4cba-bcc9-57b643d91501
+		sourceLineageTag: 385b8fcf-ec28-4fcc-9dd8-87dffd224dc4
+		dataCategory: Uncategorized
+
+	measure 'OID Int Appr - HKD (Sec Trans)' = EXTERNALMEASURE("OID Int Appr - HKD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 2e8161d5-0799-4f6f-8a4f-a2059581c6bf
+		sourceLineageTag: 1cfe0a70-3a3b-4d3a-9cee-2ac03a483239
+		dataCategory: Uncategorized
+
+	measure 'OID Int Appr - USD (Sec Trans)' = EXTERNALMEASURE("OID Int Appr - USD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 59b92b17-85e7-4452-a7b0-07e861069379
+		sourceLineageTag: 1ffd0085-912c-4c62-b3e3-f9a67d21e7a3
+		dataCategory: Uncategorized
+
+	measure 'Original Cost - CAD (Sec Trans)' = EXTERNALMEASURE("Original Cost - CAD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 913386ab-9592-47a0-97db-2fde119f5df2
+		sourceLineageTag: eef137c9-58ad-49d0-81c1-4303d9d6551f
+		dataCategory: Uncategorized
+
+	measure 'Original Cost - FUNC (Sec Trans)' = EXTERNALMEASURE("Original Cost - FUNC (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: f171d44b-050a-4081-ad24-718306b78858
+		sourceLineageTag: 1bf89316-6658-4a2a-a948-c5085a92bc25
+		dataCategory: Uncategorized
+
+	measure 'Original Cost - HKD (Sec Trans)' = EXTERNALMEASURE("Original Cost - HKD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 13415479-ebcd-42f7-bac0-b5ad4aad6dc9
+		sourceLineageTag: c87a39b0-ce6d-4f43-af89-074c554280d0
+		dataCategory: Uncategorized
+
+	measure 'Original Cost - USD (Sec Trans)' = EXTERNALMEASURE("Original Cost - USD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: d8ed106f-e307-40de-a849-5f637d90110d
+		sourceLineageTag: 66e0bfa0-33da-4aaa-936e-bfa6b4c72524
+		dataCategory: Uncategorized
+
+	measure 'Real Int Appr - CAD (Sec Trans)' = EXTERNALMEASURE("Real Int Appr - CAD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 16431654-cc5d-4d52-b92c-391484e69c77
+		sourceLineageTag: 900d8f16-17ce-4bee-a4a8-b156286cf2eb
+		dataCategory: Uncategorized
+
+	measure 'Real Int Appr - FUNC (Sec Trans)' = EXTERNALMEASURE("Real Int Appr - FUNC (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 79f07f0a-94a6-4bfa-b047-44df1c57776e
+		sourceLineageTag: b863afe9-e0e9-4084-abaf-a232a5a8b5dd
+		dataCategory: Uncategorized
+
+	measure 'Real Int Appr - HKD (Sec Trans)' = EXTERNALMEASURE("Real Int Appr - HKD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 4182b445-b56c-40f1-9b7c-2976b7841426
+		sourceLineageTag: 95892e58-689a-40da-a7c0-36fc32be8ffb
+		dataCategory: Uncategorized
+
+	measure 'Real Int Appr - USD (Sec Trans)' = EXTERNALMEASURE("Real Int Appr - USD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 80ffb007-d6e3-4874-92a6-991c3791060d
+		sourceLineageTag: ee991a19-32f8-4a35-8c18-9081379d6587
+		dataCategory: Uncategorized
+
+	measure 'Realized Gain/Loss - CAD (Sec Trans)' = EXTERNALMEASURE("Realized Gain/Loss - CAD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 9b1f0f6e-9c58-45c3-b282-1087aea80ec2
+		sourceLineageTag: bc12f1e2-512a-4b34-b229-aeebd83018c2
+		dataCategory: Uncategorized
+
+	measure 'Realized Gain/Loss - FUNC (Sec Trans)' = EXTERNALMEASURE("Realized Gain/Loss - FUNC (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 67e0be71-c934-449d-8e19-7304b65c0f88
+		sourceLineageTag: efe5ec51-b31b-45a5-bb1d-aed734d4eece
+		dataCategory: Uncategorized
+
+	measure 'Realized Gain/Loss - HKD (Sec Trans)' = EXTERNALMEASURE("Realized Gain/Loss - HKD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 2b4b6ebe-4da2-4fad-9d94-bddeaacefbe8
+		sourceLineageTag: 75d172b1-85cc-4630-ab32-6b5d41f63a73
+		dataCategory: Uncategorized
+
+	measure 'Realized Gain/Loss - USD (Sec Trans)' = EXTERNALMEASURE("Realized Gain/Loss - USD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 32d51b45-046e-447a-ab4c-328d9f643850
+		sourceLineageTag: 2f44dabd-2295-494d-8e32-3ad084c5efe9
+		dataCategory: Uncategorized
+
+	measure 'Realized Gain/Loss Book - CAD (Sec Trans)' = EXTERNALMEASURE("Realized Gain/Loss Book - CAD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 4aaf13ea-8aa3-4edd-88cf-7d18262af852
+		sourceLineageTag: 223b56ad-be9b-48d8-9afa-0a0cdd5df32e
+		dataCategory: Uncategorized
+
+	measure 'Realized Gain/Loss Book - FUNC (Sec Trans)' = EXTERNALMEASURE("Realized Gain/Loss Book - FUNC (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 44867aaa-ffa7-476b-ae69-2858ef95136e
+		sourceLineageTag: 72981db1-4f97-4a7c-bd74-c101986288d5
+		dataCategory: Uncategorized
+
+	measure 'Realized Gain/Loss Book - HKD (Sec Trans)' = EXTERNALMEASURE("Realized Gain/Loss Book - HKD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 2e550f31-a2c3-4d23-a148-e7a6b19f4f08
+		sourceLineageTag: 51b593f0-6c28-4528-bdd9-4e9dd43dfbb3
+		dataCategory: Uncategorized
+
+	measure 'Realized Gain/Loss Book - USD (Sec Trans)' = EXTERNALMEASURE("Realized Gain/Loss Book - USD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: c01f69df-88d8-40a4-8136-90858fa45e48
+		sourceLineageTag: ba8472de-3d6e-49c4-b7be-9e7bfeb66247
+		dataCategory: Uncategorized
+
+	measure 'Amortized Cost - HKD (Sec Trans)' = EXTERNALMEASURE("Amortized Cost - HKD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 25cb9c2a-46fc-47c1-bcd5-afce622a1164
+		sourceLineageTag: c3dc85e9-ac5e-4035-beaf-87c99d18acbd
+		dataCategory: Uncategorized
+
+	measure 'Amortized Cost - USD (Sec Trans)' = EXTERNALMEASURE("Amortized Cost - USD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 83bcffcc-2ee7-4fa2-a460-17ac9304020d
+		sourceLineageTag: 30d2c195-5488-4fdc-8db5-fd11a8c97d1f
+		dataCategory: Uncategorized
+
+	measure 'Amortized Cost - CAD (Sec Trans)' = EXTERNALMEASURE("Amortized Cost - CAD (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 0b3fa678-a385-4453-b4a9-bcc88c34da01
+		sourceLineageTag: 3d496378-0934-43e0-81d6-d3f6415f74c0
+		dataCategory: Uncategorized
+
+	measure 'Amortized Cost - FUNC (Sec Trans)' = EXTERNALMEASURE("Amortized Cost - FUNC (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 403b6228-d251-49a2-9210-bfaa36edf801
+		sourceLineageTag: b50ee4a0-4bde-4db5-948b-bcefa5e5314e
+		dataCategory: Uncategorized
+
+	measure 'Sublot AOCI - Local (Sec Trans)' = EXTERNALMEASURE("Sublot AOCI - Local (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 1a464fc6-d528-4162-9212-7343a3afdcbd
+		sourceLineageTag: 3a363f09-1e05-441f-b167-a4b117c6214f
+		dataCategory: Uncategorized
+
+	measure 'Sublot AOCI - Rep (Sec Trans)' = EXTERNALMEASURE("Sublot AOCI - Rep (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 6921360e-1b12-4a48-9f08-ce25da81f967
+		sourceLineageTag: 52d0a8d7-0392-413d-9f55-e1324d2ab06f
+		dataCategory: Uncategorized
+
+	measure 'Sublot Amort AOCI - Local (Sec Trans)' = EXTERNALMEASURE("Sublot Amort AOCI - Local (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: ebe7471e-f832-4df8-b785-57b44587fb8b
+		sourceLineageTag: 853d0c46-a934-415d-ac0d-674dc10869ec
+		dataCategory: Uncategorized
+
+	measure 'Sublot Amort AOCI - Rep (Sec Trans)' = EXTERNALMEASURE("Sublot Amort AOCI - Rep (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: d8e79f2a-f94c-48bc-9e2e-abd12d240e78
+		sourceLineageTag: 5c12c29f-409e-4f0e-8b70-63f0ebfa4d87
+		dataCategory: Uncategorized
+
+	measure 'SCD MTG Exp Maturity Dt (Sec Trans)' = EXTERNALMEASURE("SCD MTG Exp Maturity Dt (Sec Trans)", DATETIME, "DirectQuery to AS - Securities")
+		formatString: General Number
+		lineageTag: 0c2693df-a0b5-4bee-99eb-2b5af9f8908a
+		sourceLineageTag: efd5ab97-b268-497e-b340-9c437ea744cc
+		dataCategory: Uncategorized
+
+	measure 'Ultimate parent company (Sec Trans)' = EXTERNALMEASURE("Ultimate parent company (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 794ca10c-f5f3-4d5a-bd6d-f09df034cb3d
+		sourceLineageTag: c022cac1-5432-47da-990d-55e6986ef9a1
+		dataCategory: Uncategorized
+
+	measure 'Ultimate parent LEI (Sec Trans)' = EXTERNALMEASURE("Ultimate parent LEI (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: ec1ff354-2065-4370-bfda-5e2a667a4fce
+		sourceLineageTag: 04af8e20-8891-4ed0-9b7e-4cffc7b199f8
+		dataCategory: Uncategorized
+
+	measure 'Ultimate parent location (Sec Trans)' = EXTERNALMEASURE("Ultimate parent location (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: c7b06e88-f156-400d-bdf3-100c42e42164
+		sourceLineageTag: 82cbef80-859e-4d1e-978b-1d4a898c984c
+		dataCategory: Uncategorized
+
+	measure 'NAIC Designation Modifier (Sec Tran)' = EXTERNALMEASURE("NAIC Designation Modifier (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 44ff3388-bbb2-4d65-bf24-8cbe6c530785
+		sourceLineageTag: 3eab3e5f-8f7a-4768-9346-f6dab0b712d9
+		dataCategory: Uncategorized
+
+	measure 'SCD Svo suffix (Sec Tran)' = EXTERNALMEASURE("SCD Svo suffix (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 5c6ddaa5-6844-47ea-8389-bcaa88469c96
+		sourceLineageTag: 9f7f91db-06c9-4ee3-b0a9-6323d555a5a0
+		dataCategory: Uncategorized
+
+	measure 'Book Value - Adjustment Local (Sec Trans)' = EXTERNALMEASURE("Book Value - Adjustment Local (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: CAT Adjustments
+		lineageTag: f63a357a-2174-4db0-9c89-5494cc1c2332
+		sourceLineageTag: b89f8a59-4642-47ef-9d9a-e1cc3bb5b844
+		dataCategory: Uncategorized
+
+	measure 'Book Value - Adjustment Rep (Sec Trans)' = EXTERNALMEASURE("Book Value - Adjustment Rep (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: CAT Adjustments
+		lineageTag: c6a44842-9339-415a-a22e-33d78308dd0f
+		sourceLineageTag: 41d5f037-e768-436d-91ab-7bdd48706295
+		dataCategory: Uncategorized
+
+	measure 'Book Value - Trans Local (Sec Trans)' = EXTERNALMEASURE("Book Value - Trans Local (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: SCD Transactions
+		lineageTag: f1c17b74-2052-42ef-948b-2f7eda2ca270
+		sourceLineageTag: f82b5cf8-62cf-4d50-8364-238f95206aea
+		dataCategory: Uncategorized
+
+	measure 'Book Value - Trans Rep (Sec Trans)' = EXTERNALMEASURE("Book Value - Trans Rep (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: SCD Transactions
+		lineageTag: d0ad31f5-46b2-49cb-a230-c2f41dada67a
+		sourceLineageTag: 049934db-d496-4f36-ba01-f15b64184228
+		dataCategory: Uncategorized
+
+	measure 'Unrealized Gain/Loss - Adjustment Local (Sec Trans)' = EXTERNALMEASURE("Unrealized Gain/Loss - Adjustment Local (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: CAT Adjustments
+		lineageTag: 61a1e560-c197-45ab-9d1e-294f063e9e52
+		sourceLineageTag: 45a63c76-bd1c-450d-94a7-de593640ba5f
+		dataCategory: Uncategorized
+
+	measure 'Unrealized Gain/Loss - Adjustment Rep (Sec Trans)' = EXTERNALMEASURE("Unrealized Gain/Loss - Adjustment Rep (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: CAT Adjustments
+		lineageTag: ce79001a-1171-4c56-a36a-03dbda9f77cc
+		sourceLineageTag: 000a624b-a0b8-4cb9-98a6-7a5b934ce80b
+		dataCategory: Uncategorized
+
+	measure 'Carrying Value - Adjustment Local (Sec Trans)' = EXTERNALMEASURE("Carrying Value - Adjustment Local (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: CAT Adjustments
+		lineageTag: 1fc6ba56-5be4-415a-9126-32aca8d887ae
+		sourceLineageTag: 28efb352-27bb-4c4a-ae71-f52c678b291c
+		dataCategory: Uncategorized
+
+	measure 'Carrying Value - Adjustment Rep (Sec Trans)' = EXTERNALMEASURE("Carrying Value - Adjustment Rep (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: CAT Adjustments
+		lineageTag: 4218f3ef-af74-4091-b165-26df17d3ece9
+		sourceLineageTag: 74f5b7c1-b73d-4974-a0f4-a0eafb0aba8d
+		dataCategory: Uncategorized
+
+	measure 'Realized Gain/Loss - Adjustment Local (Sec Trans)' = EXTERNALMEASURE("Realized Gain/Loss - Adjustment Local (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: CAT Adjustments
+		lineageTag: a39de77a-8d93-4d2c-a283-00360863471b
+		sourceLineageTag: 6cbc681d-2ca6-4248-98c5-24977e200066
+		dataCategory: Uncategorized
+
+	measure 'Realized Gain/Loss - Adjustment Rep (Sec Trans)' = EXTERNALMEASURE("Realized Gain/Loss - Adjustment Rep (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: CAT Adjustments
+		lineageTag: 79ef971e-aea3-4fef-99ef-d5e3ab50f5bc
+		sourceLineageTag: 70891925-2c23-46eb-a2a8-eb51075d2778
+		dataCategory: Uncategorized
+
+	measure 'Realized Gain/Loss Book - Trans Rep (Sec Trans)' = EXTERNALMEASURE("Realized Gain/Loss Book - Trans Rep (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: SCD Transactions
+		lineageTag: 5e7298fc-e425-42e7-b0fc-c1728a491d46
+		sourceLineageTag: 28f99d39-6c47-4c6e-acea-4f26dd5f35b9
+		dataCategory: Uncategorized
+
+	measure 'Realized Gain/Loss Book - Trans Local (Sec Trans)' = EXTERNALMEASURE("Realized Gain/Loss Book - Trans Local (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: SCD Transactions
+		lineageTag: bc01240d-1f49-4990-a1da-148190f11e4c
+		sourceLineageTag: 6348786f-7a78-4632-a6e8-ee9beb555bac
+		dataCategory: Uncategorized
+
+	measure 'Realized Gain/Loss Book - Local (Sec Trans)' = EXTERNALMEASURE("Realized Gain/Loss Book - Local (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: SCD Transactions + CAT Adjustments
+		lineageTag: be5434a3-73de-4eb1-952b-fbf0f826722c
+		sourceLineageTag: 21a1dee5-3f36-47d2-abd0-1cde7fd207dc
+		dataCategory: Uncategorized
+
+	measure 'Income Gross Amount - Trans Rep (Sec Trans)' = EXTERNALMEASURE("Income Gross Amount - Trans Rep (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: SCD Transactions
+		lineageTag: a5f4fbce-df39-4e3e-97bd-15e31bfc6eb0
+		sourceLineageTag: 08fa22a3-66c7-4620-9824-8360b9649863
+		dataCategory: Uncategorized
+
+	measure 'Income Gross Amount - Trans Local (Sec Trans)' = EXTERNALMEASURE("Income Gross Amount - Trans Local (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: SCD Transactions
+		lineageTag: 3bed2c38-c6d5-43d0-bf7a-ca0b262cc7c2
+		sourceLineageTag: 1f6cd369-6478-4f10-a6e5-a736dbc594af
+		dataCategory: Uncategorized
+
+	measure 'Income Gross Amount - Adjustment Local (Sec Trans)' = EXTERNALMEASURE("Income Gross Amount - Adjustment Local (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: CAT Adjustments
+		lineageTag: 0e725428-70bd-4440-a367-5d17c1b08361
+		sourceLineageTag: af87219d-c836-47ff-aa20-4d2b3b26feca
+		dataCategory: Uncategorized
+
+	measure 'Income Gross Amount - Adjustment Rep (Sec Trans)' = EXTERNALMEASURE("Income Gross Amount - Adjustment Rep (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: CAT Adjustments
+		lineageTag: 5d878035-0e16-4960-ad75-6b5f70d0ad12
+		sourceLineageTag: 3cf574fb-79ed-4563-9356-7229669eda88
+		dataCategory: Uncategorized
+
+	measure 'Income Gross Amount - Local (Sec Trans)' = EXTERNALMEASURE("Income Gross Amount - Local (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: SCD Transactions + CAT Adjustments
+		lineageTag: 31483cae-19b3-4d62-960f-bb344a213a7b
+		sourceLineageTag: 20c851ca-cf89-4519-ab2a-2cde86402479
+		dataCategory: Uncategorized
+
+	measure 'Amortization/Accretion - Adjustment Local (Sec Trans)' = EXTERNALMEASURE("Amortization/Accretion - Adjustment Local (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: CAT Adjustments
+		lineageTag: 88c9a0d0-5298-475e-b133-e621de6ac030
+		sourceLineageTag: b012bec0-a769-4e1d-a42a-827dcceedd04
+		dataCategory: Uncategorized
+
+	measure 'Amortization/Accretion - Adjustment Rep (Sec Trans)' = EXTERNALMEASURE("Amortization/Accretion - Adjustment Rep (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: CAT Adjustments
+		lineageTag: a9648bda-b99d-48d9-85a9-4c632a0d8952
+		sourceLineageTag: e221a778-3832-424f-896a-545ee42db9eb
+		dataCategory: Uncategorized
+
+	measure 'Amortization/Accretion - Trans Rep (Sec Trans)' = EXTERNALMEASURE("Amortization/Accretion - Trans Rep (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: SCD Transactions
+		lineageTag: 4fef2c1d-5469-4aac-9b82-9b8cec9a02bc
+		sourceLineageTag: cbfeb2b1-9276-4a1f-89ad-20650658ad43
+		dataCategory: Uncategorized
+
+	measure 'Amortization/Accretion - Trans Local (Sec Trans)' = EXTERNALMEASURE("Amortization/Accretion - Trans Local (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: SCD Transactions
+		lineageTag: 90cc7ca1-1e97-456a-b729-73d9468aabd4
+		sourceLineageTag: da054b3c-d65b-45b2-b0a2-7cbdf8706610
+		dataCategory: Uncategorized
+
+	measure 'Amortization/Accretion - Local (Sec Trans)' = EXTERNALMEASURE("Amortization/Accretion - Local (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: SCD Transactions + CAT Adjustments
+		lineageTag: 524f2085-318e-4f1c-a254-b9eaa81ecf9c
+		sourceLineageTag: 6e9c6632-8e97-4e66-b543-2681f12f40fe
+		dataCategory: Uncategorized
+
+	measure 'Make Whole Termination Dt (Sec Trans)' = EXTERNALMEASURE("Make Whole Termination Dt (Sec Trans)", DATETIME, "DirectQuery to AS - Securities")
+		formatString: yyyy\-mm\-dd
+		lineageTag: 921c6add-d283-4879-a331-5a978905f982
+		sourceLineageTag: 8fbb7bd6-611c-462c-9577-2c1d2b462984
+		dataCategory: Uncategorized
+
+	measure 'Make Whole Call Spread Num (Sec Trans)' = EXTERNALMEASURE("Make Whole Call Spread Num (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: d4e40f25-520a-4708-9e7a-842d2c1df7c3
+		sourceLineageTag: 9f545aa0-9342-4ea7-a9db-d0893ceb8531
+		dataCategory: Uncategorized
+
+	measure 'Payment Method Name (Sec Trans)' = EXTERNALMEASURE("Payment Method Name (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 9726b475-501e-4f3c-a1b2-933cf8dcedb8
+		sourceLineageTag: dd48ec28-8c7e-45e2-8419-a9ac1fd2c8bf
+		dataCategory: Uncategorized
+
+	measure 'Make Whole Call (Sec Trans)' = EXTERNALMEASURE("Make Whole Call (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: cd29d020-b6ef-4443-997f-ae2d0d5b0249
+		sourceLineageTag: 5750fafa-8097-4e54-b80a-eb1567852f02
+		dataCategory: Uncategorized
+
+	measure 'Custodian Name(Sec TransGA)' = EXTERNALMEASURE("Custodian Name(Sec TransGA)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: bd26f234-d52c-45f9-8f3f-9f4e8e7ad806
+		sourceLineageTag: 83ce11b0-5e4d-44fe-828b-68ae03cede49
+		dataCategory: Uncategorized
+
+	measure 'SCD Instrument Category (Sec Trans)' = EXTERNALMEASURE("SCD Instrument Category (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: fe1171b8-ef36-4c53-98c9-75c72890bd98
+		sourceLineageTag: f377f708-c52c-487a-9471-18b78a35aa27
+		dataCategory: Uncategorized
+
+	measure 'MRM Issuer Name (Sec Trans)' = EXTERNALMEASURE("MRM Issuer Name (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: dea5b6be-3675-4023-b066-6a1fa49addf0
+		sourceLineageTag: 6d88de8f-e408-44ef-9065-02c184748334
+		dataCategory: Uncategorized
+
+	measure 'MRM Issuer Country Name (Sec Trans)' = EXTERNALMEASURE("MRM Issuer Country Name (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 4227066c-222d-41ac-b734-2b982a187559
+		sourceLineageTag: 94eaf047-9876-45c4-a4c1-9a9e7fd48dbd
+		dataCategory: Uncategorized
+
+	measure 'MRM Issuer Irr Rating Cd (Sec Trans)' = EXTERNALMEASURE("MRM Issuer Irr Rating Cd (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 071bf38a-7aec-4b79-940c-ca1cf44f384c
+		sourceLineageTag: 8555a3ee-61ae-4a53-9267-9c2ef0293c7b
+		dataCategory: Uncategorized
+
+	measure 'MRM Issuer Parent Name (Sec Trans)' = EXTERNALMEASURE("MRM Issuer Parent Name (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: c539e9ca-b131-49eb-a776-179f1c5fcb2f
+		sourceLineageTag: 411be619-66da-4489-bec2-9b4efc9b1c92
+		dataCategory: Uncategorized
+
+	measure 'MRM Issuer Parent Country Name (Sec Trans)' = EXTERNALMEASURE("MRM Issuer Parent Country Name (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: b995f675-308e-45c9-9771-ebc39ead165a
+		sourceLineageTag: 2ca780cd-77b2-445e-b6e4-4de2230402a8
+		dataCategory: Uncategorized
+
+	measure 'MRM Issuer Parent Irr Rating Cd (Sec Trans)' = EXTERNALMEASURE("MRM Issuer Parent Irr Rating Cd (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 8fe2f035-2968-472e-9495-6dc18aff7802
+		sourceLineageTag: 24f71ad1-1e8a-4cbf-95aa-ed40cac19a7a
+		dataCategory: Uncategorized
+
+	measure 'MRM Issuer Ultparent Name (Sec Trans)' = EXTERNALMEASURE("MRM Issuer Ultparent Name (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 1ae64031-c26a-4911-ae21-191a61067726
+		sourceLineageTag: 3a0fa3d6-beb7-41dc-964c-bbeee7191a54
+		dataCategory: Uncategorized
+
+	measure 'MRM Issuer Ultparent Country Name (Sec Trans)' = EXTERNALMEASURE("MRM Issuer Ultparent Country Name (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: c5fac885-e007-418c-a182-f26d201dee9f
+		sourceLineageTag: 2ac510da-38ba-4955-9b03-63dea8ecafff
+		dataCategory: Uncategorized
+
+	measure 'MRM Issuer Ultparent Irr Rating Cd (Sec Trans)' = EXTERNALMEASURE("MRM Issuer Ultparent Irr Rating Cd (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 8c7644c9-a929-4024-8a7c-82969fd87c4f
+		sourceLineageTag: c66dfbf9-751b-4912-9f82-b5fabd20676e
+		dataCategory: Uncategorized
+
+	measure 'Equity Fund Ind (Sec Trans)' = EXTERNALMEASURE("Equity Fund Ind (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: ada345cd-bc20-4af9-bc48-2055e0e23a44
+		sourceLineageTag: 1c3a64b8-8b31-4bfb-98c4-20ddd44085b2
+		dataCategory: Uncategorized
+
+	measure 'GCLMS Collateral Quality Cd (Sec Trans)' = EXTERNALMEASURE("GCLMS Collateral Quality Cd (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 53112a81-b6f5-4ad5-8a1a-918c1bf4e069
+		sourceLineageTag: 79c49d76-26e8-43e5-b54d-d7d1c456765c
+		dataCategory: Uncategorized
+
+	measure 'MRM Issuer Cascade Rating Cd (Sec Trans)' = EXTERNALMEASURE("MRM Issuer Cascade Rating Cd (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: d38fb6c7-8474-481c-b0e8-aad511a0d922
+		sourceLineageTag: 7ce5c6a5-83b7-4f09-a18f-56cc3edbff8d
+		dataCategory: Uncategorized
+
+	measure 'MRM Issuer Parent Cascade Rating Cd (Sec Trans)' = EXTERNALMEASURE("MRM Issuer Parent Cascade Rating Cd (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: bb713cc9-a9b9-4dbc-b5dd-5ce68fdae022
+		sourceLineageTag: fd8b81a1-a0e4-4223-8cac-7d8d41424c53
+		dataCategory: Uncategorized
+
+	measure 'MRM Issuer Ultparent Cascade Rating Cd (Sec Trans)' = EXTERNALMEASURE("MRM Issuer Ultparent Cascade Rating Cd (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 0153f3a9-81df-4052-8ca1-31abb87c32ae
+		sourceLineageTag: 7c0f6b91-c492-4eb2-946c-984bba9f688c
+		dataCategory: Uncategorized
+
+	measure 'Cur Cpn (Sec Trans)' = EXTERNALMEASURE("Cur Cpn (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: c3946f05-4b48-41ae-aea6-b73deae7d7d9
+		sourceLineageTag: cd7e425e-6bcd-41f8-8e1f-91e20c51283f
+		dataCategory: Uncategorized
+
+	measure 'GCLMS Issuer Parent Cascade Rtg Cd (Sec Trans)' = EXTERNALMEASURE("GCLMS Issuer Parent Cascade Rtg Cd (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: b69c5c72-732b-4e83-bb6a-5e283ea1f354
+		sourceLineageTag: 3848f56b-bc58-4e83-b80a-92fefe708f63
+		dataCategory: Uncategorized
+
+	measure 'Guarantor Name (Sec Trans)' = EXTERNALMEASURE("Guarantor Name (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: e8d65042-3054-41e5-be49-fa959d7f3d3c
+		sourceLineageTag: 04d8a10f-db3c-429d-8f1b-76806aa2a24d
+		dataCategory: Uncategorized
+
+	measure 'ML Capital Structure Desc (Sec Trans)' = EXTERNALMEASURE("ML Capital Structure Desc (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: af2fa5aa-0630-4e44-8aa1-3811ac36ba1a
+		sourceLineageTag: d29fdd3b-8016-40ef-83f2-ca0dbd1d2430
+		dataCategory: Uncategorized
+
+	measure 'Legal Structure Cd (Sec Trans)' = EXTERNALMEASURE("Legal Structure Cd (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 7b9fcc0f-793d-4edd-9ed3-917b120ab1ec
+		sourceLineageTag: bb2c43ab-7a17-4f08-9d8a-1a6ae2c6656c
+		dataCategory: Uncategorized
+
+	measure 'Capital Structure Name (Sec Trans)' = EXTERNALMEASURE("Capital Structure Name (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 4babd64d-3549-4d81-a77b-6bab541aa878
+		sourceLineageTag: dcfdefad-875b-4f58-8768-b05a1e5a7285
+		dataCategory: Uncategorized
+
+	measure 'User Change ID (Sec Trans)' = EXTERNALMEASURE("User Change ID (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: ec7a52e0-a286-417c-ac89-08b2e9efba40
+		sourceLineageTag: 2f28e4b3-e084-4b8f-8c5b-93c9df235b08
+		dataCategory: Uncategorized
+
+	measure 'User Change Name (Sec Trans)' = EXTERNALMEASURE("User Change Name (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: c60a31f7-ac31-4734-a22f-e875e82bec9e
+		sourceLineageTag: affa6937-4edb-4b06-891d-1e1d71edbf16
+		dataCategory: Uncategorized
+
+	measure 'Alt Fee Asset Name (Sec Trans)' = EXTERNALMEASURE("Alt Fee Asset Name (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: bdd8a2e5-cdea-435f-8181-7e63f7dc5c97
+		sourceLineageTag: 5ebf8026-a160-4f45-af73-6a13bbec7ad5
+		dataCategory: Uncategorized
+
+	measure 'Transfer Market Value Amt (Sec Trans)' = EXTERNALMEASURE("Transfer Market Value Amt (Sec Trans)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 355e3efd-5e09-4bbf-a565-3d7d5d5a97a1
+		sourceLineageTag: 3a0f7c9f-8ee9-4b59-881d-0533c0286dc8
+		dataCategory: Uncategorized
+
+	measure 'Processing Group Name (Sec Trans)' = EXTERNALMEASURE("Processing Group Name (Sec Trans)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: bf881cc0-4022-4b4b-b4df-1318c0a487f0
+		sourceLineageTag: f04dde0a-80e5-48f9-81ca-015435999702
+		dataCategory: Uncategorized
+
+	measure 'Trading Philosophy Code - IAS39 (Sec Tran)' = EXTERNALMEASURE("Trading Philosophy Code - IAS39 (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: d929bd81-ad2d-47ac-a280-226e754a3807
+		sourceLineageTag: fad596c5-eb06-48a8-a93f-22397a69ce87
+		dataCategory: Uncategorized
+
+	measure 'Trading Philosophy Code - IFRS (Sec Tran)' = EXTERNALMEASURE("Trading Philosophy Code - IFRS (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 6af4bd40-e2cf-4259-8d56-4dc3ba8e31c4
+		sourceLineageTag: a369958e-dc70-49d6-9d8b-c65008b11d2d
+		dataCategory: Uncategorized
+
+	measure 'Trading Philosophy Code - JGAAP (Sec Tran)' = EXTERNALMEASURE("Trading Philosophy Code - JGAAP (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 82f6951d-67bc-4359-a217-0b29ed9806de
+		sourceLineageTag: ec7f615e-d2be-472b-bd28-6db8ee1458d2
+		dataCategory: Uncategorized
+
+	measure 'Trading Philosophy Code - USGAAP (Sec Tran)' = EXTERNALMEASURE("Trading Philosophy Code - USGAAP (Sec Tran)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: b55b09b1-5354-446e-95ab-8ec6173f5b14
+		sourceLineageTag: 48e31577-caee-4dde-b886-71b732cd49c6
+		dataCategory: Uncategorized
+
+	column 'Transaction No'
+		dataType: string
+		lineageTag: 3d144e4d-b72e-4fba-ad10-73965a0c109d
+		sourceLineageTag: 720992dc-4fa1-4a62-88c2-0c9d58d0da40
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Transaction No
+
+		annotation SummarizationSetBy = Automatic
+
+	column Leg
+		dataType: int64
+		formatString: 0
+		lineageTag: 0278ec46-f83b-4be4-aa8a-9fc0610755af
+		sourceLineageTag: 432ec010-5b67-4b2a-bf08-98163d595754
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Leg
+
+		annotation SummarizationSetBy = Automatic
+
+	column Reversal
+		dataType: string
+		lineageTag: a5ba1e4f-194c-497e-96e0-888e29e3da04
+		sourceLineageTag: 590c310c-855b-4ae9-8d79-f3e8bd40fa48
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Reversal
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trans Status'
+		dataType: string
+		lineageTag: fabaf3ee-1876-44df-a86f-bcb10dd2e1f8
+		sourceLineageTag: a2c3c6ce-0519-498d-b6f2-4f08ce5592bf
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Trans Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Code'
+		dataType: string
+		lineageTag: 051a0709-bea8-4a6b-bcda-a486f2d2ce20
+		sourceLineageTag: 7d416e78-1485-4709-a5de-bde2fb8e29e2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Post Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd hh:nn:ss AM/PM
+		lineageTag: 5f1fc23b-786f-4835-9183-5103230350d3
+		sourceLineageTag: f2e06ae3-10cf-495f-8913-8279dd68328e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Post Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Period Close Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: b21eb43d-e15a-4462-88ab-e1e0d4acad0e
+		sourceLineageTag: c1857eb4-1486-45f3-932f-29f38f0902e0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Period Close Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Lag'
+		dataType: int64
+		formatString: 0
+		lineageTag: 34db315e-4540-428b-9e94-0dd064a04837
+		sourceLineageTag: 89ff4d03-9fac-4920-aaf2-60b9bdcb959f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Posting Lag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Settle Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: c345c110-963e-4344-be9e-31a2c4fc4c3a
+		sourceLineageTag: 382794b9-2d82-4dd8-9072-1d71aeb16c45
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Settle Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bloomberg No'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4ca6449a-eba7-4b06-a5e7-bf44048416c8
+		sourceLineageTag: a83ab664-876e-4379-b78a-dcc9c1d8109f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Bloomberg No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Master Ticket'
+		dataType: string
+		lineageTag: fe19c68f-1daa-40bd-b0c6-e842ad873d30
+		sourceLineageTag: b2cd7501-9250-424a-99db-91878cdfd15e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Master Ticket
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order No'
+		dataType: string
+		lineageTag: 38c494be-ae94-41fb-b1cb-80c26b6912a0
+		sourceLineageTag: b0aef321-b3e8-4e0a-a398-fe41902b869c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Order No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Source ID'
+		dataType: string
+		lineageTag: 4b67994d-1a72-49cd-b7ed-d0d6ff8c001b
+		sourceLineageTag: aa9cbe3c-4d5a-4f0e-aae4-0b3497df257c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Source ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'User Name'
+		dataType: string
+		lineageTag: f8db5ed8-7049-439e-81f8-4faa5b03e50c
+		sourceLineageTag: ee4bce61-204c-4f79-aacb-11809f3e36ee
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: User Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Settle Ccy Code'
+		dataType: string
+		lineageTag: 67aa7fae-5d92-4ac9-88f1-1398b0aa18e0
+		sourceLineageTag: 202d07e0-e8fc-4b0a-afc4-96230b63a4ee
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Settle Ccy Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Settle Currency'
+		dataType: string
+		lineageTag: a4892310-18f2-4b68-a65d-f42901afddd5
+		sourceLineageTag: 04f97fb9-20ca-47ac-9fbc-458d06997fff
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Settle Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column Local
+		dataType: string
+		lineageTag: 2ec49927-6f23-4e8e-8520-80b45753dda2
+		sourceLineageTag: 4d5bf456-e132-4382-bb06-9d8b0ba3be5b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local Currency'
+		dataType: string
+		lineageTag: 5eb00015-b012-4695-a49c-db9b81ee39db
+		sourceLineageTag: 0ed31ed3-49da-42d1-b09b-807341a83424
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Local Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Settle Exchange Rate'
+		dataType: double
+		lineageTag: 63c570df-963a-4797-8ba7-a9eeb30d7f0b
+		sourceLineageTag: d7c9d414-15ff-4d86-b163-daae959de691
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Settle Exchange Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local Exchange Rate'
+		dataType: double
+		formatString: 0.000000
+		lineageTag: 4f895e43-7f21-4f71-a4d3-3dad1761a6fb
+		sourceLineageTag: 8a37ec8c-fc5d-4f41-88b8-1f962bf6b8a7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Local Exchange Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sign
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b602d16-ef3c-449b-9830-9203a9b60555
+		sourceLineageTag: 38523b4f-7bbf-4570-a80f-5f92f3429f45
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Sign
+
+		annotation SummarizationSetBy = Automatic
+
+	column Units
+		dataType: double
+		formatString: #,0.000
+		lineageTag: 1b16fa8b-dc4f-4603-aade-331cfe928653
+		sourceLineageTag: 39a188dd-6b9d-4a4a-93fd-93bc2105f8d2
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Units
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pool Factor'
+		dataType: double
+		lineageTag: 117e9642-4e1c-4980-aabb-26905b2fe33e
+		sourceLineageTag: b4533dad-b99c-465e-85ad-b006a592b913
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Pool Factor
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Original Face'
+		dataType: double
+		lineageTag: ba0213d5-f2dd-4d23-a066-430c923f79b1
+		sourceLineageTag: 0c4522d1-dd21-4954-bae0-f96aa318de17
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Original Face
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Current Face'
+		dataType: double
+		lineageTag: aecfeee3-b54b-454c-959d-f646caf5d302
+		sourceLineageTag: 803a0ed0-0933-4cfb-8fff-ba7480645779
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Current Face
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nominal Basis'
+		dataType: double
+		lineageTag: 944d4b66-2334-4508-9893-aa4d0a0dd207
+		sourceLineageTag: 87bf0698-2897-4f67-a10d-998ec6e88c74
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Nominal Basis
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Broker Code'
+		dataType: string
+		lineageTag: 6dddbc0f-3ef6-405c-8dfb-7d9160369f5c
+		sourceLineageTag: 9b4b9ae1-4295-48c6-ab27-18b3bbd347ae
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Broker Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Broker Name'
+		dataType: string
+		lineageTag: b2adc63f-eaa0-4595-b6ab-eeb7f5178834
+		sourceLineageTag: ca8c076e-fd62-44db-b02d-098ff7c90835
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Broker Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cmmt
+		dataType: string
+		lineageTag: bf03bfab-296d-4808-8158-8eb506d292b7
+		sourceLineageTag: c553b900-28e5-4aac-9dbb-88bdacd530cb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Cmmt
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Amount - Base'
+		dataType: double
+		lineageTag: a9d8828f-89f3-47e2-9480-2eb2243545d0
+		sourceLineageTag: eb0b6113-c7c2-45d3-9d3b-8d213764b677
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Amount - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Settle Amount (D)'
+		dataType: double
+		isHidden
+		formatString: #,0.00
+		lineageTag: 163b0304-bbaf-4672-95e8-5c318145cba2
+		sourceLineageTag: 01cb6a3c-2384-43cf-8fc1-8775b9792dcf
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Settle Amount (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Principal - Base'
+		dataType: double
+		lineageTag: 3154ce55-2db1-4172-a322-ab08f2496c29
+		sourceLineageTag: 966725c4-da53-425a-ab08-86b4b3840cd4
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Principal - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Settle Principal'
+		dataType: double
+		lineageTag: 7c9d43b5-c140-4f36-9b05-dba5a0b0497d
+		sourceLineageTag: e9e5c0f0-d941-4a97-b6f8-da91f732824c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Settle Principal
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Interest - Base'
+		dataType: double
+		lineageTag: 7e19955c-1599-48d3-89f8-b4e52aaccbba
+		sourceLineageTag: 34086ce1-26aa-409d-a532-0f06d0ded209
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Interest - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Settle Interest'
+		dataType: double
+		lineageTag: 678e0676-8600-42b4-8c8e-26c93ff73651
+		sourceLineageTag: 08997df3-cb9b-4e82-bc92-7c3e79786ac0
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Settle Interest
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Maturity Amount - Base'
+		dataType: double
+		lineageTag: 71058385-3c58-4d9a-8850-0adacc084b7c
+		sourceLineageTag: 1a4c3cd4-9412-4e48-9b74-088171c559a6
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Maturity Amount - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Settle Maturity Amount'
+		dataType: double
+		lineageTag: 6a11d1f5-f89d-458c-838c-c033214136bb
+		sourceLineageTag: cba67343-cc27-443c-8682-f02e0571d184
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Settle Maturity Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Price - Base'
+		dataType: double
+		lineageTag: a50d608e-f254-4e61-b128-8e7963fcc7f2
+		sourceLineageTag: 0bca8896-60f6-404d-81b4-044851eea768
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Price - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Settle Price'
+		dataType: double
+		lineageTag: 94165b92-dc99-43fe-9e23-49ef4b29fb8a
+		sourceLineageTag: 9e03533c-58b4-4005-ad85-32cdade49d54
+		dataCategory: Uncategorized
+		summarizeBy: max
+		sourceColumn: Settle Price
+
+		annotation SummarizationSetBy = User
+
+	column 'Transaction Yield'
+		dataType: double
+		lineageTag: 29f26cc1-3b9e-4d3a-a18a-95b77eb0decd
+		sourceLineageTag: 8cc06fc3-3a78-45eb-9715-da2a0f8b22c8
+		dataCategory: Uncategorized
+		summarizeBy: max
+		sourceColumn: Transaction Yield
+
+		annotation SummarizationSetBy = User
+
+	column 'Liability Portf Code'
+		dataType: string
+		lineageTag: b1914ded-2854-4683-878f-d11be3ed1740
+		sourceLineageTag: f675c64a-8f05-4928-aa11-327ef40744de
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Liability Portf Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Base
+		dataType: string
+		lineageTag: 1afd7f3c-b5f2-4c18-9c0e-015361c7c535
+		sourceLineageTag: 5606d51d-f766-46d9-92e6-784b565bb8e0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Payment Purpose'
+		dataType: string
+		lineageTag: c1cccb7e-4bee-4b10-9d2d-c66da42e4c91
+		sourceLineageTag: 29386580-54fc-4310-a8fe-0352536714a1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Payment Purpose
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: a5fb32ac-5f8d-45e6-b34c-ce1059f48ffa
+		sourceLineageTag: 3f666997-6769-41f4-bd21-31e7e94f2102
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Groupcode
+		dataType: string
+		lineageTag: 9393663d-1c7d-4ca9-891e-ca674275133e
+		sourceLineageTag: a4400f10-64a4-4837-973f-ba1e13030340
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Groupcode
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bank Code'
+		dataType: string
+		lineageTag: 7867dd5f-e9e0-412d-a969-e62f194fc819
+		sourceLineageTag: 46c33fa2-c85d-46db-9ccb-7fd19a3cef22
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bank Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bank Account Code'
+		dataType: string
+		lineageTag: a39d5ee6-067f-4c7e-8923-bbba76ff6632
+		sourceLineageTag: 52ca9d9a-69d1-4f50-9026-a0c085173b09
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bank Account Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SCD Security ID'
+		dataType: string
+		lineageTag: 975f95e6-51e8-4e9e-9011-398efbbaa233
+		sourceLineageTag: e7451821-241e-42f2-bb48-e8c3661fce09
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SCD Security ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Underlier Sec Key'
+		dataType: string
+		lineageTag: d374018c-4c54-449e-aaeb-02cecb066041
+		sourceLineageTag: 22904e54-67cb-47ed-99b5-759d752a3d46
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Underlier Sec Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SCD Security Type'
+		dataType: string
+		lineageTag: c4be1ebb-c8d9-48ad-a55d-0f3546736396
+		sourceLineageTag: 7af896c0-4eba-449d-b011-bcdcb98fa014
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SCD Security Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Underlier Src Security ID'
+		dataType: string
+		lineageTag: 953be7cd-e045-4042-81a6-ffb5f4ee13f5
+		sourceLineageTag: 93788ff3-a1e6-424b-b384-4766977b37e9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Underlier Src Security ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Broker'
+		dataType: string
+		lineageTag: 322f2dc0-3c54-4e37-a115-1b724578bed1
+		sourceLineageTag: 58007596-7d59-4107-bb5e-8449ea3531dd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sub Broker
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Broker Des'
+		dataType: string
+		lineageTag: c8c4cc10-c049-48f6-9ea7-9b38b13defb2
+		sourceLineageTag: 85de5129-6375-4e8c-89ba-403a07416d35
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sub Broker Des
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ipo
+		dataType: string
+		lineageTag: 359ef8f5-2858-449d-ac19-936b0adaf48a
+		sourceLineageTag: 3b42427d-d48b-4fc1-ad4b-17ef166255ab
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ipo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Long Note 3'
+		dataType: string
+		lineageTag: ab532564-99d5-4e15-8d60-e5d19117b428
+		sourceLineageTag: d585f516-9c29-44a1-9fae-fc48af81b479
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Long Note 3
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Long Note 4'
+		dataType: string
+		lineageTag: bdedaf4f-6191-4e84-918b-c753f71fa428
+		sourceLineageTag: a43ddfc0-29db-4ab6-8b9b-8c9ddfb39520
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Long Note 4
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Long Note 5'
+		dataType: string
+		lineageTag: 072fa117-8289-455e-9ba5-578a88355e18
+		sourceLineageTag: 70a14639-2e07-45b7-a8cf-d81ce5004ed1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Long Note 5
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trader Desk'
+		dataType: string
+		lineageTag: 4da98a1f-d043-4069-bad8-a45000af9630
+		sourceLineageTag: 0cec54e6-cbcd-40d3-8189-fa24a2c02791
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Trader Desk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Settle Days'
+		dataType: double
+		lineageTag: 584daca5-fbaf-4db4-9003-ee4ded97d037
+		sourceLineageTag: febcbd69-29cf-44a6-a6cb-95073e91b45c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Settle Days
+
+		annotation SummarizationSetBy = User
+
+	column Transasofdate
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 39e536f4-6115-4085-b00a-bac9bd2e3a13
+		sourceLineageTag: b242fa5e-8ed7-41db-afc5-5c4dedb644b4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Transasofdate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Haircut
+		dataType: double
+		lineageTag: 77068ba4-e750-42e1-b78a-48f5fafc35ad
+		sourceLineageTag: 9f18be0c-6658-453d-b31e-606b6889cff6
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Haircut
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trading Comment'
+		dataType: string
+		lineageTag: f79f4b13-3b1a-4182-8c0b-7df2b36ec0d7
+		sourceLineageTag: 5778744c-e638-4067-8e47-3cdea8cd9e40
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Trading Comment
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Purpose'
+		dataType: string
+		lineageTag: d4284c29-55f6-4b0b-bf88-30eb4db59270
+		sourceLineageTag: cf05f759-33e1-4616-81a9-4c5a3495a7fd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Transaction Purpose
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Original System Tran Number'
+		dataType: string
+		lineageTag: ce6805d9-4d40-4245-8a65-3ea7934e84fd
+		sourceLineageTag: a1fea357-001a-49da-a903-a94fc8c5f978
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Original System Tran Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Interest Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 1fc714f4-40fe-4a85-ab80-75e89d641ab5
+		sourceLineageTag: 86706d64-02c1-49ae-9c4d-984f80454e48
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Interest Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: 19efb6b0-bfee-42b4-8d28-2961b96d9b59
+		sourceLineageTag: d28b2323-9fdb-4563-819b-6e0f4b5868b1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valuation Cycle'
+		dataType: string
+		lineageTag: b13ff748-32a6-454a-84e4-e8c6800b72d4
+		sourceLineageTag: f548c6f5-31e4-485e-9615-9e74e77b9e0b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Valuation Cycle
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Post Time'
+		dataType: string
+		lineageTag: 510c4fee-e406-4c6c-88b2-ca763d1b9de5
+		sourceLineageTag: a88a067b-ae65-46cd-b1b5-ac25f6edc5ef
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Post Time
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Backpost Month'
+		dataType: string
+		lineageTag: c60780da-19d6-41ba-ac91-eb978cb5f916
+		sourceLineageTag: 3c615ac8-c4bb-4df0-9573-188681b7eaea
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Backpost Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trader Login'
+		dataType: string
+		lineageTag: e2a894ef-bdb3-4824-8821-0d91ceb871a3
+		sourceLineageTag: 9b58071f-172f-44f2-ae9d-ae7f89ec4cf8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Trader Login
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bloomberg Timestamp'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd hh:nn:ss AM/PM
+		lineageTag: 5f70af7d-487e-441b-b7c6-5ecd942382fe
+		sourceLineageTag: 6e790eba-83b5-48b7-85c9-d65ca742469e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bloomberg Timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column Backposted
+		dataType: string
+		lineageTag: ecb191d5-9a58-45bb-b896-46715eed5e28
+		sourceLineageTag: ba733489-14a8-4322-b95c-5d1a9dec8d7c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Backposted
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Unit Code & Name'
+		dataType: string
+		lineageTag: 1d6180d1-5c61-402f-919c-cc60b100235c
+		sourceLineageTag: feefdd95-63e0-48cf-9f21-3d4a054dca3e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Accounting Unit Code & Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Code & Name'
+		dataType: string
+		lineageTag: 63a3d804-6b30-40db-8415-a8b973ffee8d
+		sourceLineageTag: f76bb1e2-f7a1-4d06-b577-8d8f08f10eae
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Company Code & Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trans Category'
+		dataType: string
+		lineageTag: 2510234a-69f4-4d6f-b7e5-ad66897fcdc1
+		sourceLineageTag: bed5fd7c-5777-4efc-97d1-4274b8095f73
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Trans Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trans Type'
+		dataType: string
+		lineageTag: db1b36f9-125e-452a-b1b4-c0d9e5ebc873
+		sourceLineageTag: 7e5f4be7-e564-45bb-90a4-69739d08fdd1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Trans Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Framework Code'
+		dataType: string
+		lineageTag: 2eb6480b-5fa9-4576-b494-d4e3e891f2be
+		sourceLineageTag: e2e37f6d-72af-4d5c-9473-4e2c4090a868
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Framework Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Class'
+		dataType: string
+		lineageTag: 4e0ee4de-73cf-478e-b538-051974264174
+		sourceLineageTag: 58d7cf54-bb23-4722-a866-b1114f81f650
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: GL Class
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Counterparty Code'
+		dataType: string
+		lineageTag: 6272c8a4-929b-49cb-942e-cefdc5bb723b
+		sourceLineageTag: b873ed2d-b191-4883-8fc9-b08000d534d5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Counterparty Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Counterparty Name'
+		dataType: string
+		lineageTag: a64ef2fe-f16e-4d01-84c1-7af76154387d
+		sourceLineageTag: 558f0246-5048-4720-b974-0125108c8cbe
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Counterparty Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Functional Ccy Code'
+		dataType: string
+		lineageTag: 84df60ec-c2bd-4fc9-90ec-3eeaa8301a59
+		sourceLineageTag: 8ba88b3a-90db-4540-aaf3-2942a2f39ef9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Functional Ccy Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local To FUNC Rate'
+		dataType: double
+		lineageTag: f09d9f24-1c17-47a9-96bc-37b919f5edc2
+		sourceLineageTag: 215cae2e-4a21-4c83-94fa-3709d2f27c5f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Local To FUNC Rate
+
+		annotation SummarizationSetBy = User
+
+	column 'Local To CAD Rate'
+		dataType: double
+		lineageTag: 6a59b403-fe5d-4edc-a8f2-833e5c6305f3
+		sourceLineageTag: 9f51a32e-8c8e-4517-b34a-209a9e4111ad
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Local To CAD Rate
+
+		annotation SummarizationSetBy = User
+
+	column 'Local To USD Rate'
+		dataType: double
+		lineageTag: a8b26dab-51ff-4537-9bcb-bc617684be0f
+		sourceLineageTag: 1cb4b689-fa46-4d14-94dc-97e672df0b0c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Local To USD Rate
+
+		annotation SummarizationSetBy = User
+
+	column 'Local To HKD Rate'
+		dataType: double
+		lineageTag: 601346d0-8c2a-44de-8f59-a1a7e62d1e42
+		sourceLineageTag: 16539fdd-2c59-4166-8b64-2b14d8b20e9f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Local To HKD Rate
+
+		annotation SummarizationSetBy = User
+
+	column 'Transaction Amount'
+		dataType: double
+		lineageTag: a148d269-93bb-453d-bdd8-aa188c89c4e4
+		sourceLineageTag: c445309a-4cc8-4ea6-acc9-967de47162ef
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Transaction Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month End Trans'
+		dataType: string
+		lineageTag: 36033f61-f8a5-4aa2-bf27-0bcaf8754c99
+		sourceLineageTag: 3c5649c6-4470-4aa6-893c-65d1ddd5adca
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Month End Trans
+
+		annotation SummarizationSetBy = Automatic
+
+	column PortSecKey
+		dataType: string
+		lineageTag: 665bae81-2aa2-494e-acd1-98cd85f0cd3f
+		sourceLineageTag: 3f336662-cb20-4733-8ac7-421870745dc3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PortSecKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Code & Name'
+		dataType: string
+		lineageTag: 489cc6e8-834a-495c-b054-7f402fc44d46
+		sourceLineageTag: 8387212e-a393-4e2a-be86-5ad15c218a9f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Code & Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Type (Sec Tran-Slicer)'
+		dataType: string
+		lineageTag: a25ab7ed-c4ca-4e72-a7df-e1ab047a9149
+		sourceLineageTag: 5f9437b0-3c63-4772-8474-091decd8bce8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Asset Type (Sec Tran-Slicer)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Class (Sec Tran)'
+		dataType: string
+		lineageTag: f701d3dc-0d75-4456-9a68-91b835f6514b
+		sourceLineageTag: 968c4f65-041c-4502-b804-351f7152bac8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Asset Class (Sec Tran)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SCD Sec Type (Sec Tran-Slicer)'
+		dataType: string
+		lineageTag: 544dbe24-af56-4e6d-845e-cf5ba1a1211e
+		sourceLineageTag: 76c88d23-7269-4d36-8506-5db8406bd55b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SCD Sec Type (Sec Tran-Slicer)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Actual Settle Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: da2ddc35-42eb-4117-a4e1-484a89ee98b5
+		sourceLineageTag: 82dc2b93-3670-49d0-ae5f-c7e49abbf335
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Actual Settle Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As Of Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: 45c402d3-1a74-4c3e-9efb-dce964abdf2b
+		sourceLineageTag: c7776414-d1a0-4ad7-8a20-52bc93f4e0bd
+		dataCategory: Uncategorized
+		summarizeBy: max
+		sourceColumn: As Of Period
+
+		annotation SummarizationSetBy = User
+
+	column 'Portfolio NK'
+		dataType: string
+		lineageTag: c6ae1f2a-6d86-4830-adb2-003f544e3d93
+		sourceLineageTag: 0cd10dfc-e649-4292-a5f1-83cfe2e21c94
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio NK
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Match Src Transaction ID'
+		dataType: string
+		lineageTag: 220a0c37-f31d-4a13-98f0-fd09d8573254
+		sourceLineageTag: fe293f11-7bd5-43d3-859c-1a3e60d4d134
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Match Src Transaction ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bus Trans Code'
+		dataType: string
+		lineageTag: c96bb79f-0a03-40e1-a953-31b327830e21
+		sourceLineageTag: 6462d425-c86a-4798-8230-14651b897193
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bus Trans Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Materiality
+		dataType: double
+		lineageTag: d8ca6743-c67f-4018-97fb-eeb6aaa30264
+		sourceLineageTag: c1b43c9b-ddc8-4f32-b33c-d4ea6a2d0f2e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Materiality
+
+		annotation SummarizationSetBy = User
+
+	column 'Late days'
+		dataType: string
+		lineageTag: 568cc16e-cd3a-48d1-9612-4b8d0918ca57
+		sourceLineageTag: 630f274a-ecd8-4c9b-8043-d77ed2c9a18e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Late days
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Grand Total'
+		dataType: string
+		lineageTag: 717c2617-d9da-42cc-9de4-83b8f278e991
+		sourceLineageTag: 77327dd4-9bfd-4fed-8ade-ce94644d62f5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Grand Total
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bus Trans Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6b7f3223-0206-4bf1-a98b-6a5c2d7f8e8d
+		sourceLineageTag: b901d228-537e-473c-972a-87eedc795386
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Bus Trans Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Settle days CC'
+		dataType: int64
+		formatString: 0
+		lineageTag: 48b08d83-8ee9-4290-a858-8f15c9d28dfa
+		sourceLineageTag: dc6eb9dc-8fba-49cf-819f-ac5f1e752a18
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Settle days CC
+
+		annotation SummarizationSetBy = User
+
+	column 'Src Security ID'
+		dataType: string
+		lineageTag: c75b8524-54c5-4347-8db7-7e9cd16e0a00
+		sourceLineageTag: e946cd8c-a8c8-4de8-8f53-9d86fca53502
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src Security ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Final Reporting Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 0772ec58-987d-48a0-9188-e712430c9e7a
+		sourceLineageTag: 7c30b08d-7a3b-4963-a999-3bace6bb39ae
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Final Reporting Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Price - Local (D)'
+		dataType: double
+		lineageTag: 621fb2fc-309b-4b61-bf4c-3483534046bc
+		sourceLineageTag: 2df6f7c5-fa02-47d9-bedf-7202bb334681
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Price - Local (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Primary Security ID & Desc (Sec Tran)'
+		dataType: string
+		lineageTag: 6a78ca85-81a0-4365-8bb8-eb7de71a0cbc
+		sourceLineageTag: 824498c0-cfdf-4fbe-aa58-4e4bc44d9a81
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Primary Security ID & Desc (Sec Tran)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Post Date Filter'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6900bb26-7974-41c9-a205-a0c1184d0d36
+		sourceLineageTag: 07a9438d-a855-4c1b-bdeb-9d2a4dcd71b4
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Post Date Filter
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Portfolio Value'
+		dataType: double
+		isHidden
+		lineageTag: 5ff17b37-0e50-4219-b48e-8a1dd516a0cd
+		sourceLineageTag: fcb89b5a-99ba-4e3c-a62c-97d4181f4dc5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Base Portfolio Value
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Primary Security ID (Sec Tran)'
+		dataType: string
+		lineageTag: ab5e05cd-322d-4ec8-81ae-1b4301b755f2
+		sourceLineageTag: 81d4d661-61ff-4c84-9585-760f9c9ab2b2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Primary Security ID (Sec Tran)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bus Trans Subcategory'
+		dataType: string
+		lineageTag: 56b76fc6-1fce-46fd-b997-b7e7c522b953
+		sourceLineageTag: 84f01725-4e6a-438b-995b-ad87955a3f96
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bus Trans Subcategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Elementary Trans Code '
+		dataType: string
+		lineageTag: f25a5e35-1c6f-42b3-aff1-07808c28548b
+		sourceLineageTag: 232be965-d18f-4477-b8b8-c700d269ee05
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: "Elementary Trans Code "
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Payment Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 933e75d5-e7be-4308-a04f-8b02a50c0596
+		sourceLineageTag: 21f99644-582f-4d06-9ddc-987e8429818a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Payment Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Underlier Maturity Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 9167a5fa-9ad1-4247-8cac-79144d4e9be9
+		sourceLineageTag: 59263fb3-9424-43c3-81ef-0e8537ba086b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Underlier Maturity Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Underlier Next Coupon Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: d95a77f7-3787-48a8-b9e3-be9ab8806462
+		sourceLineageTag: c955a855-29b1-47f0-957d-eb7106ff1404
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Underlier Next Coupon Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Underlier Coupon'
+		dataType: string
+		lineageTag: be0c00ab-82ac-44e2-8c87-a6ab9c2e45d6
+		sourceLineageTag: 36bb54ac-d9ce-43c8-9785-dcfb2b912dd1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Underlier Coupon
+
+		annotation SummarizationSetBy = Automatic
+
+	column Contracts
+		dataType: double
+		lineageTag: 5cf71662-48de-4090-9711-7cc046ebb4bd
+		sourceLineageTag: 40d6f3c6-28df-47d8-97b8-0ace78602100
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Contracts
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClassCode
+		dataType: string
+		lineageTag: bcd173e0-4b16-460d-825a-48ed715c4381
+		sourceLineageTag: fdccbd83-4091-4902-8295-fc3ff8425e0c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ClassCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Current Value - Local'
+		dataType: double
+		lineageTag: a06f45c7-68bc-4cc6-80bb-60bda77a1123
+		sourceLineageTag: 92d2c439-fce5-4a98-a737-d07deafb5c42
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Current Value - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trans Price Local'
+		dataType: double
+		lineageTag: 6e50e8d5-38f7-4b33-9091-e62995a57afa
+		sourceLineageTag: 65d93c84-350b-48c8-b0e6-f7c9e11f2572
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Trans Price Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Original Cost - Base'
+		dataType: double
+		lineageTag: 627c2dfb-6ba2-49d3-b5b9-241c58625845
+		sourceLineageTag: 296145f4-b649-4f73-aece-2f8c16b415d4
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Original Cost - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Original Cost - Local'
+		dataType: double
+		lineageTag: 094bc41c-6132-4364-b9e6-9b5bb86a716c
+		sourceLineageTag: d1b235d5-dee0-44d6-a88a-17bdba9b3b4a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Original Cost - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Amortized Cost - Base'
+		dataType: double
+		isHidden
+		lineageTag: e4f7357b-5e3d-4456-9013-f93c755d0549
+		sourceLineageTag: 3bca74a0-0212-4fab-87d4-922f81de4a3e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Amortized Cost - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Based on User request, we have unhidden the "Amortized Cost - Local" column in the "Securities" and "Current Year’s Securities" reports, and renamed it to "Sec Amortization Cost Local" to prevent confusion. For more details, please refer to Jira #GOGARPT-2154.
+	column 'Sec Amortization Cost Local'
+		dataType: double
+		lineageTag: 546c2183-c077-4ce6-8151-acc379fdf89b
+		sourceLineageTag: 3c277974-23ab-4a9b-9c53-611fca058787
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Sec Amortization Cost Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Realized Gain/Loss CCY - Base'
+		dataType: double
+		lineageTag: a04a2e0a-5071-4212-9cee-9f03ed8836a8
+		sourceLineageTag: 3266cb57-d62a-4a25-ae82-17e9474a78de
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Realized Gain/Loss CCY - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Realized Gain/Loss Sec - Base'
+		dataType: double
+		lineageTag: c8b80ab9-6475-481b-8893-aa69c7f23654
+		sourceLineageTag: e1a37aad-8400-4277-b9c6-1bced35e3710
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Realized Gain/Loss Sec - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Realized Gain/Loss - Base'
+		dataType: double
+		lineageTag: 159025ca-44c9-417c-93c1-0ef3facc0182
+		sourceLineageTag: 40b3dd1b-c8d2-4747-a370-9388bbea1583
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Realized Gain/Loss - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Realized Gain/Loss - Local'
+		dataType: double
+		lineageTag: 925ffee3-faf2-402c-9d48-8b42dffa15c6
+		sourceLineageTag: b4e63211-0227-458d-9f59-f2f0f9c6bb56
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Realized Gain/Loss - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'OID Amortization/Accretion - Base'
+		dataType: double
+		lineageTag: 580383b5-7dda-4dd3-8c4b-788542c57698
+		sourceLineageTag: 224143dd-1338-42c6-b8ce-eadf90dcb97d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: OID Amortization/Accretion - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'OID Amortization/Accretion - Local'
+		dataType: double
+		lineageTag: 5495d236-fedf-4a6f-8980-70a0e4174ded
+		sourceLineageTag: 30836419-28fa-4182-a274-1d3793c3d68f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: OID Amortization/Accretion - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Imp Amount - Base'
+		dataType: double
+		lineageTag: 395720c1-7964-432e-ab8a-c527eeb52554
+		sourceLineageTag: 4381946c-682a-4b75-b41d-76d927f80ddf
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Imp Amount - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Imp Amount - Local'
+		dataType: double
+		lineageTag: dd9c7133-775e-4fb0-85a6-7d60c96cd266
+		sourceLineageTag: 50eb2b11-4e83-43d2-b647-427432c1ecc2
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Imp Amount - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Income Gross Amount - Base'
+		dataType: double
+		lineageTag: 7f1741a5-a947-49f9-b05d-cbaa5b3022bd
+		sourceLineageTag: a36b50de-684b-48fa-9a1a-5ce458724a30
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Income Gross Amount - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Income Gross Amount - Local'
+		dataType: double
+		lineageTag: acae749e-e23c-4cc7-b8bd-987be28837cb
+		sourceLineageTag: cf93a9f5-e635-4a98-a907-65cadb9d0a7b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Income Gross Amount - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column Purpose
+		dataType: string
+		lineageTag: f762fe5d-a4b0-4c95-b59b-62f6008d2011
+		sourceLineageTag: c7310ec9-cf29-480d-8069-7fa390ce7f40
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Purpose
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Country Name'
+		dataType: string
+		lineageTag: a8b0fbd4-9750-4893-928f-ad84659f1bce
+		sourceLineageTag: 65699a67-cd20-4b7c-8ad7-e44d4db72450
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Country Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tran Hub ID'
+		dataType: string
+		lineageTag: e760f947-d023-450c-b46c-72ea3f8fa9d1
+		sourceLineageTag: b3f3b4e7-fb1c-4c69-aba1-8502108d81e8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tran Hub ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fx Swap Ticket Number'
+		dataType: string
+		lineageTag: 83c64591-3ce0-469c-9cd9-6c7d522865f0
+		sourceLineageTag: fff76d5f-92ab-4d4a-98f0-98b5762e2e0c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Fx Swap Ticket Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tax Lot Ix'
+		dataType: string
+		lineageTag: 5a0a6946-ed1f-4a8f-bb3c-c8e79869cafe
+		sourceLineageTag: b1c8472c-e751-44af-889a-3c31c26b94a5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tax Lot Ix
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lot Source Transaction ID'
+		dataType: string
+		lineageTag: 972022f9-1972-4d31-a992-f3f8ae2200b1
+		sourceLineageTag: a972e05a-1b5c-4181-a9de-6f48881236fc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Lot Source Transaction ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lot ID'
+		dataType: string
+		lineageTag: 9be95a71-c668-41d4-9804-f07e3edad28c
+		sourceLineageTag: 27e0385b-8a7c-45b7-985c-273ecb728a93
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Lot ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asia Asset Class Code Indonesia'
+		dataType: string
+		lineageTag: 344bb187-2ca8-4880-8718-b70f11076288
+		sourceLineageTag: 34fdaa1c-36be-441c-9999-d48c2a0a32ca
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Asia Asset Class Code Indonesia
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asia Asset Class Code Vietnam'
+		dataType: string
+		lineageTag: 148889f4-6fb3-4811-8ade-732b51e3f74f
+		sourceLineageTag: 813fd898-9b93-4482-b562-d2e3b767ded4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Asia Asset Class Code Vietnam
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asia Asset Class Desc Indonesia'
+		dataType: string
+		lineageTag: 7fda0126-c827-47cd-b797-2785afa889b4
+		sourceLineageTag: 4c24db07-a71e-4eb2-98b9-829ad8b56374
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Asia Asset Class Desc Indonesia
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asia Asset Class Desc Vietnam'
+		dataType: string
+		lineageTag: 190359d2-b2bd-4974-9d7b-af48b02ce049
+		sourceLineageTag: 0f9fa2c1-eb98-454c-bf74-9dbf502eae80
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Asia Asset Class Desc Vietnam
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Structure Relation'
+		dataType: string
+		lineageTag: 7c0bcbbe-4e3e-49b8-b8c7-8e0b4b72ec4c
+		sourceLineageTag: b255b62f-de19-4743-80d4-b030772d5a42
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Group Structure Relation
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Book Value - Local unsigned'
+		dataType: double
+		lineageTag: de16d3f0-2d04-44ba-a117-4d3b2adb0dc4
+		sourceLineageTag: 6bcf9db6-954b-456f-9512-d767beff9722
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Book Value - Local unsigned
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Book Value - Base unsigned'
+		dataType: double
+		lineageTag: d2d114f6-7209-4d74-ae92-160033cba344
+		sourceLineageTag: 58574750-bcb7-40f6-9e36-5c511d6c5dac
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Book Value - Base unsigned
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Int Apr - Local'
+		dataType: double
+		lineageTag: 6d29591a-4fbb-48ca-bff6-afe4f575be2d
+		sourceLineageTag: 3001c79d-f976-4a08-ba76-042092480030
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Int Apr - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Int Apr - Base'
+		dataType: double
+		lineageTag: edce230f-2746-46eb-94f5-a8eb92e04415
+		sourceLineageTag: b116e855-842d-4e34-b471-6cb190f186ab
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Int Apr - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ECL Loss - Local'
+		dataType: double
+		lineageTag: 963914cb-373b-4581-b685-55e8d0fa424e
+		sourceLineageTag: 251d42f5-51c9-433f-a5f4-32953d0a5173
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ECL Loss - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ECL Loss - Base'
+		dataType: double
+		lineageTag: ccf45108-bb03-4733-b390-f298cafdc15c
+		sourceLineageTag: 05c136ca-6e0b-4315-ae51-043ee4b930b5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ECL Loss - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CECL Loss - Local'
+		dataType: double
+		lineageTag: 6ebfcb56-071a-4245-b02b-e13e227173d9
+		sourceLineageTag: 7db912a4-cf64-4dd1-af11-6b7b7b8c7c61
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CECL Loss - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CECL Loss - Base'
+		dataType: double
+		lineageTag: 607b7c37-1a14-46aa-842a-62039f0ae11e
+		sourceLineageTag: ce51f332-0caf-4b88-8e62-bd66d86ae75d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CECL Loss - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Impairment - Local'
+		dataType: double
+		lineageTag: af792390-2ce7-4045-9275-4b98f8c709e7
+		sourceLineageTag: f8a2f695-cbfe-41a4-b16f-4b7fe44a1b7c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Impairment - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Impairment - Base'
+		dataType: double
+		lineageTag: 9213f210-978c-474c-a4e6-2c1bd4d47989
+		sourceLineageTag: d5a11b77-b01a-417d-a2b7-2e2b487467c7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Impairment - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'REA AOCI BV - Local'
+		dataType: double
+		lineageTag: 02eb1902-4342-49a5-ab99-d8906fc6b081
+		sourceLineageTag: 8550c980-0365-41c4-9587-3214f8d58f65
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REA AOCI BV - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'REA AOCI BV - Base'
+		dataType: double
+		lineageTag: c49a9a66-9475-4db3-8b03-1a50998cbf6a
+		sourceLineageTag: 8ea050a2-161a-45aa-8d26-c2475c514a81
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REA AOCI BV - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Deferred PL - Local'
+		dataType: double
+		lineageTag: a1a81762-bb4a-485c-93a4-df7745594005
+		sourceLineageTag: e080cee5-758c-4f0f-9d82-9828cecfa557
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Deferred PL - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Deferred PL - Base'
+		dataType: double
+		lineageTag: 2515518a-fe91-48a7-9d74-0cb68d09de3a
+		sourceLineageTag: 0752b501-aa45-426a-b348-e39a060a05b7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Deferred PL - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Realized Gain/Loss Book - Local'
+		dataType: double
+		lineageTag: abbfbd0e-f6a5-4102-943b-12247dbe4a81
+		sourceLineageTag: 6f2d51b0-752d-4d12-a84a-9615621f5944
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Realized Gain/Loss Book - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Realized Gain/Loss Book - Base'
+		dataType: double
+		lineageTag: 200ad16c-2414-4146-ada0-d569e5bd6629
+		sourceLineageTag: edad4db6-d09e-442d-ba30-882e294bac9d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Realized Gain/Loss Book - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Value - Local unsigned'
+		dataType: double
+		lineageTag: 37d3c96d-ccfd-4df5-963b-2140117239d5
+		sourceLineageTag: 29b52580-4a83-4d5f-81c7-95bd81899617
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Cost Value - Local unsigned
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Value - Base unsigned'
+		dataType: double
+		lineageTag: bd3a2be6-f1dc-45ed-b0f8-5d468ece8e8c
+		sourceLineageTag: bdaf1e6b-2294-49c0-8fae-cb168b936570
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Cost Value - Base unsigned
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'OID Int Appr - Local'
+		dataType: double
+		lineageTag: f259f846-6e70-4148-9689-8502a2d39052
+		sourceLineageTag: 80b3586d-2519-42b7-b03f-181dd0d7d9af
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: OID Int Appr - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'OID Int Appr - Base'
+		dataType: double
+		lineageTag: 65e8a7d1-9710-4639-94a1-40f08759a248
+		sourceLineageTag: e8fa9c06-1992-45cd-8927-41fb57e7b05e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: OID Int Appr - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Real Int Appr - Base'
+		dataType: double
+		lineageTag: 497707c3-9829-4709-afac-6b964636c83c
+		sourceLineageTag: 6b468796-04e5-4aee-b08f-b0e9c1818a08
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Real Int Appr - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Real Int Appr - Local'
+		dataType: double
+		lineageTag: be1baf1d-b4bb-4fd6-b835-c4bb44e82483
+		sourceLineageTag: 5853c3dd-8bcd-4fbb-a59c-5b07b8c11eea
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Real Int Appr - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Con CL Allow - Base'
+		dataType: double
+		lineageTag: de4f8949-65df-4500-8bab-43937381aef7
+		sourceLineageTag: 82d1a3bd-34f4-4cd7-9d77-a7333f5d0d8f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Con CL Allow - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Con CL Allow - Local'
+		dataType: double
+		lineageTag: 1b7f733c-ded7-462d-a45a-a36e8393a98f
+		sourceLineageTag: 272e4675-553d-45f6-8b67-9ed9fd92a33c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Con CL Allow - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Change AOCI BV - Base'
+		dataType: double
+		lineageTag: 6541304c-1d1a-42bd-a638-6d42204d634f
+		sourceLineageTag: a859abcf-42c3-4ed4-9cf5-72cd386d4678
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Change AOCI BV - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Change AOCI BV - Local'
+		dataType: double
+		lineageTag: 4e7c3d47-0662-4928-8863-a217f213b006
+		sourceLineageTag: a8471795-703b-4260-8b33-2a0cf4909000
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Change AOCI BV - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Change AOCI NONBV - Base'
+		dataType: double
+		lineageTag: 7b5a1c23-8916-472c-b23f-4ceace64fb6e
+		sourceLineageTag: 838a140c-e1b1-42dc-a715-1d3f8f2849f7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Change AOCI NONBV - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Change AOCI NONBV - Local'
+		dataType: double
+		lineageTag: 10f224b4-094c-4093-868a-dbd83113349d
+		sourceLineageTag: 3314de99-3028-43ca-af79-31541820635b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Change AOCI NONBV - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lot Nominal'
+		dataType: double
+		lineageTag: a30ea3f9-1b56-460f-a1c6-b4877d084bee
+		sourceLineageTag: 476fe9cf-a63e-4bfe-9c3b-5a6876654417
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Lot Nominal
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unpaid Amount - Local (D)'
+		dataType: double
+		lineageTag: e202c92e-0974-4935-b7ad-d3aa2a718797
+		sourceLineageTag: 4b61cc82-56ef-4cdc-b3a2-e74cdd04fc96
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Unpaid Amount - Local (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Payment Amount - Base'
+		dataType: double
+		lineageTag: 7f7c90b5-d9ac-4412-a1ce-c46597fcf038
+		sourceLineageTag: 560179c1-7186-46d0-8800-629bbc726760
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Payment Amount - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nominal Outgoing Amount'
+		dataType: double
+		lineageTag: e8d4d0e5-9cd7-4168-bbc5-6ce935530667
+		sourceLineageTag: 46032af5-086b-4ebb-ab55-3cfd4736bb0d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Nominal Outgoing Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nominal Incoming Amount'
+		dataType: double
+		lineageTag: ceb2e3ab-01f2-4079-9b78-fad98f561664
+		sourceLineageTag: 01a0a167-9835-4be6-a2d4-ce7b72667bd7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Nominal Incoming Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Net Amount - Local'
+		dataType: double
+		lineageTag: 7558858e-0e69-4c79-a2cb-a547ba294d19
+		sourceLineageTag: 03a6daaa-89c3-4438-b2fc-e1d266b91eca
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Net Amount - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AOCI Hedge Findur ID'
+		dataType: string
+		lineageTag: ac3d0a50-497e-4d10-a308-9473bed7b117
+		sourceLineageTag: e2f96347-4c6d-49aa-83fe-4f2eb7e5cacb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: AOCI Hedge Findur ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Updated Ts'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd hh:nn:ss AM/PM
+		lineageTag: 65243d57-9682-4ca7-b707-5f476e81209b
+		sourceLineageTag: 8560bb8c-5cba-4379-bce2-2e02b2b1675b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Updated Ts
+
+		annotation SummarizationSetBy = Automatic
+
+	column From/To
+		dataType: string
+		lineageTag: ad48280a-0f21-4760-87ca-6090cbd27b81
+		sourceLineageTag: cac364dc-4288-4bc3-b30c-40b20abbb3db
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: From/To
+
+		annotation SummarizationSetBy = Automatic
+
+	column Par/NonPar
+		dataType: string
+		lineageTag: 8faa50d5-6f92-44ff-9337-2f0026adab3c
+		sourceLineageTag: 48142acd-bab7-4d5b-a954-ae85aa6e3722
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Par/NonPar
+
+		annotation SummarizationSetBy = Automatic
+
+	column Product
+		dataType: string
+		lineageTag: d52dfab5-1f8e-4bf4-8901-dac81a382cbc
+		sourceLineageTag: 3d149c2e-649b-46d6-a75d-fe55c151d2c7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Product
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transfer Type (BV vs MV)'
+		dataType: string
+		lineageTag: 9aca37d7-450d-4e3b-aba6-94c7fedd8c56
+		sourceLineageTag: e930c894-103d-4618-a26a-742f449bf395
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Transfer Type (BV vs MV)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transfer Purpose (Inter or Intra)'
+		dataType: string
+		lineageTag: 1b2e6cd6-9c63-4d77-8987-349af7cf63b8
+		sourceLineageTag: 34fb593b-8d1c-4b1f-922a-ba4066bd4a03
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Transfer Purpose (Inter or Intra)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SCD Security Type (Sec Tran)'
+		dataType: string
+		displayFolder: Security Values
+		lineageTag: 2ab12900-fbeb-462c-a5a9-cb12b7e0864c
+		sourceLineageTag: b785f5b0-3ad6-4bbe-9cdb-0461b3023fc4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SCD Security Type (Sec Tran)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Group (Sec Tran)'
+		dataType: string
+		displayFolder: Security Values
+		lineageTag: 996a8064-ad70-4499-94f5-62aaa677f31b
+		sourceLineageTag: dd4e3f22-ab8b-441a-b3a6-e871db0af5e9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Asset Group (Sec Tran)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Code & Name Display'
+		dataType: string
+		lineageTag: 647dc5ae-f82e-4f22-ad8d-810ce19ca6b2
+		sourceLineageTag: 3261fa5f-efa6-4415-9eb3-c84bb947e501
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Company Code & Name Display
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Unit Code & Name Display'
+		dataType: string
+		lineageTag: 557e9703-b7fe-4e4e-aaa9-83659c24a765
+		sourceLineageTag: d5a49bfa-36aa-4655-9c58-e21e807416a4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Accounting Unit Code & Name Display
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tr Freecomment'
+		dataType: string
+		lineageTag: 5ecb4bdc-abf2-4763-8d1f-eddb509fcdf7
+		sourceLineageTag: 3b6aa99d-dcd5-4b1f-84c9-e822e8a4c482
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tr Freecomment
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trans Status Actual'
+		dataType: string
+		lineageTag: 1808242b-59f2-4405-8b8c-1c1c8925b483
+		sourceLineageTag: c1f6059b-ab3d-49b5-8cec-f101c123f765
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Trans Status Actual
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Cash Proceeds'
+		dataType: double
+		lineageTag: 9218ce66-070e-4d39-8888-701e38ebf519
+		sourceLineageTag: c23d005b-0461-4def-ab89-0aec95c5a551
+		dataCategory: Uncategorized
+		summarizeBy: max
+		sourceColumn: Total Cash Proceeds
+
+		annotation SummarizationSetBy = User
+
+	column 'Interest Trade Local'
+		dataType: double
+		lineageTag: 834a3f2a-c9f2-4a76-a7f9-ed064a313f82
+		sourceLineageTag: e7d2dd62-e579-475f-95db-9b9656fd19ba
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Interest Trade Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column Units/Quantity
+		dataType: double
+		lineageTag: 1c1b120b-b351-41c5-ae5a-e0b989e4f616
+		sourceLineageTag: 93f0d281-e520-4101-8f8c-7855993a3a1a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Units/Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Processed Ind'
+		dataType: string
+		lineageTag: 9d825951-35c3-48e7-b9df-e51b750a8333
+		sourceLineageTag: 04a7f6ee-c794-4f7c-9454-a8b162a8a74e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Processed Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data Source'
+		dataType: string
+		lineageTag: 155e6cf0-17f1-45f2-82a0-83253ed48776
+		sourceLineageTag: 1ac6c738-0a04-4886-9bb6-fda846a5bf8d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Data Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Post Hour'
+		dataType: int64
+		formatString: 0
+		lineageTag: 810b4372-ebe9-4413-98c7-5f299ab34bac
+		sourceLineageTag: 71cdb13a-2d91-4aab-bbb4-27795beebb95
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Post Hour
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reference Security ID'
+		dataType: string
+		lineageTag: e0ddf663-829e-43df-86ed-093573e0eef9
+		sourceLineageTag: a931dadb-c754-43d7-ab6c-0e314e909c32
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Reference Security ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Master Ticket Number'
+		dataType: string
+		lineageTag: ddd4c864-b91b-4775-9e5b-137c11ae8b75
+		sourceLineageTag: 0912e7bb-22ff-44ad-8100-513edc1faf1a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Master Ticket Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Original System'
+		dataType: string
+		lineageTag: aeab07eb-d647-4eae-b8d5-54b4f5f5675d
+		sourceLineageTag: 350f76ef-85af-40be-9582-9a07d373efb4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Original System
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trade Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 7d53d500-acd7-4408-9346-145bf86c9cd9
+		sourceLineageTag: ae72462c-c81f-4d16-8cc9-d1a1037411e4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Trade Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Changed Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd hh:nn:ss AM/PM
+		lineageTag: f88be4f5-8a2a-42fd-a6f9-666fa0775a66
+		sourceLineageTag: e9cebe1c-80f0-44d2-82e9-7f96f5cf7d41
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Changed Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Book Value - Base'
+		dataType: double
+		isHidden
+		lineageTag: f0b73e1d-afad-4972-ab83-cfd3719c25ed
+		sourceLineageTag: f71d904a-b3c6-4df9-bb6d-87aa5858cb65
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Book Value - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Book Value - Local (D)'
+		dataType: double
+		isHidden
+		lineageTag: 1e7ee956-c98e-4003-a45d-4ae4dd052990
+		sourceLineageTag: 921c696d-9bd3-487e-a5ac-feecd110d3ea
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Book Value - Local (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Value - Local (D)'
+		dataType: double
+		isHidden
+		lineageTag: bb5a6a25-aa65-4b86-8900-c112cb50c3a2
+		sourceLineageTag: 8ad767cf-98cc-4365-8d5c-c651576c37d1
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Cost Value - Local (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Value - Base'
+		dataType: double
+		lineageTag: e8c23b7d-b072-4f2a-bb94-f7e24ee86107
+		sourceLineageTag: 61bd6f85-a43f-4f71-be7b-1081abc3905f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Cost Value - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Security NK'
+		dataType: string
+		lineageTag: 6b2cc51b-6e34-4fab-aaca-f4d7dbfa5cea
+		sourceLineageTag: 19748016-aac8-49ea-a64b-f012f84c1326
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Security NK
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ALT INV TRANS TYPE'
+		dataType: string
+		lineageTag: 075a4587-6c19-4820-a765-9dd62362b0a8
+		sourceLineageTag: 6453c473-fb82-4ccc-b390-0afd40922231
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ALT INV TRANS TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cost_NK
+		dataType: string
+		lineageTag: 063b8e06-a9e9-4d88-9ca8-fc4c97f4b906
+		sourceLineageTag: 4767d05e-2270-4627-a127-0a61e392d56d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Cost_NK
+
+		annotation SummarizationSetBy = Automatic
+
+	column Source
+		dataType: string
+		lineageTag: 5dc0c09a-d2c9-4467-bd2b-426c682934d9
+		sourceLineageTag: 6ff56ccf-37f7-4428-970a-6e80500fd405
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Originating System No'
+		dataType: double
+		lineageTag: bc8e6750-f406-4732-8270-705388044137
+		sourceLineageTag: 6cc9cf26-db9c-4ea4-b432-99786d38ddc9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Originating System No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nominal To Match'
+		dataType: double
+		lineageTag: 7c4e76e8-a07b-4808-b714-dd9d46c33134
+		sourceLineageTag: ff786b9f-8a82-4849-a7b4-9e4918f5b400
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Nominal To Match
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Country (Sec Tran)'
+		dataType: string
+		lineageTag: 2fde86a4-b3f4-43ea-acd2-b1be8983cef7
+		sourceLineageTag: 746e02e4-b007-431c-948e-8ff8048127d3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Country (Sec Tran)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Issuer Long Comp Name (Sec Tran)'
+		dataType: string
+		lineageTag: e0a76807-0c91-47ac-adab-7375926a9fa2
+		sourceLineageTag: 05f2fd41-6844-4b46-8b76-3f4e666cad66
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Issuer Long Comp Name (Sec Tran)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'POS Trans Link'
+		dataType: string
+		lineageTag: 82522e6d-b0aa-40ac-b85e-2944d46d3456
+		sourceLineageTag: ea180778-e1a9-4898-8282-c3beae6c8b30
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: POS Trans Link
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Long Short Ind'
+		dataType: string
+		lineageTag: 1d65ecd7-276f-498d-ab23-91c2617040e8
+		sourceLineageTag: 9443692c-789e-42ba-9699-88bcae00170c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Long Short Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SCD Coupon Rate'
+		dataType: double
+		lineageTag: 8b625843-f61b-4d3a-89ac-bf18f32602dd
+		sourceLineageTag: a406f5a5-a9c7-477a-92e7-f7846eb41eea
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: SCD Coupon Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Yield For Math Adj'
+		dataType: double
+		lineageTag: 48d73490-b734-472c-b47a-9ba82b28ac44
+		sourceLineageTag: 61f02fa0-8d3c-4bd2-a8e1-524e1f2b0807
+		dataCategory: Uncategorized
+		summarizeBy: max
+		sourceColumn: Yield For Math Adj
+
+		annotation SummarizationSetBy = User
+
+	column 'Bloomberg Tansaction Identifier'
+		dataType: double
+		lineageTag: 36b518c2-2b05-4e1b-99e1-b28c2dc12216
+		sourceLineageTag: f78270d2-96ef-4452-b7fd-0fe4e8b2f785
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bloomberg Tansaction Identifier
+
+		annotation SummarizationSetBy = User
+
+	column 'Wash Sale Parent Lot Id'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6352491f-e936-4f44-b7f0-2ec18dcdaa44
+		sourceLineageTag: 937eb448-bf12-4cba-ba11-02743bd9f924
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Wash Sale Parent Lot Id
+
+		annotation SummarizationSetBy = User
+
+	column 'Wash Sale Transaction Id'
+		dataType: double
+		lineageTag: fa0a7ae4-c6f2-43fd-9e0e-5c1e9d2ee4c8
+		sourceLineageTag: 8a90060a-09ed-4be6-8c70-004955ffb528
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Wash Sale Transaction Id
+
+		annotation SummarizationSetBy = User
+
+	column 'P Or L Book CCY Local'
+		dataType: double
+		lineageTag: d85604f8-5412-4745-8a81-050992076de8
+		sourceLineageTag: 0c811354-674d-4e8e-96f7-655eb8e91bd1
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: P Or L Book CCY Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'P Or L Book Sec Base CCY'
+		dataType: double
+		lineageTag: 76274373-988c-47f4-9936-5c7504c070d0
+		sourceLineageTag: 057e546b-ea46-43a4-bda6-bc84b0021975
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: P Or L Book Sec Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Wash Sale Process ID'
+		dataType: string
+		lineageTag: e2a92202-37fa-45fd-917e-77684ac65ff9
+		sourceLineageTag: e3a927e2-1912-4dcb-9f51-db50d386a760
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Wash Sale Process ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Market Id (Sec Trans)'
+		dataType: string
+		lineageTag: 78541212-4b41-4ff5-b6e5-bb2c7a6a90d5
+		sourceLineageTag: 47de0e76-d52b-48e1-9c71-3fd252e18434
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src Market Id (Sec Trans)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Manulife Local Price'
+		dataType: int64
+		formatString: 0
+		lineageTag: c8f00ca1-58ce-4d0d-9ba3-829b733d4956
+		sourceLineageTag: 6d0e8bb4-a9d3-4a75-bbba-57e145d99573
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Manulife Local Price
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Real Amortisation Base'
+		dataType: double
+		lineageTag: adeaafb1-bfe1-4133-8890-4d773d931ecd
+		sourceLineageTag: b76299c2-4b4b-4199-83a8-459eade907c4
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Real Amortisation Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Real Amortisation Local'
+		dataType: double
+		lineageTag: 29a0b69e-4b45-4b82-a87e-92453246d93e
+		sourceLineageTag: 00a735ad-6898-4384-8a00-6fdf0426c4b6
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Real Amortisation Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Booked Current Value Local'
+		dataType: double
+		lineageTag: c7147e00-de71-46c7-bd49-2b436541759a
+		sourceLineageTag: e567c459-928f-4cd5-bff4-ed9439f098cb
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Booked Current Value Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Booked Current Value Base'
+		dataType: double
+		lineageTag: 470937eb-2fbf-4b31-b645-a0c69ea00ca0
+		sourceLineageTag: d36d247c-2e3a-4512-9e82-a9b739f1c2e7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Booked Current Value Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unreal OID Accretion - Base'
+		dataType: double
+		lineageTag: 3caaca75-4401-4432-8ba8-74251c6bfd3b
+		sourceLineageTag: 401d742f-e261-42eb-bdb3-b4f35c3f0e94
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Unreal OID Accretion - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unreal OID Accretion -  Local'
+		dataType: double
+		lineageTag: e502ea81-bfcc-4d29-938d-b0ccb2619349
+		sourceLineageTag: 148b0918-0099-4fde-9922-753c8d434556
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Unreal OID Accretion -  Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Actual Settle Date w/o Null'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: f54a9ccd-97ef-4231-bf0e-44598fa97bf9
+		sourceLineageTag: 03dcb413-4ba5-443b-a4f2-26db65cc4ed0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Actual Settle Date w/o Null
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Real OID Amortisation - Base'
+		dataType: double
+		lineageTag: 9dc05851-0f4c-4666-9936-17e53dbdfa86
+		sourceLineageTag: 26ad56d5-7019-4e16-af3b-99a996264049
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Real OID Amortisation - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Real OID Amortisation - Local'
+		dataType: double
+		lineageTag: 30ed1bba-d332-440a-873f-c5111b629d0d
+		sourceLineageTag: 4dcf18fc-5a92-4625-a109-80e848cfb3bb
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Real OID Amortisation - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Amortized Cost Ccy Corr Base'
+		dataType: double
+		lineageTag: 3199a4e2-a494-44de-8d76-3e34f4a32ee8
+		sourceLineageTag: 5eeb6cd6-86ab-4008-a415-07a5ddc1f668
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Amortized Cost Ccy Corr Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Amortized Cost Ccy Result Base'
+		dataType: double
+		lineageTag: 00a531c9-3223-46cc-b2ff-0f437e0afc1e
+		sourceLineageTag: fe352162-0dc3-4d65-a256-efa98dabbc35
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Amortized Cost Ccy Result Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Amortized Cost Sec Base'
+		dataType: double
+		lineageTag: d614c69c-5ff8-42e5-a130-c279fb639fdc
+		sourceLineageTag: 3d020fd0-bd87-4913-8047-fecec00c526e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Amortized Cost Sec Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Amortized Cost Local'
+		dataType: double
+		lineageTag: 87c1f65e-80f0-48dc-8e0c-3407e85f14fc
+		sourceLineageTag: 4e79cd71-897f-4121-8077-2fae67fe446c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Amortized Cost Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Created Ts'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd hh:nn:ss AM/PM
+		lineageTag: 1ce13483-8e0f-4018-8d57-106ff7ecedae
+		sourceLineageTag: 4243387f-5672-4a24-aeaf-baca56af03f2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src Created Ts
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Updated Ts'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd hh:nn:ss AM/PM
+		lineageTag: fdbd74be-d51c-4c7c-b5bf-c71068cd5a03
+		sourceLineageTag: 7bd0a692-a050-456f-9bfc-bdb093d86f18
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src Updated Ts
+
+		annotation SummarizationSetBy = Automatic
+
+	column Bucket
+		dataType: string
+		lineageTag: 607df6bc-49da-437a-98c1-5071eb0c8c02
+		sourceLineageTag: e397ebfc-1fc6-4f6e-8a10-cf07f902ab5c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bucket
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Original Post Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 6c95d61a-27ac-44d5-90cd-938f9045d942
+		sourceLineageTag: d012f2e2-33e6-49c1-b403-44eb91d42af8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Original Post Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Settled Status'
+		dataType: string
+		lineageTag: 1a684fda-8430-4274-815f-185f1a89c55c
+		sourceLineageTag: 8474f52e-f073-46bd-baa5-df4d342b937f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Settled Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FX Join Key'
+		dataType: string
+		lineageTag: a99edc30-1c05-4652-bd1f-c1a7e87cc299
+		sourceLineageTag: beaae7f1-8897-42bc-b3d4-256cc69428cb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FX Join Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Realised Impairment Local'
+		dataType: double
+		lineageTag: 675253c5-61a0-4cdf-a2b1-743e6bc21dbe
+		sourceLineageTag: e9e4cb11-f087-4ebb-a99b-b020ddbffded
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Realised Impairment Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Realised Impairment Sec Base'
+		dataType: double
+		lineageTag: ef058b38-5953-40bc-9570-c3769d32779f
+		sourceLineageTag: 6648f86f-005e-4e7a-86da-4173816c9975
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Realised Impairment Sec Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Realised Impairment Ccy Base'
+		dataType: double
+		lineageTag: 522ea69f-1233-4fed-8089-36ecabb5601e
+		sourceLineageTag: d45251da-ae3f-4249-a3f3-1e1ede4fd611
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Realised Impairment Ccy Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dgl Inception Trans No'
+		dataType: int64
+		formatString: 0
+		lineageTag: cd07af1f-c9a8-4e3c-be74-4f7e651beb52
+		sourceLineageTag: 9ba001e0-bc62-46a2-a92a-c819cbeddc28
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Dgl Inception Trans No
+
+		annotation SummarizationSetBy = User
+
+	column 'IFRS9 Purpose'
+		dataType: string
+		lineageTag: a0cfe5ee-e746-4dfe-aa4c-cd7befa40ea3
+		sourceLineageTag: 8cff7277-ca30-4075-bbfd-e551cc941983
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: IFRS9 Purpose
+
+		annotation SummarizationSetBy = User
+
+	column 'Long Note 1'
+		dataType: string
+		lineageTag: bfa576dc-1469-412f-9162-2d1b897fd8bd
+		sourceLineageTag: 9f640d65-89e8-40ef-ad2a-fbd38b236079
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Long Note 1
+
+		annotation SummarizationSetBy = User
+
+	column 'Long Note 2'
+		dataType: string
+		lineageTag: 5b772a51-e340-4dbd-b48d-40aa9876a9a5
+		sourceLineageTag: f077e1c8-a35e-4e45-9fa0-dddd85c3d857
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Long Note 2
+
+		annotation SummarizationSetBy = User
+
+	column 'Long Note 6'
+		dataType: string
+		lineageTag: ff8a2913-a546-4747-a3c8-40237ae8109b
+		sourceLineageTag: eed920e9-436d-4043-b2cb-17fe90be161d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Long Note 6
+
+		annotation SummarizationSetBy = User
+
+	column 'Long Note 7'
+		dataType: string
+		lineageTag: 3d091b21-7494-432a-947f-0e3e49a208bd
+		sourceLineageTag: 16263bbc-e15b-4aad-9f3d-2d6b3d68eb43
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Long Note 7
+
+		annotation SummarizationSetBy = User
+
+	column 'Long Note 8'
+		dataType: string
+		lineageTag: 3a33bdd3-d964-40ac-89ed-8beb20e4013a
+		sourceLineageTag: 7c292be5-e47a-408c-a56b-d2c3f8a86c3e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Long Note 8
+
+		annotation SummarizationSetBy = User
+
+	column 'Short Note 1'
+		dataType: string
+		lineageTag: 956e7948-7da2-4bc3-a109-d670e3ea3f56
+		sourceLineageTag: ca6d4b3e-44e9-442d-99d7-a6a2cfd32c59
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Short Note 1
+
+		annotation SummarizationSetBy = User
+
+	column 'Short Note 2'
+		dataType: string
+		lineageTag: 1b3d4452-9fa9-494d-a6a8-e5aefa334997
+		sourceLineageTag: c31b7f18-e069-4af6-be33-729ff66ecaaf
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Short Note 2
+
+		annotation SummarizationSetBy = User
+
+	column 'Short Note 3'
+		dataType: string
+		lineageTag: bd964db0-a05e-4c7d-8d2b-3678aa0a4a25
+		sourceLineageTag: 4e9ef845-db7f-40e9-951b-c9024d5d61dc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Short Note 3
+
+		annotation SummarizationSetBy = User
+
+	column 'Short Note 4'
+		dataType: string
+		lineageTag: a528c1ef-95b2-4bc7-b392-c34dbb62db9e
+		sourceLineageTag: ff36e406-ecb2-42a8-9297-eec9cdb6676d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Short Note 4
+
+		annotation SummarizationSetBy = User
+
+	column 'Short Note 5'
+		dataType: string
+		lineageTag: 7b9e7671-c257-43ba-949c-377d3d2ec490
+		sourceLineageTag: 49df63e3-3f59-4611-afab-5028ab45171d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Short Note 5
+
+		annotation SummarizationSetBy = User
+
+	column 'Short Note 6'
+		dataType: string
+		lineageTag: 685a6a10-1650-41c4-ba19-4aef3d4d3fed
+		sourceLineageTag: dffcca35-e4f2-4bc0-82b1-0abe91b4e8a5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Short Note 6
+
+		annotation SummarizationSetBy = User
+
+	column 'Short Note 7'
+		dataType: string
+		lineageTag: b76fe08b-1609-46f9-898c-3fa487c3e5ce
+		sourceLineageTag: 784bc202-c1f4-4dc1-9ee5-b323c1770713
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Short Note 7
+
+		annotation SummarizationSetBy = User
+
+	column 'Short Note 8'
+		dataType: string
+		lineageTag: 225105a5-5e12-4e1c-b81c-a7ece34fcbf0
+		sourceLineageTag: bc82ef52-87f3-49f7-b2fc-6a0236b8bee6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Short Note 8
+
+		annotation SummarizationSetBy = User
+
+	column 'Custodian Name'
+		dataType: string
+		lineageTag: fd02f0be-5bad-48e8-8f41-9789617ce3f1
+		sourceLineageTag: fa24e031-a38b-45c5-8b8c-903bee0af8c0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Custodian Name
+
+		annotation SummarizationSetBy = User
+
+	column 'User Change ID'
+		dataType: string
+		lineageTag: 71730077-7223-445f-880c-2e376048acf3
+		sourceLineageTag: 05a9ce89-3ef5-4fce-a619-274a44b86ee1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: User Change ID
+
+		annotation SummarizationSetBy = User
+
+	column 'User Change Name'
+		dataType: string
+		lineageTag: b075c506-be7c-4d70-839e-eea0abfa45c8
+		sourceLineageTag: bf60f1e4-7297-461b-a865-c85d62d207bc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: User Change Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Processing Group Name'
+		dataType: string
+		lineageTag: 07b9585a-65be-4d33-9d4b-cf1d241c974f
+		sourceLineageTag: f47b1031-10c4-4349-8820-61eb88d91adf
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Processing Group Name
+
+		annotation SummarizationSetBy = User
+
+	partition 'Securities Transaction GA Fact-bd77738c-335a-4153-96a1-0fdac6255c68' = entity
+		mode: directQuery
+		source
+			entityName: Securities Transaction GA Fact
+			expressionSource: 'DirectQuery to AS - Securities'
+

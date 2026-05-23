@@ -1,0 +1,1069 @@
+table 'Accounting Unit'
+	lineageTag: 935d3158-11db-47cf-8718-9f819176921a
+	sourceLineageTag: b1e631f4-fa39-4269-a3b7-5106311bf1d6
+
+	measure '#Accounting Units' = EXTERNALMEASURE("#Accounting Units", INTEGER, "DirectQuery to AS - Securities")
+		formatString: #,0
+		lineageTag: 15b2a07a-b932-476b-99f0-e18ef8ac25c9
+		sourceLineageTag: 5aca3f3f-1101-4583-9a7a-cabb0fd79711
+		dataCategory: Uncategorized
+
+	column 'Legal ID' = LEFT('Accounting Unit'[Legal Entity],4)
+		lineageTag: 74cf064d-8128-4d10-96e5-10f9ad4aca7c
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Subfund ID' = RIGHT('Accounting Unit'[Accounting Unit Code],3)
+		lineageTag: 216aa91f-7aed-4dca-aaab-865ea973f006
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Accounting Unit Code'
+		dataType: string
+		isNullable: false
+		lineageTag: 31ef6e28-fa69-44f5-a9e0-c35dde7cbeb1
+		sourceLineageTag: 5c48c88e-d1a7-40a2-9cb9-dbdfd386d8ec
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Company Accounting Unit Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Unit Code & Name'
+		dataType: string
+		lineageTag: 848c25bf-1115-4888-94a5-85719d90b343
+		sourceLineageTag: 8b5f6164-9e23-4846-bbaf-4ad92dc7f701
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Accounting Unit Code & Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Accounting Unit Code & Name'
+		dataType: string
+		lineageTag: f84f023f-b230-4718-b319-ac0e0b919d2a
+		sourceLineageTag: aeffe6f4-35e6-4933-8828-a2525caf4c65
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Company Accounting Unit Code & Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Company
+		dataType: string
+		lineageTag: 0044ac26-d603-4bd4-8aa3-cc9d7083fad9
+		sourceLineageTag: 55f5d87c-016e-4fb3-896d-33482758b3f0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Company
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Unit Code'
+		dataType: string
+		lineageTag: 0f2232f7-ad9c-4e9d-8a35-88562ae98bac
+		sourceLineageTag: 514ca492-2903-4350-b3dc-743135f591e3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Accounting Unit Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Desc'
+		dataType: string
+		lineageTag: 7fbfc788-e829-4ad2-83ac-08dfd6064676
+		sourceLineageTag: cb50abac-c734-4b53-af71-eff1a03e1771
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Company Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Unit Desc'
+		dataType: string
+		lineageTag: de307395-3585-464c-8816-bb3e0bc92817
+		sourceLineageTag: ed66ebe6-0df9-4bba-a49e-bc956e15ca29
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Accounting Unit Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SOP Company Code'
+		dataType: string
+		lineageTag: 3ed647d6-3d7c-4b89-b15a-d7bacfc0242e
+		sourceLineageTag: 1963310f-3cb1-468d-a1fe-e216a420fec2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SOP Company Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Division Ind'
+		dataType: string
+		lineageTag: f7d6dacc-d1dd-4a13-8d8d-04bb81dd2cad
+		sourceLineageTag: ba20f313-c156-4d96-ab28-6ab35f411e77
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Division Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Status Code'
+		dataType: string
+		lineageTag: 6070b536-7ba9-4a5e-9ea1-88eb315535f7
+		sourceLineageTag: 9b199012-113f-4dec-ac3f-8aa78c2c8c61
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Status Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Status Ind'
+		dataType: string
+		lineageTag: ed009a99-a2b3-4739-9c03-58827d581d74
+		sourceLineageTag: a1c018c6-d22a-412f-bb4a-5353d9b1f2bb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Status Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Subfund Ind'
+		dataType: string
+		lineageTag: 5258bf94-a257-49ff-aecc-40796cc19c39
+		sourceLineageTag: 0c17acf5-9b62-488a-9522-e226fc3691c8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Subfund Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alternate Division Code'
+		dataType: string
+		lineageTag: 20cffa57-80ce-489c-981e-2b6dfb7c3ea6
+		sourceLineageTag: 22ea2386-1632-4f11-a01e-ba0012b4726d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Alternate Division Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Category Code'
+		dataType: string
+		lineageTag: 3613dd9b-4466-4b11-bb4e-d4d6b660ebbe
+		sourceLineageTag: a0a53d17-f430-43e2-a1b2-19cbfb011b7a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Asset Category Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Branch Name'
+		dataType: string
+		lineageTag: ee546024-de42-43f4-bd33-d01d8846fdd1
+		sourceLineageTag: 6fcefc22-ea90-45a0-9e3d-43d0ae09cdc9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Branch Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Division Name'
+		dataType: string
+		lineageTag: 90d9b8d9-2bdb-4c01-90e0-b638454306c7
+		sourceLineageTag: 00e959f9-963c-492a-bc96-4ab6e198b15e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sub Division Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Division Level 1 Name'
+		dataType: string
+		lineageTag: a65425ca-419d-48d9-96dc-0f46d53a551d
+		sourceLineageTag: 0be60a0b-8de1-45e1-9f62-7df938fe43d9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sub Division Level 1 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Division Level 2 Name'
+		dataType: string
+		lineageTag: 874c8eb2-a445-4430-8373-b14979cf2717
+		sourceLineageTag: 08e98bd1-cd0a-4021-88b2-c204e139d7f4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sub Division Level 2 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bus Unit Name'
+		dataType: string
+		lineageTag: 87e77c34-8709-45e3-a986-f02b6b030a1f
+		sourceLineageTag: fe14b078-ce9b-4de9-8358-14ee19b0c251
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bus Unit Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bus Unit Level 1 Name'
+		dataType: string
+		lineageTag: 2b67c415-046b-4bef-90e3-c3d1b6583f0a
+		sourceLineageTag: fa7a3ac8-f1be-4635-9ef8-8fbf9d451ac6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bus Unit Level 1 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bus Unit Level 2 Name'
+		dataType: string
+		lineageTag: 9c832113-edad-4d8f-ac2a-3a0cf0dfbde5
+		sourceLineageTag: a35b0d66-fe08-4a8e-9325-0c53a853e7a4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bus Unit Level 2 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bus Unit Level 3 Name'
+		dataType: string
+		lineageTag: 6fe035c8-4df9-41d8-a497-ff4536bbdacd
+		sourceLineageTag: 2d6819c3-b3c0-43e8-a1b0-f8525e7c2d9f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bus Unit Level 3 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bus Unit Level 4 Name'
+		dataType: string
+		lineageTag: d7d26d14-e16b-4570-9e6d-378360b1681b
+		sourceLineageTag: 74b8419b-6812-4d7c-9dfd-b6170703b0a2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bus Unit Level 4 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Calm Segment Name'
+		dataType: string
+		lineageTag: 7800d646-02cc-44ac-a553-038af016ba7f
+		sourceLineageTag: 537f25dc-4d68-4484-bc9e-a2be5e248fa0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Calm Segment Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Surplus Ind'
+		dataType: string
+		lineageTag: 0d961b72-0fab-420a-97ff-2ca4c238066a
+		sourceLineageTag: 98d02934-a54c-4405-b9bf-7f615f4f1f98
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Product Surplus Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Division Code'
+		dataType: string
+		lineageTag: 26741f2f-36f1-49d8-bf98-6421152498b6
+		sourceLineageTag: d67d4967-8374-45cb-9a3b-dcd57a06bdc4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Division Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lgl Ent Short Name'
+		dataType: string
+		lineageTag: bcfc8f83-d197-4cb8-a502-09ce531c6180
+		sourceLineageTag: 5dd79ec9-c1b4-47a5-a5c9-bc9631efad88
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Lgl Ent Short Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fund Num'
+		dataType: string
+		lineageTag: 12dfdb0b-1960-43f0-9408-a70db5285459
+		sourceLineageTag: 9bab1a37-72c8-4a42-80f5-319dc8a22c2c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Fund Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fund Name'
+		dataType: string
+		lineageTag: 7ae7fdb0-fcb6-4162-b86c-effa5eb07e80
+		sourceLineageTag: ed995b2a-cb50-4026-a001-3fe77cd063e3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Fund Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fund Mgr Name'
+		dataType: string
+		lineageTag: 84e8bddd-dc9f-4860-a140-d3a87cc3eb24
+		sourceLineageTag: e4aead82-959b-4179-b0f6-b4ed89938cdd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Fund Mgr Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alt Fund Mgr Name'
+		dataType: string
+		lineageTag: 9c02686d-6bb8-4cf1-9358-d3e3961f6bf9
+		sourceLineageTag: d15efc61-60e0-4697-9cc8-ebb8a81b9942
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Alt Fund Mgr Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fund Type Code'
+		dataType: string
+		lineageTag: 46477bd3-6e6c-4dad-967c-e3ddaeab93db
+		sourceLineageTag: 6677591e-4eca-431d-83c7-6a2f1bb5e7f2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Fund Type Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Guarcat Type Code'
+		dataType: string
+		lineageTag: 534a10e8-73f8-4c63-81c6-b2545b9fea60
+		sourceLineageTag: aca2e0ba-f52a-475b-932d-0c6f387ee251
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Guarcat Type Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Jurisdiction Name'
+		dataType: string
+		lineageTag: e41f3284-890b-459f-8025-e3461e0c3609
+		sourceLineageTag: de495950-9238-4ed3-9af6-699010f9fb0c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Jurisdiction Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Jurisdiction 1 Name'
+		dataType: string
+		lineageTag: 4c2d5d17-c954-4c2f-88c7-a3129b47dd96
+		sourceLineageTag: e17398fc-df00-4d99-8f4e-9f8bda56cf11
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Jurisdiction 1 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Line Of Bus Code'
+		dataType: string
+		lineageTag: 6ca59ade-4722-4c0d-b709-6298f7674ea7
+		sourceLineageTag: 454d3091-f15e-47c3-96fe-dbe715a17769
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Line Of Bus Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Naic Line Of Bus Name'
+		dataType: string
+		lineageTag: 13b170f7-7554-4533-bc86-06ec9977414b
+		sourceLineageTag: 30ceb251-098f-41ae-b530-8dfb91837287
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Naic Line Of Bus Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Naic Line Of Bus 1 Name'
+		dataType: string
+		lineageTag: b74183c3-83c0-47a4-991b-16e2d0e38ae4
+		sourceLineageTag: 28260c59-518c-4184-bf35-7627f5354745
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Naic Line Of Bus 1 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operating Line Of Bus Name'
+		dataType: string
+		lineageTag: b68475a1-1d1b-4e0a-ac2c-587f2282f86c
+		sourceLineageTag: 226eb412-bb9f-4f03-8674-86f27631dc46
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Operating Line Of Bus Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operating Line Of Bus 1 Name'
+		dataType: string
+		lineageTag: f2cdac8d-25b0-42a8-82c5-efd4c418e646
+		sourceLineageTag: 13d4eda2-be91-4f5c-8673-75a1a6e16e1d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Operating Line Of Bus 1 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operating Line Of Bus 2 Name'
+		dataType: string
+		lineageTag: f1c50576-9de7-40e2-bdd7-ea42cd29daa8
+		sourceLineageTag: c5d30f7b-342a-4975-a04b-d2b062efeade
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Operating Line Of Bus 2 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Osfi Line Of Bus Name'
+		dataType: string
+		lineageTag: 51bdf386-b09b-42ea-8fcf-e59ec8f39420
+		sourceLineageTag: 1fe6d7d1-f517-4bda-aa88-3fe91a9b1386
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Osfi Line Of Bus Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Osfi Territory Name'
+		dataType: string
+		lineageTag: 3779762c-9f52-4850-a56a-0d2b587dbf43
+		sourceLineageTag: df6797e6-8534-4b7a-888f-8c8e0e5ccdd4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Osfi Territory Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Segment Participation Ind'
+		dataType: string
+		lineageTag: 82c92acd-8abf-4a7c-a0af-ca4603734eec
+		sourceLineageTag: 40f5c6e4-6fa3-488e-a6f5-0a8506dfa478
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Segment Participation Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Participating Hierarchy Name'
+		dataType: string
+		lineageTag: 887beb25-0c5c-4be1-a1e4-7ee14ebccbf4
+		sourceLineageTag: 26520a82-ba43-47e1-b43b-e98fa4b3b67e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Participating Hierarchy Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Participating Hierarchy 1 Name'
+		dataType: string
+		lineageTag: 0bf45106-7616-46ae-a997-3774946b471b
+		sourceLineageTag: cabc5447-d1ab-49b1-9a97-a3333c6f9a7c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Participating Hierarchy 1 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Insurance Product Name'
+		dataType: string
+		lineageTag: c832843b-ff5a-44f0-b4ef-582165a03ea5
+		sourceLineageTag: e6b7140a-d47d-410e-a9af-0c28ea340ff2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Insurance Product Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Insurance Product 1 Name'
+		dataType: string
+		lineageTag: 68d530b9-c063-4a25-af70-a26def9b969a
+		sourceLineageTag: 1b7beeb8-79ea-4236-ab56-44817a2961bb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Insurance Product 1 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Insurance Product 2 Name'
+		dataType: string
+		lineageTag: 8ff8a11d-3173-47b9-a279-ad4fe38926f8
+		sourceLineageTag: 65351db2-7528-4122-85b1-54dfa68a09b3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Insurance Product 2 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Insurance Product 3 Name'
+		dataType: string
+		lineageTag: 33c5b963-985c-4217-b079-70e9f7aed10c
+		sourceLineageTag: 59ecd196-4a03-44fe-9a8a-2e70267d20a0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Insurance Product 3 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Insurance Product 4 Name'
+		dataType: string
+		lineageTag: d0c4bbce-96a5-440b-a8ba-80d2dd630fdf
+		sourceLineageTag: 4f21fafd-0f51-48a0-ba3b-10df859aa37f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Insurance Product 4 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Rpt Division Code'
+		dataType: string
+		lineageTag: f755ed7d-bd9d-4bec-bf4e-25ec11aa67b9
+		sourceLineageTag: c20399d7-a2d5-4b8e-b517-42595ba281f8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Rpt Division Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Segment Name'
+		dataType: string
+		lineageTag: 004ff164-d849-46fe-9f47-a7404a7bf5e4
+		sourceLineageTag: a17a82dd-3b15-4cd5-affe-08cc5e6873b0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Segment Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Segment 1 Name'
+		dataType: string
+		lineageTag: 842162e0-ae75-4723-a295-c4e37ad0591d
+		sourceLineageTag: 0028eae9-a0f8-43fa-a348-53b6c4014ff6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Segment 1 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Segment 2 Name'
+		dataType: string
+		lineageTag: b4d5513d-bba1-4336-ac5d-aed380683216
+		sourceLineageTag: 5262fcc5-dd94-4e17-b2a9-51de1590ab56
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Segment 2 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Segment 3 Name'
+		dataType: string
+		lineageTag: 4c4e6a70-eaf4-4411-b184-55c90b526bf8
+		sourceLineageTag: a12ab976-95e3-4509-819a-ee16d4d54f75
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Segment 3 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Segment 4 Name'
+		dataType: string
+		lineageTag: aa7b8d9a-d6a7-49c5-b496-87cec8133404
+		sourceLineageTag: 329e8661-da8f-4096-8d75-edcf7202c38d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Segment 4 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Segment 5 Name'
+		dataType: string
+		lineageTag: 6affd474-2fe0-4b78-9fe2-e95078948050
+		sourceLineageTag: 6cfed1b3-7914-454b-9fbb-d01adec859dc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Segment 5 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Segment 6 Name'
+		dataType: string
+		lineageTag: 0dd99e01-02de-4f62-9dbc-55ed0b2eb4bf
+		sourceLineageTag: 24828eab-fea9-4b96-8e77-c9d10ee3df9e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Segment 6 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Separate Acct 1 Name'
+		dataType: string
+		lineageTag: 4af0e87a-3543-4ef5-bb40-685b07fb88c7
+		sourceLineageTag: c47de81b-1710-4d14-bc5e-2438a1ae2c43
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Separate Acct 1 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Separate Acct Name'
+		dataType: string
+		lineageTag: 2cdbd5df-8c6b-4c10-bfcd-d067abdc1d39
+		sourceLineageTag: f775c4c3-6f3a-4555-a3e0-02b9cecddfaa
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Separate Acct Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Summary Lgl Ent Name'
+		dataType: string
+		lineageTag: 3c23b717-4cd1-4a74-babe-054213a914a6
+		sourceLineageTag: 0af82ce9-382a-4976-a068-68fca8ae599f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Summary Lgl Ent Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Summary Lgl 1 Ent Name'
+		dataType: string
+		lineageTag: 052b9b29-d676-45c0-8d18-78dfef79a21c
+		sourceLineageTag: 601a59a8-ab02-41b8-9939-e5d0c8eedbf7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Summary Lgl 1 Ent Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Summary Lgl 2 Ent Name'
+		dataType: string
+		lineageTag: a77c146a-b356-44c3-ac28-05457e2254a6
+		sourceLineageTag: b92eec14-a79e-4f13-b38b-d39a808bef77
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Summary Lgl 2 Ent Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Summary Lgl 3 Ent Name'
+		dataType: string
+		lineageTag: b5595aaf-d782-4101-a250-efd8789772ed
+		sourceLineageTag: ab2d2773-3ef3-44b6-a796-74702211e208
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Summary Lgl 3 Ent Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Summary Lgl 4 Ent Name'
+		dataType: string
+		lineageTag: c0b22cd7-96a6-40e1-8af9-ddc976e82d87
+		sourceLineageTag: 879b21a8-a602-42a3-a829-3b6263f3c85f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Summary Lgl 4 Ent Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Summary Lgl 5 Ent Name'
+		dataType: string
+		lineageTag: 3f616534-bcb1-4587-829e-c709012daac9
+		sourceLineageTag: 972f3083-0000-4981-b9e7-5ef34c247eb2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Summary Lgl 5 Ent Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Summary Lgl 6 Ent Name'
+		dataType: string
+		lineageTag: 14274ae3-05fa-4a1a-85e3-64a574e23152
+		sourceLineageTag: 061da285-4556-4fc0-bcfc-625413b030c1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Summary Lgl 6 Ent Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Summary Lgl 7 Ent Name'
+		dataType: string
+		lineageTag: 6ec7fd65-6ed2-4b95-9f67-a1d3541001f8
+		sourceLineageTag: b56461ed-431d-499a-9bd0-01a8860dcc60
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Summary Lgl 7 Ent Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Summary Lgl 8 Ent Name'
+		dataType: string
+		lineageTag: fb219076-9dfe-47f8-8ec0-e2527a439aa9
+		sourceLineageTag: 5b7165b1-635f-4c83-8429-73a012fbe086
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Summary Lgl 8 Ent Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Summary Lgl 9 Ent Name'
+		dataType: string
+		lineageTag: 7e9310d1-3fd8-48b9-9646-4bfdd1605c0b
+		sourceLineageTag: 72d0d1ad-eb16-4651-aacc-258378f032b2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Summary Lgl 9 Ent Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Territory Code'
+		dataType: string
+		lineageTag: a20e7724-8f5c-4d7d-b224-2f10570d741a
+		sourceLineageTag: 1755078c-5815-42a2-b2de-2522debf0a1e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Territory Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trust Name'
+		dataType: string
+		lineageTag: 51bcdfa6-e07e-4334-b99a-01de8b0f61e5
+		sourceLineageTag: 6711ffa0-b04e-4e90-a583-baee80fe8036
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Trust Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trust 1 Name'
+		dataType: string
+		lineageTag: 6b745999-6939-4c08-9cc8-95fe7cd44c33
+		sourceLineageTag: f0914887-dc0f-403c-8951-a3ea64dc4816
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Trust 1 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bus Type Name'
+		dataType: string
+		lineageTag: e57a34eb-680a-4caf-ac56-2ce15c2aa798
+		sourceLineageTag: 960cac55-80f1-4416-825d-865262f7713d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bus Type Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bus Type 1 Name'
+		dataType: string
+		lineageTag: ec869575-d02b-46ae-83cb-ac2404d636b4
+		sourceLineageTag: 9bfee96a-775d-44ce-bd06-df8bce146bb1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bus Type 1 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Share Class Name'
+		dataType: string
+		lineageTag: 1652e720-cc2b-4832-9e3c-1fbe7aa285d1
+		sourceLineageTag: 8ea63e28-4f3f-49ee-8711-6782f629b3e8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Share Class Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Share Class Code'
+		dataType: string
+		lineageTag: 2094de93-373b-420d-a0c1-98ecb60f4a43
+		sourceLineageTag: 98850de4-45bf-4e3a-900a-708c3019686c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Share Class Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Zone Accounting Unit Name'
+		dataType: string
+		lineageTag: 856300ef-861e-4261-a7d8-27c58cb4153e
+		sourceLineageTag: 76122e50-da88-4f15-8eac-27efe45ce374
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Zone Accounting Unit Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Bu Lev1 Division Name'
+		dataType: string
+		lineageTag: 6fe788e8-213e-4880-b0a8-69fed365347e
+		sourceLineageTag: 69d34d83-47ff-4f37-9c51-196de1806030
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Base Bu Lev1 Division Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Bu Lev2 Mgmt View Name'
+		dataType: string
+		lineageTag: 72bb83e7-9f91-4f27-a02b-20173a5f0788
+		sourceLineageTag: 0aa16d03-685d-4144-bbf3-32e6a4adb8f5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Base Bu Lev2 Mgmt View Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Bu Lev3 Summary Bu Name'
+		dataType: string
+		lineageTag: 7c70ccae-aa5c-4cd3-93e5-00df168992c5
+		sourceLineageTag: 1f1e8f5f-e40d-4bf2-8f09-f96859ef6f29
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Base Bu Lev3 Summary Bu Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Bu Lev4 Bu Name'
+		dataType: string
+		lineageTag: a55f4e8a-1c9a-4a50-a298-e29cb512669d
+		sourceLineageTag: 2d843bcd-8af1-4513-8813-7ca4e5def47c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Base Bu Lev4 Bu Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Bu Lev5 Sub Bu Name'
+		dataType: string
+		lineageTag: aa8aa579-e607-4a1e-bb9b-f900a25ce9ed
+		sourceLineageTag: 8ec2ab30-7032-473a-a7dd-a57063ff2977
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Base Bu Lev5 Sub Bu Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Bu Lev6 Name'
+		dataType: string
+		lineageTag: 0ea8d9e9-0920-48ea-9105-b1c871651fa6
+		sourceLineageTag: 89e1163a-1a07-429e-ac3c-495d02efc67f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Base Bu Lev6 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Bu Lev7 Name'
+		dataType: string
+		lineageTag: b45079f1-c31a-4472-ac5d-df6643a31019
+		sourceLineageTag: 5dc96a20-b92e-4ec1-9a3e-da33a905a91b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Base Bu Lev7 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Bu Lev8 Name'
+		dataType: string
+		lineageTag: c237ee6c-9fb0-4dab-89df-da6996e2df36
+		sourceLineageTag: 06c9d9e4-baea-4674-9846-54077c0a869f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Base Bu Lev8 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Rpt Territory Code'
+		dataType: string
+		lineageTag: cfc075e4-a865-4cd2-ae87-725296a3fd69
+		sourceLineageTag: 573a88ca-48bf-495e-a9f9-706bc32657a6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Rpt Territory Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ins Contract Port 1 Name'
+		dataType: string
+		lineageTag: 80f83006-e047-45d0-b979-20ea8777a42d
+		sourceLineageTag: ba8840e1-e880-42ea-b342-181f1568d2e4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ins Contract Port 1 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ins Contract Port 2 Name'
+		dataType: string
+		lineageTag: 33515162-8995-4fd6-b544-e12e239d6513
+		sourceLineageTag: 615fe850-1014-4fd8-b849-58115b094f52
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ins Contract Port 2 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ins Contract Port 3 Name'
+		dataType: string
+		lineageTag: facd3e54-c1d4-43de-825f-f97eb83a6031
+		sourceLineageTag: 4e860edc-27f2-4d0f-8898-8658f8e88918
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ins Contract Port 3 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Measurement Method Name'
+		dataType: string
+		lineageTag: 9df0511f-c3b9-473a-8472-318f7b0983af
+		sourceLineageTag: 8398710f-3399-4ae6-a026-97784942cb40
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Measurement Method Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Solo Enterprise Name'
+		dataType: string
+		lineageTag: 15d2601d-1440-465b-8c3c-b41ba84d216a
+		sourceLineageTag: 199d94fe-08ce-4f6d-9bec-3c7d1e97903b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Solo Enterprise Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Desk Lvl 1 Name'
+		dataType: string
+		lineageTag: e8da541d-7ca8-4887-8dc6-2d3f1233c8db
+		sourceLineageTag: 4757be81-2e76-4ca7-b9c1-dabb72e4f679
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Desk Lvl 1 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Desk Lvl 2 Name'
+		dataType: string
+		lineageTag: a61d8c54-6cc7-4ae2-8df7-acc28ee40ab2
+		sourceLineageTag: 3d669e51-8c6b-40ef-a445-b4d9c08b5127
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Desk Lvl 2 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Desk Lvl 3 Name'
+		dataType: string
+		lineageTag: 9927676b-e5de-4bfc-993e-f542459dd389
+		sourceLineageTag: 8846baa8-9f4c-4894-891a-ab02b9235886
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Desk Lvl 3 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Desk Lvl 4 Name'
+		dataType: string
+		lineageTag: b30c0e9d-5441-433a-9831-87243b9e37a5
+		sourceLineageTag: f52fb8fd-a31f-4d6e-ab53-7fe57ef10821
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Desk Lvl 4 Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Acc Unit Disp'
+		dataType: string
+		lineageTag: ed3a3a13-65f1-43b1-9aa8-f969b591e59d
+		sourceLineageTag: 6eb84956-c87e-4387-b144-9af0427f4f96
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Company Acc Unit Disp
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Legal Entity'
+		dataType: string
+		lineageTag: 2bd28f12-3f8f-4232-b6a9-7c8fc338a458
+		sourceLineageTag: 0639d7d4-debe-458c-911f-9006043f0aba
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Legal Entity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Unit Code & Name Display'
+		dataType: string
+		lineageTag: df8bb516-df91-49d4-bf8b-b2043330e3ff
+		sourceLineageTag: 3cb183be-9f2d-4604-956e-7d2a746e38ba
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Accounting Unit Code & Name Display
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Acc Unit Display'
+		dataType: string
+		lineageTag: 4523c56e-1945-4b34-bcac-c652c764affe
+		sourceLineageTag: 66be2c1d-a661-4abc-ba9a-43977f2966fc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Company Acc Unit Display
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IFRS17 Par Name'
+		dataType: string
+		lineageTag: bbaf8e2f-99f2-4ee7-93ec-17d3ada61ba3
+		sourceLineageTag: 264dec3f-2242-4399-8100-2a5754d77542
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: IFRS17 Par Name
+
+		annotation SummarizationSetBy = User
+
+	column 'IFRS17 Par 1 Name'
+		dataType: string
+		lineageTag: be71eb19-5fc9-437f-8581-5b821ec16a97
+		sourceLineageTag: 5c912411-7d28-4d76-8f9a-7c5c779666d5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: IFRS17 Par 1 Name
+
+		annotation SummarizationSetBy = User
+
+	column 'TAM Segment Name'
+		dataType: string
+		lineageTag: 48dd7070-d489-44fa-b7da-ae7febb03818
+		sourceLineageTag: 610e362f-b956-4a7d-8018-30e70f30b1aa
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TAM Segment Name
+
+		annotation SummarizationSetBy = User
+
+	partition 'Accounting Unit-f788ff39-4c2b-48a1-b3a7-296de92ebf38' = entity
+		mode: directQuery
+		source
+			entityName: Accounting Unit
+			expressionSource: 'DirectQuery to AS - Securities'
+

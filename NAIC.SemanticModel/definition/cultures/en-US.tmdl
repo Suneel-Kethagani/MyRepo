@@ -1,0 +1,104 @@
+cultureInfo en-US
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "securities_position_fact.portfolio_code_extract": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Securities Position Fact",
+			          "ConceptualProperty": "Portfolio Code Extract"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Portfolio Code": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "accounting_unit.subfund_id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Accounting Unit",
+			          "ConceptualProperty": "Subfund ID"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Subfund ID": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "schedule_d_description.subclass_desc": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Schedule D Description",
+			          "ConceptualProperty": "SUBCLASS DESC"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "securities_position_fact.primary_id_final_derived": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Securities Position Fact",
+			          "ConceptualProperty": "Primary ID_Final_Derived"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Primary Security ID": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "securities.column144a_flag_derived": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Securities",
+			          "ConceptualProperty": "144A Flag_Derived"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "144A Flag": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+

@@ -1,0 +1,581 @@
+table 'Securities Tax Lot Deferred Pl Fact'
+	lineageTag: 486f525f-4292-4df1-958f-54a3c3ba10b0
+	sourceLineageTag: f18078bf-69e4-4e17-9c68-fbc349d6f5b1
+
+	measure 'Security Tax Lots Deferred PL Title' = EXTERNALMEASURE("Security Tax Lots Deferred PL Title", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 819f3a9c-6025-476f-8f33-039269c78a4b
+		sourceLineageTag: 0003fd9a-8531-48be-a11d-b2e34b25a59e
+		dataCategory: Uncategorized
+
+	measure 'Balance Deferred PL - Local CCY' = EXTERNALMEASURE("Balance Deferred PL - Local CCY", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 390401b7-9b2d-42ae-9b81-adac441d5ddf
+		sourceLineageTag: cb7bc359-7fa2-4bb2-85d3-f34388717888
+		dataCategory: Uncategorized
+
+	measure 'Balance Deferred PL - Rep CCY' = EXTERNALMEASURE("Balance Deferred PL - Rep CCY", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: aa259ab1-8844-4f7d-9e53-d5a1c67f6b90
+		sourceLineageTag: 0030f19a-2753-4e65-8599-cc5a94505708
+		dataCategory: Uncategorized
+
+	measure 'P Or L Book Ccy Local' = EXTERNALMEASURE("P Or L Book Ccy Local", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 1607b5e9-62a7-4652-b3b4-b7b8b2431b3b
+		sourceLineageTag: d98f5aab-f803-4fdd-9822-7720780d580c
+		dataCategory: Uncategorized
+
+	measure 'P Or L Book Sec Base Ccy' = EXTERNALMEASURE("P Or L Book Sec Base Ccy", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 681755ae-5667-457a-b1b0-6ad781f93985
+		sourceLineageTag: f0c15c89-1d84-4fed-baeb-303b0801554a
+		dataCategory: Uncategorized
+
+	column 'Framework Code'
+		dataType: string
+		lineageTag: bb94c386-b02c-4372-9c97-842330c11c41
+		sourceLineageTag: 7dcf4dcf-703b-490c-8d4f-6b6d5a25e0d2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Framework Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As Of Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: fbfa87b2-5baa-4e6f-a5ce-5947ef0c98c2
+		sourceLineageTag: f1420e65-a7b8-4245-b16d-4ccbb178d715
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: As Of Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Security Nk'
+		dataType: string
+		lineageTag: 771579e9-0173-4767-8c3c-213094584627
+		sourceLineageTag: 5158ac6f-43a1-49d1-a56e-b2bfb5243fee
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Security Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Nk'
+		dataType: string
+		lineageTag: 1604886e-7c2d-4955-aeb9-9c5ec75ab6ad
+		sourceLineageTag: 09c77b45-5ac3-4ad3-b339-05a4f4f6a81f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Unit Code Name'
+		dataType: string
+		lineageTag: 80a2beff-7145-413f-a6de-830b01a16041
+		sourceLineageTag: ad3e072a-f399-4dd6-b95b-d09af515b296
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Accounting Unit Code Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Code Name'
+		dataType: string
+		lineageTag: 28c8416c-1872-400d-9cc2-b789ca72e40f
+		sourceLineageTag: 0827b2d6-36f8-4e31-8098-787bb8c51fc9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Company Code Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Gl Class'
+		dataType: string
+		lineageTag: bdea9961-772c-4019-8f86-04d28ff5d73d
+		sourceLineageTag: 16e54941-44c5-4a32-bfdb-cfdccdf43b13
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Gl Class
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Functional Code CCY'
+		dataType: string
+		lineageTag: b9957370-ea7e-42b0-b483-57a7f80e4919
+		sourceLineageTag: fc6e64a1-f130-4370-98a7-c5a2713ca85a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Functional Code CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local To Func Rate'
+		dataType: double
+		lineageTag: 3d3f3c3a-ae5d-4c5e-90d0-efc6e251642a
+		sourceLineageTag: 1d06627d-9863-46a5-8af1-e3f5ca208fdb
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Local To Func Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local To Cad Rate'
+		dataType: double
+		formatString: 0.000000
+		lineageTag: a645b3db-2bc6-4ef2-b180-a7cd072ded5a
+		sourceLineageTag: b29ca22d-50c8-4cdd-a4f0-e33e9e730c4c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Local To Cad Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local To Usd Rate'
+		dataType: double
+		lineageTag: 84f865df-70e3-48c3-94a5-21e20f75cbd7
+		sourceLineageTag: d2c5c65a-f0ec-4771-9f2c-b55b745a5a34
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Local To Usd Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local To Hkd Rate'
+		dataType: double
+		lineageTag: 07843e95-6030-49bd-8349-b7cf6cde4f1a
+		sourceLineageTag: 63dec21f-f74d-4c54-b2a4-066514082455
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Local To Hkd Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Framework'
+		dataType: string
+		lineageTag: 1aea9979-1cc8-498a-9cae-57b60c9d41bf
+		sourceLineageTag: 83854851-f7a0-46bb-9276-dd792f21024c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Accounting Framework
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Portfolio Code'
+		dataType: string
+		lineageTag: 6f522c9d-fa60-47dc-86d5-c4e776957cb6
+		sourceLineageTag: 04badbf3-1fc7-4281-85f3-834c502095a6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Asset Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Subfund Id'
+		dataType: string
+		lineageTag: d8351579-2e19-48ab-9c86-4b189be4d88e
+		sourceLineageTag: 6c5f1b3b-32db-447b-9533-0a9eb82f0cad
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Subfund Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Subfund Name'
+		dataType: string
+		lineageTag: 4dd5019a-4ed1-41b6-987c-622611a41d84
+		sourceLineageTag: e0fdc861-70ac-45d8-9605-d5f5a03ab9ae
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Subfund Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local Currancy Code'
+		dataType: string
+		lineageTag: 083ef147-9999-4fbf-afae-53a96253cddf
+		sourceLineageTag: 87ba5829-c5e1-4c46-b52e-67ac6bf7da8a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Local Currancy Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SCD Security Id'
+		dataType: string
+		lineageTag: 97ab181e-b25b-44a6-b298-e3b10fc91a68
+		sourceLineageTag: 1702bfec-df64-4ad8-9396-4e79d0c0e87e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SCD Security Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SCD Security Name'
+		dataType: string
+		lineageTag: 1d9197b4-613f-40e9-9a5e-ddbae46a22b2
+		sourceLineageTag: 2f6144bf-5daa-4ab5-95ca-97b587dbeba1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SCD Security Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Group Code'
+		dataType: string
+		lineageTag: 997d38e4-f0ac-4ca0-aabd-1bd080d0a3d4
+		sourceLineageTag: 35606612-8e97-4d4e-8e96-4e756b2d8514
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Group Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SRC Security Id'
+		dataType: string
+		lineageTag: 43a5512d-ebd7-4f45-b3f2-c7b2cae8c7ac
+		sourceLineageTag: e1897620-f4e4-41cd-9f7f-50210e1ff9ec
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SRC Security Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SRC Security'
+		dataType: string
+		lineageTag: ed10fe17-3afc-4453-8469-4ee8cdd359ed
+		sourceLineageTag: 4a45147d-08e0-4b8c-b875-7f98ac6687bf
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SRC Security
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SRC Market Id'
+		dataType: string
+		lineageTag: 3352b600-b725-4e6f-85c7-f2e7c30ad5ea
+		sourceLineageTag: 75dbb0b0-ffb7-44c9-9616-d540a40afe25
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SRC Market Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Component No'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8160b4ff-b6a0-448b-9d3c-d2e4a4b70c8b
+		sourceLineageTag: 6e9266fe-4bba-4621-a23b-e2527af5c1be
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Component No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction No Linked To'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6d82fb57-09f3-4122-9d7e-ad143864b575
+		sourceLineageTag: e1191087-4c9f-4adc-8b0b-eea512ecb5cf
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Transaction No Linked To
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DGL Inception Trans No'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5f169bae-cb0d-47a8-b063-9ac920791e4d
+		sourceLineageTag: cba87f61-c838-441a-81a8-54c5ec6cadb8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: DGL Inception Trans No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Code'
+		dataType: string
+		lineageTag: ce8b6548-3f19-4550-a0b4-12d86191f429
+		sourceLineageTag: 4e5de701-bc86-4f6e-8639-9f29297a73ab
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Transaction Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction Code Linked To'
+		dataType: string
+		lineageTag: 9897f0c0-1055-4827-a84f-5ea0ecaa96df
+		sourceLineageTag: b40f36b2-3000-4928-bfd8-e86b19c2ed21
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Transaction Code Linked To
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Elementory Trans Code'
+		dataType: string
+		lineageTag: 77f91f07-c2d0-4172-865a-256a42da4f54
+		sourceLineageTag: 019ede1e-d0f1-4f43-b5dd-d7f86d2304d6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Elementory Trans Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Elementory Trans Code Linked To'
+		dataType: string
+		lineageTag: 926f9dae-5288-44e9-a9c0-427280166489
+		sourceLineageTag: 0f6e75f6-0e10-4022-9b10-60279e8644ca
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Elementory Trans Code Linked To
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DGL Inception Business Transaction No'
+		dataType: double
+		formatString: 0
+		lineageTag: 22ebdbf7-2ee0-49e1-b35e-4eba28750895
+		sourceLineageTag: fe80b93e-42f3-44be-b095-e0128d207746
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: DGL Inception Business Transaction No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SRC Postion Id'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e696ba4-7663-425a-acbf-ce0831952f82
+		sourceLineageTag: 184f0db4-a71c-4410-9648-20c2cfe17d0f
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: SRC Postion Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Match Index'
+		dataType: int64
+		formatString: 0
+		lineageTag: 06b600d2-2177-47c7-985e-f6aa20f0bb6e
+		sourceLineageTag: f8841301-3a9e-481d-ad4f-6576d1272e55
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Match Index
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Originating System No'
+		dataType: int64
+		formatString: 0
+		lineageTag: 13fddd33-d0a6-48a4-982f-8c79241dd695
+		sourceLineageTag: 2e977e58-905b-4e52-b0a7-29d13e43ff51
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Originating System No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Calculation Ik'
+		dataType: int64
+		formatString: 0
+		lineageTag: c371f53c-2d61-4808-842c-9b6053a85c8d
+		sourceLineageTag: c5828a52-fafe-4e40-a8b3-e0aed95716fb
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Portfolio Calculation Ik
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lot Id'
+		dataType: string
+		lineageTag: 85e196b9-e577-4afa-9af2-a406672b4d99
+		sourceLineageTag: d2059532-4672-4223-b5b6-c32dfecc973a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Lot Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column SRC
+		dataType: string
+		lineageTag: 44c7e5e3-68bb-49a2-aaae-7c325099ecff
+		sourceLineageTag: 6a652a72-4ca9-415d-8be4-8548e8d9a76a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SRC
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Deferred Pl Base'
+		dataType: double
+		lineageTag: cc6b72a0-6679-4bac-b7df-2578b5fd45f2
+		sourceLineageTag: 86188fa6-859e-4345-80ec-8a53ba5d3245
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Deferred Pl Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Deferred Pl Local'
+		dataType: double
+		lineageTag: de578c9a-3361-49cb-96cc-3322b4063933
+		sourceLineageTag: 3f2afd74-2c9c-4874-9584-1268f6765f4d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Deferred Pl Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Framework Ik'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3e7bf2a0-e126-49be-aa34-60f39806ba74
+		sourceLineageTag: 453229f5-903b-4705-ae18-37407269714e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Accounting Framework Ik
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction No'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6446d9fa-e204-41d3-bdd0-4752604a4ebb
+		sourceLineageTag: f3c9d66b-0067-4e28-ad06-3ac8562bf7a3
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Transaction No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction No In Origination System'
+		dataType: double
+		lineageTag: 99905219-ace8-4ec5-8a3e-8132808263f8
+		sourceLineageTag: d8cd9fa7-b748-4e26-b677-da3e1ad38020
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Transaction No In Origination System
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ws Orig Buy Txn Id'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2109ebc7-45ec-40ce-8ce4-6256847ae012
+		sourceLineageTag: a9e2bad1-8b4d-4064-b3c6-3c6aa64db295
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: Ws Orig Buy Txn Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ws Sales Txn Id'
+		dataType: double
+		lineageTag: c76a2c3a-ce62-4a69-b6ba-e287316185bc
+		sourceLineageTag: ea693432-2fe2-4a13-ba58-0d2da04da1e5
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: Ws Sales Txn Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As Of Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: f82c3b23-1b14-4d71-8bb8-7ff0149ee5fc
+		sourceLineageTag: 602d3d8b-cf5f-4a02-b820-da5580302f16
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: As Of Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'From Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: c3a9e973-ab26-4e30-a3db-13b0bedae439
+		sourceLineageTag: cbe235fc-c2c1-4164-829c-4c1cf3b54f28
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: From Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DGL Direction'
+		dataType: string
+		lineageTag: 4ebf56f8-49a4-43db-998e-7b86a4bc3a9d
+		sourceLineageTag: 0acda4e2-aa10-4d5f-8610-fb9744dc1545
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DGL Direction
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Original Transaction No'
+		dataType: string
+		lineageTag: 3422baf7-4df5-490e-89f7-ada774dc3012
+		sourceLineageTag: 412cc5d4-873c-4f2f-8e75-7041289e6e57
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Original Transaction No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Original Tax Lot Trans No'
+		dataType: string
+		lineageTag: 572c9533-7cfe-44c6-a1f8-834f9de00cb5
+		sourceLineageTag: 2c1293e1-735f-4484-823e-8afe4f0823fe
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Original Tax Lot Trans No
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nominal
+		dataType: double
+		lineageTag: 8f5b2277-d840-49ae-963e-06a674a6e2e0
+		sourceLineageTag: 58c11bd0-6902-44d5-8e82-8f1aef607247
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Nominal
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Effective Matching Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: f561e2f6-9bf8-46ee-a20c-acb94b3e9822
+		sourceLineageTag: c09faede-a147-456c-891f-09cdfc3463fe
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Effective Matching Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Deferred PL CCY Base'
+		dataType: double
+		lineageTag: 37be68d3-959b-4af0-bf1e-6df13cca7471
+		sourceLineageTag: 0843db35-bc1f-4387-ade0-8eb992e1e6ab
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Deferred PL CCY Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FX Join Key'
+		dataType: string
+		lineageTag: 36d832bc-60b5-43e8-b2a3-bf83c70f4140
+		sourceLineageTag: cec2001a-93b4-4d56-bf8c-c9e581f9ebca
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FX Join Key
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Securities Tax Lot Deferred Pl Fact-5ce7f8a3-0490-4062-bfb6-0e1130036d02' = entity
+		mode: directQuery
+		source
+			entityName: Securities Tax Lot Deferred Pl Fact
+			expressionSource: 'DirectQuery to AS - Securities'
+

@@ -1,0 +1,85 @@
+table 'Indonesian FX Rate'
+	lineageTag: c2383f65-de2b-405f-bd22-fa4c084c56bf
+	sourceLineageTag: 91fd4791-479e-40cd-a63d-f21e110af5d8
+
+	column 'From CCY'
+		dataType: string
+		lineageTag: 72929f5c-1c72-44e2-824f-780362349896
+		sourceLineageTag: f6016269-f936-4ad6-9291-44f9201a4612
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: From CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column Rate
+		dataType: double
+		formatString: 0.000000
+		lineageTag: b7fd12ec-cd22-47b8-9aad-c5b8a6c425fd
+		sourceLineageTag: dbe365ca-98d7-4149-bc5a-5df65f338bd9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Effective Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 62f52826-a655-4631-aacc-e006a99c5b96
+		sourceLineageTag: 8bea3a19-a8fe-470d-a9c9-bce0e8dc3fab
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Effective Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'USD Rate'
+		dataType: double
+		formatString: 0.000000
+		lineageTag: b7be7fe0-97df-4f26-8677-f4a43c71284f
+		sourceLineageTag: 5b785d60-9866-40eb-ab28-462cb48a1596
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: USD Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Rate Source'
+		dataType: string
+		lineageTag: ec894ebe-ff29-4d68-884a-6dbedc47be7e
+		sourceLineageTag: 237e1943-9fa4-44e6-8f3e-0ac011a50176
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Rate Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Created TS'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd hh:nn:ss AM/PM
+		lineageTag: 846d6177-4633-4b03-a573-dc3614859e1f
+		sourceLineageTag: 17ffb001-6595-4a0b-89ce-a49b3e272265
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Created TS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Updated TS'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd hh:nn:ss AM/PM
+		lineageTag: e9a5dca2-42a3-4197-a47f-e0585ceffae4
+		sourceLineageTag: a6164065-1b2a-401b-a200-31efe00e44fe
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Updated TS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Indonesian FX Rate-a0f334d2-5280-4b46-9e01-33cb171ab6bd' = entity
+		mode: directQuery
+		source
+			entityName: Indonesian FX Rate
+			expressionSource: 'DirectQuery to AS - Securities'
+

@@ -1,0 +1,265 @@
+table Company
+	lineageTag: 30977aa5-ecf8-42f5-b05a-70ba9428ea5b
+	sourceLineageTag: ece73412-8b0a-489f-9eca-a8ef396b321e
+
+	/// Count of Companies as a metric
+	measure #Company = EXTERNALMEASURE("#Company", INTEGER, "DirectQuery to AS - Securities")
+		formatString: #,0
+		lineageTag: 12520d1c-eb79-4cfa-a3b6-b117c9ee754a
+		sourceLineageTag: 0864d847-dba9-45f9-9641-65d987688433
+		dataCategory: Uncategorized
+
+	measure 'Framework Exists' = EXTERNALMEASURE("Framework Exists", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		lineageTag: 19d6f5e6-4bae-465d-9448-ffb49ffda9dd
+		sourceLineageTag: a4e27ed8-4b29-46e8-a89e-63947de95221
+		dataCategory: Uncategorized
+
+	column Company
+		dataType: string
+		isNullable: false
+		lineageTag: afcf6cab-a3b7-4803-a348-fd9ff7c51514
+		sourceLineageTag: 55446d15-a1a2-459c-be22-ebbad122c194
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Company
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Name'
+		dataType: string
+		lineageTag: e2366812-adc9-41b6-93d5-4008289aad74
+		sourceLineageTag: 1973d87b-21f5-4618-b8c3-d6dfebeaf4cc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Company Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Last Year Closed'
+		dataType: int64
+		formatString: 0
+		lineageTag: 64adf210-adaf-4dde-bc50-173dd8c15aca
+		sourceLineageTag: bf07ba57-c6bc-4dc7-925f-4a1cec087fc9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Last Year Closed
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Functional Currency Code'
+		dataType: string
+		lineageTag: 9139be3a-ec4a-4c41-a5ec-9d1d5c6404f4
+		sourceLineageTag: 70e70bc0-5a29-40ad-9508-6660164c4ff7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Functional Currency Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alternate Currency Code'
+		dataType: string
+		lineageTag: 356dd74d-6a00-4159-b005-76cfcfddf021
+		sourceLineageTag: bdca0379-04e3-409e-88b7-f46244e3771a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Alternate Currency Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column '2nd Alt Currency Code'
+		dataType: string
+		lineageTag: e43930db-f03f-4d2e-960b-6e33c311fc2b
+		sourceLineageTag: 59246200-4bcd-4c14-a785-4e97e9e98e90
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: 2nd Alt Currency Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0bb0aa96-122f-48cb-beac-e23098964f12
+		sourceLineageTag: 797da4f6-7b2e-4fe2-a0f9-2bd62ba23cd4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Period
+		dataType: int64
+		formatString: 0
+		lineageTag: 08e6d2c1-e159-488b-afa8-c073c868f8e2
+		sourceLineageTag: c790b254-df8f-4353-ab85-af5daf789a49
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fund Active Ind'
+		dataType: string
+		lineageTag: b13765c6-7758-4723-a390-8a71f609fa02
+		sourceLineageTag: b92b90b5-e7b2-4da4-8f8e-900aeeea563a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Fund Active Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Infor Basis List'
+		dataType: string
+		lineageTag: 1f9895ba-6c6b-4706-957d-9803e7124dfb
+		sourceLineageTag: 1d7efbbd-dccf-4adb-b293-23dd183b2d43
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Infor Basis List
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IFRS Ind'
+		dataType: int64
+		formatString: #,0
+		lineageTag: e5936b62-0048-4872-beb0-7251a6af7294
+		sourceLineageTag: 7725371e-5a5d-4726-b92d-619e81a7cc29
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: IFRS Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'NAIC Ind'
+		dataType: int64
+		formatString: #,0
+		lineageTag: a6afa484-f9ce-4b99-b929-4e1811606938
+		sourceLineageTag: 5efcd14b-a225-4d3c-8371-570f5c49e731
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: NAIC Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'USGAAP Ind'
+		dataType: int64
+		formatString: #,0
+		lineageTag: ffc354a9-ecc3-444f-8004-4a8b4a6ed69c
+		sourceLineageTag: 30ba25e9-68da-42c0-a76e-c62f975e001b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: USGAAP Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'USTAX Ind'
+		dataType: int64
+		formatString: #,0
+		lineageTag: 3cd110b0-6eee-43fb-a56d-01b5be07b4dd
+		sourceLineageTag: a6d8c6a2-c1c1-412b-bae3-0dfd48222736
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: USTAX Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'JGAAP Ind'
+		dataType: int64
+		formatString: #,0
+		lineageTag: 3235b6e1-7465-4d2a-be04-34a479849a20
+		sourceLineageTag: f4080a07-9e55-44ee-8182-b5af01b8d94a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: JGAAP Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IAS39 Ind'
+		dataType: int64
+		formatString: #,0
+		lineageTag: 10c4ad27-7b5f-44f9-bf21-faf339ed4e21
+		sourceLineageTag: 533b63ab-1998-46f3-bbad-93ab44c1afe0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: IAS39 Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'NAIC Basis Name'
+		dataType: string
+		lineageTag: 29ca4107-658e-4445-8bd9-187b8bce285c
+		sourceLineageTag: af6cd841-3fbe-4a8c-8db9-ec2e774ac41c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: NAIC Basis Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'USTAX Basis'
+		dataType: string
+		lineageTag: 7b10b7c1-9212-4004-8842-a667f8a61c0f
+		sourceLineageTag: 409fbaae-338d-4476-8f11-cac7e8ba2208
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: USTAX Basis
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Code & Name'
+		dataType: string
+		lineageTag: ae67a570-5f55-45cb-bf2b-5012ae3c7e73
+		sourceLineageTag: 006ce80c-8f47-4060-959f-fa472e95d781
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Company Code & Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Creation Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: f6cddb87-6bd9-4998-9cd4-b3f17997beda
+		sourceLineageTag: 8865d230-a911-421e-a0dc-fd791ea59e7b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Creation Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Update Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 5859134a-bc10-4412-8df8-04f09555f891
+		sourceLineageTag: d766638d-101a-480c-bf84-59fc6a918218
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Update Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Target Framework List'
+		dataType: string
+		lineageTag: 10acae09-a410-419d-a5aa-96046821b658
+		sourceLineageTag: f012bb04-1e47-4899-aee1-3bbde4417e34
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Target Framework List
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Code & Name Display'
+		dataType: string
+		lineageTag: 9f58c5c5-ca57-4b0e-a474-5cd19afddb09
+		sourceLineageTag: e70641ba-9606-4249-888f-c396462fec84
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Company Code & Name Display
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Company-81671dd7-d906-4854-85ec-3d42d7204890 = entity
+		mode: directQuery
+		source
+			entityName: Company
+			expressionSource: 'DirectQuery to AS - Securities'
+

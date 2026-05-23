@@ -1,0 +1,5 @@
+EVALUATE
+{
+Dup Final Sch DA BACV = var a = [DupTradeDateCalc] return 
+ CALCULATE('Securities Position Fact'[Book Value - Local], filter(Securities, DATEDIFF(a,Securities[Maturity Date], DAY) >= 90 && DATEDIFF(a,Securities[Maturity Date], DAY) <=365 && Securities[Maturity Date] <> BLANK()),'Securities Position Fact'[GL Class] = "MM" || 'Securities Position Fact'[GL Class] = "BOND")	
+}

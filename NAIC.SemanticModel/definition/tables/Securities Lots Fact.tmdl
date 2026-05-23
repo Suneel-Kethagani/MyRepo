@@ -1,0 +1,2834 @@
+table 'Securities Lots Fact'
+	lineageTag: bf5d2012-1837-4006-9db1-54b620552a12
+	sourceLineageTag: 2e3a56f1-5beb-4926-aca4-885e65837652
+
+	measure 'Security Lots Title' = EXTERNALMEASURE("Security Lots Title", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 33dcb127-0a70-4094-bfd8-90eaee8b14f1
+		sourceLineageTag: 5234d812-33b3-4dbf-a32c-6d1373c8bf25
+		dataCategory: Uncategorized
+
+	measure 'Rep Rate (Security Lots)' = EXTERNALMEASURE("Rep Rate (Security Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		formatString: 0.000000
+		lineageTag: 256db067-42b2-4996-b45b-df86c068724d
+		sourceLineageTag: b427a513-aca3-483c-811f-6badb56b7e0e
+		dataCategory: Uncategorized
+
+	measure 'Reporting Currency (Security Lots)' = EXTERNALMEASURE("Reporting Currency (Security Lots)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: bb8571b6-5e55-4b1b-bac1-fe6427af3f98
+		sourceLineageTag: 68e410f4-f0e1-438a-9379-be700e4cb4a2
+		dataCategory: Uncategorized
+
+	measure 'Original Cost - Rep (Sec Lots)' = EXTERNALMEASURE("Original Cost - Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: bc48950f-132b-46ac-ba3e-4df3212e47b6
+		sourceLineageTag: 6a5d6d10-c85d-4cff-8fad-361eb7ec092f
+		dataCategory: Uncategorized
+
+	measure 'Amortization/Accretion - Rep (Sec Lots)' = EXTERNALMEASURE("Amortization/Accretion - Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 90988a87-8b59-4b51-9940-8a53bbb7f647
+		sourceLineageTag: e187e935-076d-42dd-bf10-4cf9775a6765
+		dataCategory: Uncategorized
+
+	measure 'OID Amortization/Accretion - Rep (Sec Lots)' = EXTERNALMEASURE("OID Amortization/Accretion - Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 288dce6c-8ef4-47dc-a5c5-abaf6dd37724
+		sourceLineageTag: 637c13a5-5142-46e1-b0c3-f47836b92630
+		dataCategory: Uncategorized
+
+	measure 'OTTI Impairment - Rep (Sec Lots)' = EXTERNALMEASURE("OTTI Impairment - Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 1bd265e1-843f-4779-8164-04d6f807c6c7
+		sourceLineageTag: 2bfe5789-b4e0-4012-a134-96cd0eef253f
+		dataCategory: Uncategorized
+
+	measure 'AOCI Remain Balance BV - Rep (Sec Lots)' = EXTERNALMEASURE("AOCI Remain Balance BV - Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 88fdb58e-2b13-41ff-a4f9-c78d32fb9ecc
+		sourceLineageTag: 8615ccb8-121e-42d8-aa88-bed919cde654
+		dataCategory: Uncategorized
+
+	measure 'Balance Deferred PL - Rep (Sec Lots)' = EXTERNALMEASURE("Balance Deferred PL - Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: e6a50aad-eb47-41d7-9486-21a1a827c1ba
+		sourceLineageTag: 2db1c037-3d61-47a8-91e2-a3ec84eeb198
+		dataCategory: Uncategorized
+
+	measure 'Carrying Value - Rep (Sec Lots)' = EXTERNALMEASURE("Carrying Value - Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 89a0f77a-50a5-4a16-a14a-4ba0f7d66cdc
+		sourceLineageTag: be42625c-24d9-4dc4-bb69-4929d61ae623
+		dataCategory: Uncategorized
+
+	measure 'ECL/CECL Impairment - Rep (Sec Lots)' = EXTERNALMEASURE("ECL/CECL Impairment - Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: a0c71bd6-cde1-4cab-8502-9885fc3d99ed
+		sourceLineageTag: f70d00eb-aa46-4aa3-88ef-da8a43e9d6fd
+		dataCategory: Uncategorized
+
+	measure 'Unrealized Gain/Loss - Rep (Sec Lots)' = EXTERNALMEASURE("Unrealized Gain/Loss - Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 140a7de9-4b22-48df-8a3d-83bdbd16bac9
+		sourceLineageTag: 3a747dd0-8985-49d9-b673-931b787bee8b
+		dataCategory: Uncategorized
+
+	measure 'Fair Value Unaccrued - Rep (Sec Lots)' = EXTERNALMEASURE("Fair Value Unaccrued - Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: cd0b4ade-70b5-4482-af68-d339caebe992
+		sourceLineageTag: 4b6dc290-db20-41ab-9d45-55fcd2b01497
+		dataCategory: Uncategorized
+
+	measure 'Book Value - Rep (Sec Lots)' = EXTERNALMEASURE("Book Value - Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: d657663a-213a-4162-8745-ee103e9f6e06
+		sourceLineageTag: 043a044c-76f2-41b0-ab30-9c91bfea4504
+		dataCategory: Uncategorized
+
+	measure 'Purpose Codes (Sec Lots)' = EXTERNALMEASURE("Purpose Codes (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 000f40db-8b1c-4eb5-82c1-44966db7b131
+		sourceLineageTag: 97110c99-bd0a-4ff9-8583-f2bfdadae1e8
+		dataCategory: Uncategorized
+
+	measure 'Impairment Candidates Title' = EXTERNALMEASURE("Impairment Candidates Title", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 09e14fa8-5494-47a9-a55d-1f9ece126b4d
+		sourceLineageTag: c41eb072-b3fa-4134-8dec-864427f65751
+		dataCategory: Uncategorized
+
+	measure 'Impairment Amount Local' = EXTERNALMEASURE("Impairment Amount Local", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 52779ac9-4530-4863-ad24-d3b99f038b8e
+		sourceLineageTag: 2a9f5aaa-caf1-49bb-a403-c6a76efc4680
+		dataCategory: Uncategorized
+
+	measure 'Ratio of Local FV / BV' = EXTERNALMEASURE("Ratio of Local FV / BV", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 28548c8e-4b5e-4dc8-84bc-253cda5be169
+		sourceLineageTag: cdc152cc-cf09-406a-bf0f-f41e696c9b52
+		dataCategory: Uncategorized
+
+	measure 'ECL/CECL Impairment - Local (Sec Lots)' = EXTERNALMEASURE("ECL/CECL Impairment - Local (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 826ea0ee-5d69-48c8-a58f-526f5ef26a51
+		sourceLineageTag: 97dd621a-f860-4618-882a-b4074de703e6
+		dataCategory: Uncategorized
+
+	measure 'JGAAP Impairment' = EXTERNALMEASURE("JGAAP Impairment", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 20156b05-77f1-42be-86a5-255770ae57e5
+		sourceLineageTag: 780da7c2-3536-4e79-83a9-b926ff963298
+		dataCategory: Uncategorized
+
+	measure 'Activity Slicer' = EXTERNALMEASURE("Activity Slicer", STRING, "DirectQuery to AS - Securities")
+		lineageTag: baae9291-3018-4aa4-9f99-9cdd5d158e5d
+		sourceLineageTag: 60aa0544-7bf8-4dbe-9705-9c9a495a08df
+		dataCategory: Uncategorized
+
+	measure 'Activity Filter' = EXTERNALMEASURE("Activity Filter", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		lineageTag: 919a1ede-c518-4459-a6ef-a343582f13c3
+		sourceLineageTag: 136ccee4-c1a6-4042-b3ed-0e5130fc5bcd
+		dataCategory: Uncategorized
+
+	measure 'Impairment Amount QC' = EXTERNALMEASURE("Impairment Amount QC", DOUBLE, "DirectQuery to AS - Securities")
+		formatString: #,0.00
+		lineageTag: c708e0ce-7500-4d7c-ac68-c88371eae1d6
+		sourceLineageTag: c9cea669-ad5d-4234-85c2-7da195b8d16b
+		dataCategory: Uncategorized
+
+	measure '144A Flag (Sec Lots)' = EXTERNALMEASURE("144A Flag (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: b8b02a37-425a-4780-97d7-ab27b0b66fa5
+		sourceLineageTag: 4aa5782d-9a8a-481a-b076-509a066a13f5
+		dataCategory: Uncategorized
+
+	measure 'Measurement Level' = EXTERNALMEASURE("Measurement Level", STRING, "DirectQuery to AS - Securities")
+		lineageTag: f8c13be0-75aa-49ac-8ed7-59cf51660695
+		sourceLineageTag: 5c113b89-3aae-4c83-93ed-2487b0b512c8
+		dataCategory: Uncategorized
+
+	measure 'Impairment Loss Allowed' = EXTERNALMEASURE("Impairment Loss Allowed", DOUBLE, "DirectQuery to AS - Securities")
+		formatString: #,0
+		lineageTag: 90970efd-13aa-4573-b831-c74524ee70e1
+		sourceLineageTag: cbc0dfd6-0d40-4cff-8550-9ff9d9cbd662
+		dataCategory: Uncategorized
+
+	measure 'Impairment Loss (OTTI)' = EXTERNALMEASURE("Impairment Loss (OTTI)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: efe285e2-535d-4560-8ad1-1331466e35db
+		sourceLineageTag: d27b95a1-1ad6-483d-909c-c00081b4af67
+		dataCategory: Uncategorized
+
+	measure 'Effective Date Format' = EXTERNALMEASURE("Effective Date Format", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 3788d7e9-be5d-4663-9d5c-7b794e12f295
+		sourceLineageTag: 90bcf92d-f218-471e-a188-b97940ff6f8c
+		dataCategory: Uncategorized
+
+	measure 'Impairment Amount Allowed' = EXTERNALMEASURE("Impairment Amount Allowed", DOUBLE, "DirectQuery to AS - Securities")
+		formatString: 0.00
+		lineageTag: 6982d8b2-68a3-498e-bd97-053d77bd7b33
+		sourceLineageTag: ab9b0157-3100-48ef-9bbb-f87e28013bff
+		dataCategory: Uncategorized
+
+	measure 'SCD Framework' = EXTERNALMEASURE("SCD Framework", STRING, "DirectQuery to AS - Securities")
+		lineageTag: f1fbc2b2-2753-47aa-b83b-c1951b765459
+		sourceLineageTag: 4b910322-0e6b-4c80-810f-9e2a8f998a0c
+		dataCategory: Uncategorized
+
+	measure 'Accrual Currency (Sec Lots)' = EXTERNALMEASURE("Accrual Currency (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: b3f8e489-b262-4a6a-afb3-dc2c41b51c36
+		sourceLineageTag: 5d79786f-55dd-4d27-b8a7-98d33b29c037
+		dataCategory: Uncategorized
+
+	measure 'Cusip (Sec Lots)' = EXTERNALMEASURE("Cusip (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 96cfaa7f-9b2e-4d46-8b4f-74f9b02f73b7
+		sourceLineageTag: 9032d100-eaf2-4bc4-b260-a2f09a11875a
+		dataCategory: Uncategorized
+
+	measure 'Isin (Sec Lots)' = EXTERNALMEASURE("Isin (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 6b275284-52f1-4831-87a8-932ce55364d6
+		sourceLineageTag: 084795f4-c404-4b6b-ad37-7c3d5212f121
+		dataCategory: Uncategorized
+
+	measure 'Portfolio Owner (Sec Lots)' = EXTERNALMEASURE("Portfolio Owner (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: 2d3dac7c-744a-4a4a-9c05-056aed2ac01a
+		sourceLineageTag: 23e67aeb-f103-43e4-93ef-8280863a58aa
+		dataCategory: Uncategorized
+
+	measure 'Portfolio Sleeve Status (Sec Lots)' = EXTERNALMEASURE("Portfolio Sleeve Status (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: 808b2827-2004-4172-a472-b77e36606e07
+		sourceLineageTag: 9be51800-7a15-4cdb-9e5c-0e3f851bbc0a
+		dataCategory: Uncategorized
+
+	measure 'Private Portf Ind (Sec Lots)' = EXTERNALMEASURE("Private Portf Ind (Sec Lots)", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		displayFolder: Portfolio Attributes
+		lineageTag: 6be1d070-94bd-4fbf-873a-ffcc0693a803
+		sourceLineageTag: 1fea0f75-c204-4129-a5c2-d1d894956885
+		dataCategory: Uncategorized
+
+	measure 'Maximis Portfolio Number (Sec Lots)' = EXTERNALMEASURE("Maximis Portfolio Number (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: 04fea420-ca7a-4f2d-a1b5-642fbfd8f786
+		sourceLineageTag: f29971ae-0a8f-46db-9096-163bf4d30d2c
+		dataCategory: Uncategorized
+
+	measure 'IAS39 Trading Philosophy Code (Sec Lots)' = EXTERNALMEASURE("IAS39 Trading Philosophy Code (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: 1a8752fa-8365-4ec5-aa8e-ff098af1c689
+		sourceLineageTag: 388d40aa-8181-4e15-9346-8b450449cd74
+		dataCategory: Uncategorized
+
+	measure 'IFRS Trading Philosophy Code (Sec Lots)' = EXTERNALMEASURE("IFRS Trading Philosophy Code (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: 440748ff-d927-45b7-84bf-131367dd9a9e
+		sourceLineageTag: b5b87fe8-cfa5-4ae7-b508-802e3c58f14b
+		dataCategory: Uncategorized
+
+	measure 'Portfolio Name (Sec Lots)' = EXTERNALMEASURE("Portfolio Name (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: 0ae4682b-14fe-4608-a1df-a60941eab05d
+		sourceLineageTag: 2a89c0ed-220b-47f4-93c3-a8f5777d1762
+		dataCategory: Uncategorized
+
+	measure 'Investment Desk (Sec Lots)' = EXTERNALMEASURE("Investment Desk (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: a8cc9abb-c1e7-419a-aae3-25bc351392fa
+		sourceLineageTag: 70efde08-e0e5-4325-a6f5-0066d0049600
+		dataCategory: Uncategorized
+
+	measure 'Portfolio Manager Name (Sec Lots)' = EXTERNALMEASURE("Portfolio Manager Name (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: 27f744a3-ed6d-41fc-8e34-9df7c49ea93e
+		sourceLineageTag: 587edfd1-72b2-4a12-be9a-e9aaa01e3607
+		dataCategory: Uncategorized
+
+	measure 'Security Description (Sec Lots)' = EXTERNALMEASURE("Security Description (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: dfdc8838-37a0-485a-bd4a-6298ee754f4c
+		sourceLineageTag: 74bd3c2f-4e71-4e53-893b-a79a038cdb52
+		dataCategory: Uncategorized
+
+	measure 'FI Type (Sec Lots)' = EXTERNALMEASURE("FI Type (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 7a954ca4-30c0-4acb-92a8-4e329844a31c
+		sourceLineageTag: 826ac5eb-f1b2-4632-8cb3-30d29133501f
+		dataCategory: Uncategorized
+
+	measure 'Issue Dt (Sec Lot)' = EXTERNALMEASURE("Issue Dt (Sec Lot)", DATETIME, "DirectQuery to AS - Securities")
+		formatString: yyyy\-mm\-dd
+		displayFolder: Security Values
+		lineageTag: ec3272d1-16cb-4c81-a8b5-e53451702195
+		sourceLineageTag: 3e9baa1c-f344-407b-b2ca-9b87372c62ce
+		dataCategory: Uncategorized
+
+	measure 'AOCI Remain Balance Non BV - Rep (Sec Lots)' = EXTERNALMEASURE("AOCI Remain Balance Non BV - Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 20a69b62-4f79-4923-a568-3eb92e158658
+		sourceLineageTag: e2d4c1ee-ab36-4ddd-b2f1-a932dbd9217e
+		dataCategory: Uncategorized
+
+	measure 'AOCI Remain Balance Rep - Rep (Sec Lots)' = EXTERNALMEASURE("AOCI Remain Balance Rep - Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 217da24e-bec2-45d6-8400-bd12667fab2c
+		sourceLineageTag: 174f3ea3-78d3-42f8-be86-52ea8b682f86
+		dataCategory: Uncategorized
+
+	measure 'Percentage Difference' = EXTERNALMEASURE("Percentage Difference", DOUBLE, "DirectQuery to AS - Securities")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: fa5765b4-8cf7-4a26-b4f3-15dc3326fb4d
+		sourceLineageTag: c3a8e05b-da0c-4323-91e2-db4a4d8ab087
+		dataCategory: Uncategorized
+
+	measure 'Decline Category' = EXTERNALMEASURE("Decline Category", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 0f185799-85c5-4ca6-b817-3d9640720d07
+		sourceLineageTag: 339a41dc-edb8-4498-9c4d-9d64381431d2
+		dataCategory: Uncategorized
+
+	measure 'Issuer Name (Sec Lots)' = EXTERNALMEASURE("Issuer Name (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: af9fe3e5-5338-4e08-9e05-0d9ff21bafc9
+		sourceLineageTag: 0ed62692-a693-46a3-875b-5a440c91ce5f
+		dataCategory: Uncategorized
+
+	measure 'Day Count (Sec Lots)' = EXTERNALMEASURE("Day Count (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: b3747fd9-6c65-40ef-b45e-41c1c099bbe0
+		sourceLineageTag: 8fd700ba-46a9-4d4f-99b6-c913c2937f55
+		dataCategory: Uncategorized
+
+	measure 'Inv Lp Port Code (Sec Lots)' = EXTERNALMEASURE("Inv Lp Port Code (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: 2c513bd6-a8d2-4982-9051-9d3276a487b4
+		sourceLineageTag: 01b40578-f170-4c3a-882a-9f86fa7eba17
+		dataCategory: Uncategorized
+
+	measure 'Custodian Name (Sec Lots)' = EXTERNALMEASURE("Custodian Name (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: ca445f6e-632a-4570-830c-9b8ea19d8c6c
+		sourceLineageTag: 9cc1c33b-ba93-49a6-8bc8-f6292bc29ad0
+		dataCategory: Uncategorized
+
+	measure 'Liability Surplus (Sec Lots)' = EXTERNALMEASURE("Liability Surplus (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: ad8457b8-f435-4b81-8a85-a25353e74e6b
+		sourceLineageTag: 7474b2d5-e634-4226-9115-240143ba3381
+		dataCategory: Uncategorized
+
+	measure 'Lawson Legal Id (Sec Lots)' = EXTERNALMEASURE("Lawson Legal Id (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Portfolio Attributes
+		lineageTag: 39a826cc-2df3-4b85-9aa6-03f641a43bca
+		sourceLineageTag: af1e4753-ec4b-4964-84cf-106ef2a6dafd
+		dataCategory: Uncategorized
+
+	measure 'Maturity Days (Sec Lots)' = EXTERNALMEASURE("Maturity Days (Sec Lots)", INTEGER, "DirectQuery to AS - Securities")
+		formatString: 0
+		displayFolder: Security Values
+		lineageTag: b5758709-cd89-4c07-81f6-e0357ace374d
+		sourceLineageTag: 77fe43bd-8ce6-46ab-b7ac-688a8d457fbd
+		dataCategory: Uncategorized
+
+	measure 'S&P Short Term Rating (Sec Lots)' = EXTERNALMEASURE("S&P Short Term Rating (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 0a96c774-0f2f-4242-a316-3fd97ec587e1
+		sourceLineageTag: 8d23a05f-51d8-4dd2-b3b3-ae3fc513787b
+		dataCategory: Uncategorized
+
+	measure 'Fitch Short Term Rating (Sec Lots)' = EXTERNALMEASURE("Fitch Short Term Rating (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: e1c64cea-05c8-4f3a-aba3-4bfebacd3268
+		sourceLineageTag: 2d503318-396c-49f8-a026-6fb3dd424044
+		dataCategory: Uncategorized
+
+	measure 'Dbrs (Sec Lots)' = EXTERNALMEASURE("Dbrs (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 68b57b8a-e3d0-4ce5-bbb5-aab5fde7955f
+		sourceLineageTag: b2e819b1-ea3b-45f3-9c3f-ad27c89efa69
+		dataCategory: Uncategorized
+
+	measure 'Moodys Short Term Rating (Sec Lots)' = EXTERNALMEASURE("Moodys Short Term Rating (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: ea6ab73d-aebe-458e-8561-053c1dddef6c
+		sourceLineageTag: 85a36690-34b5-41fe-bea7-8b1ed671cf18
+		dataCategory: Uncategorized
+
+	measure 'Internal (Sec Lots)' = EXTERNALMEASURE("Internal (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: e4c94fe8-76c2-4365-a7f2-9220673f8b9d
+		sourceLineageTag: c3518000-09a4-4931-89a3-3a795574c3bd
+		dataCategory: Uncategorized
+
+	measure 'Sedol (Sec Lots)' = EXTERNALMEASURE("Sedol (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 3af5f02a-8a7b-4a62-9214-53ea990c36a4
+		sourceLineageTag: c10cf1ca-69bb-4ba3-a558-d7ae8ff266c6
+		dataCategory: Uncategorized
+
+	measure 'Official PPN (Sec Lots)' = EXTERNALMEASURE("Official PPN (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 32c8a3e2-1a98-40ca-859a-dab1907c2584
+		sourceLineageTag: 0be19ac0-52d4-49b1-bec2-c156364075b3
+		dataCategory: Uncategorized
+
+	measure 'Infor Acquisition Rate (Sec Lots)' = EXTERNALMEASURE("Infor Acquisition Rate (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		formatString: 0.000000
+		lineageTag: fdd2f75c-62a6-4a83-bec3-3ea1e8857fb6
+		sourceLineageTag: d463c1dd-bc41-4090-929b-a21706c12b8b
+		dataCategory: Uncategorized
+
+	measure 'Primary Asset Type (Sec Lots)' = EXTERNALMEASURE("Primary Asset Type (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 6847d3b5-d60e-48a4-a16f-54c752f512fd
+		sourceLineageTag: e15bc50a-ff0b-455e-a805-27f8b5fac7ed
+		dataCategory: Uncategorized
+
+	measure 'Units (LH)' = EXTERNALMEASURE("Units (LH)", DOUBLE, "DirectQuery to AS - Securities")
+		isHidden
+		displayFolder: Lots Research Attributes
+		lineageTag: 248d2e0c-4314-43bc-8979-91ebefd9659b
+		sourceLineageTag: f97657ea-a0c5-4e5a-9b2e-9e71eb721c23
+		dataCategory: Uncategorized
+
+	measure 'Book Value - Local (LH)' = EXTERNALMEASURE("Book Value - Local (LH)", DOUBLE, "DirectQuery to AS - Securities")
+		isHidden
+		displayFolder: Lots Research Attributes
+		lineageTag: 328ef8b0-f422-49da-b152-fc04a665c547
+		sourceLineageTag: 66f26379-1802-437e-b18d-6eb0ff1614b0
+		dataCategory: Uncategorized
+
+	measure 'Position Lots History Title' = EXTERNALMEASURE("Position Lots History Title", STRING, "DirectQuery to AS - Securities")
+		isHidden
+		displayFolder: Position Research Attributes
+		lineageTag: 9bff2c0b-f6f0-415f-9eac-b2b79168136c
+		sourceLineageTag: 93091d2d-5df1-4262-972e-16b50774cdb3
+		dataCategory: Uncategorized
+
+	measure 'Fair Value Unaccrued - Rep (LH)' = EXTERNALMEASURE("Fair Value Unaccrued - Rep (LH)", DOUBLE, "DirectQuery to AS - Securities")
+		isHidden
+		displayFolder: Lots Research Attributes
+		lineageTag: 4a7245c0-2a65-491b-84a0-8394e976b348
+		sourceLineageTag: e71a6c4b-89cb-42d1-b2ac-275b977b53d1
+		dataCategory: Uncategorized
+
+	measure 'Book Value - Rep (LH)' = EXTERNALMEASURE("Book Value - Rep (LH)", DOUBLE, "DirectQuery to AS - Securities")
+		isHidden
+		displayFolder: Lots Research Attributes
+		lineageTag: b03c8ac4-5c60-49e4-94af-47ea99c9e5a6
+		sourceLineageTag: 9e10f0df-a405-483b-a161-86e67ef60bbc
+		dataCategory: Uncategorized
+
+	measure 'Original Cost - Rep (LH)' = EXTERNALMEASURE("Original Cost - Rep (LH)", DOUBLE, "DirectQuery to AS - Securities")
+		isHidden
+		displayFolder: Lots Research Attributes
+		lineageTag: c01ca30b-e794-4d97-a433-f366d54acc59
+		sourceLineageTag: 017b8c9b-82d0-40e3-a34a-a265444eaad4
+		dataCategory: Uncategorized
+
+	measure 'Unrealized Gain/Loss CCY - Rep (LH)' = EXTERNALMEASURE("Unrealized Gain/Loss CCY - Rep (LH)", DOUBLE, "DirectQuery to AS - Securities")
+		isHidden
+		displayFolder: Lots Research Attributes
+		lineageTag: 4d79baa5-3570-4f2b-a8cd-e5a67aca34a0
+		sourceLineageTag: c06e9a27-f018-4eb8-ad6f-7f82e617a5ec
+		dataCategory: Uncategorized
+
+	measure 'Unrealized Gain/Loss Sec - Rep (LH)' = EXTERNALMEASURE("Unrealized Gain/Loss Sec - Rep (LH)", DOUBLE, "DirectQuery to AS - Securities")
+		isHidden
+		displayFolder: Lots Research Attributes
+		lineageTag: 58776203-f652-431d-ad32-ee4379c51589
+		sourceLineageTag: 7869f0a8-8254-41cb-bbf3-74a75c8c002f
+		dataCategory: Uncategorized
+
+	measure 'Local Exchange Rate (LH)' = EXTERNALMEASURE("Local Exchange Rate (LH)", DOUBLE, "DirectQuery to AS - Securities")
+		formatString: 0.000000
+		isHidden
+		displayFolder: Lots Research Attributes
+		lineageTag: 4de1c54f-3bd4-40a6-a797-21329529ceec
+		sourceLineageTag: 9d6a4e82-8d1b-44aa-ae69-edcbf870e034
+		dataCategory: Uncategorized
+
+	measure 'Original Cost - Local (LH)' = EXTERNALMEASURE("Original Cost - Local (LH)", DOUBLE, "DirectQuery to AS - Securities")
+		isHidden
+		displayFolder: Lots Research Attributes
+		lineageTag: 7ec5314b-d39f-4e79-938c-5839fbdd88bf
+		sourceLineageTag: e36c1835-aee4-4d6b-b671-976c368631b4
+		dataCategory: Uncategorized
+
+	measure 'Fair Value Unaccrued - Local (LH)' = EXTERNALMEASURE("Fair Value Unaccrued - Local (LH)", DOUBLE, "DirectQuery to AS - Securities")
+		isHidden
+		displayFolder: Lots Research Attributes
+		lineageTag: e59a0d95-0418-45e8-ad61-895fc50396e5
+		sourceLineageTag: 08742d80-e056-4391-9a97-731fa46cf0ad
+		dataCategory: Uncategorized
+
+	measure 'Units (Sec Lots)' = EXTERNALMEASURE("Units (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 99bb427f-e317-4015-9228-ca99626729fc
+		sourceLineageTag: 491d40dd-737f-4f71-ac1d-963b8034bc80
+		dataCategory: Uncategorized
+
+	measure 'Amortization/Accretion - Local (Sec Lots)' = EXTERNALMEASURE("Amortization/Accretion - Local (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: fd672054-bae0-4128-b150-4ab96927d6f2
+		sourceLineageTag: 50982fe2-afa4-4e33-b68f-1301a2b4289b
+		dataCategory: Uncategorized
+
+	measure 'AOCI Remain Balance BV - Local (Sec Lots)' = EXTERNALMEASURE("AOCI Remain Balance BV - Local (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: a17baa61-5054-45b5-83bf-c717b72054cb
+		sourceLineageTag: 34324d21-9326-4601-835a-c26f9fafa7d3
+		dataCategory: Uncategorized
+
+	measure 'AOCI Remain Balance Non BV - Local (Sec Lots)' = EXTERNALMEASURE("AOCI Remain Balance Non BV - Local (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: e1628037-8d8e-4085-957a-e7203b7931be
+		sourceLineageTag: f795f733-d8d8-427b-b711-c30905ad8790
+		dataCategory: Uncategorized
+
+	measure 'AOCI Remain Balance Rep - Local (Sec Lots)' = EXTERNALMEASURE("AOCI Remain Balance Rep - Local (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 9d22cde8-45e9-471d-bb6a-7fefc2d3e86b
+		sourceLineageTag: 89fd2f03-f5a6-44c6-80e7-13d4f8a4310e
+		dataCategory: Uncategorized
+
+	measure 'Balance Deferred PL - Local (Sec Lots)' = EXTERNALMEASURE("Balance Deferred PL - Local (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 680d488f-cb95-4164-b181-b1e0b150ac7c
+		sourceLineageTag: fe8c3166-d636-4b82-818e-8526b281d198
+		dataCategory: Uncategorized
+
+	measure 'OTTI Impairment - Local (Sec Lots)' = EXTERNALMEASURE("OTTI Impairment - Local (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 78a8d92b-e8c3-4953-84f5-6959a033c242
+		sourceLineageTag: a4ebefa5-c625-4810-b24d-3d37fb33b487
+		dataCategory: Uncategorized
+
+	measure 'OID Amortization/Accretion - Local (Sec Lots)' = EXTERNALMEASURE("OID Amortization/Accretion - Local (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 10ff4725-9e5e-4715-ae61-5b8db29d4b55
+		sourceLineageTag: dae8cc79-c2f5-4673-952d-5b9ea319c143
+		dataCategory: Uncategorized
+
+	measure 'Book Value - Local (Sec Lots)' = EXTERNALMEASURE("Book Value - Local (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 26de3c72-6445-4137-8bcb-4d6ac110c709
+		sourceLineageTag: 2f3b6279-fc1e-4a62-ab66-ac8814117ef8
+		dataCategory: Uncategorized
+
+	measure 'Carrying Value - Local (Sec Lots)' = EXTERNALMEASURE("Carrying Value - Local (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 974dda0c-5f4f-4d8c-8fdf-74c25770aede
+		sourceLineageTag: 937d12bb-c683-4331-b550-ecf34d28aec3
+		dataCategory: Uncategorized
+
+	measure 'Fair Value Unaccrued - Local (Sec Lots)' = EXTERNALMEASURE("Fair Value Unaccrued - Local (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 920dc839-4599-48e5-841f-5223be25952c
+		sourceLineageTag: e00c8f27-2d32-4b5f-b426-55671c3fc142
+		dataCategory: Uncategorized
+
+	measure 'Original Cost - Local (Sec Lots)' = EXTERNALMEASURE("Original Cost - Local (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 8d346e18-3a3e-43e4-aad1-27feb05057fc
+		sourceLineageTag: efb93537-7240-451b-83d0-c3c3a99e5345
+		dataCategory: Uncategorized
+
+	measure 'Unrealized Gain/Loss - Local (Sec Lots)' = EXTERNALMEASURE("Unrealized Gain/Loss - Local (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 106dc695-8fea-4f1a-86a6-9390f864bdff
+		sourceLineageTag: 489b0f3b-2012-4da5-909a-14fec1cfc4a4
+		dataCategory: Uncategorized
+
+	measure 'Rep Rate (Sec Lots)' = EXTERNALMEASURE("Rep Rate (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		formatString: 0.000000
+		lineageTag: 857e102f-ec7d-4eda-8878-d7ae3467fb20
+		sourceLineageTag: d15628ae-9cdb-44f6-9677-3635b69e70fb
+		dataCategory: Uncategorized
+
+	measure 'ML NAIC Report Part Cd (Sec Lots)' = EXTERNALMEASURE("ML NAIC Report Part Cd (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: c72fd28a-2733-4eb8-84b4-98707c8aab77
+		sourceLineageTag: 0e0d28b3-8fe5-4389-a40d-72c638e1d1ac
+		dataCategory: Uncategorized
+
+	measure 'ML NAIC Instrument Type Cd (Sec Lots)' = EXTERNALMEASURE("ML NAIC Instrument Type Cd (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		displayFolder: Security Values
+		lineageTag: 5b6e9db7-c66c-4fc6-9518-aab5be7b186b
+		sourceLineageTag: 499fa9ef-04ad-4553-89a3-e491ab05b212
+		dataCategory: Uncategorized
+
+	measure 'Current Book Value - Rep (Sec Lots)' = EXTERNALMEASURE("Current Book Value - Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 0511f9c7-1339-486f-ba29-e9f4252f0763
+		sourceLineageTag: fee5d2e9-fff6-4e8b-9ba3-c5779b04f334
+		dataCategory: Uncategorized
+
+	measure 'Current Timestamp (Sec Lots)' = EXTERNALMEASURE("Current Timestamp (Sec Lots)", DATETIME, "DirectQuery to AS - Securities")
+		formatString: yyyy\-mm\-dd hh:nn:ss AM/PM
+		lineageTag: fcbacf62-9e38-4487-90a3-187db57293b8
+		sourceLineageTag: e7d37a17-a4f9-473e-8701-d0bdfa347679
+		dataCategory: Uncategorized
+
+	measure 'Units - Rep (Sec Lots)' = EXTERNALMEASURE("Units - Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 23fe70c9-ccc0-40cd-b48b-b107d8da883a
+		sourceLineageTag: ecc9688c-11bc-4395-bea7-2479a02b4960
+		dataCategory: Uncategorized
+
+	measure 'Balance CL Allowance - Rep (Sec Lots)' = EXTERNALMEASURE("Balance CL Allowance - Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 71a9c120-b69a-46e1-9e56-f7d6d6763f20
+		sourceLineageTag: d2450bf1-936b-4e57-b296-2b830d91d64c
+		dataCategory: Uncategorized
+
+	measure 'Balance Recog CL Allowance - Rep (Sec Lots)' = EXTERNALMEASURE("Balance Recog CL Allowance - Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 1021a22b-aa4d-461c-8dc1-b6e864b399e2
+		sourceLineageTag: 8ca116f1-df85-4f89-ad60-6994d6c45e10
+		dataCategory: Uncategorized
+
+	measure 'Balance Write Off - Rep (Sec Lots)' = EXTERNALMEASURE("Balance Write Off - Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 432e7bca-fe55-45de-9ccc-a90dded8d7ed
+		sourceLineageTag: 1d910dcd-643a-43e1-b5a2-6d79c3ed331a
+		dataCategory: Uncategorized
+
+	measure 'Impairment Amount Allowed - Rep' = EXTERNALMEASURE("Impairment Amount Allowed - Rep", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 8b414269-00dd-42eb-8cd2-fadb55a5af84
+		sourceLineageTag: 56d4d4c9-9470-4529-a942-f369ef7a3d75
+		dataCategory: Uncategorized
+
+	measure 'Maximis Lot Number (Sec Lots)' = EXTERNALMEASURE("Maximis Lot Number (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 2f6227dc-d904-42c3-9c48-c7c9cef129ef
+		sourceLineageTag: 0f3647a0-a1be-4866-84db-8a3819c85d26
+		dataCategory: Uncategorized
+
+	measure 'MRM Sector Name (Sec Lots)' = EXTERNALMEASURE("MRM Sector Name (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 9cf19e72-2cbe-4564-9866-33d36e62316f
+		sourceLineageTag: 88d8450f-1855-4842-b7e8-29a3549c4c3f
+		dataCategory: Uncategorized
+
+	measure 'MRM Industry Subgroup Name (Sec Lots)' = EXTERNALMEASURE("MRM Industry Subgroup Name (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: f2bc7896-3612-4325-80f0-ce53d6bf514c
+		sourceLineageTag: 53146cd9-1475-4b67-97a0-4e5d4219989c
+		dataCategory: Uncategorized
+
+	measure 'MRM Industry Sector Name (Sec Lots)' = EXTERNALMEASURE("MRM Industry Sector Name (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 6e314d66-9a05-45ba-822f-90871384b64a
+		sourceLineageTag: 9b590194-b5c0-4459-a752-ddd608319a1c
+		dataCategory: Uncategorized
+
+	measure 'MRM Industry Group Name (Sec Lots)' = EXTERNALMEASURE("MRM Industry Group Name (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 63e0b886-8c32-4e83-b5e1-90761d1bb17b
+		sourceLineageTag: 417b437d-0aae-4891-a4fc-487f2a4760a8
+		dataCategory: Uncategorized
+
+	measure 'Income Impairment - Local (Sec Lots)' = EXTERNALMEASURE("Income Impairment - Local (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 14542be4-b66a-45ba-895a-035b119dac84
+		sourceLineageTag: 5d14ee44-6948-4c23-95b6-e57a149e5186
+		dataCategory: Uncategorized
+
+	measure 'Income Impairment - Rep (Sec Lots)' = EXTERNALMEASURE("Income Impairment - Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 1d158dee-43fe-4106-b9ed-19505d73a839
+		sourceLineageTag: 44196ab4-0278-4e66-a0e7-6084cf297608
+		dataCategory: Uncategorized
+
+	measure 'Is PublicPP Ind (Sec Lots)' = EXTERNALMEASURE("Is PublicPP Ind (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 1d8aca51-43a3-4a22-bb96-aaab1450b3a0
+		sourceLineageTag: 77becc78-5bbb-467d-b829-55d43a4647e6
+		dataCategory: Uncategorized
+
+	measure 'Yield For Math Adj (Sec Lots)' = EXTERNALMEASURE("Yield For Math Adj (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		isHidden
+		lineageTag: c5162e6b-42b9-476f-9397-67b8ac1f65de
+		sourceLineageTag: eb501d4b-fbd8-4fe1-bb71-5c873bf4472a
+		dataCategory: Uncategorized
+
+	measure 'Balance Amortised Cost Local' = EXTERNALMEASURE("Balance Amortised Cost Local", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 72ad7824-c137-425e-b1c5-37ff404eb5b4
+		sourceLineageTag: c502a474-1475-4a64-b3f5-0bf7017a00ee
+		dataCategory: Uncategorized
+
+	measure 'Bal Interest Appreciation Local' = EXTERNALMEASURE("Bal Interest Appreciation Local", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 90348e28-fcac-4313-8b1c-7633df06a77d
+		sourceLineageTag: a1baa84d-d558-4638-a5a8-6db11873a22b
+		dataCategory: Uncategorized
+
+	measure 'Unreal Real Int Appr Disc Local' = EXTERNALMEASURE("Unreal Real Int Appr Disc Local", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 5d985402-be9a-439e-bbe0-e91fdffa512b
+		sourceLineageTag: 35d76305-d969-40af-974c-de5feafa5fe6
+		dataCategory: Uncategorized
+
+	measure 'Unreal Real Int Appr Prem Local' = EXTERNALMEASURE("Unreal Real Int Appr Prem Local", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 9681959d-5a8e-4433-b374-4c527cdcd9bc
+		sourceLineageTag: 4829e831-e2b8-4196-99c6-40ec99b4a24f
+		dataCategory: Uncategorized
+
+	measure 'Unreal Oid Accretion Local' = EXTERNALMEASURE("Unreal Oid Accretion Local", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 33386e74-7ddf-4793-af07-d8c9bbca7986
+		sourceLineageTag: 319203ad-953d-4c0d-8bdf-b0c353174061
+		dataCategory: Uncategorized
+
+	measure 'Book Value - Adjustment Local (Sec Lots)' = EXTERNALMEASURE("Book Value - Adjustment Local (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 7660ce03-bc19-4296-9e65-f8a69dfc08da
+		sourceLineageTag: 8559195e-b4a2-42c6-812a-88bee55a2ac5
+		dataCategory: Uncategorized
+
+	measure 'Book Value - Adjustment Rep (Sec Lots)' = EXTERNALMEASURE("Book Value - Adjustment Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 20b12e25-2fa4-464e-8b76-11fb70254681
+		sourceLineageTag: ee02ae28-ae82-4e01-99dd-79764cb325c9
+		dataCategory: Uncategorized
+
+	measure 'Unrealized Gain/Loss - Adjustment Local (Sec Lots)' = EXTERNALMEASURE("Unrealized Gain/Loss - Adjustment Local (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 01966ded-baeb-4999-93af-c36dd80d0d66
+		sourceLineageTag: d3051a37-f4de-4611-a68c-e1c16b5e5a7d
+		dataCategory: Uncategorized
+
+	measure 'Unrealized Gain/Loss - Adjustment Rep (Sec Lots)' = EXTERNALMEASURE("Unrealized Gain/Loss - Adjustment Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: a4f4a82a-ca22-4be6-8b4f-950c3a47bacf
+		sourceLineageTag: 6b5b2445-8b28-4aa7-8dd8-226fbbb3ff46
+		dataCategory: Uncategorized
+
+	measure 'OTTI Impairment - Adjustment Local (Sec Lots)' = EXTERNALMEASURE("OTTI Impairment - Adjustment Local (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: a025840b-993d-438e-add9-f67e863a6cca
+		sourceLineageTag: 9bdab7ea-4d10-422f-80f2-fbd7c30f413e
+		dataCategory: Uncategorized
+
+	measure 'OTTI Impairment - Adjustment Rep (Sec Lots)' = EXTERNALMEASURE("OTTI Impairment - Adjustment Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: b0c119d2-aada-4f8e-a56d-106fa2c2ddc3
+		sourceLineageTag: 8e5bd08b-bb04-47df-8b28-c61d84a206eb
+		dataCategory: Uncategorized
+
+	measure 'Book Value - Lots Local (Sec Lots)' = EXTERNALMEASURE("Book Value - Lots Local (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 2fc51353-61e4-4995-85bc-7ae5b49b27b9
+		sourceLineageTag: 615f05e5-29ef-4564-9c2d-04aeff455a61
+		dataCategory: Uncategorized
+
+	measure 'Book Value - Lots Rep (Sec Lots)' = EXTERNALMEASURE("Book Value - Lots Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 795a733a-94ea-44d5-b165-b64d5394df5c
+		sourceLineageTag: ff8608a2-8d5e-4d51-8e92-30574a31555b
+		dataCategory: Uncategorized
+
+	measure 'Unrealized Gain/Loss - Lots Local (Sec Lots)' = EXTERNALMEASURE("Unrealized Gain/Loss - Lots Local (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: c2040ef8-c9a3-4c10-aa37-795bc378ce0c
+		sourceLineageTag: 4ab5b1d3-34e3-4c1f-883f-13516c54da8b
+		dataCategory: Uncategorized
+
+	measure 'Unrealized Gain/Loss - Lots Rep (Sec Lots)' = EXTERNALMEASURE("Unrealized Gain/Loss - Lots Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 5393bf58-c819-4150-b673-785fcad06df4
+		sourceLineageTag: f9252bb2-12d2-49b7-a792-063c8866af01
+		dataCategory: Uncategorized
+
+	measure 'OTTI Impairment - Lots Local (Sec Lots)' = EXTERNALMEASURE("OTTI Impairment - Lots Local (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: b8838d7b-af90-4de9-831a-4a496ed6abe4
+		sourceLineageTag: 7ac45b0b-729d-4e73-b755-eed3f5fcd020
+		dataCategory: Uncategorized
+
+	measure 'OTTI Impairment - Lots Rep (Sec Lots)' = EXTERNALMEASURE("OTTI Impairment - Lots Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: c58192ee-9128-4f81-929a-9fe60a9c8431
+		sourceLineageTag: a17999ed-10a4-459d-8374-c535f82c0f7f
+		dataCategory: Uncategorized
+
+	measure 'Balance Book Value Native - Local (Sec Lots)' = EXTERNALMEASURE("Balance Book Value Native - Local (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 03f216f3-ba32-4f0a-87ac-fef50b7259fd
+		sourceLineageTag: 123248ae-bcab-496b-8e0b-4b6d55c37552
+		dataCategory: Uncategorized
+
+	measure 'Balance Book Value - Rep (Sec Lots)' = EXTERNALMEASURE("Balance Book Value - Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 9ac274e3-ed34-45e9-8c31-e697be13df0e
+		sourceLineageTag: fe6910cb-6f2b-47b3-a44d-e12735003b0a
+		dataCategory: Uncategorized
+
+	measure 'Balance Book Value Native - Rep (Sec Lots)' = EXTERNALMEASURE("Balance Book Value Native - Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 1e47e728-1aff-4e8c-a390-0b84232cc083
+		sourceLineageTag: f1afe200-d139-4a2f-8958-0f6049a1d41c
+		dataCategory: Uncategorized
+
+	measure 'Wash Sale Parent Security Id(Sec Lot)' = EXTERNALMEASURE("Wash Sale Parent Security Id(Sec Lot)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: badce612-2952-479f-9f60-0bc37615c073
+		sourceLineageTag: 2e20f3de-bccd-45bf-9b0e-a4172e11e7de
+		dataCategory: Uncategorized
+
+	measure 'JGAAP Trading Philosophy Code (Sec Lots)' = EXTERNALMEASURE("JGAAP Trading Philosophy Code (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 41695cf5-dd0e-4cdd-b8d5-def79d1928a2
+		sourceLineageTag: faf8b3a4-c056-4fb7-bd5b-4f682d761ce6
+		dataCategory: Uncategorized
+
+	measure 'Final Staging text' = EXTERNALMEASURE("Final Staging text", STRING, "DirectQuery to AS - Securities")
+		lineageTag: ce69b805-30f1-4919-944a-83a0bfc6152f
+		sourceLineageTag: c0bfaec5-3393-43d1-8ba3-f5a65f919904
+		dataCategory: Uncategorized
+
+	measure 'Staging Text' = EXTERNALMEASURE("Staging Text", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 7c47866e-5329-4064-b13f-3c72099461ea
+		sourceLineageTag: 3e767e15-248b-4158-8ce8-39af8e0ccb7f
+		dataCategory: Uncategorized
+
+	measure 'Carrying Value - Adjustment Local (Sec Lots)' = EXTERNALMEASURE("Carrying Value - Adjustment Local (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 52b23cbd-4a6e-440b-bc7b-b1e46903a40f
+		sourceLineageTag: 6a5beac7-59fd-4c45-a25d-e39cca1a99ed
+		dataCategory: Uncategorized
+
+	measure 'Carrying Value - Adjustment Rep (Sec Lots)' = EXTERNALMEASURE("Carrying Value - Adjustment Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: a3c773b2-5638-4252-976d-56e771639b9b
+		sourceLineageTag: 94e3960b-d299-439e-89c3-7ff4e5b1cd69
+		dataCategory: Uncategorized
+
+	measure 'Fair Value Unaccrued - Adjustment Local (Sec Lots)' = EXTERNALMEASURE("Fair Value Unaccrued - Adjustment Local (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		isHidden
+		lineageTag: 367572bd-adca-4793-a7c6-5a9b3bff42fc
+		sourceLineageTag: 57d95c4f-4efb-4507-9e1c-b72c2a4f38b5
+		dataCategory: Uncategorized
+
+	measure 'Fair Value Unaccrued - Adjustment Rep (Sec Lots)' = EXTERNALMEASURE("Fair Value Unaccrued - Adjustment Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		isHidden
+		lineageTag: da214bf0-8af7-4d6d-badc-8474398391df
+		sourceLineageTag: 3a0c35ea-33f7-4ef2-ae6e-0f93e3ffe10e
+		dataCategory: Uncategorized
+
+	measure 'Carrying Value Final - Local (Sec Lots)' = EXTERNALMEASURE("Carrying Value Final - Local (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: b3049b17-96da-45c6-9267-0881a6d62437
+		sourceLineageTag: 21b5cdbf-b71d-4bf6-90b3-e33161d2de44
+		dataCategory: Uncategorized
+
+	measure 'Carrying Value Final - Rep (Sec Lots)' = EXTERNALMEASURE("Carrying Value Final - Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: d9692081-cf90-4d0d-9fd4-e2e2db74e1b1
+		sourceLineageTag: 2eddaea9-d5e4-4ecb-a663-c7b5ea613dd2
+		dataCategory: Uncategorized
+
+	measure 'Adjusted GL Class (Sec Lots)' = EXTERNALMEASURE("Adjusted GL Class (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 5b36454e-d5ec-4194-94a8-f6c0ff3b581a
+		sourceLineageTag: 82beb634-439a-460e-b66b-c001610c0cc5
+		dataCategory: Uncategorized
+
+	measure 'Balance NAIC Carrying Value - Rep (Sec Lots)' = EXTERNALMEASURE("Balance NAIC Carrying Value - Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 604a7f00-58ca-4de7-bc49-99c657e3c50e
+		sourceLineageTag: 2193ccf8-865f-427c-bad0-4552c5bd3904
+		dataCategory: Uncategorized
+
+	measure 'Balance NAIC Carrying Value - Local (Sec Lots)' = EXTERNALMEASURE("Balance NAIC Carrying Value - Local (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 10384666-f6ad-4632-b171-a144962ed584
+		sourceLineageTag: cdf6bef0-e3e9-44d6-88a9-d2c1f0998a86
+		dataCategory: Uncategorized
+
+	measure 'Balance NAIC Sec Adj - Local (Sec Lots)' = EXTERNALMEASURE("Balance NAIC Sec Adj - Local (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: f1bcfc1d-def8-4f1a-af27-9a09d6ec4078
+		sourceLineageTag: b9d61932-89e4-4ba7-a728-a4a0d65c3c7c
+		dataCategory: Uncategorized
+
+	measure 'Balance NAIC Sec Adj - Rep (Sec Lots)' = EXTERNALMEASURE("Balance NAIC Sec Adj - Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 1f155bc1-3514-460a-aaeb-34eac334de64
+		sourceLineageTag: 439a63b8-ccfc-40c3-a705-929c45087e65
+		dataCategory: Uncategorized
+
+	measure 'AOCI Remain Balance BV - CAD (Sec Lots)' = EXTERNALMEASURE("AOCI Remain Balance BV - CAD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 622779c1-fbb7-498f-ad58-d881c05c9a4a
+		sourceLineageTag: 2858f648-f205-4765-8702-a059271d1372
+		dataCategory: Uncategorized
+
+	measure 'AOCI Remain Balance BV - FUNC (Sec Lots)' = EXTERNALMEASURE("AOCI Remain Balance BV - FUNC (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: bd43b987-599d-4ef3-8a4c-8cc505c5940f
+		sourceLineageTag: f56f8f89-5d7e-4139-89d0-3ee41ddf0ec3
+		dataCategory: Uncategorized
+
+	measure 'AOCI Remain Balance BV - HKD (Sec Lots)' = EXTERNALMEASURE("AOCI Remain Balance BV - HKD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 16e2ad8a-4872-43cc-92f4-ce5165f68d97
+		sourceLineageTag: 236b7832-a7d1-4a3a-bb15-049fef173ec4
+		dataCategory: Uncategorized
+
+	measure 'AOCI Remain Balance BV - USD (Sec Lots)' = EXTERNALMEASURE("AOCI Remain Balance BV - USD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 550f2615-f6ad-4e7d-a347-5141fee72783
+		sourceLineageTag: a807e846-ccbe-43d0-bf52-2556449a290f
+		dataCategory: Uncategorized
+
+	measure 'AOCI Remain Balance Non BV - CAD (Sec Lots)' = EXTERNALMEASURE("AOCI Remain Balance Non BV - CAD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 9f59ef3b-110c-47ce-8219-92ffb4151663
+		sourceLineageTag: 964226e1-48dd-4cb0-af47-95187e1c7f73
+		dataCategory: Uncategorized
+
+	measure 'AOCI Remain Balance Non BV - FUNC (Sec Lots)' = EXTERNALMEASURE("AOCI Remain Balance Non BV - FUNC (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 6cb77941-e7f7-4937-b529-ffc84527965f
+		sourceLineageTag: 7b4f13dd-4218-49fa-b7c8-40b90c30be5a
+		dataCategory: Uncategorized
+
+	measure 'AOCI Remain Balance Non BV - HKD (Sec Lots)' = EXTERNALMEASURE("AOCI Remain Balance Non BV - HKD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 427d201a-5607-486b-95a0-0828679cb6a5
+		sourceLineageTag: 8d1d336c-7887-43a5-9f3d-54d2efd998e9
+		dataCategory: Uncategorized
+
+	measure 'AOCI Remain Balance Non BV - USD (Sec Lots)' = EXTERNALMEASURE("AOCI Remain Balance Non BV - USD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 6a5063f1-50c5-4ce4-aa7a-c187ff9a3594
+		sourceLineageTag: 1f359246-25ac-4d04-bc87-c9fa2f8c9f8a
+		dataCategory: Uncategorized
+
+	measure 'AOCI Remain Balance Rep - CAD (Sec Lots)' = EXTERNALMEASURE("AOCI Remain Balance Rep - CAD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: f1c54363-dfc3-4cdf-899d-a01bc927eead
+		sourceLineageTag: 81af09d7-ced7-4118-9166-13963bd4f5d9
+		dataCategory: Uncategorized
+
+	measure 'AOCI Remain Balance Rep - FUNC (Sec Lots)' = EXTERNALMEASURE("AOCI Remain Balance Rep - FUNC (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 20d26d5c-44f0-46f8-9714-a5008f058797
+		sourceLineageTag: e5aca497-7fa0-4618-95d3-2b36a7dcd4dc
+		dataCategory: Uncategorized
+
+	measure 'AOCI Remain Balance Rep - HKD (Sec Lots)' = EXTERNALMEASURE("AOCI Remain Balance Rep - HKD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 55e63d4a-d4a2-462f-a39c-0dca8217259d
+		sourceLineageTag: 06fa8ccb-919a-4067-9e91-5fc818450049
+		dataCategory: Uncategorized
+
+	measure 'AOCI Remain Balance Rep - USD (Sec Lots)' = EXTERNALMEASURE("AOCI Remain Balance Rep - USD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 1b82e41c-4964-48f5-bf4d-592a18e80b0f
+		sourceLineageTag: 7464c490-9104-4bfd-bfc9-e5f88961f360
+		dataCategory: Uncategorized
+
+	measure 'Balance CL Allowance - CAD (Sec Lots)' = EXTERNALMEASURE("Balance CL Allowance - CAD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 668e9337-c71d-474f-80a7-ec5899d88382
+		sourceLineageTag: c1a93849-1c50-4f48-afff-d7496b660472
+		dataCategory: Uncategorized
+
+	measure 'Balance CL Allowance - FUNC (Sec Lots)' = EXTERNALMEASURE("Balance CL Allowance - FUNC (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: c772b7ef-3436-4fbe-847e-ba23a9f17ed4
+		sourceLineageTag: 56bd4085-6e75-4709-812c-78d85e0f0d22
+		dataCategory: Uncategorized
+
+	measure 'Balance CL Allowance - HKD (Sec Lots)' = EXTERNALMEASURE("Balance CL Allowance - HKD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: a714490d-5281-47a8-8d4f-e7d1dbfe4350
+		sourceLineageTag: bd9e0df2-3d49-4150-a514-69f1bc945b13
+		dataCategory: Uncategorized
+
+	measure 'Balance CL Allowance - USD (Sec Lots)' = EXTERNALMEASURE("Balance CL Allowance - USD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: a1b1798f-7721-4644-b0f0-060099b34d4a
+		sourceLineageTag: 622f658a-28ff-4e21-8296-59bac0143f22
+		dataCategory: Uncategorized
+
+	measure 'Balance Deferred PL - CAD (Sec Lots)' = EXTERNALMEASURE("Balance Deferred PL - CAD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 5e19157f-9924-49a5-a7c6-c430f2c67ea6
+		sourceLineageTag: 9c521113-6d62-4cc1-acb7-fa33127b9e75
+		dataCategory: Uncategorized
+
+	measure 'Balance Deferred PL - FUNC (Sec Lots)' = EXTERNALMEASURE("Balance Deferred PL - FUNC (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 7682feaa-b86a-4bf8-b8b8-54c171defabc
+		sourceLineageTag: 8ebb4fec-e662-450e-acbf-749c7eb57dd2
+		dataCategory: Uncategorized
+
+	measure 'Balance Deferred PL - HKD (Sec Lots)' = EXTERNALMEASURE("Balance Deferred PL - HKD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 9607fd41-b82a-4e29-8af0-56c99abbd03b
+		sourceLineageTag: fdaea5a9-14d7-44fe-ac6a-d08ae32bdb1c
+		dataCategory: Uncategorized
+
+	measure 'Balance Deferred PL - USD (Sec Lots)' = EXTERNALMEASURE("Balance Deferred PL - USD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 98bed0a9-ec4e-4cb7-86b5-0111a1806abc
+		sourceLineageTag: 8e23be7b-ee67-4b0a-8711-bb3c17dbfc68
+		dataCategory: Uncategorized
+
+	measure 'Balance Impairment - CAD (Sec Lots)' = EXTERNALMEASURE("Balance Impairment - CAD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 53152971-37e9-4240-87ea-4cdd08f26c41
+		sourceLineageTag: 4a20e9d9-9bbb-488c-a0d1-4262c8c98ecc
+		dataCategory: Uncategorized
+
+	measure 'Balance Impairment - FUNC (Sec Lots)' = EXTERNALMEASURE("Balance Impairment - FUNC (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 6ebb775f-da43-4c8f-85d9-5a8ace3ae60b
+		sourceLineageTag: a5361e8a-7496-486e-9a7e-39f7df977937
+		dataCategory: Uncategorized
+
+	measure 'Balance Impairment - HKD (Sec Lots)' = EXTERNALMEASURE("Balance Impairment - HKD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 31f55451-ee0d-4066-88d5-8d18b4cc26da
+		sourceLineageTag: bcf73e11-fb73-4642-b496-8f8e9335e89a
+		dataCategory: Uncategorized
+
+	measure 'Balance Impairment - USD (Sec Lots)' = EXTERNALMEASURE("Balance Impairment - USD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 0e832f1c-ebfc-496e-87cb-6e1205f2ecf1
+		sourceLineageTag: 0b525221-2236-49b4-963f-5aa9c745203c
+		dataCategory: Uncategorized
+
+	measure 'Balance Int Appr - CAD (Sec Lots)' = EXTERNALMEASURE("Balance Int Appr - CAD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 479dad8d-5884-4498-b3f2-1c8b8d59c7f6
+		sourceLineageTag: 2b8404b2-d5c5-4043-bf35-5ef2877ca737
+		dataCategory: Uncategorized
+
+	measure 'Balance Int Appr - FUNC (Sec Lots)' = EXTERNALMEASURE("Balance Int Appr - FUNC (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 89996204-0363-490d-b04d-246416fa04a7
+		sourceLineageTag: 71130261-32fa-4962-9d79-419dc9a44555
+		dataCategory: Uncategorized
+
+	measure 'Balance Int Appr - HKD (Sec Lots)' = EXTERNALMEASURE("Balance Int Appr - HKD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 731619d2-30a6-4111-b6d7-a8b78b461d48
+		sourceLineageTag: 41fee0d4-cdb4-412c-ad9a-7da136c02771
+		dataCategory: Uncategorized
+
+	measure 'Balance Int Appr - USD (Sec Lots)' = EXTERNALMEASURE("Balance Int Appr - USD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: c798c1ea-6901-4955-a9a1-b76db8c8330a
+		sourceLineageTag: d57a1953-ae3d-47fd-90b2-04d4bc5c02bd
+		dataCategory: Uncategorized
+
+	measure 'Balance OID Appr - FUNC (Sec Lots)' = EXTERNALMEASURE("Balance OID Appr - FUNC (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 428d7ce9-8cdf-41ee-8af3-5f5384b5275f
+		sourceLineageTag: 251be881-f368-4de2-84af-697970491055
+		dataCategory: Uncategorized
+
+	measure 'Balance OID Appr - CAD (Sec Lots)' = EXTERNALMEASURE("Balance OID Appr - CAD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 8de7731f-ad1d-4856-a535-0ca7cb8a0663
+		sourceLineageTag: 3143426c-b86f-48d5-a9c7-334bbc645f22
+		dataCategory: Uncategorized
+
+	measure 'Balance OID Appr - HKD (Sec Lots)' = EXTERNALMEASURE("Balance OID Appr - HKD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 370e28e1-d6ae-45f3-80e4-52c3cd6ab46f
+		sourceLineageTag: 29a6c3a6-49ba-4eab-9bcb-a14c6394d35c
+		dataCategory: Uncategorized
+
+	measure 'Balance OID Appr - USD (Sec Lots)' = EXTERNALMEASURE("Balance OID Appr - USD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 96d4469c-ccf3-42bb-ae92-85fb8ad6ddc8
+		sourceLineageTag: 060b1d56-064f-4968-bf59-386533135ad8
+		dataCategory: Uncategorized
+
+	measure 'Balance Recog CL Allowance - CAD (Sec Lots)' = EXTERNALMEASURE("Balance Recog CL Allowance - CAD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 5dc88431-c604-450d-9aa2-892aeb8ab8d0
+		sourceLineageTag: 7be2fab4-0bd1-4fba-bfa4-08cf3e398c48
+		dataCategory: Uncategorized
+
+	measure 'Balance Recog CL Allowance - FUNC (Sec Lots)' = EXTERNALMEASURE("Balance Recog CL Allowance - FUNC (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: de328193-a68e-41b1-90bf-05afc900182e
+		sourceLineageTag: adb97e88-3d8d-4273-9ce7-f23dad641325
+		dataCategory: Uncategorized
+
+	measure 'Balance Recog CL Allowance - HKD (Sec Lots)' = EXTERNALMEASURE("Balance Recog CL Allowance - HKD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 1e0e28f0-fc8b-433b-b49c-f6fc59671b77
+		sourceLineageTag: 0ca4d515-a0c6-4032-83a5-8f25a3fb26a8
+		dataCategory: Uncategorized
+
+	measure 'Balance Recog CL Allowance - USD (Sec Lots)' = EXTERNALMEASURE("Balance Recog CL Allowance - USD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 0f5b919b-bd42-407f-b859-305f81513fb9
+		sourceLineageTag: 9ce1f167-f4b0-4638-85fb-00f3138b5c7b
+		dataCategory: Uncategorized
+
+	measure 'Book Value - CAD (Sec Lots)' = EXTERNALMEASURE("Book Value - CAD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: e5865c22-9fae-4625-a5bd-631723430356
+		sourceLineageTag: cbe908c7-8bf1-4b41-b160-27df4fe8d519
+		dataCategory: Uncategorized
+
+	measure 'Book Value - FUNC (Sec Lots)' = EXTERNALMEASURE("Book Value - FUNC (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: c3765aac-b236-4cf2-b206-97f1ad37e374
+		sourceLineageTag: 2758fe04-dcd2-4e45-b43f-40aa1accb254
+		dataCategory: Uncategorized
+
+	measure 'Book Value - HKD (Sec Lots)' = EXTERNALMEASURE("Book Value - HKD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: cdfb6a41-4473-4703-8281-307d10cb3eb1
+		sourceLineageTag: 0aea63d4-4842-4617-9ba5-4492b506aadb
+		dataCategory: Uncategorized
+
+	measure 'Book Value - USD (Sec Lots)' = EXTERNALMEASURE("Book Value - USD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 62c3fce1-509d-405c-9693-db50f82945eb
+		sourceLineageTag: 3bfa11e1-203e-4832-b56f-6097265d228d
+		dataCategory: Uncategorized
+
+	measure 'Carrying Value - CAD (Sec Lots)' = EXTERNALMEASURE("Carrying Value - CAD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: c51e93b4-532f-4c72-a590-59a91a77688d
+		sourceLineageTag: c323c390-1624-43e5-8cf3-5b8a7e3f9899
+		dataCategory: Uncategorized
+
+	measure 'Carrying Value - FUNC (Sec Lots)' = EXTERNALMEASURE("Carrying Value - FUNC (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 30d14a36-9c95-4c38-a37a-acbff5386b08
+		sourceLineageTag: 923fa3a1-c6e7-4b66-8281-d00099ddf12a
+		dataCategory: Uncategorized
+
+	measure 'Carrying Value - HKD (Sec Lots)' = EXTERNALMEASURE("Carrying Value - HKD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 315f11d6-3d84-44a0-b3f0-25fc77a80762
+		sourceLineageTag: 01680497-d111-4d41-bb9e-b100f1139113
+		dataCategory: Uncategorized
+
+	measure 'Carrying Value - USD (Sec Lots)' = EXTERNALMEASURE("Carrying Value - USD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: d115d09c-382f-4331-b9c3-ccf4a5249251
+		sourceLineageTag: 85934db2-7185-476a-bbb9-6f37bc48dd63
+		dataCategory: Uncategorized
+
+	measure 'Fair Value Unaccrued - CAD (Sec Lots)' = EXTERNALMEASURE("Fair Value Unaccrued - CAD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: ca237007-1b9f-4a69-b5ae-c487e0608be5
+		sourceLineageTag: aeb84a41-063f-4f6b-9bd5-51cb4db5242a
+		dataCategory: Uncategorized
+
+	measure 'Fair Value Unaccrued - FUNC (Sec Lots)' = EXTERNALMEASURE("Fair Value Unaccrued - FUNC (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: bcd1b5b7-dd5f-4568-9171-d29277210a2a
+		sourceLineageTag: 27d04c7b-a1a0-4eb0-856a-17d0d251073a
+		dataCategory: Uncategorized
+
+	measure 'Fair Value Unaccrued - HKD (Sec Lots)' = EXTERNALMEASURE("Fair Value Unaccrued - HKD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: b5b85f72-5bc2-45e1-93c4-b8c16ae905ba
+		sourceLineageTag: 553425e9-005f-4e03-86ed-50a8ff9d3d3c
+		dataCategory: Uncategorized
+
+	measure 'Fair Value Unaccrued - USD (Sec Lots)' = EXTERNALMEASURE("Fair Value Unaccrued - USD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 94fa166d-3dd7-4451-91c3-52ecde6e0c13
+		sourceLineageTag: 61370c3b-6744-42cb-91b4-18a70a22cc7a
+		dataCategory: Uncategorized
+
+	measure 'Original Cost - CAD (Sec Lots)' = EXTERNALMEASURE("Original Cost - CAD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 3d82ca57-97e7-4892-9534-083e1701078e
+		sourceLineageTag: e915ec44-e5ee-48c8-8e20-78c1b0d4bea7
+		dataCategory: Uncategorized
+
+	measure 'Original Cost - FUNC (Sec Lots)' = EXTERNALMEASURE("Original Cost - FUNC (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 2f791274-b7ca-470a-aa27-19e186c39d5b
+		sourceLineageTag: fa09ccc2-4c63-4282-a4eb-d1f5882b1e9d
+		dataCategory: Uncategorized
+
+	measure 'Original Cost - HKD (Sec Lots)' = EXTERNALMEASURE("Original Cost - HKD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: e86c5f9e-357a-4c5c-be95-eed7b6326f35
+		sourceLineageTag: a265ff28-566e-4085-9076-d28832a36909
+		dataCategory: Uncategorized
+
+	measure 'Original Cost - USD (Sec Lots)' = EXTERNALMEASURE("Original Cost - USD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 244d1dd3-797d-4d97-b43f-c99619e85643
+		sourceLineageTag: 198cc1b8-b983-4d1c-ad83-ae712378a1eb
+		dataCategory: Uncategorized
+
+	measure 'Unrealized Gain/Loss - CAD (Sec Lots)' = EXTERNALMEASURE("Unrealized Gain/Loss - CAD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 2900fe9c-2b17-47d0-a9c4-a2669ff591da
+		sourceLineageTag: 809be930-04fb-4b6f-9d08-f892fe584ce1
+		dataCategory: Uncategorized
+
+	measure 'Unrealized Gain/Loss - FUNC (Sec Lots)' = EXTERNALMEASURE("Unrealized Gain/Loss - FUNC (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 0dfa7169-e4ef-4844-b2dc-6a53f78e506c
+		sourceLineageTag: 3be3f4d5-b8ef-4e9e-9e5b-431c349e2278
+		dataCategory: Uncategorized
+
+	measure 'Unrealized Gain/Loss - HKD (Sec Lots)' = EXTERNALMEASURE("Unrealized Gain/Loss - HKD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 65a160a7-8b25-45ca-9085-2147067bebe5
+		sourceLineageTag: 70350ab3-c083-4587-b0b0-2f7269801722
+		dataCategory: Uncategorized
+
+	measure 'Unrealized Gain/Loss - USD (Sec Lots)' = EXTERNALMEASURE("Unrealized Gain/Loss - USD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 5cc7ab98-9c4a-4c27-b142-f63e85953812
+		sourceLineageTag: 1e5f8d41-b774-4041-b8cd-ccc66543eb3d
+		dataCategory: Uncategorized
+
+	measure 'Unrealized Gain/Loss CCY - CAD (Sec Lots)' = EXTERNALMEASURE("Unrealized Gain/Loss CCY - CAD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 6adcd170-360f-41b8-b647-cd66f667de90
+		sourceLineageTag: e89afd68-96c3-42ef-bd30-cc44da7f71e5
+		dataCategory: Uncategorized
+
+	measure 'Unrealized Gain/Loss CCY - FUNC (Sec Lots)' = EXTERNALMEASURE("Unrealized Gain/Loss CCY - FUNC (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 9695dce0-14bf-4b45-8847-c5abebd81705
+		sourceLineageTag: da767333-35f9-4d22-ac37-2225cff8f046
+		dataCategory: Uncategorized
+
+	measure 'Unrealized Gain/Loss CCY - HKD (Sec Lots)' = EXTERNALMEASURE("Unrealized Gain/Loss CCY - HKD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: e9906366-0b98-4a42-881d-a4845b4cb885
+		sourceLineageTag: 74b6657d-4b28-4a2c-a3fb-e7ff260559bf
+		dataCategory: Uncategorized
+
+	measure 'Unrealized Gain/Loss CCY - USD (Sec Lots)' = EXTERNALMEASURE("Unrealized Gain/Loss CCY - USD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 94e0880e-3cdc-4c1c-8caa-7ecdac15ca85
+		sourceLineageTag: b7e219c7-51e7-4873-a6ed-05e348dea059
+		dataCategory: Uncategorized
+
+	measure 'Unrealized Gain/Loss Sec - CAD (Sec Lots)' = EXTERNALMEASURE("Unrealized Gain/Loss Sec - CAD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 62d98c20-e03c-4685-aa00-a88406cdd9fd
+		sourceLineageTag: 8f2bf31a-a865-4816-9d31-c59a7dff6849
+		dataCategory: Uncategorized
+
+	measure 'Unrealized Gain/Loss Sec - FUNC (Sec Lots)' = EXTERNALMEASURE("Unrealized Gain/Loss Sec - FUNC (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: c9094882-1d9b-4397-aba6-8a1a3085088b
+		sourceLineageTag: f36512fd-ab60-4729-a82f-74fe1efeea89
+		dataCategory: Uncategorized
+
+	measure 'Unrealized Gain/Loss Sec - HKD (Sec Lots)' = EXTERNALMEASURE("Unrealized Gain/Loss Sec - HKD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 2a64d1f0-4ef3-4926-81b8-163cc9062267
+		sourceLineageTag: ed290530-e2fb-4eb8-8e25-f4fadca79f9d
+		dataCategory: Uncategorized
+
+	measure 'Unrealized Gain/Loss Sec - USD (Sec Lots)' = EXTERNALMEASURE("Unrealized Gain/Loss Sec - USD (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		displayFolder: Currency Measures
+		lineageTag: 8075847b-6487-43e3-a6a4-030576f0bebf
+		sourceLineageTag: 057a1e94-cf63-44f5-aabf-a9880644b154
+		dataCategory: Uncategorized
+
+	measure 'FV Final - Rep (Sec Lots)' = EXTERNALMEASURE("FV Final - Rep (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 1e10ea5c-5a7b-41f4-9d9d-741ca43fbf62
+		sourceLineageTag: 2e820803-171a-4ee1-86cd-b7b62de94c83
+		dataCategory: Uncategorized
+
+	measure 'FV Final - Local (Sec Lots)' = EXTERNALMEASURE("FV Final - Local (Sec Lots)", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: 26a13ea6-79b5-471d-9eff-da43d8282bb8
+		sourceLineageTag: d71019b6-fe31-4bb3-beb2-e0e45f827684
+		dataCategory: Uncategorized
+
+	measure 'Ultimate parent company (Sec Lots)' = EXTERNALMEASURE("Ultimate parent company (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: e0298080-4371-4928-8279-2395f863a13c
+		sourceLineageTag: 6388a796-b86b-4f17-a89c-6b2927df3729
+		dataCategory: Uncategorized
+
+	measure 'Ultimate parent LEI (Sec Lots)' = EXTERNALMEASURE("Ultimate parent LEI (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: b75f343d-0954-4899-bb4b-ac19d2e825f6
+		sourceLineageTag: 9380d12e-39a2-4ba6-b997-a42d4f5bc108
+		dataCategory: Uncategorized
+
+	measure 'Ultimate parent location (Sec Lots)' = EXTERNALMEASURE("Ultimate parent location (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 30ce4820-716b-45e1-897d-fd10726b94e0
+		sourceLineageTag: f109c69c-3e11-46ee-8c03-ad839eb9d53b
+		dataCategory: Uncategorized
+
+	measure 'Payment Method Name (Sec Lots)' = EXTERNALMEASURE("Payment Method Name (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 7140fa52-bac2-46ed-88a7-1a457b87ebb1
+		sourceLineageTag: 0e961283-6dcf-4a7b-8020-0cd2ef10e6d1
+		dataCategory: Uncategorized
+
+	measure 'Calculated Unrealized Gain/Loss – Local' = EXTERNALMEASURE("Calculated Unrealized Gain/Loss – Local", DOUBLE, "DirectQuery to AS - Securities")
+		lineageTag: bf84919f-30c2-4386-879c-2d37a8cd6dd0
+		sourceLineageTag: 17cf2ea9-11f5-4eb2-8966-d169d58f816c
+		dataCategory: Uncategorized
+
+	measure 'Calculation Date Full (Sec Lots)' = EXTERNALMEASURE("Calculation Date Full (Sec Lots)", DATETIME, "DirectQuery to AS - Securities")
+		formatString: yyyy\-mm\-dd hh:nn:ss AM/PM
+		lineageTag: 849f447b-7636-46b2-9e84-08f98cde7c77
+		sourceLineageTag: 62dc784c-c3a6-409c-9029-e81d8736e827
+		dataCategory: Uncategorized
+
+	measure 'Trading Philosophy Code - IAS39 (Sec Lots)' = EXTERNALMEASURE("Trading Philosophy Code - IAS39 (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 013d030a-8b87-48c3-bab2-ad601be2e4ec
+		sourceLineageTag: 8b864ec7-3762-40f8-bef7-558f7dac6ed3
+		dataCategory: Uncategorized
+
+	measure 'Trading Philosophy Code - IFRS (Sec Lots)' = EXTERNALMEASURE("Trading Philosophy Code - IFRS (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 357c8954-fd73-4f62-a4ea-6299c088966b
+		sourceLineageTag: 553c0937-f6fb-47d5-bdf1-f9743c6855af
+		dataCategory: Uncategorized
+
+	measure 'Trading Philosophy Code - JGAAP (Sec Lots)' = EXTERNALMEASURE("Trading Philosophy Code - JGAAP (Sec Lots)", STRING, "DirectQuery to AS - Securities")
+		lineageTag: 8e5fb3a9-7d0c-4aa6-ba61-bbb60b155a6a
+		sourceLineageTag: 0c6ee618-ddf3-4e93-b992-c897aa207972
+		dataCategory: Uncategorized
+
+	measure 'Purpose Codes (Sec Lots) - TP' = EXTERNALMEASURE("Purpose Codes (Sec Lots) - TP", STRING, "DirectQuery to AS - Securities")
+		lineageTag: f72d8485-a166-4d5d-8747-a0778208f43a
+		sourceLineageTag: a65db178-e524-48f0-9a1a-389bc831b59e
+		dataCategory: Uncategorized
+
+	column 'Framework Code'
+		dataType: string
+		lineageTag: e7c401db-fba5-466e-b619-527c245d9460
+		sourceLineageTag: 0db595d2-9815-4274-b25b-c9631e78a3be
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Framework Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Security NK'
+		dataType: string
+		lineageTag: d4d13790-59b8-449a-bd96-f08eca1bcb19
+		sourceLineageTag: c4e269e8-d35c-4a76-ae34-b3f4bf21077d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Security NK
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio NK'
+		dataType: string
+		lineageTag: 0a49650f-99d2-4ee5-839e-307fe9c7bf44
+		sourceLineageTag: 75c2375a-82c8-46bf-9755-49befaafe29b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio NK
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As Of Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 7199a0fd-987f-4816-a11d-7f4702ec9967
+		sourceLineageTag: 87f3cd9a-5589-4903-bad2-d09ea3d4b9ad
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: As Of Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As Of Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: a8511f69-2c85-4537-ac26-662961d2e944
+		sourceLineageTag: 9b5d1cc3-e2fb-47f3-a008-ba137c4e0bcb
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: As Of Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Maturity Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: d43d0efc-5d08-4dbf-9d29-bb9d095c75fa
+		sourceLineageTag: cfdde133-960e-41f2-990b-49efbd41841d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Maturity Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sec Maturity Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 28dc6a81-9dc6-46b5-9b53-1288b3c319a4
+		sourceLineageTag: d18f4943-5e1d-41be-9cc8-46dfa3bc3add
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sec Maturity Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Unit Code & Name'
+		dataType: string
+		lineageTag: 43d1313e-d869-4a0a-8457-f2f411c88e9e
+		sourceLineageTag: 62889637-900f-4a50-a9c2-3abd4e1682de
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Accounting Unit Code & Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Code & Name'
+		dataType: string
+		lineageTag: 4bd7e852-ef53-4702-ba66-2dddeaa0dcff
+		sourceLineageTag: d747a85b-9c79-47b5-9862-47a3837c13fa
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Company Code & Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Code & Name'
+		dataType: string
+		lineageTag: 87a870be-daf1-47a5-b950-99a802a9faa0
+		sourceLineageTag: e17ae49a-96a3-4cee-ad98-a03efc42e825
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Code & Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Class'
+		dataType: string
+		lineageTag: ef2f7315-142a-42d0-ae24-a2ca0270a9ba
+		sourceLineageTag: e79f6f69-5711-469f-ab88-354cda63998b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: GL Class
+
+		annotation SummarizationSetBy = Automatic
+
+	column Local
+		dataType: string
+		lineageTag: 6c7bb1d4-bb05-4da9-bbfd-a01409d95474
+		sourceLineageTag: 90b678dc-2a38-4c16-9f19-7fd3118484ed
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Positions ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 340fcc81-66bb-4637-a126-89a19876bafd
+		sourceLineageTag: 8dfccec4-456b-453f-aa0d-9b84311dd4a8
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: Src Positions ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Src
+		dataType: string
+		lineageTag: ca9844b1-277b-409e-bf2e-8fec7cf1011e
+		sourceLineageTag: d1b9c30e-4528-48ff-a525-490cc56e0393
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month End Status'
+		dataType: string
+		lineageTag: 53e7c29b-6138-4a58-8c96-77fe4e066ffa
+		sourceLineageTag: 862696b6-0892-42f1-911a-ac80f06977bd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Month End Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Int Trans Number Orig Trans'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9d309beb-895b-4129-aa7a-e22dfe28a65d
+		sourceLineageTag: 3f9c258c-6498-44d7-b5d8-a8760ac09c0f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Int Trans Number Orig Trans
+
+		annotation SummarizationSetBy = User
+
+	column 'Base Currency Code'
+		dataType: string
+		lineageTag: 32be34f5-4964-445c-850d-28e3250cf53b
+		sourceLineageTag: 6ca66bbe-0c5e-4f5a-8048-3dae30d694c2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Base Currency Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Calculation Date Full'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd hh:nn:ss AM/PM
+		lineageTag: 62d2dbc5-5821-4f14-b0ef-b14181ab40f2
+		sourceLineageTag: fbbdcd47-39e4-4b41-a972-84058acdb41d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Calculation Date Full
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Group Objective'
+		dataType: string
+		lineageTag: c10724ba-0e9c-4ee1-a017-86b53939c1ef
+		sourceLineageTag: df7d3ff4-b309-4c0c-afe8-acd972721930
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Group Objective
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Portfolio Code'
+		dataType: string
+		lineageTag: 3500d67c-6b3a-4f01-ae9c-732da6200747
+		sourceLineageTag: 10dd404b-88d1-4760-8d2f-bd96f64038d2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Asset Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pool Factor'
+		dataType: double
+		lineageTag: 7bcb7ca3-2eb1-42c8-a064-32ae9c2c6fbb
+		sourceLineageTag: fc5b6fef-4249-4dd4-9aaf-50d3d4861d0e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Pool Factor
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Credit Impairment Stage'
+		dataType: string
+		lineageTag: 027a6f48-5cd8-4e9a-98c2-0f188c7ab206
+		sourceLineageTag: 70edcac4-8995-4f06-80ae-d29140c2316d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Credit Impairment Stage
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Long Short Indicator'
+		dataType: string
+		lineageTag: fc6d82ca-2713-40d7-b65b-71af187b0df3
+		sourceLineageTag: e9f3ca87-4fbc-419f-a566-4fdf1c22f21e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Long Short Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Functional Ccy Code'
+		dataType: string
+		lineageTag: ccfb7dc5-782f-426a-ac81-10297c09f513
+		sourceLineageTag: 12ad9a02-4e11-42c1-947d-25d2143b4f93
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Functional Ccy Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local To FUNC Rate'
+		dataType: double
+		lineageTag: 37696f5e-51de-460a-a996-c781571fd3d0
+		sourceLineageTag: 9bc6799a-8cdc-4c4b-8579-1bd0309eea7f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Local To FUNC Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local To CAD Rate'
+		dataType: double
+		lineageTag: 54556013-da08-4bbc-be67-d8715d514ddb
+		sourceLineageTag: 21ae0fc7-2ec5-450c-9d1d-a5489f5891c9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Local To CAD Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local To USD Rate'
+		dataType: double
+		lineageTag: 18e70955-0572-4b97-99a3-7ca0c0fc4167
+		sourceLineageTag: 41449218-cdb5-470f-a5e1-504f7c9fc7a2
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Local To USD Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local To HKD Rate'
+		dataType: double
+		lineageTag: d1d4a04e-c0cb-4246-baf0-c570c26e213a
+		sourceLineageTag: f90f70e7-99fd-4f31-95d1-f04eaa42d3e9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Local To HKD Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Original Cost - Base'
+		dataType: double
+		lineageTag: c4fa3464-cb9c-4527-9f30-52def8c470bc
+		sourceLineageTag: fb134a1e-34ce-4167-a2fa-b234f2a0a4e9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Original Cost - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Original Cost - Local'
+		dataType: double
+		lineageTag: 64fcb693-a4d4-42cf-a0ee-483fe7534e0a
+		sourceLineageTag: 2bf2e70d-aca1-40da-b35b-3f0aebc279c8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Original Cost - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AOCI Hedge Par'
+		dataType: double
+		lineageTag: 065579b1-e4fb-4317-859d-b37f70eee789
+		sourceLineageTag: eceaf9b9-c931-47e3-b66e-e2d35f020547
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: AOCI Hedge Par
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Book Yield'
+		dataType: double
+		lineageTag: 9e905daf-9b71-4998-b842-1ae5286a995f
+		sourceLineageTag: 9820dd70-546c-4e14-8420-aeca140bbfe2
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Book Yield
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Current Yield'
+		dataType: double
+		lineageTag: e9e08586-6ff6-4e25-beb0-efe52149f861
+		sourceLineageTag: 5c18de5e-30f9-48fc-a4a7-15215c8dc9b9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Current Yield
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Modified Duration'
+		dataType: double
+		lineageTag: fc7303d2-3fe9-4937-9d57-3a02103569ad
+		sourceLineageTag: 2b454354-e4be-4d6d-9d93-86cabefe931d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Modified Duration
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nominal
+		dataType: double
+		lineageTag: ddc59402-8655-48c5-86df-bf737361ef83
+		sourceLineageTag: 7bf0158b-b0b8-4aa8-bd98-e1171ab8e47d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Nominal
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'BV / Unit - Base'
+		dataType: double
+		lineageTag: 102bb04b-3206-499a-a535-2f1046d2bee9
+		sourceLineageTag: 223ac358-879e-420a-97aa-bb30e8b8b576
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: BV / Unit - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'BV / Unit - Local'
+		dataType: double
+		lineageTag: da29b40d-1c44-4c26-98d9-6a4ebadd1503
+		sourceLineageTag: 2db18183-be38-482f-8da4-4b774bb09e81
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: BV / Unit - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost / Unit - Base'
+		dataType: double
+		lineageTag: 26ca4a50-5449-4793-8321-8d21cb96d1e3
+		sourceLineageTag: bfaddd75-5b0c-4757-ad25-d2cb05be5fb8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Cost / Unit - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost / Unit - Local'
+		dataType: double
+		lineageTag: 1169db40-d801-4074-b156-ff093f803420
+		sourceLineageTag: 6dc2681b-5385-414f-9732-5aad8b4063bb
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Cost / Unit - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local Exchange Rate'
+		dataType: double
+		formatString: 0.000000
+		lineageTag: 3762158b-6f47-43f3-be38-b32b9d12545f
+		sourceLineageTag: 771821f6-9a93-4ae5-81ee-47168640e5a4
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Local Exchange Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lot ID'
+		dataType: string
+		lineageTag: 2e3ce5e5-c1b8-4d84-ae3e-d59291f7496e
+		sourceLineageTag: 3790b2af-ea44-4248-96ad-7f1be1700466
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Lot ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Issuer Name'
+		dataType: string
+		lineageTag: c2889f75-fdb6-4735-82ab-ba40577b7f52
+		sourceLineageTag: 7cb42afb-ea25-4de3-9c93-a2ce784fa219
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Issuer Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Position Long Short Indicator'
+		dataType: string
+		lineageTag: 64f340ea-44a0-4e06-83e3-5fedcb3f4ff7
+		sourceLineageTag: 56541b83-f233-4720-8b4b-244aa76a0d3d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Position Long Short Indicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Match Index'
+		dataType: int64
+		formatString: 0
+		lineageTag: 95565eee-e92e-4f5f-98de-dc19ec0fef78
+		sourceLineageTag: 607b7e69-1738-405f-9588-fc57d9600f40
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Match Index
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Security Internal Rating'
+		dataType: string
+		lineageTag: 489fd92a-17e7-4186-bcf2-704031bdadaa
+		sourceLineageTag: 9c2107ba-637a-4483-972d-8b976c66297d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Security Internal Rating
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Original ML Rating'
+		dataType: string
+		lineageTag: e48916ec-53cf-40d9-81dd-09746e703b00
+		sourceLineageTag: 50dbf8b8-857f-4fb2-a871-d042eea721ae
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Original ML Rating
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Private Place'
+		dataType: string
+		lineageTag: 185247b1-8c37-490f-9edc-fbaa57c36c1e
+		sourceLineageTag: 46150a3f-c1da-4691-aa0c-acca969f1ea6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Private Place
+
+		annotation SummarizationSetBy = Automatic
+
+	column Coupon
+		dataType: double
+		lineageTag: 9349faff-f6fe-4ac9-a922-ffd69303a717
+		sourceLineageTag: e06c5dbc-3822-4015-8d2c-d1a0fe870581
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Coupon
+
+		annotation SummarizationSetBy = User
+
+	column 'Effective Matching Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 3e058596-af62-40ba-a515-65c139dd356b
+		sourceLineageTag: d13160a6-76c0-4379-a324-0efeeaf298ad
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Effective Matching Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Impaired Before'
+		dataType: string
+		lineageTag: d07c1145-77f0-42b2-a0b3-ffa12ee9f191
+		sourceLineageTag: 99e249f3-d551-43cf-997a-04e8b12d3b4b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Impaired Before
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'First Loss Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: a9d2bc13-b369-4272-98d7-f541fd1f6929
+		sourceLineageTag: 45d29154-d8b3-4df8-a500-0f8557e43639
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: First Loss Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Impaired Before Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: e851f2e3-570a-4ece-8949-71a2bb90898b
+		sourceLineageTag: acd1bff0-c6c5-4c5a-9eea-8481ddbb13d5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Impaired Before Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Num of Days Impair'
+		dataType: int64
+		formatString: 0
+		lineageTag: 86a2dc00-da21-4d80-86e8-1bde622e7ccb
+		sourceLineageTag: 483dc407-7085-4dcf-bf27-46b662648ff0
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Num of Days Impair
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Num of Days in Lost Position'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0886079a-ec83-445f-b39e-ecbcc82ed2d6
+		sourceLineageTag: 86a1ad01-7fd8-43e0-827c-4ac2edbb8f7e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Num of Days in Lost Position
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Par Amount'
+		dataType: double
+		lineageTag: b4aa7bd3-2fa7-4f16-8adb-f5c48ead72a0
+		sourceLineageTag: 261a2788-e47d-414e-8aa6-dc25ce3dbced
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Par Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fair Value Unaccrued - Local'
+		dataType: double
+		lineageTag: a81295a1-b2af-4b7e-b647-df96f203dd60
+		sourceLineageTag: 1621db3b-d512-4c2a-9a99-4ac73a07ffe2
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Fair Value Unaccrued - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Security ID (Slicer -Sec Lots)'
+		dataType: string
+		lineageTag: afb1a443-4703-43c3-a6ec-627935c25ea6
+		sourceLineageTag: cbb0385e-0139-4bf2-92fb-a9427a06459f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Security ID (Slicer -Sec Lots)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Group (Sec Lots)'
+		dataType: string
+		lineageTag: 5bb6ee25-f9ca-4278-9e48-9b84f1417720
+		sourceLineageTag: 24eaccfa-13fb-4ab6-8eb3-f193222a8566
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Asset Group (Sec Lots)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Class (Sec Lots)'
+		dataType: string
+		lineageTag: 3e065c97-1bde-426e-a39d-cd6bdeeea1d9
+		sourceLineageTag: b8b4c00f-2f2c-49a3-91b9-dc787debb5c8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Asset Class (Sec Lots)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Type (Sec Lots)'
+		dataType: string
+		lineageTag: 41fbd182-5d1c-4fcc-9438-622ec8c40a22
+		sourceLineageTag: 66d0e9ad-9f41-4f48-b7eb-87496ba41e81
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Asset Type (Sec Lots)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaction No'
+		dataType: string
+		lineageTag: 94444302-303e-48d0-a4a7-d6ac2bae399a
+		sourceLineageTag: 72ed34cf-fc21-469a-94af-097634349073
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Transaction No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PenPar Trade Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: fd7c872b-922a-4185-a175-193082518b8a
+		sourceLineageTag: 9fd1370b-57cf-46a4-81ca-fd6677900506
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PenPar Trade Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lot Trade Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 0a5b3e0a-a00c-465e-bead-0878652861d3
+		sourceLineageTag: 828dd730-5199-4ed5-9611-bf0524f3f76c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Lot Trade Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Secid
+		dataType: string
+		lineageTag: 36f565f9-9193-4c71-a658-ffdb96bf73d5
+		sourceLineageTag: 80b5f83f-6444-4453-8e0f-d93549befd23
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Secid
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Public/Private Ind'
+		dataType: string
+		lineageTag: 5d2430c0-6535-4453-96a9-79b192d4a13e
+		sourceLineageTag: d20a1874-e968-428b-ad12-f69753f91375
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Public/Private Ind
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Process Flag'
+		dataType: string
+		lineageTag: 64f500f4-1198-4e62-a4b0-cc740854c96f
+		sourceLineageTag: 1da6d61e-bdff-4fc8-a639-4ff59ecc03ff
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Process Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SCD Impairment Tran Code'
+		dataType: string
+		lineageTag: 0fdd6660-8486-4f19-8a79-7b3a81598caa
+		sourceLineageTag: 2a5476e8-4e24-4b93-a6de-3f3378c192da
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SCD Impairment Tran Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# of quarters in loss position'
+		dataType: string
+		lineageTag: cc6e1788-d3d7-486e-a5e8-478c492aa8b7
+		sourceLineageTag: 720d2b26-1ea9-44f8-8b2d-8ead9f8eef1c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: # of quarters in loss position
+
+		annotation SummarizationSetBy = Automatic
+
+	column '# of months in loss position'
+		dataType: string
+		lineageTag: 5b10188e-6e71-4e82-bf05-3bcf9f5bbb4d
+		sourceLineageTag: 9d339d3f-a20b-4121-8a8d-aaa5f81168ae
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: # of months in loss position
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Original Drop %'
+		dataType: double
+		lineageTag: 841669bd-b89b-45aa-b4c0-d4cc09ea929a
+		sourceLineageTag: 456e31a7-826e-4248-b0b6-c8b53cf27f41
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Original Drop %
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Current Drop %'
+		dataType: double
+		lineageTag: a6e43e63-32c5-491d-854e-f4c0f762b449
+		sourceLineageTag: 5c50a6fc-73f2-4414-b6a3-00c631d7a524
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Current Drop %
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Code (Sec Lots)'
+		dataType: string
+		lineageTag: e4256992-f959-4737-97cc-32dd9224e9b5
+		sourceLineageTag: 51973f56-5179-4ffb-a090-4803abc2b936
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Portfolio Code (Sec Lots)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Primary Security ID (Sec Lots)'
+		dataType: string
+		lineageTag: e07b3224-9b44-4048-b6ec-58db9ae35330
+		sourceLineageTag: dbfd9fa6-d3b4-4dc6-8b9d-5b5caccf0787
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Primary Security ID (Sec Lots)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ext Tax Lot No IK'
+		dataType: int64
+		formatString: 0
+		lineageTag: cd4951d3-702d-4fe8-8127-cb56c8cb7ffc
+		sourceLineageTag: d7973f29-e907-49fb-ad2c-168b9145316b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ext Tax Lot No IK
+
+		annotation SummarizationSetBy = User
+
+	column 'Fair Value Unaccrued - Base'
+		dataType: double
+		lineageTag: e930345e-9837-40d5-99e1-347565ec143a
+		sourceLineageTag: cd58892b-5f22-4b67-83b4-38d0b981ebbe
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Fair Value Unaccrued - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Code'
+		dataType: string
+		lineageTag: 89b179e4-deff-481d-b8b6-a8f1d668cdf7
+		sourceLineageTag: e5fab00d-74f5-4e95-ac05-0a598a16ed21
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Company Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Unit Code'
+		dataType: string
+		lineageTag: aa646f32-987c-4ed4-b6a9-ad8de6822eca
+		sourceLineageTag: 27708652-5c31-4fda-ab71-f60f01bb44b5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Accounting Unit Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Primary Security ID & Desc (Sec Lots)'
+		dataType: string
+		lineageTag: 922fc0d6-54b4-4f3a-a208-9859dbd49304
+		sourceLineageTag: 58368eb3-1ed9-48ff-ab62-8ad937a5cd0b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Primary Security ID & Desc (Sec Lots)
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: d8ad35ca-a44c-4514-bf02-a6f844cc7880
+		sourceLineageTag: 7729fac9-71e1-4b69-9433-c8ab22dfb4fd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Security ID'
+		dataType: string
+		lineageTag: 00bab2f8-607d-489b-9494-6b2ccd70dedb
+		sourceLineageTag: 1944fb26-96e0-40b1-b71d-6c450b369ce7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src Security ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Market ID'
+		dataType: string
+		lineageTag: 52f20ed4-906b-4764-8ab7-56e032627fc5
+		sourceLineageTag: 59b2af30-cf6d-4d74-87a4-f101936072b7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Src Market ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Int Appr - Base'
+		dataType: double
+		lineageTag: c53a662f-d653-41da-bf60-c3123e9f8b52
+		sourceLineageTag: 32c6c193-3acd-48f4-b220-7818d1837f74
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Int Appr - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Int Appr - Local'
+		dataType: double
+		lineageTag: 889de8a3-dfcc-4bc3-949f-ef232f10244c
+		sourceLineageTag: 176b90f0-0e23-440f-8f86-13a36d6525bb
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Int Appr - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance OID Appr - Base'
+		dataType: double
+		lineageTag: ab1dbefb-999b-4697-904f-cf3334b85368
+		sourceLineageTag: 2075f1ee-b7f9-4a80-bfac-83c2ec663018
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance OID Appr - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance OID Appr - Local'
+		dataType: double
+		lineageTag: 66f4a764-14fa-45ed-9321-ce48754ca748
+		sourceLineageTag: 4adc2b7b-396f-43fa-8161-b3ae085dbc1b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance OID Appr - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance CL Allowance - Base'
+		dataType: double
+		lineageTag: 65109d0e-6036-4973-8f95-4a8382b3b01e
+		sourceLineageTag: dfe6c72e-846e-48af-8352-ed569fe54bc6
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance CL Allowance - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance CL Allowance - Local'
+		dataType: double
+		lineageTag: a83ebe05-33d2-4e3a-bc10-0f018cacf4b3
+		sourceLineageTag: 922e3cfb-f18c-41c6-93a1-cbe59592c7f6
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance CL Allowance - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Recog CL Allowance - Base'
+		dataType: double
+		lineageTag: a602fae9-47c3-4e97-b5db-ebf6c30587df
+		sourceLineageTag: b0df15df-1226-40f7-9c2c-0044551b109e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Recog CL Allowance - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Recog CL Allowance - Local'
+		dataType: double
+		lineageTag: 100efbc4-b336-4bc4-a90b-5876fea9e9b8
+		sourceLineageTag: 5b9c272b-79e9-4c36-90f0-78f3fd62cd97
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Recog CL Allowance - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Impairment - Base'
+		dataType: double
+		lineageTag: 3201e681-da7e-4526-aa48-9e674e7ba4f0
+		sourceLineageTag: 31f0fa61-f52d-476e-a931-7dfa50d143b7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Impairment - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Impairment - Local'
+		dataType: double
+		lineageTag: 173ba47f-7a17-4808-9e85-482768b901a5
+		sourceLineageTag: 818f75c6-e31e-41ba-8b3b-16a5eb55c83e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Impairment - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance CCY Impairment - Base'
+		dataType: double
+		lineageTag: 13a0d724-5466-4ce9-8323-a2acc15c36fc
+		sourceLineageTag: 62894e63-61c1-4818-8f52-5fec64510dca
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance CCY Impairment - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AOCI Remain Balance BV - Base'
+		dataType: double
+		lineageTag: 418b92e3-a704-4857-9849-acffffb3f3a5
+		sourceLineageTag: 5f672b4f-0157-4d7c-89de-a3950b0e9eb3
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: AOCI Remain Balance BV - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AOCI Remain Balance BV - Local'
+		dataType: double
+		lineageTag: 6868fd13-4f63-4b9e-9c86-7592fffc4d07
+		sourceLineageTag: fb36ba8b-c577-4dd3-a75f-8ddd75215d71
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: AOCI Remain Balance BV - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Deferred PL - Base'
+		dataType: double
+		lineageTag: 6f687acd-c8f2-4a6f-b307-91f8e721ae52
+		sourceLineageTag: 09ac15ab-78b6-4e67-a225-9af3c3a2d6b7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Deferred PL - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Deferred PL - Local'
+		dataType: double
+		lineageTag: 5acd6fdd-772d-4785-8c80-24517401337d
+		sourceLineageTag: 19aed490-a148-4ed4-b8a8-de491176edde
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Deferred PL - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Carrying Value - Base'
+		dataType: double
+		lineageTag: 98de58c9-ca7c-492c-83f9-43758dd41c32
+		sourceLineageTag: 88727be3-28b0-4648-b0a3-d57b105f992b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Carrying Value - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Carrying Value - Local'
+		dataType: double
+		lineageTag: ebf91362-35db-44ba-a3c8-eac7230e2b8b
+		sourceLineageTag: 91a80564-0855-431f-9553-fb17bea22a1b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Carrying Value - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AOCI Remain Balance Non BV - Base'
+		dataType: double
+		lineageTag: b8b7c326-5d74-4562-ad0c-2a47bef0e2f8
+		sourceLineageTag: 078450e8-d86a-4372-ba42-e7fd788178f4
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: AOCI Remain Balance Non BV - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AOCI Remain Balance Non BV - Local'
+		dataType: double
+		lineageTag: 9a7b88bb-a498-4ead-bf44-61ef3ef4c2c2
+		sourceLineageTag: 29475623-9503-4d2d-902f-55d46d54601a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: AOCI Remain Balance Non BV - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AOCI Remain Balance Rep - Base'
+		dataType: double
+		lineageTag: f041c4b7-fee2-4c88-b88a-6819a266181a
+		sourceLineageTag: e42e9ddd-39ce-4bd2-ab86-e6517113afd0
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: AOCI Remain Balance Rep - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AOCI Remain Balance Rep - Local'
+		dataType: double
+		lineageTag: 8926a8e8-32d9-47cc-807c-409810a0bfe5
+		sourceLineageTag: f17df4cc-8e43-414a-87b3-dfa371cfa057
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: AOCI Remain Balance Rep - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Book Value - Base'
+		dataType: double
+		lineageTag: 501ff9d2-5b45-41ff-9829-e522afb151a9
+		sourceLineageTag: 8524a0b0-279e-46b4-a101-4333a02aa42b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Book Value - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Book Value - Local'
+		dataType: double
+		lineageTag: b6a06a76-5764-4b3c-9262-9692de8d767d
+		sourceLineageTag: bbb823be-75c0-4450-9fbe-87da20d1757a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Book Value - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unrealized Gain/Loss Sec - Base'
+		dataType: double
+		lineageTag: 77a4774c-ef18-42fc-bdfd-df76ed35bb7a
+		sourceLineageTag: da79c067-bf5f-468d-be4e-fd3feccee844
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Unrealized Gain/Loss Sec - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unrealized Gain/Loss CCY - Base'
+		dataType: double
+		lineageTag: 4c4c2d0d-b207-4ad1-8aa3-fda0c3ebbb18
+		sourceLineageTag: e2a3bb73-bb3b-4659-84c3-3a23c279a66e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Unrealized Gain/Loss CCY - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unrealized Gain/Loss - Base'
+		dataType: double
+		lineageTag: 87a6f03d-47df-4244-9d72-c03fef3baa43
+		sourceLineageTag: e5e4de47-826d-4574-9b7d-65faa1a44dc5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Unrealized Gain/Loss - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unrealized Gain/Loss Sec - Local'
+		dataType: double
+		lineageTag: 64f09c00-9bc5-4a98-ad0a-bd855cae43cb
+		sourceLineageTag: 286ecbda-e89b-4ee3-882e-bec673b5b755
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Unrealized Gain/Loss Sec - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unrealized Gain/Loss CCY - Local'
+		dataType: double
+		lineageTag: b44df1b4-7e11-488b-9296-96c4c31a1f4c
+		sourceLineageTag: 3afee84e-02db-4b9a-8eef-e73f071d5e3f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Unrealized Gain/Loss CCY - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unrealized Gain/Loss - Local'
+		dataType: double
+		lineageTag: edb0673f-662b-4585-ad4c-65811f5d3b79
+		sourceLineageTag: a6f8588c-5624-4122-9da0-f89252ccc75c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Unrealized Gain/Loss - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Created Ts'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd hh:nn:ss AM/PM
+		lineageTag: 2e54a07b-fbf0-4447-af7e-2cd0598b4972
+		sourceLineageTag: 12566b1d-5faa-4602-9ee0-d164f8df2913
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Created Ts
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Updated Ts'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd hh:nn:ss AM/PM
+		lineageTag: 6580da2a-33f7-4412-8660-6b7b40167365
+		sourceLineageTag: 6ce959dd-b645-44f0-a3bb-24be2af7b2c1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Updated Ts
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Code & Name Display'
+		dataType: string
+		lineageTag: 143dcaf3-b0da-46cd-a94c-91d13474871b
+		sourceLineageTag: b4431c67-c934-446d-a4a8-79c1b69ff509
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Company Code & Name Display
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Unit Code & Name Display'
+		dataType: string
+		lineageTag: f0820298-14d9-4de7-9ebe-45a6eaab93c3
+		sourceLineageTag: 5e885ece-05db-429f-8171-ed67f57b3fcc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Accounting Unit Code & Name Display
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SCD Security ID'
+		dataType: string
+		lineageTag: 21ff2f1a-7a02-40ec-bbd2-94560ce93556
+		sourceLineageTag: 7c8bf0be-574d-45d8-abfd-d438faaea4b6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SCD Security ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month End Lots'
+		dataType: string
+		lineageTag: 5dd5a5fe-c70d-4368-bba1-ba6956d31d6a
+		sourceLineageTag: cce15bec-5d3b-4ff4-8fba-2175c8e00195
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Month End Lots
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Write Off - Local'
+		dataType: double
+		lineageTag: 824b36c4-629b-4e39-8399-b6ca56cdbe02
+		sourceLineageTag: 3ae0e96f-372d-482b-82ac-f7855b2f0f91
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Write Off - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Write Off - Base'
+		dataType: double
+		lineageTag: 4cfcc8f9-ab3b-423e-8241-d87884f90184
+		sourceLineageTag: 4ac57930-069b-4734-a49a-00ba16835823
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Write Off - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column component_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 1e8571bb-bc40-41ac-9553-e4004478c4e5
+		sourceLineageTag: 50f3a8a5-c1ec-4b91-bb6d-0e4f37f39348
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: component_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column portfolio_calculation_ik
+		dataType: int64
+		formatString: 0
+		lineageTag: 982f9293-db87-40b0-8e4a-faeba382bafa
+		sourceLineageTag: b0b8fabc-6693-4284-89fa-f4b67b7afb8f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: portfolio_calculation_ik
+
+		annotation SummarizationSetBy = Automatic
+
+	column originating_system_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 4758ffcf-c6c2-4a04-85dc-137f288ffd6d
+		sourceLineageTag: 58b037cb-05d0-419f-8a3d-6ea683eb10d5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: originating_system_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Adjusted Book Value Local'
+		dataType: double
+		lineageTag: ee0960d3-534e-4777-8a48-00263b873f7c
+		sourceLineageTag: d4b34c19-0f93-4c4d-9614-f2644ec9801c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Adjusted Book Value Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Adjusted Book Value Base'
+		dataType: double
+		lineageTag: d7d1d9d5-f382-46c2-a1b5-ed112e440c1f
+		sourceLineageTag: 54266e1a-e33d-4875-b02d-b1f3fc519c6c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Adjusted Book Value Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Issuer Long Comp Name (Sec Lots)'
+		dataType: string
+		lineageTag: e08490cc-0654-45ca-907c-eb9674356808
+		sourceLineageTag: 88ca1f6f-2133-4dae-9c8e-90d109f65ef2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Issuer Long Comp Name (Sec Lots)
+
+		annotation SummarizationSetBy = Automatic
+
+	column GL_BUCKET
+		dataType: string
+		lineageTag: c76a57b2-bd6d-4d57-8f67-0174c738c5cd
+		sourceLineageTag: c5d7ffeb-3c1f-4037-ab5e-cd21ae887639
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: GL_BUCKET
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SCD Default Date'
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd
+		lineageTag: 51c7ce8f-ad76-42f4-8c5f-7cc409a4b528
+		sourceLineageTag: edbdd1e9-5fa9-4495-9feb-ac10459260c0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SCD Default Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accrue In Default'
+		dataType: string
+		lineageTag: f5b84f02-5feb-47ab-bcd9-b3f13fdf2988
+		sourceLineageTag: 9643d4e0-4ecf-474f-95df-584d55b03b81
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Accrue In Default
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trade Hedged Flag'
+		dataType: string
+		isHidden
+		lineageTag: 0d56e748-a9e5-42f8-9dfd-07407313f4c2
+		sourceLineageTag: 76733a13-1a04-4370-ad60-95453d6b1e2e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Trade Hedged Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column Units
+		dataType: double
+		lineageTag: cfdbf570-e780-430c-b64b-bb414f5f4d3f
+		sourceLineageTag: 42b9bdc7-acab-4f8a-a6c5-087b4d78755f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Units
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Blue Book Code'
+		dataType: string
+		lineageTag: 26812b67-754d-4f55-b8f5-99776d307ed3
+		sourceLineageTag: 5cd91482-8f4c-4184-9ce7-1059cd4b208f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Blue Book Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unreal Real Int Appr Disc Local CCY'
+		dataType: double
+		lineageTag: 194bad2e-c0cb-4d79-855a-c80c5a94397e
+		sourceLineageTag: 33886adb-c2dd-492d-9dd9-73ef9cea4942
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Unreal Real Int Appr Disc Local CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unreal Real Int Appr Prem Local CCY'
+		dataType: double
+		lineageTag: 18892eaa-7395-4b36-9e58-790b68395d83
+		sourceLineageTag: 1c8ed1dc-3ead-4d6a-b34c-17d11078a225
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Unreal Real Int Appr Prem Local CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unreal Oid Accretion Local CCY'
+		dataType: double
+		lineageTag: 2753b1cf-fc5d-4c34-8191-698cdd955fa6
+		sourceLineageTag: 3d6f2869-14cd-4ef8-872d-5c0a949ba1a1
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Unreal Oid Accretion Local CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bal Interest Appreciation Local CCY'
+		dataType: double
+		lineageTag: a75765ce-d6f9-4aea-9e39-bd7e6ee3f20f
+		sourceLineageTag: 05c83aed-d39d-46cc-9080-6559d10b915f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Bal Interest Appreciation Local CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Amortised Cost Sec Base CCY'
+		dataType: double
+		lineageTag: 303f50ea-bfbf-4434-9f4c-9091bcbb6bc4
+		sourceLineageTag: db778945-cee0-478a-928d-a1781c9876e5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Amortised Cost Sec Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Amortised Cost Local CCY'
+		dataType: double
+		lineageTag: 69c22808-6c3b-4b1b-9098-2e4988e2fffc
+		sourceLineageTag: 1b006768-aa05-4ae6-b9a2-6d66e3f05b99
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Amortised Cost Local CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Amortised Cost CCY Base CCY'
+		dataType: double
+		lineageTag: 87050553-c0cb-4d94-a976-c81371c1487b
+		sourceLineageTag: 0117dfd7-0896-413c-a0ba-a51a686a82d7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Amortised Cost CCY Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'De Minimis Rule Id'
+		dataType: string
+		lineageTag: 2dc6e4ad-0f4c-4aa4-84ba-43c3b66cba7d
+		sourceLineageTag: 5d1e7e1e-148e-402f-ab13-8201559380c0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: De Minimis Rule Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Oid De Minimis Rule Id'
+		dataType: string
+		lineageTag: 42206f8a-77c6-4dec-9afe-fbf51c1c73ea
+		sourceLineageTag: fb586e9c-82a0-4262-b8ca-387041219d25
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Oid De Minimis Rule Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Initial SVO Rating'
+		dataType: string
+		lineageTag: 5147039e-8a90-4543-9afe-3ace53be1011
+		sourceLineageTag: 5e0db5fc-2bed-41c9-9769-bb04ae7486f3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Initial SVO Rating
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IFRS9 Purpose'
+		dataType: string
+		lineageTag: f1a31ded-eb5a-4be2-8b70-3ae38d544373
+		sourceLineageTag: 1a45e6bc-f12c-4018-8e63-1b0a0d31f611
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: IFRS9 Purpose
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Book Value Local Native'
+		dataType: double
+		lineageTag: 51b6f4ed-2966-4b88-8855-c10697fba642
+		sourceLineageTag: d75839df-f505-43f1-ba11-37be257b8824
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Book Value Local Native
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Book Value Base Native'
+		dataType: double
+		lineageTag: 14d13d2a-7610-4454-9246-8546836895c2
+		sourceLineageTag: 137a06c3-c999-4534-9679-ac49ae61d4ed
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance Book Value Base Native
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FV / Unit - Local'
+		dataType: double
+		lineageTag: e22f7a75-5d8a-41cb-97d2-87bcfa047397
+		sourceLineageTag: 5e8ba50e-0de7-467a-8a4d-e9ba6cf2eb58
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: FV / Unit - Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FV / Unit - Base'
+		dataType: double
+		lineageTag: f705c29d-16ac-4023-bc8d-150f31509814
+		sourceLineageTag: 3ea05d71-92f9-4603-bb1a-c5b85da4fa14
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: FV / Unit - Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Yield For Math Adj'
+		dataType: double
+		lineageTag: 092e068c-3ba7-40e3-9a17-956ad1d17ff6
+		sourceLineageTag: 1290b31d-2de0-402d-9e86-a4ac701fea73
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Yield For Math Adj
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Price - Local (D)'
+		dataType: double
+		lineageTag: bac60285-acd9-43f4-848f-d8d6423e000e
+		sourceLineageTag: 3c33491e-d65e-483c-80b7-b00c60223c84
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Price - Local (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column Purpose
+		dataType: string
+		lineageTag: 7a5be13f-51d5-4657-860c-dcb433ed906b
+		sourceLineageTag: 6d593e29-fe72-4254-bc3a-87f427ca1d57
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Purpose
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Initial Trans Type'
+		dataType: string
+		lineageTag: 4c880ace-c49e-4782-9839-e96abe6447e7
+		sourceLineageTag: 95808f71-9690-4a6a-9d08-c4744d7f9ecd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Initial Trans Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FX Join Key'
+		dataType: string
+		lineageTag: 41406b4a-1a29-4d5b-bb67-01a3995ee9ba
+		sourceLineageTag: 5b7b5622-ae2e-438b-a691-372f680a791d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FX Join Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unique Lot ID'
+		dataType: string
+		lineageTag: 2ae33e73-fb97-4b9f-b6de-020d2ac0bac5
+		sourceLineageTag: d78f8f27-9771-4830-8c11-7e832a85ceab
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Unique Lot ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance NAIC Carrying Value Local'
+		dataType: double
+		lineageTag: 57de1d19-877b-4389-b26d-89b6214b308d
+		sourceLineageTag: 291f3aa2-bcbe-499d-ac83-6afbb6122282
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance NAIC Carrying Value Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance NAIC Carrying Value Base'
+		dataType: double
+		lineageTag: 96ae2d08-3138-404f-9481-5b5a96840d27
+		sourceLineageTag: 712920b9-f769-46ae-a544-58f548468d67
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance NAIC Carrying Value Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance NAIC Sec Adj Local'
+		dataType: double
+		lineageTag: 24d53e84-9276-4ab9-9383-5dabf9b8d457
+		sourceLineageTag: c8b0f893-303d-4a36-bb00-50ff24ab741d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance NAIC Sec Adj Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance NAIC Sec Adj Base'
+		dataType: double
+		lineageTag: 3e1ec993-48cf-4123-94d5-451a7d101c2d
+		sourceLineageTag: a90656de-3837-4e5f-8480-3b5760d4a2b0
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Balance NAIC Sec Adj Base
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Average Cost Yield'
+		dataType: double
+		lineageTag: aad07634-cd98-40e6-af27-9167071341df
+		sourceLineageTag: 1f505f1e-f983-4808-b7bf-683f4af7212a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Average Cost Yield
+
+		annotation SummarizationSetBy = User
+
+	column Column
+		dataType: int64
+		lineageTag: 203a5e99-8cda-4d87-b1f2-b90941764e27
+		sourceLineageTag: 33e8785b-aa0e-494a-b30e-9d60505cdac6
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Column
+
+		annotation SummarizationSetBy = User
+
+	partition 'Securities Lots Fact-0e9281f5-f537-4a76-9405-9a9c93a6a8ca' = entity
+		mode: directQuery
+		source
+			entityName: Securities Lots Fact
+			expressionSource: 'DirectQuery to AS - Securities'
+
