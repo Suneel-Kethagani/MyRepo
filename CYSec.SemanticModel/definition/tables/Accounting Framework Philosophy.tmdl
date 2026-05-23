@@ -102,7 +102,11 @@ table 'Accounting Framework Philosophy'
 
 		annotation SummarizationSetBy = Automatic
 
+<<<<<<< HEAD
 	column Branch1 = "Branch1 feature"
+=======
+	column VSBranch = "VS Code Branch feature"
+>>>>>>> 91671ec (VS Code Branch column added)
 		lineageTag: 5500e3b6-efbe-4679-9e66-fe1d3122c9ac
 		summarizeBy: none
 
