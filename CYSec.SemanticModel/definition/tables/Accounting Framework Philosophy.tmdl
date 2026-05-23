@@ -102,6 +102,13 @@ table 'Accounting Framework Philosophy'
 
 		annotation SummarizationSetBy = Automatic
 
+	column Column
+		type: calculated
+		lineageTag: 5500e3b6-efbe-4679-9e66-fe1d3122c9ac
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
 	partition 'Accounting Framework Philosophy' = m
 		mode: import
 		queryGroup: 'Custom Dimension Tables'
