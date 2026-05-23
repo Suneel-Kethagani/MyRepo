@@ -1,0 +1,381 @@
+relationship d91ae89d-54af-4b55-b851-11f4a1e4a585
+	crossFilteringBehavior: bothDirections
+	securityFilteringBehavior: bothDirections
+	fromColumn: 'Accounting Unit'.Company
+	toColumn: Company.Company
+
+relationship c1545f9f-c8ff-4855-96ee-4c4d123ecaee
+	crossFilteringBehavior: bothDirections
+	securityFilteringBehavior: bothDirections
+	fromColumn: Portfolios.'Subfund Join Key Code'
+	toColumn: 'Accounting Unit'.'Company Accounting Unit Code'
+
+relationship 4f248dce-e903-4271-9681-8784a8d6cb5d
+	fromColumn: 'Securities Transaction GA Fact'.'Framework Code'
+	toColumn: Framework.Framework
+
+relationship 8e6f27c3-d01a-4d50-aa51-3f7d739793c0
+	fromColumn: 'Securities Position Fact'.'Month End Pos'
+	toColumn: 'Month End Dates (Security)'.'Month End Selection'
+
+relationship 53301ccd-7f52-44ce-9138-80cdf66329e0
+	fromColumn: 'Securities Sublot Fact'.'Portfolio NK'
+	toColumn: Portfolios.'Portfolio Nk'
+
+relationship 7cfabb96-8948-464a-8aca-8982a7861215
+	fromColumn: 'Securities Sublot Fact'.'Framework Code'
+	toColumn: Framework.Framework
+
+relationship 3d76f4c3-8113-4d18-9f65-1d1352824041
+	fromColumn: 'Securities Lots Fact'.'Portfolio NK'
+	toColumn: Portfolios.'Portfolio Nk'
+
+relationship dafa0bf8-b5d6-4197-80a4-fbad8326dba7
+	fromColumn: 'Securities Lots Fact'.'Framework Code'
+	toColumn: Framework.Framework
+
+relationship ad6aa17e-bff8-4a8e-9424-8d20d57b05b6
+	fromColumn: 'Transaction History Slicer'.'Framework Code'
+	toColumn: Framework.Framework
+
+relationship fb960dc1-8561-490f-b48d-64c94206d64d
+	toCardinality: many
+	fromColumn: 'Transaction History Slicer'.'Portfolio Code'
+	toColumn: Portfolios.'Portfolio Code'
+
+relationship ae2b1234-6f1e-499a-a2e6-be2a622224c6
+	fromColumn: 'Securities Transaction GA Fact'.'Post Hour'
+	toColumn: 'Post Hour'.Value
+
+relationship 30ee7df8-f3f3-4528-860d-a56b3edc978c
+	fromColumn: 'Securities Lots Fact'.'Month End Lots'
+	toColumn: 'Month End Dates (Security)'.'Month End Selection'
+
+relationship 7a4a27a9-ce49-4aa7-8d33-0bb80acf0b05
+	fromColumn: 'Securities Transaction GA Fact'.'Portfolio NK'
+	toColumn: 'Portfolios Attributes'.'Portfolio Nk'
+
+relationship 37509b45-6a46-4212-94ea-1a83ee41dddd
+	fromColumn: 'Securities Sublot Fact'.'Portfolio NK'
+	toColumn: 'Portfolios Attributes'.'Portfolio Nk'
+
+relationship 07a73594-8e43-4ab3-bc13-14e63b9e1c44
+	fromColumn: 'Securities Lots Fact'.'Portfolio NK'
+	toColumn: 'Portfolios Attributes'.'Portfolio Nk'
+
+relationship 9f75faaf-1734-4403-b96d-ec8d801b963d
+	isActive: false
+	fromColumn: 'Portfolios Attributes'.'Subfund Join Key Code'
+	toColumn: 'Accounting Unit'.'Company Accounting Unit Code'
+
+relationship 5f647063-d57a-4fbd-9c98-41dd9d56bf39
+	fromColumn: 'Securities Position Fact'.'FX Join Key'
+	toColumn: 'Fx Rate DQ'.'FX Join Key'
+
+relationship c362d81c-d8bb-41b7-881a-8e1fe7d5bc4b
+	fromColumn: 'Securities Lots Fact'.'As Of Date'
+	toColumn: Period.Date
+
+relationship f89d4a78-8f9f-4c1b-956d-513f87922cab
+	fromColumn: 'Securities Lots Fact'.'Security NK'
+	toColumn: Securities.'Security NK'
+
+relationship 77f18d20-b728-4bb0-a347-ca8a8bb14efe
+	fromColumn: 'Securities Sublot Fact'.'Security NK'
+	toColumn: Securities.'Security NK'
+
+relationship 1728166c-c1c0-4d9c-b476-4d8843c34462
+	fromColumn: 'Securities Sublot Fact'.'As of Date'
+	toColumn: Period.Date
+
+relationship ba131520-379c-4038-8eda-0a97aeecb58f
+	fromColumn: 'Securities Transaction GA Fact'.Transasofdate
+	toColumn: Period.Date
+
+relationship 7fb72e65-c52c-4076-80ad-6a883c1dcc17
+	fromColumn: 'Securities Lookthrough Position Fact'.'Portfolio Nk'
+	toColumn: Portfolios.'Portfolio Nk'
+
+relationship 9e7f8b5b-ca2d-449b-9b51-7878b8db56c4
+	fromColumn: 'Securities Lookthrough Position Fact'.'Framework Cd'
+	toColumn: Framework.Framework
+
+relationship 81465663-04c5-4f44-bf24-3aec34e4b7c9
+	fromColumn: 'Securities Lookthrough Position Fact'.'Effective Date'
+	toColumn: Period.Date
+
+relationship c6e9bdfc-6f4f-47dd-9fd8-ab085b417822
+	fromColumn: 'Securities Lookthrough Position Fact'.'Security Nk'
+	toColumn: Securities.'Security NK'
+
+relationship 0485dd49-6a6a-4ae9-8aea-86d93f4484cc
+	fromColumn: 'Securities Transaction GA Fact'.'Security NK'
+	toColumn: Securities.'Security NK'
+
+relationship a146daf0-cf74-4e66-85b9-96fa967bab28
+	fromColumn: 'Transaction History Slicer'.'Security NK'
+	toColumn: Securities.'Security NK'
+
+relationship f77dd6f4-be9d-47b3-8eb7-098f082ba0ed
+	fromColumn: 'Securities Transaction GA Fact'.'Portfolio NK'
+	toColumn: Portfolios.'Portfolio Nk'
+
+relationship 25701695-970c-478e-aaaa-1ac39514ba6b
+	toCardinality: many
+	fromColumn: 'Securities Transaction Costs GA Fact'.Cost_NK
+	toColumn: 'Securities Transaction GA Fact'.Cost_NK
+
+relationship a21ebaf6-ce0f-4956-9df9-8f52e587a16b
+	fromColumn: 'Total Market Value GA Fact'.Framework
+	toColumn: Framework.Framework
+
+relationship 05d86df9-007d-4ff4-8fe4-02617ec89b48
+	fromColumn: 'Total Market Value GA Fact'.'Effective Date'
+	toColumn: Period.Date
+
+relationship 3233bc1e-bf26-4429-b5e6-0ce00bca5f06
+	isActive: false
+	fromColumn: 'Securities Transaction Costs GA Fact'.'FX Join Key'
+	toColumn: 'Fx Rate DQ'.'FX Join Key'
+
+relationship 6f628479-911e-4e58-907d-418a0bea19ae
+	fromColumn: 'Securities Tax Lot Deferred Pl Fact'.'Portfolio Nk'
+	toColumn: Portfolios.'Portfolio Nk'
+
+relationship 2ebf4b9b-f6d9-4e8d-9da8-42b335764b65
+	fromColumn: 'Securities Tax Lot Deferred Pl Fact'.'As Of Date'
+	toColumn: Period.Date
+
+relationship 5da4be80-5f99-474d-9e72-8f49cd287ac1
+	fromColumn: 'Securities Tax Lot Deferred Pl Fact'.'Security Nk'
+	toColumn: Securities.'Security NK'
+
+relationship db51ddb0-1e37-40b9-9a6f-6a3fbe5a6315
+	fromColumn: 'Securities Tax Lot Deferred Pl Fact'.'Portfolio Nk'
+	toColumn: 'Portfolios Attributes'.'Portfolio Nk'
+
+relationship 059b2636-76b8-477b-866a-af9786c7af7e
+	fromColumn: 'Securities Tax Lot Deferred Pl Fact'.'Framework Code'
+	toColumn: Framework.Framework
+
+relationship 7ee1ae91-e786-47ce-8ef0-a0ae755cf81f
+	fromColumn: 'Securities Elim Lot Fact'.'Security Nk'
+	toColumn: Securities.'Security NK'
+
+relationship 6c44a845-3842-44df-9dd9-d6ec52f15415
+	fromColumn: 'Securities Elim Lot Fact'.'Portfolio Nk'
+	toColumn: Portfolios.'Portfolio Nk'
+
+relationship 9188b96d-eb06-4654-961a-ec0b812cfa4b
+	fromColumn: 'Securities Elim Lot Fact'.'Framework Cd'
+	toColumn: Framework.Framework
+
+relationship 54e5f1f9-64bf-479c-9f31-e23c37649de8
+	fromColumn: 'Securities Elim Lot Fact'.'Effective Date'
+	toColumn: Period.Date
+
+relationship edee9d6a-d3c6-4ccd-942b-df4cb8c66c74
+	fromColumn: 'Securities JVE Fact'.Framework
+	toColumn: Framework.Framework
+
+relationship e744be21-274d-4f0c-bdc7-653f754dc5c1
+	fromColumn: 'Securities JVE Fact'.'Txn Dt'
+	toColumn: Period.Date
+
+relationship b8bc427f-4b98-47e2-9dfd-c00e67d69ec3
+	fromColumn: 'Securities JVE Fact'.'Fx Join Key'
+	toColumn: 'Fx Rate DQ'.'FX Join Key'
+
+relationship 2eca3611-aafc-490b-ae2f-2b9a98b2c581
+	fromColumn: 'Securities JVE Fact'.'Company Accounting Unit'
+	toColumn: 'Accounting Unit'.'Company Accounting Unit Code'
+
+relationship 2c66dff9-158e-4c88-84d1-fb62d23cb6b7
+	fromColumn: 'Securities Elim Transaction PL Tax Lot Fact'.'Framework CD'
+	toColumn: Framework.Framework
+
+relationship 972314b7-af43-4751-9f27-dcead47f27cd
+	fromColumn: 'Securities Elim Transaction PL Tax Lot Fact'.'Trade Date'
+	toColumn: Period.Date
+
+relationship d3b3effe-87fe-446c-b706-00df1fcc001c
+	fromColumn: 'Securities Elim Transaction PL Tax Lot Fact'.'Security NK'
+	toColumn: Securities.'Security NK'
+
+relationship 690b58f6-2705-402a-8642-abbbac29c2ac
+	fromColumn: 'Securities Elim Transaction PL Tax Lot Fact'.'Portfolio NK'
+	toColumn: Portfolios.'Portfolio Nk'
+
+relationship 33263b09-dd73-4072-a6b9-a49dec927d54
+	fromColumn: 'Adjust GL Reclass Fact'.'Portfolio Nk'
+	toColumn: Portfolios.'Portfolio Nk'
+
+relationship dc3d8a94-9b24-4be9-bed7-e5548bff7aef
+	fromColumn: 'Adjust GL Reclass Fact'.'Txn Dt'
+	toColumn: Period.Date
+
+relationship fd24916b-44c9-4b04-9196-26f34b67de69
+	fromColumn: 'Adjust GL Reclass Fact'.'Framework Code'
+	toColumn: Framework.Framework
+
+relationship 7e50d01b-0ee6-4edd-a71a-18d6c0b8850c
+	fromColumn: 'Adjust GL Reclass Fact'.'Security Nk'
+	toColumn: Securities.'Security NK'
+
+relationship 9743d563-e958-4fb2-89ee-b4944b0f9fab
+	fromColumn: 'Securities Position Fact'.'As Of Date'
+	toColumn: Period.Date
+
+relationship c99608b7-7dc2-4c76-9ba5-dbcc63d09374
+	fromColumn: 'Securities Position Fact'.'Framework Code'
+	toColumn: Framework.Framework
+
+relationship a6340a5b-7c21-4a8e-bd3e-8caf2cf29a5f
+	fromColumn: 'Securities Position Fact'.'Portfolio Nk'
+	toColumn: Portfolios.'Portfolio Nk'
+
+relationship 601b3237-28e1-4679-a899-ba17ab4db956
+	fromColumn: 'Securities Position Fact'.'Security NK'
+	toColumn: Securities.'Security NK'
+
+relationship ba5b64bb-b433-448c-ba86-dfa016a6be7b
+	fromColumn: 'Securities Position Fact'.'Portfolio Nk'
+	toColumn: 'Portfolios Attributes'.'Portfolio Nk'
+
+relationship f13ea70d-6b19-4de9-94bf-d81fb7d22086
+	fromColumn: 'Securities Sublot Fact'.'FX Join Key'
+	toColumn: 'Fx Rate DQ'.'FX Join Key'
+
+relationship 21b6fb29-7a9f-41d5-854c-1b4a55dcf261
+	fromColumn: 'Securities Lots Fact'.'FX Join Key'
+	toColumn: 'Fx Rate DQ'.'FX Join Key'
+
+relationship 7b15545c-5811-4c55-a9a7-737bb6ccf5e4
+	fromColumn: 'Securities Tax Lot Deferred Pl Fact'.'FX Join Key'
+	toColumn: 'Fx Rate DQ'.'FX Join Key'
+
+relationship 0c63f31b-55ca-4cba-badd-9f37dc05d7d5
+	fromColumn: 'Securities Lookthrough Position Fact'.'Fx Join Key'
+	toColumn: 'Fx Rate DQ'.'FX Join Key'
+
+relationship 5f73e23b-09da-4bc7-8890-fbcadd5d7804
+	fromColumn: 'Total Market Value GA Fact'.Tmv_Nk
+	toColumn: Portfolios.Tmv_Nk
+
+relationship d7ce39fd-9d9c-4122-8691-499184258a61
+	toCardinality: many
+	fromColumn: Entities.'Entity Join NK'
+	toColumn: Securities.'Entity Join Key'
+
+relationship 78fa8b6e-dee9-40d3-a6d1-ef860344f032
+	fromColumn: 'Securities Transaction GA Fact'.'FX Join Key'
+	toColumn: 'Fx Rate DQ'.'FX Join Key'
+
+relationship 7d07cb79-1b3e-40d5-990d-74a9c17ea796
+	fromColumn: 'Securities Elim Lot Fact'.'FX Join Key'
+	toColumn: 'Fx Rate DQ'.'FX Join Key'
+
+relationship 1e08ea7f-e970-44b3-a326-d11c8c957bf5
+	fromColumn: 'Securities Transaction AOCI GA Fact'.'Framework Code'
+	toColumn: Framework.Framework
+
+relationship 0b288eee-3c90-467d-8ac6-d525858e647c
+	fromColumn: 'Securities Transaction AOCI GA Fact'.'FX Join Key'
+	toColumn: 'Fx Rate DQ'.'FX Join Key'
+
+relationship 14e078bb-48a7-437f-a7ac-43d185f45f4d
+	fromColumn: 'Securities Transaction AOCI GA Fact'.'Portfolio Nk'
+	toColumn: Portfolios.'Portfolio Nk'
+
+relationship 06610b27-40c5-4d7f-8670-f3f64b81ae8e
+	fromColumn: 'Securities Transaction AOCI GA Fact'.'Portfolio Nk'
+	toColumn: 'Portfolios Attributes'.'Portfolio Nk'
+
+relationship 9cf32bb0-3e06-4aaf-8b8d-d443254c5014
+	fromColumn: 'Securities Transaction AOCI GA Fact'.'Security Nk'
+	toColumn: Securities.'Security NK'
+
+relationship 8b2c5b2e-20cd-4539-bb9e-635de0424e71
+	fromColumn: 'Securities Transaction AOCI GA Fact'.Transasofdate
+	toColumn: Period.Date
+
+relationship 111ecd83-3f44-4896-9831-d42fdfd020d4
+	fromColumn: 'Securities Elim Transaction PL Tax Lot AOCI Fact'.'Framework Code'
+	toColumn: Framework.Framework
+
+relationship 51512dff-2d74-451a-8d90-e3c5b4b892fe
+	fromColumn: 'Securities Elim Transaction PL Tax Lot AOCI Fact'.'Portfolio Nk'
+	toColumn: Portfolios.'Portfolio Nk'
+
+relationship 6459cc18-e6f4-4298-adb0-95756a8f3eec
+	fromColumn: 'Securities Elim Transaction PL Tax Lot AOCI Fact'.'Portfolio Nk'
+	toColumn: 'Portfolios Attributes'.'Portfolio Nk'
+
+relationship bfa4f33a-4d0b-4f87-a71a-16ee035c07a0
+	fromColumn: 'Securities Elim Transaction PL Tax Lot AOCI Fact'.'Trade Date'
+	toColumn: Period.Date
+
+relationship 7c095e0a-0ec1-4605-a0ef-ed448fe8bd95
+	fromColumn: 'Securities Elim Transaction PL Tax Lot AOCI Fact'.'FX Join Key'
+	toColumn: 'Fx Rate DQ'.'FX Join Key'
+
+relationship 84b0bf18-3c75-4909-9b48-a77749841490
+	fromColumn: 'Securities Elim Transaction PL Tax Lot AOCI Fact'.'Security Nk'
+	toColumn: Securities.'Security NK'
+
+relationship a3923b97-447f-4aae-a112-65188ac85da5
+	fromColumn: 'Securities GL Txn fact - Elim'.'Txn Dt'
+	toColumn: Period.Date
+
+relationship 668ca3fb-bc47-45fc-a0e0-ea5d762375bc
+	fromColumn: 'Securities GL Txn fact - Elim'.'Portfolio NK'
+	toColumn: Portfolios.'Portfolio Nk'
+
+relationship 958e87a9-d27b-4af6-98f7-a872ba2d7236
+	fromColumn: 'Securities GL Txn fact - Elim'.'Fx Join Key'
+	toColumn: 'Fx Rate DQ'.'FX Join Key'
+
+relationship b174e1b0-0ae5-40a0-b89c-9d5cba811c04
+	fromColumn: 'Securities GL Txn fact - Elim'.'Security Nk'
+	toColumn: Securities.'Security NK'
+
+relationship c5ce4bfc-a365-46b7-a871-56230f3d9183
+	fromColumn: 'Securities GL Txn fact - Elim'.'Framework Cd'
+	toColumn: Framework.Framework
+
+relationship 72a4b6ba-1957-435a-aac1-212cb511b092
+	fromColumn: 'Securities GL Txn fact - Elim'.'Portfolio NK'
+	toColumn: 'Portfolios Attributes'.'Portfolio Nk'
+
+relationship d39dcde0-f70d-4ede-9c80-9881ae3bead1
+	fromColumn: 'Portfolios-Bank Accounts'.'As Of Date'
+	toColumn: Period.Date
+
+relationship bcd1f185-bb1c-4ea3-826b-3008d2c46075
+	fromColumn: 'Portfolios-Bank Accounts'.'Subfund Join Key Code'
+	toColumn: 'Accounting Unit'.'Company Accounting Unit Code'
+
+relationship 40ba3e48-c5ce-f77a-a92b-a487edb7b0e8
+	fromColumn: 'Consolidated GL Balance Fact'.'As of Dt'
+	toColumn: Period.Date
+
+relationship edf586a4-d00b-3290-496a-b50e43817a50
+	fromColumn: 'Consolidated GL Balance Fact'.'Framework Cd'
+	toColumn: Framework.Framework
+
+relationship e8f8f6a7-3c71-ed21-44de-8a344a201b7d
+	fromColumn: 'Consolidated GL Balance Fact'.'Portfolio Nk'
+	toColumn: Portfolios.'Portfolio Nk'
+
+relationship 2d85899f-1ea9-db0e-6ab3-ef7dfaf54bbc
+	fromColumn: 'Consolidated GL Balance Fact'.'Portfolio Nk'
+	toColumn: 'Portfolios Attributes'.'Portfolio Nk'
+
+relationship d6d1e5b9-ff51-671d-f06a-ef9f0c41f4b8
+	fromColumn: 'Consolidated GL Balance Fact'.'AssetID Date Key'
+	toColumn: Securities.'AssetID Date Key'
+
+relationship 699f55c2-0427-f6d8-b805-77ad0a60d88b
+	fromColumn: 'Consolidated GL Balance Fact'.'FX Join Key'
+	toColumn: 'Fx Rate DQ'.'FX Join Key'
+

@@ -1,0 +1,44 @@
+EVALUATE
+	{
+		VAR vSelectedCurrency = SELECTEDVALUE('Reporting Currency'[Rep In Currency])
+		VAR vListofGLAccts = CALCULATETABLE(
+			VALUES('CAT Adjmt Config Table'[GL Acct Num]),
+			'CAT Adjmt Config Table'[Measure Name] = "Book Value"
+		)
+
+		VAR vMaxSelectedDate = MAX(Period[Date])
+		VAR vMaxAsOfPeriod =
+		MAX('Consolidated GL Balance Fact'[As of Period])
+
+		RETURN
+			IF(
+				ISEMPTY(CALCULATETABLE(
+					'Consolidated GL Balance Fact',
+					Period[Date] = vMaxSelectedDate
+				)
+				),
+				BLANK(),
+				SUMX(
+					VALUES(Securities[Primary Security ID]),
+					CALCULATE(
+						SWITCH(
+							vSelectedCurrency,
+							"CAD", [Adjustment_Amount (CAD)],
+							"USD", [Adjustment_Amount (USD)],
+							"HKD", [Adjustment_Amount (HKD)],
+							[Adjustment_Amount (Func)]
+						),
+						TREATAS(
+							vListofGLAccts,
+							'Consolidated GL Balance Fact'[GL Acct (6 digits)]
+						),
+						TREATAS(
+							VALUES('Securities Transaction GA Fact'[Transaction No]),
+							'Consolidated GL Balance Fact'[SCD Lot Id]
+						),
+						Period[Date] = vMaxSelectedDate,
+						'Consolidated GL Balance Fact'[As of Period] = vMaxAsOfPeriod
+					)
+				)
+			)
+	}

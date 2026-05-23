@@ -1,0 +1,277 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "ReportSection039d8c8a6d4aca1c6048",
+  "displayName": "Elim Transactions AOCI Sublot",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "Filter4115fcaeba2018500ba4",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Company"
+              }
+            },
+            "Property": "Company Code & Name"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "Filterde6a0310981013730170",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Accounting Unit"
+              }
+            },
+            "Property": "Accounting Unit Code & Name Display"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "Filteraae5bb609a53aec8e504",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Portfolios"
+              }
+            },
+            "Property": "Portfolio Code & Name"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "Filter22fc44fe938a00d23a80",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Elim Transaction PL Tax Lot Fact"
+              }
+            },
+            "Property": "Trans Type"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "Filter3e605b98b16949709029",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities"
+              }
+            },
+            "Property": "Primary Security ID & Desc"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "Filterd3b7fdc9446c875abbdb",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Elim Transaction PL Tax Lot Fact"
+              }
+            },
+            "Property": "Bus Trans No"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "Filter2776f803045b5e066377",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Elim Transaction PL Tax Lot Fact"
+              }
+            },
+            "Property": "Lot Id"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "Filter0141db4a4a2d6a9b148a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Elim Transaction PL Tax Lot Fact"
+              }
+            },
+            "Property": "Group Structure Company"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      }
+    ]
+  },
+  "pageBinding": {
+    "name": "Pod8",
+    "type": "Drillthrough",
+    "parameters": [
+      {
+        "name": "Param_Filter4115fcaeba2018500ba4",
+        "boundFilter": "Filter4115fcaeba2018500ba4",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Company"
+              }
+            },
+            "Property": "Company Code & Name"
+          }
+        }
+      },
+      {
+        "name": "Param_Filterde6a0310981013730170",
+        "boundFilter": "Filterde6a0310981013730170",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Accounting Unit"
+              }
+            },
+            "Property": "Accounting Unit Code & Name Display"
+          }
+        }
+      },
+      {
+        "name": "Param_Filteraae5bb609a53aec8e504",
+        "boundFilter": "Filteraae5bb609a53aec8e504",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Portfolios"
+              }
+            },
+            "Property": "Portfolio Code & Name"
+          }
+        }
+      },
+      {
+        "name": "Param_Filter22fc44fe938a00d23a80",
+        "boundFilter": "Filter22fc44fe938a00d23a80",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Elim Transaction PL Tax Lot Fact"
+              }
+            },
+            "Property": "Trans Type"
+          }
+        }
+      },
+      {
+        "name": "Param_Filter3e605b98b16949709029",
+        "boundFilter": "Filter3e605b98b16949709029",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities"
+              }
+            },
+            "Property": "Primary Security ID & Desc"
+          }
+        }
+      },
+      {
+        "name": "Param_Filterd3b7fdc9446c875abbdb",
+        "boundFilter": "Filterd3b7fdc9446c875abbdb",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Elim Transaction PL Tax Lot Fact"
+              }
+            },
+            "Property": "Bus Trans No"
+          }
+        }
+      },
+      {
+        "name": "Param_Filter2776f803045b5e066377",
+        "boundFilter": "Filter2776f803045b5e066377",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Elim Transaction PL Tax Lot Fact"
+              }
+            },
+            "Property": "Lot Id"
+          }
+        }
+      },
+      {
+        "name": "Param_Filter0141db4a4a2d6a9b148a",
+        "boundFilter": "Filter0141db4a4a2d6a9b148a",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Securities Elim Transaction PL Tax Lot Fact"
+              }
+            },
+            "Property": "Group Structure Company"
+          }
+        }
+      }
+    ]
+  },
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#E6E6E6'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visibility": "HiddenInViewMode"
+}

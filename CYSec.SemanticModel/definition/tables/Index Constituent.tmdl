@@ -1,0 +1,817 @@
+table 'Index Constituent'
+	lineageTag: a3af37a4-aa54-47d4-b878-911c4e6b26b0
+
+	measure 'Pricing Indices Title' =
+			
+			VAR Priorday =
+			    MAX ( 'Index Constituent'[Effective Dt])
+			RETURN
+			    "Pricing Indices, "
+			        & FORMAT ( Priorday, "DD-MMM-YY" ) -- Display dynamic name
+		lineageTag: b5d52e7b-114c-471d-b9bd-7c12bb3ca208
+
+	column 'Index Constituent Dim Sk'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2ca37221-0ee9-4990-aaae-a44482a55416
+		summarizeBy: sum
+		sourceColumn: Index Constituent Dim Sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Effective Dt'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: b89260ad-0725-4357-badc-bda6bb40dc69
+		summarizeBy: none
+		sourceColumn: Effective Dt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Src Index Id'
+		dataType: string
+		lineageTag: bf20e1fe-9e29-4572-804c-68bbf107972b
+		summarizeBy: none
+		sourceColumn: Src Index Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Index Nm'
+		dataType: string
+		lineageTag: 72d00980-b9ea-4d4d-bf5c-c08b7f4129fb
+		summarizeBy: none
+		sourceColumn: Index Nm
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Security Id'
+		dataType: string
+		lineageTag: 6ec6b19d-e13d-4ad2-bb2c-8ea9d026d438
+		summarizeBy: none
+		sourceColumn: Src Security Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column Universe
+		dataType: string
+		lineageTag: 6abb7213-225d-40c9-9527-a3295669c624
+		summarizeBy: none
+		sourceColumn: Universe
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Iso Base Currency'
+		dataType: string
+		lineageTag: 9cfc6681-0b67-4644-ba39-c1d130e136e8
+		summarizeBy: none
+		sourceColumn: Iso Base Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Return Type'
+		dataType: string
+		lineageTag: 4808e8a3-5ee0-4523-8ab8-e0f4b51fc986
+		summarizeBy: none
+		sourceColumn: Return Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Vendor
+		dataType: string
+		lineageTag: 775c81bc-ef13-46ca-90f8-6085e80fea03
+		summarizeBy: none
+		sourceColumn: Vendor
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Source Desc'
+		dataType: string
+		lineageTag: c050cc01-7293-4e7a-af75-db1ffdc8ec1d
+		summarizeBy: none
+		sourceColumn: Src Source Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Vendor Id'
+		dataType: string
+		lineageTag: 4654d50a-de15-4e42-ad83-60361c12ea6a
+		summarizeBy: none
+		sourceColumn: Vendor Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Vendor Sec Id'
+		dataType: string
+		lineageTag: 9950b3da-467c-4c5c-9a70-0935cdf70145
+		summarizeBy: none
+		sourceColumn: Vendor Sec Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Manu Id'
+		dataType: string
+		lineageTag: 33d171f3-dd60-4d2b-ae1e-03ba4fec5ab0
+		summarizeBy: none
+		sourceColumn: Manu Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hedged Flag'
+		dataType: int64
+		formatString: 0
+		lineageTag: a6695f60-3f6e-4fff-81e8-13bf9c763879
+		summarizeBy: sum
+		sourceColumn: Hedged Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column Isin
+		dataType: string
+		lineageTag: 75b313e1-3ffb-4db8-9f3d-a32f9cc139b3
+		summarizeBy: none
+		sourceColumn: Isin
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cusip
+		dataType: string
+		lineageTag: 85bcdb9f-c53c-4d34-a1d5-9e3c0bc34628
+		summarizeBy: none
+		sourceColumn: Cusip
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sedol
+		dataType: string
+		lineageTag: 3ecb524f-8497-44ad-94ad-7b60b7b38347
+		summarizeBy: none
+		sourceColumn: Sedol
+
+		annotation SummarizationSetBy = Automatic
+
+	column Loanx
+		dataType: string
+		lineageTag: dad1a0a4-1d43-49b0-9617-98a4cca0b97b
+		summarizeBy: none
+		sourceColumn: Loanx
+
+		annotation SummarizationSetBy = Automatic
+
+	column Lin
+		dataType: string
+		lineageTag: b1eb4f9e-8303-4665-a8a8-863f3641726b
+		summarizeBy: none
+		sourceColumn: Lin
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bloomberg Ticker'
+		dataType: string
+		lineageTag: 9e2a2a94-56b8-407c-8f37-35c65320b23f
+		summarizeBy: none
+		sourceColumn: Bloomberg Ticker
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bloomberg Figi'
+		dataType: string
+		lineageTag: 0cc9da5e-74a8-4f6a-9c44-39e58ea441ef
+		summarizeBy: none
+		sourceColumn: Bloomberg Figi
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Constituent Nm'
+		dataType: string
+		lineageTag: 46abb1ef-ae3e-4ca8-9447-41244f703171
+		summarizeBy: none
+		sourceColumn: Constituent Nm
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Iso Country Cd'
+		dataType: string
+		lineageTag: 7eece1ae-d1c8-4a5c-b622-9f49d6c57226
+		summarizeBy: none
+		sourceColumn: Iso Country Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Region Cd'
+		dataType: string
+		lineageTag: 9a42c8fa-f836-4753-85c1-a6bebbd68cb0
+		summarizeBy: none
+		sourceColumn: Region Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Exch Cd'
+		dataType: string
+		lineageTag: 6163a8a5-a2ee-443e-8e9d-04b8f24f6466
+		summarizeBy: none
+		sourceColumn: Exch Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Iso Currency Cd'
+		dataType: string
+		lineageTag: 8235834f-0561-46be-b416-b2fddc18199b
+		summarizeBy: none
+		sourceColumn: Iso Currency Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local Price'
+		dataType: double
+		lineageTag: a9a78b1e-80d7-44b2-b5ac-be464caf7508
+		summarizeBy: sum
+		sourceColumn: Local Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Price Base'
+		dataType: double
+		lineageTag: 4cec7e8c-b032-4afb-b260-b0e0ab13be27
+		summarizeBy: sum
+		sourceColumn: Price Base
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Clean Price'
+		dataType: double
+		lineageTag: 1ddfc2cf-6002-45cf-ba11-601e5e7dbaeb
+		summarizeBy: sum
+		sourceColumn: Clean Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Investable Shares'
+		dataType: double
+		lineageTag: 0c5d4aea-824c-4671-bb70-b3d5a0f46f92
+		summarizeBy: sum
+		sourceColumn: Investable Shares
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Total Outstanding'
+		dataType: double
+		lineageTag: 9ba7a800-8c6b-4e7c-86e9-62060be19fff
+		summarizeBy: sum
+		sourceColumn: Total Outstanding
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Inv Market Cap Local'
+		dataType: double
+		lineageTag: 50e64ed6-e5b8-4ac1-967c-a8fcb6c8bfca
+		summarizeBy: sum
+		sourceColumn: Inv Market Cap Local
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Inv Market Cap Base'
+		dataType: double
+		lineageTag: d82ff5c2-f192-4514-b2d2-bbba9d0cf68b
+		summarizeBy: sum
+		sourceColumn: Inv Market Cap Base
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Index Weight'
+		dataType: double
+		lineageTag: 0164884f-63b4-4ba3-b6a7-e721bfd3ac63
+		summarizeBy: sum
+		sourceColumn: Index Weight
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Cons Size Flag'
+		dataType: string
+		lineageTag: a7d7b0ae-9eef-459a-966a-978229e2deb3
+		summarizeBy: none
+		sourceColumn: Cons Size Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Daily Total Return'
+		dataType: double
+		lineageTag: 327743f6-f43b-4561-9e81-c08535ea3afe
+		summarizeBy: sum
+		sourceColumn: Daily Total Return
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Daily Price Return'
+		dataType: double
+		lineageTag: 97311119-3aac-4441-ac0e-5c0ba667dc3b
+		summarizeBy: sum
+		sourceColumn: Daily Price Return
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Daily Net Return'
+		dataType: double
+		lineageTag: 7322d3f0-5609-47c2-a740-36b12114b0fa
+		summarizeBy: sum
+		sourceColumn: Daily Net Return
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Sector Level 1'
+		dataType: string
+		lineageTag: 403eef6b-a7a9-4ee7-88eb-051724282d47
+		summarizeBy: none
+		sourceColumn: Sector Level 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sector Level 1 Desc'
+		dataType: string
+		lineageTag: 66ee1063-eb5c-48aa-a350-d7488955ebcb
+		summarizeBy: none
+		sourceColumn: Sector Level 1 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sector Level 2'
+		dataType: string
+		lineageTag: 38fba4ad-7ced-46ef-b885-bbb105f7f30d
+		summarizeBy: none
+		sourceColumn: Sector Level 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sector Level 2 Desc'
+		dataType: string
+		lineageTag: 1d27119f-f4de-457e-8306-dc82075d2cc1
+		summarizeBy: none
+		sourceColumn: Sector Level 2 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sector Level 3'
+		dataType: string
+		lineageTag: adc7d733-745c-4a85-b48d-fe4991b37734
+		summarizeBy: none
+		sourceColumn: Sector Level 3
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sector Level 3 Desc'
+		dataType: string
+		lineageTag: 82b3f1bb-2297-4723-8d07-e439ebf13896
+		summarizeBy: none
+		sourceColumn: Sector Level 3 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sector Level 4'
+		dataType: string
+		lineageTag: 8929bc89-68d3-4322-aa50-a7c6a73cc2bc
+		summarizeBy: none
+		sourceColumn: Sector Level 4
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sector Level 4 Desc'
+		dataType: string
+		lineageTag: 1d30923c-8c74-4888-b54e-356420d97c30
+		summarizeBy: none
+		sourceColumn: Sector Level 4 Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sector Schema'
+		dataType: string
+		lineageTag: d92fbd52-54a7-4869-8ef4-903df0e3e8bc
+		summarizeBy: none
+		sourceColumn: Sector Schema
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dividend
+		dataType: double
+		lineageTag: 5e3b7407-ccc2-4bec-9495-290228482b71
+		summarizeBy: sum
+		sourceColumn: Dividend
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Div Ccy'
+		dataType: string
+		lineageTag: dbf881ea-c953-4ca4-aebf-0292adca8a34
+		summarizeBy: none
+		sourceColumn: Div Ccy
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Growth Value Flag'
+		dataType: string
+		lineageTag: 97f100b7-6196-4537-8671-03c6168e3aa1
+		summarizeBy: none
+		sourceColumn: Growth Value Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Growth Factor'
+		dataType: double
+		lineageTag: 9f19acf7-df3b-4464-a18d-4459dbee91ef
+		summarizeBy: sum
+		sourceColumn: Growth Factor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Value Factor'
+		dataType: double
+		lineageTag: 167802d2-68bf-4830-889a-daf1407d27cd
+		summarizeBy: sum
+		sourceColumn: Value Factor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Sec Market Flag'
+		dataType: string
+		lineageTag: 2fd75c55-539b-4069-89d0-6174ab115cb8
+		summarizeBy: none
+		sourceColumn: Sec Market Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column Coupon
+		dataType: double
+		lineageTag: b8c1527b-8eb4-4148-8c41-01bb615452bf
+		summarizeBy: sum
+		sourceColumn: Coupon
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Maturity Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 8b322ddc-41e3-4f62-a82a-f3370a0c5c63
+		summarizeBy: none
+		sourceColumn: Maturity Date
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Years To Maturity'
+		dataType: double
+		lineageTag: 15153fcd-e0cb-4ea6-9344-daa9bf6fd709
+		summarizeBy: sum
+		sourceColumn: Years To Maturity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Accrued Interest'
+		dataType: double
+		lineageTag: dfa3b787-dedf-4e0b-92ff-7f4ce118ce17
+		summarizeBy: sum
+		sourceColumn: Accrued Interest
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Yield To Maturity'
+		dataType: double
+		lineageTag: 8c782790-5372-4354-8af9-6a48ccd830cb
+		summarizeBy: sum
+		sourceColumn: Yield To Maturity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Yield To Worst'
+		dataType: double
+		lineageTag: 95f25e47-6565-40b2-bf51-c590323bdbcc
+		summarizeBy: sum
+		sourceColumn: Yield To Worst
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Oas
+		dataType: double
+		lineageTag: 2780d322-f0bf-4cd5-bc1a-003274b26597
+		summarizeBy: sum
+		sourceColumn: Oas
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Macauley Duration'
+		dataType: double
+		lineageTag: 09b76f40-741e-4986-8b1f-69ed5cf84069
+		summarizeBy: sum
+		sourceColumn: Macauley Duration
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Modified Duration'
+		dataType: double
+		lineageTag: 12bc2dc4-d285-4de1-bcf5-ab4915f970b3
+		summarizeBy: sum
+		sourceColumn: Modified Duration
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Isma Duration'
+		dataType: double
+		lineageTag: 68b96ab2-a767-4a20-80bf-8bab1c6e8204
+		summarizeBy: sum
+		sourceColumn: Isma Duration
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Spread Duration'
+		dataType: double
+		lineageTag: c9c5596d-176f-48c0-b6d9-f4d625b6535b
+		summarizeBy: sum
+		sourceColumn: Spread Duration
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Duration To Worst'
+		dataType: double
+		lineageTag: 2c5389aa-5a48-4d31-84cc-32fa9f859bc0
+		summarizeBy: sum
+		sourceColumn: Duration To Worst
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Effective Duration'
+		dataType: double
+		lineageTag: bcbc3561-e274-4413-bea4-71596e61cffa
+		summarizeBy: sum
+		sourceColumn: Effective Duration
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Convexity
+		dataType: double
+		lineageTag: bdb7edb8-36ee-41bf-a706-cb68eeafed4e
+		summarizeBy: sum
+		sourceColumn: Convexity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Convexity To Worst'
+		dataType: double
+		lineageTag: 177348ea-43d8-422f-a9de-5d23ba76551e
+		summarizeBy: sum
+		sourceColumn: Convexity To Worst
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Average Life'
+		dataType: double
+		lineageTag: e81aaecc-7fb3-49ee-907a-8ef405378246
+		summarizeBy: sum
+		sourceColumn: Average Life
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Quality
+		dataType: string
+		lineageTag: b8bb8fe8-3ba0-4749-8df5-3cbffcb6511f
+		summarizeBy: none
+		sourceColumn: Quality
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Orig Amount Outstanding'
+		dataType: double
+		lineageTag: 43cfd021-183d-4ab4-a108-6069854ad1e7
+		summarizeBy: sum
+		sourceColumn: Orig Amount Outstanding
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Effective Mat Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: b7135b62-df8d-4927-b277-48c0a58f7181
+		summarizeBy: none
+		sourceColumn: Effective Mat Date
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Next Call Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: eb6401a6-7702-4ff8-ac96-52273d6be57d
+		summarizeBy: none
+		sourceColumn: Next Call Date
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Par Weight In Index'
+		dataType: double
+		lineageTag: 85cf7eaa-e3bc-4cb5-8cb9-d3ad47361ec5
+		summarizeBy: sum
+		sourceColumn: Par Weight In Index
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Dv01
+		dataType: double
+		lineageTag: 3ad0b7e0-696d-4879-95e2-4839107db492
+		summarizeBy: sum
+		sourceColumn: Dv01
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Created Ts'
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn:ss AM/PM
+		lineageTag: de06da79-6e9c-4daf-bc0d-5094ddb06f6e
+		summarizeBy: none
+		sourceColumn: Created Ts
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Updated Ts'
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn:ss AM/PM
+		lineageTag: eeb6f598-e62d-4b38-a682-652150cff361
+		summarizeBy: none
+		sourceColumn: Updated Ts
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Index Constituent-37958d38-cca8-4479-8398-a93249566588' = m
+		mode: import
+		queryGroup: Rimes
+		source =
+				let
+				    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0), EnableQueryResultDownload="0"]),
+				    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+				    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+				    EDL_index_constituent_dim = inv_semantic_ga_Schema{[Name="index_constituent_dim",Kind="Table"]}[Data],
+					#"Renamed Columns" = Table.RenameColumns(EDL_index_constituent_dim,{
+				
+				{"INDEX_CONSTITUENT_DIM_SK","Index Constituent Dim Sk"} ,
+				{"EFFECTIVE_DT","Effective Dt"} ,
+				{"SRC_INDEX_ID","Src Index Id"} ,
+				{"INDEX_NM","Index Nm"} ,
+				{"SRC_SECURITY_ID","Src Security Id"} ,
+				{"UNIVERSE","Universe"} ,
+				{"ISO_BASE_CURRENCY","Iso Base Currency"} ,
+				{"RETURN_TYPE","Return Type"} ,
+				{"VENDOR","Vendor"} ,
+				{"SRC_SOURCE_DESC","Src Source Desc"} ,
+				{"VENDOR_ID","Vendor Id"} ,
+				{"VENDOR_SEC_ID","Vendor Sec Id"} ,
+				{"MANU_ID","Manu Id"} ,
+				{"HEDGED_FLAG","Hedged Flag"} ,
+				{"ISIN","Isin"} ,
+				{"CUSIP","Cusip"} ,
+				{"SEDOL","Sedol"} ,
+				{"LOANX","Loanx"} ,
+				{"LIN","Lin"} ,
+				{"BLOOMBERG_TICKER","Bloomberg Ticker"} ,
+				{"BLOOMBERG_FIGI","Bloomberg Figi"} ,
+				{"CONSTITUENT_NM","Constituent Nm"} ,
+				{"ISO_COUNTRY_CD","Iso Country Cd"} ,
+				{"REGION_CD","Region Cd"} ,
+				{"EXCH_CD","Exch Cd"} ,
+				{"ISO_CURRENCY_CD","Iso Currency Cd"} ,
+				{"LOCAL_PRICE","Local Price"} ,
+				{"PRICE_BASE","Price Base"} ,
+				{"CLEAN_PRICE","Clean Price"} ,
+				{"INVESTABLE_SHARES","Investable Shares"} ,
+				{"TOTAL_OUTSTANDING","Total Outstanding"} ,
+				{"INV_MARKET_CAP_LOCAL","Inv Market Cap Local"} ,
+				{"INV_MARKET_CAP_BASE","Inv Market Cap Base"} ,
+				{"INDEX_WEIGHT","Index Weight"} ,
+				{"CONS_SIZE_FLAG","Cons Size Flag"} ,
+				{"DAILY_TOTAL_RETURN","Daily Total Return"} ,
+				{"DAILY_PRICE_RETURN","Daily Price Return"} ,
+				{"DAILY_NET_RETURN","Daily Net Return"} ,
+				{"SECTOR_LEVEL_1","Sector Level 1"} ,
+				{"SECTOR_LEVEL_1_DESC","Sector Level 1 Desc"} ,
+				{"SECTOR_LEVEL_2","Sector Level 2"} ,
+				{"SECTOR_LEVEL_2_DESC","Sector Level 2 Desc"} ,
+				{"SECTOR_LEVEL_3","Sector Level 3"} ,
+				{"SECTOR_LEVEL_3_DESC","Sector Level 3 Desc"} ,
+				{"SECTOR_LEVEL_4","Sector Level 4"} ,
+				{"SECTOR_LEVEL_4_DESC","Sector Level 4 Desc"} ,
+				{"SECTOR_SCHEMA","Sector Schema"} ,
+				{"DIVIDEND","Dividend"} ,
+				{"DIV_CCY","Div Ccy"} ,
+				{"GROWTH_VALUE_FLAG","Growth Value Flag"} ,
+				{"GROWTH_FACTOR","Growth Factor"} ,
+				{"VALUE_FACTOR","Value Factor"} ,
+				{"SEC_MARKET_FLAG","Sec Market Flag"} ,
+				{"COUPON","Coupon"} ,
+				{"MATURITY_DATE","Maturity Date"} ,
+				{"YEARS_TO_MATURITY","Years To Maturity"} ,
+				{"ACCRUED_INTEREST","Accrued Interest"} ,
+				{"YIELD_TO_MATURITY","Yield To Maturity"} ,
+				{"YIELD_TO_WORST","Yield To Worst"} ,
+				{"OAS","Oas"} ,
+				{"MACAULEY_DURATION","Macauley Duration"} ,
+				{"MODIFIED_DURATION","Modified Duration"} ,
+				{"ISMA_DURATION","Isma Duration"} ,
+				{"SPREAD_DURATION","Spread Duration"} ,
+				{"DURATION_TO_WORST","Duration To Worst"} ,
+				{"EFFECTIVE_DURATION","Effective Duration"} ,
+				{"CONVEXITY","Convexity"} ,
+				{"CONVEXITY_TO_WORST","Convexity To Worst"} ,
+				{"AVERAGE_LIFE","Average Life"} ,
+				{"QUALITY","Quality"} ,
+				{"ORIG_AMOUNT_OUTSTANDING","Orig Amount Outstanding"} ,
+				{"EFFECTIVE_MAT_DATE","Effective Mat Date"} ,
+				{"NEXT_CALL_DATE","Next Call Date"} ,
+				{"PAR_WEIGHT_IN_INDEX","Par Weight In Index"} ,
+				{"DV01","Dv01"} ,
+				{"CREATED_TS","Created Ts"} ,
+				{"UPDATED_TS","Updated Ts"} } )
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

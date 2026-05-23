@@ -1,0 +1,354 @@
+expression 'Fx Rate' =
+		let
+		    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null]),
+		    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+		    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+		    EDL_fx_rate_dim = inv_semantic_ga_Schema{[Name="fx_rate_dim",Kind="Table"]}[Data],
+		    #"Renamed Columns" = Table.RenameColumns(EDL_fx_rate_dim,{{"PERIOD", "Period"}, {"FROM_CCY", "From Currency"}, {"TO_CCY", "To Currency"}, {"RATE_CATEGORY", "Rate Category"}, {"RATE", "Rate"}, {"UPDATED_TS", "Updated Ts"}})
+		in
+		    #"Renamed Columns"
+	lineageTag: 329b3d59-6638-45bf-a6d9-60ec77e32261
+	queryGroup: 'Custom Dimension Tables'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression Securities_old =
+		let
+		    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null]),
+		    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+		    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+		    EDL_securities_dim = inv_semantic_ga_Schema{[Name="securities_dim",Kind="Table"]}[Data],
+		    #"Renamed Columns" = Table.RenameColumns(EDL_securities_dim,{{"SECURITIES_DIM_SK", "Securities Dim Sk"}, {"SRC_SECURITY_ID", "Src Security Id"}, {"SRC_MARKET_ID", "Src Market Id"}, {"AS_OF_DT", "As Of Dt"}, {"AS_OF_PERIOD", "As Of Period"}, {"SRC", "Src"}, {"SCD_SECURITY_ID", "Scd Security Id"}, {"SECURITY_ID2", "Security Id2"}, {"TICKER_ISIN", "Ticker Isin"}, {"SECURITY_DESCRIPTION", "Security Description"}, {"BLOOMBERG_ID", "Bloomberg Id"}, {"CUSIP", "Cusip"}, {"ISIN", "Isin"}, {"TICKER", "Ticker"}, {"PRINCIPAL_EXCHANGE", "Principal Exchange"}, {"SEDOL", "Sedol"}, {"COLLATERAL_TYPE", "Collateral Type"}, {"FACTOR", "Factor"}, {"LOCAL_CURRENCY_CD", "Local Currency Cd"}, {"MOODYS", "Moodys"}, {"MOODYS_RATING_CHANGE_DT", "Moodys Rating Change Dt"}, {"SP", "Sp"}, {"SP_RATING_CHANGE_DT", "Sp Rating Change Dt"}, {"SP_RATING_OUTLOOK", "Sp Rating Outlook"}, {"FITCH", "Fitch"}, {"FITCH_RATING_CHANGE_DATE", "Fitch Rating Change Date"}, {"DBRS", "Dbrs"}, {"DBRS_RATING_CHANGE_DT", "Dbrs Rating Change Dt"}, {"INTERNAL", "Internal"}, {"MAM_RATING", "Mam Rating"}, {"ISSUER", "Issuer"}, {"BPL_ISSUER", "Bpl Issuer"}, {"INTERNAL_FUND", "Internal Fund"}, {"COUPON", "Coupon"}, {"REPO_TYPE", "Repo Type"}, {"SECURITY_TYPE_2", "Security Type 2"}, {"SECURITY_FUND_TYPE", "Security Fund Type"}, {"SCD_INSTRUMENT_TYPE", "Scd Instrument Type"}, {"INFLATION_LINKED", "Inflation Linked"}, {"VARIABLE_COUPON", "Variable Coupon"}, {"NEXT_COUPON_DT", "Next Coupon Dt"}, {"PREVIOUS_COUPON_DT", "Previous Coupon Dt"}, {"MATURITY_DATE", "Maturity Date"}, {"MATURITY_DAYS", "Maturity Days"}, {"MATURITY_DAYS_2", "Maturity Days 2"}, {"RESET_DAYS", "Reset Days"}, {"DIVIDEND_EX_DT", "Dividend Ex Dt"}, {"DIVIDEND_PAY_DT", "Dividend Pay Dt"}, {"DIVIDEND_RECORD_DT", "Dividend Record Dt"}, {"DIVIDEND_RATE", "Dividend Rate"}, {"SHARES_OUTSTANDING", "Shares Outstanding"}, {"FULL_SHARES_OUTSTANDING", "Full Shares Outstanding"}, {"PRICE_SOURCE", "Price Source"}, {"ISSUE_DT", "Issue Dt"}, {"COUNTRY", "Country"}, {"COUNTRY_OF_RISK", "Country Of Risk"}, {"COUNTRY_OF_ISSUE", "Country Of Issue"}, {"COUNTRY_OF_DOMICILE", "Country Of Domicile"}, {"AMOUNT_ISSUED", "Amount Issued"}, {"AMOUNT_OUTSTANDING", "Amount Outstanding"}, {"MARKET_SECTOR", "Market Sector"}, {"UNDERLYING_ASSET_TYPE", "Underlying Asset Type"}, {"FUND_GEOGRAPHIC_FOCUS", "Fund Geographic Focus"}, {"CONVERSION_RATIO", "Conversion Ratio"}, {"CONVERSION_START_DT", "Conversion Start Dt"}, {"CONVERSION_TO_TICKER", "Conversion To Ticker"}, {"VOTING_RIGHTS", "Voting Rights"}, {"CONVERTIBLE_INDICATOR", "Convertible Indicator"}, {"ISSUER_STATE_OF_DOMICILE", "Issuer State Of Domicile"}, {"ISSUER_STATE_OF_INCORPORATION", "Issuer State Of Incorporation"}, {"144A_FLAG", "144A Flag"}, {"AGENCY_BACKED_MORTGAGE", "Agency Backed Mortgage"}, {"RESET_INDEX", "Reset Index"}, {"MORTGAGE_TRANCHE_TYPE_FULL", "Mortgage Tranche Type Full"}, {"MORTGAGE_TRANCHE_DESCRIPTION", "Mortgage Tranche Description"}, {"CALC_TYPE_DESCRIPTION", "Calc Type Description"}, {"NEXT_RESET_DT", "Next Reset Dt"}, {"CONTRACT_SIZE", "Contract Size"}, {"EXERCISE_DT", "Exercise Dt"}, {"EXPIRY_DT", "Expiry Dt"}, {"CONTRACT_SIDE", "Contract Side"}, {"FUTURE_CONTRACT_DT", "Future Contract Dt"}, {"ULTIMATE_PARENT_COMPANY_NAME", "Ultimate Parent Company Name"}, {"US_ILLIQUID", "Us Illiquid"}, {"CA_ILLIQUID", "Ca Illiquid"}, {"MUNICIPAL_LEASE_OBLIGATION", "Municipal Lease Obligation"}, {"REGULATORY_TYPE", "Regulatory Type"}, {"REG_S", "Reg S"}, {"SINKABLE_INDICATOR", "Sinkable Indicator"}, {"NEXT_SINK_DT", "Next Sink Dt"}, {"ISLAMIC_INDICATOR", "Islamic Indicator"}, {"MORTGAGE_PRINCIPAL_LOSSES", "Mortgage Principal Losses"}, {"MORTGAGE_INTEREST_SHORTFALL", "Mortgage Interest Shortfall"}, {"LOCAL_ID", "Local Id"}, {"LOCAL_SECTOR", "Local Sector"}, {"ASIA_RATING", "Asia Rating"}, {"RAM_RATING", "Ram Rating"}, {"MARC_RATING", "Marc Rating"}, {"ML_LIQUIDITY_CHANGE", "Ml Liquidity Change"}, {"ML_MUNICIPAL_OBLIGOR", "Ml Municipal Obligor"}, {"OFFERING_TYPE", "Offering Type"}, {"REGULATORY_STRUCTURE", "Regulatory Structure"}, {"EXCHANGE_COUNTRY", "Exchange Country"}, {"ISSUER_TYPE", "Issuer Type"}, {"MY_LOCAL_SEC_TYPE", "My Local Sec Type"}, {"PRIVATE_PLACEMENT", "Private Placement"}, {"DEFAULT_FLAG", "Default Flag"}, {"FI_TYPE", "Fi Type"}, {"SP_SHORT_TERM_RATING", "Sp Short Term Rating"}, {"MOODYS_SHORT_TERM_RATING", "Moodys Short Term Rating"}, {"FITCH_SHORT_TERM_RATING", "Fitch Short Term Rating"}, {"BPL_COUNTRY", "Bpl Country"}, {"DISCOUNT_INDICATOR", "Discount Indicator"}, {"ST_COMPREHENSIVE", "St Comprehensive"}, {"EQ_SECTOR", "Eq Sector"}, {"ACCRUAL_CURRENCY", "Accrual Currency"}, {"SETTLEMENT_TYPE", "Settlement Type"}, {"SECTOR", "Sector"}, {"INDUSTRY_GROUP", "Industry Group"}, {"INDUSTRY", "Industry"}, {"SUB_INDUSTRY", "Sub Industry"}, {"GICS_BICS", "Gics Bics"}, {"ASSET_TYPE", "Asset Type"}, {"SUBORD_TYPE", "Subord Type"}, {"ML_IFRS_13_LEVEL", "Ml Ifrs 13 Level"}, {"PRICE_POINT", "Price Point"}, {"DAY_COUNT", "Day Count"}, {"FINDUR_ID", "Findur Id"}, {"MANULIFE_LOCAL_PRICE", "Manulife Local Price"}, {"YEAR", "Year"}, {"PAYMENT_RANK", "Payment Rank"}, {"CREATED_TS", "Created Ts"}, {"UPDATED_TS", "Updated Ts"}, {"SECURITY_NK", "Security NK"}, {"ML_INVESTMENT_ID", "ML Investment ID"}, {"ML_INVESTMENT_TYPE_CD", "ML Investment Type Code"}, {"ASSET_CLASS", "Asset Class"}, {"SCD_GL_CLASSIFICATION_NAIC", "SCD GL Classification NAIC"}, {"SCD_GL_CLASSIFICATION_JGAAP", "SCD GL Classification JGAAP"}, {"SCD_GL_CLASSIFICATION", "SCD GL Classification"}, {"ID_PRPL", "ID PRPL"}, {"ID_BB_GLOBAL", "ID BB Global"}, {"PPN_PRIVATE_ID", "PPN Private ID"}, {"RI_RATING_CD", "RI Rating Code"}, {"ML_LOCAL_CHINA_ID", "ML Local China ID"}, {"JAPAN_CREDIT_RATING_CD", "Japan Credit Rating Code"}, {"PX_LAST", "PX Last"}, {"ID_BPL_PRICE_POINT", "ID BPL Price Point"}, {"ML_JH_RATING_CD", "ML JH Rating Code"}, {"ML_PRIMARY_RATING_CD", "ML Primary Rating Code"}, {"ML_IRR_RATING", "ML IRR Rating"}, {"ML_MFC_EQUIVALENT_RATING", "ML MFC Equivalent Rating"}, {"ML_VAULT_NM", "ML Vault Name"}, {"ML_VAULT_ID", "ML Vault ID"}, {"ID_BPL_PRICING_STRATEGY", "ID BPL Pricing Strategy"}, {"CALLABLE", "Callable"}, {"CALM_CATEGORY", "Calm Category"}, {"PUTABLE", "Putable"}, {"MAKE_WHOLE_CALL", "Make Whole Call"}, {"HAS_CPN_VARIABLE", "Has Coupon Variable"}, {"ML_CUSIP_PPN", "ML Cusip PPN"}, {"CPN_FREQ", "Coupon Frequency"}, {"EAGLE_ASSET_TYPE", "Eagle Asset Type"}, {"MRM_SECTOR", "MRM Sector"}, {"PRIMARY_SECURITY_ID", "Primary Security ID"}, {"PRICE_CURRENCY", "Price Currency"}, {"SECURITY_TYPE", "Security Type"}, {"SECURITY_ASSET_CLASS", "Security Asset Class"}, {"SECURITY_GROUP", "Security Group"}, {"SECURITY_NAME", "Security Name"}, {"SCHEDULE_BA_ASSET_CATEGORY_CD", "Schedule BA Asset Category Code"}, {"NXT_CALL_PX", "Next Call PX"}, {"NXT_PUT_DT", "Next Put Dt"}, {"NXT_PUT_PX", "Next Put PX"}, {"NXT_CALL_DT", "Next Call Date"}, {"COUPON_TYPE", "Coupon Type"}, {"STD_CURRENCY", "Std Currency"}, {"SEED_MONEY_IND", "Seed Money Ind"}}),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Renamed Columns",{"Security NK", "Src Security Id", "Src Market Id", "As Of Dt", "As Of Period", "Scd Security Id", "Primary Security ID", "Security Name", "Security Id2", "Ticker Isin", "PPN Private ID", "Security Description", "Bloomberg Id", "ID PRPL", "ID BB Global", "Cusip", "Isin", "Ticker", "Principal Exchange", "Sedol", "Collateral Type", "Factor", "Local Currency Cd", "Moodys", "Moodys Rating Change Dt", "Sp", "Sp Rating Change Dt", "Sp Rating Outlook", "Fitch", "Fitch Rating Change Date", "Dbrs", "Dbrs Rating Change Dt", "Internal", "Mam Rating", "Issuer", "Bpl Issuer", "Internal Fund", "Coupon", "Security Asset Class", "Security Group", "Security Type", "Eagle Asset Type", "Repo Type", "Security Type 2", "Security Fund Type", "Scd Instrument Type", "Inflation Linked", "Variable Coupon", "Next Coupon Dt", "Previous Coupon Dt", "Maturity Date", "Maturity Days", "Maturity Days 2", "Reset Days", "Dividend Ex Dt", "Dividend Pay Dt", "Dividend Record Dt", "Dividend Rate", "Shares Outstanding", "Full Shares Outstanding", "Price Source", "Issue Dt", "Country", "Country Of Risk", "Country Of Issue", "Country Of Domicile", "Amount Issued", "Amount Outstanding", "Market Sector", "Underlying Asset Type", "Fund Geographic Focus", "Conversion Ratio", "Conversion Start Dt", "Conversion To Ticker", "Voting Rights", "Convertible Indicator", "Issuer State Of Domicile", "Issuer State Of Incorporation", "144A Flag", "Agency Backed Mortgage", "Reset Index", "Mortgage Tranche Type Full", "Mortgage Tranche Description", "Calc Type Description", "Next Reset Dt", "Contract Size", "Exercise Dt", "Expiry Dt", "Contract Side", "Future Contract Dt", "Ultimate Parent Company Name", "Us Illiquid", "Ca Illiquid", "Municipal Lease Obligation", "Regulatory Type", "Reg S", "Sinkable Indicator", "Next Sink Dt", "Islamic Indicator", "Mortgage Principal Losses", "Mortgage Interest Shortfall", "Local Id", "Local Sector", "Asia Rating", "Ram Rating", "Marc Rating", "Ml Liquidity Change", "Ml Municipal Obligor", "Offering Type", "Regulatory Structure", "Exchange Country", "Issuer Type", "My Local Sec Type", "Private Placement", "Default Flag", "Fi Type", "Sp Short Term Rating", "Moodys Short Term Rating", "Fitch Short Term Rating", "Bpl Country", "Discount Indicator", "St Comprehensive", "Eq Sector", "Accrual Currency", "Settlement Type", "Sector", "Industry Group", "Industry", "Sub Industry", "Gics Bics", "Asset Type", "Subord Type", "Ml Ifrs 13 Level", "Price Point", "Day Count", "Findur Id", "Manulife Local Price", "Year", "Payment Rank", "ML Investment ID", "ML Investment Type Code", "Asset Class", "Coupon Frequency", "SCD GL Classification", "SCD GL Classification JGAAP", "SCD GL Classification NAIC", "ML Cusip PPN", "Japan Credit Rating Code", "RI Rating Code", "ML Local China ID", "ML Vault ID", "ML Vault Name", "ML IRR Rating", "ML MFC Equivalent Rating", "ML Primary Rating Code", "ML JH Rating Code", "Has Coupon Variable", "Next Call Date", "Price Currency", "Next Call PX", "Next Put PX", "Next Put Dt", "Make Whole Call", "Callable", "Putable", "Std Currency", "Coupon Type", "ID BPL Pricing Strategy", "ID BPL Price Point", "PX Last", "MRM Sector", "Calm Category", "Schedule BA Asset Category Code", "Seed Money Ind", "ML_MINOR_TYPE", "BICS_LEVEL2_INDUSTRY_GRP_DES", "SCD_SECURITY_TYPE", "ISSUER_LONG_COMP_NAME", "ISSUER_NAME", "PAYING_AGENT", "LONG_COMPANY_NAME", "COUPON_SPREAD", "id_bb_company", "id_bb_global_company", "BICS_LEVEL1_SECTOR_DES", "BICS_LEVEL3_INDUSTRY_DES", "BICS_LEVEL4_SUB_INDUSTRY_DES", "ANALYSTTEAM", "Src", "CALLED_DT", "CALLED_PX", "ML_IFRS_ACCOUNTING_METHOD", "ML_LGAAP_ACCOUNTING_METHOD", "ML_STAT_ACCOUNTING_METHOD", "ML_BA_AVR_CD", "IS_PERPETUAL", "BASIC_SPREAD", "COUPON_TYP_RESET_DT", "GGI_INDICATOR", "ML_SD_CLASS_DESC", "DG_ISSUER_CD", "ML_MFC_EQUIVALENT_EFF_DT", "ML_MIM_NA_RATING_EFF_DT", "ML_MIM_ASIA_RATING_EFF_DT", "ML_SPEQ_RATING", "ML_SPEQ_EFF_DT", "ML_JH_RATING_EFFECTIVE_DT", "JAPAN_CREDIT_RATING_EFFECTIVE_DT", "ML_IRR_EFF_DT", "RI_RATING_EFFECTIVE_DT", "PRIMARY_RATING_EFFECTIVE_DT", "ANALYST_ID", "ANALYST_NM", "ANALYST_ROLE_CD", "ML_NAIC_INSTRUMENT_TYPE_CD", "ML_SD_CLASS_CD", "ML_SD_SUBCLASS_CD", "ML_SD_TYPE_DESC", "ID_CINS", "ML_CAPITAL_STRUCTURE_CD", "ML_CAPITAL_STRUCTURE_DESC", "ML_STAT_COLLATERAL_TYPE_CD", "ML_NAIC_REPORT_PART_CD", "NAIC_DESIGNATION", "NAIC_RATING", "ml_sd_type_cd"}),
+		    #"Replaced Value" = Table.ReplaceValue(#"Removed Other Columns",null,"-",Replacer.ReplaceValue,{"id_bb_company"}),
+		    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value",null,"-",Replacer.ReplaceValue,{"id_bb_global_company"}),
+		    #"Merged Columns" = Table.CombineColumns(#"Replaced Value1",{"id_bb_company", "id_bb_global_company"},Combiner.CombineTextByDelimiter("/", QuoteStyle.None),"Entity Join Key"),
+		    #"Renamed Columns1" = Table.RenameColumns(#"Merged Columns",{{"Local Currency Cd", "Local"}, {"Ml Ifrs 13 Level", "ML IFRS 13 Level"}, {"ML_MINOR_TYPE", "ML Minor Type"}, {"Maturity Days 2", "Maturity Days 2 (D)"}, {"Maturity Days", "Maturity Days (D)"}, {"Scd Instrument Type", "SCD Instrument Type"}, {"Scd Security Id", "SCD Security ID"}, {"BICS_LEVEL2_INDUSTRY_GRP_DES", "BICS Level2 Industry Group Desc"}, {"SCD_SECURITY_TYPE", "SCD Security Type"}, {"ISSUER_LONG_COMP_NAME", "Issuer Long Company Name"}, {"ISSUER_NAME", "Issuer Name"}, {"PAYING_AGENT", "Paying Agent"}, {"LONG_COMPANY_NAME", "Long Company Name"}, {"Local Id", "Local ID"}, {"Security Id2", "Security ID 2"}, {"Src Security Id", "Src Security ID"}, {"Src Market Id", "Src Market ID"}, {"Findur Id", "Findur ID"}, {"ANALYSTTEAM", "Analyst Team"}, {"COUPON_SPREAD", "Coupon Spread"}, {"BICS_LEVEL4_SUB_INDUSTRY_DES", "BICS Level4 Sub Industry Desc"}, {"BICS_LEVEL3_INDUSTRY_DES", "BICS Level3 Industry Desc"}, {"BICS_LEVEL1_SECTOR_DES", "BICS Level1 Sector Desc"}, {"PX Last", "Indonesian Price"}, {"CALLED_DT", "Called Dt"}, {"CALLED_PX", "Called Px"}, {"ML_IFRS_ACCOUNTING_METHOD", "ML IFRS Accounting Method"}, {"ML_LGAAP_ACCOUNTING_METHOD", "ML Lgaap Accounting Method"}, {"ML_STAT_ACCOUNTING_METHOD", "ML Stat Accounting Method"}, {"ML_BA_AVR_CD", "ML Ba Avr Cd"}, {"IS_PERPETUAL", "Is Perpetual"}, {"BASIC_SPREAD", "Basic Spread"}, {"COUPON_TYP_RESET_DT", "Coupon Typ Reset Dt"}, {"GGI_INDICATOR", "GGI Indicator"}, {"ML_SD_CLASS_DESC", "ML SD Class Desc"}, {"DG_ISSUER_CD", "Dg Issuer Cd"}, {"ML_MFC_EQUIVALENT_EFF_DT", "ML MFC Equivalent Eff Dt"}, {"ML_MIM_NA_RATING_EFF_DT", "ML Mim Na Rating Eff Dt"}, {"ML_MIM_ASIA_RATING_EFF_DT", "ML Mim Asia Rating Eff Dt"}, {"ML_SPEQ_RATING", "ML Speq Rating"}, {"ML_SPEQ_EFF_DT", "ML Speq Eff Dt"}, {"ML_JH_RATING_EFFECTIVE_DT", "ML JH Rating Effective Dt"}, {"JAPAN_CREDIT_RATING_EFFECTIVE_DT", "Japan Credit Rating Effective Dt"}, {"ML_IRR_EFF_DT", "ML IRR Eff Dt"}, {"RI_RATING_EFFECTIVE_DT", "Ri Rating Effective Dt"}, {"PRIMARY_RATING_EFFECTIVE_DT", "Primary Rating Effective Dt"}, {"ANALYST_ID", "Analyst Id"}, {"ANALYST_NM", "Analyst Nm"}, {"ANALYST_ROLE_CD", "Analyst Role Cd"}, {"ML_NAIC_INSTRUMENT_TYPE_CD", "ML NAIC Instrument Type Cd"}, {"ML_SD_CLASS_CD", "ML SD Class Cd"}, {"ML_SD_SUBCLASS_CD", "ML SD Subclass Cd"}, {"ML_SD_TYPE_DESC", "ML SD Type Desc"}, {"ID_CINS", "ID Cins"}, {"ML_CAPITAL_STRUCTURE_CD", "ML Capital Structure Cd"}, {"ML_CAPITAL_STRUCTURE_DESC", "ML Capital Structure Desc"}, {"ML_STAT_COLLATERAL_TYPE_CD", "ML Stat Collateral Type Cd"}, {"ML_NAIC_REPORT_PART_CD", "ML NAIC Report Part Cd"}, {"NAIC_DESIGNATION", "NAIC Designation"}, {"NAIC_RATING", "NAIC Rating"}, {"Manulife Local Price", "Manulife Local Price"}, {"Ml Municipal Obligor", "ML Municipal Obligor"}, {"Ml Liquidity Change", "ML Liquidity Change"}, {"ml_sd_type_cd", "ML SD Type Cd"}})
+		in
+		    #"Renamed Columns1"
+	lineageTag: 6c37b6b5-5ad9-4439-bd50-8ce7316087c0
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navigation
+
+expression 'Private Deal Schedule Funding  Fact' =
+		let
+		    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null]),
+		    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+		    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+		    EDL_private_deal_schedule_funding_fact = inv_semantic_ga_Schema{[Name="private_deal_schedule_funding_fact",Kind="Table"]}[Data],
+		    #"Renamed Columns" = Table.RenameColumns(EDL_private_deal_schedule_funding_fact,{{"PRIVATE_DEAL_FUNDING_SCHEDULE_FACT_SK", "Private Deal Funding Schedule Fact Sk"}, {"PRIVATE_DEAL_DIM_SK", "Private Deal Dim Sk"}, {"SRC_SECURITY_ID", "Src Security Id"}, {"DEAL_ID", "Deal Id"}, {"INVESTMENT_CD", "Investment Cd"}, {"SCHEDULED_FUNDING_DT", "Scheduled Funding Dt"}, {"SCHEDULED_FUNDING_AMT", "Scheduled Funding Amt"}, {"SRC", "Src"}, {"CREATED_TS", "Created Ts"}, {"UPDATED_TS", "Updated Ts"}, {"AS_OF_DT", "As Of Date"}}),
+		    #"Removed Columns" = Table.RemoveColumns(#"Renamed Columns",{"Created Ts", "Private Deal Funding Schedule Fact Sk", "Src"}),
+		    #"Renamed Columns1" = Table.RenameColumns(#"Removed Columns",{{"Scheduled Funding Dt", "Scheduled Funding Date"}}),
+		    #"Renamed Columns2" = Table.RenameColumns(#"Renamed Columns1",{{"Src Security Id", "Src Security ID"}, {"Deal Id", "Deal ID"}})
+		in
+		    #"Renamed Columns2"
+	lineageTag: 0028cc53-78ae-4f35-aabc-40e6607b0c58
+	queryGroup: Dealgen
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+expression 'Private Deal Dim' =
+		let
+		    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null]),
+		    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+		    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+		    EDL_private_deal_dim= inv_semantic_ga_Schema{[Name="private_deal_dim",Kind="Table"]}[Data],
+		    #"Renamed Columns" = Table.RenameColumns(EDL_private_deal_dim,{{"PRIVATE_DEAL_DIM_SK","Private Deal Dim Sk"},
+		    {"PRIVATE_SECURITY_DIM_SK","Private Security Dim Sk"},
+		    {"SRC_SECURITY_ID","Src Security Id"},
+		    {"DEAL_ID","Deal Id"},
+		    {"INVESTMENT_CD","Investment Cd"},
+		    {"DP_COMMENT_TXT","Dp Comment Txt"},
+		    {"TOTAL_MLF_COMMITMENT_AMT","Total Mlf Commitment Amt"},
+		    {"TOTAL_MLF_FUNDED_COMMITMENT_AMT","Total Mlf Funded Commitment Amt"},
+		    {"TOTAL_MLF_UNFUNDED_COMMITMENT_AMT","Total Mlf Unfunded Commitment Amt"},
+		    {"BUS_EFF_DATE_FROM","Bus Eff Date From"},
+		    {"BUS_EFF_DATE_TO","Bus Eff Date To"},
+		    {"SRC","Src"},
+		    {"CREATED_TS","Created Ts"},
+		    {"UPDATED_TS","Updated Ts"}
+		    }),
+		    #"Removed Columns" = Table.RemoveColumns(#"Renamed Columns",{"Created Ts", "Src"}),
+		    #"Merged Queries" = Table.NestedJoin(#"Removed Columns", {"Private Security Dim Sk"}, #"Private Security Dim", {"Private Security Dim Sk"}, "Private Security Dim", JoinKind.Inner),
+		    #"Expanded Private Security Dim" = Table.ExpandTableColumn(#"Merged Queries", "Private Security Dim", {"Private Security Dim Sk", "Src Security Id", "Investment Desc Txt", "Investment Type Cd", "Cusip Ppn Cd", "Isin Num", "Primary Guarantor Nm", "Primary Issuer Nm", "Local Currency", "Asset Category Nm", "Accounting Group Cd", "Accounting Type Cd", "Coupon From Date", "Coupon Through Date", "Coupon Rate Num", "Rating Type Nm", "Rating Cd", "Security Id", "Security Description", "Security Id Desc", "Asset Class"}, {"Private Security Dim Sk.1", "Src Security Id.1", "Investment Desc Txt", "Investment Type Cd", "Cusip Ppn Cd", "Isin Num", "Primary Guarantor Nm", "Primary Issuer Nm", "Local Currency", "Asset Category Nm", "Accounting Group Cd", "Accounting Type Cd", "Coupon From Date", "Coupon Through Date", "Coupon Rate Num", "Rating Type Nm", "Rating Cd", "Security Id", "Security Description", "Security Id Desc", "Asset Class"}),
+		    #"Removed Columns1" = Table.RemoveColumns(#"Expanded Private Security Dim",{"Bus Eff Date From", "Bus Eff Date To", "Private Security Dim Sk.1", "Src Security Id.1"})
+		in
+		    #"Removed Columns1"
+	lineageTag: 5784afb4-5897-417f-bfb2-e4b2884d5cf5
+	queryGroup: Dealgen
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+expression 'Private Deal Commitment Fact' = ```
+		let
+		    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null]),
+		    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+		    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+		    EDL_private_deal_commitment_fact = inv_semantic_ga_Schema{[Name="private_deal_commitment_fact",Kind="Table"]}[Data],
+		    #"Renamed Columns" = Table.RenameColumns(EDL_private_deal_commitment_fact,{{"PRIVATE_DEAL_COMMITMENT_FACT_SK","Private Deal Commitment Fact Sk"},
+		    {"PRIVATE_DEAL_DIM_SK","Private Deal Dim Sk"},
+		    {"SRC_SECURITY_ID","Src Security Id"},
+		    {"DEAL_ID","Deal Id"},
+		    {"AS_OF_DT","As Of Date"},
+		    {"SETTLEMENT_DT","Settlement Date"},
+		    {"ACCT_CD","Acct Cd"},
+		    {"PORTFOLIO_CD","Portfolio Cd"},
+		    {"PORTFOLIO_NK","Portfolio Nk"},
+		    {"PORTFOLIO_NM","Portfolio Nm"},
+		    {"PORTFOLIO_CODE_NM","Portfolio Code Nm"},
+		    {"PORTFOLIO_TEAM","Portfolio Team"},
+		    {"ACCOUNTING_UNIT_CODE_NM","Accounting Unit Code Nm"},
+		    {"COMPANY_CODE_NAME","Company Code Name"},
+		    {"LOCAL_CURRENCY_CD","Local Currency Cd"},
+		    {"FUNCTIONAL_CCY_CD","Functional Ccy Cd"},
+		    {"LOCAL_TO_FUNC_RATE","Local To Func Rate"},
+		    {"LOCAL_TO_CAD_RATE","Local To Cad Rate"},
+		    {"LOCAL_TO_USD_RATE","Local To Usd Rate"},
+		    {"LOCAL_TO_HKD_RATE","Local To Hkd Rate"},
+		    {"ALLOCATION_PCT","Allocation Pct"},
+		    {"COMMITMENT_AMT","Commitment Amt"},
+		    {"FUNDED_AMT","Funded Amt"},
+		    {"SRC","Src"},
+		    {"CREATED_TS","Created Ts"},
+		    {"UPDATED_TS","Updated Ts"},
+		    {"UNFUNDED_IND","Unfunded Ind"}
+		    }),
+		    #"Removed Columns" = Table.RemoveColumns(#"Renamed Columns",{"Created Ts", "Private Deal Commitment Fact Sk", "UNFUNDED_AMT", "Src"}),
+		    #"Renamed Columns1" = Table.RenameColumns(#"Removed Columns",{{"Settlement Date", "Settlement Date (D)"}, {"As Of Date", "As Of Date"}, {"Src Security Id", "Src Security ID"}, {"Deal Id", "Deal ID"}}),
+		    #"Renamed Columns2" = Table.RenameColumns(#"Renamed Columns1",{{"Accounting Unit Code Nm", "Accounting Unit Code & Name"}})
+		   
+		in
+		#"Renamed Columns2"
+		```
+	lineageTag: 35a5ae80-e5a1-42e2-8e7b-d04519804188
+	queryGroup: Dealgen
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+expression 'Private Security Dim' = ```
+		let
+		    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null]),
+		    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+		    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+		    EDL_private_security_dim = inv_semantic_ga_Schema{[Name="private_security_dim",Kind="Table"]}[Data],
+		    #"Renamed Columns" = Table.RenameColumns(EDL_private_security_dim,{{"PRIVATE_SECURITY_DIM_SK","Private Security Dim Sk"},
+		    {"SRC_SECURITY_ID","Src Security Id"},
+		    {"INVESTMENT_DESC_TXT","Investment Desc Txt"},
+		    {"INVESTMENT_TYPE_CD","Investment Type Cd"},
+		    {"CUSIP_PPN_CD","Cusip Ppn Cd"},
+		    {"ISIN_NUM","Isin Num"},
+		    {"PRIMARY_GUARANTOR_NM","Primary Guarantor Nm"},
+		    {"PRIMARY_ISSUER_NM","Primary Issuer Nm"},
+		    {"LOCAL_CURRENCY","Local Currency"},
+		    {"ASSET_CATEGORY_NM","Asset Category Nm"},
+		    {"ACCOUNTING_GROUP_CD","Accounting Group Cd"},
+		    {"ACCOUNTING_TYPE_CD","Accounting Type Cd"},
+		    {"CALM_CATEGORY","Calm Category"},
+		    {"MRM_SECTOR","Mrm Sector"},
+		    {"SCHEDULE_BA_ASSET_CATEGORY_CD","Schedule Ba Asset Category Cd"},
+		    {"COUPON_FROM_DT","Coupon From Dt"},
+		    {"COUPON_THROUGH_DT","Coupon Through Dt"},
+		    {"COUPON_RATE_NUM","Coupon Rate Num"},
+		    {"RATING_TYPE_NM","Rating Type Nm"},
+		    {"RATING_CD","Rating Cd"},
+		    {"SECURITY_ID","Security Id"},
+		    {"SECURITY_DESCRIPTION","Security Description"},
+		    {"SECURITY_ID_DESC","Security Id Desc"},
+		    {"ASSET_CLASS","Asset Class"},
+		    {"BUS_EFF_DATE_FROM","Bus Eff Date From"},
+		    {"BUS_EFF_DATE_TO","Bus Eff Date To"},
+		    {"SRC","Src"},
+		    {"CREATED_TS","Created Ts"},
+		    {"UPDATED_TS","Updated Ts"}
+		    }),
+		    #"Removed Columns" = Table.RemoveColumns(#"Renamed Columns",{"Created Ts", "SCHEDULE_BA_ASSET_CATEGORY_DESC", "ALDA_ASSET_TYPE", "Src"}),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Removed Columns",{{"Bus Eff Date From", type date}, {"Bus Eff Date To", type date}, {"Updated Ts", type date}}),
+		    #"Renamed Columns1" = Table.RenameColumns(#"Changed Type",{{"Coupon From Dt", "Coupon From Date"}, {"Coupon Through Dt", "Coupon Through Date"}}),
+		    #"Filtered Rows" = Table.SelectRows(#"Renamed Columns1", each ([Private Security Dim Sk] = 1))
+		   
+		in
+		 #"Filtered Rows"
+		```
+	lineageTag: 3ae5be77-52d3-420d-be7d-3816130b22de
+	queryGroup: Dealgen
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+expression 'Securities Changes' =
+		let
+		    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null]),
+		    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+		    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+		    EDL_securities_changes_dim = inv_semantic_ga_Schema{[Name="securities_changes_dim",Kind="Table"]}[Data],
+		    #"Renamed Columns" = Table.RenameColumns(EDL_securities_changes_dim,{{"SECURITIES_CHANGES_DIM_SK", "Securities Changes Dim SK"}, {"AS_OF_DT", "As Of Date"}, {"SRC_SECURITY_ID", "Src Security ID"}, {"ASSET_CLASS", "Asset Class"}, {"SCD_SECURITY_TYPE", "Scd Security Type"}, {"CUSIP", "Cusip"}, {"SEDOL", "Sedol"}, {"ISIN", "Isin"}, {"TICKER", "Ticker"}, {"COUPON", "Coupon"}, {"NXT_CALL_DT", "Next Call Date"}, {"NXT_SINK_DT", "Next Sink Date"}, {"FLT_SPREAD", "Flt Spread"}, {"LAST_REFIX_DT", "Last Refix Date"}, {"EQY_SH_OUT", "Eqy sh out"}, {"NXT_CALL_PX", "Next Call Px"}, {"SECURITY_RATING_MOODYS", "Security Rating Moodys"}, {"SECURITY_RATING_SP", "Security Rating Sp"}, {"SECURITY_RATING_FITCH", "Security Rating Fitch"}, {"SECURITY_RATING_DBRS", "Security Rating Dbrs"}, {"SECURITY_INTERNAL_RATING", "Security Internal Rating"}, {"RTG_MOODY_LONG_TERM", "RTG Moody Long Term"}, {"RTG_FITCH_LONG", "RTG Fitch Long"}, {"RTG_MDY_ISSUER", "RTG MDY Issuer"}, {"RTG_SP_LONG", "RTG Sp Long"}, {"RTG_SP_OUTLOOK", "RTG Sp Outlook"}, {"ML_IRR_RATING", "ML IRR Rating"}, {"ML_MFC_EQUIVALENT_RATING", "ML MFC Equivalent Rating"}, {"RTG_MDY_LONG_ISSUE_LEVEL", "RTG MDY Long Issue Level"}, {"SECURITY_DESCRIPTION", "Security Desc"}, {"MATURITY_DATE", "Maturity Date"}, {"ASSET_TYPE", "Asset Type"}, {"SECURITIES_NK", "Securities NK"}, {"AS_OF_PERIOD", "As Of Period"}, {"ASIA_RATING", "Asia Rating"}, {"SP_SHORT_TERM_RATING", "SP Short Term Rating"}, {"MOODYS_SHORT_TERM_RATING", "Moodys Short Term Rating"}, {"FITCH_SHORT_TERM_RATING", "Fitch Short Term Rating"}}),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"Maturity Date", type date}}),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Changed Type",{"Securities NK", "Src Security ID", "PRIMARY_SECURITY_ID", "As Of Date", "As Of Period", "Coupon", "Maturity Date", "Asset Class", "Scd Security Type", "Cusip", "Next Call Date", "Next Sink Date", "Flt Spread", "Last Refix Date", "Eqy sh out", "Next Call Px", "Security Rating Moodys", "Security Rating Sp", "Security Rating Fitch", "Security Rating Dbrs", "Security Internal Rating", "RTG Moody Long Term", "RTG Fitch Long", "RTG MDY Issuer", "RTG Sp Long", "RTG Sp Outlook", "ML IRR Rating", "ML MFC Equivalent Rating", "RTG MDY Long Issue Level", "Asset Type", "Asia Rating", "SP Short Term Rating", "Moodys Short Term Rating", "Fitch Short Term Rating", "Security Desc", "FAS_157_TIER_LEVEL", "NAIC_INSTRUMENT_FAP", "SECURITY_GROUP", "INSTRUMENT_TYPE"}),
+		    #"Renamed Columns1" = Table.RenameColumns(#"Removed Other Columns",{{"Scd Security Type", "SCD Security Type"}, {"PRIMARY_SECURITY_ID", "Primary Security ID"}, {"FAS_157_TIER_LEVEL", "FAS 157 Tier Level"}, {"NAIC_INSTRUMENT_FAP", "NAIC Instrument FAP"}, {"SECURITY_GROUP", "Security Group"}, {"INSTRUMENT_TYPE", "Instrument Type"}})
+		in
+		    #"Renamed Columns1"
+	lineageTag: 88150e32-16ea-4190-bada-93a603fc0fdd
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+
+expression 'Last N Days Position Data' = "31" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 6bebb2d4-e39e-4e6c-9275-7697d663d0c2
+	queryGroup: Parameters
+
+	annotation PBI_ResultType = Text
+
+expression Securities_Lots_Fact_PBI_Config =
+		let
+		    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0), EnableQueryResultDownload="0"]),
+		    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+		    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+		    EDL_securities_lots_fact_dq_pbi_config = inv_semantic_ga_Schema{[Name="securities_lots_fact_dq_pbi_config",Kind="Table"]}[Data],
+		    #"Filtered Rows" = Table.SelectRows(EDL_securities_lots_fact_dq_pbi_config, each [start_date] >= RangeStart and [start_date] < RangeEnd),
+		    max_updated_ts = List.Max(#"Filtered Rows"[max_updated_ts]),
+		    Indicator = if max_updated_ts = null then #datetime(1901,01,01,00,00,00) else max_updated_ts
+		in
+		    Indicator
+	lineageTag: 578e9adb-3c85-46b5-9cc6-9d4e21ccdd5f
+	queryGroup: 'Incremental Refresh Config Tables'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = DateTime
+
+expression Securities_Position_Fact_PBI_Config =
+		let
+		    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0), EnableQueryResultDownload="0"]),
+		    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+		    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+		    EDL_securities_position_fact_dq_pbi_config = inv_semantic_ga_Schema{[Name="securities_position_fact_dq_pbi_config",Kind="Table"]}[Data],
+		    #"Filtered Rows" = Table.SelectRows(EDL_securities_position_fact_dq_pbi_config, each [start_date] >= RangeStart and [start_date] < RangeEnd),
+		    max_updated_ts = List.Max(#"Filtered Rows"[max_updated_ts]),
+		    Indicator = if max_updated_ts = null then #datetime(1901,01,01,00,00,00) else max_updated_ts
+		in
+		    Indicator
+	lineageTag: d9150f78-b991-44af-834e-1f845f4ae112
+	queryGroup: 'Incremental Refresh Config Tables'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = DateTime
+
+expression Securities_Transaction_Fact_PBI_Config =
+		let
+		    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0), EnableQueryResultDownload="0"]),
+		    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+		    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+		    EDL_securities_transaction_ga_fact_dq_pbi_config = inv_semantic_ga_Schema{[Name="securities_transaction_ga_fact_dq_pbi_config",Kind="Table"]}[Data],
+		    #"Filtered Rows" = Table.SelectRows(EDL_securities_transaction_ga_fact_dq_pbi_config, each [start_date] >= RangeStart and [start_date] < RangeEnd),
+		    max_updated_ts = List.Max(#"Filtered Rows"[max_updated_ts]),
+		    Indicator = if max_updated_ts = null then #datetime(1901,01,01,00,00,00) else max_updated_ts
+		in
+		    Indicator
+	lineageTag: 55d11c63-e6a9-41a2-890b-caeccd69905c
+	queryGroup: 'Incremental Refresh Config Tables'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = DateTime
+
+expression Asset_Dim_PBI_Config =
+		let
+		    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0), EnableQueryResultDownload="0"]),
+		    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+		    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+		    EDL_asset_dim_dq_pbi_config = inv_semantic_ga_Schema{[Name="asset_dim_dq_pbi_config",Kind="Table"]}[Data],
+		    #"Filtered Rows" = Table.SelectRows(EDL_asset_dim_dq_pbi_config, each [start_date] >= RangeStart and [start_date] < RangeEnd),
+		    max_updated_ts = List.Max(#"Filtered Rows"[max_updated_ts]),
+		    Indicator = if max_updated_ts = null then #datetime(1901,01,01,00,00,00) else max_updated_ts
+		in
+		    Indicator
+	lineageTag: 6e08f3f6-8ebd-48f6-b1ce-92dd494b4405
+	queryGroup: 'Incremental Refresh Config Tables'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = DateTime
+
+expression RangeStart = #datetime(2023, 12, 1, 0, 0, 0) meta [IsParameterQuery=true, Type="DateTime", IsParameterQueryRequired=true]
+	lineageTag: 0c7fe735-fd12-4849-b276-b4a5b78e53a2
+	queryGroup: Parameters
+
+	annotation PBI_ResultType = DateTime
+
+	annotation PBI_NavigationStepName = Navigation
+
+expression RangeEnd = #datetime(2027, 12, 12, 0, 0, 0) meta [IsParameterQuery=true, Type="DateTime", IsParameterQueryRequired=true]
+	lineageTag: a8f106f5-0672-421f-892b-a3c758306563
+	queryGroup: Parameters
+
+	annotation PBI_ResultType = DateTime
+
+	annotation PBI_NavigationStepName = Navigation
+
+expression pCutOffDate = #date(2025, 1, 1) meta [IsParameterQuery=true, Type="Date", IsParameterQueryRequired=true]
+	lineageTag: 5171af18-4ebb-4f19-9c78-92058b09535c
+	queryGroup: Parameters
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Date
+
+expression 'Indonesian FX Rate(Old)' =
+		let
+		    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null]),
+		    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+		    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+		    EDL_currency_conversion_ind_dim_dq = inv_semantic_ga_Schema{[Name="currency_conversion_ind_dim_dq",Kind="Table"]}[Data]
+		in
+		    EDL_currency_conversion_ind_dim_dq
+	lineageTag: 22539c91-664c-4486-a318-95abe76c375e
+	queryGroup: Rimes
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+
+expression HostName = "adb-3587900669297069.9.azuredatabricks.net" meta [IsParameterQuery=true, List={"adb-7008027354253725.5.azuredatabricks.net"}, DefaultValue="adb-7008027354253725.5.azuredatabricks.net", Type="Text", IsParameterQueryRequired=true]
+	lineageTag: cbb9001e-bf14-45c3-bfcc-71ee8ab797bd
+	queryGroup: Parameters
+
+	annotation PBI_ResultType = Text
+
+expression HTTPPath = "/sql/1.0/warehouses/f6f291529ff13afc" meta [IsParameterQuery=true, List={"/sql/1.0/warehouses/ee87810f7939db85"}, DefaultValue="/sql/1.0/warehouses/ee87810f7939db85", Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 5590e56e-bc78-41e5-ac57-6af36e4c42bd
+	queryGroup: Parameters
+
+	annotation PBI_ResultType = Text
+
+expression Catalog = "gwam_dev_catalog" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 7fbfa666-7edd-4485-975d-95721267fd0b
+	queryGroup: Parameters
+
+	annotation PBI_ResultType = Text
+
+expression 'DirectQuery to AS - PBI Data Dictionary' =
+		let
+		    Source = AnalysisServices.Database("powerbi://api.powerbi.com/v1.0/myorg/GA_IRR_PROD", "PBI Data Dictionary"),
+		    Cubes = Table.Combine(Source[Data]),
+		    Cube = Cubes{[Id="Model", Kind="Cube"]}[Data]
+		in
+		    Cube
+	lineageTag: 3015c388-9c25-4450-adaa-68c2a71b26ff
+
+	annotation PBI_IncludeFutureArtifacts = True
+
+	annotation PBI_RemovedChildren = [{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"b7dda126-c44f-4009-b8fd-a9355cbd1edb"}},"objectType":"Table"}]
+

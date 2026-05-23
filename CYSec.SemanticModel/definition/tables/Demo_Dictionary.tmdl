@@ -1,0 +1,190 @@
+table Demo_Dictionary
+	lineageTag: 04336b32-843e-49f2-b062-c9a449f5f691
+	sourceLineageTag: 5374e32c-c759-43f1-9d8d-894f81fd38de
+
+	column DatabaseName
+		dataType: string
+		lineageTag: 686181fc-01ab-41a4-a0a1-2bfb2ed283a3
+		sourceLineageTag: d8325fbb-0038-457e-bc4f-d0c69c6f0646
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DatabaseName
+
+		annotation SummarizationSetBy = User
+
+	column TableName
+		dataType: string
+		lineageTag: c730518b-da31-435f-8cdd-8b0e02266543
+		sourceLineageTag: e20329e3-6f34-4f15-a110-9a448769f099
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TableName
+
+		annotation SummarizationSetBy = User
+
+	column TableEnglishName
+		dataType: string
+		lineageTag: f3a67c83-c886-4d66-8b26-895607722093
+		sourceLineageTag: ee934535-30e3-42a6-bc50-09ddd6d1fac2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TableEnglishName
+
+		annotation SummarizationSetBy = User
+
+	column TableDescription
+		dataType: string
+		lineageTag: 11dbd0f5-508d-407b-bf30-3adeb5f298d6
+		sourceLineageTag: b85250c9-f723-4a57-a99c-494f133a899a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TableDescription
+
+		annotation SummarizationSetBy = User
+
+	column TableCategory
+		dataType: string
+		lineageTag: 6aeb6c20-0c3c-4f97-b758-172f3c9dad50
+		sourceLineageTag: f016a32c-593f-477d-af58-dacec134f57b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TableCategory
+
+		annotation SummarizationSetBy = User
+
+	column TableCategoryDescription
+		dataType: string
+		lineageTag: b790c0d2-902c-4107-8bab-04182a69d58c
+		sourceLineageTag: 3cbeb6fd-e8d1-4556-b3a7-84227233fa79
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TableCategoryDescription
+
+		annotation SummarizationSetBy = User
+
+	column BusinessCategoryName
+		dataType: string
+		lineageTag: 0a7bdf0c-18fa-4c03-8fd7-c4ad6930337c
+		sourceLineageTag: cf81fddb-b580-4b40-8420-64e37e27e9f5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: BusinessCategoryName
+
+		annotation SummarizationSetBy = User
+
+	column ColumnName
+		dataType: string
+		lineageTag: 148f750e-389f-474e-a5ea-10e0fdfc0a8d
+		sourceLineageTag: c7184ccf-b051-419e-9b36-cb9d5c992071
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ColumnName
+
+		annotation SummarizationSetBy = User
+
+	column ColumnEnglishName
+		dataType: string
+		lineageTag: 117ee196-aba3-4759-b112-77e446d0d516
+		sourceLineageTag: 457cf111-3950-4b14-a498-a408e08e6cbc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ColumnEnglishName
+
+		annotation SummarizationSetBy = User
+
+	column Description
+		dataType: string
+		lineageTag: 2b744e37-01d2-4989-92c5-2a2ed3f41972
+		sourceLineageTag: 30844c11-802f-4c51-96e5-ae43d15202ac
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = User
+
+	column ValidFormat
+		dataType: string
+		lineageTag: 6cd1e4db-a664-475b-8414-c09dea88b436
+		sourceLineageTag: aa865e7e-cf51-4e99-9112-45a3fde1bfab
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ValidFormat
+
+		annotation SummarizationSetBy = User
+
+	column BusinessApprovalStatus
+		dataType: string
+		lineageTag: d0b95640-72ec-42a1-ae6d-9932903930b5
+		sourceLineageTag: 647ecb64-e5a8-4926-863b-baa7e11c30d6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: BusinessApprovalStatus
+
+		annotation SummarizationSetBy = User
+
+	column DataDomain
+		dataType: string
+		lineageTag: c6c83bf1-e195-4db8-a6a3-d1c9a7d96c2d
+		sourceLineageTag: b7a15f51-2f36-47e0-97ce-e531cf9d8ca8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DataDomain
+
+		annotation SummarizationSetBy = User
+
+	column SourceApplication
+		dataType: string
+		lineageTag: 107bdfa0-06b9-45d2-a988-3c149de86dd3
+		sourceLineageTag: 61d2873e-2744-4cf5-9b7c-3fbf51b2c19d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SourceApplication
+
+		annotation SummarizationSetBy = User
+
+	column DestinationApplication
+		dataType: string
+		lineageTag: 7cdad4c0-fab2-4920-afda-9fa733e97fa1
+		sourceLineageTag: ade6b122-fde0-4fa4-a99c-d95a1aa3babe
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DestinationApplication
+
+		annotation SummarizationSetBy = User
+
+	column DataType
+		dataType: string
+		lineageTag: 9a1c4ee0-3301-4faa-a80c-33b9d98ce7d1
+		sourceLineageTag: ea90e34f-8663-4877-bfac-88ec405a3b3d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DataType
+
+		annotation SummarizationSetBy = User
+
+	column NodeColourCode
+		dataType: string
+		lineageTag: 9ad79e2c-f54e-448f-b4b6-ad2029b02ead
+		sourceLineageTag: 15b62c87-60cb-43a5-8894-1ae5f265654a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: NodeColourCode
+
+		annotation SummarizationSetBy = User
+
+	column Organization
+		dataType: string
+		lineageTag: 36e3f933-51c8-4b2e-b66c-a593cb16918b
+		sourceLineageTag: ec7ee697-f66d-43ee-87fd-86133bf6a2eb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Organization
+
+		annotation SummarizationSetBy = User
+
+	partition Demo_Dictionary = entity
+		mode: directQuery
+		source
+			entityName: Demo_Dictionary
+			expressionSource: 'DirectQuery to AS - PBI Data Dictionary'
+

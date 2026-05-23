@@ -1,0 +1,122 @@
+table 'Accounting Framework Philosophy'
+	lineageTag: c7ec0c65-4e1b-48f2-93e4-e861bd98dfce
+
+	column 'Acct Framework Phil Nk'
+		dataType: string
+		lineageTag: 3ce76fd2-b2a4-4a9c-aeed-0e2a8d823886
+		summarizeBy: none
+		sourceColumn: Acct Framework Phil Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Key'
+		dataType: string
+		lineageTag: 7dd64795-9d54-48fc-b6e5-d9f1bd5e2003
+		summarizeBy: none
+		sourceColumn: Portfolio Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Src
+		dataType: string
+		lineageTag: bb70c088-ef65-4616-a677-0e7dd996385d
+		summarizeBy: none
+		sourceColumn: Src
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Cd'
+		dataType: string
+		lineageTag: 2d5c6ab5-117c-4a5b-a426-9128ce7a9304
+		summarizeBy: none
+		sourceColumn: Portfolio Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Framework'
+		dataType: string
+		lineageTag: 357a993a-cf6b-4348-8a24-44b88aa7c266
+		summarizeBy: none
+		sourceColumn: Accounting Framework
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trading Philosophy'
+		dataType: string
+		lineageTag: 3a18d470-ee0e-4812-9719-8f22dcd4e2d3
+		summarizeBy: none
+		sourceColumn: Trading Philosophy
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bus Eff Date From'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f2d679e0-fa9b-42c9-a52d-2d8e58844c3c
+		summarizeBy: none
+		sourceColumn: Bus Eff Date From
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bus Eff Date To'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 59ef5e36-1e2b-49c7-bb93-09ccd499a32a
+		summarizeBy: none
+		sourceColumn: Bus Eff Date To
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Smt Created Ts'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 364d8d74-8120-4ecb-a0d7-d9b7c9d3506f
+		summarizeBy: none
+		sourceColumn: Smt Created Ts
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dal Created Ts'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 273a68b1-179b-4f7d-84bb-063e411324f1
+		summarizeBy: none
+		sourceColumn: Dal Created Ts
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Acct Framework Philosophy Src Rank Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5eb733c3-6da2-4f63-8dbf-f6832b9b529d
+		summarizeBy: sum
+		sourceColumn: Acct Framework Philosophy Src Rank Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Type Cd'
+		dataType: string
+		lineageTag: 55da1001-21e7-487b-9a2d-cda828cfdf10
+		summarizeBy: none
+		sourceColumn: Asset Type Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Accounting Framework Philosophy' = m
+		mode: import
+		queryGroup: 'Custom Dimension Tables'
+		source =
+				let
+				    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0), EnableQueryResultDownload="0"]),
+				    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+				    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+				    EDL_accounting_framework_phiolosophy_dim = inv_semantic_ga_Schema{[Name="accounting_framework_philosophy_dim",Kind="Table"]}[Data],
+				    #"Removed Other Columns" = Table.SelectColumns(EDL_accounting_framework_phiolosophy_dim,{"acct_framework_phil_nk", "portfolio_key", "src", "portfolio_cd", "accounting_framework", "trading_philosophy", "bus_eff_date_from", "bus_eff_date_to", "smt_created_ts", "dal_created_ts", "acct_framework_philosophy_src_rank_num", "asset_type_cd"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Other Columns",{{"portfolio_key", "Portfolio Key"}, {"src", "Src"}, {"portfolio_cd", "Portfolio Cd"}, {"accounting_framework", "Accounting Framework"}, {"trading_philosophy", "Trading Philosophy"}, {"bus_eff_date_from", "Bus Eff Date From"}, {"bus_eff_date_to", "Bus Eff Date To"}, {"smt_created_ts", "Smt Created Ts"}, {"dal_created_ts", "Dal Created Ts"}, {"acct_framework_philosophy_src_rank_num", "Acct Framework Philosophy Src Rank Num"}, {"asset_type_cd", "Asset Type Cd"}, {"acct_framework_phil_nk", "Acct Framework Phil Nk"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

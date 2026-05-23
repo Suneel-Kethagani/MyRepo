@@ -1,0 +1,38 @@
+table Framework
+	lineageTag: 7bb6ea1f-5df4-4d32-b950-9e35d71030b0
+
+	column Framework
+		dataType: string
+		lineageTag: 9ccf6fbd-6e8d-4b18-b7ee-b1f065e81cce
+		summarizeBy: none
+		sourceColumn: Framework
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Framework Display'
+		dataType: string
+		lineageTag: e1289ce8-d967-47e0-b39c-3bd625cecc40
+		summarizeBy: none
+		sourceColumn: Framework Display
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Framework-6cf3d79a-cb3a-4db9-b59a-b3e0b0e70e7a = m
+		mode: import
+		queryGroup: 'Custom Dimension Tables'
+		source =
+				let
+				    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0), EnableQueryResultDownload="0"]),
+				    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+				    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+				    EDL_framework_dim = inv_semantic_ga_Schema{[Name="framework_dim",Kind="Table"]}[Data],
+				    #"Renamed Columns" = Table.RenameColumns(EDL_framework_dim,{{"FRAMEWORK_CD", "Framework"}, {"FRAMEWORK_DISPLAY", "Framework Display"}})
+				in
+				    #"Renamed Columns"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

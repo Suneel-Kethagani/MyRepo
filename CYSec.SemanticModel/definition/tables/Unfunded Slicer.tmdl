@@ -1,0 +1,19 @@
+table 'Unfunded Slicer'
+	isHidden
+	lineageTag: ea04bcb1-4ea6-4a73-ac72-4c727b5ade0a
+
+	column Value
+		isHidden
+		lineageTag: 1572e58e-c37d-481b-b640-8b23fea61588
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Unfunded Slicer-4b472a80-c300-4d2e-b1ff-8ed5aefc9382' = calculated
+		mode: import
+		source = {( "All"), ("Unfunded Only")}
+
+	annotation PBI_Id = 59f518a4ce0d4b3b9e10f43422ed5df6
+

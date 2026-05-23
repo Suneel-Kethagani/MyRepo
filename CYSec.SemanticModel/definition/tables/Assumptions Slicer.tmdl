@@ -1,0 +1,19 @@
+table 'Assumptions Slicer'
+	isHidden
+	lineageTag: 39f9d078-854a-439a-8107-3a9836d07ff9
+
+	column Value
+		isHidden
+		lineageTag: 8c25a748-6233-4c01-a263-fdef355cd5b7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Assumptions Slicer-f959396d-0aef-4b8c-9a0b-ca94ac7c72db' = calculated
+		mode: import
+		source = {("To Maturity"), ("To Next Call Date"),("To Next Put Date")}
+
+	annotation PBI_Id = 7848627880124142b3e3401d2afacdf1
+

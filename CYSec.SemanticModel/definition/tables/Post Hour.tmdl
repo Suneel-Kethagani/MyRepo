@@ -1,0 +1,20 @@
+table 'Post Hour'
+	isHidden
+	lineageTag: 44e9399e-49e0-49e1-b0de-e7c3cf17e842
+
+	column Value
+		isHidden
+		formatString: 0
+		lineageTag: 8938d99b-5c11-49ae-b7f7-1f6153ada1ce
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Post Hour-dc45b1c8-e738-4ca5-af5f-c8f79e121e9c' = calculated
+		mode: import
+		source = GENERATESERIES(1, 24)
+
+	annotation PBI_Id = 5a0ff76e8aba47988e918a9e566f2fa5
+

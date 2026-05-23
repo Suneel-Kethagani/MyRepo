@@ -1,0 +1,30 @@
+table 'Month End Dates (Security)'
+	lineageTag: 8362d08f-6539-4638-920a-76baaee6a1d6
+
+	column 'Month End Selection'
+		isHidden
+		lineageTag: a24c62ba-e5b0-453b-b313-789f2fd4ceba
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month End Selection]
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Month End Dates (Security)-7c177f8a-651d-4733-9989-c5fa6e0fd20e' = calculated
+		mode: import
+		source =
+				
+				UNION(
+				
+				    ROW("Month End Selection", "Month End"),
+				
+				    ROW("Month End Selection", "Non Month End")
+				
+				)
+
+	changedProperty = IsHidden
+
+	annotation PBI_Id = 0b92a5efa6c748afa669291c5e120aaf
+

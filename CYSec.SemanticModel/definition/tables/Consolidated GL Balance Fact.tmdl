@@ -1,0 +1,735 @@
+table 'Consolidated GL Balance Fact'
+	lineageTag: 5f5ae9bd-8c66-4339-988c-ecfbf4104bd0
+
+	measure 'Adjustment_Amount (CAD)' = ```
+			
+			VAR vSelectedCurrency = SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] )
+			VAR vLatestPeriodSelected = MAX(Period[Period])
+			RETURN
+			SUMX(
+			    'Consolidated GL Balance Fact',
+			    VAR vLocalCurr = 'Consolidated GL Balance Fact'[ISO3 Currency Cd]
+			    VAR vFuncCurr = 'Consolidated GL Balance Fact'[Functional CCY Cd]
+			    VAR vFuncBSRate = 
+			        CALCULATE(
+			            SELECTEDVALUE('Fx Rate DQ'[Func BS Rate]),
+			            'Fx Rate DQ'[FROM_CCY]=vLocalCurr,
+			            'Fx Rate DQ'[TO_CCY]=vFuncCurr,
+			            'Fx Rate DQ'[PERIOD]=vLatestPeriodSelected,
+			            REMOVEFILTERS('Fx Rate DQ')
+			        )
+			    VAR vRepBSRate = 
+			        CALCULATE(
+			            SELECTEDVALUE('Fx Rate DQ'[Func BS Rate]),
+			            'Fx Rate DQ'[FROM_CCY]=vFuncCurr,
+			            'Fx Rate DQ'[TO_CCY]="CAD",
+			            'Fx Rate DQ'[PERIOD]=vLatestPeriodSelected,
+			            REMOVEFILTERS('Fx Rate DQ')
+			        )
+			    RETURN 'Consolidated GL Balance Fact'[Local Balance Amt]*vFuncBSRate*vRepBSRate
+			    
+			
+			)
+			```
+		lineageTag: cba5ecaa-6148-4d06-9911-c8ec328bc123
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Adjustment_Amount (Func)' = ```
+			
+			VAR vSelectedCurrency = SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] )
+			VAR vLatestPeriodSelected = MAX(Period[Period])
+			RETURN
+			SUMX(
+			    'Consolidated GL Balance Fact',
+			    VAR vLocalCurr = 'Consolidated GL Balance Fact'[ISO3 Currency Cd]
+			    VAR vFuncCurr = 'Consolidated GL Balance Fact'[Functional CCY Cd]
+			    VAR vFuncBSRate = 
+			        CALCULATE(
+			            SELECTEDVALUE('Fx Rate DQ'[Func BS Rate]),
+			            'Fx Rate DQ'[FROM_CCY]=vLocalCurr,
+			            'Fx Rate DQ'[TO_CCY]=vFuncCurr,
+			            'Fx Rate DQ'[PERIOD]=vLatestPeriodSelected,
+			            REMOVEFILTERS('Fx Rate DQ')
+			        )
+			   RETURN 'Consolidated GL Balance Fact'[Local Balance Amt]*vFuncBSRate
+			    
+			
+			)
+			
+			```
+		lineageTag: d6834292-a7f1-4a02-9219-a95467daeeb1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Adjustment_Amount (HKD)' = ```
+			
+			VAR vSelectedCurrency = SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] )
+			VAR vLatestPeriodSelected = MAX(Period[Period])
+			RETURN
+			SUMX(
+			    'Consolidated GL Balance Fact',
+			    VAR vLocalCurr = 'Consolidated GL Balance Fact'[ISO3 Currency Cd]
+			    VAR vFuncCurr = 'Consolidated GL Balance Fact'[Functional CCY Cd]
+			    VAR vFuncBSRate = 
+			        CALCULATE(
+			            SELECTEDVALUE('Fx Rate DQ'[Func BS Rate]),
+			            'Fx Rate DQ'[FROM_CCY]=vLocalCurr,
+			            'Fx Rate DQ'[TO_CCY]=vFuncCurr,
+			            'Fx Rate DQ'[PERIOD]=vLatestPeriodSelected,
+			            REMOVEFILTERS('Fx Rate DQ')
+			        )
+			    VAR vRepBSRate = 
+			        CALCULATE(
+			            SELECTEDVALUE('Fx Rate DQ'[Func BS Rate]),
+			            'Fx Rate DQ'[FROM_CCY]=vFuncCurr,
+			            'Fx Rate DQ'[TO_CCY]="HKD",
+			            'Fx Rate DQ'[PERIOD]=vLatestPeriodSelected,
+			            REMOVEFILTERS('Fx Rate DQ')
+			        )
+			    RETURN 'Consolidated GL Balance Fact'[Local Balance Amt]*vFuncBSRate*vRepBSRate
+			    
+			
+			)
+			```
+		lineageTag: 3dcb51af-4048-437d-b96f-ec78fda3cd5b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Adjustment_Amount (USD)' = ```
+			
+			VAR vSelectedCurrency = SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] )
+			VAR vLatestPeriodSelected = MAX(Period[Period])
+			RETURN
+			SUMX(
+			    'Consolidated GL Balance Fact',
+			    VAR vLocalCurr = 'Consolidated GL Balance Fact'[ISO3 Currency Cd]
+			    VAR vFuncCurr = 'Consolidated GL Balance Fact'[Functional CCY Cd]
+			    VAR vFuncBSRate = 
+			        CALCULATE(
+			            SELECTEDVALUE('Fx Rate DQ'[Func BS Rate]),
+			            'Fx Rate DQ'[FROM_CCY]=vLocalCurr,
+			            'Fx Rate DQ'[TO_CCY]=vFuncCurr,
+			            'Fx Rate DQ'[PERIOD]=vLatestPeriodSelected,
+			            REMOVEFILTERS('Fx Rate DQ')
+			        )
+			    VAR vRepBSRate = 
+			        CALCULATE(
+			            SELECTEDVALUE('Fx Rate DQ'[Func BS Rate]),
+			            'Fx Rate DQ'[FROM_CCY]=vFuncCurr,
+			            'Fx Rate DQ'[TO_CCY]="USD",
+			            'Fx Rate DQ'[PERIOD]=vLatestPeriodSelected,
+			            REMOVEFILTERS('Fx Rate DQ')
+			        )
+			    RETURN 'Consolidated GL Balance Fact'[Local Balance Amt]*vFuncBSRate*vRepBSRate
+			    
+			
+			)
+			```
+		lineageTag: 3e389a82-9e54-40bf-ab3b-ba47aaa8fd25
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column updated_key
+		dataType: string
+		lineageTag: b08bc989-90ce-47de-8a3d-38fdf5621fa8
+		summarizeBy: none
+		sourceColumn: updated_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column key_yearmonth
+		dataType: int64
+		formatString: 0
+		lineageTag: 371d78e6-54f9-441b-ba66-6edeb058d8c4
+		summarizeBy: sum
+		sourceColumn: key_yearmonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Accounting Unit Cd'
+		dataType: string
+		lineageTag: b1cac345-0f5b-4060-9bd7-afc59b3dea6f
+		summarizeBy: none
+		sourceColumn: Company Accounting Unit Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Subfund Cd'
+		dataType: string
+		lineageTag: 2dae97dd-fb8d-410f-a200-aa1ed0645910
+		summarizeBy: none
+		sourceColumn: Subfund Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Nk'
+		dataType: string
+		lineageTag: 12abd89e-44c6-43b0-bb12-082559d7af7f
+		summarizeBy: none
+		sourceColumn: Portfolio Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Framework Cd'
+		dataType: string
+		lineageTag: 0b7fd4e9-4b92-4d44-b447-b7fb40aae3c0
+		summarizeBy: none
+		sourceColumn: Framework Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As of Dt'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 87d5a3fb-20b5-4d22-bfd4-52a86b4d4758
+		summarizeBy: none
+		sourceColumn: As of Dt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'As of Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: c11f6799-846e-4cfd-80a9-ec65d2e6f739
+		summarizeBy: sum
+		sourceColumn: As of Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FX Join Key'
+		dataType: string
+		lineageTag: dadad745-9219-4079-9856-95209c490b07
+		summarizeBy: none
+		sourceColumn: FX Join Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Key'
+		dataType: string
+		lineageTag: 2ce3fcd0-9a92-4061-8be6-fcdf5ac83a1b
+		summarizeBy: none
+		sourceColumn: Asset Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Acct Num'
+		dataType: string
+		lineageTag: 224bf24c-4deb-4f0b-b7f2-d98ab571c8a5
+		summarizeBy: none
+		sourceColumn: GL Acct Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Acct Category'
+		dataType: string
+		lineageTag: ffa8f6cd-ddd9-454f-a430-c30cafd92f62
+		summarizeBy: none
+		sourceColumn: Acct Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ISO3 Currency Cd'
+		dataType: string
+		lineageTag: 7927d364-5953-47c7-9aeb-1c125bee4fbf
+		summarizeBy: none
+		sourceColumn: ISO3 Currency Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Functional CCY Cd'
+		dataType: string
+		lineageTag: 4931284a-c6e3-488c-abc0-c58fdf013df6
+		summarizeBy: none
+		sourceColumn: Functional CCY Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sys Cd'
+		dataType: string
+		lineageTag: 356c42e3-d2bf-4716-b2a6-ecdcaba7b87e
+		summarizeBy: none
+		sourceColumn: Sys Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lowest Lvl Flag'
+		dataType: string
+		lineageTag: 6b790ac5-d164-49a3-b9e7-2ce022358495
+		summarizeBy: none
+		sourceColumn: Lowest Lvl Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Txn Type'
+		dataType: string
+		lineageTag: 05d1fda1-ca52-45fe-b5ac-48bc454634e2
+		summarizeBy: none
+		sourceColumn: Txn Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'RE Pool Num'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4141c3b1-2e27-4f20-adaa-6054f1d33680
+		summarizeBy: sum
+		sourceColumn: RE Pool Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'RE Property Sk'
+		dataType: int64
+		formatString: 0
+		lineageTag: b1efeb7c-eee2-41bc-ae7e-762e8e57a680
+		summarizeBy: sum
+		sourceColumn: RE Property Sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'RE Book Sk'
+		dataType: int64
+		formatString: 0
+		lineageTag: 56d8dffc-6e7e-4ceb-b5b6-b3d2178ca405
+		summarizeBy: sum
+		sourceColumn: RE Book Sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'RE Acct Sk'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2972846e-8beb-42a3-8d5f-494609218807
+		summarizeBy: sum
+		sourceColumn: RE Acct Sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'RE Subfund PCT'
+		dataType: double
+		lineageTag: b2679509-ca3a-408b-9a5c-03282c42728c
+		summarizeBy: sum
+		sourceColumn: RE Subfund PCT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Loan Inv Arrangement Key'
+		dataType: string
+		lineageTag: 8b1b20a4-64a9-4e12-9406-f27d0acd150b
+		summarizeBy: none
+		sourceColumn: Loan Inv Arrangement Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Loan Owner'
+		dataType: string
+		lineageTag: 7c327acb-6d96-452f-b4b2-3205aed1fbf3
+		summarizeBy: none
+		sourceColumn: Loan Owner
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Loan Bal Type Cd'
+		dataType: string
+		lineageTag: 99e8dac0-1a76-4997-ae2b-c758ea38bfe4
+		summarizeBy: none
+		sourceColumn: Loan Bal Type Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Loan Bal Type Subkey Cd'
+		dataType: string
+		lineageTag: 8452dd87-7f48-446c-8568-c883a9f4686a
+		summarizeBy: none
+		sourceColumn: Loan Bal Type Subkey Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Loan Bal Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: 97431777-879a-459d-b751-5d5f7a3728e5
+		summarizeBy: sum
+		sourceColumn: Loan Bal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Loan Bal Year Type Cd'
+		dataType: string
+		lineageTag: ab6c5759-577c-4abc-abae-db52c6dbe25a
+		summarizeBy: none
+		sourceColumn: Loan Bal Year Type Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SCD Lot Id'
+		dataType: string
+		lineageTag: 442e8179-6dfd-4377-babe-9d1c3e46e763
+		summarizeBy: none
+		sourceColumn: SCD Lot Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SCD Sum GL Holding Ik'
+		dataType: int64
+		formatString: 0
+		lineageTag: f70bf343-6413-4578-b6cf-376f1a4c339c
+		summarizeBy: sum
+		sourceColumn: SCD Sum GL Holding Ik
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SCD Sum From Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 0b23b38c-d878-4075-9b68-377e1769fc18
+		summarizeBy: none
+		sourceColumn: SCD Sum From Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'SCD Sum To Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ac839302-a135-42a9-bd79-32fce62efa5d
+		summarizeBy: none
+		sourceColumn: SCD Sum To Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Local Balance Amt'
+		dataType: double
+		lineageTag: 3c0f56d4-f81e-40f4-be30-19e9ae0e8127
+		summarizeBy: sum
+		sourceColumn: Local Balance Amt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'RE Local Unsegmented Balance Amt'
+		dataType: double
+		lineageTag: f024c902-ad64-44bb-938d-cf92195f9e12
+		summarizeBy: sum
+		sourceColumn: RE Local Unsegmented Balance Amt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'SCD Base Balance'
+		dataType: double
+		lineageTag: 3d198e28-f43c-4166-8aa7-39960f5da5da
+		summarizeBy: sum
+		sourceColumn: SCD Base Balance
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Batch Dt'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 67319271-5ef9-4736-bd4a-a7249f1fdd8c
+		summarizeBy: none
+		sourceColumn: Batch Dt
+
+		annotation SummarizationSetBy = Automatic
+
+	column Src
+		dataType: string
+		lineageTag: b8aa18af-4bc8-4698-9927-8e8ce5a441ee
+		summarizeBy: none
+		sourceColumn: Src
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Created Ts'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ed0bee40-ee04-479f-8e79-fa7836eb54f1
+		summarizeBy: none
+		sourceColumn: Created Ts
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Updated Ts'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 39e674df-12af-4e85-9321-0add1c74a7fd
+		summarizeBy: none
+		sourceColumn: Updated Ts
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Func Balance Amt'
+		dataType: double
+		lineageTag: a41ac2e2-7cf2-4892-a3ff-8070ea6567f1
+		summarizeBy: sum
+		sourceColumn: Func Balance Amt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CAD Balance Amt'
+		dataType: double
+		lineageTag: 8778e520-56f4-492b-945a-a34147c890d1
+		summarizeBy: sum
+		sourceColumn: CAD Balance Amt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'HKD Balance Amt'
+		dataType: double
+		lineageTag: ff46dab3-5ee2-441b-a49b-1c0b0c42268b
+		summarizeBy: sum
+		sourceColumn: HKD Balance Amt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'USD Balance Amt'
+		dataType: double
+		lineageTag: 9cace290-73d1-4c28-b160-f8b564d71515
+		summarizeBy: sum
+		sourceColumn: USD Balance Amt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'SCD GL Classification'
+		dataType: string
+		lineageTag: a6c49cbc-55fd-48ac-b382-1a529e154459
+		summarizeBy: none
+		sourceColumn: SCD GL Classification
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SCD GL Account Subtype'
+		dataType: string
+		lineageTag: d96b8b37-7f9c-4739-8872-9d6c6e5062d4
+		summarizeBy: none
+		sourceColumn: SCD GL Account Subtype
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Investor Full Name'
+		dataType: string
+		lineageTag: d41fff6e-5d11-49b0-8302-5f884fbe8a5a
+		summarizeBy: none
+		sourceColumn: Investor Full Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Structure Company'
+		dataType: string
+		lineageTag: f1d7b2be-bedc-44ee-9ab2-1259ca39f595
+		summarizeBy: none
+		sourceColumn: Group Structure Company
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Structure Company Name'
+		dataType: string
+		lineageTag: 38deb06e-bb66-4c17-b724-614495204a86
+		summarizeBy: none
+		sourceColumn: Group Structure Company Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Node Ik'
+		dataType: int64
+		formatString: 0
+		lineageTag: ddc2d3c0-bbe5-4758-8ce4-0a1335398a8e
+		summarizeBy: sum
+		sourceColumn: Node Ik
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Origination Property Valuation Dt'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3329f4b1-f66c-4df3-9f77-d0e1fe09460e
+		summarizeBy: none
+		sourceColumn: Origination Property Valuation Dt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Origination Property Value Amt'
+		dataType: double
+		lineageTag: 04343bb0-82ed-4e95-9d9f-a132262b0b55
+		summarizeBy: sum
+		sourceColumn: Origination Property Value Amt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Dt Closed'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4892f2e3-3ddd-47b7-93e3-5c489ee8e119
+		summarizeBy: none
+		sourceColumn: Dt Closed
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'YTD Bal'
+		dataType: double
+		lineageTag: ef089eed-0f98-4dab-877a-7e80e6b41cee
+		summarizeBy: sum
+		sourceColumn: YTD Bal
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'MTD Bal'
+		dataType: double
+		lineageTag: 684f3d40-654f-4a9c-b8aa-71cac4152bac
+		summarizeBy: sum
+		sourceColumn: MTD Bal
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Status Cd'
+		dataType: string
+		lineageTag: 88845394-99b2-48a9-8b52-68d741764680
+		summarizeBy: none
+		sourceColumn: Status Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset ID'
+		dataType: string
+		lineageTag: aeaac2a9-534a-45d3-80f9-f216d2ff0bf2
+		summarizeBy: none
+		sourceColumn: Asset ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'New Asset Key'
+		dataType: string
+		lineageTag: 7ea6e97e-042b-4f19-8dea-bddf3905cb6c
+		summarizeBy: none
+		sourceColumn: New Asset Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AssetID Date Key' = COMBINEVALUES("-",'Consolidated GL Balance Fact'[New Asset Key],'Consolidated GL Balance Fact'[Asset ID])
+		lineageTag: d73c2163-1588-4f94-8743-68c97c5586f6
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Acct (6 digits)' = left('Consolidated GL Balance Fact'[GL Acct Num],6)
+		lineageTag: 47a51ec0-1ff6-4bcb-9adb-2c5d16c02bec
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Consolidated GL Balance Fact' = m
+		mode: import
+		source = ```
+				let
+				    Sql = "select  case when size(split(bal.ASSET_KEY, '/')) >= 3 THEN concat_ws(
+				      '/',                                            -- output delimiter (literal)
+				      slice(split(bal.ASSET_KEY, '/'), 1, size(split(bal.ASSET_KEY, '/') ) - 2),  -- everything before the last 2 parts
+				      array('"&Date.ToText(Date.EndOfMonth(pCutOffDate),"yyyyMMdd")&"'),                              -- your replacement
+				      array(element_at(split(bal.ASSET_KEY, '/'), -1))            -- last part
+				    )
+				 ELSE bal.ASSET_KEY -- not enough delimiters; keep string as-is
+				  END as updated_key,
+				  case when size(split(bal.ASSET_KEY, '/')) >= 3 then element_at(split(bal.ASSET_KEY, '/'), -2) else 0 end as key_yearmonth,
+				    BAL.COMPANY_ACCOUNTING_UNIT_CD as `Company Accounting Unit Cd`,
+				BAL.SUBFUND_CD as `Subfund Cd`,
+				BAL.PORTFOLIO_NK as `Portfolio Nk`,
+				BAL.FRAMEWORK_CD as `Framework Cd`,
+				BAL.AS_OF_DT as `As of Dt`,
+				BAL.AS_OF_PERIOD as `As of Period`,
+				BAL.FX_JOIN_KEY as `FX Join Key`,
+				BAL.ASSET_KEY as `Asset Key`,
+				BAL.GL_ACCT_NUM as `GL Acct Num`,
+				BAL.ACCT_CATEGORY as `Acct Category`,
+				BAL.ISO3_CURRENCY_CD as `ISO3 Currency Cd`,
+				BAL.FUNCTIONAL_CCY_CD as `Functional CCY Cd`,
+				BAL.SYS_CD as `Sys Cd`,
+				BAL.LOWEST_LVL_FLAG as `Lowest Lvl Flag`,
+				BAL.TXN_TYPE as `Txn Type`,
+				BAL.RE_POOL_NUM as `RE Pool Num`,
+				BAL.RE_PROPERTY_SK as `RE Property Sk`,
+				BAL.RE_BOOK_SK as `RE Book Sk`,
+				BAL.RE_ACCT_SK as `RE Acct Sk`,
+				BAL.RE_SUBFUND_PCT as `RE Subfund PCT`,
+				BAL.LOAN_INV_ARRANGEMENT_KEY as `Loan Inv Arrangement Key`,
+				BAL.LOAN_OWNER as `Loan Owner`,
+				BAL.LOAN_BAL_TYPE_CD as `Loan Bal Type Cd`,
+				BAL.LOAN_BAL_TYPE_SUBKEY_CD as `Loan Bal Type Subkey Cd`,
+				BAL.LOAN_BAL_YEAR as `Loan Bal Year`,
+				BAL.LOAN_BAL_YEAR_TYPE_CD as `Loan Bal Year Type Cd`,
+				BAL.SCD_LOT_ID as `SCD Lot Id`,
+				BAL.SCD_SUM_GL_HOLDING_IK as `SCD Sum GL Holding Ik`,
+				BAL.SCD_SUM_FROM_DATE as `SCD Sum From Date`,
+				BAL.SCD_SUM_TO_DATE as `SCD Sum To Date`,
+				BAL.LOCAL_BALANCE_AMT as `Local Balance Amt`,
+				BAL.RE_LOCAL_UNSEGMENTED_BALANCE_AMT as `RE Local Unsegmented Balance Amt`,
+				BAL.SCD_BASE_BALANCE as `SCD Base Balance`,
+				BAL.BATCH_DT as `Batch Dt`,
+				BAL.SRC as `Src`,
+				BAL.CREATED_TS as `Created Ts`,
+				BAL.UPDATED_TS as `Updated Ts`,
+				BAL.FUNC_BALANCE_AMT as `Func Balance Amt`,
+				BAL.CAD_BALANCE_AMT as `CAD Balance Amt`,
+				BAL.HKD_BALANCE_AMT as `HKD Balance Amt`,
+				BAL.USD_BALANCE_AMT as `USD Balance Amt`,
+				BAL.SCD_GL_CLASSIFICATION as `SCD GL Classification`,
+				BAL.SCD_GL_ACCOUNT_SUBTYPE as `SCD GL Account Subtype`,
+				BAL.INVESTOR_FULL_NAME as `Investor Full Name`,
+				BAL.GROUP_STRUCTURE_COMPANY as `Group Structure Company`,
+				BAL.GROUP_STRUCTURE_COMPANY_NAME as `Group Structure Company Name`,
+				BAL.NODE_IK as `Node Ik`,
+				BAL.ORIGINATION_PROPERTY_VALUATION_DT as `Origination Property Valuation Dt`,
+				BAL.ORIGINATION_PROPERTY_VALUE_AMT as `Origination Property Value Amt`,
+				BAL.DT_CLOSED as `Dt Closed`,
+				BAL.YTD_BAL as `YTD Bal`,
+				BAL.mtd_bal as `MTD Bal`,
+				BAL.status_cd as `Status Cd`,
+				ad.ASSET_ID as `Asset ID`
+				  FROM "&Catalog&".inv_semantic_ga.consolidated_gl_balance_fact_dq as BAL
+				INNER JOIN (SELECT ACC.`COMPANY_NUM_CD`, PRT.`PORTFOLIO_NK` FROM "&Catalog&".inv_semantic_ga.PORTFOLIO_DIM PRT JOIN 
+				"&Catalog&".inv_semantic_ga.ACCOUNTING_UNIT_DIM ACC ON PRT.`SUBFUND_JOIN_KEY_CD`=ACC.`COMPANY_ACCOUNTING_UNIT_CD`) CMPRT 
+				ON LEFT(BAL.`COMPANY_ACCOUNTING_UNIT_CD`,4)=CMPRT.`COMPANY_NUM_CD` AND BAL.`PORTFOLIO_NK`=CMPRT.`PORTFOLIO_NK`
+				LEFT JOIN "&Catalog&".inv_semantic_ga.asset_dim_dq ad  on
+				BAL.`ASSET_KEY`=ad.ASSET_KEY
+				WHERE BAL.`SRC`='CAT' AND `SYS_CD` IN ('JT','AS') AND BAL.AS_OF_DT>= '" & Date.ToText(#"pCutOffDate","yyyy-MM-dd") &"' and SUBSTRING(`GL_ACCT_NUM`,1,6) IN 
+				(SELECT CAST(GL_ACCT_NUM AS VARCHAR(1000)) FROM "&Catalog&".inv_semantic_ga.CAT_CONFIG_MAPPING_DATA)",
+				    Source = Value.NativeQuery(Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0)]){[Name=Catalog,Kind="Database"]}[Data], Sql, null, [EnableFolding=true])
+				,
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"key_yearmonth", Int64.Type}}),
+				    #"Added Conditional Column" = Table.AddColumn(#"Changed Type", "New Asset Key", each if [key_yearmonth] = 0 then [Asset Key] else if [key_yearmonth] < Number.FromText(Date.ToText(Date.EndOfMonth(pCutOffDate),"yyyyMMdd")) then [updated_key] else [Asset Key]),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Conditional Column",{{"New Asset Key", type text}})
+				in
+				    #"Changed Type1"
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

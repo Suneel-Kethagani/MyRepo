@@ -1,0 +1,1668 @@
+createOrReplace
+
+	table 'Securities Transaction Costs GA Fact'
+		lineageTag: d52fe19c-2d08-4b12-94e0-7694b67b1fed
+
+		measure 'Cost type(M)' = ```
+				
+				    Var Cost = calculate(FIRSTNONBLANK ( 'Securities Transaction Costs GA Fact'[Cost_Name], TRUE () ),
+				    'Securities Transaction GA Fact'
+				) return Cost
+				```
+			lineageTag: a516cd99-72f7-4b18-8fd2-00f2cf1058e2
+
+			changedProperty = IsHidden
+
+		measure 'Bank Charges - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="Bank Charges")
+			displayFolder: Trade Cost Local
+			lineageTag: 781209d2-41f1-44f9-a1b0-df29c7bfc6ea
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Broker Fee - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="Broker Fee")
+			displayFolder: Trade Cost Local
+			lineageTag: e2f269e7-e86f-4af6-9575-a6fbc01d631d
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Commission - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="Commission")
+			displayFolder: Trade Cost Local
+			lineageTag: 2ae2f2f0-4f23-436e-a87a-c993ffe0da20
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Commitment Fee - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="Commitment Fee")
+			displayFolder: Trade Cost Local
+			lineageTag: fba82663-7247-41ea-bba3-dc0c2be61773
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Consumption Tax - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="Consumption Tax")
+			displayFolder: Trade Cost Local
+			lineageTag: 0f9ea4a4-a994-4339-ad64-58cdcc0585cf
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Coupon/Dividend tax - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="Coupon/Dividend tax")
+			displayFolder: Trade Cost Local
+			lineageTag: 31ea51f4-e595-40eb-bdeb-a17bd3aff9e2
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Exchange Fee - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="Exchange Fee")
+			displayFolder: Trade Cost Local
+			lineageTag: 86a43756-bdfc-456a-b997-b66906269a81
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'EXCHANGFEE - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="EXCHANGFEE")
+			displayFolder: Trade Cost Local
+			lineageTag: bc9427af-3ead-4207-88f0-b5e37d72183f
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Federal Income Tax Withheld - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="FEDERAL Income TAX WITHHELD")
+			displayFolder: Trade Cost Local
+			lineageTag: 0043765e-f951-4546-996e-883f7b72c5c3
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Restitution Expected - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="Restitution Expected")
+			displayFolder: Trade Cost Local
+			lineageTag: 106b175f-fe06-4166-8673-67d631345d4e
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Restitution Received - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="Restitution Received")
+			displayFolder: Trade Cost Local
+			lineageTag: 2c7817d0-d58c-4e56-9360-20a9aaa380c3
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'State Income Tax Withheld - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="State Income Tax Withheld")
+			displayFolder: Trade Cost Local
+			lineageTag: 71decfb9-fbf9-405e-b13c-2bf0f5b0c328
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Withholding Tax - Income - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="WITHHOLDING TAX - Income")
+			displayFolder: Trade Cost Local
+			lineageTag: 8ed5ccf1-d4b9-4bad-a015-6fc6f934a4cb
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'ALTS_CARRY - Income - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS_CARRY - Income")
+			displayFolder: Trade Cost Local
+			lineageTag: e5c1163a-ebee-4f11-a70b-c21e84c13a73
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Subsequent Close Interest - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS_CLOSE INTEREST")
+			displayFolder: Trade Cost Local
+			lineageTag: d0e60428-42a8-4ff8-a103-e80be74807a5
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Dividend - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS_DIVIDENDS")
+			displayFolder: Trade Cost Local
+			lineageTag: ad3033e7-033a-4551-af49-4de40bd0c490
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Expenses Inside Commitment - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS_EXP_I")
+			displayFolder: Trade Cost Local
+			lineageTag: af97b74e-21d0-4db6-8637-448684b57507
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Expenses Outside Commitment - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS_EXP_O")
+			displayFolder: Trade Cost Local
+			lineageTag: a2104ac4-ed47-459a-88be-17c1b32bf25f
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Fee Discount - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS FEE DISCOUNT")
+			displayFolder: Trade Cost Local
+			lineageTag: d7bf9490-d3d0-4412-8205-943ccf896165
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Interest - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS_INTEREST")
+			displayFolder: Trade Cost Local
+			lineageTag: 8d3de0d2-ca36-42fd-bd4d-5287f633848b
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Loss - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS_LOSS")
+			displayFolder: Trade Cost Local
+			lineageTag: 643f56ff-8af2-40e3-8073-360b65a1e9b2
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Late Closing Fee Outside Commitment - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS_LATECLOSE_FEE_OUT")
+			displayFolder: Trade Cost Local
+			lineageTag: 726cef70-baaa-4d75-abe7-dd0709852572
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Management Fee Inside Commitment - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS_MNGTFEE_IN")
+			displayFolder: Trade Cost Local
+			lineageTag: 1fffaecd-22b4-49fe-9b80-0e1403b40f6c
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Management Fee Outside Commitment - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS_MNGFEE_OUT")
+			displayFolder: Trade Cost Local
+			lineageTag: 8dac0b4f-4c8e-4bf1-8b00-122b219c7604
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Other Income From Investment - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS_OTHER INCOME")
+			displayFolder: Trade Cost Local
+			lineageTag: 379d8d63-12d0-4934-933c-f25732cc527c
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Profit - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS_PROFIT")
+			displayFolder: Trade Cost Local
+			lineageTag: 44ee3bcd-45d3-4566-8670-b4b901c111c9
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Partnership Expenses Inside Commitment - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS_PS_EXP_IN")
+			displayFolder: Trade Cost Local
+			lineageTag: cff598b5-19ca-4343-a2e1-4d762e3782c3
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Partnership Expenses Outside Commitment - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="AI_PS_EXP_OUT")
+			displayFolder: Trade Cost Local
+			lineageTag: 2a1f633f-f522-4e11-a592-b95ebcba6db4
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Withholding Tax - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS_WHT")
+			displayFolder: Trade Cost Local
+			lineageTag: df504d5d-da6c-42d5-a555-6fc3662131ac
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Alternative Foreign withholding tax - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="Alternative Foreign withholding tax")
+			displayFolder: Trade Cost Local
+			lineageTag: 4c8a8be2-43dd-4a32-a984-01c8749444c8
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Alternative State withholding tax - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="Alternative State withholding tax")
+			displayFolder: Trade Cost Local
+			lineageTag: 887bb334-4168-44e8-8e98-5a871f4564c4
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Alternative Federal withholding tax - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="Alternative Federal withholding tax")
+			displayFolder: Trade Cost Local
+			lineageTag: f7d3f1b6-afce-4a9c-9e25-f4a055eea469
+
+			changedProperty = IsHidden
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Bank Charges - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="Bank Charges"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Bank Charges - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: e355ebe4-266f-4bf6-a921-ae0f30fa2246
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Broker Fee - Rep' =
+				
+				SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="Broker Fee"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Broker Fee - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+			displayFolder: Trade Cost Rep
+			lineageTag: 18f79d98-f7b3-42b6-ada7-079b4747e3db
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Commission - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="Commission"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Commission - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: bb031e5f-7910-4989-aa65-fd496c6eae47
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Commitment Fee - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="Commitment Fee"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Commitment Fee - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: 42c328db-6c34-44e2-938b-ed7fd1ce3209
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Consumption Tax - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="Consumption Tax"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Consumption Tax - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: 404a3d9d-d259-48c5-8333-96f3b6e22209
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Coupon/Dividend tax - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="Coupon/Dividend tax"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Coupon/Dividend tax - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: 300af4e0-501e-492e-ab63-437bf33aef65
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Exchange Fee - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="Exchange Fee"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Exchange Fee - Local]* [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: 5d6140c9-f6d9-46e4-bdfe-0605390f28d2
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'EXCHANGFEE - Rep' =
+				SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="EXCHANGFEE"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[EXCHANGFEE - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+			displayFolder: Trade Cost Rep
+			lineageTag: cb75b24b-8511-4c2e-b073-4630b5694ccb
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Federal Income Tax Withheld - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="FEDERAL Income TAX WITHHELD"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Federal Income Tax Withheld - Local]* [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: baff5c86-6ae0-4fc3-9d22-8a987ccf22e2
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Restitution Expected - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="Restitution Expected"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Restitution Expected - Local]* [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: 78a6a024-1b2e-4718-834f-d2687883d977
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Restitution Received - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="Restitution Received"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Restitution Received - Local]* [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: f0c74374-7285-4a4f-bede-c0ae8c23f401
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'State Income Tax Withheld - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="State Income Tax Withheld"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[State Income Tax Withheld - Local]* [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: 49c56d43-876f-4c65-923c-befc09303f76
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Withholding Tax - Income - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="WITHHOLDING TAX - Income"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Withholding Tax - Income - Local]* [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: 325fa384-0203-4713-83fa-a5743eca18db
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Carried Interest Paid - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS_CARRY"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Carried Interest Paid - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: 383dc97c-35f1-4c48-9b6e-d685ce992ec6
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Carried Interest Paid - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS_CARRY")
+			displayFolder: Trade Cost Local
+			lineageTag: 7b66cb71-b048-4400-b9f2-07d11c8bb07b
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Subsequent Close Interest - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS_CLOSE INTEREST"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Subsequent Close Interest - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: d615e977-d3e0-4655-8355-ea5baefe07de
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Dividend - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS_DIVIDENDS"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Dividend - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: bd374d53-fe35-4225-8215-74a1bd267fd8
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Expenses Inside Commitment - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS_EXP_I"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Expenses Inside Commitment - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: c339f8fd-a0f0-458e-8a81-e90ef6baa230
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Expenses Outside Commitment - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS_EXP_O"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Expenses Outside Commitment - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: 955c911d-1285-4a66-ad60-6d2b15309f74
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Fee Discount - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS FEE DISCOUNT"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Fee Discount - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: d5ca0afd-2d54-441c-81f6-82c79c191320
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Interest - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS_INTEREST"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Interest - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: 061588db-1153-49af-819e-304f690734cb
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Loss - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS_LOSS"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Loss - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: 03ed7ddb-8c42-42e2-9339-91e55a55ffca
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Late Closing Fee Outside Commitment - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS_LATECLOSE_FEE_OUT"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Late Closing Fee Outside Commitment - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: a10d1fe6-79d7-4054-9e78-973bcfcac7ce
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Management Fee Inside Commitment - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS_MNGTFEE_IN"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Management Fee Inside Commitment - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: 7d8c129a-c781-4cf5-89ca-8be059173124
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Management Fee Outside Commitment - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS_MNGFEE_OUT"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Management Fee Outside Commitment - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: 55b0f5e7-8a33-4f61-b1f7-ef1b55ad2e53
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Other Income From Investment - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS_OTHER INCOME"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Other Income From Investment - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: f3af723c-b7ba-4503-837c-cf5e9790c48e
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Profit - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS_PROFIT"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Profit - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: e7b847db-e5ef-441c-9759-937e9a1d0e19
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Partnership Expenses Inside Commitment - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS_PS_EXP_IN"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Profit - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: b79a2a28-b92d-4255-b426-6fbacdc5402e
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Partnership Expenses Outside Commitment - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="AI_PS_EXP_OUT"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Partnership Expenses Outside Commitment - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: 0ee020d2-0053-44f8-bc89-43821ca05201
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Withholding Tax - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="ALTS_WHT"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Withholding Tax - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: 5dd356b5-7d38-4050-a581-837f58877e34
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Alternative Federal withholding tax - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="Alternative Federal withholding tax"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Alternative Federal withholding tax - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: aaf45a31-4177-43f6-99e5-6f81453299f9
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Alternative Foreign withholding tax - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="Alternative Foreign withholding tax"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Alternative Foreign withholding tax - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: 3a93cb8f-bed3-4154-a912-c281bba3bfd4
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Alternative State withholding tax - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="Alternative State withholding tax"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Alternative State withholding tax - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			displayFolder: Trade Cost Rep
+			lineageTag: 6587feed-bc94-449d-9c44-152e1669995a
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Stamp Duty Fee - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="Stamp Duty Fee")
+			displayFolder: Trade Cost Local
+			lineageTag: fcb73d72-a5f7-4a04-bd83-ecbb5a074001
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Stamp Duty Fee - Rep' =
+				
+				SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="Stamp Duty Fee"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Stamp Duty Fee - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+			displayFolder: Trade Cost Rep
+			lineageTag: 7888f78f-21db-4b72-bc2b-e827cd5bcb15
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Miscellaneous Fee - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="Miscellaneous Fee")
+			displayFolder: Trade Cost Local
+			lineageTag: 14fb601d-e035-40a0-bb9d-abc113cd709e
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Miscellaneous Fee - Rep' =
+				
+				SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="Miscellaneous Fee"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Miscellaneous Fee - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+			displayFolder: Trade Cost Rep
+			lineageTag: a860cbbe-71ad-4f30-a61e-84959d5dfd1a
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Indonesian VAT - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="GA: Indonesian VAT")
+			displayFolder: Trade Cost Local
+			lineageTag: da73b61c-25c7-45e9-b467-c594f881e9ff
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Indonesian VAT - Rep' =
+				
+				SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="GA: Indonesian VAT"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Indonesian VAT - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+			displayFolder: Trade Cost Rep
+			lineageTag: 3e7715ff-5a12-414d-8bd6-ca77d22fe916
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Indonesian Selling Tax - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="GA: Indonesian Selling Tax")
+			displayFolder: Trade Cost Local
+			lineageTag: bd8161ea-da73-404b-9922-015f4b276085
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Indonesian Selling Tax - Rep' =
+				
+				SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="GA: Indonesian Selling Tax"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Indonesian Selling Tax - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+			displayFolder: Trade Cost Rep
+			lineageTag: cbfe91fb-5671-4fc6-a966-1cf9fb30efbf
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Indonesian Withholding Tax on Commission - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="GA: Indonesian Withholding Tax on Commission")
+			displayFolder: Trade Cost Local
+			lineageTag: 37f0cb26-59db-4f83-9141-f590bb5a7873
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Indonesian Withholding Tax on Commission - Rep' =
+				
+				SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="GA: Indonesian Withholding Tax on Commission"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Indonesian Withholding Tax on Commission - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+			displayFolder: Trade Cost Rep
+			lineageTag: 3211dfc5-f13d-40f4-a803-17e1d9bd729b
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Indonesian Tax - Capital Gains Tax - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="Indonesian Tax - Capital Gains Tax")
+			displayFolder: Trade Cost Local
+			lineageTag: d6c583ec-4bc7-4bcc-aa83-6a01886a609e
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Indonesian Tax - Capital Gains Tax - Rep' =
+				
+				SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="Indonesian Tax - Capital Gains Tax"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Indonesian Tax - Capital Gains Tax - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+			displayFolder: Trade Cost Rep
+			lineageTag: 3884bdfb-67c2-47b2-a20c-fad78929c4fc
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Indonesian Tax - ML Withholding Income Tax - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="Indonesian Tax - ML Withholding Income Tax")
+			displayFolder: Trade Cost Local
+			lineageTag: 9756526a-90e4-4cc7-bc9b-d200528bb192
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Indonesian Tax - ML Withholding Income Tax - Rep' =
+				
+				SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="Indonesian Tax - ML Withholding Income Tax"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Indonesian Tax - ML Withholding Income Tax - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+			displayFolder: Trade Cost Rep
+			lineageTag: e60788d7-f47c-4843-a6e9-402881c43855
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Indonesian Tax - Received Seller''s Withholding - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="Indonesian Tax - Received Seller's Withholding")
+			displayFolder: Trade Cost Local
+			lineageTag: 1bbca683-d8a6-4be0-b18c-0fc6014849f8
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Indonesian Tax - Received Seller''s Withholding - Rep' =
+				
+				SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="Indonesian Tax - Received Seller's Withholding"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Indonesian Tax - Received Seller's Withholding - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+			displayFolder: Trade Cost Rep
+			lineageTag: 430050e7-7bdb-4940-9608-7fe91fdfa331
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Philippine Tax - ML Withholding Income Tax - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="Philippine Tax - ML Withholding Income Tax")
+			displayFolder: Trade Cost Local
+			lineageTag: 64de693b-4b03-4682-82e6-d19f7398f8e7
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Philippine Tax - ML Withholding Income Tax - Rep' =
+				
+				SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="Philippine Tax - ML Withholding Income Tax"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Philippine Tax - ML Withholding Income Tax - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+			displayFolder: Trade Cost Rep
+			lineageTag: c540541b-f93b-46c5-b423-2f32954b909a
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Consumption Fee - Local' = CALCULATE(SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),'Securities Transaction Costs GA Fact'[Cost_Name]="Consumption Fee")
+			lineageTag: ed840ce9-820c-418e-99e9-2ff95042e3fe
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Consumption Fee - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="Consumption Fee"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Consumption Fee - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			lineageTag: e4386505-75c7-4412-b1f3-fb5865350834
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Reverse Cash Settlement - Local' =
+				
+				CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Local]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="Reverse Cash Settlement"
+				)
+			lineageTag: 92692ab6-97a0-4e97-8972-a737fd70ca80
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure 'Reverse Cash Settlement - Rep' = ```
+				
+				    SWITCH(
+				    SELECTEDVALUE('Reporting Currency'[Rep In Currency]),
+				    "SCD Base",
+				    CALCULATE(
+				        SUM('Securities Transaction Costs GA Fact'[Transaction Cost Base]),
+				        'Securities Transaction Costs GA Fact'[Cost_Name]="Reverse Cash Settlement"
+				    ),
+				    CALCULATE(
+				        SUMX (
+				            'Securities Transaction Costs GA Fact',[Reverse Cash Settlement - Local] * [Rep Rate]
+				        ),
+				        USERELATIONSHIP('Fx Rate DQ'[FX Join Key],'Securities Transaction Costs GA Fact'[FX Join Key])
+				    )
+				)
+				```
+			lineageTag: f42b58f6-c1df-4de2-9c2b-c4829f82c523
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		column 'Trade Date'
+			dataType: dateTime
+			formatString: yyyy-mm-dd
+			lineageTag: f2cba6ce-1912-411b-bd4a-ebdc7e71e705
+			summarizeBy: none
+			sourceColumn: Trade Date
+
+			annotation SummarizationSetBy = Automatic
+
+		column 'Originating Sys No'
+			dataType: double
+			lineageTag: d8eab977-480b-457a-b92e-b1294cd48250
+			summarizeBy: sum
+			sourceColumn: Originating Sys No
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		column Source
+			dataType: string
+			lineageTag: cbd7f548-1d26-409f-b6e2-7f8591b37270
+			summarizeBy: none
+			sourceColumn: Source
+
+			annotation SummarizationSetBy = Automatic
+
+		column 'Transaction Cost Base'
+			dataType: double
+			lineageTag: 8d8b50a2-7dd5-4341-ab6a-60773e195def
+			summarizeBy: sum
+			sourceColumn: Transaction Cost Base
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		column 'Transaction Cost Local'
+			dataType: double
+			lineageTag: 850ccfbf-9996-4166-8c35-3a5ae0bc7531
+			summarizeBy: sum
+			sourceColumn: Transaction Cost Local
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		column 'Transaction Cost Settle'
+			dataType: double
+			lineageTag: 1220efec-be4b-4c60-b936-bfde8e091c17
+			summarizeBy: sum
+			sourceColumn: Transaction Cost Settle
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		column 'Calculation Basis'
+			dataType: string
+			lineageTag: 8b58966c-7b8a-4add-ad93-ce0c4eaa833b
+			summarizeBy: none
+			sourceColumn: Calculation Basis
+
+			annotation SummarizationSetBy = Automatic
+
+		column 'Category Of Cost'
+			dataType: string
+			lineageTag: df3153d0-91b4-48f1-a488-56003be48952
+			summarizeBy: none
+			sourceColumn: Category Of Cost
+
+			annotation SummarizationSetBy = Automatic
+
+		column Cost
+			dataType: string
+			lineageTag: 859f67cc-c234-4653-ae4e-a68bd1334d1c
+			summarizeBy: none
+			sourceColumn: Cost
+
+			annotation SummarizationSetBy = Automatic
+
+		column Cost_Name
+			dataType: string
+			lineageTag: e13fa9cf-07db-4649-a9c3-1dc73952cb11
+			summarizeBy: none
+			sourceColumn: Cost_Name
+
+			annotation SummarizationSetBy = Automatic
+
+		column 'Disallow Manual Input'
+			dataType: string
+			lineageTag: bc0d5bba-7127-40c9-98cd-705f4ccfa2a5
+			summarizeBy: none
+			sourceColumn: Disallow Manual Input
+
+			annotation SummarizationSetBy = Automatic
+
+		column 'Finance Booking Date'
+			dataType: string
+			lineageTag: 8e8be5b7-25bc-4817-9a37-d7f5c7152156
+			summarizeBy: none
+			sourceColumn: Finance Booking Date
+
+			annotation SummarizationSetBy = Automatic
+
+		column 'Settlement Amount'
+			dataType: string
+			lineageTag: 0e261209-f32d-4f25-8d1b-b38ac98cea58
+			summarizeBy: none
+			sourceColumn: Settlement Amount
+
+			annotation SummarizationSetBy = Automatic
+
+		column 'Influence Yield'
+			dataType: string
+			lineageTag: b1fea952-2740-494d-b191-5626752d59a7
+			summarizeBy: none
+			sourceColumn: Influence Yield
+
+			annotation SummarizationSetBy = Automatic
+
+		column Currency
+			dataType: string
+			lineageTag: 3cdfb38e-8f0d-4700-aeaf-34758df18c35
+			summarizeBy: none
+			sourceColumn: Currency
+
+			annotation SummarizationSetBy = Automatic
+
+		column 'Cost Sign'
+			dataType: string
+			lineageTag: 93cf755a-0fcb-4fe6-8db1-f24c6c1c616b
+			summarizeBy: none
+			sourceColumn: Cost Sign
+
+			annotation SummarizationSetBy = Automatic
+
+		column Sort
+			dataType: double
+			lineageTag: 9e83a27e-7813-4b87-a630-7c2b8e042a68
+			summarizeBy: sum
+			sourceColumn: Sort
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		column 'Cost Type'
+			dataType: string
+			lineageTag: 5866382b-a8dd-4759-9a09-06fdd566090d
+			summarizeBy: none
+			sourceColumn: Cost Type
+
+			annotation SummarizationSetBy = Automatic
+
+		column 'Unit Cost'
+			dataType: string
+			lineageTag: bae1c08b-3161-44a3-a7b2-c3b8d637216f
+			summarizeBy: none
+			sourceColumn: Unit Cost
+
+			annotation SummarizationSetBy = Automatic
+
+		column 'Amount Cost Currency'
+			dataType: double
+			lineageTag: bb8de659-417a-44c1-b9ca-bdd2c6abbced
+			summarizeBy: sum
+			sourceColumn: Amount Cost Currency
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		column 'Bus Trans No'
+			dataType: string
+			lineageTag: 72966e66-4211-411f-a431-acc22778459e
+			summarizeBy: none
+			sourceColumn: Bus Trans No
+
+			annotation SummarizationSetBy = Automatic
+
+		column 'Cost Date Full'
+			dataType: dateTime
+			formatString: yyyy-mm-dd
+			lineageTag: 72386b53-0e4b-4417-9369-0de4d8d8fff7
+			summarizeBy: none
+			sourceColumn: Cost Date Full
+
+			annotation SummarizationSetBy = Automatic
+
+		column Index
+			dataType: double
+			lineageTag: 2fbc61d5-baa0-4ae0-a7e2-a76dcd6b0e7c
+			summarizeBy: sum
+			sourceColumn: Index
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		column 'Cost text'
+			dataType: string
+			lineageTag: c6a05a60-3fd5-4f51-89a7-0db424c45e0f
+			summarizeBy: none
+			sourceColumn: Cost text
+
+			annotation SummarizationSetBy = Automatic
+
+		column 'Fx Rate'
+			dataType: double
+			lineageTag: 7b55e6ec-a035-482b-9094-11a543947f99
+			summarizeBy: sum
+			sourceColumn: Fx Rate
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		column 'Leg No'
+			dataType: int64
+			formatString: 0
+			lineageTag: 9de1fcad-b4ef-4c23-9379-8d13d330f5cb
+			summarizeBy: sum
+			sourceColumn: Leg No
+
+			annotation SummarizationSetBy = Automatic
+
+		column 'Nett or Gross No'
+			dataType: double
+			lineageTag: 9fd48a1c-bee9-4311-8f80-5ab0cbe8ae46
+			summarizeBy: sum
+			sourceColumn: Nett or Gross No
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		column 'Leg Identifiers'
+			dataType: double
+			lineageTag: 7d2d0dd1-302e-458d-93c9-47d5247d32b5
+			summarizeBy: sum
+			sourceColumn: Leg Identifiers
+
+			annotation SummarizationSetBy = Automatic
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		column 'Transaction IK'
+			dataType: string
+			lineageTag: 3e84ef5c-a271-4b15-8175-aad2dfa5c44f
+			summarizeBy: none
+			sourceColumn: Transaction IK
+
+			annotation SummarizationSetBy = Automatic
+
+		column 'Settlement Date Contractual'
+			dataType: dateTime
+			formatString: yyyy-mm-dd
+			lineageTag: 95010036-43be-4840-89b7-c5a6b4350c09
+			summarizeBy: none
+			sourceColumn: Settlement Date Contractual
+
+			annotation SummarizationSetBy = Automatic
+
+		column 'Src User Created ID'
+			dataType: string
+			lineageTag: 1d39d72b-6bd3-49b7-986e-08c6d7a3f584
+			summarizeBy: none
+			sourceColumn: Src User Created ID
+
+			annotation SummarizationSetBy = Automatic
+
+		column 'Src User Created Name'
+			dataType: string
+			lineageTag: 99dca7d7-32c1-4d04-bef3-0ec7f0fc7935
+			summarizeBy: none
+			sourceColumn: Src User Created Name
+
+			annotation SummarizationSetBy = Automatic
+
+		column Region
+			dataType: string
+			lineageTag: e53e0205-38d8-48e9-8402-ecfc1e71776b
+			summarizeBy: none
+			sourceColumn: Region
+
+			annotation SummarizationSetBy = Automatic
+
+		column 'ML Business Group'
+			dataType: string
+			lineageTag: eb10456e-d8ed-4398-a3bd-5197d324dc9f
+			summarizeBy: none
+			sourceColumn: ML Business Group
+
+			annotation SummarizationSetBy = Automatic
+
+		column 'Valuation Cycle'
+			dataType: string
+			lineageTag: a355711b-99c1-480a-bb13-57a9630c8380
+			summarizeBy: none
+			sourceColumn: Valuation Cycle
+
+			annotation SummarizationSetBy = Automatic
+
+		column 'Owner Type'
+			dataType: string
+			lineageTag: 97718186-5b7f-4bb9-9ab9-5d0dc50c14a8
+			summarizeBy: none
+			sourceColumn: Owner Type
+
+			annotation SummarizationSetBy = Automatic
+
+		column 'Mim Public Market Entity Ind'
+			dataType: string
+			lineageTag: 57fbfada-30a9-4b5b-ae1c-eb98640ddbe3
+			summarizeBy: none
+			sourceColumn: Mim Public Market Entity Ind
+
+			annotation SummarizationSetBy = Automatic
+
+		column 'Investment Mandate Code'
+			dataType: string
+			lineageTag: 871dc014-5c10-4824-824a-a28b91b5909e
+			summarizeBy: none
+			sourceColumn: Investment Mandate Code
+
+			annotation SummarizationSetBy = Automatic
+
+		column 'Created Date'
+			dataType: dateTime
+			formatString: yyyy-mm-dd hh:nn:ss AM/PM
+			lineageTag: 7f3ee810-f45b-4bae-ae85-bb375956d33c
+			summarizeBy: none
+			sourceColumn: Created Date
+
+			annotation SummarizationSetBy = Automatic
+
+		column 'Updated Date'
+			dataType: dateTime
+			formatString: yyyy-mm-dd hh:nn:ss AM/PM
+			lineageTag: aac1851d-5ee7-4797-b91b-e299ab02480b
+			summarizeBy: none
+			sourceColumn: Updated Date
+
+			annotation SummarizationSetBy = Automatic
+
+		column Cost_NK = ```
+				
+				'Securities Transaction Costs GA Fact'[Originating Sys No]&"/"&
+				'Securities Transaction Costs GA Fact'[Source]&"/"&
+				'Securities Transaction Costs GA Fact'[Bus Trans No]&"/"&
+				'Securities Transaction Costs GA Fact'[Transaction IK]
+				
+				```
+			lineageTag: 0d749ca4-95bb-47f4-aeda-bac82290bd3e
+			summarizeBy: none
+
+			changedProperty = IsHidden
+
+			annotation SummarizationSetBy = Automatic
+
+		column 'FX Join Key' = ```
+				
+				VAR vCost_NK = 'Securities Transaction Costs GA Fact'[Cost_NK]
+				RETURN CALCULATE(MAx('Securities Transaction GA Fact'[FX Join Key]),'Securities Transaction GA Fact'[Cost_NK]=vCost_NK,REMOVEFILTERS('Securities Transaction Costs GA Fact'))
+				
+				```
+			lineageTag: 31f83132-d195-44df-9ac8-93d04c984ca2
+			summarizeBy: none
+
+			annotation SummarizationSetBy = Automatic
+
+		partition 'Securities Transaction Costs GA Fact-77000235-9c52-4cb3-b0cf-8f93e6a3ac0b' = m
+			mode: import
+			source =
+					let
+					    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0), EnableQueryResultDownload="0"]),
+					    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+					    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+					    EDL_securities_transaction_costs_ga_fact_dq= inv_semantic_ga_Schema{[Name="securities_transaction_costs_ga_fact_dq",Kind="Table"]}[Data],
+					    #"Renamed Columns" = Table.RenameColumns(EDL_securities_transaction_costs_ga_fact_dq,{{"TRADE_DATE", "Trade Date"}, {"ORIGINATING_SYSTEM_NO", "Originating Sys No"}, {"SRC", "Source"}, {"TRANSACTION_COST_BASE", "Transaction Cost Base"}, {"TRANSACTION_COST_LOCAL", "Transaction Cost Local"}, {"TRANSACTION_COST_SETTLE", "Transaction Cost Settle"}, {"CALCULATION_BASIS", "Calculation Basis"}, {"CATEGORY_OF_COST", "Category Of Cost"}, {"COST", "Cost"}, {"COST_NAME", "Cost_Name"}, {"DISALLOW_MANUAL_INPUT", "Disallow Manual Input"}, {"FINANCE_BOOKING_DATE", "Finance Booking Date"}, {"INCLUDE_IN_SETTLEMENT_AMOUNT", "Settlement Amount"}, {"INFLUENCE_YIELD_CALCULATION", "Influence Yield"}, {"MAIN_CURRENCY", "Currency"}, {"SIGN_OF_COST", "Cost Sign"}, {"SORT", "Sort"}, {"TYPE_OF_COST", "Cost Type"}, {"UNIT_COST", "Unit Cost"}, {"AMOUNT_COST_CURRENCY", "Amount Cost Currency"}, {"BUS_TRANS_NO", "Bus Trans No"}, {"COST_DATE_FULL", "Cost Date Full"}, {"COST_INDEX", "Index"}, {"COST_TEXT", "Cost text"}, {"FX_RATE", "Fx Rate"}, {"LEG_NO", "Leg No"}, {"NETT_OR_GROSS_NO", "Nett or Gross No"}, {"LEG_IDENTIFIERS", "Leg Identifiers"}, {"TRANSACTION_IK", "Transaction IK"}, {"SETTLEMENT_DATE_CONTRACTUAL", "Settlement Date Contractual"}, {"SRC_USER_CREATE_ID", "Src User Created ID"}, {"SRC_USER_CREATE_NAME", "Src User Created Name"}, {"REGION", "Region"}, {"ML_BUSINESS_GROUP", "ML Business Group"}, {"VALUATION_CYCLE", "Valuation Cycle"}, {"OWNER_TYPE", "Owner Type"}, {"MIM_PUBLIC_MARKET_ENTITY_IND", "Mim Public Market Entity Ind"}, {"INVESTMENT_MANDATE_CD", "Investment Mandate Code"}, {"CREATED_DATE", "Created Date"}, {"UPDATED_DATE", "Updated Date"}})
+					in
+					    #"Renamed Columns"
+
+		changedProperty = IsHidden
+
+		annotation PBI_ResultType = Table
+
+		annotation PBI_NavigationStepName = Navigation
+

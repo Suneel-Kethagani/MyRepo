@@ -1,0 +1,1245 @@
+table 'Securities Lookthrough Position Fact'
+	lineageTag: e865d2e8-2384-4e70-83c5-0b2c6def5db1
+
+	measure 'Rep Rate (Security Lookthrough)' =
+			
+			AVERAGEX( 'Securities Lookthrough Position Fact', 1 * 'Fx Rate DQ'[Rep Rate])
+		formatString: 0.000000
+		lineageTag: b12b760e-3346-44b8-9332-194e8388cab7
+
+	measure 'Ownership %' =
+			
+			SWITCH (
+			    TRUE (),
+			    ISFILTERED ( 'Securities Lookthrough Position Fact'[Company Code Name] ),
+			        SUMX (
+			            SUMMARIZE (
+			                'Securities Lookthrough Position Fact',
+			                'Securities Lookthrough Position Fact'[Portfolio Code Name],
+			                'Securities Lookthrough Position Fact'[Primary security ID & Desc Lookthrough Position],
+			                'Securities Lookthrough Position Fact'[Ownership Percentage]
+			            ),
+			            'Securities Lookthrough Position Fact'[Ownership Percentage]
+			        ),
+			    HASONEVALUE ( 'Securities Lookthrough Position Fact'[Primary security ID & Desc Lookthrough Position] ),
+			        SUMX (
+			            SUMMARIZE (
+			                'Securities Lookthrough Position Fact',
+			                'Securities Lookthrough Position Fact'[Portfolio Code Name],
+			                'Securities Lookthrough Position Fact'[Primary security ID & Desc Lookthrough Position],
+			                'Securities Lookthrough Position Fact'[Ownership Percentage]
+			            ),
+			            'Securities Lookthrough Position Fact'[Ownership Percentage]
+			        ),
+			    BLANK ()
+			)
+		formatString: 0.00000
+		lineageTag: e83ec703-5c83-4f6b-b300-3af0a80c2151
+
+		changedProperty = FormatString
+
+	measure 'Reporting Currency (look Position)' = ```
+			
+			VAR SelectedCurrency =
+			    SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] )
+			VAR ReportingCurrency =
+			    IF (
+			        NOT ISEMPTY ( 'Securities Lookthrough Position Fact' ),
+			        IF (
+			            SelectedCurrency = "Company",
+			            FIRSTNONBLANK ( 'Securities Lookthrough Position Fact'[Functional Ccy Cd], TRUE () ),
+			            IF (
+			                SelectedCurrency = "SCD Base",
+			                FIRSTNONBLANK ( 'Securities Lookthrough Position Fact'[Base], TRUE () ),
+			                SelectedCurrency
+			            )
+			        )
+			    )
+			RETURN
+			    ReportingCurrency
+			
+			```
+		lineageTag: 32bef179-7255-4953-898e-48dde14b3c29
+
+	measure 'Nominal (Lookthrough)' =
+			
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			    SUM ( 'Securities Lookthrough Position Fact'[Nominal (D)] ),
+			    CALCULATE (
+			        SUM ( 'Securities Lookthrough Position Fact'[Nominal (D)] ),
+			        LASTDATE ( 'Securities Lookthrough Position Fact'[Effective Date] )
+			    )
+			)
+		lineageTag: d6365186-c264-492c-8162-dbdb5b11189a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Balance Book Value Local' = [Balance Book Value - Lookthrough Local (LThru)]+[Balance Book Value - Adjustment Local(LThru)]
+		lineageTag: 95a650f0-1b10-4728-8816-c8bf9fe203ec
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Market Value Local' =
+			
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			    SUM ( 'Securities Lookthrough Position Fact'[Market Value Local (D)] ),
+			    CALCULATE (
+			        SUM ( 'Securities Lookthrough Position Fact'[Market Value Local (D)] ),
+			        LASTDATE ( 'Securities Lookthrough Position Fact'[Effective Date] )
+			    )
+			)
+		lineageTag: 66c99c19-4369-4318-86d8-0fe5778ebfaa
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Accrual Local' = [Accrual - Lookthrough Local(Lthru)]+[Accrual - Adjustment Local(Lthru)]
+		lineageTag: 1d2b4011-fb69-4a39-81a4-6f9245f23882
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Security Lookthrough Position Title' =
+			
+			VAR Maxdate =
+			    MAX ( 'Securities Lookthrough Position Fact'[Effective Date] )
+			VAR Mindate =
+			    MIN ( 'Period'[Start of Month] )
+			RETURN
+			    "Security Lookthrough Position, "
+			        & SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] ) & ", "
+			        & SELECTEDVALUE ( 'Framework'[Framework Display] ) & ", "
+			        & FORMAT ( mindate, "dd-mmm-yy" ) & " - "
+			        & FORMAT ( Maxdate, "dd-mmm-yy" )
+		lineageTag: a8337596-b528-4b65-ba71-07048fb3bf08
+
+	measure 'Accrual Rep' = [Accrual - Lookthrough Rep(Lthru)]+[Accrual - Adjustment Rep (Lthru)]
+		lineageTag: dd79ad17-f0e1-4013-8a14-ae5e068e6462
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Market Value Rep' = ```
+			
+			SWITCH (
+			    SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] ),
+			    "SCD Base",
+			        IF (
+			            ISFILTERED ( 'Period'[Date] ),
+			            SUM ( 'Securities Lookthrough Position Fact'[Market Value Base] ),
+			            CALCULATE (
+			                SUM ( 'Securities Lookthrough Position Fact'[Market Value Base] ),
+			                LASTDATE ( 'Securities Lookthrough Position Fact'[Effective Date] )
+			            )
+			        ),
+			    IF (
+			        ISFILTERED ( 'Period'[Date] ),
+			        SUMX (
+			            'Securities Lookthrough Position Fact',
+			            'Securities Lookthrough Position Fact'[Market Value Local (D)] * 'Fx Rate DQ'[Rep Rate]
+			        ),
+			        CALCULATE (
+			            SUMX (
+			                'Securities Lookthrough Position Fact',
+			                'Securities Lookthrough Position Fact'[Market Value Local (D)] * 'Fx Rate DQ'[Rep Rate]
+			            ),
+			            LASTDATE ( 'Securities Lookthrough Position Fact'[Effective Date] )
+			        )
+			    )
+			)
+			
+			```
+		lineageTag: 448e21f7-4464-4e6c-9f5f-9c021a597172
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Balance Book Value Rep' = [Balance Book Value - Lookthrough Rep (Lthru)]+[Balance Book Value - Adjustment Rep (Lthru)]
+		lineageTag: b627a7ae-32c6-4c04-a3df-90c18a06b001
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Balance Book Value - Adjustment Local(LThru)' = ```
+			
+			// VAR vListofGLAccts=CALCULATETABLE(
+			//     VALUES('CAT Adjmt Config Table'[GL Acct Num]),
+			//     'CAT Adjmt Config Table'[Measure Name] = "Book Value"
+			// )
+			// VAR vMaxSelectedDate=MAX(Period[Date])
+			// VAR vDateRange = FILTER(ALL(Period[Date]),Period[Date]<=vMaxSelectedDate)
+			// RETURN 
+			// SUMX(summarize('Securities Lookthrough Position Fact',Securities[Primary Security ID]),
+			// IF(calculate(COUNTROWS('Securities GL Txn fact'),vDateRange)>0 && (NOT ISBLANK(Securities[Primary Security ID])), 
+			// IF (NOT ISINSCOPE ('Securities Lookthrough Position Fact'[Investor Portfolio Code & Name]),
+			// CALCULATE(
+			//      SUM('Securities GL Txn fact'[Local Txn Amt]),
+			//      TREATAS(vListOfGLAccts,'Securities GL Txn fact'[Account]),
+			//         vDateRange
+			//         )
+			//     )
+			// )
+			// )
+			VAR vListofGLAccts =
+			    CALCULATETABLE (
+			        VALUES ( 'CAT Adjmt Config Table'[GL Acct Num] ),
+			        'CAT Adjmt Config Table'[Measure Name] = "Book Value"
+			    )
+			VAR vMaxSelectedDate =
+			    MAX ( Period[Date] )
+			RETURN
+			    SUMX (
+			        VALUES ( Securities[Primary Security ID] ),
+			        IF (
+			            NOT ISINSCOPE ( 'Securities Lookthrough Position Fact'[Investor Portfolio Code & Name] )
+			                && CALCULATE (
+			                    COUNTROWS ( 'Consolidated GL Balance Fact' ),
+			                    Period[Date] = vMaxSelectedDate
+			                ) > 0,
+			            CALCULATE (
+			                SUM ( 'Consolidated GL Balance Fact'[Local Balance Amt] ),
+			                TREATAS ( vListofGLAccts, 'Consolidated GL Balance Fact'[GL Acct (6 digits)] ),
+			                'Consolidated GL Balance Fact'[As of Period]
+			                    = MAX ( 'Consolidated GL Balance Fact'[As of Period] )
+			            )
+			        )
+			    )
+			```
+		lineageTag: 054d7a5e-d01d-4ce1-99dc-bc1f02e45ff6
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Accrual - Adjustment Local(Lthru)' = ```
+			
+			// VAR vListofGLAccts=CALCULATETABLE(
+			//     VALUES('CAT Adjmt Config Table'[GL Acct Num]),
+			//     'CAT Adjmt Config Table'[Measure Name] = "Accrual"
+			// )
+			// VAR vMaxSelectedDate=MAX(Period[Date])
+			// VAR vDateRange = FILTER(ALL(Period[Date]),Period[Date]<=vMaxSelectedDate)
+			// RETURN 
+			// SUMX(summarize('Securities Lookthrough Position Fact',Securities[Primary Security ID]),
+			// IF(calculate(COUNTROWS('Securities GL Txn fact'),vDateRange)>0 && (NOT ISBLANK(Securities[Primary Security ID])), 
+			// IF (NOT ISINSCOPE ('Securities Lookthrough Position Fact'[Investor Portfolio Code & Name]),
+			// CALCULATE(
+			//      SUM('Securities GL Txn fact'[Local Txn Amt]),
+			//      TREATAS(vListOfGLAccts,'Securities GL Txn fact'[Account]),
+			//         vDateRange
+			//         )
+			//     )
+			// )
+			// )
+			VAR vListofGLAccts =
+			    CALCULATETABLE (
+			        VALUES ( 'CAT Adjmt Config Table'[GL Acct Num] ),
+			        'CAT Adjmt Config Table'[Measure Name] = "Accrual"
+			    )
+			VAR vMaxSelectedDate =
+			    MAX ( Period[Date] )
+			RETURN
+			    SUMX (
+			        VALUES ( Securities[Primary Security ID] ),
+			        IF (
+			            NOT ISINSCOPE ( 'Securities Lookthrough Position Fact'[Investor Portfolio Code & Name] )
+			                && CALCULATE (
+			                    COUNTROWS ( 'Consolidated GL Balance Fact' ),
+			                    Period[Date] = vMaxSelectedDate
+			                ) > 0,
+			            CALCULATE (
+			                SUM ( 'Consolidated GL Balance Fact'[Local Balance Amt] ),
+			                TREATAS ( vListofGLAccts, 'Consolidated GL Balance Fact'[GL Acct (6 digits)] ),
+			                'Consolidated GL Balance Fact'[As of Period]
+			                    = MAX ( 'Consolidated GL Balance Fact'[As of Period] )
+			            )
+			        )
+			    )
+			```
+		lineageTag: 4ae19b8c-50d6-493b-b431-27f8c57939f1
+
+		changedProperty = IsHidden
+
+	measure 'Balance Book Value - Adjustment Rep (Lthru)' = ```
+			
+			// VAR vSelectedCurrency = SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency])
+			// VAR vListofGLAccts=CALCULATETABLE(
+			//     VALUES('CAT Adjmt Config Table'[GL Acct Num]),
+			//     'CAT Adjmt Config Table'[Measure Name] = "Book Value"
+			// )
+			// VAR vMaxSelectedDate=MAX(Period[Date])
+			// VAR vDateRange = FILTER(ALL(Period[Date]),Period[Date]<=vMaxSelectedDate)
+			// VAR vBookValueRep= 
+			// SUMX(summarize('Securities Lookthrough Position Fact',Securities[Primary Security ID]),
+			// IF(calculate(COUNTROWS('Securities GL Txn fact'),vDateRange)>0 && (NOT ISBLANK(Securities[Primary Security ID])), 
+			// IF (NOT ISINSCOPE ('Securities Lookthrough Position Fact'[Investor Portfolio Code & Name]),
+			//     CALCULATE( 
+			//      SWITCH (
+			//              vSelectedCurrency,
+			//              "CAD",[Adjustment Amount (CAD)],
+			//                 "USD",[Adjustment Amount (USD)],
+			//                 "HKD",[Adjustment Amount (HKD)],
+			//                 [Adjustment Amount (Func)]
+			//      ),
+			//  TREATAS(vListOfGLAccts,'Securities GL Txn fact'[Account]),
+			//     vDateRange
+			//  )
+			// )
+			// )
+			// )
+			// RETURN vBookValueRep
+			VAR vSelectedCurrency =
+			    SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] )
+			VAR vListofGLAccts =
+			    CALCULATETABLE (
+			        VALUES ( 'CAT Adjmt Config Table'[GL Acct Num] ),
+			        'CAT Adjmt Config Table'[Measure Name] = "Book Value"
+			    )
+			VAR vMaxSelectedDate =
+			    MAX ( Period[Date] )
+			RETURN
+			    SUMX (
+			        VALUES ( Securities[Primary Security ID] ),
+			        IF (
+			            NOT ISINSCOPE ( 'Securities Lookthrough Position Fact'[Investor Portfolio Code & Name] )
+			                && CALCULATE (
+			                    COUNTROWS ( 'Consolidated GL Balance Fact' ),
+			                    Period[Date] = vMaxSelectedDate
+			                ) > 0,
+			            CALCULATE (
+			                SWITCH (
+			                    vSelectedCurrency,
+			                    "CAD", [Adjustment_Amount (CAD)],
+			                    "USD", [Adjustment_Amount (USD)],
+			                    "HKD", [Adjustment_Amount (HKD)],
+			                    [Adjustment_Amount (Func)]
+			                ),
+			                TREATAS ( vListofGLAccts, 'Consolidated GL Balance Fact'[GL Acct (6 digits)] ),
+			                'Consolidated GL Balance Fact'[As of Period]
+			                    = MAX ( 'Consolidated GL Balance Fact'[As of Period] )
+			            )
+			        )
+			    )
+			```
+		lineageTag: 38393f4f-8c5f-4ed2-a6a3-fa51b118035b
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Accrual - Adjustment Rep (Lthru)' = ```
+			
+			// VAR vSelectedCurrency = SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency])
+			// VAR vListofGLAccts=CALCULATETABLE(
+			//     VALUES('CAT Adjmt Config Table'[GL Acct Num]),
+			//     'CAT Adjmt Config Table'[Measure Name] = "Accrual"
+			// )
+			// VAR vMaxSelectedDate=MAX(Period[Date])
+			// VAR vDateRange = FILTER(ALL(Period[Date]),Period[Date]<=vMaxSelectedDate)
+			// VAR vAccrualRep= 
+			// SUMX(summarize('Securities Lookthrough Position Fact',Securities[Primary Security ID]),
+			// IF(calculate(COUNTROWS('Securities GL Txn fact'),vDateRange)>0 && (NOT ISBLANK(Securities[Primary Security ID])),
+			// IF (NOT ISINSCOPE ('Securities Lookthrough Position Fact'[Investor Portfolio Code & Name]),
+			//     CALCULATE( 
+			//      SWITCH (
+			//              vSelectedCurrency,
+			//              "CAD",[Adjustment Amount (CAD)],
+			//                 "USD",[Adjustment Amount (USD)],
+			//                 "HKD",[Adjustment Amount (HKD)],
+			//                 [Adjustment Amount (Func)]
+			//      ),
+			//  TREATAS(vListOfGLAccts,'Securities GL Txn fact'[Account]),
+			//     vDateRange
+			//  )
+			// )
+			// )
+			// )
+			// RETURN vAccrualRep
+			VAR vSelectedCurrency =
+			    SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] )
+			VAR vListofGLAccts =
+			    CALCULATETABLE (
+			        VALUES ( 'CAT Adjmt Config Table'[GL Acct Num] ),
+			        'CAT Adjmt Config Table'[Measure Name] = "Accrual"
+			    )
+			VAR vMaxSelectedDate =
+			    MAX ( Period[Date] )
+			RETURN
+			    SUMX (
+			        VALUES ( Securities[Primary Security ID] ),
+			        IF (
+			            NOT ISINSCOPE ( 'Securities Lookthrough Position Fact'[Investor Portfolio Code & Name] )
+			                && CALCULATE (
+			                    COUNTROWS ( 'Consolidated GL Balance Fact' ),
+			                    Period[Date] = vMaxSelectedDate
+			                ) > 0,
+			            CALCULATE (
+			                SWITCH (
+			                    vSelectedCurrency,
+			                    "CAD", [Adjustment_Amount (CAD)],
+			                    "USD", [Adjustment_Amount (USD)],
+			                    "HKD", [Adjustment_Amount (HKD)],
+			                    [Adjustment_Amount (Func)]
+			                ),
+			                TREATAS ( vListofGLAccts, 'Consolidated GL Balance Fact'[GL Acct (6 digits)] ),
+			                'Consolidated GL Balance Fact'[As of Period]
+			                    = MAX ( 'Consolidated GL Balance Fact'[As of Period] )
+			            )
+			        )
+			    )
+			```
+		lineageTag: ad7e39eb-341d-4e6b-af81-d195421c07f9
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Balance Book Value - Lookthrough Local (LThru)' =
+			
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			    SUM ( 'Securities Lookthrough Position Fact'[Balance Book Value Local Ccy] ),
+			    CALCULATE (
+			        SUM ( 'Securities Lookthrough Position Fact'[Balance Book Value Local Ccy] ),
+			        LASTDATE ( 'Securities Lookthrough Position Fact'[Effective Date] )
+			    )
+			)
+		lineageTag: bf572b4a-fcb0-4461-959b-7b9b7ea2c919
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Balance Book Value - Lookthrough Rep (Lthru)' = ```
+			
+			SWITCH (
+			    SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] ),
+			    "SCD Base",
+			        IF (
+			            ISFILTERED ( 'Period'[Date] ),
+			            SUM ( 'Securities Lookthrough Position Fact'[Balance Book Value Base Ccy] ),
+			            CALCULATE (
+			                SUM ( 'Securities Lookthrough Position Fact'[Balance Book Value Base Ccy] ),
+			                LASTDATE ( 'Securities Lookthrough Position Fact'[Effective Date] )
+			            )
+			        ),
+			    IF (
+			        ISFILTERED ( 'Period'[Date] ),
+			        SUMX (
+			            'Securities Lookthrough Position Fact',
+			            'Securities Lookthrough Position Fact'[Balance Book Value Local Ccy] * 'Fx Rate DQ'[Rep Rate]
+			        ),
+			        CALCULATE (
+			            SUMX (
+			                'Securities Lookthrough Position Fact',
+			                'Securities Lookthrough Position Fact'[Balance Book Value Local Ccy] * 'Fx Rate DQ'[Rep Rate]
+			            ),
+			            LASTDATE ( 'Securities Lookthrough Position Fact'[Effective Date] )
+			        )
+			    )
+			)
+			
+			```
+		lineageTag: 63403e4b-5393-471e-a2b0-a112be2ef4c2
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Accrual - Lookthrough Local(Lthru)' =
+			
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			    SUM ( 'Securities Lookthrough Position Fact'[Accrual Local (D)] ),
+			    CALCULATE (
+			        SUM ( 'Securities Lookthrough Position Fact'[Accrual Local (D)] ),
+			        LASTDATE ( 'Securities Lookthrough Position Fact'[Effective Date] )
+			    )
+			)
+		lineageTag: 44739db9-2a37-4f7c-93c5-efab89efb448
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Accrual - Lookthrough Rep(Lthru)' = ```
+			
+			SWITCH (
+			    SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] ),
+			    "SCD Base",
+			        IF (
+			            ISFILTERED ( 'Period'[Date] ),
+			            SUM ( 'Securities Lookthrough Position Fact'[Accrual Base] ),
+			            CALCULATE (
+			                SUM ( 'Securities Lookthrough Position Fact'[Accrual Base] ),
+			                LASTDATE ( 'Securities Lookthrough Position Fact'[Effective Date] )
+			            )
+			        ),
+			    IF (
+			        ISFILTERED ( 'Period'[Date] ),
+			        SUMX (
+			            'Securities Lookthrough Position Fact',
+			            'Securities Lookthrough Position Fact'[Accrual Local (D)] * 'Fx Rate DQ'[Rep Rate]
+			        ),
+			        CALCULATE (
+			            SUMX (
+			                'Securities Lookthrough Position Fact',
+			                'Securities Lookthrough Position Fact'[Accrual Local (D)] * 'Fx Rate DQ'[Rep Rate]
+			            ),
+			            LASTDATE ( 'Securities Lookthrough Position Fact'[Effective Date] )
+			        )
+			    )
+			)
+			
+			```
+		lineageTag: 53068a35-9e90-4c10-93dd-2304314255e1
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Lthru Rowcount' = COUNTROWS('Securities Lookthrough Position Fact')
+		formatString: 0
+		lineageTag: e000a287-8f4d-46be-83c4-1acfe5108f3a
+
+	measure 'Adjusted GL Class (Sec Lthru)' = ```
+			
+			VAR vMaxPeriodDate = MAX(Period[Date])
+			VAR vAddRankFlagTable = 
+			CALCULATETABLE(
+			    ADDCOLUMNS(
+			        'Adjust GL Reclass Fact',
+			        "@Rank",RANKX('Adjust GL Reclass Fact','Adjust GL Reclass Fact'[Txn Dt])
+			    ),
+			    REMOVEFILTERS(period),
+			    'Adjust GL Reclass Fact'[Txn Dt]<=vMaxPeriodDate
+			    )
+			
+			RETURN 
+			IF(COUNTROWS('Securities Lookthrough Position Fact')>0,
+			IF (NOT ISINSCOPE('Securities Lookthrough Position Fact'[Investor Portfolio Code & Name]),
+			MAXX(
+			    vAddRankFlagTable, IF ([@Rank]=1 , 'Adjust GL Reclass Fact'[gl classification] )
+			)
+			)
+			)
+			```
+		lineageTag: 9bd51303-49fb-4888-95d4-7bec1d8d7c06
+
+	measure 'Carrying Value - Local (LThru)' =
+			
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			    SUM ( 'Securities Lookthrough Position Fact'[Carrying Value - Local] ),
+			    CALCULATE (
+			        SUM ( 'Securities Lookthrough Position Fact'[Carrying Value - Local] ),
+			        LASTDATE ( 'Securities Lookthrough Position Fact'[Effective Date] )
+			    )
+			)
+		lineageTag: 513dcfc2-3db4-46ad-97ae-002b2c770dba
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Carrying Value - Rep (Lthru)' = ```
+			
+			SWITCH (
+			    SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] ),
+			    "SCD Base",
+			        IF (
+			            ISFILTERED ( 'Period'[Date] ),
+			            SUM ( 'Securities Lookthrough Position Fact'[Carrying Value - Base] ),
+			            CALCULATE (
+			                SUM ( 'Securities Lookthrough Position Fact'[Carrying Value - Base] ),
+			                LASTDATE ( 'Securities Lookthrough Position Fact'[Effective Date] )
+			            )
+			        ),
+			    IF (
+			        ISFILTERED ( 'Period'[Date] ),
+			        SUMX (
+			            'Securities Lookthrough Position Fact',
+			            'Securities Lookthrough Position Fact'[Carrying Value - Local] * 'Fx Rate DQ'[Rep Rate]
+			        ),
+			        CALCULATE (
+			            SUMX (
+			                'Securities Lookthrough Position Fact',
+			                'Securities Lookthrough Position Fact'[Carrying Value - Local] * 'Fx Rate DQ'[Rep Rate]
+			            ),
+			            LASTDATE ( 'Securities Lookthrough Position Fact'[Effective Date] )
+			        )
+			    )
+			)
+			
+			```
+		lineageTag: aaa47c5c-d396-44df-a3d1-d6bc582ada0a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Unrealized Gain/Loss - Rep (Lthru)' = ```
+			
+			SWITCH (
+			    SELECTEDVALUE ( 'Reporting Currency'[Rep In Currency] ),
+			    "SCD Base",
+			        IF (
+			            ISFILTERED ( 'Period'[Date] ),
+			            SUM ( 'Securities Lookthrough Position Fact'[Unrealized Gain/Loss - Base] ),
+			            CALCULATE (
+			                SUM ( 'Securities Lookthrough Position Fact'[Unrealized Gain/Loss - Base] ),
+			                LASTDATE ( 'Securities Lookthrough Position Fact'[Effective Date] )
+			            )
+			        ),
+			    IF (
+			        ISFILTERED ( 'Period'[Date] ),
+			        SUMX (
+			            'Securities Lookthrough Position Fact',
+			            'Securities Lookthrough Position Fact'[Unrealized Gain/Loss - Local] * 'Fx Rate DQ'[Rep Rate]
+			        ),
+			        CALCULATE (
+			            SUMX (
+			                'Securities Lookthrough Position Fact',
+			                'Securities Lookthrough Position Fact'[Unrealized Gain/Loss - Local] * 'Fx Rate DQ'[Rep Rate]
+			            ),
+			            LASTDATE ( 'Securities Lookthrough Position Fact'[Effective Date] )
+			        )
+			    )
+			)
+			
+			```
+		lineageTag: fd2ba372-6872-436a-8dcc-127082e06583
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Unrealized Gain/Loss - Local (LThru)' =
+			
+			IF (
+			    ISFILTERED ( 'Period'[Date] ),
+			    SUM ( 'Securities Lookthrough Position Fact'[Unrealized Gain/Loss - Local] ),
+			    CALCULATE (
+			        SUM ( 'Securities Lookthrough Position Fact'[Unrealized Gain/Loss - Local] ),
+			        LASTDATE ( 'Securities Lookthrough Position Fact'[Effective Date] )
+			    )
+			)
+		lineageTag: 96fc64e1-9d07-429f-bb37-245b86b0682c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Security Nk'
+		dataType: string
+		lineageTag: cae6d5a1-f7fa-4372-adf2-adaccdbdad26
+		summarizeBy: none
+		sourceColumn: Security Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lot Id'
+		dataType: string
+		lineageTag: c2c39a86-0f61-4623-bca4-39b64f2f2ec2
+		summarizeBy: none
+		sourceColumn: Lot Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Nk'
+		dataType: string
+		lineageTag: 7fade0ef-834a-4823-b6e2-2c0599e0ea16
+		summarizeBy: none
+		sourceColumn: Portfolio Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lookthrough Portfolio Code'
+		dataType: string
+		lineageTag: 52339d97-078e-40d1-ad81-fecc9fc82200
+		summarizeBy: none
+		sourceColumn: Lookthrough Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Standalone Portfolio Code'
+		dataType: string
+		lineageTag: 69eea46a-53b1-443b-8b22-e0a81dea9111
+		summarizeBy: none
+		sourceColumn: Standalone Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mim Ut Or Ga Ric Portfolio Code'
+		dataType: string
+		lineageTag: 38923f8c-f8fe-42ef-ac80-899de8d7d4d4
+		summarizeBy: none
+		sourceColumn: Mim Ut Or Ga Ric Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fund Security'
+		dataType: string
+		lineageTag: b29be8b1-e24f-48d2-a71d-6850669174a2
+		summarizeBy: none
+		sourceColumn: Fund Security
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ownership Percentage'
+		dataType: double
+		lineageTag: 9caaf373-03e9-4311-b942-5c51c47dcafa
+		summarizeBy: sum
+		sourceColumn: Ownership Percentage
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Effective Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 51cbb4c7-1118-448c-820f-0ac3b1c5a5d0
+		summarizeBy: none
+		sourceColumn: Effective Date
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Framework Cd'
+		dataType: string
+		lineageTag: 4b54d60d-7179-40cb-8931-8078adb7f8e5
+		summarizeBy: none
+		sourceColumn: Framework Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Calculation'
+		dataType: string
+		lineageTag: 24cf3e26-be8f-4806-b180-060ed9f1da4b
+		summarizeBy: none
+		sourceColumn: Portfolio Calculation
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Positions Id'
+		dataType: string
+		lineageTag: 1c80c64e-103f-4da1-b744-3a263cea373e
+		summarizeBy: none
+		sourceColumn: Src Positions Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Match Index'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0948bbec-033c-4c65-a059-87c3d7b4af1c
+		summarizeBy: sum
+		sourceColumn: Match Index
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ext Tax Lot No Ik'
+		dataType: int64
+		formatString: 0
+		lineageTag: 675704c0-47bc-49f9-9463-ce8a505d6121
+		summarizeBy: sum
+		sourceColumn: Ext Tax Lot No Ik
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transactions Ik'
+		dataType: int64
+		formatString: 0
+		lineageTag: fb4250ea-cc86-4ef2-8834-a04dc422638b
+		summarizeBy: sum
+		sourceColumn: Transactions Ik
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lawson Legal Id'
+		dataType: string
+		lineageTag: dd98f7f8-5689-4957-9872-174c48b52399
+		summarizeBy: none
+		sourceColumn: Lawson Legal Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Subfund Id'
+		dataType: string
+		lineageTag: d80487a8-6954-4145-b48a-ecfa4114cea7
+		summarizeBy: none
+		sourceColumn: Subfund Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Security Id'
+		dataType: string
+		lineageTag: 9f0e479f-b09a-4976-8f67-2e27f721cc0a
+		summarizeBy: none
+		sourceColumn: Src Security Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Src Market Id'
+		dataType: string
+		lineageTag: 702e9237-3425-4c36-b667-440b5f5ab125
+		summarizeBy: none
+		sourceColumn: Src Market Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Id Cusip'
+		dataType: string
+		lineageTag: 79325818-6d22-4022-950e-7e7791cbb662
+		summarizeBy: none
+		sourceColumn: Id Cusip
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Issuer Name'
+		dataType: string
+		lineageTag: 5538f50e-cc4f-4a66-bedf-b58f2316ce38
+		summarizeBy: none
+		sourceColumn: Issuer Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Security Type'
+		dataType: string
+		lineageTag: 44481137-d0e8-4b0b-80e9-5927c51271d5
+		summarizeBy: none
+		sourceColumn: Security Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ifrs9Purpose
+		dataType: string
+		lineageTag: ad1c7678-5650-46e3-8500-59294604b1c4
+		summarizeBy: none
+		sourceColumn: Ifrs9Purpose
+
+		annotation SummarizationSetBy = Automatic
+
+	column Purpose
+		dataType: string
+		lineageTag: c380b8dc-acc7-443f-a768-1e419430dc98
+		summarizeBy: none
+		sourceColumn: Purpose
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local Currency Code'
+		dataType: string
+		lineageTag: b0e230bb-dc52-42a1-bd6f-f929e7c2fa4c
+		summarizeBy: none
+		sourceColumn: Local Currency Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Maturity Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: ac69b826-6ed5-4e4b-a29c-51c200123c69
+		summarizeBy: none
+		sourceColumn: Maturity Date
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Nominal (D)'
+		dataType: double
+		lineageTag: 5e29ec6d-93ba-42b7-8114-a4f8c6e18b29
+		summarizeBy: sum
+		sourceColumn: Nominal (D)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Balance Book Value Base Ccy'
+		dataType: double
+		lineageTag: 91e64ca5-ba5a-4606-a4ff-660d5a8b5762
+		summarizeBy: sum
+		sourceColumn: Balance Book Value Base Ccy
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Balance Book Value Local Ccy'
+		dataType: double
+		lineageTag: e9c94949-11a9-4833-88de-a8467f47c66d
+		summarizeBy: sum
+		sourceColumn: Balance Book Value Local Ccy
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Market Value Base'
+		dataType: double
+		lineageTag: 8cf0cbdb-9452-49ff-b24e-70f0c8b65ef4
+		summarizeBy: sum
+		sourceColumn: Market Value Base
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Market Value Local (D)'
+		dataType: double
+		lineageTag: e8e30cdc-e532-46a6-b19e-1ce5488295ce
+		summarizeBy: sum
+		sourceColumn: Market Value Local (D)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Accrual Base'
+		dataType: double
+		lineageTag: 1a65a561-8d02-4f7d-a0fb-c3260e9d48ff
+		summarizeBy: sum
+		sourceColumn: Accrual Base
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Accrual Local (D)'
+		dataType: double
+		lineageTag: e687a453-1171-44bd-9b08-420dab3b91a3
+		summarizeBy: sum
+		sourceColumn: Accrual Local (D)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Portfolio Code Name'
+		dataType: string
+		lineageTag: e83b64ee-77c2-40d4-be71-89c8dd2a65fb
+		summarizeBy: none
+		sourceColumn: Portfolio Code Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Unit Code Name'
+		dataType: string
+		lineageTag: 93f739ee-a6fb-4e9b-9f42-68f276528131
+		summarizeBy: none
+		sourceColumn: Accounting Unit Code Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Code Name'
+		dataType: string
+		lineageTag: 45b7c44a-edf1-4052-a199-98f8807220b3
+		summarizeBy: none
+		sourceColumn: Company Code Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Functional Ccy Cd'
+		dataType: string
+		lineageTag: 182d6734-4c3b-485c-a789-192bb108408e
+		summarizeBy: none
+		sourceColumn: Functional Ccy Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local To Func Rate'
+		dataType: double
+		lineageTag: e46d5a5e-55b3-4c1a-8abe-0983f1a4bf77
+		summarizeBy: sum
+		sourceColumn: Local To Func Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Local To Cad Rate'
+		dataType: double
+		lineageTag: b51b1fe1-95b6-493b-9c18-50ff9ec03a6f
+		summarizeBy: sum
+		sourceColumn: Local To Cad Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Local To Usd Rate'
+		dataType: double
+		lineageTag: 7c18f63e-e6bc-4458-9660-d37804b8acfd
+		summarizeBy: sum
+		sourceColumn: Local To Usd Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Local To Hkd Rate'
+		dataType: double
+		lineageTag: 00b76d8c-6aa6-474f-a86d-5ac89d29545e
+		summarizeBy: sum
+		sourceColumn: Local To Hkd Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Primary security ID & Desc Lookthrough Position' =
+			
+			RELATED('Securities'[Primary Security ID & Desc])
+		lineageTag: 7cf37288-4b12-4f5e-94d4-a1e0bdb5871a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lot ID Updated' =
+			
+			IF (
+			    'Securities Lookthrough Position Fact'[Lot Id] = "-1--1--01",
+			    "Position",
+			    'Securities Lookthrough Position Fact'[Lot Id]
+			)
+		lineageTag: a5c02406-9c5c-4091-9dbd-bfa665738662
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'As Of Period'
+		dataType: string
+		lineageTag: 155a0a4d-eb8d-4863-98b9-0bc0e31e4ea9
+		summarizeBy: none
+		sourceColumn: As Of Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column Base = RELATED(Portfolios[Base Ccy Code (D)])
+		lineageTag: 40667e0e-8746-4882-9bc0-d63d278a8ec2
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lookthrough Zero Remove Filter' = ```
+			
+			COALESCE ( 'Securities Lookthrough Position Fact'[Nominal (D)], 0 )
+			    + COALESCE ( [Balance Book Value Local Ccy], 0 )
+			    + COALESCE ( 'Securities Lookthrough Position Fact'[Market Value Local], 0 )
+			    + COALESCE ( 'Securities Lookthrough Position Fact'[Accrual Local], 0 )
+			
+			```
+		lineageTag: 39e4b983-059f-4199-91ef-eb5b8e83547b
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Investor Portfolio Code & Name' =
+			
+			VAR vStandalonePortfolioCode='Securities Lookthrough Position Fact'[Standalone Portfolio Code]
+			VAR vAsOfPeriod = 'Securities Lookthrough Position Fact'[As Of Period]
+			
+			VAR vValue = CALCULATE(MAX(Portfolios[Portfolio Code & Name]),Portfolios[Asset Portfolio Code]=vStandalonePortfolioCode,Portfolios[As of Period]=VALUE(vAsOfPeriod),REMOVEFILTERS('Securities Lookthrough Position Fact'))
+			RETURN vValue
+		lineageTag: e1ebd42c-0f44-4136-91e9-f5d49d15453e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Investor Accounting Unit Code & Name' =
+			
+			VAR vStandalonePortfolioCode='Securities Lookthrough Position Fact'[Standalone Portfolio Code]
+			VAR vAsOfPeriod = 'Securities Lookthrough Position Fact'[As Of Period]
+			
+			VAR vValue = CALCULATE(MAX('Accounting Unit'[Accounting Unit Code & Name]),Portfolios[Asset Portfolio Code]=vStandalonePortfolioCode,Portfolios[As of Period]=VALUE(vAsOfPeriod),REMOVEFILTERS('Securities Lookthrough Position Fact'))
+			RETURN vValue
+		lineageTag: 5ab39eb4-37fa-4b90-b5f7-6f0c25012040
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Investor Company Code & Name' =
+			
+			VAR vStandalonePortfolioCode='Securities Lookthrough Position Fact'[Standalone Portfolio Code]
+			VAR vAsOfPeriod = 'Securities Lookthrough Position Fact'[As Of Period]
+			
+			VAR vValue = CALCULATE(MAX(Company[Company Code & Name]),Portfolios[Asset Portfolio Code]=vStandalonePortfolioCode,Portfolios[As of Period]=VALUE(vAsOfPeriod),REMOVEFILTERS('Securities Lookthrough Position Fact'))
+			RETURN vValue
+		lineageTag: 04c53116-dcde-4444-a41c-6bba2ec4ed4d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lookthrough Portfolio Code & Name' =
+			
+			VAR vLookthroughPortfolioCode='Securities Lookthrough Position Fact'[Lookthrough Portfolio Code]
+			VAR vAsOfPeriod = 'Securities Lookthrough Position Fact'[As Of Period]
+			
+			VAR vValue = CALCULATE(MAX(Portfolios[Portfolio Code & Name]),Portfolios[Asset Portfolio Code]=vLookthroughPortfolioCode,Portfolios[As of Period]=VALUE(vAsOfPeriod),REMOVEFILTERS('Securities Lookthrough Position Fact'))
+			RETURN vValue
+		lineageTag: 7ea6ef25-56f9-429f-b6af-4974693db476
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ML Private Asset ID LThru' =
+			
+			CALCULATE(
+			Selectedvalue('Securities'[ML Private Asset ID]),
+			Crossfilter('Securities Lookthrough Position Fact'[Security Nk],'Securities'[Security Nk],BOTH)
+			)
+		lineageTag: b0cda99a-a3b0-4751-829f-60419d16edd2
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Type LThru' =
+			
+			CALCULATE(
+			Selectedvalue('Securities'[Asset Type]),
+			Crossfilter('Securities Lookthrough Position Fact'[Security Nk],'Securities'[Security Nk],BOTH)
+			)
+		lineageTag: dc7b0cf8-6f08-423a-b14f-37de38650be0
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Class LThru' =
+			
+			CALCULATE(
+			Selectedvalue('Securities'[Asset Class]),
+			Crossfilter('Securities Lookthrough Position Fact'[Security Nk],'Securities'[Security Nk],BOTH)
+			)
+		lineageTag: 0d152399-64ea-4af6-bdb5-4a14da142ee8
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Asset Group LThru' =
+			
+			CALCULATE(
+			Selectedvalue('Securities'[Asset Group]),
+			Crossfilter('Securities Lookthrough Position Fact'[Security Nk],'Securities'[Security Nk],BOTH)
+			)
+		lineageTag: 1c2686ab-52b3-4edd-b0cc-8cbda19e1b59
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fx Join Key'
+		dataType: string
+		lineageTag: 35db3d54-a438-4156-b725-29801141c01f
+		summarizeBy: none
+		sourceColumn: Fx Join Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Carrying Value - Base'
+		dataType: double
+		lineageTag: d5e477f1-a505-4436-81d7-2a3340019ca0
+		summarizeBy: sum
+		sourceColumn: Carrying Value - Base
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Carrying Value - Local'
+		dataType: double
+		lineageTag: e612b712-07f1-4c79-9fa6-f157e0b5d31c
+		summarizeBy: sum
+		sourceColumn: Carrying Value - Local
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Unrealized Gain/Loss - Base'
+		dataType: double
+		lineageTag: d574cb64-4c39-4caf-9156-1066758654b9
+		summarizeBy: sum
+		sourceColumn: Unrealized Gain/Loss - Base
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Unrealized Gain/Loss - Local'
+		dataType: double
+		lineageTag: b5457a00-beed-4a1a-b095-c5aad9f5c989
+		summarizeBy: sum
+		sourceColumn: Unrealized Gain/Loss - Local
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Securities Lookthrough Position Fact-7ec0fe62-6116-4fea-81f3-74b7c891711a' = m
+		mode: import
+		source = ```
+				let
+				    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0), EnableQueryResultDownload="0"]),
+				    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+				    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+				    EDL_securities_lookthrough_position_fact_dq = inv_semantic_ga_Schema{[Name="securities_lookthrough_position_fact_dq",Kind="Table"]}[Data],
+				    #"Removed Other Columns" = Table.SelectColumns(EDL_securities_lookthrough_position_fact_dq,{"SECURITY_NK", "LOT_ID", "PORTFOLIO_NK", "LOOKTHROUGH_PORTFOLIO_CODE", "STANDALONE_PORTFOLIO_CODE", "MIM_UT_OR_GA_RIC_PORTFOLIO_CODE", "FUND_SECURITY", "OWNERSHIP_PERCENTAGE", "EFFECTIVE_DATE", "FRAMEWORK_CD", "PORTFOLIO_CALCULATION", "SRC_POSITIONS_ID", "MATCH_INDEX", "EXT_TAX_LOT_NO_IK", "TRANSACTIONS_IK", "LAWSON_LEGAL_ID", "SUBFUND_ID", "SRC_SECURITY_ID", "SRC_MARKET_ID", "ID_CUSIP", "ISSUER_NAME", "SECURITY_TYPE", "IFRS9PURPOSE", "PURPOSE", "LOCAL_CURRENCY_CODE", "MATURITY_DATE", "NOMINAL", "BALANCE_BOOK_VALUE_BASE_CCY", "BALANCE_BOOK_VALUE_LOCAL_CCY", "MARKET_VALUE_BASE", "MARKET_VALUE_LOCAL", "ACCRUAL_BASE", "ACCRUAL_LOCAL", "PORTFOLIO_CODE_NAME", "ACCOUNTING_UNIT_CODE_NAME", "COMPANY_CODE_NAME", "FUNCTIONAL_CCY_CD", "LOCAL_TO_FUNC_RATE", "LOCAL_TO_CAD_RATE", "LOCAL_TO_USD_RATE", "LOCAL_TO_HKD_RATE", "FX_JOIN_KEY", "CARRYING_VALUE_CCY_BASE", "CARRYING_VALUE_CCY_LOCAL", "UNREALIZED_GAIN_LOSS_BASE", "UNREALIZED_GAIN_LOSS_LOCAL"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Other Columns",{
+				        {"SECURITY_NK", "Security Nk"}, 
+				        {"LOT_ID","Lot Id"},
+				        {"PORTFOLIO_NK","Portfolio Nk"},
+				        {"LOOKTHROUGH_PORTFOLIO_CODE","Lookthrough Portfolio Code"},
+				        {"STANDALONE_PORTFOLIO_CODE","Standalone Portfolio Code"},
+				        {"MIM_UT_OR_GA_RIC_PORTFOLIO_CODE","Mim Ut Or Ga Ric Portfolio Code"},
+				        {"FUND_SECURITY","Fund Security"},
+				        {"OWNERSHIP_PERCENTAGE","Ownership Percentage"},
+				        {"EFFECTIVE_DATE","Effective Date"},
+				        {"FRAMEWORK_CD","Framework Cd"},
+				        {"PORTFOLIO_CALCULATION","Portfolio Calculation"},
+				        {"SRC_POSITIONS_ID","Src Positions Id"},
+				        {"MATCH_INDEX","Match Index"},
+				        {"PORTFOLIO_CODE_NAME","Portfolio Code Name"},
+				        {"ACCOUNTING_UNIT_CODE_NAME","Accounting Unit Code Name"},
+				        {"COMPANY_CODE_NAME","Company Code Name"},
+				        {"FUNCTIONAL_CCY_CD","Functional Ccy Cd"},
+				        {"LOCAL_TO_FUNC_RATE","Local To Func Rate"},
+				        {"LOCAL_TO_CAD_RATE","Local To Cad Rate"},
+				        {"LOCAL_TO_USD_RATE","Local To Usd Rate"},
+				        {"LOCAL_TO_HKD_RATE","Local To Hkd Rate"},
+				        {"EXT_TAX_LOT_NO_IK","Ext Tax Lot No Ik"},
+				        {"TRANSACTIONS_IK","Transactions Ik"},
+				        {"LAWSON_LEGAL_ID","Lawson Legal Id"},
+				        {"SUBFUND_ID","Subfund Id"},
+				        {"SRC_SECURITY_ID","Src Security Id"},
+				        {"SRC_MARKET_ID","Src Market Id"},
+				        {"ID_CUSIP","Id Cusip"},
+				        {"ISSUER_NAME","Issuer Name"},
+				        {"SECURITY_TYPE","Security Type"},
+				        {"IFRS9PURPOSE","Ifrs9Purpose"},
+				        {"PURPOSE","Purpose"},
+				        {"LOCAL_CURRENCY_CODE","Local Currency Code"},
+				        {"MATURITY_DATE","Maturity Date"},
+				        {"NOMINAL","Nominal (D)"},
+				        {"BALANCE_BOOK_VALUE_BASE_CCY","Balance Book Value Base Ccy"},
+				        {"BALANCE_BOOK_VALUE_LOCAL_CCY","Balance Book Value Local Ccy"},
+				        {"MARKET_VALUE_BASE","Market Value Base"},
+				        {"MARKET_VALUE_LOCAL","Market Value Local (D)"},
+				        {"ACCRUAL_BASE","Accrual Base"},
+				        {"ACCRUAL_LOCAL","Accrual Local (D)"},
+				        {"FX_JOIN_KEY","Fx Join Key"},
+				        {"CARRYING_VALUE_CCY_BASE", "Carrying Value - Base"}, {"CARRYING_VALUE_CCY_LOCAL", "Carrying Value - Local"}, {"UNREALIZED_GAIN_LOSS_BASE", "Unrealized Gain/Loss - Base"}, {"UNREALIZED_GAIN_LOSS_LOCAL", "Unrealized Gain/Loss - Local"}
+				        }),
+				    #"Added Custom1" = Table.AddColumn(#"Renamed Columns", "As Of Period", each Date.Year([Effective Date]) * 100 + Date.Month([Effective Date])),
+				    #"Replaced Value" = Table.ReplaceValue(#"Added Custom1","%","",Replacer.ReplaceText,{"Ownership Percentage"})
+				in
+				    #"Replaced Value"
+				```
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

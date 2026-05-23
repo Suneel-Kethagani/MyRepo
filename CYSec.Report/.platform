@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "CYSec"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "0723bd6b-dfa3-4fe8-b930-297bce328f1e"
+  }
+}

@@ -1,0 +1,101 @@
+table 'Country Dim'
+	lineageTag: 84b4209a-984e-4ca0-9ea1-07ec96286963
+
+	column 'ISO2 Country Cd'
+		dataType: string
+		lineageTag: 6158d1cc-7d5a-42c6-bf32-8024b0b697ce
+		summarizeBy: none
+		sourceColumn: ISO2 Country Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ISO3 Country Cd'
+		dataType: string
+		lineageTag: 6e6164d8-8a0b-40da-97b6-c62715b01d2e
+		summarizeBy: none
+		sourceColumn: ISO3 Country Cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Country Short Nm'
+		dataType: string
+		lineageTag: 773860ec-7d9e-4abe-86c9-3884d6e56d42
+		summarizeBy: none
+		sourceColumn: Country Short Nm
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Country Long Nm'
+		dataType: string
+		lineageTag: fb17c632-89f7-4a88-ae82-491fbb561e8c
+		summarizeBy: none
+		sourceColumn: Country Long Nm
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dev Zone'
+		dataType: string
+		lineageTag: 34f27f4e-3654-4d1b-8c51-32f419e58a09
+		summarizeBy: none
+		sourceColumn: Dev Zone
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: ede62b27-8cab-4eea-b8c3-bec8ee695855
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Region'
+		dataType: string
+		lineageTag: 7579f845-f8c6-4dfd-bccf-2c58cdca4e5e
+		summarizeBy: none
+		sourceColumn: Sub Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Country Development'
+		dataType: string
+		lineageTag: f866f90c-5670-443a-b8ff-347cd87e69c2
+		summarizeBy: none
+		sourceColumn: Country Development
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Created Ts'
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn:ss AM/PM
+		lineageTag: 91e5bc9a-201a-4a83-9cbd-639f0a6af89e
+		summarizeBy: none
+		sourceColumn: Created Ts
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Updated Ts'
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn:ss AM/PM
+		lineageTag: 5fdaf8cf-9af8-45d8-b35a-0e23aad95c7e
+		summarizeBy: none
+		sourceColumn: Updated Ts
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Country Dim-9c4cd7be-cbd3-469a-b87c-5670abf9395f' = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0), EnableQueryResultDownload="0"]),
+				    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+				    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+				    EDL_country_dim= inv_semantic_ga_Schema{[Name="country_dim",Kind="Table"]}[Data],
+				    #"Renamed Columns" = Table.RenameColumns(EDL_country_dim,{{"ISO2_COUNTRY_CD", "ISO2 Country Cd"}, {"ISO3_COUNTRY_CD", "ISO3 Country Cd"}, {"COUNTRY_SHORT_NM", "Country Short Nm"}, {"COUNTRY_LONG_NM", "Country Long Nm"}, {"DEV_ZONE", "Dev Zone"}, {"REGION", "Region"}, {"SUB_REGION", "Sub Region"}, {"COUNTRY_DEVELOPMENT", "Country Development"}, {"CREATED_TS", "Created Ts"}, {"UPDATED_TS", "Updated Ts"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

@@ -1,0 +1,215 @@
+table 'Securities Transaction AOCI GA Fact'
+	lineageTag: b8a5aad6-2809-4356-aab0-201c9e438c25
+
+	column 'AOCI Inception Trans No'
+		dataType: int64
+		formatString: 0
+		lineageTag: afe80d66-46b3-4d6b-908d-23fe5fa40d13
+		summarizeBy: none
+		sourceColumn: AOCI Inception Trans No
+
+		annotation SummarizationSetBy = User
+
+	column 'Bus Trans No'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7731f40f-a85b-4060-b246-291b4dd54fd3
+		summarizeBy: none
+		sourceColumn: Bus Trans No
+
+		annotation SummarizationSetBy = User
+
+	column 'Dgl Inception Trans No'
+		dataType: int64
+		formatString: 0
+		lineageTag: 62d6c58f-dc23-4fe4-953d-1910652572db
+		summarizeBy: none
+		sourceColumn: Dgl Inception Trans No
+
+		annotation SummarizationSetBy = User
+
+	column 'Match Src Transaction id'
+		dataType: int64
+		formatString: 0
+		lineageTag: b892e591-7475-4695-8efa-f00db53abe92
+		summarizeBy: none
+		sourceColumn: Match Src Transaction id
+
+		annotation SummarizationSetBy = User
+
+	column 'Originating System No'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3914b8b4-fb16-43ae-a36a-97e0400b7107
+		summarizeBy: none
+		sourceColumn: Originating System No
+
+		annotation SummarizationSetBy = User
+
+	column 'Src Transaction Id'
+		dataType: int64
+		formatString: 0
+		lineageTag: 94535cd6-549e-4bf8-846c-a803ebbd05d7
+		summarizeBy: none
+		sourceColumn: Src Transaction Id
+
+		annotation SummarizationSetBy = User
+
+	column 'Tax Lot Ix'
+		dataType: int64
+		formatString: 0
+		lineageTag: 67f17be8-70b3-498c-b925-0ee00ae79968
+		summarizeBy: none
+		sourceColumn: Tax Lot Ix
+
+		annotation SummarizationSetBy = User
+
+	column 'Trade Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e23b2446-99e4-4c3f-acc0-bd6743cefe21
+		summarizeBy: none
+		sourceColumn: Trade Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'AOCI Inception Ix'
+		dataType: int64
+		formatString: 0
+		lineageTag: 758f7791-cf3c-4e96-b403-6be0e294314f
+		summarizeBy: none
+		sourceColumn: AOCI Inception Ix
+
+		annotation SummarizationSetBy = User
+
+	column 'Framework Code'
+		dataType: string
+		lineageTag: cafee9b3-b41b-4125-8873-92878eb030f8
+		summarizeBy: none
+		sourceColumn: Framework Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Code'
+		dataType: string
+		lineageTag: 41e9468b-30a8-411c-95c5-a612374b2ad6
+		summarizeBy: none
+		sourceColumn: Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Temporarily Booked'
+		dataType: int64
+		formatString: 0
+		lineageTag: db5f62ba-b930-4b69-aec9-df5fcb981d6a
+		summarizeBy: none
+		sourceColumn: Temporarily Booked
+
+		annotation SummarizationSetBy = User
+
+	column 'Asset Portfolio Code'
+		dataType: string
+		lineageTag: 963b1dc4-f854-40cd-a77a-b1fb8f9a5c22
+		summarizeBy: none
+		sourceColumn: Asset Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sublot AOCI - Base'
+		dataType: double
+		lineageTag: 90652a73-cf07-496c-b346-8689320d97a7
+		summarizeBy: sum
+		sourceColumn: Sublot AOCI - Base
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Sublot AOCI - Local'
+		dataType: double
+		lineageTag: fbc92952-388e-4b94-8f59-c1c9eed220d3
+		summarizeBy: sum
+		sourceColumn: Sublot AOCI - Local
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Sublot Amort AOCI - Base'
+		dataType: double
+		lineageTag: aa2f5c64-1f04-48e2-b5a1-de1a6e88b0e9
+		summarizeBy: sum
+		sourceColumn: Sublot Amort AOCI - Base
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Sublot Amort AOCI - Local'
+		dataType: double
+		lineageTag: fe1f3a6a-b770-4242-a294-969851bdeaf9
+		summarizeBy: sum
+		sourceColumn: Sublot Amort AOCI - Local
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Portfolio Nk'
+		dataType: string
+		lineageTag: 29e2420f-829b-4b68-8a33-d2a91d190ae9
+		summarizeBy: none
+		sourceColumn: Portfolio Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Security Nk'
+		dataType: string
+		lineageTag: c2c03a3e-7ef6-4bc9-9ef1-40ccbfde16f8
+		summarizeBy: none
+		sourceColumn: Security Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FX Join Key'
+		dataType: string
+		lineageTag: 37ae1124-3f04-46c7-8e75-ee4368d91fad
+		summarizeBy: none
+		sourceColumn: FX Join Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Transasofdate
+		dataType: dateTime
+		formatString: yyyy-mm
+		lineageTag: dc6f8d3e-b10c-4a2a-93c0-3397bb8a6338
+		summarizeBy: none
+		sourceColumn: Transasofdate
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	partition 'Securities Transaction AOCI GA Fact-2abcd4ec-d3fd-4d20-89bf-c93de50bec04' = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0), EnableQueryResultDownload="0"]),
+				    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+				    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+				    EDL_securities_transaction_aoci_fact_dq = inv_semantic_ga_Schema{[Name="securities_transaction_aoci_fact_dq",Kind="Table"]}[Data],
+				    #"Removed Other Columns" = Table.SelectColumns(EDL_securities_transaction_aoci_fact_dq,{"AOCI_INCEPTION_TRANS_NO", "BUS_TRANS_NO", "DGL_INCEPTION_TRANS_NO", "MATCH_SRC_TRANSACTION_ID", "ORIGINATING_SYSTEM_NO", "SRC_TRANSACTION_ID", "TAX_LOT_IX", "TRADE_DATE", "AOCI_INCEPTION_IX", "FRAMEWORK", "PORTFOLIO_CODE", "PORTFOLIO_NK", "TEMPORARILY_BOOKED", "ASSET_PORTFOLIO_CODE", "SECURITY_NK", "FX_JOIN_KEY", "TRANSASOFDATE", "SUBLOT_AOCI_BASE_CCY", "SUBLOT_AOCI_LOCAL_CCY", "SUBLOT_AMORT_AOCI_BASE_CCY", "SUBLOT_AMORT_AOCI_LOCAL_CCY"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Other Columns",{{"AOCI_INCEPTION_TRANS_NO", "AOCI Inception Trans No"}, {"BUS_TRANS_NO", "Bus Trans No"}, {"DGL_INCEPTION_TRANS_NO", "Dgl Inception Trans No"}, {"MATCH_SRC_TRANSACTION_ID", "Match Src Transaction id"}, {"ORIGINATING_SYSTEM_NO", "Originating System No"}, {"SRC_TRANSACTION_ID", "Src Transaction Id"}, {"TAX_LOT_IX", "Tax Lot Ix"}, {"TRADE_DATE", "Trade Date"}, {"AOCI_INCEPTION_IX", "AOCI Inception Ix"}, {"FRAMEWORK", "Framework Code"}, {"PORTFOLIO_CODE", "Portfolio Code"}, {"TEMPORARILY_BOOKED", "Temporarily Booked"}, {"ASSET_PORTFOLIO_CODE", "Asset Portfolio Code"}, {"SUBLOT_AOCI_BASE_CCY", "Sublot AOCI - Base"}, {"SUBLOT_AOCI_LOCAL_CCY", "Sublot AOCI - Local"}, {"SUBLOT_AMORT_AOCI_BASE_CCY", "Sublot Amort AOCI - Base"}, {"SUBLOT_AMORT_AOCI_LOCAL_CCY", "Sublot Amort AOCI - Local"}, {"PORTFOLIO_NK", "Portfolio Nk"}, {"SECURITY_NK", "Security Nk"}, {"FX_JOIN_KEY", "FX Join Key"}, {"TRANSASOFDATE", "Transasofdate"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

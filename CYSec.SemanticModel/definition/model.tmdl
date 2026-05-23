@@ -1,0 +1,104 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+/// Contains all the Parameters
+queryGroup Parameters
+
+	annotation PBI_QueryGroupOrder = 0
+
+/// Contains all Infor GL Related Tables
+queryGroup 'Infor GL'
+
+	annotation PBI_QueryGroupOrder = 1
+
+/// Contains all Custom Dimension Tables which are loaded typically once from static sources
+queryGroup 'Custom Dimension Tables'
+
+	annotation PBI_QueryGroupOrder = 2
+
+queryGroup Rimes
+
+	annotation PBI_QueryGroupOrder = 3
+
+queryGroup Dealgen
+
+	annotation PBI_QueryGroupOrder = 4
+
+queryGroup 'Incremental Refresh Config Tables'
+
+	annotation PBI_QueryGroupOrder = 5
+
+annotation PBI_QueryOrder = ["Fx Rate","Company","Accounting Unit","Framework","Reporting Currency","Portfolios","Securities_old","Securities Transaction GA Fact","Securities Position Fact","Securities Sublot Fact","Securities Lots Fact","Transaction History Slicer","Impairment Slicer","Book Values","Indonesian FX Rate(Old)","Index Constituent","Securities Changes","Private Deal Schedule Funding  Fact","Private Deal Dim","Private Deal Commitment Fact","Private Security Dim","Entities","Portfolios Attributes","Index Attributes","Securities","Period","Fx Rate DQ","Securities Lookthrough Position Fact","Securities Transaction Costs GA Fact","Total Market Value GA Fact","Indonesian FX Rate","Maximis CTA Holdings Fact","Securities Tax Lot Deferred Pl Fact","Securities Elim Lot Fact","Securities JVE Fact","Security Ratings Periods Fact","Country Dim","Securities Elim Transaction PL Tax Lot Fact","Cat Staging Text Fact","CAT Adjmt Config Table","Adjust GL Reclass Fact","Last N Days Position Data","Securities Transaction AOCI GA Fact","Securities Elim Transaction PL Tax Lot AOCI Fact","Securities_Lots_Fact_PBI_Config","Securities_Position_Fact_PBI_Config","Securities_Transaction_Fact_PBI_Config","Asset_Dim_PBI_Config","RangeStart","RangeEnd","Securities GL Txn fact - Elim","Portfolios-Bank Accounts","pCutOffDate","Accounting Framework Philosophy","HostName","HTTPPath","Catalog","DirectQuery to AS - PBI Data Dictionary","Consolidated GL Balance Fact"]
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation __LastRPTime = 133135932020694653
+
+annotation __TEdtr = 1
+
+annotation PBI_ProTooling = ["TMDLView_Desktop","DevMode"]
+
+ref table Company
+ref table 'Accounting Unit'
+ref table Framework
+ref table 'Reporting Currency'
+ref table Portfolios
+ref table 'Fx Rate Dates'
+ref table 'Portfolio Change Types'
+ref table 'Securities Transaction GA Fact'
+ref table 'Securities Position Fact'
+ref table 'Month End Dates (Security)'
+ref table 'Securities Sublot Fact'
+ref table 'Securities Lots Fact'
+ref table 'Transaction History Slicer'
+ref table 'Target Loss'
+ref table 'Impairment Slicer'
+ref table 'Book Values'
+ref table 'Index Constituent'
+ref table 'Assumptions Slicer'
+ref table 'Unfunded Slicer'
+ref table 'Post Hour'
+ref table Entities
+ref table 'Portfolios Attributes'
+ref table 'Index Attributes'
+ref table Securities
+ref table Period
+ref table 'Fx Rate DQ'
+ref table 'Securities Lookthrough Position Fact'
+ref table 'Securities Transaction Costs GA Fact'
+ref table 'Total Market Value GA Fact'
+ref table 'Indonesian FX Rate'
+ref table 'Maximis CTA Holdings Fact'
+ref table 'Securities Tax Lot Deferred Pl Fact'
+ref table 'Securities Elim Lot Fact'
+ref table 'Securities JVE Fact'
+ref table 'Security Ratings Periods Fact'
+ref table 'Country Dim'
+ref table 'Securities Elim Transaction PL Tax Lot Fact'
+ref table 'Cat Staging Text Fact'
+ref table 'CAT Adjmt Config Table'
+ref table 'Adjust GL Reclass Fact'
+ref table 'Securities Transaction AOCI GA Fact'
+ref table 'Securities Elim Transaction PL Tax Lot AOCI Fact'
+ref table 'Securities GL Txn fact - Elim'
+ref table 'Portfolios-Bank Accounts'
+ref table 'Accounting Framework Philosophy'
+ref table Demo_Dictionary
+ref table 'Data Dictionary'
+ref table 'Consolidated GL Balance Fact'
+
+ref role Administration
+ref role 'All Portfolios'
+ref role 'Indonesia Portfolios Only'
+ref role 'Malaysia Portfolios Only'
+ref role 'Philippines Portfolios Only'
+ref role 'Singapore Portfolios Only'
+ref role 'Vietnam Portfolios Only'
+
+ref cultureInfo en-US
+

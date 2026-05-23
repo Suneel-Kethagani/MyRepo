@@ -1,0 +1,24 @@
+table 'Reporting Currency'
+	lineageTag: 331ab637-4ee6-440e-b46e-a3251aa065a3
+
+	column 'Rep In Currency'
+		dataType: string
+		lineageTag: e13da3d7-97e8-4133-9c6d-2b90b2b746a0
+		summarizeBy: none
+		sourceColumn: Rep In Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Reporting Currency-b619c54d-128d-4003-ad19-df1726e9349f' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45Wcs7PLUjMq1TSUVKK1QFyHV1gzNBgONPDG84MdnZRcEosTgXzYwE=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t, Column2 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}, {"Column2", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column2"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Columns",{{"Column1", "Rep In Currency"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+

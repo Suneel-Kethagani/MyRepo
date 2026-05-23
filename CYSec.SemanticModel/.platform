@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "CYSec"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "39cba6c9-191a-4b27-b2e6-44c124f330fc"
+  }
+}

@@ -1,0 +1,23 @@
+table 'Book Values'
+	isHidden
+	lineageTag: 2cb8503f-06ad-45a3-8fa0-128a6558492d
+
+	column 'Book Values'
+		dataType: string
+		lineageTag: 7c8d6360-e432-48b1-875c-556cda994647
+		summarizeBy: none
+		sourceColumn: Book Values
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Book Values-852c087a-5823-494d-b741-37abe225f28d' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45Wci4tKkrNK1Fwys/PVghLzClNVYrViVbyL8pMz8xLzEERjwUA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Book Values" = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Book Values", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,308 @@
+table 'Total Market Value GA Fact'
+	lineageTag: 15b84009-f564-4f97-bead-91c7b98fbf7e
+
+	measure 'Month End Status Code (TMV)' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR I_desk =
+			    CALCULATE (
+			        FIRSTNONBLANK ( 'Total Market Value GA Fact'[Month End Status], TRUE () ),
+			        'Total Market Value GA Fact'[Effective Period] = maxPred
+			    )
+			RETURN
+			    I_desk
+		lineageTag: 7cf1435c-8ee7-491e-b26f-00876f10a095
+
+	measure 'Portfolio Calculation' = ```
+			
+			VAR maxPred =
+			    MAX ( Period[Period] )
+			VAR I_desk =
+			    CALCULATE (
+			        FIRSTNONBLANK ('Total Market Value GA Fact'[Portfolio Calculation (D)], TRUE () ),
+			     'Total Market Value GA Fact'[Effective Period]= maxPred )
+			RETURN
+			  I_desk  
+			```
+		lineageTag: 99ae8804-6249-4fe9-a82e-de9434080815
+
+	measure 'Iddl Region Cycle' = ```
+			
+			VAR maxPred =
+			    MAX ( Period[Period] )
+			VAR I_desk =
+			    CALCULATE (
+			        FIRSTNONBLANK ( 'Total Market Value GA Fact'[Region], TRUE () ),
+			     'Total Market Value GA Fact'[Effective Period] = maxPred )
+			RETURN
+			  I_desk 
+			```
+		lineageTag: 77594487-58b2-4563-98ef-2175417a7274
+
+	measure 'Mam Business Group' = ```
+			
+			VAR maxPred =
+			    MAX ( Period[Period] )
+			VAR I_desk =
+			    CALCULATE (
+			        FIRSTNONBLANK ( 'Total Market Value GA Fact'[Ml Business Group], TRUE () ),
+			    'Total Market Value GA Fact'[Effective Period]  = maxPred )
+			RETURN
+			  I_desk 
+			```
+		lineageTag: 3059c715-9361-4267-8e5b-68858896da53
+
+	measure 'Iddl Valuation Cycle' = ```
+			
+			VAR maxPred =
+			    MAX ( Period[Period] )
+			VAR I_desk =
+			    CALCULATE (
+			        FIRSTNONBLANK ( 'Total Market Value GA Fact'[Valuation Cycle], TRUE () ),
+			    'Total Market Value GA Fact'[Effective Period] = maxPred )
+			RETURN
+			  I_desk 
+			```
+		lineageTag: c68c64c2-92c2-43df-abb1-26ada40ca309
+
+	measure 'Accounting Status Code' = ```
+			
+			VAR maxPred = MAX ( Period[Period] )
+			VAR I_desk =
+			    CALCULATE (
+			        FIRSTNONBLANK ( 'Total Market Value GA Fact'[Simplified Port Calc Code], TRUE () ),
+			     'Total Market Value GA Fact'[Effective Period] = maxPred )
+			RETURN
+			  I_desk  
+			```
+		lineageTag: 5f06d70e-8cf7-40ef-8844-8328c66de12f
+
+	measure 'Base Portfolio Value' = ```
+			
+			VAR maxdate =
+			    MAX ( Period[Period] )
+			RETURN
+			    CALCULATE (
+			       SUM ('Total Market Value GA Fact'[Total Portfolio Accrued Market Value]),
+			            'Total Market Value GA Fact'[Effective Period] = maxdate)
+			
+			```
+		lineageTag: 75906c71-5882-4eb2-8fcd-f499de54d3fa
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Calculated Date' =
+			
+			VAR maxPred =
+			    MAX ( 'Period'[Period] )
+			VAR I_desk =
+			    CALCULATE (
+			        FIRSTNONBLANK ( 'Total Market Value GA Fact'[Calculation Date Full], TRUE () ),
+			        'Total Market Value GA Fact'[Effective Period] = maxPred)
+			RETURN
+			    I_desk
+		formatString: yyyy-mm-dd hh:nn:ss AM/PM
+		lineageTag: e9e701da-27b3-4ee7-a99a-2f86e55807f9
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Portfolio Code'
+		dataType: string
+		lineageTag: 397b053e-86c1-4625-9d14-0a4aa86ab818
+		summarizeBy: none
+		sourceColumn: Portfolio Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Effective Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 19f4cc3d-f336-4734-9576-e08d427965bb
+		summarizeBy: none
+		sourceColumn: Effective Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Currency
+		dataType: string
+		lineageTag: 7a5453dc-8f45-44f3-ae41-bae28124ef7b
+		summarizeBy: none
+		sourceColumn: Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Simplified Port Calc Code'
+		dataType: string
+		lineageTag: eb27c130-77de-4438-a7dc-cde4f8dd9ac2
+		summarizeBy: none
+		sourceColumn: Simplified Port Calc Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Portfolio Accrued Market Value'
+		dataType: double
+		lineageTag: fc0102ad-4e02-4a51-bf45-f07bf995575c
+		summarizeBy: sum
+		sourceColumn: Total Portfolio Accrued Market Value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Clean Value Base CCY'
+		dataType: double
+		lineageTag: e5cc34c2-fe00-4360-a4fe-1d2a1ab673a7
+		summarizeBy: sum
+		sourceColumn: Clean Value Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Balance Book Value Base CCY'
+		dataType: double
+		lineageTag: ab88514c-bf22-451a-bb24-cbcee50cbd7f
+		summarizeBy: sum
+		sourceColumn: Balance Book Value Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Carrying Value Base CCY'
+		dataType: double
+		lineageTag: a03346b8-260e-45a1-82c5-e62a9ab86917
+		summarizeBy: sum
+		sourceColumn: Carrying Value Base CCY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Calculation Date Full'
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn:ss AM/PM
+		lineageTag: f5f6cc7e-01b7-406c-96ab-f62e24daf4a3
+		summarizeBy: none
+		sourceColumn: Calculation Date Full
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portfolio Calculation (D)'
+		dataType: string
+		lineageTag: 39e5a4ec-c175-4771-a02b-cb8fbcc5247c
+		summarizeBy: none
+		sourceColumn: Portfolio Calculation (D)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month End Status'
+		dataType: string
+		lineageTag: ec460246-0f80-40d5-b6e1-c20253af4f81
+		summarizeBy: none
+		sourceColumn: Month End Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: cfa51c60-2580-407f-8173-abe3eef5bea1
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ml Business Group'
+		dataType: string
+		lineageTag: a6f82ccc-2519-4545-a5df-54d14ee18290
+		summarizeBy: none
+		sourceColumn: Ml Business Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valuation Cycle'
+		dataType: string
+		lineageTag: f582b9cb-79f1-486a-acd5-aa6cfdec3d56
+		summarizeBy: none
+		sourceColumn: Valuation Cycle
+
+		annotation SummarizationSetBy = Automatic
+
+	column Framework
+		dataType: string
+		lineageTag: ec6cdcfb-abca-4020-a923-02593346618a
+		summarizeBy: none
+		sourceColumn: Framework
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Accounting Status Code (CD)' = RELATED(Portfolios[Accounting Status Code (D)])
+		lineageTag: 5a562bb1-c212-4def-991e-3481c21eb492
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Base Portfolio Value (D)' = RELATED(Portfolios[Base Portfolio Value (D)])
+		isHidden
+		lineageTag: 43940c37-3536-4e78-a0e8-0d3dba4690e8
+		summarizeBy: sum
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Latest As of Dt Slicer(Sec TMV)' = ```
+			
+			VAR vLatestTMVDate =CALCULATE(MAX('Total Market Value GA Fact'[Effective Date]),ALLEXCEPT('Total Market Value GA Fact','Total Market Value GA Fact'[Effective Period],'Total Market Value GA Fact'[Framework],'Total Market Value GA Fact'[Portfolio Code]))
+			RETURN IF(vLatestTMVDate='Total Market Value GA Fact'[Effective Date],"Latest",FORMAT('Total Market Value GA Fact'[Effective Date],"DD-MM-YYYY"))
+			
+			```
+		isHidden
+		lineageTag: dfebcf63-1ee9-4c65-8b89-31b1608792d2
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Effective Period'
+		dataType: int64
+		formatString: 0
+		lineageTag: a60ad283-2925-407e-becb-a0efb3e240ef
+		summarizeBy: sum
+		sourceColumn: Effective Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tmv_Nk
+		dataType: string
+		lineageTag: 8646e998-6483-4d39-9658-146063cc3502
+		summarizeBy: none
+		sourceColumn: Tmv_Nk
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Total Market Value GA Fact-c3eac253-91b3-4f16-abcb-e077c8e4628b' = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0), EnableQueryResultDownload="0"]),
+				    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+				    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+				    EDL_cube_total_market_value_ga_fact = inv_semantic_ga_Schema{[Name="cube_total_market_value_ga_fact",Kind="Table"]}[Data],
+				    #"Renamed Columns" = Table.RenameColumns(EDL_cube_total_market_value_ga_fact,{{"portfolio_code", "Portfolio Code"}, {"effective_date", "Effective Date"}, {"currency", "Currency"}, {"simplified_port_calc_code", "Simplified Port Calc Code"}, {"total_portfolio_accrued_market_value", "Total Portfolio Accrued Market Value"}, {"clean_value_base_ccy", "Clean Value Base CCY"}, {"balance_book_value_base_ccy", "Balance Book Value Base CCY"}, {"carrying_value_base_ccy", "Carrying Value Base CCY"}, {"calculation_date_full", "Calculation Date Full"}, {"portfolio_calculation", "Portfolio Calculation (D)"}, {"month_end_status", "Month End Status"}, {"region", "Region"}, {"ml_business_group", "Ml Business Group"}, {"valuation_cycle", "Valuation Cycle"}, {"framework", "Framework"},{"TMV_NK","Tmv_Nk"},{"EFFECTIVE_PERIOD","Effective Period"}}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"Effective Date", type date}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

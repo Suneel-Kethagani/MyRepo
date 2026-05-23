@@ -1,0 +1,132 @@
+table Entities
+	isHidden
+	lineageTag: 326be161-305c-4af0-9984-630fbecc64d6
+
+	column 'Country of Incorporation'
+		dataType: string
+		lineageTag: 8b5e6ca5-0645-4c9e-8c78-b6c8ed34321a
+		summarizeBy: none
+		sourceColumn: Country of Incorporation
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Legal Entity Identifier'
+		dataType: string
+		lineageTag: 432bf109-fb4c-4b6d-a6f3-16b4956e3b2d
+		summarizeBy: none
+		sourceColumn: Legal Entity Identifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'RTG SP LT LC Issuer Credit'
+		dataType: string
+		lineageTag: 6ae444c5-bf4d-4828-b9e9-d95ecce68b16
+		summarizeBy: none
+		sourceColumn: RTG SP LT LC Issuer Credit
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Id Bb Company'
+		dataType: string
+		lineageTag: 4ba4d5ce-e3ad-46b1-aaf2-3f70865e686d
+		summarizeBy: none
+		sourceColumn: Id Bb Company
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Id Bb Glb Company'
+		dataType: string
+		lineageTag: 41023f3d-888f-48f1-a6b7-47ed39fdb360
+		summarizeBy: none
+		sourceColumn: Id Bb Glb Company
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Entity Join NK'
+		dataType: string
+		lineageTag: c7bd96d8-210f-408d-9010-0691799b5262
+		summarizeBy: none
+		sourceColumn: Entity Join NK
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Country Of Domicile'
+		dataType: string
+		lineageTag: 0d4f0ac5-c39a-4d79-9e5e-debf20f83e87
+		summarizeBy: none
+		sourceColumn: Country Of Domicile
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Id Bb Ultimate Parent Co'
+		dataType: string
+		lineageTag: d6912a6e-b647-44df-9eb2-2b97e723a0c0
+		summarizeBy: none
+		sourceColumn: Id Bb Ultimate Parent Co
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lei Ultimate Parent Company'
+		dataType: string
+		lineageTag: 8dd3b111-f87f-4611-9f62-55fbb998adc4
+		summarizeBy: none
+		sourceColumn: Lei Ultimate Parent Company
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Id Bb Ultimate Parent Co Name'
+		dataType: string
+		lineageTag: 022d7b1b-a345-4a04-9339-677ba536fe79
+		summarizeBy: none
+		sourceColumn: Id Bb Ultimate Parent Co Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ultimate Parent Company' = ```
+			
+			IF (
+			    'Entities'[Id Bb Glb Ultimate Parent Co] = BLANK (),
+			    "",
+			    'Entities'[Id Bb Glb Ultimate Parent Co] & " - " & 'Entities'[Id Bb Ultimate Parent Co Name]
+			)
+			
+			```
+		lineageTag: 558ddf5b-32d8-47bb-b9fb-36bd6617507f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Id Bb Glb Ultimate Parent Co'
+		dataType: string
+		lineageTag: e9f3fa3e-26c9-4fbe-b9f1-3a379f0fd2a9
+		summarizeBy: none
+		sourceColumn: Id Bb Glb Ultimate Parent Co
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'MFC Equivalent(Risk)'
+		dataType: string
+		lineageTag: 0e596ccf-beea-4c3e-aadf-85ba9b3b78fe
+		summarizeBy: none
+		sourceColumn: MFC Equivalent(Risk)
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Entities-2527fd50-5f4d-404c-a36f-f278fe2b0c2b = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs(HostName, HTTPPath, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,CommandTimeout= #duration(0,5,0,0), EnableQueryResultDownload="0"]),
+				    hive_metastore_Database = Source{[Name=Catalog,Kind="Database"]}[Data],
+				    inv_semantic_ga_Schema = hive_metastore_Database{[Name="inv_semantic_ga",Kind="Schema"]}[Data],
+				    EDL_entities_dim = inv_semantic_ga_Schema{[Name="entities_dim",Kind="Table"]}[Data],
+				    #"Removed Other Columns" = Table.SelectColumns(EDL_entities_dim,{"CNTRY_OF_DOMICILE", "CNTRY_OF_INCORPORATION", "ID_BB_COMPANY", "ID_BB_GLB_COMPANY", "ID_BB_GLB_ULTIMATE_PARENT_CO", "ID_BB_ULTIMATE_PARENT_CO", "LEGAL_ENTITY_IDENTIFIER", "LEI_ULTIMATE_PARENT_COMPANY", "ID_BB_ULTIMATE_PARENT_CO_NAME", "RTG_SP_LT_LC_ISSUER_CREDIT", "ENTITY_JOIN_NK", "MFC_EQU_RATING_EXTENSION"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns"),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Duplicates",{{"CNTRY_OF_INCORPORATION", "Country of Incorporation"}, {"LEGAL_ENTITY_IDENTIFIER", "Legal Entity Identifier"}, {"RTG_SP_LT_LC_ISSUER_CREDIT", "RTG SP LT LC Issuer Credit"}, {"ENTITY_JOIN_NK", "Entity Join NK"}, {"CNTRY_OF_DOMICILE", "Country Of Domicile"}, {"ID_BB_ULTIMATE_PARENT_CO_NAME", "Id Bb Ultimate Parent Co Name"}, {"ID_BB_GLB_COMPANY", "Id Bb Glb Company"}, {"LEI_ULTIMATE_PARENT_COMPANY", "Lei Ultimate Parent Company"}, {"ID_BB_GLB_ULTIMATE_PARENT_CO", "Id Bb Glb Ultimate Parent Co"}, {"ID_BB_ULTIMATE_PARENT_CO", "Id Bb Ultimate Parent Co"}, {"ID_BB_COMPANY", "Id Bb Company"}, {"MFC_EQU_RATING_EXTENSION", "MFC Equivalent(Risk)"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

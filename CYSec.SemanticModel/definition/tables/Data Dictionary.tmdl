@@ -1,0 +1,250 @@
+table 'Data Dictionary'
+	lineageTag: 75d8656b-e2ce-418d-9630-4720d1cb927a
+	sourceLineageTag: 74c0064c-b06f-447b-b7ca-175b978597ee
+
+	column 'PBI Table Name'
+		dataType: string
+		lineageTag: 39f8f98e-1b17-4805-a7bb-14989733d010
+		sourceLineageTag: bdbd00f6-7cb6-451f-b6a9-cb04df446dc1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PBI Table Name
+
+		annotation SummarizationSetBy = User
+
+	column 'PBI Visualization data items'
+		dataType: string
+		lineageTag: 92ec3bd8-cf2e-40f8-9b6c-8f1e405f6c26
+		sourceLineageTag: ec5627a5-fdb9-4047-9af9-04b761841f82
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PBI Visualization data items
+
+		annotation SummarizationSetBy = User
+
+	column 'PBI Model data item'
+		dataType: string
+		lineageTag: c72d18b3-7e6a-4cc9-9748-35ea412b88b6
+		sourceLineageTag: 02e93d46-257d-4cf2-a629-1e4b4e5cebfe
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PBI Model data item
+
+		annotation SummarizationSetBy = User
+
+	column 'Measure/Fields Type'
+		dataType: string
+		lineageTag: 75b61a9a-e46d-4988-9967-27adcb130bd8
+		sourceLineageTag: 5963b4af-ab97-4ff0-bbd9-1221a6b7aed9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Measure/Fields Type
+
+		annotation SummarizationSetBy = User
+
+	column 'PBI Logic Desc'
+		dataType: string
+		lineageTag: 6a806fe3-e1f5-42af-9088-45472cb114b1
+		sourceLineageTag: 261e6c43-1154-434d-abc5-ef9f6342e7ec
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PBI Logic Desc
+
+		annotation SummarizationSetBy = User
+
+	column 'PBI Column Name'
+		dataType: string
+		lineageTag: ed93cabe-b7cd-4207-9f1f-1b78cc893048
+		sourceLineageTag: 4ab1710b-2580-4e5e-8a3d-921008d2a028
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PBI Column Name
+
+		annotation SummarizationSetBy = User
+
+	column Key
+		dataType: string
+		lineageTag: a247c572-fdd5-4822-ac3a-521348b314f0
+		sourceLineageTag: 785c99d2-337c-4ccb-bcef-eef2c37c5727
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Key
+
+		annotation SummarizationSetBy = User
+
+	column 'Source Cube / DAL Tables'
+		dataType: string
+		lineageTag: 942c1efa-4864-49ed-9231-71796de7fb3c
+		sourceLineageTag: a0f80d20-ded5-4bfa-9439-d3d29f3cba16
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Source Cube / DAL Tables
+
+		annotation SummarizationSetBy = User
+
+	column 'Source Column (DAL)'
+		dataType: string
+		lineageTag: aa42ad05-3368-4979-9383-c5c5052666da
+		sourceLineageTag: a9a9e360-aaee-4d88-a7c7-9726e4110266
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Source Column (DAL)
+
+		annotation SummarizationSetBy = User
+
+	column Definition
+		dataType: string
+		lineageTag: d2c3e717-2579-4cc0-a2c2-bbb0c6f7f9e3
+		sourceLineageTag: 4d8c0e00-e44a-4577-bb8b-a9ce6400c513
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Definition
+
+		annotation SummarizationSetBy = User
+
+	column 'Data Type'
+		dataType: string
+		lineageTag: 80f25a6c-4fce-42c3-89f4-91eaadf02715
+		sourceLineageTag: 243abe21-3c06-450f-9ebf-9472fc610fdb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Data Type
+
+		annotation SummarizationSetBy = User
+
+	column 'Transformation Details'
+		dataType: string
+		lineageTag: ac2e6ea0-d223-498d-886f-0ff1ba7812be
+		sourceLineageTag: b330e160-6b94-40eb-a8a5-38d034462732
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Transformation Details
+
+		annotation SummarizationSetBy = User
+
+	column 'Report Name '
+		dataType: string
+		lineageTag: 1c321c25-5c05-40cb-a09f-ada12b55c133
+		sourceLineageTag: 348b827e-259a-46e7-b625-17144755113a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: "Report Name "
+
+		annotation SummarizationSetBy = User
+
+	column 'Semantic Table'
+		dataType: string
+		lineageTag: 7e50ce0c-6ce4-48ca-a468-6cb00f171016
+		sourceLineageTag: c395067d-dbfe-4c1b-a39d-47af48baee77
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Semantic Table
+
+		annotation SummarizationSetBy = User
+
+	column 'Semantic Table Columns'
+		dataType: string
+		lineageTag: 843bb26e-b902-4869-8ad4-c3c4808e5fb6
+		sourceLineageTag: d0fda31d-7d0d-4f1f-b837-673d57102c90
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Semantic Table Columns
+
+		annotation SummarizationSetBy = User
+
+	column 'Semantic Data Type'
+		dataType: string
+		lineageTag: 776f1937-87c1-493f-b85b-be73987b58d7
+		sourceLineageTag: cc6084d1-f76d-49f3-8d2e-a91053984c6d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Semantic Data Type
+
+		annotation SummarizationSetBy = User
+
+	column 'Is Reusable?'
+		dataType: string
+		lineageTag: d41c7a81-f198-45f0-b585-d043a2e55098
+		sourceLineageTag: 551679e8-843c-432a-8c40-400e343616ae
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Is Reusable?
+
+		annotation SummarizationSetBy = User
+
+	column 'Is Referenced?'
+		dataType: string
+		lineageTag: b4227a4e-72d0-421d-845c-91a609a99132
+		sourceLineageTag: f3053c95-2093-4409-b0a9-48d59753df9a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Is Referenced?
+
+		annotation SummarizationSetBy = User
+
+	column 'Main Mapping Report'
+		dataType: string
+		lineageTag: 9cab7b5f-1354-451c-b128-ebf2a59f6ce8
+		sourceLineageTag: 6576a021-e534-4c6c-9b5f-4a0b5b9435bd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Main Mapping Report
+
+		annotation SummarizationSetBy = User
+
+	column 'Reports Used'
+		dataType: string
+		lineageTag: 40b2b6d9-c2fb-431a-9811-68a8b23b666d
+		sourceLineageTag: 5e636b9d-10e7-4045-bc62-715722dda2ff
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Reports Used
+
+		annotation SummarizationSetBy = User
+
+	column 'Business Description'
+		dataType: string
+		lineageTag: 9a8173aa-5f15-43d6-8901-de0e97db6576
+		sourceLineageTag: aed8eefe-2b7a-4304-b2fc-0747fea9acf5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Business Description
+
+		annotation SummarizationSetBy = User
+
+	column 'App Name'
+		dataType: string
+		lineageTag: 13f971c9-f7eb-418d-9ea2-b3d6881007d7
+		sourceLineageTag: a6a4492f-d78e-4bad-b0c9-07c0cc94bc4b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: App Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Report Page Name'
+		dataType: string
+		lineageTag: 4f01deeb-f157-473f-a989-4693f07e7408
+		sourceLineageTag: 0f750a9d-4a17-4b22-8d05-cf839aa6066d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Report Page Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Data Owner Name'
+		dataType: string
+		lineageTag: 17a8082e-75cd-4750-80a7-a41322464fda
+		sourceLineageTag: 85eb6537-9667-4a98-9ae5-eb1fe6a83a18
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Data Owner Name
+
+		annotation SummarizationSetBy = User
+
+	partition 'Data Dictionary' = entity
+		mode: directQuery
+		source
+			entityName: Data Dictionary
+			expressionSource: 'DirectQuery to AS - PBI Data Dictionary'
+
