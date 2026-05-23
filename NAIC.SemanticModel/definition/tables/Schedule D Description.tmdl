@@ -20,6 +20,7 @@ table 'Schedule D Description'
 	column mytestingcolumn =
 			TODAY()
 			// TESTING PURPOSE
+			// added column comment
 		formatString: General Date
 		lineageTag: afb14dde-5058-4e3a-93cd-c5cf2a04d84a
 		summarizeBy: none
